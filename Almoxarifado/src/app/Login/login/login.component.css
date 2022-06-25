@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+main {
+    background: linear-gradient(180deg, #EAEAEA 0%, #DFDFDF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#containerLogin {
+    width: 37.5%;
+    background-color: #ffffff;
+}
+
+#imagemUsuario {
+    position: absolute;
+    top: -20px;
+    width: 5%;
+}
+
+#titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    color: #0047B6;
+}
+
+#barraAzul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 17px;
+    background: #0047B6;
+    border-radius: 10px 10px 0px 0px;
+}
