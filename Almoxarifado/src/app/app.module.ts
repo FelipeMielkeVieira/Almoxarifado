@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { UsersService } from './users.service';
 import { PrincipalModule } from './Principal/principal.module';
 import { CommonModule } from '@angular/common';
+import { FiltroComponent } from './filtro/filtro.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FiltroComponent
   ],
   imports: [
     CommonModule,

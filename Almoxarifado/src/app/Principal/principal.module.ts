@@ -8,12 +8,14 @@ import { MinhasReservasComponent } from '../Principal/minhas-reservas/minhas-res
 import { MinhaSacolaComponent } from '../Principal/minha-sacola/minha-sacola.component';
 import { SacolasComponent } from '../Principal/sacolas/sacolas.component';
 import { HomeProfessorComponent } from '../Professor/home-professor/home-professor.component';
+import { FiltroComponent } from '../Principal/filtro/filtro.component';
+import { CalendarioComponent } from '../Principal/calendario/calendario.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [ItemComponent, SacolaComponent, ReservaComponent, HeaderComponent, MinhasReservasComponent, MinhaSacolaComponent, SacolasComponent, HomeProfessorComponent],
+  declarations: [ItemComponent, SacolaComponent, ReservaComponent, HeaderComponent, MinhasReservasComponent, MinhaSacolaComponent, SacolasComponent, HomeProfessorComponent, FiltroComponent, CalendarioComponent],
   exports: [HomeProfessorComponent, ItemComponent]
 })
 export class PrincipalModule { }
