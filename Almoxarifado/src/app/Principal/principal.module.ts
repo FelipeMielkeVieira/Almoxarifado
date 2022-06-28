@@ -7,7 +7,6 @@ import { HeaderComponent } from '../Principal/header/header.component';
 import { MinhasReservasComponent } from '../Principal/minhas-reservas/minhas-reservas.component';
 import { MinhaSacolaComponent } from '../Principal/minha-sacola/minha-sacola.component';
 import { SacolasComponent } from '../Principal/sacolas/sacolas.component';
-import { HomeProfessorComponent } from '../Professor/home-professor/home-professor.component';
 import { FiltroComponent } from '../Principal/filtro/filtro.component';
 import { CalendarioComponent } from '../Principal/calendario/calendario.component';
 
@@ -15,7 +14,7 @@ import { CalendarioComponent } from '../Principal/calendario/calendario.componen
   imports: [
     CommonModule
   ],
-  declarations: [ItemComponent, SacolaComponent, ReservaComponent, HeaderComponent, MinhasReservasComponent, MinhaSacolaComponent, SacolasComponent, HomeProfessorComponent, FiltroComponent, CalendarioComponent],
-  exports: [HomeProfessorComponent, ItemComponent]
+  declarations: [ItemComponent, SacolaComponent, ReservaComponent, HeaderComponent, MinhasReservasComponent, MinhaSacolaComponent, SacolasComponent, FiltroComponent, CalendarioComponent],
+  exports: [ItemComponent, CalendarioComponent, FiltroComponent, HeaderComponent, MinhaSacolaComponent, MinhasReservasComponent, ReservaComponent, SacolaComponent, SacolasComponent]
 })
 export class PrincipalModule { }

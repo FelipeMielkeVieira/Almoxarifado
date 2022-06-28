@@ -7,6 +7,7 @@ import { CadastroComponent } from '../Login/cadastro/cadastro.component';
   imports: [
     CommonModule
   ],
-  declarations: [LoginComponent, CadastroComponent]
+  declarations: [LoginComponent, CadastroComponent],
+  exports: [CadastroComponent, LoginComponent]
 })
 export class LoginModule { }
