@@ -22,27 +22,27 @@ import { SupervisorModule } from './Supervisor/supervisor.module';
 
 const rotas: Routes = [
   { path: '', component: LoginComponent},
-  { path: '/cadastro', component: CadastroComponent},
-  { path: '/professor', canActivate: [CheckLogged], children: [
+  { path: 'cadastro', component: CadastroComponent},
+  { path: 'professor', canActivate: [CheckLogged], children: [
     { path: '', component: HomeProfessorComponent},
-    { path: '/reservas', component: MinhasReservasComponent},
-    { path: '/sacolas', children: [
+    { path: 'reservas', component: MinhasReservasComponent},
+    { path: 'sacolas', children: [
       { path: '', component: SacolasComponent},
-      { path: '/:id', component: MinhaSacolaComponent}
+      { path: ':id', component: MinhaSacolaComponent}
     ]}
   ]},
-  { path: '/atendente', canActivate: [CheckLogged], children: [
+  { path: 'atendente', canActivate: [CheckLogged], children: [
     { path: '', component: HomeAtendenteComponent},
-    { path: '/sacolas', children: [
+    { path: 'sacolas', children: [
       { path: '', component: SacolasComponent},
-      { path: '/:id', component: MinhaSacolaComponent}
+      { path: ':id', component: MinhaSacolaComponent}
     ]}
   ]},
-  { path: '/supervisor', canActivate: [CheckLogged], children: [
+  { path: 'supervisor', canActivate: [CheckLogged], children: [
     { path: '', component: HomeSupervisorComponent},
-    { path: '/sacolas', children: [
+    { path: 'sacolas', children: [
       { path: '', component: SacolasComponent},
-      { path: '/:id', component: MinhaSacolaComponent}
+      { path: ':id', component: MinhaSacolaComponent}
     ]}
   ]}
 ]
