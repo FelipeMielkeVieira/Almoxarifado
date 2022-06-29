@@ -122,7 +122,7 @@ label{
 .containerCheckbox {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     width: 80%;
     margin: 1%;
     font-family: 'Inter', sans-serif;
