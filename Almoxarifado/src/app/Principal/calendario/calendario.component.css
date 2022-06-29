@@ -1,0 +1,10 @@
+.calendar {
+    width: 210px;
+}
+
+.day {
+    width: 30px;
+    display: inline-block;
+    border: 0.5px black solid;
+    text-align: center;
+}

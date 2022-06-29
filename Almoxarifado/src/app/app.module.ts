@@ -19,6 +19,7 @@ import { HomeSupervisorComponent } from './Supervisor/home-supervisor/home-super
 import { LoginModule } from './Login/login.module';
 import { ProfessorModule } from './Professor/professor.module';
 import { SupervisorModule } from './Supervisor/supervisor.module';
+import { CalendarCreator } from './Principal/calendario/calendarCreator.service';
 
 const rotas: Routes = [
   { path: '', component: LoginComponent},
@@ -64,7 +65,8 @@ const rotas: Routes = [
   ],
   providers: [
     UsersService,
-    CheckLogged
+    CheckLogged,
+    CalendarCreator
   ],
   bootstrap: [AppComponent]
 })
