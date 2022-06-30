@@ -1,10 +1,100 @@
+.modalCalendario {
+    width: 20%;
+    height: 40%;
+    border: 1px solid black;
+    border-radius: 8px;
+    min-width: 260px;
+    min-height: 320px;
+}
+
+.headerCalendario {
+    background-color: #0047B6;
+    display: flex;
+    justify-content: space-between;
+    height: 15%;
+    align-items: center;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.imgSeta1 {
+    transform: rotate(90deg);
+    height: 65%;
+}
+
+.imgSeta2 {
+    transform: rotate(-90deg);
+    height: 65%;
+}
+
+.imgSeta1:hover {
+    cursor: pointer;
+}
+
+.imgSeta2:hover {
+    cursor: pointer;
+}
+
+.mesAno {
+    font-family: 'Inter';
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.divCalendario {
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .calendar {
-    width: 210px;
+    width: 80%;
+    margin-bottom: 10%;
 }
 
 .day {
     width: 30px;
     display: inline-block;
-    border: 0.5px black solid;
+    border: 1px solid rgba(0, 0, 0, 0.5);
     text-align: center;
+}
+
+.week {
+    width: 30px;
+    border: 0.5px transparent solid;
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Inter';
+    margin-bottom: 3%;
+}
+
+.day:hover {
+    cursor: pointer;
+}
+
+.inputs {
+    width: 80%;
+    height: 12%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputHora {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 6px;
+    width: 40%;
+    padding-left: 5%;
+}
+
+.botaoSalvar {
+    border: 1px solid transparent;
+    background: #0047B6;
+    border-radius: 4px;
+    width: 40%;
+    color: white;
+    font-family: 'Inter';
+    font-weight: 500;
 }
