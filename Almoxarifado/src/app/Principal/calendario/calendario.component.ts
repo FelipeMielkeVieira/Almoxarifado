@@ -131,17 +131,17 @@ export class CalendarioComponent implements OnInit {
     }
   }
 
-  diasIndisponiveis(datas: []) {
-    let mesAtual = this.monthNumber.toString();
-    let anoAtual = this.year.toString();
+  // diasIndisponiveis(datas: []) {
+  //   let mesAtual = this.monthNumber.toString();
+  //   let anoAtual = this.year.toString();
 
-    datas.forEach((e: String) => {
-      let partes = e.split("-", 2);
-      if(partes[1] == mesAtual && partes[2] == anoAtual) {
-        document.getElementById("Dia" + partes[0] + "Mes" + mesAtual + "Ano" + anoAtual).style.backgroundColor = 'red';
-      }
-    });
-  }
+  //   datas.forEach((e: String) => {
+  //     let partes = e.split("-", 2);
+  //     if(partes[1] == mesAtual && partes[2] == anoAtual) {
+  //       document.getElementById("Dia" + partes[0] + "Mes" + mesAtual + "Ano" + anoAtual).style.backgroundColor = 'red';
+  //     }
+  //   });
+  // }
 
   salvar() {
     if(this.diaSelecionado != 0) {
