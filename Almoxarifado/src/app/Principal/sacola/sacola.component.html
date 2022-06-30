@@ -1,41 +1,44 @@
-<body>
-    <div class="principal">
-    <h1 class="titulos">Minha Sacola</h1>
-    <div class="containerItem">
-        <div class="containerCheckbox">
-            <input type="checkbox" id="checkbox">
-        </div>
-        <div class="linhaDivisao"></div>
-        <img class="img" src="../../../assets/Rele.png" alt="">
-        <div class="infoItem">
-            <span class="nomeProduto">Nome produto</span>
-            <div class="quantidade">
-                <img class="iconeQtd" src="../../../assets/menos.png" alt="">
-                <div class="divisaoQtd"></div>
-                <span>05</span>
-                <div class="divisaoQtd"></div>
-                <img class="iconeQtd" src="../../../assets/mais.png" alt="">
+<body style="margin-top: 50px; margin-left: 50px;">
+  <div id="containerSacola">
+    <div id="container">
+      <div id="divisaoCentral">
+        <div id="parteEsquerda">
+          <h2 class="dataTitulo">Data de retirada:</h2>
+          <div class="dataInput">
+            <img class="calendario" src="./assets/calendario.png" alt="Calendário">
+            <div class="dataTexto">
+              <p id="dataRetirada">{{ dataRetirada }}</p>
             </div>
+          </div>
+          <h2 class="dataTitulo" style="margin-top: 1rem">Data de devolução:</h2>
+          <div class="dataInput">
+            <img class="calendario" src="./assets/calendario.png" alt="Calendário">
+            <div class="dataTexto">
+              <p id="dataDevolucao">{{ dataDevolucao }}</p>
+            </div>
+          </div>
         </div>
-        <div class="parteDireita">
-            <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
-            <span class="descartavel">Descartável</span>
+        <div id="parteDireita">
+          <ul id="itens">
+            <li class="item">
+              <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+              item.nome ff
+            </li>
+            <li class="item">
+              <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+              item.nome ff
+            </li>
+            <li class="item">
+              <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+              item.nome ff
+            </li>
+          </ul>
+          <div id="botoes">
+            <button class="botao" style="margin-bottom: 5px;">Ver Detalhes</button>
+            <button class="botao">Reservar</button>
+          </div>
         </div>
+      </div>
     </div>
-
-    <!-- Resumo -->
-    <div class="containerResumo">
-        <h1 class="titulos">Resumo</h1>
-        <div class="divisaoContainer"></div>
-        <span>Data de Retirada</span>
-        <div class="containerData">
-
-        </div>
-        <span>Data de Devolução</span>
-        <div class="containerData">
-
-        </div>
-        <button class="botaoReservar">Reservar</button>
-    </div>
-</div>
+  </div>
 </body>
