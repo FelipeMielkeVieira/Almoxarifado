@@ -11,6 +11,11 @@ header{
     height: 30px;
 }
 
+a span{
+    display: flex;
+    padding: 0px 2rem;
+}
+
 .sidebar .reservas {
     display: flex;
     justify-content: space-between;
@@ -34,12 +39,18 @@ header{
 }
 
 #iconMaior {
-    color: #FFFFFF;
     cursor: pointer;
-    margin-right: 15px;
+    margin-right: 20px;
     width: 15px;
     transition: all 0.7s;
     transform: scaleX(-1)
+}
+
+#gerenciar{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 25px;
 }
 
 .ContainerIconMaior, .ContainerIconCalendario {
@@ -48,7 +59,7 @@ header{
 }
 
 .ContainerIconCalendario {
-    font-size: x-large;
+    margin-right: 15px;
 }
 
 .ContainerIconMaior:hover {
@@ -82,7 +93,7 @@ header{
     width: 100%;
     line-height: 60px;
     text-decoration: none;
-    padding-left: 40px;
+    padding-left: 10px;
     box-sizing: border-box;
     transition: 0.5s;
     transition-property:background;
@@ -92,9 +103,6 @@ header{
     background: #a5a5a5;
 }
 
-.sidebar ion-icon, #iconMaior,.ContainerIconMaior, .ContainerIconCalendario{
-    padding-right: 10px;
-}
 
 #check:checked ~ .sidebar{
     left: -190px;
@@ -108,6 +116,7 @@ header{
     font-size: 20px;
     margin-left: 170px;
     width: 80px;
+    padding-left: 22px;
 }
 
 #check {
@@ -115,8 +124,9 @@ header{
 }
 
 #check:checked ~ .sidebar #iconMaior {
-    margin-right: 0;
+    margin-right: 20px;
     width: 15px;
     transition: all 0.7s;
     transform: scaleX(1);
 }
+
