@@ -20,34 +20,44 @@ import { LoginModule } from './Login/login.module';
 import { ProfessorModule } from './Professor/professor.module';
 import { SupervisorModule } from './Supervisor/supervisor.module';
 import { CalendarCreator } from './Principal/calendario/calendarCreator.service';
-import { FiltroComponent } from './Principal/filtro/filtro.component';
 
 const rotas: Routes = [
-  {path: 'teste', component: FiltroComponent},
-  { path: '', component: LoginComponent},
-  { path: 'cadastro', component: CadastroComponent},
-  { path: 'professor', canActivate: [CheckLogged], children: [
-    { path: '', component: HomeProfessorComponent},
-    { path: 'reservas', component: MinhasReservasComponent},
-    { path: 'sacolas', children: [
-      { path: '', component: SacolasComponent},
-      { path: ':id', component: MinhaSacolaComponent}
-    ]}
-  ]},
-  { path: 'atendente', canActivate: [CheckLogged], children: [
-    { path: '', component: HomeAtendenteComponent},
-    { path: 'sacolas', children: [
-      { path: '', component: SacolasComponent},
-      { path: ':id', component: MinhaSacolaComponent}
-    ]}
-  ]},
-  { path: 'supervisor', canActivate: [CheckLogged], children: [
-    { path: '', component: HomeSupervisorComponent},
-    { path: 'sacolas', children: [
-      { path: '', component: SacolasComponent},
-      { path: ':id', component: MinhaSacolaComponent}
-    ]}
-  ]}
+  { path: '', component: LoginComponent },
+  { path: 'cadastro', component: CadastroComponent },
+  {
+    path: 'professor', canActivate: [CheckLogged], children: [
+      { path: '', component: HomeProfessorComponent },
+      { path: 'reservas', component: MinhasReservasComponent },
+      {
+        path: 'sacolas', children: [
+          { path: '', component: SacolasComponent },
+          { path: ':id', component: MinhaSacolaComponent }
+        ]
+      }
+    ]
+  },
+  {
+    path: 'atendente', canActivate: [CheckLogged], children: [
+      { path: '', component: HomeAtendenteComponent },
+      {
+        path: 'sacolas', children: [
+          { path: '', component: SacolasComponent },
+          { path: ':id', component: MinhaSacolaComponent }
+        ]
+      }
+    ]
+  },
+  {
+    path: 'supervisor', canActivate: [CheckLogged], children: [
+      { path: '', component: HomeSupervisorComponent },
+      {
+        path: 'sacolas', children: [
+          { path: '', component: SacolasComponent },
+          { path: ':id', component: MinhaSacolaComponent }
+        ]
+      }
+    ]
+  }
 ]
 
 @NgModule({
