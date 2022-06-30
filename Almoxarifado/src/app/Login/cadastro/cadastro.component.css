@@ -47,6 +47,7 @@ a{
     font-family: 'Inter', sans-serif;
     color: #0047B6;
     margin-top: 10%;
+    font-weight: 500;
 }
 
 #barraAzul {
@@ -64,9 +65,10 @@ a{
     border: none;
     border-bottom: 1px solid #0047B6;
     margin: 5px;
+    font-family: 'Inter', sans-serif;
 }
 
-#entrar {
+#cadastrar {
     width: 35%;
     height: 2.2rem;
     background-color: #0047B6;
@@ -75,6 +77,11 @@ a{
     border-radius: 5px;
     border: none;
     margin-top: 5%;
+    font-family: 'Inter', sans-serif;
+}
+
+#cadastrar:hover {
+    cursor: pointer;
 }
 
 #textoConta {
@@ -84,4 +91,10 @@ a{
     margin: 5%;
 }
 
+#entrar {
+    text-decoration: underline;
+}
 
+#entrar:hover {
+    cursor: pointer;
+}

@@ -14,6 +14,7 @@ input:focus {
 
 a {
     color: rgba(0, 0, 0, 0.65);
+    font-family: 'Inter';
 }
 
 label{
@@ -26,6 +27,7 @@ label{
     justify-content: center;
     width: 100%;
     height: 100%;
+    flex-direction: column;
 }
 
 #containerLogin {
@@ -51,6 +53,7 @@ label{
     font-family: 'Inter', sans-serif;
     color: #0047B6;
     margin-top: 10%;
+    font-weight: 500;
 }
 
 #barraAzul {
@@ -68,6 +71,7 @@ label{
     border: none;
     border-bottom: 1px solid #0047B6;
     margin: 2%;
+    font-family: 'Inter';
 }
 
 #esqueciSenha {
@@ -75,6 +79,7 @@ label{
     font-size: 0.8rem;
     color: rgba(0, 0, 0, 0.65);
     margin-top: 1.5%;
+    font-family: 'Inter';
 }
 
 #entrarGoogle {
@@ -86,6 +91,12 @@ label{
     border: solid 0.5px black;
     border-radius: 5px;
     margin-top: 5%;
+    font-family: 'Inter';
+    font-size: 15px;
+}
+
+#entrarGoogle:hover {
+    cursor: pointer;
 }
 
 #imgGoogle {
@@ -103,6 +114,11 @@ label{
     border-radius: 5px;
     border: none;
     margin-top: 5%;
+    font-family: 'Inter';
+}
+
+#entrar:hover {
+    cursor: pointer;
 }
 
 #textoConta {
@@ -135,7 +151,56 @@ label{
     height: 18px;
 }
 
+#checkbox:hover {
+    cursor: pointer;
+}
+
 .botaoCadastro{
     border: none;
 }
 
+#cadastrar {
+    text-decoration: underline;
+}
+
+#cadastrar:hover {
+    cursor: pointer;
+}
+
+#modalCadastro {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 30.5%;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    position: absolute;
+    top: 2%;
+    height: 14%;
+    padding: 1%;
+    border-bottom: 8px #AEAEAE solid;
+}
+
+#spanCadastro {
+    font-family: 'Inter';
+    font-size: 17px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#imgAlerta {
+    width: 8%;
+}
+
+#fechar {
+    position: absolute;
+    width: 3%;
+    top: 10%;
+    right: 3%;
+}
+
+#fechar:hover {
+    cursor: pointer;
+}
