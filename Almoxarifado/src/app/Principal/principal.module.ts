@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ItemComponent } from '../Principal/item/item.component';
 import { SacolaComponent } from '../Principal/sacola/sacola.component';
@@ -12,7 +13,8 @@ import { CalendarioComponent } from '../Principal/calendario/calendario.componen
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [ItemComponent, SacolaComponent, ReservaComponent, HeaderComponent, MinhasReservasComponent, MinhaSacolaComponent, SacolasComponent, FiltroComponent, CalendarioComponent],
   exports: [ItemComponent, CalendarioComponent, FiltroComponent, HeaderComponent, MinhaSacolaComponent, MinhasReservasComponent, ReservaComponent, SacolaComponent, SacolasComponent]
