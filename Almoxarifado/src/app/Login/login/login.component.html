@@ -1,6 +1,11 @@
 <html>
 <body>
     <div class="divPrincipal">
+        <div *ngIf="cadastro == 1" id="modalCadastro">
+            <img id="fechar" src="../../../assets/close.png">
+            <img id="imgAlerta" src="../../../assets/alert.png">
+            <span id="spanCadastro">Sua solicitação de cadastro foi enviada para confirmação</span>
+        </div>
         <div id="containerLogin">
             <div id="barraAzul">
                 <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário">
@@ -30,7 +35,7 @@
             </button>
             <p id="textoConta">
                 Não tem uma conta?
-                <a href="">Cadastrar</a>
+                <span (click)="cadastrar()" id="cadastrar">Cadastrar</span>
             </p>
         </div>
     </div>

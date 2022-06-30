@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +8,31 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  cadastro: number = 0;
 
-  ngOnInit() {
+  constructor(private router: Router, private route: ActivatedRoute) {
+    if(localStorage.getItem('cadastro')) {
+      localStorage.removeItem('cadastro');
+      this.cadastro = 1;
+    }
   }
 
-  rotaCadastrar(){
-    this.router.navigate(['/login/cadastro']);
+  ngOnInit() {
+    if(this.cadastro == 1) {
+      this.modalCadastro();
+    }
+    this.modalCadastro();
+  }
+
+  cadastrar(){
+    this.router.navigate(['/cadastro']);
+  }
+
+  modalCadastro() {
+    this.cadastro = 1;
+    // setTimeout(() => {
+    //   this.cadastro = 0;
+    // }, 3000);
   }
 
 }
