@@ -1,5 +1,24 @@
 <!-- <app-calendario></app-calendario> -->
 <app-header></app-header>
 <main>
-    
+    <div id="container">
+        <div id="containerInput">
+            <div id="divInput">
+                <input id="input" type="text" placeholder="Pesquise por produto...">
+                <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+            </div>
+            <p id="resultados">{{ numResultados }} Resultados encontrados</p>
+        </div>
+        
+        <div id="containerItens">
+            <!-- <app-item *ngFor="let item of listaItens"></app-item> -->
+            <app-item ></app-item>
+            <app-item ></app-item>
+            <app-item ></app-item>
+            <app-item ></app-item>
+            <app-item ></app-item>
+            <app-item ></app-item>
+            <app-item ></app-item>
+        </div>
+    </div>
 </main>
