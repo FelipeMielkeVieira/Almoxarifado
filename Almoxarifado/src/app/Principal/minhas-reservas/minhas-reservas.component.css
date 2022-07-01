@@ -4,6 +4,16 @@
     font-family: 'Inter', sans-serif;
 }
 
+p {
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+p:hover {
+    text-decoration: underline;
+}
+
 #container {
     display: flex;
     justify-content: center;
@@ -13,19 +23,22 @@
 #caminho {
     display: flex;
     align-items: center;
+    margin-top: 1.2rem;
+    margin-left: 5.5rem;
 }
 
 #casa{
-    width: 25px;
+    width: 22px;
+    cursor: pointer;
 }
 
 #maior {
     padding: 0 2px;
-    width: 20px;
+    width: 18px;
 }
 
 #containerConteudo {
-    margin-top: 3.5rem;
+    margin-top: 2rem;
     width: 80%;
 }
 
@@ -71,7 +84,7 @@
 }
 
 #reservasPendentes, #historicoReservas {
-    padding: 5px;
+    padding: 5px 10px;
     border: 1px solid rgba(0, 0, 0, 0.466);
     border-radius: 5px 5px 0 0;
 }
