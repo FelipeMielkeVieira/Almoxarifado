@@ -4,23 +4,33 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.divMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
 .containerItem {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 75%;
     height: 9rem;
     border-radius: 8px;
     border: solid 1px black;
     padding-top: 5px;
+    margin: 10px;
 }
 
 #checkbox {
-    margin-right: 30px;
+    margin-right: 1.875rem;
     width: 3rem;
     height: 2rem;
+    cursor: pointer;
 }
 
 .linhaDivisao {
@@ -30,7 +40,7 @@ body {
 }
 
 .img {
-    width: 30%;
+    width: 25%;
     height: 40%;
 }
 
@@ -56,6 +66,7 @@ body {
     width: 0.6em;
     height: 0.6rem;
     margin: 3%;
+    cursor: pointer;
 }
 
 .divisaoQtd {
@@ -73,62 +84,111 @@ body {
 }
 
 .iconeLixeira {
-    width: 35%;
+    width: 38%;
     height: 2rem;
     margin-bottom: 90%;
+    cursor: pointer;
 }
 
-.nomeProduto{
-    font-family: 'Inter', sans-serif;
-}
-
-.descartavel{
+.descartavel {
     font-size: 14px;
-    font-family: 'Inter', sans-serif;
     color: rgba(0, 0, 0, 0.6);
 }
 
-.titulos{
-    font-family: 'Inter', sans-serif;
+.titulos {
+    font-size: 45px;
     color: #0047B6;
 }
 
-.containerResumo{
+.containerResumo {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 580px;
-    height: 608px;
+    width: 78%;
+    height: 35rem;
     border: solid 0.5px black;
     border-radius: 10px;
 }
 
-.divisaoContainer{
-    width: 300px;
-    height: 1px;
-    border: solid 1px black;
+.divisaoContainer {
+    width: 80%;
+    height: 0.5px;
+    border: solid 1px #D9D9D9;
+    margin: 5%;
 }
 
-.containerData{
-    width: 365px;
-    height: 75px;
+.containerData {
+    width: 65%;
+    height: 13%;
     border: solid 0.5px black;
     border-radius: 5px;
 }
 
-.botaoReservar{
-    width: 225px;
-    height: 50px;
+.botaoReservar {
+    width: 40%;
+    height: 2.8rem;
     color: #ffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
     background-color: #0047B6;
     border-radius: 5px;
     border: none;
+    margin: 10px;
+    cursor: pointer;
 }
 
-/* Pra testar */
-.principal{ 
-    margin-top: 10px;
+.imgCalendario {
+    width: 13%;
+    cursor: pointer;
+}
+
+.containerData {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
+    margin: 4%;
+}
+
+.divisaoData {
+    width: 0.5px;
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 3%;
+}
+
+.textoData {
+    font-size: 20px;
+    margin: 5px;
+    color: black;
+}
+
+.tituloData {
+    font-size: 23px;
+}
+
+.divProdutos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    height: 28.125rem;
+    overflow: auto;
+}
+
+.divResumo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.tituloSacola {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 1px;
+    margin-top: 5%;
 }
