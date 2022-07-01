@@ -55,12 +55,12 @@
     
         <h3 *ngIf="senha2 == 1" id="inserirCodigo">Insira o Código</h3>
         <div *ngIf="senha2" id="divCodigo">
-            <input id="cod1" class="inputCodigo" (keyup)="ativarCod2()">
-            <input id="cod2" class="inputCodigo" (keyup)="ativarCod3()">
-            <input id="cod3" class="inputCodigo" (keyup)="ativarCod4()">
-            <input id="cod4" class="inputCodigo" (keyup)="ativarCod5()">
-            <input id="cod5" class="inputCodigo" (keyup)="ativarCod6()">
-            <input id="cod6" class="inputCodigo" (keyup)="voltarCodigo()">
+            <input id="cod1" class="inputCodigo" (keyup)="ativarCod2()" maxlength="1">
+            <input id="cod2" class="inputCodigo" (keyup)="ativarCod3()" maxlength="1">
+            <input id="cod3" class="inputCodigo" (keyup)="ativarCod4()" maxlength="1">
+            <input id="cod4" class="inputCodigo" (keyup)="ativarCod5()" maxlength="1">
+            <input id="cod5" class="inputCodigo" (keyup)="ativarCod6()" maxlength="1">
+            <input id="cod6" class="inputCodigo" (keyup)="voltarCodigo()" maxlength="1">
         </div>
         <span *ngIf="senha2">{{tempo}}</span>
     </div>
