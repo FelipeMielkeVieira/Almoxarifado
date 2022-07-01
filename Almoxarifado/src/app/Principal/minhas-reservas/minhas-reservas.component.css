@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#caminho {
+    display: flex;
+    align-items: center;
+}
+
+#casa{
+    width: 25px;
+}
+
+#maior {
+    padding: 0 2px;
+    width: 20px;
+}
+
+#containerConteudo {
+    margin-top: 3.5rem;
+    width: 80%;
+}
+
+#containerInput {
+    width: 80%;
+    margin-bottom: 1.2rem;
+}
+
+#divInput {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    width: 23rem;
+    height: 2.4rem;
+}
+
+#input {
+    padding-left: 0.5rem;
+    outline: none;
+    border: 0;
+    width: 100%;
+}
+
+#lupa {
+    opacity: 0.7;
+}
+
+#resultados {
+    font-size: 14px;
+    margin-top: 0.3rem;
+    opacity: 0.7;
+}
+
+#reservasPendentes {
+    background-color: #0047B6;
+    color: #fff;
+}
+
+#historicoReservas {
+    background-color: #fff;
+}
+
+#reservasPendentes, #historicoReservas {
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.466);
+    border-radius: 5px 5px 0 0;
+}
+
+#reservasPendentes:hover {
+    background-color: #003180;
+}
+
+#historicoReservas:hover {
+    background-color: rgb(212, 212, 212);
+}
+
+#risco {
+    margin-top: 0.5rem;
+    width: 1200.5px;
+    border: 1px solid rgba(0, 0, 0, 0.425);
+}
+
+#containerReserva {
+    display: grid;
+}
