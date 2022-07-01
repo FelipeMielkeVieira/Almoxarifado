@@ -51,10 +51,10 @@
             <input id="inputEmail" type="email" placeholder="nome@gmail.com">
         </div>
         <span *ngIf="senha1 == 1" id="avisoCadastro">Caro Usuário, enviaremos um código de verificação no seu email para identificação.</span>
-        <button *ngIf="senha1 == 1" id="enviarCodigo" (click)="esqueciSenha2()">Enviar</button>
+        <button *ngIf="senha1 == 1" class="enviarCodigo" (click)="esqueciSenha2()">Enviar</button>
     
         <h3 *ngIf="senha2 == 1" id="inserirCodigo">Insira o Código</h3>
-        <div *ngIf="senha2" id="divCodigo">
+        <div *ngIf="senha2 == 1" id="divCodigo">
             <input id="cod1" class="inputCodigo" (keyup)="ativarCod2()" maxlength="1">
             <input id="cod2" class="inputCodigo" (keyup)="ativarCod3()" maxlength="1">
             <input id="cod3" class="inputCodigo" (keyup)="ativarCod4()" maxlength="1">
@@ -62,7 +62,9 @@
             <input id="cod5" class="inputCodigo" (keyup)="ativarCod6()" maxlength="1">
             <input id="cod6" class="inputCodigo" (keyup)="voltarCodigo()" maxlength="1">
         </div>
-        <span *ngIf="senha2">{{tempo}}</span>
+        <span *ngIf="senha2 == 1" id="timer">{{tempoString}} restantes</span>
+        <span *ngIf="senha2 == 1" id="reenviar">Reenviar Código</span>
+        <button *ngIf="senha2 == 1" class="enviarCodigo">Próximo</button>
     </div>
 </body>
 </html>

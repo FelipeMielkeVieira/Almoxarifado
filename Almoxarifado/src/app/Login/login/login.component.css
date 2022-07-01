@@ -303,7 +303,7 @@ label{
     padding: 0% 10%;
 }
 
-#enviarCodigo {
+.enviarCodigo {
     background-color: #0047B6;
     padding: 2% 6%;
     border-radius: 5px;
@@ -314,7 +314,7 @@ label{
     border: 1px solid transparent;
 }
 
-#enviarCodigo:hover {
+.enviarCodigo:hover {
     cursor: pointer;
 }
 
@@ -338,4 +338,21 @@ label{
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 3px;
     padding-left: 4%;
+}
+
+#timer {
+    font-family: 'Inter';
+    color: gray;
+    font-size: 16px;
+}
+
+#reenviar {
+    text-decoration: underline;
+    color: rgb(90, 86, 86);
+    font-family: 'Inter';
+    font-size: 14px;
+}
+
+#reenviar:hover {
+    cursor: pointer;
 }

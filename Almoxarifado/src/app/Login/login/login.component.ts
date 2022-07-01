@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   senha2: number = 0;
   senha3: number = 0;
 
-  tempo;
+  tempo = 300;
+  tempoString = "5m";
+  intervaloTimer = undefined;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     if(localStorage.getItem('cadastro')) {
@@ -53,6 +55,9 @@ export class LoginComponent implements OnInit {
     this.senha1 = 0;
     this.senha2 = 0;
     this.senha3 = 0;
+    if(this.intervaloTimer) {
+      clearInterval(this.intervaloTimer);
+    }
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '1';
   }
@@ -119,6 +124,17 @@ export class LoginComponent implements OnInit {
   }
 
   timer() {
-    
+    this.tempo = 300;
+    this.tempoString = "5m";
+    this.intervaloTimer = setInterval(() => {
+      this.tempo--;
+      if(this.tempo % 60 == 0 && this.tempo != 0) {
+        this.tempoString = this.tempo / 60 + "m";
+      } else if(this.tempo > 60) {
+        this.tempoString = ((this.tempo - this.tempo % 60) / 60) + "m e " + this.tempo % 60 + "s";
+      } else {
+        this.tempoString = this.tempo + "s";
+      }
+    }, 1000);
   }
 }
