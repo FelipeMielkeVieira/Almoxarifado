@@ -21,7 +21,13 @@ import { ProfessorModule } from './Professor/professor.module';
 import { SupervisorModule } from './Supervisor/supervisor.module';
 import { CalendarCreator } from './Principal/calendario/calendarCreator.service';
 
+
+
+
+import { FiltroComponent } from './Principal/filtro/filtro.component';
+
 const rotas: Routes = [
+  { path: "teste", component: FiltroComponent },
   { path: '', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
   {

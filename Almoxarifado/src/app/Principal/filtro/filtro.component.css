@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+#espacamento {
+    height: 85px;
+    width: 100%;
+}
+
 header{
     position: fixed;
     background: transparent;
@@ -14,6 +19,12 @@ header{
 a span{
     display: flex;
     padding: 0px 2rem;
+}
+
+.sidebar {
+    z-index: 1;
+    margin-top: -85px;
+    padding-top: 85px;
 }
 
 .sidebar .reservas {
