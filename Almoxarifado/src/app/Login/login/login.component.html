@@ -2,9 +2,14 @@
 <body>
     <div class="divPrincipal">
         <div *ngIf="cadastro == 1" id="modalCadastro">
-            <img id="fechar" src="../../../assets/close.png">
-            <img id="imgAlerta" src="../../../assets/alert.png">
-            <span id="spanCadastro">Sua solicitação de cadastro foi enviada para confirmação</span>
+            <div class="divInfo">
+                <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+                <img id="imgAlerta" src="../../../assets/alert.png">
+                <span id="spanCadastro">Sua solicitação de cadastro foi enviada para confirmação</span>
+            </div>
+            <div id="fundo" style="background-color: #AEAEAE;">
+                <div id="azul"></div>
+            </div>
         </div>
         <div id="containerLogin">
             <div id="barraAzul">
@@ -16,9 +21,7 @@
             <input type="text" class="inputsCadastro" placeholder="Email ou usuário">
             <input type="password" class="inputsCadastro" placeholder="Senha">
             <div class="containerSenha">
-                <span id="esqueciSenha">
-                    <a href="">Esqueci a senha</a>
-                </span>
+                <span id="esqueciSenha" (click)="esqueciASenha()">Esqueci a senha</span>
             </div>
             <div class="containerCheckbox">
                 <input type="checkbox" id="checkbox">
@@ -38,6 +41,28 @@
                 <span (click)="cadastrar()" id="cadastrar">Cadastrar</span>
             </p>
         </div>
+    </div>
+    <div *ngIf="senha1 == 1 || senha2 == 1 || senha3 == 1" class="modalSenha">
+        <img id="fechar2" (click)="fechar2()" src="../../../assets/close.png">
+        <h3 id="tituloSenha">Recuperar Senha</h3>
+
+        <div *ngIf="senha1 == 1" id="divEmail">
+            <h5 id="inserirEmail">Insira seu Email:</h5>
+            <input id="inputEmail" type="email" placeholder="nome@gmail.com">
+        </div>
+        <span *ngIf="senha1 == 1" id="avisoCadastro">Caro Usuário, enviaremos um código de verificação no seu email para identificação.</span>
+        <button *ngIf="senha1 == 1" id="enviarCodigo" (click)="esqueciSenha2()">Enviar</button>
+    
+        <h3 *ngIf="senha2 == 1" id="inserirCodigo">Insira o Código</h3>
+        <div *ngIf="senha2" id="divCodigo">
+            <input id="cod1" class="inputCodigo" (keyup)="ativarCod2()">
+            <input id="cod2" class="inputCodigo" (keyup)="ativarCod3()">
+            <input id="cod3" class="inputCodigo" (keyup)="ativarCod4()">
+            <input id="cod4" class="inputCodigo" (keyup)="ativarCod5()">
+            <input id="cod5" class="inputCodigo" (keyup)="ativarCod6()">
+            <input id="cod6" class="inputCodigo" (keyup)="voltarCodigo()">
+        </div>
+        <span *ngIf="senha2">{{tempo}}</span>
     </div>
 </body>
 </html>
