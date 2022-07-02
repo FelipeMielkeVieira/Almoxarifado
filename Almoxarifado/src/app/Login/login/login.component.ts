@@ -125,15 +125,18 @@ export class LoginComponent implements OnInit {
 
   timer() {
     this.tempo = 300;
-    this.tempoString = "5m";
+    this.tempoString = "5m restantes";
     this.intervaloTimer = setInterval(() => {
       this.tempo--;
       if(this.tempo % 60 == 0 && this.tempo != 0) {
-        this.tempoString = this.tempo / 60 + "m";
+        this.tempoString = this.tempo / 60 + "m restantes";
       } else if(this.tempo > 60) {
-        this.tempoString = ((this.tempo - this.tempo % 60) / 60) + "m e " + this.tempo % 60 + "s";
+        this.tempoString = ((this.tempo - this.tempo % 60) / 60) + "m e " + this.tempo % 60 + "s restantes";
+      } else if (this.tempo < 0) {
+        this.tempoString = "Código Expirado"
+        clearInterval(this.intervaloTimer);
       } else {
-        this.tempoString = this.tempo + "s";
+        this.tempoString = this.tempo + "s restantes";
       }
     }, 1000);
   }

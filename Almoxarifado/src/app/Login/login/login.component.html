@@ -62,7 +62,7 @@
             <input id="cod5" class="inputCodigo" (keyup)="ativarCod6()" maxlength="1">
             <input id="cod6" class="inputCodigo" (keyup)="voltarCodigo()" maxlength="1">
         </div>
-        <span *ngIf="senha2 == 1" id="timer">{{tempoString}} restantes</span>
+        <span *ngIf="senha2 == 1" id="timer">{{tempoString}}</span>
         <span *ngIf="senha2 == 1" id="reenviar">Reenviar Código</span>
         <button *ngIf="senha2 == 1" class="enviarCodigo">Próximo</button>
     </div>
