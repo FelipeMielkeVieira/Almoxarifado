@@ -11,13 +11,14 @@ p {
 }
 
 p:hover {
-    text-decoration: underline;
+    color: #0047B6;
 }
 
 #container {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 890px;
 }
 
 #caminho {
@@ -103,6 +104,3 @@ p:hover {
     border: 1px solid rgba(0, 0, 0, 0.425);
 }
 
-#containerReserva {
-    display: grid;
-}
