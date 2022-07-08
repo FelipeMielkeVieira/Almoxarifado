@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeAtendenteComponent implements OnInit {
 
-  aparecer = 0
+  aparecer: number = 1
 
   constructor() { }
 
@@ -16,8 +16,11 @@ export class HomeAtendenteComponent implements OnInit {
 
   aparecerModal() {
     this.aparecer = 1
-    let containerGeral = document.querySelector('#container') as HTMLElement;
-    containerGeral.style.opacity = '0.5';
   }
+
+  fecharModal() {
+    this.aparecer = 0
+  }
+
 
 }
