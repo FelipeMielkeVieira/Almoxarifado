@@ -4,13 +4,17 @@
     font-family: 'Inter', sans-serif;
 }
 
-p {
+main {
+    width: 100%;
+}
+
+#caminhoReservas {
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
 }
 
-p:hover {
+#caminhoReservas:hover {
     color: #0047B6;
 }
 
@@ -18,7 +22,7 @@ p:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 890px;
+    width: 100%;
 }
 
 #caminho {
@@ -76,13 +80,11 @@ p:hover {
 }
 
 #reservasPendentes {
-    width: 10.625rem;
     background-color: #0047B6;
     color: #fff;
 }
 
 #historicoReservas {
-    width: 10.625rem;
     background-color: #fff;
 }
 
@@ -102,7 +104,23 @@ p:hover {
 
 #risco {
     margin-top: 0.5rem;
+    margin-bottom: 30px;
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.425);
 }
 
+#containerReservas {
+    /* display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; */
+
+    display: grid;
+    /* grid-template-columns: 50% 50%; */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    /* justify-content: center; */
+}
+
+.reserva {
+    /* margin-top: 30px; */
+}

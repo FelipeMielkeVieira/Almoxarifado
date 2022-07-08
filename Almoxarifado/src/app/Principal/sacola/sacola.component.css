@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
 #containerSacola {
-    width: 30%;
+    width: 27rem;
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -22,7 +22,7 @@
 }
 
 #parteEsquerda {
-    width: 60%;
+    width: 50%;
 }
 
 .dataTitulo {
@@ -62,12 +62,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
 }
 
 #itens {    
     list-style-type: none;
-    width: 70%;
+    width: 80%;
     border-radius: 6px;
     border: 1px solid black;
     max-height: 3.6rem;
@@ -97,11 +97,11 @@
 }
 
 .botao {
-    width: 70%;
+    width: 80%;
     font-weight: bold;
     color: white;
     background-color: #0047B6;
-    padding: 0.6rem;
+    padding: 0.55rem;
     border-radius: 5px;
     border: 0;
 }
