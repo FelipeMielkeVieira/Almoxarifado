@@ -1,29 +1,32 @@
 <app-header></app-header>
 <app-filtro></app-filtro>
-
-<div id="caminho">
-    <img id="casa" src="../../../assets/casa.png" alt="Casa">
-    <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
-    <p>Reservas</p>
-</div>
-<div id="container">
-    <div id="containerConteudo">
-        <div id="containerInput">
-            <div id="divInput">
-                <input id="input" type="text" placeholder="Pesquise por produto...">
-                <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+<main>
+    <div id="caminho">
+        <img id="casa" src="../../../assets/casa.png" alt="Casa">
+        <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
+        <p id="caminhoReservas">Reservas</p>
+    </div>
+    <div id="container">
+        <div id="containerConteudo">
+            <div id="containerInput">
+                <div id="divInput">
+                    <input id="input" type="text" placeholder="Pesquise por produto...">
+                    <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                </div>
+                <p id="resultados">{{ numResultados }} Resultados encontrados</p>
             </div>
-            <p id="resultados">{{ numResultados }} Resultados encontrados</p>
-        </div>
-        <div id="botoes">
-            <button id="reservasPendentes">Reservas pendentes</button>
-            <button id="historicoReservas">Histórico de reservas</button>
-        </div>
-        <div id="risco"></div>
-        <div id="containerReservas">
+            <div id="botoes">
+                <button id="reservasPendentes">Reservas pendentes</button>
+                <button id="historicoReservas">Histórico de reservas</button>
+            </div>
+            <div id="risco"></div>
             <!-- <app-reserva *ngFor="let reserva of listaReservas"></app-reserva> -->
-            <app-reserva></app-reserva>
-            <app-reserva></app-reserva>
+            <div id="containerReservas">
+                <app-reserva class="reserva"></app-reserva>
+                <app-reserva class="reserva"></app-reserva>
+                <app-reserva class="reserva"></app-reserva>
+                <app-reserva class="reserva"></app-reserva>
+            </div>
         </div>
     </div>
-</div>
+</main>

@@ -1,34 +1,32 @@
-<body style="margin-top: 50px;">
-    <div id="containerSacola">
-        <hr id="status">
-        <div id="container">
-            <h2 class="dataTitulo">Data de retirada:</h2>
-            <div id="divisaoCentral">
-                <div id="parteEsquerda">
-                    <div class="dataInput">
-                        <img class="calendario" src="./assets/calendario.png" alt="Calendário">
-                        <div class="dataTexto">
-                            <p id="dataRetirada">{{ dataRetirada }}</p>
-                        </div>
-                    </div>
-                    <h2 class="dataTitulo">Data de devolução:</h2>
-                    <div class="dataInput">
-                        <img class="calendario" src="./assets/calendario.png" alt="Calendário">
-                        <div class="dataTexto">
-                            <p id="dataDevolucao">{{ dataDevolucao }}</p>
-                        </div>
+<div id="containerSacola">
+    <hr id="status">
+    <div id="container">
+        <h2 class="dataTitulo">Data de retirada:</h2>
+        <div id="divisaoCentral">
+            <div id="parteEsquerda">
+                <div class="dataInput">
+                    <img class="calendario" src="./assets/calendario.png" alt="Calendário">
+                    <div class="dataTexto">
+                        <p id="dataRetirada">{{ dataRetirada }}</p>
                     </div>
                 </div>
-                <div id="parteDireita">
-                    <ul id="itens">
-                        <li class="item" *ngFor="let item of listaItens">
-                            <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
-                            {{ item.nome }}
-                        </li>
-                    </ul>
-                    <button id="verDetalhes">Ver Detalhes</button>
+                <h2 class="dataTitulo">Data de devolução:</h2>
+                <div class="dataInput">
+                    <img class="calendario" src="./assets/calendario.png" alt="Calendário">
+                    <div class="dataTexto">
+                        <p id="dataDevolucao">{{ dataDevolucao }}</p>
+                    </div>
                 </div>
+            </div>
+            <div id="parteDireita">
+                <ul id="itens">
+                    <li class="item" *ngFor="let item of listaItens">
+                        <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+                        {{ item.nome }}
+                    </li>
+                </ul>
+                <button id="verDetalhes">Ver Detalhes</button>
             </div>
         </div>
     </div>
-</body>
+</div>
