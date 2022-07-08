@@ -25,9 +25,10 @@ import { CalendarCreator } from './Principal/calendario/calendarCreator.service'
 
 
 import { FiltroComponent } from './Principal/filtro/filtro.component';
+import { SacolaComponent } from './Principal/sacola/sacola.component';
 
 const rotas: Routes = [
-  { path: "teste", component: FiltroComponent },
+  { path: "teste", component: SacolaComponent },
   { path: '', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
   {

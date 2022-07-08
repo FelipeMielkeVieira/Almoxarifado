@@ -11,6 +11,16 @@
                 <div id="azul"></div>
             </div>
         </div>
+        <div *ngIf="requisicaoSenha == 1" id="modalCadastro">
+            <div class="divInfo">
+                <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+                <img id="imgAlerta" src="../../../assets/alert.png">
+                <span id="spanCadastro">Sua redefinição de senha foi realizada com sucesso</span>
+            </div>
+            <div id="fundo" style="background-color: #AEAEAE;">
+                <div id="azul"></div>
+            </div>
+        </div>
         <div id="containerLogin">
             <div id="barraAzul">
                 <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário">
@@ -19,7 +29,10 @@
                 AlmaSis
             </h1>
             <input type="text" class="inputsCadastro" placeholder="Email ou usuário">
-            <input type="password" class="inputsCadastro" placeholder="Senha">
+            <div class="divSenha">
+                <input type="password" class="inputsCadastro2" id="inputSenha1" placeholder="Senha">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)">
+            </div>
             <div class="containerSenha">
                 <span id="esqueciSenha" (click)="esqueciASenha()">Esqueci a senha</span>
             </div>
@@ -33,7 +46,7 @@
                 <img id="imgGoogle" src="../../../assets/google.png" alt="Google icon">
                 Entrar com o Google
             </button>
-            <button type="button" id="entrar">
+            <button type="button" id="entrar" (click)="login()">
                 Entrar
             </button>
             <p id="textoConta">
@@ -64,7 +77,23 @@
         </div>
         <span *ngIf="senha2 == 1" id="timer">{{tempoString}}</span>
         <span *ngIf="senha2 == 1" id="reenviar">Reenviar Código</span>
-        <button *ngIf="senha2 == 1" class="enviarCodigo">Próximo</button>
+        <button *ngIf="senha2 == 1" class="enviarCodigo" (click)="esqueciSenha3()">Próximo</button>
+
+        <div *ngIf="senha3 == 1" class="divInputSenha1">
+            <span class="spanNovaSenha">Nova Senha:</span>
+            <div class="divSenha2">
+                <input type="password" id="inputSenha2" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)">
+            </div>
+        </div>
+        <div *ngIf="senha3 == 1" class="divInputSenha2" id="inputRepetirSenha">
+            <span class="spanNovaSenha">Repita a Senha:</span>
+            <div class="divSenha2">
+                <input type="password" id="inputSenha3" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova2">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho3" (click)="trocarOlho(3)">
+            </div>
+        </div>
+        <button *ngIf="senha3 == 1" class="enviarCodigo" (click)="enviarNovaSenha()">Enviar</button>
     </div>
 </body>
 </html>

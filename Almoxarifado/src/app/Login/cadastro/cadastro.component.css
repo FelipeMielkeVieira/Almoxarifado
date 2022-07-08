@@ -98,3 +98,27 @@ a{
 #entrar:hover {
     cursor: pointer;
 }
+
+.divSenha {
+    border: none;
+    width: 80%;
+    height: 2rem;
+    border-bottom: 1px solid #0047B6;
+    margin: 2%;
+    font-family: 'Inter';
+    display: flex;
+}
+
+.imgOlho {
+    height: 80%;
+}
+
+.imgOlho:hover {
+    cursor: pointer;
+}
+
+.inputsCadastro2{
+    width: 90%;
+    border: none;
+    font-family: 'Inter', sans-serif;
+}

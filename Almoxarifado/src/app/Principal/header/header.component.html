@@ -14,6 +14,13 @@
           shopping_bag
         </span>
       </div>
+      <div id="usuarioIcone" (click)="abrirUser()">
+        <span class="material-symbols-outlined">
+          account_circle
+        </span>
+      </div>
+    </div>
+    <div *ngIf="user == 1" class="modalUser">
       <div id="usuarioIcone">
         <span class="material-symbols-outlined">
           account_circle

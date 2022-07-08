@@ -356,3 +356,86 @@ label{
 #reenviar:hover {
     cursor: pointer;
 }
+
+.divInputSenha1 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: end;
+}
+
+.divInputSenha2 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+}
+
+.inputNovaSenha {
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 3%;
+    font-family: 'Inter';
+    font-size: 15px;
+}
+
+.spanNovaSenha {
+    font-family: 'Inter';
+    font-size: 16px;
+    margin-bottom: 1%;
+}
+
+.divSenha {
+    border: none;
+    width: 80%;
+    height: 2rem;
+    border-bottom: 1px solid #0047B6;
+    margin: 2%;
+    font-family: 'Inter';
+    display: flex;
+}
+
+.inputsCadastro2 {
+    width: 90%;
+    border: none;
+}
+
+.imgOlho {
+    height: 80%;
+}
+
+.imgOlho:hover {
+    cursor: pointer;
+}
+
+.divSenha2 {
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 5px;
+    font-family: 'Inter';
+    display: flex;
+    align-items: center;
+    height: 45%;
+}
+
+.inputNovaSenha {
+    width: 90%;
+    font-family: 'Inter';
+    font-size: 15px;
+    border: none;
+}
+
+.imgOlho2 {
+    height: 60%;
+}
+
+.imgOlho2:hover {
+    cursor: pointer;
+}
+
+.inputSenhaNova {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}

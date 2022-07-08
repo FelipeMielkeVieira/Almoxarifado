@@ -11,8 +11,14 @@
             </h1>
             <input type="text" class="inputsCadastro" placeholder="Nome">
             <input type="email" class="inputsCadastro" placeholder="Email">
-            <input type="password" class="inputsCadastro" placeholder="Senha">
-            <input type="password" class="inputsCadastro" placeholder="Confirmar Senha">
+            <div class="divSenha">
+                <input type="password" class="inputsCadastro2" placeholder="Senha" id="inputSenha1">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho" (click)="trocarOlho(1)" id="olho1">
+            </div>
+            <div class="divSenha">
+                <input type="password" class="inputsCadastro2" placeholder="Confirmar Senha" id="inputSenha2">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho" (click)="trocarOlho(2)" id="olho2">
+            </div>
             <button id="cadastrar" (click)="cadastrar()">
                 Cadastrar
             </button>

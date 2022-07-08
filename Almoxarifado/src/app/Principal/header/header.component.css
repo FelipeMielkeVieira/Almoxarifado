@@ -54,3 +54,15 @@ p {
     height: 2px;
     background-color: #0000008a;
 }
+
+.modalUser {
+    position: absolute;
+    top: 80%;
+    width: 14%;
+    right: 5%;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

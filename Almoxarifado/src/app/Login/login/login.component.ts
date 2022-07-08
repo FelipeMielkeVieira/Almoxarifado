@@ -9,14 +9,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   cadastro: number = 0;
+  requisicaoSenha: number = 0;
 
   senha1: number = 0;
   senha2: number = 0;
   senha3: number = 0;
 
+  senhaNova: string;
+  senhaNova2: string;
+
   tempo = 300;
   tempoString = "5m";
   intervaloTimer = undefined;
+
+  olho1: number = 1;
+  olho2: number = 1;
+  olho3: number = 1;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     if(localStorage.getItem('cadastro')) {
@@ -37,6 +45,7 @@ export class LoginComponent implements OnInit {
 
   fechar() {
     this.cadastro = 0;
+    this.requisicaoSenha = 0;
   }
 
   esqueciASenha() {
@@ -51,10 +60,18 @@ export class LoginComponent implements OnInit {
     }, 5000);
   }
 
+  modalSenha() {
+    setTimeout(() => {
+      this.requisicaoSenha = 0;
+    }, 5000);
+  }
+
   fechar2() {
     this.senha1 = 0;
     this.senha2 = 0;
     this.senha3 = 0;
+    this.senhaNova = undefined;
+    this.senhaNova2 = undefined;
     if(this.intervaloTimer) {
       clearInterval(this.intervaloTimer);
     }
@@ -139,5 +156,75 @@ export class LoginComponent implements OnInit {
         this.tempoString = this.tempo + "s restantes";
       }
     }, 1000);
+  }
+
+  esqueciSenha3() {
+    this.senha2 = 0
+    this.senha3 = 1;
+  }
+
+  enviarNovaSenha() {
+    this.senha3 = 0;
+    let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
+    divPrincipal.style.opacity = '1';
+
+    if(this.intervaloTimer) {
+      clearInterval(this.intervaloTimer);
+    }
+
+    this.requisicaoSenha = 1;
+    this.modalSenha();
+  }
+
+  trocarOlho(input) {
+
+    let divOlho: HTMLImageElement;
+    let input2: HTMLInputElement
+
+    switch(input) {
+      case 1:
+        divOlho = document.querySelector("#olho1");
+        input2 = document.querySelector("#inputSenha1");
+        if(this.olho1 == 1) {
+          this.olho1 = 0;
+          divOlho.src = "../../../assets/olho-aberto.png";
+          input2.type = 'text';
+        } else {
+          this.olho1 = 1;
+          divOlho.src = "../../../assets/olho-fechado.png";
+          input2.type = 'password';
+        }
+        break;
+      case 2:
+        divOlho = document.querySelector("#olho2");
+        input2 = document.querySelector("#inputSenha2")
+        if(this.olho2 == 1) {
+          this.olho2 = 0;
+          divOlho.src = "../../../assets/olho-aberto.png";
+          input2.type = 'text';
+        } else {
+          this.olho2 = 1;
+          divOlho.src = "../../../assets/olho-fechado.png";
+          input2.type = 'password';
+        }
+        break;
+      case 3:
+        divOlho = document.querySelector("#olho3");
+        input2 = document.querySelector("#inputSenha3");
+        if(this.olho3 == 1) {
+          this.olho3 = 0;
+          divOlho.src = "../../../assets/olho-aberto.png";
+          input2.type = 'text';
+        } else {
+          this.olho3 = 1;
+          divOlho.src = "../../../assets/olho-fechado.png";
+          input2.type = 'password';
+        }        
+        break;
+    }
+  }
+
+  login() {
+    this.router.navigate(['/professor'])
   }
 }
