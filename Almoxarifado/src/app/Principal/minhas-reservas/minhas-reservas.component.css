@@ -76,11 +76,13 @@ p:hover {
 }
 
 #reservasPendentes {
+    width: 10.625rem;
     background-color: #0047B6;
     color: #fff;
 }
 
 #historicoReservas {
+    width: 10.625rem;
     background-color: #fff;
 }
 
@@ -100,7 +102,7 @@ p:hover {
 
 #risco {
     margin-top: 0.5rem;
-    width: 1200.5px;
+    width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.425);
 }
 

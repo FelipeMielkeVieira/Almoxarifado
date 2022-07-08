@@ -1,25 +1,83 @@
 <app-header></app-header>
 <app-filtro></app-filtro>
 
-<body>
-    <div class="divPrincipal">
-        <div class="containerCadastro">
-            <div class="containerImg">
-                <img class="imgUsuario"
-                    src="https://musculacaosr.com.br/wp-content/uploads/2020/12/1604873727150-300x275.png" alt="">
-            </div>
-            <div class="containerInfo">
-                <span class="textoInfo">Nome Completo</span>
-                <u><span class="textoInfo">nome_completo@estudante.sc.senai.br</span></u>
-            </div>
-            <div class="containerBotoes">
-                <div class="divRecusar">
-                    <img src="" alt="">
+<main>
+    <div id="caminho">
+        <img id="casa" src="../../../assets/casa.png" alt="Casa">
+        <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
+        <p>Reservas</p>
+    </div>
+    <div id="container">
+        <div id="containerConteudo">
+            <div id="containerInput">
+                <div id="divInput">
+                    <input id="input" type="text" placeholder="Pesquise por produto...">
+                    <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                 </div>
-                <div class="divAceitar">
-                    <img src="" alt="">
+                <p id="resultados">{{ numResultados }} Resultados encontrados</p>
+            </div>
+            <div id="botoes">
+                <button id="botaoMenu">Gerenciar usuários</button>
+                <button id="botaoMenuCor">Gerenciar cadastros</button>
+                <button id="botaoMenu">Baixa nas devoluções</button>
+                <button id="botaoMenu">Confirmar retirada</button>
+                <button id="botaoMenu">Lista de itens</button>
+                <button id="botaoMenu">Localizações</button>
+            </div>
+            <div id="risco"></div>
+            <div class="usuarios">
+                <div class="containerUsuario">
+                    <div class="containerUser">
+                        <img class="imgUser" src="../../../assets/user.png" alt="">
+                        <div class="containerInfo">
+                            <span class="user">Nome Sobrenome</span>
+                            <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
+                        </div>
+                    </div>
+                    <div class="containerOpcoes">
+                        <div class="recusar">
+                            <img class="icone" src="../../../assets/close.png" alt="">
+                        </div>
+                        <div class="aceitar">
+                            <img class="icone" src="../../../assets/verifica.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="containerUsuario">
+                    <div class="containerUser">
+                        <img class="imgUser" src="../../../assets/user.png" alt="">
+                        <div class="containerInfo">
+                            <span class="user">Nome Sobrenome</span>
+                            <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
+                        </div>
+                    </div>
+                    <div class="containerOpcoes">
+                        <div class="recusar">
+                            <img class="icone" src="../../../assets/close.png" alt="">
+                        </div>
+                        <div class="aceitar">
+                            <img class="icone" src="../../../assets/verifica.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="containerUsuario">
+                    <div class="containerUser">
+                        <img class="imgUser" src="../../../assets/user.png" alt="">
+                        <div class="containerInfo">
+                            <span class="user">Nome Sobrenome</span>
+                            <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
+                        </div>
+                    </div>
+                    <div class="containerOpcoes">
+                        <div class="recusar">
+                            <img class="icone" src="../../../assets/close.png" alt="">
+                        </div>
+                        <div class="aceitar">
+                            <img class="icone" src="../../../assets/verifica.png" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
+</main>
