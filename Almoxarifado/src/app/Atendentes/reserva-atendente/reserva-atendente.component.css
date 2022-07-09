@@ -8,7 +8,6 @@ body{
 
 .containerReserva{
     display: flex;
-    margin: 50px;
     width: 40%;
     height: 30%;
     border-radius: 5px;
@@ -17,7 +16,6 @@ body{
 
 .barraLateral{
     width: 2%;
-    height: 8rem;
     border-radius: 5px 0px 0px 5px ;
     background-color: #0047B6;
 }
