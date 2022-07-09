@@ -81,9 +81,17 @@ p:hover {
     color: #fff;
 }
 
+#botaoMenuCor:hover {
+    cursor: pointer;
+}
+
 #botaoMenu {
     width: 10.625rem;
     background-color: #fff;
+}
+
+#botaoMenu:hover {
+    cursor: pointer;
 }
 
 #botaoMenu,
