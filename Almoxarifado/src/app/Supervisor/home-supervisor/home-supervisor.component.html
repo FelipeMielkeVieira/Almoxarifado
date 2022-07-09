@@ -2,81 +2,105 @@
 <app-filtro></app-filtro>
 
 <main>
-    <div id="caminho">
-        <img id="casa" src="../../../assets/casa.png" alt="Casa">
-        <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
-        <p>Reservas</p>
+    <div class="divPrincipal">
+
+        <div id="caminho">
+            <img id="casa" src="../../../assets/casa.png" alt="Casa">
+            <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
+            <p>Reservas</p>
+        </div>
+        <div id="container">
+            <div id="containerConteudo">
+                <div id="containerInput">
+                    <div id="divInput">
+                        <input id="input" type="text" placeholder="Pesquise por produto...">
+                        <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                    </div>
+                    <p id="resultados">{{ numResultados }} Resultados encontrados</p>
+                </div>
+                <div id="botoes">
+                    <button (click)="gerenciarUsuarios()" id="botaoMenu">Gerenciar usuários</button>
+                    <button id="botaoMenuCor">Gerenciar cadastros</button>
+                    <button id="botaoMenu">Baixa nas devoluções</button>
+                    <button id="botaoMenu">Confirmar retirada</button>
+                    <button id="botaoMenu">Lista de itens</button>
+                    <button id="botaoMenu">Localizações</button>
+                </div>
+                <div id="risco"></div>
+                <div class="usuarios">
+                    <div class="containerUsuario">
+                        <div class="containerUser">
+                            <img class="imgUser" src="../../../assets/user.png" alt="">
+                            <div class="containerInfo">
+                                <span class="user">Nome Sobrenome</span>
+                                <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
+                            </div>
+                        </div>
+                        <div class="containerOpcoes">
+                            <div (click)="modalRecusar()" class="recusar">
+                                <img class="icone" src="../../../assets/close.png" alt="">
+                            </div>
+                            <div (click)="modalAceitar()" class="aceitar">
+                                <img class="icone" src="../../../assets/verifica.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="contadorUsuarios == 1" class="telaUsuarios">
+                    <div class="containerUsuarios">
+                        <div class="containerUser">
+                            <img class="imgUser" src="../../../assets/user.png" alt="">
+                            <div class="containerInfo">
+                                <span class="user">Nome Sobrenome</span>
+                                <span class="email">nome_sobrenome@edu.sc.senai.br</span>
+                            </div>
+                            <div class="containerLixeira">
+                                <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
+                            </div>
+                        </div>
+                        <div class="parteBaixo">
+                            <select id="selecionarFuncao2">
+                                <option value="paredeCentro" selected>Professor</option>
+                                <option value="armario">Atendente 1</option>
+                                <option value="porta">Atendente 2</option>
+                            </select>
+                            <div class="aceitar">
+                                <img class="icone" src="../../../assets/verifica.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="container">
-        <div id="containerConteudo">
-            <div id="containerInput">
-                <div id="divInput">
-                    <input id="input" type="text" placeholder="Pesquise por produto...">
-                    <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
-                </div>
-                <p id="resultados">{{ numResultados }} Resultados encontrados</p>
+    <div *ngIf="contadorRecusar == 1" class="modalRecusar">
+        <div class="containerModal">
+            <div class="linhaAzul"></div>
+            <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+            <div class="containerInfoModal">
+                <span class="textoModal">Tem certeza que deseja recusar?</span>
             </div>
-            <div id="botoes">
-                <button id="botaoMenu">Gerenciar usuários</button>
-                <button id="botaoMenuCor">Gerenciar cadastros</button>
-                <button id="botaoMenu">Baixa nas devoluções</button>
-                <button id="botaoMenu">Confirmar retirada</button>
-                <button id="botaoMenu">Lista de itens</button>
-                <button id="botaoMenu">Localizações</button>
+            <div class="containerBotoes">
+                <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
+                <button class="botaoRecusar">Recusar</button>
             </div>
-            <div id="risco"></div>
-            <div class="usuarios">
-                <div class="containerUsuario">
-                    <div class="containerUser">
-                        <img class="imgUser" src="../../../assets/user.png" alt="">
-                        <div class="containerInfo">
-                            <span class="user">Nome Sobrenome</span>
-                            <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
-                        </div>
-                    </div>
-                    <div class="containerOpcoes">
-                        <div class="recusar">
-                            <img class="icone" src="../../../assets/close.png" alt="">
-                        </div>
-                        <div class="aceitar">
-                            <img class="icone" src="../../../assets/verifica.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="containerUsuario">
-                    <div class="containerUser">
-                        <img class="imgUser" src="../../../assets/user.png" alt="">
-                        <div class="containerInfo">
-                            <span class="user">Nome Sobrenome</span>
-                            <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
-                        </div>
-                    </div>
-                    <div class="containerOpcoes">
-                        <div class="recusar">
-                            <img class="icone" src="../../../assets/close.png" alt="">
-                        </div>
-                        <div class="aceitar">
-                            <img class="icone" src="../../../assets/verifica.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="containerUsuario">
-                    <div class="containerUser">
-                        <img class="imgUser" src="../../../assets/user.png" alt="">
-                        <div class="containerInfo">
-                            <span class="user">Nome Sobrenome</span>
-                            <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
-                        </div>
-                    </div>
-                    <div class="containerOpcoes">
-                        <div class="recusar">
-                            <img class="icone" src="../../../assets/close.png" alt="">
-                        </div>
-                        <div class="aceitar">
-                            <img class="icone" src="../../../assets/verifica.png" alt="">
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div *ngIf="contadorAceitar == 1" class="modalRecusar">
+        <div class="containerModal">
+            <div class="linhaAzul"></div>
+            <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+            <div class="containerInfoModal">
+                <span class="textoModal">Selecione a função: </span>
+                <select id="selecionarFuncao">
+                    <option value="paredeCentro" selected>Professor</option>
+                    <option value="armario">Atendente 1</option>
+                    <option value="porta">Atendente 2</option>
+                </select>
+            </div>
+            <div class="containerBotoes">
+                <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
+                <button class="botaoRecusar">Aceitar</button>
             </div>
         </div>
     </div>
