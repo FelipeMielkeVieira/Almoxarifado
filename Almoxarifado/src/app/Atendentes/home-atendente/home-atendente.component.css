@@ -10,6 +10,8 @@ p {
     line-height: 36px;
 }
 
+/* ----------------Localizacoes-------------------- */
+
 #container {
     display: flex;
     justify-content: center;
@@ -144,9 +146,9 @@ p {
     border-radius: 10px;
 }
 
-/* // ---------------------------------  */
+/* // ---------------Modal add loca------------------  */
 
-#fundoModal {
+#fundoModalLocalizacao {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,7 +159,7 @@ p {
     background-color:rgba(0, 0, 0, 0.349);
 }
 
-#containerModal {
+#containerModalLocalizacao {
     width: 22rem;
     height: 19rem;
     background-color: #fff;
@@ -235,4 +237,10 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* ----------------Lista de Itens-------------------- */
+
+#conteudoListaItens {
+    margin-top: 2%;
 }

@@ -1,5 +1,5 @@
-<div *ngIf="aparecer == 1" id="fundoModal">
-    <div id="containerModal">
+<div *ngIf="aparecer == 1" id="fundoModalLocalizacao">
+    <div id="containerModalLocalizacao">
         <div id="riscoAzul"></div>
         <div id="containerIcons">
             <img id="iconFechar" (click)="fecharModal()" src="../../../assets/close.png" alt="fechar">
@@ -54,37 +54,61 @@
                     <input id="input" type="text" placeholder="Pesquise por produto...">
                     <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                 </div>
-                <button id="botaoCadastrarLocalizacoes" (click)="aparecerModal()">Cadastrar localizações</button>
+                <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModal()">Cadastrar localizações</button>
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
         <div id="botoes">
-            <button id="baixaDevolucoes">Baixa nas devoluções</button>
-            <button id="confirmarRetirada">Confirmar retirada</button>
-            <button id="listaItens">Lista de itens</button>
-            <button id="localizacoes">Localizações</button>
+            <button id="baixaDevolucoes" (click)="telaBaixaDevolucoes()">Baixa nas devoluções</button>
+            <button id="confirmarRetirada" (click)="telaConfirmarRetirada()">Confirmar retirada</button>
+            <button id="listaItens" (click)="telaListaItens()">Lista de itens</button>
+            <button id="localizacoes" (click)="telaLocalizacoes()">Localizações</button>
         </div>
         <div id="risco"></div>
-        <select id="selecionarLocalizacao">
-            <option value="paredeCentro">Parede / Centro</option>
-            <option value="armario" selected>Armário</option>
-            <option value="porta">Porta</option>
-        </select>
-        <div id="containerLocalizacoes">
-            <div id="divLocalizacao">
-                <p>
-                    {{localizacaoNome}}
-                    P1
-                </p>
-                <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo">
+
+        <div *  ngIf="baixaDevolucoes == 1" id="conteudoBaixaDevolucoes">
+            <div id="containerDevolucoes">
+                <app-reserva-atendente></app-reserva-atendente>
             </div>
-            <!-- <div *ngFor="let localizacao of listaLocalizacoes" id="divLocalizacao">
+        </div>
+
+        <div *ngIf="confirmarRetirada == 1" id="conteudoConfirmarRetirada">
+            <div id="containerRetiradas">
+                <app-reserva-atendente></app-reserva-atendente>
+            </div>
+        </div>
+
+        <div *ngIf="listaItens == 1" id="conteudoListaItens">
+            <div id="containerItens">
+                <app-item></app-item>
+            </div>
+            <!-- <div *ngFor="let item of listaItens" id="containerItens">
+                <app-item></app-item>
+            </div> -->
+        </div>
+
+        <div *ngIf="localizacao == 1" id="conteudoLocalizacoes">
+            <select id="selecionarLocalizacao">
+                <option value="paredeCentro">Parede / Centro</option>
+                <option value="armario" selected>Armário</option>
+                <option value="porta">Porta</option>
+            </select>
+            <div id="containerLocalizacoes">
+                <div id="divLocalizacao">
+                    <p>
+                        {{localizacaoNome}}
+                        P1
+                    </p>
+                    <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo">
+                </div>
+                <!-- <div *ngFor="let localizacao of listaLocalizacoes" id="divLocalizacao">
                 <p>
                     {{localizacaoNome}}
                     P1
                 </p>
                 <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo">
             </div> -->
+            </div>
         </div>
     </div>
 </div>
