@@ -74,11 +74,6 @@ p {
     opacity: 0.7;
 }
 
-#localizacoes {
-    background-color: #0047B6;
-    color: #fff;
-}
-
 #baixaDevolucoes, #confirmarRetirada, #listaItens {
     background-color: #fff;
 }

@@ -58,7 +58,7 @@ export class HomeAtendenteComponent implements OnInit {
       botaoAzul.style.backgroundColor = '#0047B6';
       botaoAzul.style.color = '#ffff'
 
-      let botaoSemAzul = document.querySelector('#localizacoes') as HTMLElement;
+      let botaoSemAzul = document.querySelectorAll('.semAzul') as HTMLElement;
       botaoSemAzul.style.backgroundColor = '#ffff';
       botaoSemAzul.style.color = '#000';
 
