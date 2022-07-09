@@ -146,11 +146,24 @@ p {
 
 /* // ---------------------------------  */
 
+#fundoModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    background-color:rgba(0, 0, 0, 0.349);
+}
+
 #containerModal {
-    width: 25rem;
-    height: 20rem;
-    background-color: red;
+    width: 22rem;
+    height: 19rem;
+    background-color: #fff;
     border-radius: 7px;
+    min-width: 200px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
 }
 
 #riscoAzul {
@@ -164,10 +177,62 @@ p {
 
 #iconFechar {
     width: 5%;
+    cursor: pointer;
 }
 
 #containerIcons {
     display: flex;
     justify-content: flex-end;
     margin: 3% 3% 0 0;
+}
+
+#containerNome {
+    display: flex;
+}
+
+#containerNome, #containerClassificacao {
+    margin-left: 15%;
+}
+
+#inputNome {
+    margin-left: 3%;
+    padding: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    outline: none;
+    width: 40%;
+    font-weight: bold;
+}
+
+#containerCheckbox1, #containerCheckbox2, #containerCheckbox3 {
+    display: flex;
+    align-items: center;
+    color: rgba(53, 53, 53, 0.829);
+}
+
+#checkbox1, #checkbox2, #checkbox3 {
+    width: 22px;
+    height: 22px;
+    margin: 5px;
+}
+
+#botaoCadastrar {
+    margin-top: 5%;
+    padding: 0.5rem;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: #0047B6;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#botaoCadastrar:hover {
+    background-color: #003180;
+}
+
+#containerCadastrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

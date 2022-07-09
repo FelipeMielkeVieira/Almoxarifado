@@ -1,3 +1,48 @@
+<div *ngIf="aparecer == 1" id="fundoModal">
+    <div id="containerModal">
+        <div id="riscoAzul"></div>
+        <div id="containerIcons">
+            <img id="iconFechar" (click)="fecharModal()" src="../../../assets/close.png" alt="fechar">
+        </div>
+        <div id="dados">
+            <div id="containerNome">
+                <p>
+                    Nome:
+                </p>
+                <input id="inputNome" type="text" placeholder="Nome">
+            </div>
+            <div id="containerClassificacao">
+                <p style="margin-top: 15px">
+                    Classificação:
+                </p>
+                <div id="containerCheckbox">
+                    <div id="containerCheckbox1">
+                        <input id="checkbox1" type="checkbox">
+                        <h4>
+                            Parede/Centro
+                        </h4>
+                    </div>
+                    <div id="containerCheckbox2">
+                        <input id="checkbox2" type="checkbox">
+                        <h4>
+                            Armário
+                        </h4>
+                    </div>
+                    <div id="containerCheckbox3">
+                        <input id="checkbox3" type="checkbox">
+                        <h4>
+                            Porta
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div id="containerCadastrar">
+                <button id="botaoCadastrar" (click)="cadastrar()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <app-header></app-header>
 <app-filtro></app-filtro>
 
@@ -9,7 +54,7 @@
                     <input id="input" type="text" placeholder="Pesquise por produto...">
                     <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                 </div>
-                <button id="botaoCadastrarLocalizacoes" click="aparecerModal()">Cadastrar localizações</button>
+                <button id="botaoCadastrarLocalizacoes" (click)="aparecerModal()">Cadastrar localizações</button>
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
@@ -41,13 +86,5 @@
                 <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo">
             </div> -->
         </div>
-
-        <div *ngIf="aparecer == 1" id="containerModal">
-            <div id="riscoAzul"></div>
-            <div id="containerIcons">
-                <img id="iconFechar" src="../../../assets/close.png" alt="fechar">
-            </div>
-        </div>
-
     </div>
 </div>
