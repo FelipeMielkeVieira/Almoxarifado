@@ -50,6 +50,10 @@
     width: 10%;
 }
 
+.calendario:hover {
+    cursor: pointer;
+}
+
 .dataTexto {
     width: 100%;
 }
@@ -94,4 +98,8 @@
     padding: 0.6rem;
     border-radius: 5px;
     border: 0;
+}
+
+#verDetalhes:hover {
+    cursor: pointer;
 }

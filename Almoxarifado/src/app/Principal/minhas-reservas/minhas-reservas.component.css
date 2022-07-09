@@ -73,6 +73,10 @@ main {
     opacity: 0.7;
 }
 
+#lupa:hover {
+    cursor: pointer;
+}
+
 #resultados {
     font-size: 14px;
     margin-top: 0.3rem;
@@ -84,8 +88,16 @@ main {
     color: #fff;
 }
 
+#reservasPendentes:hover {
+    cursor: pointer;
+}
+
 #historicoReservas {
     background-color: #fff;
+}
+
+#historicoReservas:hover {
+    cursor: pointer;
 }
 
 #reservasPendentes, #historicoReservas {

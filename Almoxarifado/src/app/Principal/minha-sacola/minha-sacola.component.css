@@ -25,6 +25,7 @@ body {
     border: solid 1px black;
     padding-top: 5px;
     margin: 10px;
+    padding-bottom: 5px;
 }
 
 #checkbox {
