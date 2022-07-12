@@ -8,10 +8,14 @@ body{
 
 .containerReserva{
     display: flex;
-    width: 40%;
+    width: 45%;
     height: 30%;
     border-radius: 5px;
     border: solid 0.5px black;
+}
+
+.containerReserva:hover {
+    cursor: pointer;
 }
 
 .barraLateral{

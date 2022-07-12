@@ -13,6 +13,7 @@ export class HomeAtendenteComponent implements OnInit {
   listaItens: number = 0
   confirmarRetirada: number = 0
   baixaDevolucoes: number = 0
+  aparecerEspecificacaoReserva: boolean = false;
 
   constructor() { }
 
@@ -63,6 +64,11 @@ export class HomeAtendenteComponent implements OnInit {
       // botaoSemAzul.style.color = '#000';
 
 
+  }
+
+  abrirReserva() {
+    console.log("b");
+    this.aparecerEspecificacaoReserva = true;
   }
 
 }

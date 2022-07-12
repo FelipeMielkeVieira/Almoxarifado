@@ -11,5 +11,4 @@ export class ReservaAtendenteComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

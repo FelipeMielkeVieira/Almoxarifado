@@ -43,6 +43,10 @@
     </div>
 </div>
 
+<div *ngIf="">
+
+</div>
+
 <app-header></app-header>
 <app-filtro></app-filtro>
 
@@ -66,15 +70,16 @@
         </div>
         <div id="risco"></div>
 
-        <div *  ngIf="baixaDevolucoes == 1" id="conteudoBaixaDevolucoes">
+        <div *ngIf="baixaDevolucoes == 1" id="conteudoBaixaDevolucoes">
             <div id="containerDevolucoes">
                 <app-reserva-atendente></app-reserva-atendente>
             </div>
         </div>
 
         <div *ngIf="confirmarRetirada == 1" id="conteudoConfirmarRetirada">
-            <div id="containerRetiradas">
-                <app-reserva-atendente></app-reserva-atendente>
+            <div id="containerRetiradas" >
+                <!-- *ngFor="let reserva of listaReservas" -->
+                <app-reserva-atendente (click)="abrirReserva()"></app-reserva-atendente>
             </div>
         </div>
 
