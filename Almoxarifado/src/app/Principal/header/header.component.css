@@ -59,10 +59,60 @@ p {
     position: absolute;
     top: 80%;
     width: 14%;
-    right: 5%;
+    height: 25vh;
+    right: 2%;
     background-color: white;
-    border: 1px solid black;
+    filter: drop-shadow(4px 6px 6px rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+.setaUser {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #FFFFFF;
+    right: 2%;
+    top: -10px;
+}
+
+.nomeUser {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.emailUser {
+    font-size: 10px;
+    font-weight: 600;
+    color: gray;
+}
+
+.divOpcao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divOpcao:hover {
+    cursor: pointer;
+}
+
+.imgsUser {
+    margin-right: 3%;
+    width: 14%;
+}
+
+#imgUser2 {
+    transform: scaleX(-1);
+    margin-right: 3%;
+    width: 14%;
+}
+
+.spanUser {
+    font-size: 14px;
+    font-weight: 500;
 }

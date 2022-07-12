@@ -21,6 +21,10 @@ a span{
     padding: 0px 2rem;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 .sidebar {
     z-index: 1;
     margin-top: -85px;

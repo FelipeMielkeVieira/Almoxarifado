@@ -17,4 +17,9 @@ export class FiltroComponent implements OnInit {
     this.router.navigate([rota]);
   }
 
+  fecharFiltro() {
+    const input = document.querySelector("#check") as HTMLInputElement;
+    input.checked = true;
+  }
+
 }
