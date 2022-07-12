@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   user: number = 0;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,10 @@ export class HeaderComponent implements OnInit {
     } else {
       this.user = 0;
     }
+  }
+
+  navegar(rota: String) {
+    this.router.navigate([rota]);
   }
 
 }
