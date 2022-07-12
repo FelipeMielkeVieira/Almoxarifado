@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UsersService } from 'src/app/users.service';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,10 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  emailUser: string;
+  senhaUser: string;
+  senhaIncorreta: number;
 
   cadastro: number = 0;
   requisicaoSenha: number = 0;
@@ -26,7 +31,7 @@ export class LoginComponent implements OnInit {
   olho2: number = 1;
   olho3: number = 1;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private users: UsersService) {
     if(localStorage.getItem('cadastro')) {
       localStorage.removeItem('cadastro');
       this.cadastro = 1;
@@ -34,6 +39,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem('usuario')) {
+      this.navegacaoTipo();
+    }
     if(this.cadastro == 1) {
       this.modalCadastro();
     }
@@ -46,6 +54,7 @@ export class LoginComponent implements OnInit {
   fechar() {
     this.cadastro = 0;
     this.requisicaoSenha = 0;
+    this.senhaIncorreta = 0;
   }
 
   esqueciASenha() {
@@ -225,6 +234,29 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/professor'])
+    let senhaCorreta = 0;
+    this.users.usuarios.forEach((e) => {
+      if((e.email == this.emailUser || e.nome == this.emailUser) && e.senha == this.senhaUser) {
+        localStorage.setItem('usuario', e.tipo.toString());
+        senhaCorreta++;
+        this.navegacaoTipo();
+      }
+    })
+    if(senhaCorreta == 0) {
+      this.senhaIncorreta = 1;
+      setTimeout(() => {
+        this.senhaIncorreta = 0;
+      }, 5000);
+    }
+  }
+
+  navegacaoTipo() {
+    if(localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor'])
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente']);
+    } else {
+      this.router.navigate(['/supervisor'])
+    }
   }
 }
