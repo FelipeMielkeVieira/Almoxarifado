@@ -85,11 +85,7 @@ p {
     cursor: pointer;
 }
 
-#localizacoes:hover {
-    background-color: #003180;
-}
-
-#baixaDevolucoes:hover, #confirmarRetirada:hover, #listaItens:hover {
+#baixaDevolucoes:hover, #confirmarRetirada:hover, #listaItens:hover, #localizacoes:hover {
     background-color: rgb(212, 212, 212);
 }
 
@@ -156,7 +152,7 @@ p {
 
 #containerModalLocalizacao {
     width: 22rem;
-    height: 19rem;
+    height: 17rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
@@ -201,16 +197,16 @@ p {
     font-weight: bold;
 }
 
-#containerCheckbox1, #containerCheckbox2, #containerCheckbox3 {
-    display: flex;
-    align-items: center;
-    color: rgba(53, 53, 53, 0.829);
+#containerCheckbox {
+    margin-left: 6%;
+    color: rgba(0, 0, 0, 0.815);
+    font-weight: 600;
 }
 
-#checkbox1, #checkbox2, #checkbox3 {
-    width: 22px;
-    height: 22px;
-    margin: 5px;
+#paredeCentro, #armario, #porta {
+    width: 15px;
+    height: 15px;
+    margin-right: 3%;
 }
 
 #botaoCadastrar {
@@ -236,6 +232,6 @@ p {
 
 /* ----------------Lista de Itens-------------------- */
 
-#conteudoListaItens {
+#conteudoListaItens, #containerRetiradas, #containerDevolucoes {
     margin-top: 2%;
 }
