@@ -8,13 +8,26 @@ import { Router } from '@angular/router';
 })
 export class FiltroComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router) {
+    this.usuario = parseInt(localStorage.getItem('usuario'));
+  }
+
+  usuario: number;
 
   ngOnInit() {
   }
 
   navegar(rota: String) {
     this.router.navigate([rota]);
+  }
+
+  fecharFiltro() {
+    const input = document.querySelector("#check") as HTMLInputElement;
+    input.checked = true;
+  }
+
+  modalFiltro() {
+
   }
 
 }

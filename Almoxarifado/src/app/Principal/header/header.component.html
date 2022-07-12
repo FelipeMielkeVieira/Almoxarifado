@@ -3,14 +3,14 @@
 
 <div id="containerHeader">
   <div id="header">
-    <div (click)="navegar('/professor')" id="logo">
+    <div (click)="navegacaoTipo()" id="logo">
       <img id="logoSesi" src="../../../assets/logo.png" alt="Sesi Senai" />
       <p>AlmaSis</p>
     </div>
 
     <div id="icones">
       <div id="sacola">
-        <span class="material-symbols-outlined">
+        <span class="material-symbols-outlined" (click)="navegar('/professor/sacolas')">
           shopping_bag
         </span>
       </div>
@@ -21,10 +21,22 @@
       </div>
     </div>
     <div *ngIf="user == 1" class="modalUser">
+      <div *ngIf="user == 1" class="setaUser"></div>
       <div id="usuarioIcone">
         <span class="material-symbols-outlined">
           account_circle
         </span>
+      </div>
+      <span class="nomeUser">Nome Sobrenome</span>
+      <span class="emailUser">nomesobrenome@edu.sc.senai.br</span>
+      <hr style="width: 80%;">
+      <div class="divOpcao">
+        <img src="../../../assets/agenda.png" class="imgsUser">
+        <span class="spanUser" (click)="navegar('/professor/reservas')">Minhas Reservas</span>
+      </div>
+      <div class="divOpcao">
+        <img src="../../../assets/sair.png" id="imgUser2">
+        <span class="spanUser" (click)="logout()">Sair</span>
       </div>
     </div>
   </div>

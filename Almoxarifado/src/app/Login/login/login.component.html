@@ -21,6 +21,16 @@
                 <div id="azul"></div>
             </div>
         </div>
+        <div *ngIf="senhaIncorreta == 1" id="modalCadastro">
+            <div class="divInfo">
+                <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+                <img id="imgAlerta2" src="../../../assets/alert.png">
+                <span id="spanCadastro">Usuário ou senha incorretos</span>
+            </div>
+            <div id="fundo" style="background-color: #AEAEAE;">
+                <div id="vermelho"></div>
+            </div>
+        </div>
         <div id="containerLogin">
             <div id="barraAzul">
                 <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário">
@@ -28,9 +38,9 @@
             <h1 id="titulo">
                 AlmaSis
             </h1>
-            <input type="text" class="inputsCadastro" placeholder="Email ou usuário">
+            <input type="text" class="inputsCadastro" placeholder="Email ou usuário" [(ngModel)]="emailUser">
             <div class="divSenha">
-                <input type="password" class="inputsCadastro2" id="inputSenha1" placeholder="Senha">
+                <input type="password" class="inputsCadastro2" id="inputSenha1" placeholder="Senha" [(ngModel)]="senhaUser">
                 <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)">
             </div>
             <div class="containerSenha">

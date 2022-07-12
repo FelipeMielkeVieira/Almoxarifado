@@ -12,28 +12,34 @@
                 </div>
             </label>
         </div>
-        <a href="#">
+        <a (click)="fecharFiltro()">
             <span>Materiais para Projetos</span>
         </a>
-        <a href="#">
+        <a (click)="fecharFiltro()">
             <span>Ferramentas Elétricas</span>
         </a>
-        <a href="#">
+        <a (click)="fecharFiltro()">
             <span>Componentes Elétricos</span>
         </a>
-        <a href="#">
+        <a (click)="fecharFiltro()">
             <span>Materiais Elétricos</span>
         </a>
-        <a href="#">
+        <a (click)="fecharFiltro()">
             <span>Materiais de Limpeza</span>
         </a>
     </div>
-    <div (click)="navegar('/professor/reservas')" class="reservas">
+    <div *ngIf="usuario == 1" (click)="navegar('/professor/reservas')" class="reservas">
         <div class="textoReservas">
             <span>Minhas reservas</span>
         </div>
         <div class="ContainerIconCalendario">
             <img id="gerenciar" src="../../../assets/arquivo-gerenciar.png" alt="Gerenciar">
+        </div>
+    </div>
+    <div *ngIf="usuario == 3 || usuario == 4"
+        (click)="modalFiltro()" class="reservas">
+        <div class="textoReservas">
+            <span>Gerenciar Filtros</span>
         </div>
     </div>
 </div>
