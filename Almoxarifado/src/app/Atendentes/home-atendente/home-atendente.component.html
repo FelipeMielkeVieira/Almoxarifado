@@ -16,24 +16,18 @@
                     Classificação:
                 </p>
                 <div id="containerCheckbox">
-                    <div id="containerCheckbox1">
-                        <input id="checkbox1" type="checkbox">
-                        <h4>
-                            Parede/Centro
-                        </h4>
-                    </div>
-                    <div id="containerCheckbox2">
-                        <input id="checkbox2" type="checkbox">
-                        <h4>
-                            Armário
-                        </h4>
-                    </div>
-                    <div id="containerCheckbox3">
-                        <input id="checkbox3" type="checkbox">
-                        <h4>
-                            Porta
-                        </h4>
-                    </div>
+                <div>
+                    <input type="radio" id="paredeCentro" name="drone" value="paredeCentro">
+                    <label for="paredeCentro">Parede/Centro</label>
+                </div>
+                <div>
+                    <input type="radio" id="armario" name="drone" value="armario">
+                    <label for="armario">Armário</label>
+                </div>
+                <div>
+                    <input type="radio" id="porta" name="drone" value="porta">
+                    <label for="porta">Porta</label>
+                </div>    
                 </div>
             </div>
             <div id="containerCadastrar">
@@ -66,7 +60,7 @@
         </div>
         <div id="risco"></div>
 
-        <div *  ngIf="baixaDevolucoes == 1" id="conteudoBaixaDevolucoes">
+        <div *ngIf="baixaDevolucoes == 1" id="conteudoBaixaDevolucoes">
             <div id="containerDevolucoes">
                 <app-reserva-atendente></app-reserva-atendente>
             </div>
