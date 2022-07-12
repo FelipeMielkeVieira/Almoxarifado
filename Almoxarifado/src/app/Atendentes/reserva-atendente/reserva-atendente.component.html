@@ -1,25 +1,24 @@
-<body>
-  <div class="containerReserva">
-    <div class="barraLateral"></div>
-    <div class="infoReserva">
-      <b><span class="nomeProfessor">Nome professor</span></b>
-      <span class="data">Retirada: __/__/____</span>
-      <span class="data">Devolução: __/__/____</span>
-    </div>
+<div class="containerReserva">
+  <div class="barraLateral"></div>
+  <div class="infoReserva">
+    <b><span class="nomeProfessor">Nome professor</span></b>
+    <span class="data">Retirada: __/__/____</span>
+    <span class="data">Devolução: __/__/____</span>
+  </div>
 
-    <div id="parteDireita">
-      <ul id="itens">
-        <li class="item">
-          <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
-          <span class="textoProduto">Produto 1</span>
-        </li>
-        <li class="item">
-          <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
-          <span class="textoProduto">Produto 2</span>
-        </li>
-      </ul>
-    </div>
-    <!-- <div id="parteDireita">
+  <div id="parteDireita">
+    <ul id="itens">
+      <li class="item">
+        <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+        <span class="textoProduto">Produto 1</span>
+      </li>
+      <li class="item">
+        <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+        <span class="textoProduto">Produto 2</span>
+      </li>
+    </ul>
+  </div>
+  <!-- <div id="parteDireita">
       <ul id="itens">
         <li class="item" *ngFor="let item of listaItens">
           <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
@@ -27,13 +26,12 @@
         </li>
       </ul>
     </div> -->
-  </div>
-  <div id="parteDireita">
-    <ul id="itens">
-      <li class="item" *ngFor="let item of listaItens">
-        <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
-        {{ item.nome }}
-      </li>
-    </ul>
-  </div>
+</div>
+<div id="parteDireita">
+  <ul id="itens">
+    <li class="item" *ngFor="let item of listaItens">
+      <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+      {{ item.nome }}
+    </li>
+  </ul>
 </div>
