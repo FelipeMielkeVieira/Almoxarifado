@@ -31,6 +31,7 @@ body{
     align-items: flex-start;
     padding: 3%;
     display: flex;
+    width: 60%;
 }
 
 .nomeProfessor{
@@ -47,7 +48,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 40%;
     margin-left: 20%;
 }
@@ -83,4 +84,8 @@ body{
     padding: 0.6rem;
     border-radius: 5px;
     border: 0;
+}
+
+.textoProduto{
+    font-size: 12px;
 }
