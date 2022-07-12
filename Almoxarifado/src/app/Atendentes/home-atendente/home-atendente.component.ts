@@ -54,13 +54,13 @@ export class HomeAtendenteComponent implements OnInit {
     this.confirmarRetirada = 0
     this.baixaDevolucoes = 1
 
-      let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
-      botaoAzul.style.backgroundColor = '#0047B6';
-      botaoAzul.style.color = '#ffff'
+      // let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
+      // botaoAzul.style.backgroundColor = '#0047B6';
+      // botaoAzul.style.color = '#ffff'
 
-      let botaoSemAzul = document.querySelectorAll('.semAzul') as HTMLElement;
-      botaoSemAzul.style.backgroundColor = '#ffff';
-      botaoSemAzul.style.color = '#000';
+      // let botaoSemAzul = document.querySelectorAll('.semAzul') as HTMLElement;
+      // botaoSemAzul.style.backgroundColor = '#ffff';
+      // botaoSemAzul.style.color = '#000';
 
 
   }
