@@ -11,10 +11,10 @@ class CheckLogged implements CanActivate {
         state: RouterStateSnapshot,
     ): Observable<boolean> | Promise<boolean> | boolean {
 
-        if (localStorage.getItem('nome') != '' && localStorage.getItem('nome') != null) {
+        if (localStorage.getItem('usuario')) {
             return true;
         } else {
-            // this.router.navigate(['']);
+            this.router.navigate(['']);
             return true;
         }
     }

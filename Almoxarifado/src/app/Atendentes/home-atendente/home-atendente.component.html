@@ -1,8 +1,42 @@
-<div *ngIf="aparecer == 1" id="fundoModalLocalizacao">
-    <div id="containerModalLocalizacao">
-        <div id="riscoAzul"></div>
+<div *ngIf="aparecer" id="fundoModalLocalizacao">
+    <!-- Baixa nas devoluções -->
+    <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
+        <hr class="riscoAzul">
+        <div id="containerDevolucaoModal">
+            <div class="containerFechar">
+                <img class="fecharIcone" (click)="fecharModalBaixaDevolucao()" src="../../../assets/close.png"
+                    alt="fechar">
+            </div>
+            <ul id="listaItemsBaixaDevolucao">
+                <li>
+                    <!-- *ngFor="let item of listaItemsBaixaDevolucao" -->
+                    <div class="containerConteudoBaixaDevolucao">
+                        <div class="containerImgBaixaDevolucao">
+                            <img class="imgItemBaixaDevolucao" src="../../../assets/Rele.png" alt="Relé térmico">
+                        </div>
+                        <div class="parteDireitaItemBaixaDevolucao">
+                            <h2 class="nomeItemBaixaDevolucao">Nome Produto</h2>
+                            <div class="containerInfoItemBaixaDevolucao">
+                                <!-- {{ item.posicao }} -->
+                                <p>posicao</p>
+                                <!-- {{ item.qtd }} -->
+                                <p>qtd</p>
+                                <button class="btnDevolucaoModal">Informar Defeito</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <button (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
+        </div>
+    </div>
+
+    <!-- Localização -->
+    <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
+        <hr class="riscoAzul">
         <div id="containerIcons">
-            <img id="iconFechar" (click)="fecharModal()" src="../../../assets/close.png" alt="fechar">
+            <img id="iconFechar" (click)="fecharModalLocalizacao()" src="../../../assets/close.png" alt="fechar">
         </div>
         <div id="dados">
             <div id="containerNome">
@@ -16,18 +50,18 @@
                     Classificação:
                 </p>
                 <div id="containerCheckbox">
-                <div>
-                    <input type="radio" id="paredeCentro" name="drone" value="paredeCentro">
-                    <label for="paredeCentro">Parede/Centro</label>
-                </div>
-                <div>
-                    <input type="radio" id="armario" name="drone" value="armario">
-                    <label for="armario">Armário</label>
-                </div>
-                <div>
-                    <input type="radio" id="porta" name="drone" value="porta">
-                    <label for="porta">Porta</label>
-                </div>    
+                    <div>
+                        <input type="radio" id="paredeCentro" name="drone" value="paredeCentro">
+                        <label for="paredeCentro">Parede/Centro</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="armario" name="drone" value="armario">
+                        <label for="armario">Armário</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="porta" name="drone" value="porta">
+                        <label for="porta">Porta</label>
+                    </div>
                 </div>
             </div>
             <div id="containerCadastrar">
@@ -52,7 +86,8 @@
                     <input id="input" type="text" placeholder="Pesquise por produto...">
                     <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                 </div>
-                <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModal()">Cadastrar localizações</button>
+                <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes"
+                    (click)="aparecerModalLocalizacao()">Cadastrar localizações</button>
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
@@ -66,12 +101,12 @@
 
         <div *ngIf="baixaDevolucoes == 1" id="conteudoBaixaDevolucoes">
             <div id="containerDevolucoes">
-                <app-reserva-atendente></app-reserva-atendente>
+                <app-reserva-atendente (click)="abrirDevolucao()"></app-reserva-atendente>
             </div>
         </div>
 
         <div *ngIf="confirmarRetirada == 1" id="conteudoConfirmarRetirada">
-            <div id="containerRetiradas" >
+            <div id="containerRetiradas">
                 <!-- *ngFor="let reserva of listaReservas" -->
                 <app-reserva-atendente (click)="abrirReserva()"></app-reserva-atendente>
             </div>

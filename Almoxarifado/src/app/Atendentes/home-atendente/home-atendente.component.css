@@ -137,6 +137,93 @@ p {
     border-radius: 10px;
 }
 
+/* Modal baixa nas devoluções */
+
+#baixaDevolucoesModal {
+    width: 40%;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.3);
+}
+
+#containerDevolucaoModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.riscoAzul {
+    width: 100%;
+    height: 12px;
+    background: #0047B6;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.containerFechar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fecharIcone {
+    width: 3%;
+}
+
+.fecharIcone:hover {
+    cursor: pointer;
+}
+
+#listaItemsBaixaDevolucao {
+    list-style-type: none;
+}
+
+.containerConteudoBaixaDevolucao {
+    display: flex;
+    align-items: center;
+}
+
+.containerImgBaixaDevolucao {
+    width: 35%;
+}
+
+.imgItemBaixaDevolucao {
+    width: 80%;
+}
+
+.parteDireitaItemBaixaDevolucao {
+    width: 100%;
+}
+
+.nomeItemBaixaDevolucao {
+    color: #0047B6;
+}
+
+.containerInfoItemBaixaDevolucao {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnDevolucaoModal {
+    background-color: #0047B6;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+}
+
+.darBaixa {
+    font-size: large;
+    font-weight: 500;
+    margin: 1rem 0rem;
+    padding: 0.5rem 1.5rem;
+}
+
+.darBaixa:hover {
+    cursor: pointer;
+}
+
 /* // ---------------Modal add loca------------------  */
 
 #fundoModalLocalizacao {
