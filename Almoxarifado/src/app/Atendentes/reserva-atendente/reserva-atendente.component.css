@@ -8,8 +8,8 @@ body{
 
 .containerReserva{
     display: flex;
-    width: 45%;
-    height: 30%;
+    flex-direction: row;
+    width: 30rem; 
     border-radius: 5px;
     border: solid 0.5px black;
 }

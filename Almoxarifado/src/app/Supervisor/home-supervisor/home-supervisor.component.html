@@ -19,15 +19,15 @@
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
                 <div id="botoes">
-                    <button (click)="gerenciarUsuarios()" id="botaoMenu">Gerenciar usuários</button>
-                    <button id="botaoMenuCor">Gerenciar cadastros</button>
-                    <button id="botaoMenu">Baixa nas devoluções</button>
-                    <button id="botaoMenu">Confirmar retirada</button>
-                    <button id="botaoMenu">Lista de itens</button>
-                    <button id="botaoMenu">Localizações</button>
+                    <button (click)="gerenciarUsuarios()" id="gerenciarUsuarios">Gerenciar usuários</button>
+                    <button (click)="gerenciarCadastros()" id="gerenciarCadastros">Gerenciar cadastros</button>
+                    <button (click)="baixaDevolucoes()" id="devolucoes">Baixa nas devoluções</button>
+                    <button (click)="confirmarRetirada()" id="retirada">Confirmar retirada</button>
+                    <button (click)="listaDeItens()" id="listaItens">Lista de itens</button>
+                    <button (click)="localizacoes()" id="localizacoes">Localizações</button>
                 </div>
                 <div id="risco"></div>
-                <div class="usuarios">
+                <div *ngIf="gerenciaCadastros == 1" class="usuarios">
                     <div class="containerUsuario">
                         <div class="containerUser">
                             <img class="imgUser" src="../../../assets/user.png" alt="">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="contadorUsuarios == 1" class="telaUsuarios">
+                <div *ngIf="gerenciaUsuarios == 1" class="telaUsuarios">
                     <div class="containerUsuarios">
                         <div class="containerUser">
                             <img class="imgUser" src="../../../assets/user.png" alt="">
@@ -68,6 +68,42 @@
                                 <img class="icone" src="../../../assets/verifica.png" alt="">
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div *ngIf="devolucoes == 1" class="containerDevolucoes">
+                    <app-reserva-atendente></app-reserva-atendente>
+                    <app-reserva-atendente></app-reserva-atendente>
+                </div>
+                <div *ngIf="retirada == 1" class="containerRetirada">
+                    <app-reserva-atendente></app-reserva-atendente>
+                    <app-reserva-atendente></app-reserva-atendente>
+                </div>
+                <div *ngIf="listaItens == 1" class="containerLista">
+                    <app-item></app-item>
+                    <app-item></app-item>
+                    <app-item></app-item>
+                </div>
+                <div *ngIf="contLocalizacoes == 1" id="conteudoLocalizacoes">
+                    <select id="selecionarLocalizacao">
+                        <option value="paredeCentro">Parede / Centro</option>
+                        <option value="armario" selected>Armário</option>
+                        <option value="porta">Porta</option>
+                    </select>
+                    <div id="containerLocalizacoes">
+                        <div id="divLocalizacao">
+                            <p>
+                                {{localizacaoNome}}
+                                P1
+                            </p>
+                            <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo">
+                        </div>
+                        <!-- <div *ngFor="let localizacao of listaLocalizacoes" id="divLocalizacao">
+                        <p>
+                            {{localizacaoNome}}
+                            P1
+                        </p>
+                        <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo">
+                    </div> -->
                     </div>
                 </div>
             </div>
