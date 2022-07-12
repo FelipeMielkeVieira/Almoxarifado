@@ -13,6 +13,7 @@ export class HomeAtendenteComponent implements OnInit {
   listaItens: number = 0
   confirmarRetirada: number = 0
   baixaDevolucoes: number = 0
+  aparecerEspecificacaoReserva: boolean = false;
 
   constructor() { }
 
@@ -119,6 +120,11 @@ export class HomeAtendenteComponent implements OnInit {
       let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
       botaoSemAzul3.style.backgroundColor = '#ffff';
       botaoSemAzul3.style.color = '#000';
+  }
+
+  abrirReserva() {
+    console.log("b");
+    this.aparecerEspecificacaoReserva = true;
   }
 
 }
