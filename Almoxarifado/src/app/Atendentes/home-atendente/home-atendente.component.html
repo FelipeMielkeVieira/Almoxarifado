@@ -21,14 +21,33 @@
                                 <p>posicao</p>
                                 <!-- {{ item.qtd }} -->
                                 <p>qtd</p>
-                                <button class="btnDevolucaoModal">Informar Defeito</button>
+                                <!-- informarDefeitoItem(item) -->
+                                <button (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
+                                    Defeito</button>
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
-
             <button (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
+        </div>
+    </div>
+
+    <div *ngIf="informarDefeitoModal" id="containerInformarMotivo">
+        <hr class="riscoAzul">
+        <div id="containerInformarDefeitoModal">
+            <div class="containerFechar">
+                <img class="fecharIcone" (click)="fecharModalInformarDefeito()" src="../../../assets/close.png"
+                    alt="fechar">
+            </div>
+            <h2 class="tituloInformarDefeito">Informar Defeito</h2>
+            <div id="containerConteudoInformarDefeito">
+                <input type="text" id="informarDefeitoInput">
+                <div class="divBotoes">
+                    <button (click)="voltarDevolucaoItens()" id="voltarInformarDefeito" class="btnDevolucaoModal">Voltar</button>
+                    <button (click)="voltarDevolucaoItens()" id="salvarInformarDefeito" class="btnDevolucaoModal">Salvar</button>
+                </div>
+            </div>
         </div>
     </div>
 

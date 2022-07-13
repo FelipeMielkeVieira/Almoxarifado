@@ -157,7 +157,8 @@ p {
     width: 100%;
     height: 12px;
     background: #0047B6;
-    border-radius: 7px 7px 0px 0px;
+    border: 0;
+    border-radius: 0.3rem 0.3rem 0px 0px;
 }
 
 .containerFechar {
@@ -213,6 +214,10 @@ p {
     border-radius: 0.3rem;
 }
 
+.btnDevolucaoModal:hover {
+    cursor: pointer;
+}
+
 .darBaixa {
     font-size: large;
     font-weight: 500;
@@ -220,8 +225,46 @@ p {
     padding: 0.5rem 1.5rem;
 }
 
-.darBaixa:hover {
-    cursor: pointer;
+/* Informar motivo */
+
+#containerInformarMotivo {
+    border-radius: 0.3rem;
+    background-color: white;
+} 
+
+#containerInformarDefeitoModal {
+    padding: 0.6rem 1.5rem 1.5rem 1.5rem;
+}
+
+.tituloInformarDefeito {
+    text-align: center;
+    color: #0047B6;
+    margin-bottom: 1rem;
+}
+
+#containerConteudoInformarDefeito {
+
+}
+
+#informarDefeitoInput {
+    width: 30vw;
+    height: 28vh;
+}
+
+.divBotoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+}
+
+#voltarInformarDefeito {
+    font-size: large;
+    width: 40%;
+}
+
+#salvarInformarDefeito {
+    font-size: large;
+    width: 55%;
 }
 
 /* // ---------------Modal add loca------------------  */
