@@ -12,20 +12,8 @@
                 </div>
             </label>
         </div>
-        <a (click)="fecharFiltro()">
-            <span>Materiais para Projetos</span>
-        </a>
-        <a (click)="fecharFiltro()">
-            <span>Ferramentas Elétricas</span>
-        </a>
-        <a (click)="fecharFiltro()">
-            <span>Componentes Elétricos</span>
-        </a>
-        <a (click)="fecharFiltro()">
-            <span>Materiais Elétricos</span>
-        </a>
-        <a (click)="fecharFiltro()">
-            <span>Materiais de Limpeza</span>
+        <a *ngFor="let item of listaClassificacoes" (click)="fecharFiltro(item.id)">
+            <span>{{item.classificacao}}</span>
         </a>
     </div>
     <div *ngIf="usuario == 1" (click)="navegar('/professor/reservas')" class="reservas">
@@ -38,7 +26,7 @@
     </div>
     <div *ngIf="usuario == 3 || usuario == 4"
         (click)="modalFiltro()" class="reservas">
-        <div class="textoReservas">
+        <div class="textoReservas2">
             <span>Gerenciar Filtros</span>
         </div>
     </div>

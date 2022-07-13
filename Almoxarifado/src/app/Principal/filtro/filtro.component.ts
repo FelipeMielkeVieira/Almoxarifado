@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-filtro',
@@ -8,11 +9,15 @@ import { Router } from '@angular/router';
 })
 export class FiltroComponent implements OnInit {
 
-  constructor(private router:Router) {
+  constructor(private router:Router, private service: UsersService) {
     this.usuario = parseInt(localStorage.getItem('usuario'));
+    this.listaClassificacoes = service.classificacoes;
   }
 
+  listaClassificacoes;
   usuario: number;
+
+  filtroSelecionado:number;
 
   ngOnInit() {
   }
@@ -21,7 +26,8 @@ export class FiltroComponent implements OnInit {
     this.router.navigate([rota]);
   }
 
-  fecharFiltro() {
+  fecharFiltro(id) {
+    this.filtroSelecionado = id;
     const input = document.querySelector("#check") as HTMLInputElement;
     input.checked = true;
   }
