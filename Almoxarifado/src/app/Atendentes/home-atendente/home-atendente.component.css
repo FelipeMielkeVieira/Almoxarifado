@@ -137,7 +137,7 @@ p {
     border-radius: 10px;
 }
 
-/* Modal baixa nas devoluções */
+/* Modal baixa nas devoluções e confirmar retirada*/
 
 #baixaDevolucoesModal {
     width: 40%;
@@ -173,6 +173,10 @@ p {
 
 .fecharIcone:hover {
     cursor: pointer;
+}
+
+#quantidadeProduto {
+    margin-right: 13rem;
 }
 
 #listaItemsBaixaDevolucao {
@@ -221,7 +225,7 @@ p {
 .darBaixa {
     font-size: large;
     font-weight: 500;
-    margin: 1rem 0rem;
+    margin: 2rem 0rem 0rem 0rem;
     padding: 0.5rem 1.5rem;
 }
 

@@ -17,6 +17,7 @@ export class HomeAtendenteComponent implements OnInit {
   confirmarRetirada: number = 0
   baixaDevolucoes: number = 1
   aparecerEspecificacaoReserva: boolean = false;
+  nao: boolean = false;
 
   constructor() { }
 
@@ -134,14 +135,19 @@ export class HomeAtendenteComponent implements OnInit {
       
   }
 
-  abrirReserva() {
-    console.log("b");
-    this.aparecerEspecificacaoReserva = true;
-  }
+  // abrirReserva() {
+  //   this.devolucaoModal = true;
+  //   this.aparecer = true;
+  // }
 
-  abrirDevolucao() {
+  abrirDevolucao(numero) {
     this.devolucaoModal = true;
     this.aparecer = true;
+    if (numero == 2) {
+      this.nao = true;
+    } else {
+      this.nao = false;
+    }
   }
 
   fecharModalBaixaDevolucao() {
