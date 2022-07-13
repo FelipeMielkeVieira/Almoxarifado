@@ -26,6 +26,7 @@ export class HomeAtendenteComponent implements OnInit {
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
     this.codUser = parseInt(localStorage.getItem('usuario'));
+    this.cadastroProduto = parseInt(localStorage.getItem('usuario'));
   }
 
   listaItens2;
