@@ -11,15 +11,21 @@ export class HomeAtendenteComponent implements OnInit {
   aparecer: boolean = false
   localizacaoModal: boolean = false;
   devolucaoModal: boolean = false;
-  localizacao: number = 1
+  localizacao: number = 0
   listaItens: number = 0
   confirmarRetirada: number = 0
-  baixaDevolucoes: number = 0
+  baixaDevolucoes: number = 1
   aparecerEspecificacaoReserva: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  if (this.baixaDevolucoes == 1) {
+    let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
+      botaoAzul.style.backgroundColor = '#0047B6';
+      botaoAzul.style.color = '#ffff'
+  }
+
   }
 
   aparecerModalLocalizacao() {
@@ -124,6 +130,7 @@ export class HomeAtendenteComponent implements OnInit {
       let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
       botaoSemAzul3.style.backgroundColor = '#ffff';
       botaoSemAzul3.style.color = '#000';
+      
   }
 
   abrirReserva() {

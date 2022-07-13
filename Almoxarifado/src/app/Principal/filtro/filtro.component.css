@@ -154,3 +154,11 @@ a:hover {
     transform: scaleX(1);
 }
 
+.itensFiltro{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 37.5rem;  
+    overflow: auto;
+}
+
