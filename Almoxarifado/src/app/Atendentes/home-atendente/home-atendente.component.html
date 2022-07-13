@@ -92,11 +92,17 @@
             </div>
         </div>
     </div>
+    <!-- Modal cadastrar produto -->
+    <div *ngIf="cadastrarModal" id="containerModalCadastrar">
+        <hr class="riscoAzul">
+        <div id="containerIcons">
+            <img id="iconFechar" (click)="fecharModalCadastrar()" src="../../../assets/close.png" alt="fechar">
+        </div>
+        
+    </div>
 </div>
 
-<div *ngIf="">
 
-</div>
 
 <app-header></app-header>
 <app-filtro></app-filtro>
@@ -110,7 +116,13 @@
                     <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                 </div>
                 <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes"
-                    (click)="aparecerModalLocalizacao()">Cadastrar localizações</button>
+                    (click)="aparecerModalLocalizacao()">
+                    Cadastrar localizações
+                </button>
+                <button *ngIf="cadastroProduto == 1" id="botaoCadastrarProduto"
+                    (click)="aparecerModalCadastrar()">
+                    Cadastrar produto
+                </button>
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
@@ -118,7 +130,7 @@
             <button id="baixaDevolucoes" class="semAzul" (click)="telaBaixaDevolucoes()">Baixa nas devoluções</button>
             <button id="confirmarRetirada" class="semAzul" (click)="telaConfirmarRetirada()">Confirmar retirada</button>
             <button id="listaItens" class="semAzul" (click)="telaListaItens()">Lista de itens</button>
-            <button id="localizacoes" class="semAzul" (click)="telaLocalizacoes()">Localizações</button>
+            <button *ngIf="codUser == 3" id="localizacoes" class="semAzul" (click)="telaLocalizacoes()">Localizações</button>
         </div>
         <div id="risco"></div>
 
@@ -137,7 +149,7 @@
 
         <div *ngIf="listaItens == 1" id="conteudoListaItens">
             <div id="containerItens">
-                <app-item></app-item>
+                <app-item *ngFor="let item of listaItens2" [item]="item"></app-item>
             </div>
             <!-- <div *ngFor="let item of listaItens" id="containerItens">
                 <app-item></app-item>

@@ -97,3 +97,77 @@
     border-radius: 5px;
     border: 0;
 }
+
+.botao:hover {
+    cursor: pointer;
+}
+
+.containerModal {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30rem;
+    height: 14.5rem;
+    border-radius: 10px;
+    right: 30%;
+    top: 30%;
+    border: solid 1px black;
+    background-color: #fff;
+}
+
+.linhaAzul {
+    width: 100%;
+    height: 0.931rem;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #0047B6;
+}
+
+.iconeAlert {
+    width: 4.625rem;
+    margin-top: 5%;
+}
+
+.containerInfoModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5px;
+    margin-top: 5%;
+}
+
+.textoModal {
+    font-size: 24px;
+}
+
+.containerBotoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6%;
+}
+
+.botaoCancelar {
+    width: 7.813rem;
+    height: 2.625rem;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    background-color: #AAAAAA;
+    cursor: pointer;
+}
+
+.botaoReservar {
+    width: 7.813rem;
+    height: 2.625rem;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    background-color: #0047B6;
+    cursor: pointer;
+}

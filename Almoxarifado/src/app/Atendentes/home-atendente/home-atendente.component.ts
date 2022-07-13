@@ -1,5 +1,6 @@
 import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-home-atendente',
@@ -10,6 +11,7 @@ export class HomeAtendenteComponent implements OnInit {
 
   aparecer: boolean = false
   localizacaoModal: boolean = false;
+  cadastrarModal: boolean = false;
   devolucaoModal: boolean = false;
   informarDefeitoModal: boolean = false;
   localizacao: number = 0
@@ -18,16 +20,22 @@ export class HomeAtendenteComponent implements OnInit {
   baixaDevolucoes: number = 1
   aparecerEspecificacaoReserva: boolean = false;
   nao: boolean = false;
+  cadastroProduto: number = 0;
+  codUser: number;
 
-  constructor() { }
-
-  ngOnInit() {
-  if (this.baixaDevolucoes == 1) {
-    let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
-      botaoAzul.style.backgroundColor = '#0047B6';
-      botaoAzul.style.color = '#ffff'
+  constructor(private service: UsersService) {
+    this.listaItens2 = service.itens;
+    this.codUser = parseInt(localStorage.getItem('usuario'));
   }
 
+  listaItens2;
+
+  ngOnInit() {
+    if (this.baixaDevolucoes == 1) {
+      let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
+      botaoAzul.style.backgroundColor = '#0047B6';
+      botaoAzul.style.color = '#ffff'
+    }
   }
 
   aparecerModalLocalizacao() {
@@ -40,16 +48,27 @@ export class HomeAtendenteComponent implements OnInit {
     this.localizacaoModal = false;
   }
 
+  aparecerModalCadastrar() {
+    this.aparecer = true;
+    this.cadastrarModal = true;
+  }
+
+  fecharModalCadastrar() {
+    this.aparecer = false;
+    this.cadastrarModal = false;
+  }
+
   telaLocalizacoes() {
     this.listaItens = 0
     this.confirmarRetirada = 0
     this.baixaDevolucoes = 0
     this.localizacao = 1
+    this.cadastroProduto = 0
 
     let botaoAzul = document.querySelector('#localizacoes') as HTMLElement;
     botaoAzul.style.backgroundColor = '#0047B6';
     botaoAzul.style.color = '#ffff'
-    
+
     let botaoSemAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
     botaoSemAzul1.style.backgroundColor = '#ffff';
     botaoSemAzul1.style.color = '#000'
@@ -57,7 +76,7 @@ export class HomeAtendenteComponent implements OnInit {
     let botaoSemAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
     botaoSemAzul2.style.backgroundColor = '#ffff';
     botaoSemAzul2.style.color = '#000';
-    
+
     let botaoSemAzul3 = document.querySelector('#listaItens') as HTMLElement;
     botaoSemAzul3.style.backgroundColor = '#ffff';
     botaoSemAzul3.style.color = '#000';
@@ -69,22 +88,23 @@ export class HomeAtendenteComponent implements OnInit {
     this.confirmarRetirada = 0
     this.baixaDevolucoes = 0
     this.listaItens = 1
+    this.cadastroProduto = 1
 
     let botaoAzul = document.querySelector('#listaItens') as HTMLElement;
-      botaoAzul.style.backgroundColor = '#0047B6';
-      botaoAzul.style.color = '#ffff'
-      
-      let botaoSemAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
-      botaoSemAzul1.style.backgroundColor = '#ffff';
-      botaoSemAzul1.style.color = '#000'
+    botaoAzul.style.backgroundColor = '#0047B6';
+    botaoAzul.style.color = '#ffff'
 
-      let botaoSemAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
-      botaoSemAzul2.style.backgroundColor = '#ffff';
-      botaoSemAzul2.style.color = '#000';
-      
-      let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-      botaoSemAzul3.style.backgroundColor = '#ffff';
-      botaoSemAzul3.style.color = '#000';
+    let botaoSemAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
+    botaoSemAzul1.style.backgroundColor = '#ffff';
+    botaoSemAzul1.style.color = '#000'
+
+    let botaoSemAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
+    botaoSemAzul2.style.backgroundColor = '#ffff';
+    botaoSemAzul2.style.color = '#000';
+
+    let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+    botaoSemAzul3.style.backgroundColor = '#ffff';
+    botaoSemAzul3.style.color = '#000';
   }
 
   telaConfirmarRetirada() {
@@ -92,23 +112,24 @@ export class HomeAtendenteComponent implements OnInit {
     this.listaItens = 0
     this.baixaDevolucoes = 0
     this.confirmarRetirada = 1
+    this.cadastroProduto = 0
 
-      let botaoAzul = document.querySelector('#confirmarRetirada') as HTMLElement;
-      botaoAzul.style.backgroundColor = '#0047B6';
-      botaoAzul.style.color = '#ffff'
+    let botaoAzul = document.querySelector('#confirmarRetirada') as HTMLElement;
+    botaoAzul.style.backgroundColor = '#0047B6';
+    botaoAzul.style.color = '#ffff'
 
-      let botaoSemAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
-      botaoSemAzul1.style.backgroundColor = '#ffff';
-      botaoSemAzul1.style.color = '#000'
+    let botaoSemAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
+    botaoSemAzul1.style.backgroundColor = '#ffff';
+    botaoSemAzul1.style.color = '#000'
 
-      let botaoSemAzul2 = document.querySelector('#listaItens') as HTMLElement;
-      botaoSemAzul2.style.backgroundColor = '#ffff';
-      botaoSemAzul2.style.color = '#000';
-      
-      let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-      botaoSemAzul3.style.backgroundColor = '#ffff';
-      botaoSemAzul3.style.color = '#000';
-    
+    let botaoSemAzul2 = document.querySelector('#listaItens') as HTMLElement;
+    botaoSemAzul2.style.backgroundColor = '#ffff';
+    botaoSemAzul2.style.color = '#000';
+
+    let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+    botaoSemAzul3.style.backgroundColor = '#ffff';
+    botaoSemAzul3.style.color = '#000';
+
   }
 
   telaBaixaDevolucoes() {
@@ -116,29 +137,26 @@ export class HomeAtendenteComponent implements OnInit {
     this.listaItens = 0
     this.confirmarRetirada = 0
     this.baixaDevolucoes = 1
+    this.cadastroProduto = 0
 
-      let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
-      botaoAzul.style.backgroundColor = '#0047B6';
-      botaoAzul.style.color = '#ffff'
+    let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
+    botaoAzul.style.backgroundColor = '#0047B6';
+    botaoAzul.style.color = '#ffff'
 
-      let botaoSemAzul1 = document.querySelector('#confirmarRetirada') as HTMLElement;
-      botaoSemAzul1.style.backgroundColor = '#ffff';
-      botaoSemAzul1.style.color = '#000';
+    let botaoSemAzul1 = document.querySelector('#confirmarRetirada') as HTMLElement;
+    botaoSemAzul1.style.backgroundColor = '#ffff';
+    botaoSemAzul1.style.color = '#000';
 
-      let botaoSemAzul2 = document.querySelector('#listaItens') as HTMLElement;
-      botaoSemAzul2.style.backgroundColor = '#ffff';
-      botaoSemAzul2.style.color = '#000';
+    let botaoSemAzul2 = document.querySelector('#listaItens') as HTMLElement;
+    botaoSemAzul2.style.backgroundColor = '#ffff';
+    botaoSemAzul2.style.color = '#000';
 
-      let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-      botaoSemAzul3.style.backgroundColor = '#ffff';
-      botaoSemAzul3.style.color = '#000';
-      
+    let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+    botaoSemAzul3.style.backgroundColor = '#ffff';
+    botaoSemAzul3.style.color = '#000';
+
   }
 
-  // abrirReserva() {
-  //   this.devolucaoModal = true;
-  //   this.aparecer = true;
-  // }
 
   abrirDevolucao(numero) {
     this.devolucaoModal = true;
