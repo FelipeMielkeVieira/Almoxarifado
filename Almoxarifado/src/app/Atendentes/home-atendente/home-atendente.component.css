@@ -29,7 +29,8 @@ p {
     margin-bottom: 1.2rem;
 }
 
-#botaoCadastrarLocalizacoes {
+#botaoCadastrarLocalizacoes,
+#botaoCadastrarProduto {
     padding: 0.5rem;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
@@ -38,7 +39,8 @@ p {
     cursor: pointer;
 }
 
-#botaoCadastrarLocalizacoes:hover {
+#botaoCadastrarLocalizacoes:hover,
+#botaoCadastrarProduto:hover {
     background-color: #003180;
 }
 
@@ -288,6 +290,15 @@ p {
 #containerModalLocalizacao {
     width: 22rem;
     height: 17rem;
+    background-color: #fff;
+    border-radius: 7px;
+    min-width: 200px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+}
+
+#containerModalCadastrar{
+    width: 33.75rem;
+    height: 37.5rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;

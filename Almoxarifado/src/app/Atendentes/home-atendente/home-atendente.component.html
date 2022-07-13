@@ -90,11 +90,17 @@
             </div>
         </div>
     </div>
+    <!-- Modal cadastrar produto -->
+    <div *ngIf="cadastrarModal" id="containerModalCadastrar">
+        <hr class="riscoAzul">
+        <div id="containerIcons">
+            <img id="iconFechar" (click)="fecharModalCadastrar()" src="../../../assets/close.png" alt="fechar">
+        </div>
+        
+    </div>
 </div>
 
-<div *ngIf="">
 
-</div>
 
 <app-header></app-header>
 <app-filtro></app-filtro>
@@ -108,7 +114,13 @@
                     <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                 </div>
                 <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes"
-                    (click)="aparecerModalLocalizacao()">Cadastrar localizações</button>
+                    (click)="aparecerModalLocalizacao()">
+                    Cadastrar localizações
+                </button>
+                <button *ngIf="cadastroProduto == 1" id="botaoCadastrarProduto"
+                    (click)="aparecerModalCadastrar()">
+                    Cadastrar produto
+                </button>
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
