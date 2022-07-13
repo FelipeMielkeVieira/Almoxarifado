@@ -267,6 +267,11 @@ p {
     width: 55%;
 }
 
+#texteArea {
+    padding: 5px;
+    outline: none;
+}
+
 /* // ---------------Modal add loca------------------  */
 
 #fundoModalLocalizacao {
