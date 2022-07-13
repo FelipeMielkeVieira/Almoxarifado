@@ -226,6 +226,8 @@ a:hover {
 }
 
 #containerConteudoTeste {
+    height: 200px;
+    overflow: auto;
     margin-top: 5%;
     flex-wrap: wrap;
 }
@@ -238,6 +240,7 @@ a:hover {
     border: solid 1px black;
     border-radius: 8px;
     justify-content: space-between;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.281);
 }
 
 #iconLixoTeste {
