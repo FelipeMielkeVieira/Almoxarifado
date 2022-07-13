@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeAtendenteComponent implements OnInit {
 
-  aparecer: number = 0
+  aparecer: boolean = false
+  localizacaoModal: boolean = false;
+  devolucaoModal: boolean = false;
   localizacao: number = 1
   listaItens: number = 0
   confirmarRetirada: number = 0
@@ -20,12 +22,14 @@ export class HomeAtendenteComponent implements OnInit {
   ngOnInit() {
   }
 
-  aparecerModal() {
-    this.aparecer = 1
+  aparecerModalLocalizacao() {
+    this.aparecer = true;
+    this.localizacaoModal = true;
   }
 
-  fecharModal() {
-    this.aparecer = 0
+  fecharModalLocalizacao() {
+    this.aparecer = false;
+    this.localizacaoModal = false;
   }
 
   telaLocalizacoes() {
@@ -125,6 +129,21 @@ export class HomeAtendenteComponent implements OnInit {
   abrirReserva() {
     console.log("b");
     this.aparecerEspecificacaoReserva = true;
+  }
+
+  abrirDevolucao() {
+    this.devolucaoModal = true;
+    this.aparecer = true;
+  }
+
+  fecharModalBaixaDevolucao() {
+    this.devolucaoModal = false;
+    this.aparecer = false;
+  }
+
+  darBaixaDevolucao() {
+    this.devolucaoModal = false;
+    this.aparecer = false;
   }
 
 }
