@@ -158,7 +158,23 @@ a:hover {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 37.5rem;  
+    height: 37rem;  
     overflow: auto;
 }
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #EEEEEE;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    border: solid 1px black;
+}
+
+
 
