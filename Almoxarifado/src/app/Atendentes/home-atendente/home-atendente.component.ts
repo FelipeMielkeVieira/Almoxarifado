@@ -11,7 +11,8 @@ export class HomeAtendenteComponent implements OnInit {
   aparecer: boolean = false
   localizacaoModal: boolean = false;
   devolucaoModal: boolean = false;
-  localizacao: number = 0
+  informarDefeitoModal: boolean = false;
+  localizacao: number = 1
   listaItens: number = 0
   confirmarRetirada: number = 0
   baixaDevolucoes: number = 1
@@ -151,6 +152,21 @@ export class HomeAtendenteComponent implements OnInit {
   darBaixaDevolucao() {
     this.devolucaoModal = false;
     this.aparecer = false;
+  }
+
+  informarDefeitoItem() {
+    this.devolucaoModal = false;
+    this.informarDefeitoModal = true;
+  }
+
+  fecharModalInformarDefeito() {
+    this.aparecer = false;
+    this.informarDefeitoModal = false;
+  }
+
+  voltarDevolucaoItens() {
+    this.informarDefeitoModal = false;
+    this.devolucaoModal = true;
   }
 
 }
