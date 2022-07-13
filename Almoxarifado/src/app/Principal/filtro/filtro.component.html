@@ -12,9 +12,11 @@
                 </div>
             </label>
         </div>
-        <a *ngFor="let item of listaClassificacoes" (click)="fecharFiltro(item.id)">
-            <span>{{item.classificacao}}</span>
-        </a>
+        <div class="itensFiltro">
+            <a *ngFor="let item of listaClassificacoes" (click)="fecharFiltro(item.id)">
+                <span>{{item.classificacao}}</span>
+            </a>
+        </div>
     </div>
     <div *ngIf="usuario == 1" (click)="navegar('/professor/reservas')" class="reservas">
         <div class="textoReservas">
