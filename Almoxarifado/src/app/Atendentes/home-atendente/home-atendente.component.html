@@ -33,11 +33,12 @@
         </div>
     </div>
 
+    <!-- Informar defeito -->
     <div *ngIf="informarDefeitoModal" id="containerInformarMotivo">
         <hr class="riscoAzul">
         <div id="containerInformarDefeitoModal">
             <div class="containerFechar">
-                <img class="fecharIcone" (click)="fecharModalInformarDefeito()" src="../../../assets/close.png"
+                <img class="fecharIcone" (click)="voltarDevolucaoItens()" src="../../../assets/close.png"
                     alt="fechar">
             </div>
             <h2 class="tituloInformarDefeito">Informar Defeito</h2>

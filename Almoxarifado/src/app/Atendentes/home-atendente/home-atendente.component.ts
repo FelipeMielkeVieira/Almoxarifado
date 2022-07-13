@@ -159,11 +159,6 @@ export class HomeAtendenteComponent implements OnInit {
     this.informarDefeitoModal = true;
   }
 
-  fecharModalInformarDefeito() {
-    this.aparecer = false;
-    this.informarDefeitoModal = false;
-  }
-
   voltarDevolucaoItens() {
     this.informarDefeitoModal = false;
     this.devolucaoModal = true;
