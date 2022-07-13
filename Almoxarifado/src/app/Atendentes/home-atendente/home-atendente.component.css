@@ -25,6 +25,32 @@ p {
     width: 80%;
 }
 
+.semAzul {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.466);
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+}
+
+.semAzul:hover {
+    background-color: rgb(212, 212, 212);
+}
+
+.comAzul {
+    padding: 5px 10px;
+    background-color: #0047B6;
+    border: 1px solid rgba(0, 0, 0, 0.466);
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    color: #fff;
+}
+
+.comAzul {
+    background-color: #003791;
+}
+
 #containerInput {
     margin-bottom: 1.2rem;
 }
@@ -76,20 +102,6 @@ p {
     opacity: 0.7;
 }
 
-#baixaDevolucoes, #confirmarRetirada, #listaItens, #localizacoes {
-    background-color: #fff;
-}
-
-#baixaDevolucoes, #confirmarRetirada, #listaItens, #localizacoes {
-    padding: 5px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.466);
-    border-radius: 5px 5px 0 0;
-    cursor: pointer;
-}
-
-#baixaDevolucoes:hover, #confirmarRetirada:hover, #listaItens:hover, #localizacoes:hover {
-    background-color: rgb(212, 212, 212);
-}
 
 #risco {
     margin-top: 0.5rem;

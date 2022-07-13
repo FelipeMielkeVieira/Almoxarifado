@@ -32,11 +32,6 @@ export class HomeAtendenteComponent implements OnInit {
   listaItens2;
 
   ngOnInit() {
-    if (this.baixaDevolucoes == 1) {
-      let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
-      botaoAzul.style.backgroundColor = '#0047B6';
-      botaoAzul.style.color = '#ffff'
-    }
   }
 
   aparecerModalLocalizacao() {
@@ -63,24 +58,19 @@ export class HomeAtendenteComponent implements OnInit {
     this.listaItens = 0
     this.confirmarRetirada = 0
     this.baixaDevolucoes = 0
-    this.localizacao = 1
     this.cadastroProduto = 0
+    this.localizacao = 1
 
-    let botaoAzul = document.querySelector('#localizacoes') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
-
-    let botaoSemAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
-    botaoSemAzul1.style.backgroundColor = '#ffff';
-    botaoSemAzul1.style.color = '#000'
-
-    let botaoSemAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-
-    let botaoSemAzul3 = document.querySelector('#listaItens') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
+    let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
+    semAzul2.className = "semAzul"
+    let semAzul3 = document.querySelector('#listaItens') as HTMLElement;
+    semAzul3.className = "semAzul"
+    if(this.codUser == 3) {
+      let comAzul = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "comAzul"
+    }
 
   }
 
@@ -91,45 +81,35 @@ export class HomeAtendenteComponent implements OnInit {
     this.listaItens = 1
     this.cadastroProduto = 1
 
-    let botaoAzul = document.querySelector('#listaItens') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
-
-    let botaoSemAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
-    botaoSemAzul1.style.backgroundColor = '#ffff';
-    botaoSemAzul1.style.color = '#000'
-
-    let botaoSemAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-
-    let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
+    let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
+    semAzul2.className = "semAzul"
+    if(this.codUser == 3) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+    let comAzul = document.querySelector('#listaItens') as HTMLElement;
+    comAzul.className = "comAzul" 
   }
 
   telaConfirmarRetirada() {
     this.localizacao = 0
     this.listaItens = 0
     this.baixaDevolucoes = 0
-    this.confirmarRetirada = 1
     this.cadastroProduto = 0
+    this.confirmarRetirada = 1
 
-    let botaoAzul = document.querySelector('#confirmarRetirada') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
-
-    let botaoSemAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
-    botaoSemAzul1.style.backgroundColor = '#ffff';
-    botaoSemAzul1.style.color = '#000'
-
-    let botaoSemAzul2 = document.querySelector('#listaItens') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-
-    let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
+    let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
+    semAzul2.className = "semAzul"
+    if(this.codUser == 3) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+    let comAzul = document.querySelector('#confirmarRetirada') as HTMLButtonElement;
+    comAzul.className = "comAzul" 
 
   }
 
@@ -137,27 +117,20 @@ export class HomeAtendenteComponent implements OnInit {
     this.localizacao = 0
     this.listaItens = 0
     this.confirmarRetirada = 0
-    this.baixaDevolucoes = 1
     this.cadastroProduto = 0
+    this.baixaDevolucoes = 1
 
-    let botaoAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
-
-    let botaoSemAzul1 = document.querySelector('#confirmarRetirada') as HTMLElement;
-    botaoSemAzul1.style.backgroundColor = '#ffff';
-    botaoSemAzul1.style.color = '#000';
-
-    let botaoSemAzul2 = document.querySelector('#listaItens') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-
-    let botaoSemAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
-
+    let semAzul1 = document.querySelector('#confirmarRetirada') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
+    semAzul2.className = "semAzul"
+    if(this.codUser == 3) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+    let comAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
+    comAzul.className = "comAzul"
   }
-
 
   abrirDevolucao(numero) {
     this.devolucaoModal = true;
