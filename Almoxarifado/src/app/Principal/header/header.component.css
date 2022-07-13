@@ -58,6 +58,7 @@ p {
 .modalUser {
     position: absolute;
     top: 80%;
+    min-width: 200px;
     width: 14%;
     height: 25vh;
     right: 2%;
