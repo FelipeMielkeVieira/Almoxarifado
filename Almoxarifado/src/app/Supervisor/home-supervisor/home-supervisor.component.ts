@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-home-supervisor',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeSupervisorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: UsersService) {
+    this.listaItens2 = service.itens;
+  }
+
+  listaItens2;
 
   ngOnInit() {
   }

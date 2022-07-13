@@ -35,10 +35,23 @@
           </ul>
           <div id="botoes">
             <button class="botao" style="margin-bottom: 5px;">Ver Detalhes</button>
-            <button class="botao">Reservar</button>
+            <button class="botao" (click)="reservar()">Reservar</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </body>
+<div *ngIf="contadorReservar == 1" class="modalReservar">
+  <div class="containerModal">
+      <div class="linhaAzul"></div>
+      <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+      <div class="containerInfoModal">
+          <span class="textoModal">Tem certeza que deseja reservar?</span>
+      </div>
+      <div class="containerBotoes">
+          <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
+          <button class="botaoReservar" (click)="finalizarReserva()">Reservar</button>
+      </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-home-atendente',
@@ -18,7 +19,11 @@ export class HomeAtendenteComponent implements OnInit {
   baixaDevolucoes: number = 1
   aparecerEspecificacaoReserva: boolean = false;
 
-  constructor() { }
+  constructor(private service: UsersService) {
+    this.listaItens2 = service.itens;
+  }
+
+  listaItens2;
 
   ngOnInit() {
   if (this.baixaDevolucoes == 1) {
