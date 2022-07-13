@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
 #espacamento {
     height: 85px;
     width: 100%;
@@ -19,6 +25,7 @@ header{
 a span{
     display: flex;
     padding: 0px 2rem;
+    font-size: 14px;
 }
 
 a:hover {
@@ -88,6 +95,14 @@ a:hover {
     font-weight: 600;
 }
 
+.textoFiltro, .textoReservas2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 15px;
+}
+
 .sidebar{
     display: flex;
     flex-direction: column;
@@ -128,7 +143,7 @@ a:hover {
 }
 
 #check:checked ~ .sidebar a{
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 170px;
     width: 80px;
     padding-left: 22px;
@@ -145,3 +160,153 @@ a:hover {
     transform: scaleX(1);
 }
 
+.itensFiltro{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 37.5rem;  
+    overflow: auto;
+}
+
+/* ------------------- MODAL PARA GERENCIAR FILTROS ----------------- */
+
+#fundoModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    background-color:rgba(0, 0, 0, 0.349);
+}
+
+#containerModal {
+    width: 30rem;
+    height: 30rem;
+    background-color: #fff;
+    border-radius: 7px;
+    min-width: 200px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+}
+
+#riscoAzul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10px;
+    background: #0047B6;
+    border-radius: 7px 7px 0px 0px;
+}
+
+#containerTopo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#containerIcon {
+    display: flex;
+    justify-content: flex-end;
+    margin: 3% 2.5% 0 0; 
+}
+
+#palavraFiltro {
+    margin-left: 44%;
+}
+
+#containerIcon {
+    position: relative;
+    right: 3%;
+}
+
+#iconFechar {
+    width: 32%;
+    cursor: pointer;
+}
+
+#containerConteudoTeste {
+    margin-top: 5%;
+    flex-wrap: wrap;
+}
+
+.divFiltro {
+    display: flex;
+    width: 80%;
+    padding: 0.5rem;
+    margin-bottom: 2%;
+    border: solid 1px black;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+#iconLixoTeste {
+    width: 6%;
+    cursor: pointer;
+}
+
+#riscoPequeno {
+    margin-top: 2%;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.521);
+    height: 3px;
+}
+
+#riscoGrande {
+    margin-top: 2%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.521);
+    height: 3px;
+}
+
+#containerCadastrar, #textoCadastrar, #riscoTeste{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#NomeFiltro {
+    width: 250px;
+    padding: 5px;
+    border: 0.2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    outline: none;
+    font-weight: 600;
+}
+
+#containerBotaoAdicionar {
+    display: flex;
+    justify-content: right;
+    margin-top: 2%;
+}
+
+
+#botaoAdicionar {
+    padding: 5px 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: #0047B6;
+    color: #ffff;
+    cursor: pointer;
+}
+
+#botaoSalvar {
+    margin-top: 5%;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: #0047B6;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#botaoSalvar:hover, #botaoAdicionar:hover {
+    background-color: #003180;
+}
+
+#containerSalvar, #containerConteudoTeste {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

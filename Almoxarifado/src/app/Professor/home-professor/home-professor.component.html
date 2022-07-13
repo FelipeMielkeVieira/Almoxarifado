@@ -11,14 +11,7 @@
         </div>
         
         <div id="containerItens">
-            <!-- <app-item *ngFor="let item of listaItens"></app-item> -->
-            <app-item ></app-item>
-            <app-item ></app-item>
-            <app-item ></app-item>
-            <app-item ></app-item>
-            <app-item ></app-item>
-            <app-item ></app-item>
-            <app-item ></app-item>
+            <app-item *ngFor="let item of listaItens" [item]="item"></app-item>
         </div>
     </div>
 </main>

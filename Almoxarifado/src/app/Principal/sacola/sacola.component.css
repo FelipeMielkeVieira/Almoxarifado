@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
 #containerSacola {
-    width: 27rem;
+    width: 38rem;
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -47,14 +47,6 @@
 
 .dataTexto {
     width: 100%;
-}
-
-#dataRetirada {
-
-}
-
-#dataDevolucao {
-    
 }
 
 #parteDireita {

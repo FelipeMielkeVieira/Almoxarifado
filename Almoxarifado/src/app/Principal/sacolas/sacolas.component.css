@@ -1,0 +1,54 @@
+*{
+    font-family: 'Inter',sans-serif;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+p:hover {
+    color: #0047B6;
+}
+
+.divPrincipal{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#caminho {
+    display: flex;
+    align-items: center;
+    margin-top: 1.2rem;
+    margin-left: 5.5rem;
+}
+
+#casa {
+    width: 22px;
+    cursor: pointer;
+}
+
+#maior {
+    padding: 0 2px;
+    width: 18px;
+}
+
+.tituloSacolas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloPagina{
+    font-size: 45px;
+    color: #0047B6;
+}
+
+.containerSacolas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 890px;
+}

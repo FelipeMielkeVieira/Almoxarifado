@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UsersService } from 'src/app/users.service';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-login',
@@ -238,6 +238,7 @@ export class LoginComponent implements OnInit {
     this.users.usuarios.forEach((e) => {
       if((e.email == this.emailUser || e.nome == this.emailUser) && e.senha == this.senhaUser) {
         localStorage.setItem('usuario', e.tipo.toString());
+        localStorage.setItem('emailAtual', e.email);
         senhaCorreta++;
         this.navegacaoTipo();
       }
