@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
+  @Input() item;
+
+  textoDescartavel: string;
+
   constructor() { }
 
   ngOnInit() {
+    if(this.item.descartavel) {
+      this.textoDescartavel = "Descartável"
+    } else {
+      this.textoDescartavel = "Não Descartável"
+    }
   }
 
 }
