@@ -20,9 +20,11 @@ export class HomeAtendenteComponent implements OnInit {
   baixaDevolucoes: number = 1
   aparecerEspecificacaoReserva: boolean = false;
   cadastroProduto: number = 0;
+  codUser: number;
 
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
+    this.codUser = parseInt(localStorage.getItem('usuario'));
   }
 
   listaItens2;

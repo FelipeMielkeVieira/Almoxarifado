@@ -76,7 +76,7 @@ p {
     opacity: 0.7;
 }
 
-#baixaDevolucoes, #confirmarRetirada, #listaItens {
+#baixaDevolucoes, #confirmarRetirada, #listaItens, #localizacoes {
     background-color: #fff;
 }
 
@@ -380,4 +380,10 @@ p {
 
 #conteudoListaItens, #containerRetiradas, #containerDevolucoes {
     margin-top: 2%;
+}
+
+#containerItens {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
