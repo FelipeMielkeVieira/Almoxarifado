@@ -12,7 +12,7 @@ export class HomeAtendenteComponent implements OnInit {
   localizacaoModal: boolean = false;
   devolucaoModal: boolean = false;
   informarDefeitoModal: boolean = false;
-  localizacao: number = 1
+  localizacao: number = 0
   listaItens: number = 0
   confirmarRetirada: number = 0
   baixaDevolucoes: number = 1
