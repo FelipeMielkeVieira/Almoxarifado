@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +11,19 @@ export class HeaderComponent implements OnInit {
 
   user: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: UsersService) {}
 
   ngOnInit() {
+    this.service.usuarios.forEach((e) => {
+      if(localStorage.getItem('emailAtual') == e.email) {
+        this.emailUsuario = e.email;
+        this.nomeUsuario = e.nome;
+      }
+    })
   }
+
+  nomeUsuario: string;
+  emailUsuario: string;
 
   abrirUser() {
     if(this.user == 0) {
@@ -29,6 +39,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('usuario');
+    localStorage.removeItem('emailAtual');
     this.navegar('/');
   }
 
