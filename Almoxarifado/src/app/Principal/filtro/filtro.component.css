@@ -191,6 +191,18 @@ a:hover {
     position: absolute;
     z-index: 5;
     background-color:rgba(0, 0, 0, 0.349);
+    animation:fadein 0.5s;
+}
+
+@keyframes fadein {
+	from {
+        margin-top: -10px;
+		opacity:0;
+	}
+	to {
+        margin-top: 0px;
+		opacity:1;
+	}
 }
 
 #containerModal {

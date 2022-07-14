@@ -340,6 +340,7 @@ p:hover {
     border: 1px solid rgba(0, 0, 0, 0.466);
     border-radius: 5px 5px 0 0;
     cursor: pointer;
+    transition:ease-out 0.2s;
 }
 
 .semAzul:hover {

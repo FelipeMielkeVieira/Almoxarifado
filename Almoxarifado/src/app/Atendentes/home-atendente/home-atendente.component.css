@@ -32,6 +32,7 @@ p {
     border: 1px solid rgba(0, 0, 0, 0.466);
     border-radius: 5px 5px 0 0;
     cursor: pointer;
+    transition:ease-out 0.2s;
 }
 
 .semAzul:hover {
@@ -158,6 +159,18 @@ p {
     border-radius: 7px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.3);
+    animation:fadein 0.5s;
+}
+
+@keyframes fadein {
+	from {
+        margin-top: -10px;
+		opacity:0;
+	}
+	to {
+        margin-top: 0px;
+		opacity:1;
+	}
 }
 
 #containerDevolucaoModal {
@@ -248,7 +261,19 @@ p {
 #containerInformarMotivo {
     border-radius: 0.3rem;
     background-color: white;
+    animation:fadein 0.5s;
 } 
+
+@keyframes fadein {
+	from {
+        margin-top: -10px;
+		opacity:0;
+	}
+	to {
+        margin-top: 0px;
+		opacity:1;
+	}
+}
 
 #containerInformarDefeitoModal {
     padding: 0.6rem 1.5rem 1.5rem 1.5rem;
