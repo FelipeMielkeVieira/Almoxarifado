@@ -96,7 +96,7 @@ p:hover {
     width: 100%;    
 }
 
-.containerDevolucoes{
+.containerDevolucoes, .containerRetirada{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -112,12 +112,6 @@ p:hover {
     margin-top: 1%;
 }
 
-.containerRetirada{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-top: 1%;
-}
 
 .containerUsuario {
     width: 22.5rem;
