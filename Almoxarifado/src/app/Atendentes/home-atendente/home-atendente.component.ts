@@ -58,7 +58,6 @@ export class HomeAtendenteComponent implements OnInit {
     this.listaItens = 0
     this.confirmarRetirada = 0
     this.baixaDevolucoes = 0
-    this.cadastroProduto = 0
     this.localizacao = 1
 
     let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
@@ -79,7 +78,6 @@ export class HomeAtendenteComponent implements OnInit {
     this.confirmarRetirada = 0
     this.baixaDevolucoes = 0
     this.listaItens = 1
-    this.cadastroProduto = 1
 
     let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
     semAzul1.className = "semAzul"
@@ -97,7 +95,6 @@ export class HomeAtendenteComponent implements OnInit {
     this.localizacao = 0
     this.listaItens = 0
     this.baixaDevolucoes = 0
-    this.cadastroProduto = 0
     this.confirmarRetirada = 1
 
     let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
@@ -117,7 +114,6 @@ export class HomeAtendenteComponent implements OnInit {
     this.localizacao = 0
     this.listaItens = 0
     this.confirmarRetirada = 0
-    this.cadastroProduto = 0
     this.baixaDevolucoes = 1
 
     let semAzul1 = document.querySelector('#confirmarRetirada') as HTMLElement;

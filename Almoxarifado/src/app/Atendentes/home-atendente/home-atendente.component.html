@@ -172,7 +172,7 @@
                 <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModalLocalizacao()">
                     Cadastrar localizações
                 </button>
-                <button *ngIf="cadastroProduto == 3" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()"> Cadastrar Produto</button>
+                <button *ngIf="cadastroProduto == 3 && listaItens == 1" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()"> Cadastrar Item</button>
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
