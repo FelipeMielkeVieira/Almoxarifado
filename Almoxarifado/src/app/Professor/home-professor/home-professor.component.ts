@@ -13,16 +13,7 @@ export class HomeProfessorComponent implements OnInit {
   }
 
   listaItens;
-  aparecer: boolean = false;
 
   ngOnInit() {
-  }
-
-  abrirModalItem() {
-    this.aparecer = true;
-  }
-
-  fecharModal() {
-    this.aparecer = false;
   }
 }

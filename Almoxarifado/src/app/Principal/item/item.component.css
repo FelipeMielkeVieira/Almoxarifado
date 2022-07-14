@@ -72,3 +72,205 @@
     width: 100%;
     height: 100%;
 }
+
+/* Modal item */
+#fundoModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color:rgba(0, 0, 0, 0.349);
+}
+
+#modalItem {
+    width: 31%;
+    border-radius: 0.3rem;
+    background-color: white;
+}
+
+.riscoAzul {
+    width: 100%;
+    height: 12px;
+    background: #0047B6;
+    border: 0;
+    border-radius: 0.3rem 0.3rem 0px 0px;
+}
+
+.containerModal {
+    padding: 1rem 1.8rem;
+}
+
+.fechar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: -5%;
+}
+
+.fecharIcone {
+    margin-right: -3%;
+    width: 4%;
+}
+
+.fecharIcone:hover {
+    cursor: pointer;
+}
+
+.produtoInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.containerImg {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+}
+
+.imgProdModal {
+    width: 80%;
+}
+
+.nomeTipoProd {
+    width: 60%;
+}
+
+.tituloAzul {
+    color: #0047B6;
+}
+
+.containerClassQtd {
+    margin-bottom: 1rem;
+}
+
+.subtituloModal {
+    font-weight: bold   ;
+}
+
+.quantidadeModal {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 1rem;
+
+}
+
+.containerQuantidadeInput {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#containerQtd {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    width: 30%; 
+    min-width: 100px;
+    padding: 0.2rem 0.4rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.containerIconQtd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+.menosQtdIcon, .maisQtdIcon, .iconModal {
+    width: 100%;
+}
+
+.qtdMax {
+    text-align: end;
+    font-size: 12px;
+}
+
+.containerDatas {
+    width: 60%;
+}
+
+.linhaData {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.containerInputData {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    width: 50%;
+    min-width: 130px;
+    height: 2.3rem;
+}
+
+.containerDataText {
+    width: 75%;
+    text-align: center;
+}
+
+.dataText {
+    align-items: center;
+    font-size: 12px;
+}
+
+.containerIconData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    border-left: 1px solid black;
+}
+
+.iconModal {
+    min-width: 30px;
+}
+
+.containerAcoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    margin-bottom: 0.7rem;
+}
+
+.btnModal {
+    background-color: #0047B6;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    width: 70%;
+    font-size: large;
+    font-weight: 500;
+}
+
+.btnModal:hover, .sacolaIcon:hover {
+    cursor: pointer;
+}
+
+.containerSacolaModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13%;
+}
+
+.sacolaIcon {
+    width: 80%;
+}

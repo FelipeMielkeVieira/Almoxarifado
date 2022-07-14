@@ -11,87 +11,10 @@
         </div>
 
         <div id="containerItens">
-            <app-item (click)="abrirModalItem()" *ngFor="let item of listaItens" [item]="item"></app-item>
+            <app-item *ngFor="let item of listaItens" [item]="item"></app-item>
         </div>
 
         <!-- Fundo transparente -->
-        <div *ngIf="aparecer" id="fundoModal">
-            <!-- Modal item -->
-            <div id="modalItem">
-                <hr class="riscoAzul">
-                <div class="containerModal">
-                    <div class="fechar">
-                        <img class="fecharIcone" (click)="fecharModal()" src="../../../assets/close.png" alt="Fechar">
-                    </div>
-                    <div class="produtoInfo">
-                        <div class="containerImg">
-                            <img class="imgProdModal" src="../../../assets/Rele.png" alt="Relé térmico">
-                        </div>
-                        <div class="nomeTipoProd">
-                            <h2 class="tituloAzul">Nome produto</h2>
-                            <h4 class="tituloAzul">Descartável</h4>
-                        </div>
-                    </div>
-
-                    <div class="containerClassQtd">
-                        <p><span class="subtituloModal">Classificação: </span> classificação</p>
-                        <div class="quantidadeModal">
-                            <div class="containerQuantidadeInput">
-                                <p class="subtituloModal">QTD:</p>
-                                <div id="containerQtd">
-                                    <div class="containerIconQtd">
-                                        <img src="../../../assets/menos.png" alt="" class="menosQtdIcon">
-                                    </div>
-                                    <span>qtd</span>
-                                    <div class="containerIconQtd">
-                                        <img src="../../../assets/mais.png" alt="" class="maisQtdIcon">
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="qtdMax">Máx: XX</p>
-                        </div>
-                    </div>
-
-                    <div class="containerDatas">
-                        <div class="linhaData">
-                            <p class="subtituloModal">Retirada: </p>
-                            <div class="containerInputData">
-                                <div class="containerDataText">
-                                    <p class="dataText">
-                                        DD/MM/YYYY
-                                    </p>
-                                </div>
-                                <div class="containerIconData">
-                                    <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="linhaData">
-                            <p class="subtituloModal">Devolução: </p>
-                            <div class="containerInputData">
-                                <div class="containerDataText">
-                                    <p class="dataText">
-                                        DD/MM/YYYY
-                                    </p>
-                                </div>
-                                <div class="containerIconData">
-                                    <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="containerAcoes">
-                        <button class="btnModal">
-                            Reservar Agora
-                        </button>
-                        <div class="containerSacolaModal">
-                            <img src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola" class="iconModal sacolaIcon">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        
     </div>
 </main>

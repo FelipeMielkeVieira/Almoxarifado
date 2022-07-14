@@ -10,7 +10,8 @@ export class ItemComponent implements OnInit {
   @Input() item;
 
   textoDescartavel: string;
-
+  aparecer: boolean = false;
+  
   constructor() { }
 
   ngOnInit() {
@@ -19,6 +20,14 @@ export class ItemComponent implements OnInit {
     } else {
       this.textoDescartavel = "Não Descartável"
     }
+  }
+
+  abrirModalItem() {
+    this.aparecer = true;
+  }
+
+  fecharModal() {
+    this.aparecer = false;
   }
 
 }
