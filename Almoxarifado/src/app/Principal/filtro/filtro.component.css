@@ -176,7 +176,7 @@ a:hover {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 37rem;
+    height: 91%;
     overflow: auto;
 }
 
@@ -215,6 +215,10 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.containerTopo {
+    height: 90%;
 }
 
 #containerIcon {
