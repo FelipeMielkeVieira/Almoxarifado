@@ -31,7 +31,8 @@
                 </li>
             </ul>
             <button *ngIf="!nao" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
-            <button *ngIf="nao" (click)="confirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar retirada</button>
+            <button *ngIf="nao" (click)="confirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar
+                retirada</button>
         </div>
     </div>
 
@@ -40,16 +41,17 @@
         <hr class="riscoAzul">
         <div id="containerInformarDefeitoModal">
             <div class="containerFechar">
-                <img class="fecharIcone" (click)="voltarDevolucaoItens()" src="../../../assets/close.png"
-                    alt="fechar">
+                <img class="fecharIcone" (click)="voltarDevolucaoItens()" src="../../../assets/close.png" alt="fechar">
             </div>
             <h2 class="tituloInformarDefeito">Informar Defeito</h2>
             <div id="containerConteudoInformarDefeito">
                 <!-- <input type="textarea" id="informarDefeitoInput"> -->
                 <textarea id="texteArea" rows="15" cols="60" maxlength="500"></textarea>
                 <div class="divBotoes">
-                    <button (click)="voltarDevolucaoItens()" id="voltarInformarDefeito" class="btnDevolucaoModal">Voltar</button>
-                    <button (click)="voltarDevolucaoItens()" id="salvarInformarDefeito" class="btnDevolucaoModal">Salvar</button>
+                    <button (click)="voltarDevolucaoItens()" id="voltarInformarDefeito"
+                        class="btnDevolucaoModal">Voltar</button>
+                    <button (click)="voltarDevolucaoItens()" id="salvarInformarDefeito"
+                        class="btnDevolucaoModal">Salvar</button>
                 </div>
             </div>
         </div>
@@ -98,11 +100,63 @@
         <div id="containerIcons">
             <img id="iconFechar" (click)="fecharModalCadastrar()" src="../../../assets/close.png" alt="fechar">
         </div>
-        
+        <div class="principal">
+            <div class="containerModalCadastrar">
+                <div class="divImg">
+                    <button class="selecionarImg">Selecionar Imagem</button>
+                </div>
+                <div class="nomeProduto">
+                    <span>Nome Produto: </span>
+                    <div class="containerInput">
+                        <input class="inputsCadastro" type="text" placeholder="Nome produto">
+                    </div>
+                </div>
+                <div class="classificacao">
+                    <span>Classificação: </span>
+                    <input class="inputsCadastro" type="text" placeholder="Classificação">
+                </div>
+                <div class="descricao">
+                    <span>Descrição: </span>
+                    <input class="inputDescricao" type="text" placeholder="Descrição">
+                </div>
+                <div class="localizacao">
+                    <span>Localização: </span>
+                    <div class="containerLocalizacao">
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="opcao">
+                    <span>Opção: </span>
+                    <select id="selecionarDescartavel">
+                        <option value="paredeCentro" selected>Descartável</option>
+                        <option value="armario">Não Descartável</option>
+                    </select>
+                    <span>QTD: </span>
+                    <input class="inputQtd" type="text" placeholder="xx">
+                </div>
+                <div class="anexo">
+                    <button class="addAnexo">Adicionar anexo</button>
+                </div>
+                <button class="botaoCadastrar">Cadastrar</button>
+            </div>
+
+        </div>
     </div>
 </div>
-
-
 
 <app-header></app-header>
 <app-filtro></app-filtro>
@@ -115,22 +169,21 @@
                     <input id="input" type="text" placeholder="Pesquise por produto...">
                     <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                 </div>
-                <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes"
-                    (click)="aparecerModalLocalizacao()">
+                <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModalLocalizacao()">
                     Cadastrar localizações
                 </button>
-                <button *ngIf="cadastroProduto == 3" id="botaoCadastrarProduto"
-                    (click)="aparecerModalCadastrar()">
-                    Cadastrar produto
-                </button>
+                <button *ngIf="cadastroProduto == 3" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()"> Cadastrar Produto</button>
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
         <div id="botoes">
-            <button id="baixaDevolucoes" class="semAzul" (click)="telaBaixaDevolucoes()">Baixa nas devoluções</button>
-            <button id="confirmarRetirada" class="semAzul" (click)="telaConfirmarRetirada()">Confirmar retirada</button>
+            <button id="baixaDevolucoes" class="comAzul" (click)="telaBaixaDevolucoes()">Baixa
+                nas devoluções</button>
+            <button id="confirmarRetirada" class="semAzul" (click)="telaConfirmarRetirada()">Confirmar
+                retirada</button>
             <button id="listaItens" class="semAzul" (click)="telaListaItens()">Lista de itens</button>
-            <button *ngIf="codUser == 3" id="localizacoes" class="semAzul" (click)="telaLocalizacoes()">Localizações</button>
+            <button *ngIf="codUser == 3" id="localizacoes" class="semAzul"
+                (click)="telaLocalizacoes()">Localizações</button>
         </div>
         <div id="risco"></div>
 
