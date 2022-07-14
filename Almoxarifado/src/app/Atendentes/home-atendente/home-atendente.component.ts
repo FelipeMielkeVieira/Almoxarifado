@@ -158,4 +158,9 @@ export class HomeAtendenteComponent implements OnInit {
     this.devolucaoModal = true;
   }
 
+  cadastrar(){
+    this.aparecer = false;
+    this.cadastrarModal = false;
+  }
+
 }

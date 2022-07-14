@@ -49,6 +49,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+.nomeItem:hover{
+    color: #0047B6;
+}
+
 .baixoItem {
     font-family: 'Inter', sans-serif;
     font-weight: 500;

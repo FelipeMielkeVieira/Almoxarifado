@@ -40,6 +40,10 @@ body{
     font-size: 20px;
 }
 
+.nomeProfessor:hover{
+    color: #0047B6;
+}
+
 .data{
     font-family: 'Inter', sans-serif;
     margin-top: 5%;

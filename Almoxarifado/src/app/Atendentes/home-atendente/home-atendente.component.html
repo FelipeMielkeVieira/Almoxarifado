@@ -151,7 +151,7 @@
                 <div class="anexo">
                     <button class="addAnexo">Adicionar anexo</button>
                 </div>
-                <button class="botaoCadastrar">Cadastrar</button>
+                <button (click)="cadastrar()" class="botaoCadastrar">Cadastrar</button>
             </div>
 
         </div>
@@ -172,7 +172,8 @@
                 <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModalLocalizacao()">
                     Cadastrar localizações
                 </button>
-                <button *ngIf="cadastroProduto == 3 && listaItens == 1" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()"> Cadastrar Item</button>
+                <button *ngIf="cadastroProduto == 3 && listaItens == 1" id="botaoCadastrarProduto"
+                    (click)="aparecerModalCadastrar()"> Cadastrar Item</button>
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>

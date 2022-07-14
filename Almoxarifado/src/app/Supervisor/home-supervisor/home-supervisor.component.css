@@ -322,6 +322,11 @@ p:hover {
     height: 1.438rem;
 }
 
+.iconeLixeira:hover{
+    background-color: rgb(177, 177, 177);
+    border-radius: 10px;
+}
+
 .containerLixeira{
     height: 100%;
     margin-right: 1.7%;
