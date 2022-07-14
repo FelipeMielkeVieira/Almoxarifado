@@ -96,9 +96,10 @@ p:hover {
     width: 100%;    
 }
 
-.containerDevolucoes{
+.containerDevolucoes, .containerRetirada{
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     flex-direction: row;
     width: 100%;  
     margin-top: 1%;
@@ -111,12 +112,6 @@ p:hover {
     margin-top: 1%;
 }
 
-.containerRetirada{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-top: 1%;
-}
 
 .containerUsuario {
     width: 22.5rem;
@@ -333,45 +328,30 @@ p:hover {
     margin-bottom: 10%;
 }
 
-#gerenciarCadastros,
-#devolucoes,
-#retirada,
-#listaItens,
-#localizacoes{
-    width: 10.625rem;
+.semAzul {
+    padding: 5px 10px;
     background-color: #fff;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.466);
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
 }
 
-#gerenciarUsuarios:hover,
-#gerenciarCadastros:hover,
-#devolucoes:hover,
-#retirada:hover,
-#listaItens:hover,
-#localizacoes:hover {
-    cursor: pointer;
+.semAzul:hover {
     background-color: rgb(212, 212, 212);
 }
 
-#gerenciarUsuarios{
-    width: 10.625rem;
+.comAzul {
+    padding: 5px 10px;
     background-color: #0047B6;
+    border: 1px solid rgba(0, 0, 0, 0.466);
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
     color: #fff;
 }
 
-#gerenciarUsuarios:hover{
-    cursor: pointer;
-    background-color: #003180;
-}
-
-#gerenciarCadastros,
-#gerenciarUsuarios,
-#devolucoes,
-#retirada,
-#listaItens,
-#localizacoes{
-    padding: 5px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.466);
-    border-radius: 5px 5px 0 0;
+.comAzul:hover {
+    background-color: #003791;
 }
 
 #selecionarLocalizacao {

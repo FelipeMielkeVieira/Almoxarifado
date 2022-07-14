@@ -18,12 +18,12 @@
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
                 <div id="botoes">
-                    <button (click)="gerenciarUsuarios()" id="gerenciarUsuarios">Gerenciar usuários</button>
-                    <button (click)="gerenciarCadastros()" id="gerenciarCadastros">Gerenciar cadastros</button>
-                    <button (click)="baixaDevolucoes()" id="devolucoes">Baixa nas devoluções</button>
-                    <button (click)="confirmarRetirada()" id="retirada">Confirmar retirada</button>
-                    <button (click)="listaDeItens()" id="listaItens">Lista de itens</button>
-                    <button (click)="localizacoes()" id="localizacoes">Localizações</button>
+                    <button (click)="gerenciarUsuarios()" id="gerenciarUsuarios" class="comAzul">Gerenciar usuários</button>
+                    <button (click)="gerenciarCadastros()" id="gerenciarCadastros" class="semAzul">Gerenciar cadastros</button>
+                    <button (click)="baixaDevolucoes()" id="devolucoes" class="semAzul">Baixa nas devoluções</button>
+                    <button (click)="confirmarRetirada()" id="retirada" class="semAzul">Confirmar retirada</button>
+                    <button (click)="listaDeItens()" id="listaItens" class="semAzul">Lista de itens</button>
+                    <button (click)="localizacoes()" id="localizacoes" class="semAzul">Localizações</button>
                 </div>
                 <div id="risco"></div>
                 <div *ngIf="gerenciaCadastros == 1" class="usuarios">
