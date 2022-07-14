@@ -223,6 +223,18 @@ p:hover {
     top: 30%;
     border: solid 1px black;
     background-color: #fff;
+    animation:fadein 0.5s;
+}
+
+@keyframes fadein {
+	from {
+        margin-top: -10px;
+		opacity:0;
+	}
+	to {
+        margin-top: 0px;
+		opacity:1;
+	}
 }
 
 .linhaAzul {
@@ -340,6 +352,7 @@ p:hover {
     border: 1px solid rgba(0, 0, 0, 0.466);
     border-radius: 5px 5px 0 0;
     cursor: pointer;
+    transition:ease-out 0.2s;
 }
 
 .semAzul:hover {

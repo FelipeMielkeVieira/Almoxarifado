@@ -95,6 +95,18 @@
     width: 31%;
     border-radius: 0.3rem;
     background-color: white;
+    animation:fadein 0.5s;
+}
+
+@keyframes fadein {
+	from {
+        margin-top: -10px;
+		opacity:0;
+	}
+	to {
+        margin-top: 0px;
+		opacity:1;
+	}
 }
 
 .riscoAzul {

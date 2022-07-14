@@ -24,10 +24,16 @@ export class ItemComponent implements OnInit {
 
   abrirModalItem() {
     this.aparecer = true;
+    console.log(this.item)
   }
 
   fecharModal() {
     this.aparecer = false;
+  }
+
+  buscarClassificacao(codigoClassificacao) {
+    
+    return "Classificação"
   }
 
 }
