@@ -156,6 +156,7 @@ p {
 
 #baixaDevolucoesModal {
     width: 40%;
+    min-width: 420px;
     border-radius: 7px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.3);
@@ -210,6 +211,7 @@ p {
 
 .imgItemBaixaDevolucao {
     width: 80%;
+    min-width: 100px;
 }
 
 .parteDireitaItemBaixaDevolucao {
@@ -570,4 +572,9 @@ p {
     font-size: 23px;
     margin-top: 1.875rem;   
     cursor: pointer;
+}
+
+#containerLocalizacoes {
+    display: flex;
+    flex-wrap: wrap;
 }

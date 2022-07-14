@@ -22,16 +22,26 @@ export class HomeAtendenteComponent implements OnInit {
   nao: boolean = false;
   cadastroProduto: number = 0;
   codUser: number;
+  listaItens2;
+
+  paredeCentro = [];
+  armario = [];
+  porta = [];
+  localizacoesFiltradas = [];
+  localizacaoAtual = "paredeCentro";
 
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
     this.codUser = parseInt(localStorage.getItem('usuario'));
     this.cadastroProduto = parseInt(localStorage.getItem('usuario'));
+
+    this.paredeCentro = service.paredeCentro;
+    this.armario = service.armario;
+    this.porta = service.porta;
   }
 
-  listaItens2;
-
   ngOnInit() {
+    this.filtrarLocalizacao();
   }
 
   aparecerModalLocalizacao() {
@@ -66,7 +76,7 @@ export class HomeAtendenteComponent implements OnInit {
     semAzul2.className = "semAzul"
     let semAzul3 = document.querySelector('#listaItens') as HTMLElement;
     semAzul3.className = "semAzul"
-    if(this.codUser == 3) {
+    if (this.codUser == 3) {
       let comAzul = document.querySelector('#localizacoes') as HTMLElement;
       comAzul.className = "comAzul"
     }
@@ -83,12 +93,12 @@ export class HomeAtendenteComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
     semAzul2.className = "semAzul"
-    if(this.codUser == 3) {
+    if (this.codUser == 3) {
       let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
       semAzul3.className = "semAzul"
     }
     let comAzul = document.querySelector('#listaItens') as HTMLElement;
-    comAzul.className = "comAzul" 
+    comAzul.className = "comAzul"
   }
 
   telaConfirmarRetirada() {
@@ -101,12 +111,12 @@ export class HomeAtendenteComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    if(this.codUser == 3) {
+    if (this.codUser == 3) {
       let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
       semAzul3.className = "semAzul"
     }
     let comAzul = document.querySelector('#confirmarRetirada') as HTMLButtonElement;
-    comAzul.className = "comAzul" 
+    comAzul.className = "comAzul"
 
   }
 
@@ -120,7 +130,7 @@ export class HomeAtendenteComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    if(this.codUser == 3) {
+    if (this.codUser == 3) {
       let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
       semAzul3.className = "semAzul"
     }
@@ -158,9 +168,53 @@ export class HomeAtendenteComponent implements OnInit {
     this.devolucaoModal = true;
   }
 
-  cadastrar(){
+  cadastrar() {
     this.aparecer = false;
     this.cadastrarModal = false;
   }
 
+  filtrarLocalizacao() {
+    if(this.localizacaoAtual == "paredeCentro") {
+      this.localizacoesFiltradas = this.paredeCentro;
+    }
+    if(this.localizacaoAtual == "armario") {
+      this.localizacoesFiltradas = this.armario;
+    }
+    if(this.localizacaoAtual == "porta") {
+      this.localizacoesFiltradas = this.porta;
+    }
+  }
+
+  excluirLocalizacao(index) {
+    let loc = this.localizacoesFiltradas[index];
+    let index1 = this.service.paredeCentro.findIndex((e) => {
+      if(e.nome == loc.nome) {
+        return true;
+      };
+      return false;
+    })
+    if(index1 != -1) {
+      this.service.paredeCentro.splice(index1, 1);
+    }
+
+    let index2 = this.service.armario.findIndex((e) => {
+      if(e.nome == loc.nome) {
+        return true;
+      };
+      return false;
+    })
+    if(index2 != -1) {
+      this.service.armario.splice(index2, 1);
+    }
+
+    let index3 = this.service.porta.findIndex((e) => {
+      if(e.nome == loc.nome) {
+        return true;
+      };
+      return false;
+    })
+    if(index3 != -1) {
+      this.service.porta.splice(index3, 1);
+    }
+  }
 }

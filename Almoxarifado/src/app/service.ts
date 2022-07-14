@@ -39,6 +39,68 @@ export class UsersService {
         {id: 3, nome: "Chave alanca", caracteristicas: "Chave alanca", quantidade: 5, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6}
     ]
 
+    sacolas = [
+
+    ]
+
+    sacolaProduto = [
+
+    ]
+
+    reserva = [
+
+    ]
+
+    reservaProduto = [
+
+    ]
+
+    produtoLocalizacao = [
+        {id: 1, produtoId: 1, portaId: 9, paredeCentroId: 1, armarioId: 2},
+        {id: 2, produtoId: 2, portaId: 6, paredeCentroId: 1, armarioId: 2},
+        {id: 3, produtoId: 3, portaId: 8, paredeCentroId: 2, armarioId: 1}
+    ]
+
+    paredeCentro = [
+        {id: 1, nome: "P1"},
+        {id: 2, nome: "P2"},
+        {id: 3, nome: "P3"},
+        {id: 4, nome: "P4"},
+        {id: 5, nome: "CE"},
+        {id: 6, nome: "CD"}
+    ]
+
+    armario = [
+        {id: 1, nome: "A1"},
+        {id: 2, nome: "A2"},
+        {id: 3, nome: "A3"},
+        {id: 4, nome: "A4"},
+        {id: 5, nome: "A5"}
+    ]
+
+    porta = [
+        {id: 1, nome: "1"},
+        {id: 2, nome: "2"},
+        {id: 3, nome: "3"},
+        {id: 4, nome: "4"},
+        {id: 5, nome: "5"},
+        {id: 6, nome: "6"},
+        {id: 7, nome: "7"},
+        {id: 8, nome: "8"},
+        {id: 9, nome: "9"},
+        {id: 10, nome: "10"},
+        {id: 11, nome: "11"},
+        {id: 12, nome: "12"},
+        {id: 13, nome: "13"},
+        {id: 14, nome: "14"},
+        {id: 15, nome: "15"},
+        {id: 16, nome: "16"},
+        {id: 17, nome: "17"},
+        {id: 18, nome: "18"},
+        {id: 19, nome: "19"},
+        {id: 20, nome: "20"}
+    ]
+
     // findAll(): Observable<Object[]> {
     //     return this.httpClient.get<Object[]>('http://localhost:3000/users');
     // }

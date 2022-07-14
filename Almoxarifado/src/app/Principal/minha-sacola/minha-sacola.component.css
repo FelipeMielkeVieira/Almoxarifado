@@ -8,6 +8,16 @@ body {
     margin: 0;
 }
 
+p {
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+p:hover {
+    color: #0047B6;
+}
+
 .divMain {
     display: flex;
     justify-content: center;
@@ -19,7 +29,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75%;
+    width: 23rem;
     height: 9rem;
     border-radius: 8px;
     border: solid 1px black;
@@ -107,7 +117,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 78%;
+    width: 30rem;
     height: 35rem;
     border: solid 0.5px black;
     border-radius: 10px;
@@ -121,7 +131,7 @@ body {
 }
 
 .containerData {
-    width: 65%;
+    width: 20rem;
     height: 13%;
     border: solid 0.5px black;
     border-radius: 5px;
@@ -192,5 +202,22 @@ body {
     align-items: center;
     width: 50%;
     height: 1px;
-    margin-top: 5%;
+    margin-top: 3%;
+}
+
+#casa {
+    width: 22px;
+    cursor: pointer;
+}
+
+#maior {
+    padding: 0 2px;
+    width: 18px;
+}
+
+#caminho {
+    display: flex;
+    align-items: center;
+    margin-top: 1.2rem;
+    margin-left: 5.5rem;
 }

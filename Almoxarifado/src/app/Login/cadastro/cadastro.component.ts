@@ -31,7 +31,6 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-
     if(this.email && this.usuario && this.senhaUser) {
       if(this.senhaUser == this.repetirSenhaUser && this.senhaUser != '' && this.senhaUser) {
         localStorage.setItem('cadastro', '1');
