@@ -162,17 +162,6 @@ p {
     animation:fadein 0.5s;
 }
 
-@keyframes fadein {
-	from {
-        margin-top: -10px;
-		opacity:0;
-	}
-	to {
-        margin-top: 0px;
-		opacity:1;
-	}
-}
-
 #containerDevolucaoModal {
     display: flex;
     flex-direction: column;
@@ -264,17 +253,6 @@ p {
     animation:fadein 0.5s;
 } 
 
-@keyframes fadein {
-	from {
-        margin-top: -10px;
-		opacity:0;
-	}
-	to {
-        margin-top: 0px;
-		opacity:1;
-	}
-}
-
 #containerInformarDefeitoModal {
     padding: 0.6rem 1.5rem 1.5rem 1.5rem;
 }
@@ -331,6 +309,7 @@ p {
     border-radius: 7px;
     min-width: 200px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+    animation:fadein 0.5s;
 }
 
 #containerModalCadastrar{
@@ -340,6 +319,18 @@ p {
     border-radius: 7px;
     min-width: 200px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+    animation:fadein 0.5s;
+}
+
+@keyframes fadein {
+	from {
+        margin-top: -10px;
+		opacity:0;
+	}
+	to {
+        margin-top: 0px;
+		opacity:1;
+	}
 }
 
 #riscoAzul {

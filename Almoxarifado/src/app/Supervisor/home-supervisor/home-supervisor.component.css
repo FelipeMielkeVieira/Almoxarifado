@@ -223,6 +223,18 @@ p:hover {
     top: 30%;
     border: solid 1px black;
     background-color: #fff;
+    animation:fadein 0.5s;
+}
+
+@keyframes fadein {
+	from {
+        margin-top: -10px;
+		opacity:0;
+	}
+	to {
+        margin-top: 0px;
+		opacity:1;
+	}
 }
 
 .linhaAzul {
