@@ -12,6 +12,7 @@ body{
     width: 30rem; 
     border-radius: 5px;
     border: solid 0.5px black;
+    margin-bottom: 2%;
 }
 
 .containerReserva:hover {
