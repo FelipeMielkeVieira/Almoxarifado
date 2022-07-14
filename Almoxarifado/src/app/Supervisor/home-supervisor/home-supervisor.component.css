@@ -99,7 +99,7 @@ p:hover {
 .containerDevolucoes, .containerRetirada{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
     width: 100%;  
     margin-top: 1%;

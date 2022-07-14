@@ -9,7 +9,7 @@ body{
 .containerReserva{
     display: flex;
     flex-direction: row;
-    width: 30rem; 
+    width: 35rem; 
     border-radius: 5px;
     border: solid 0.5px black;
     margin-bottom: 2%;
