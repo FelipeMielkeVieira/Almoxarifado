@@ -68,7 +68,7 @@ export class HomeAtendenteComponent implements OnInit {
     semAzul3.className = "semAzul"
     if(this.codUser == 3) {
       let comAzul = document.querySelector('#localizacoes') as HTMLElement;
-      semAzul3.className = "comAzul"
+      comAzul.className = "comAzul"
     }
 
   }

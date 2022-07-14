@@ -53,25 +53,20 @@ export class HomeSupervisorComponent implements OnInit {
     this.listaItens = 0;
     this.contLocalizacoes = 0;
 
-    let botaoAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
+    let semAzul1 = document.querySelector('#retirada') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
+    semAzul2.className = "semAzul"
+    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+    semAzul3.className = "semAzul"
+    let semAzul4 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+    semAzul4.className = "semAzul"
+    let semAzul5 = document.querySelector('#devolucoes') as HTMLElement;
+    semAzul5.className = "semAzul"
 
-    let botaoSemAzul = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    botaoSemAzul.style.backgroundColor = '#ffff';
-    botaoSemAzul.style.color = '#000';
-    let botaoSemAzul2 = document.querySelector('#devolucoes') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-    let botaoSemAzul3 = document.querySelector('#retirada') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
-    let botaoSemAzul4 = document.querySelector('#listaItens') as HTMLElement;
-    botaoSemAzul4.style.backgroundColor = '#ffff';
-    botaoSemAzul4.style.color = '#000';
-    let botaoSemAzul5 = document.querySelector('#localizacoes') as HTMLElement;
-    botaoSemAzul5.style.backgroundColor = '#ffff';
-    botaoSemAzul5.style.color = '#000';
+
+    let comAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
+    comAzul.className = "comAzul"
   }
 
   gerenciarUsuarios() {
@@ -82,25 +77,20 @@ export class HomeSupervisorComponent implements OnInit {
     this.listaItens = 0;
     this.contLocalizacoes = 0;
 
-    let botaoAzul = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
+    let semAzul1 = document.querySelector('#retirada') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
+    semAzul2.className = "semAzul"
+    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+    semAzul3.className = "semAzul"
+    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+    semAzul4.className = "semAzul"
+    let semAzul5 = document.querySelector('#devolucoes') as HTMLElement;
+    semAzul5.className = "semAzul"
 
-    let botaoSemAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    botaoSemAzul.style.backgroundColor = '#ffff';
-    botaoSemAzul.style.color = '#000';
-    let botaoSemAzul2 = document.querySelector('#devolucoes') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-    let botaoSemAzul3 = document.querySelector('#retirada') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
-    let botaoSemAzul4 = document.querySelector('#listaItens') as HTMLElement;
-    botaoSemAzul4.style.backgroundColor = '#ffff';
-    botaoSemAzul4.style.color = '#000';
-    let botaoSemAzul5 = document.querySelector('#localizacoes') as HTMLElement;
-    botaoSemAzul5.style.backgroundColor = '#ffff';
-    botaoSemAzul5.style.color = '#000';
+
+    let comAzul = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+    comAzul.className = "comAzul"
   }
 
   baixaDevolucoes() {
@@ -111,25 +101,20 @@ export class HomeSupervisorComponent implements OnInit {
     this.listaItens = 0;
     this.contLocalizacoes = 0;
 
-    let botaoAzul = document.querySelector('#devolucoes') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
+    let semAzul1 = document.querySelector('#retirada') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
+    semAzul2.className = "semAzul"
+    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+    semAzul3.className = "semAzul"
+    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+    semAzul4.className = "semAzul"
+    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+    semAzul5.className = "semAzul"
 
-    let botaoSemAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    botaoSemAzul.style.backgroundColor = '#ffff';
-    botaoSemAzul.style.color = '#000';
-    let botaoSemAzul2 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-    let botaoSemAzul3 = document.querySelector('#retirada') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
-    let botaoSemAzul4 = document.querySelector('#listaItens') as HTMLElement;
-    botaoSemAzul4.style.backgroundColor = '#ffff';
-    botaoSemAzul4.style.color = '#000';
-    let botaoSemAzul5 = document.querySelector('#localizacoes') as HTMLElement;
-    botaoSemAzul5.style.backgroundColor = '#ffff';
-    botaoSemAzul5.style.color = '#000';
+
+    let comAzul = document.querySelector('#devolucoes') as HTMLElement;
+    comAzul.className = "comAzul"
   }
 
   confirmarRetirada() {
@@ -140,25 +125,20 @@ export class HomeSupervisorComponent implements OnInit {
     this.listaItens = 0;
     this.contLocalizacoes = 0;
 
-    let botaoAzul = document.querySelector('#retirada') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
+    let semAzul1 = document.querySelector('#devolucoes') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
+    semAzul2.className = "semAzul"
+    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+    semAzul3.className = "semAzul"
+    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+    semAzul4.className = "semAzul"
+    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+    semAzul5.className = "semAzul"
 
-    let botaoSemAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    botaoSemAzul.style.backgroundColor = '#ffff';
-    botaoSemAzul.style.color = '#000';
-    let botaoSemAzul2 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-    let botaoSemAzul3 = document.querySelector('#devolucoes') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
-    let botaoSemAzul4 = document.querySelector('#listaItens') as HTMLElement;
-    botaoSemAzul4.style.backgroundColor = '#ffff';
-    botaoSemAzul4.style.color = '#000';
-    let botaoSemAzul5 = document.querySelector('#localizacoes') as HTMLElement;
-    botaoSemAzul5.style.backgroundColor = '#ffff';
-    botaoSemAzul5.style.color = '#000';
+
+    let comAzul = document.querySelector('#retirada') as HTMLElement;
+    comAzul.className = "comAzul"
   }
 
   listaDeItens() {
@@ -169,25 +149,20 @@ export class HomeSupervisorComponent implements OnInit {
     this.gerenciaCadastros = 0;
     this.contLocalizacoes = 0;
 
-    let botaoAzul = document.querySelector('#listaItens') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
+    let semAzul1 = document.querySelector('#devolucoes') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#retirada') as HTMLElement;
+    semAzul2.className = "semAzul"
+    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+    semAzul3.className = "semAzul"
+    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+    semAzul4.className = "semAzul"
+    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+    semAzul5.className = "semAzul"
 
-    let botaoSemAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    botaoSemAzul.style.backgroundColor = '#ffff';
-    botaoSemAzul.style.color = '#000';
-    let botaoSemAzul2 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-    let botaoSemAzul3 = document.querySelector('#devolucoes') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
-    let botaoSemAzul4 = document.querySelector('#retirada') as HTMLElement;
-    botaoSemAzul4.style.backgroundColor = '#ffff';
-    botaoSemAzul4.style.color = '#000';
-    let botaoSemAzul5 = document.querySelector('#localizacoes') as HTMLElement;
-    botaoSemAzul5.style.backgroundColor = '#ffff';
-    botaoSemAzul5.style.color = '#000';
+
+    let comAzul = document.querySelector('#listaItens') as HTMLElement;
+    comAzul.className = "comAzul"
   }
 
   localizacoes() {
@@ -198,25 +173,20 @@ export class HomeSupervisorComponent implements OnInit {
     this.gerenciaUsuarios = 0;
     this.gerenciaCadastros = 0;
 
-    let botaoAzul = document.querySelector('#localizacoes') as HTMLElement;
-    botaoAzul.style.backgroundColor = '#0047B6';
-    botaoAzul.style.color = '#ffff'
+    let semAzul1 = document.querySelector('#devolucoes') as HTMLElement;
+    semAzul1.className = "semAzul"
+    let semAzul2 = document.querySelector('#retirada') as HTMLElement;
+    semAzul2.className = "semAzul"
+    let semAzul3 = document.querySelector('#listaItens') as HTMLElement;
+    semAzul3.className = "semAzul"
+    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+    semAzul4.className = "semAzul"
+    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+    semAzul5.className = "semAzul"
 
-    let botaoSemAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    botaoSemAzul.style.backgroundColor = '#ffff';
-    botaoSemAzul.style.color = '#000';
-    let botaoSemAzul2 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    botaoSemAzul2.style.backgroundColor = '#ffff';
-    botaoSemAzul2.style.color = '#000';
-    let botaoSemAzul3 = document.querySelector('#devolucoes') as HTMLElement;
-    botaoSemAzul3.style.backgroundColor = '#ffff';
-    botaoSemAzul3.style.color = '#000';
-    let botaoSemAzul4 = document.querySelector('#retirada') as HTMLElement;
-    botaoSemAzul4.style.backgroundColor = '#ffff';
-    botaoSemAzul4.style.color = '#000';
-    let botaoSemAzul5 = document.querySelector('#listaItens') as HTMLElement;
-    botaoSemAzul5.style.backgroundColor = '#ffff';
-    botaoSemAzul5.style.color = '#000';
+
+    let comAzul = document.querySelector('#localizacoes') as HTMLElement;
+    comAzul.className = "comAzul"
   }
 
 }

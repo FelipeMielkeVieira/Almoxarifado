@@ -47,7 +47,7 @@ p {
     color: #fff;
 }
 
-.comAzul {
+.comAzul:hover {
     background-color: #003791;
 }
 
