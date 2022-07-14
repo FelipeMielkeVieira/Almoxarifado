@@ -24,7 +24,8 @@ header{
 
 a span{
     display: flex;
-    padding: 0px 2rem;
+    padding: 0 0 0 1rem;
+    /* padding: 0px 2rem; */
     font-size: 14px;
 }
 
@@ -175,7 +176,7 @@ a:hover {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 37rem;  
+    height: 37rem;
     overflow: auto;
 }
 
