@@ -555,3 +555,8 @@ p {
     margin-top: 1.875rem;   
     cursor: pointer;
 }
+
+#containerLocalizacoes {
+    display: flex;
+    flex-wrap: wrap;
+}

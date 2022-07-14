@@ -211,18 +211,15 @@
         </div>
 
         <div *ngIf="localizacao == 1" id="conteudoLocalizacoes">
-            <select id="selecionarLocalizacao">
-                <option value="paredeCentro">Parede / Centro</option>
-                <option value="armario" selected>Armário</option>
+            <select id="selecionarLocalizacao" [(ngModel)]="localizacaoAtual" (change)="filtrarLocalizacao(t)">
+                <option value="paredeCentro" selected>Parede / Centro</option>
+                <option value="armario">Armário</option>
                 <option value="porta">Porta</option>
             </select>
             <div id="containerLocalizacoes">
-                <div id="divLocalizacao">
-                    <p>
-                        {{localizacaoNome}}
-                        P1
-                    </p>
-                    <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo">
+                <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
+                    <p>{{loc.nome}}</p>
+                    <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo" (click)="excluirLocalizacao(i)">
                 </div>
                 <!-- <div *ngFor="let localizacao of listaLocalizacoes" id="divLocalizacao">
                 <p>

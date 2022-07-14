@@ -10,12 +10,22 @@ export class HomeSupervisorComponent implements OnInit {
 
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
+    this.paredeCentro = service.paredeCentro;
+    this.armario = service.armario;
+    this.porta = service.porta;
   }
 
   listaItens2;
 
   ngOnInit() {
+    this.filtrarLocalizacao();
   }
+
+  localizacaoAtual = "paredeCentro";
+  localizacoesFiltradas = [];
+  paredeCentro = [];
+  armario = [];
+  porta = [];
 
   contadorRecusar = 0;
   contadorAceitar = 0;
@@ -187,6 +197,51 @@ export class HomeSupervisorComponent implements OnInit {
 
     let comAzul = document.querySelector('#localizacoes') as HTMLElement;
     comAzul.className = "comAzul"
+  }
+
+  filtrarLocalizacao() {
+    if(this.localizacaoAtual == "paredeCentro") {
+      this.localizacoesFiltradas = this.paredeCentro;
+    }
+    if(this.localizacaoAtual == "armario") {
+      this.localizacoesFiltradas = this.armario;
+    }
+    if(this.localizacaoAtual == "porta") {
+      this.localizacoesFiltradas = this.porta;
+    }
+  }
+
+  excluirLocalizacao(index) {
+    let loc = this.localizacoesFiltradas[index];
+    let index1 = this.service.paredeCentro.findIndex((e) => {
+      if(e.nome == loc.nome) {
+        return true;
+      };
+      return false;
+    })
+    if(index1 != -1) {
+      this.service.paredeCentro.splice(index1, 1);
+    }
+
+    let index2 = this.service.armario.findIndex((e) => {
+      if(e.nome == loc.nome) {
+        return true;
+      };
+      return false;
+    })
+    if(index2 != -1) {
+      this.service.armario.splice(index2, 1);
+    }
+
+    let index3 = this.service.porta.findIndex((e) => {
+      if(e.nome == loc.nome) {
+        return true;
+      };
+      return false;
+    })
+    if(index3 != -1) {
+      this.service.porta.splice(index3, 1);
+    }
   }
 
 }
