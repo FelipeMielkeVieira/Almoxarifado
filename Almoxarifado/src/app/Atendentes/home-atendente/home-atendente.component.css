@@ -403,3 +403,159 @@ p {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+/* Modal cadastrar produto */
+
+.containerModalCadastrar{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imgRele{
+    width: 13rem;
+}
+
+.imgFechar{
+    position: absolute;
+    left: 54%;
+    width: 1rem;
+    cursor: pointer;
+}
+
+.divImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6.25rem;
+}
+
+.selecionarImg{
+    background-color: #fff;
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 13.625rem;
+    height: 31px;
+    cursor: pointer;
+}
+
+.inputsCadastro{
+    width: 13rem;
+    height: 30px;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.inputDescricao{
+    width: 13rem;
+    height: 80px;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.nomeProduto{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.classificacao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.descricao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.localizacao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.opcao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anexo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.625rem;
+}
+
+.containerInput{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#localizacaoProduto {
+    width: 4.12rem;
+    height: 1.8rem; 
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    margin: 2px;
+}
+
+#selecionarDescartavel{
+    width: 9.5rem;
+    height: 1.8rem;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.inputQtd{
+    width: 4.563rem;
+    height: 1.8rem;
+}
+
+.addAnexo{
+    width: 9.188rem;
+    height: 31px;
+    border: solid 1px black;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.botaoCadastrar{
+    width: 10.938rem;
+    height: 3.188rem;
+    background-color: #0047B6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 23px;
+    margin-top: 1.875rem;   
+    cursor: pointer;
+}
