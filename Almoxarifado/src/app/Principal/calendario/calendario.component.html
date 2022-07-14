@@ -1,25 +1,23 @@
-<body style="width: 100vw; height: 100vh;">
-  <div class="modalCalendario">
-    <div class="headerCalendario">
-      <img src="../../../assets/seta.png" class="imgSeta1" (click)="onPreviousMonth()">
-      <span class="mesAno"> {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; - &nbsp; {{ year }} </span>
-      <img src="../../../assets/seta.png" class="imgSeta2" (click)="onNextMonth()">
+<div class="modalCalendario">
+  <div class="headerCalendario">
+    <img src="../../../assets/seta.png" class="imgSeta1" (click)="onPreviousMonth()">
+    <span class="mesAno"> {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; - &nbsp; {{ year }} </span>
+    <img src="../../../assets/seta.png" class="imgSeta2" (click)="onNextMonth()">
+  </div>
+  <div class="divCalendario">
+    <div class="calendar">
+      <span *ngFor='let weekDay of weekDaysName' class="week">
+        {{ weekDay }}
+      </span>
+
+      <span (click)="selecionarDia(day)" *ngFor='let day of monthDays' class="day"
+        id="Dia{{day.number}}Mes{{day.monthIndex}}Ano{{day.year}}">
+        {{ day.number }}
+      </span>
     </div>
-    <div class="divCalendario">
-      <div class="calendar">
-        <span *ngFor='let weekDay of weekDaysName' class="week">
-          {{ weekDay }}
-        </span>
-      
-        <span (click)="selecionarDia(day)" *ngFor='let day of monthDays' class="day"
-          id="Dia{{day.number}}Mes{{day.monthIndex}}Ano{{day.year}}">
-          {{ day.number }}
-        </span>
-      </div>
-      <div class="inputs">
-        <input type="time" class="inputHora" id="inputHora" [(ngModel)]="horaSelecionada">
-        <button class="botaoSalvar" (click)="salvar()">Salvar</button>
-      </div>
+    <div class="inputs">
+      <input type="time" class="inputHora" id="inputHora" [(ngModel)]="horaSelecionada">
+      <button class="botaoSalvar" (click)="salvar()">Salvar</button>
     </div>
   </div>
-</body>
+</div>

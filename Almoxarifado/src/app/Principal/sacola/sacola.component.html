@@ -1,18 +1,20 @@
 <body style="margin-top: 50px; margin-left: 50px;">
+  <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>
+  <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario>
   <div id="containerSacola">
     <div id="container">
       <div id="divisaoCentral">
         <div id="parteEsquerda">
           <h2 class="dataTitulo">Data de retirada:</h2>
           <div class="dataInput">
-            <img class="calendario" src="./assets/calendario.png" alt="Calendário">
+            <img class="calendario" src="./assets/calendario.png" alt="Calendário" (click)="abrirCalendario1()">
             <div class="dataTexto">
               <p id="dataRetirada">{{ dataRetirada }}</p>
             </div>
           </div>
           <h2 class="dataTitulo" style="margin-top: 1rem">Data de devolução:</h2>
           <div class="dataInput">
-            <img class="calendario" src="./assets/calendario.png" alt="Calendário">
+            <img class="calendario" src="./assets/calendario.png" alt="Calendário" (click)="abrirCalendario2()">
             <div class="dataTexto">
               <p id="dataDevolucao">{{ dataDevolucao }}</p>
             </div>

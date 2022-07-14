@@ -45,6 +45,10 @@
     width: 10%;
 }
 
+.calendario:hover {
+    cursor: pointer;
+}
+
 .dataTexto {
     width: 100%;
 }
@@ -170,4 +174,12 @@
     margin: 5px;
     background-color: #0047B6;
     cursor: pointer;
+}
+
+#dataRetirada {
+    font-size: 20px;
+}
+
+#dataDevolucao {
+    font-size: 20px;
 }
