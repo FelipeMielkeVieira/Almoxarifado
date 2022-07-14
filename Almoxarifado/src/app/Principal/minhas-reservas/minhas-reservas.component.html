@@ -22,10 +22,10 @@
             <div id="risco"></div>
             <!-- <app-reserva *ngFor="let reserva of listaReservas"></app-reserva> -->
             <div id="containerReservas">
-                <app-reserva class="reserva"></app-reserva>
-                <app-reserva class="reserva"></app-reserva>
-                <app-reserva class="reserva"></app-reserva>
-                <app-reserva class="reserva"></app-reserva>
+                <app-reserva class="reserva" [corStatus]="vermelho"></app-reserva>
+                <app-reserva class="reserva" [corStatus]="amarelo"></app-reserva>
+                <app-reserva class="reserva" [corStatus]="verde"></app-reserva>
+                <app-reserva class="reserva" [corStatus]="verde"></app-reserva>
             </div>
         </div>
     </div>
