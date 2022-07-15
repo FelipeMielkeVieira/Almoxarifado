@@ -16,7 +16,7 @@ export class ReservaComponent implements OnInit {
     const status = document.querySelector("#status") as HTMLElement;
     console.log("status: ", status)
     switch (this.corStatus) {
-      case "vermelhor":
+      case "vermelho":
         status.style.backgroundColor = "red";
         break;
       case "amarelo":
@@ -31,8 +31,8 @@ export class ReservaComponent implements OnInit {
     }
   }
 
-  addColor() {
-    console.log(this.corStatus);
+  addColor(cor) {
+    console.log(cor);
   }
 
 }
