@@ -272,7 +272,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/professor'])
     } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
       this.router.navigate(['/atendente']);
-    } else if (localStorage.getItem('usuario') == '3') {
+    } else if (localStorage.getItem('usuario') == '4') {
       this.router.navigate(['/supervisor'])
     }
   }

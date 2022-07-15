@@ -30,7 +30,7 @@
       <span class="nomeUser">{{nomeUsuario}}</span>
       <span class="emailUser">{{emailUsuario}}</span>
       <hr style="width: 80%;">
-      <div class="divOpcao">
+      <div *ngIf="usuarioTipo == 1" class="divOpcao">
         <img src="../../../assets/agenda.png" class="imgsUser">
         <span class="spanUser" (click)="navegar('/professor/reservas')">Minhas Reservas</span>
       </div>

@@ -41,13 +41,13 @@
                             <div class="containerIconQtd">
                                 <img src="../../../assets/menos.png" alt="" class="menosQtdIcon">
                             </div>
-                            <span>qtd</span>
+                            <span>0</span>
                             <div class="containerIconQtd">
                                 <img src="../../../assets/mais.png" alt="" class="maisQtdIcon">
                             </div>
                         </div>
                     </div>
-                    <p class="qtdMax">Máx: XX</p>
+                    <p class="qtdMax">Máx: {{item.quantidade}}</p>
                 </div>
             </div>
 
@@ -79,12 +79,13 @@
                     </div>
                 </div>
             </div>
-
+            <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>
             <div class="containerAcoes">
                 <button class="btnModal">
                     Reservar Agora
                 </button>
                 <div class="containerSacolaModal">
+                    <img alt="Ver Detalhes" class="iconModal sacolaIcon">
                     <img src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola"
                         class="iconModal sacolaIcon">
                 </div>

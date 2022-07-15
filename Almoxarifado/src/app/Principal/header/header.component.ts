@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/service';
 export class HeaderComponent implements OnInit {
 
   user: number = 0;
+  usuarioTipo: number = 0;
 
   constructor(private router: Router, private service: UsersService) {}
 
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
         this.nomeUsuario = e.nome;
       }
     })
+    this.usuarioTipo = parseInt(localStorage.getItem('usuario'));
   }
 
   nomeUsuario: string;

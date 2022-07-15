@@ -36,6 +36,14 @@ export class HomeSupervisorComponent implements OnInit {
   listaItens = 0;
   contLocalizacoes = 0;
 
+  cadastrarModal = false;
+  aparecer = false;
+  localizacaoModal = false;
+
+  informarDefeitoModal: boolean = false;
+  devolucaoModal: boolean = false;
+  nao: boolean;
+
   modalRecusar() {
     this.contadorRecusar = 1;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
@@ -46,6 +54,61 @@ export class HomeSupervisorComponent implements OnInit {
     this.contadorAceitar = 1;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '0.5';
+  }
+
+  aparecerModalLocalizacao() {
+    this.aparecer = true;
+    this.localizacaoModal = true;
+  }
+
+  fecharModalLocalizacao() {
+    this.aparecer = false;
+    this.localizacaoModal = false;
+  }
+
+  aparecerModalCadastrar() {
+    this.aparecer = true;
+    this.cadastrarModal = true;
+  }
+
+  fecharModalCadastrar() {
+    this.aparecer = false;
+    this.cadastrarModal = false;
+  }
+
+  cadastrarProduto() {
+    this.aparecer = false;
+    this.cadastrarModal = false;
+  }
+
+  abrirDevolucao(numero) {
+    this.devolucaoModal = true;
+    this.aparecer = true;
+    if (numero == 2) {
+      this.nao = true;
+    } else {
+      this.nao = false;
+    }
+  }
+
+  fecharModalBaixaDevolucao() {
+    this.devolucaoModal = false;
+    this.aparecer = false;
+  }
+
+  darBaixaDevolucao() {
+    this.devolucaoModal = false;
+    this.aparecer = false;
+  }
+
+  informarDefeitoItem() {
+    this.devolucaoModal = false;
+    this.informarDefeitoModal = true;
+  }
+
+  voltarDevolucaoItens() {
+    this.informarDefeitoModal = false;
+    this.devolucaoModal = true;
   }
 
   cancelar() {

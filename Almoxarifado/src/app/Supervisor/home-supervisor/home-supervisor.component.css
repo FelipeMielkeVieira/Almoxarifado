@@ -44,7 +44,6 @@ p:hover {
 }
 
 #containerInput {
-    width: 80%;
     margin-bottom: 1.2rem;
 }
 
@@ -337,6 +336,7 @@ p:hover {
 .iconeLixeira:hover{
     background-color: rgb(177, 177, 177);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .containerLixeira{
@@ -412,5 +412,575 @@ p:hover {
 .lixo:hover {
     background-color: rgb(177, 177, 177);
     border-radius: 10px;
+    cursor: pointer;
 }
 
+#containerLocalizacoes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#botaoCadastrarLocalizacoes,
+#botaoCadastrarProduto {
+    padding: 0.5rem;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: #0047B6;
+    color: #fff;
+    cursor: pointer;
+}
+
+#botaoCadastrarLocalizacoes:hover,
+#botaoCadastrarProduto:hover {
+    background-color: #003180;
+}
+
+#containerLinhaInput {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Modal Cadastrar Produto */
+
+.containerModalCadastrar{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imgRele{
+    width: 13rem;
+}
+
+.imgFechar{
+    position: absolute;
+    left: 54%;
+    width: 1rem;
+    cursor: pointer;
+}
+
+.divImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6.25rem;
+}
+
+.selecionarImg{
+    background-color: #fff;
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 13.625rem;
+    height: 31px;
+    cursor: pointer;
+}
+
+.inputsCadastro{
+    width: 13rem;
+    height: 30px;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.inputDescricao{
+    width: 13rem;
+    height: 80px;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.nomeProduto{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.classificacao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.descricao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.localizacao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.opcao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anexo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.625rem;
+}
+
+.containerInput{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#localizacaoProduto {
+    width: 4.12rem;
+    height: 1.8rem; 
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    margin: 2px;
+}
+
+#selecionarDescartavel{
+    width: 9.5rem;
+    height: 1.8rem;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.inputQtd{
+    width: 4.563rem;
+    height: 1.8rem;
+}
+
+.addAnexo{
+    width: 9.188rem;
+    height: 31px;
+    border: solid 1px black;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.botaoCadastrar{
+    width: 10.938rem;
+    height: 3.188rem;
+    background-color: #0047B6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 23px;
+    margin-top: 1.875rem;   
+    cursor: pointer;
+}
+
+#containerLocalizacoes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#fundoModalLocalizacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    background-color:rgba(0, 0, 0, 0.349);
+}
+
+#containerModalLocalizacao {
+    width: 22rem;
+    height: 17rem;
+    background-color: #fff;
+    border-radius: 7px;
+    min-width: 200px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+    animation:fadein 0.5s;
+}
+
+#containerModalCadastrar{
+    width: 33.75rem;
+    height: 37.5rem;
+    background-color: #fff;
+    border-radius: 7px;
+    min-width: 200px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+    animation:fadein 0.5s;
+}
+
+@keyframes fadein {
+	from {
+        margin-top: -10px;
+		opacity:0;
+	}
+	to {
+        margin-top: 0px;
+		opacity:1;
+	}
+}
+
+#riscoAzul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10px;
+    background: #0047B6;
+    border-radius: 7px 7px 0px 0px;
+}
+
+#iconFechar {
+    width: 5%;
+    cursor: pointer;
+}
+
+#containerIcons {
+    display: flex;
+    justify-content: flex-end;
+    margin: 3% 3% 0 0;
+}
+
+#containerNome {
+    display: flex;
+}
+
+#containerNome, #containerClassificacao {
+    margin-left: 15%;
+}
+
+#inputNome {
+    margin-left: 3%;
+    padding: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    outline: none;
+    width: 40%;
+    font-weight: bold;
+}
+
+#containerCheckbox {
+    margin-left: 6%;
+    color: rgba(0, 0, 0, 0.815);
+    font-weight: 600;
+}
+
+#paredeCentro, #armario, #porta {
+    width: 15px;
+    height: 15px;
+    margin-right: 3%;
+}
+
+#botaoCadastrar {
+    margin-top: 5%;
+    padding: 0.5rem;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: #0047B6;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#botaoCadastrar:hover {
+    background-color: #003180;
+}
+
+#containerCadastrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#containerInformarMotivo {
+    border-radius: 0.3rem;
+    background-color: white;
+    animation:fadein 0.5s;
+} 
+
+#containerInformarDefeitoModal {
+    padding: 0.6rem 1.5rem 1.5rem 1.5rem;
+}
+
+.tituloInformarDefeito {
+    text-align: center;
+    color: #0047B6;
+    margin-bottom: 1rem;
+}
+
+#informarDefeitoInput {
+    width: 30vw;
+    height: 28vh;
+}
+
+.divBotoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+}
+
+#voltarInformarDefeito {
+    font-size: large;
+    width: 40%;
+}
+
+#salvarInformarDefeito {
+    font-size: large;
+    width: 55%;
+}
+
+#texteArea {
+    padding: 5px;
+    outline: none;
+}
+
+#baixaDevolucoesModal {
+    width: 40%;
+    min-width: 420px;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.3);
+    animation:fadein 0.5s;
+}
+
+#containerDevolucaoModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.riscoAzul {
+    width: 100%;
+    height: 12px;
+    background: #0047B6;
+    border: 0;
+    border-radius: 0.3rem 0.3rem 0px 0px;
+}
+
+.containerFechar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fecharIcone {
+    width: 3%;
+}
+
+.fecharIcone:hover {
+    cursor: pointer;
+}
+
+#quantidadeProduto {
+    margin-right: 13rem;
+}
+
+#listaItemsBaixaDevolucao {
+    list-style-type: none;
+}
+
+.containerConteudoBaixaDevolucao {
+    display: flex;
+    align-items: center;
+}
+
+.containerImgBaixaDevolucao {
+    width: 35%;
+}
+
+.imgItemBaixaDevolucao {
+    width: 80%;
+    min-width: 100px;
+}
+
+.parteDireitaItemBaixaDevolucao {
+    width: 100%;
+}
+
+.nomeItemBaixaDevolucao {
+    color: #0047B6;
+}
+
+.containerInfoItemBaixaDevolucao {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnDevolucaoModal {
+    background-color: #0047B6;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+}
+
+.btnDevolucaoModal:hover {
+    cursor: pointer;
+}
+
+.darBaixa {
+    font-size: large;
+    font-weight: 500;
+    margin: 2rem 0rem 0rem 0rem;
+    padding: 0.5rem 1.5rem;
+}
+#baixaDevolucoesModal {
+    width: 40%;
+    min-width: 420px;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.3);
+    animation:fadein 0.5s;
+}
+
+#containerDevolucaoModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.riscoAzul {
+    width: 100%;
+    height: 12px;
+    background: #0047B6;
+    border: 0;
+    border-radius: 0.3rem 0.3rem 0px 0px;
+}
+
+.containerFechar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fecharIcone {
+    width: 3%;
+}
+
+.fecharIcone:hover {
+    cursor: pointer;
+}
+
+#quantidadeProduto {
+    margin-right: 13rem;
+}
+
+#listaItemsBaixaDevolucao {
+    list-style-type: none;
+}
+
+.containerConteudoBaixaDevolucao {
+    display: flex;
+    align-items: center;
+}
+
+.containerImgBaixaDevolucao {
+    width: 35%;
+}
+
+.imgItemBaixaDevolucao {
+    width: 80%;
+    min-width: 100px;
+}
+
+.parteDireitaItemBaixaDevolucao {
+    width: 100%;
+}
+
+.nomeItemBaixaDevolucao {
+    color: #0047B6;
+}
+
+.containerInfoItemBaixaDevolucao {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnDevolucaoModal {
+    background-color: #0047B6;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+}
+
+.btnDevolucaoModal:hover {
+    cursor: pointer;
+}
+
+.darBaixa {
+    font-size: large;
+    font-weight: 500;
+    margin: 2rem 0rem 0rem 0rem;
+    padding: 0.5rem 1.5rem;
+}
+
+/* Informar motivo */
+
+#containerInformarMotivo {
+    border-radius: 0.3rem;
+    background-color: white;
+    animation:fadein 0.5s;
+} 
+
+#containerInformarDefeitoModal {
+    padding: 0.6rem 1.5rem 1.5rem 1.5rem;
+}
+
+.tituloInformarDefeito {
+    text-align: center;
+    color: #0047B6;
+    margin-bottom: 1rem;
+}
+
+#informarDefeitoInput {
+    width: 30vw;
+    height: 28vh;
+}
+
+.divBotoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+}
+
+#voltarInformarDefeito {
+    font-size: large;
+    width: 40%;
+}
+
+#salvarInformarDefeito {
+    font-size: large;
+    width: 55%;
+}
+
+#texteArea {
+    padding: 5px;
+    outline: none;
+}

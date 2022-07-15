@@ -1,3 +1,161 @@
+<div *ngIf="aparecer" id="fundoModalLocalizacao">
+    
+    <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
+        <hr class="riscoAzul">
+        <div id="containerDevolucaoModal">
+            <div class="containerFechar">
+                <img class="fecharIcone" (click)="fecharModalBaixaDevolucao()" src="../../../assets/close.png"
+                    alt="fechar">
+            </div>
+            <ul id="listaItemsBaixaDevolucao">
+                <li>
+                    <!-- *ngFor="let item of listaItemsBaixaDevolucao" -->
+                    <div class="containerConteudoBaixaDevolucao">
+                        <div class="containerImgBaixaDevolucao">
+                            <img class="imgItemBaixaDevolucao" src="../../../assets/Rele.png" alt="Relé térmico">
+                        </div>
+                        <div class="parteDireitaItemBaixaDevolucao">
+                            <h2 class="nomeItemBaixaDevolucao">Nome Produto</h2>
+                            <div class="containerInfoItemBaixaDevolucao">
+                                <!-- {{ item.posicao }} -->
+                                <p>posicao</p>
+                                <!-- {{ item.qtd }} -->
+                                <p *ngIf="!nao">qtd</p>
+                                <p *ngIf="nao" id="quantidadeProduto">qtd</p>
+                                <!-- informarDefeitoItem(item) -->
+                                <button *ngIf="!nao" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
+                                    Defeito</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <button *ngIf="!nao" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
+            <button *ngIf="nao" (click)="confirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar
+                retirada</button>
+        </div>
+    </div>
+
+    <div *ngIf="informarDefeitoModal" id="containerInformarMotivo">
+        <hr class="riscoAzul">
+        <div id="containerInformarDefeitoModal">
+            <div class="containerFechar">
+                <img class="fecharIcone" (click)="voltarDevolucaoItens()" src="../../../assets/close.png" alt="fechar">
+            </div>
+            <h2 class="tituloInformarDefeito">Informar Defeito</h2>
+            <div id="containerConteudoInformarDefeito">
+                <!-- <input type="textarea" id="informarDefeitoInput"> -->
+                <textarea id="texteArea" rows="15" cols="60" maxlength="500"></textarea>
+                <div class="divBotoes">
+                    <button (click)="voltarDevolucaoItens()" id="voltarInformarDefeito"
+                        class="btnDevolucaoModal">Voltar</button>
+                    <button (click)="voltarDevolucaoItens()" id="salvarInformarDefeito"
+                        class="btnDevolucaoModal">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
+        <hr class="riscoAzul">
+        <div id="containerIcons">
+            <img id="iconFechar" (click)="fecharModalLocalizacao()" src="../../../assets/close.png" alt="fechar">
+        </div>
+        <div id="dados">
+            <div id="containerNome">
+                <p>
+                    Nome:
+                </p>
+                <input id="inputNome" type="text" placeholder="Nome">
+            </div>
+            <div id="containerClassificacao">
+                <p style="margin-top: 15px">
+                    Classificação:
+                </p>
+                <div id="containerCheckbox">
+                    <div>
+                        <input type="radio" id="paredeCentro" name="drone" value="paredeCentro">
+                        <label for="paredeCentro">Parede/Centro</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="armario" name="drone" value="armario">
+                        <label for="armario">Armário</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="porta" name="drone" value="porta">
+                        <label for="porta">Porta</label>
+                    </div>
+                </div>
+            </div>
+            <div id="containerCadastrar">
+                <button id="botaoCadastrar" (click)="cadastrar()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal cadastrar produto -->
+    <div *ngIf="cadastrarModal" id="containerModalCadastrar">
+        <hr class="riscoAzul">
+        <div id="containerIcons">
+            <img id="iconFechar" (click)="fecharModalCadastrar()" src="../../../assets/close.png" alt="fechar">
+        </div>
+        <div class="principal">
+            <div class="containerModalCadastrar">
+                <div class="divImg">
+                    <button class="selecionarImg">Selecionar Imagem</button>
+                </div>
+                <div class="nomeProduto">
+                    <span>Nome Produto: </span>
+                    <div class="containerInput">
+                        <input class="inputsCadastro" type="text" placeholder="Nome produto">
+                    </div>
+                </div>
+                <div class="classificacao">
+                    <span>Classificação: </span>
+                    <input class="inputsCadastro" type="text" placeholder="Classificação">
+                </div>
+                <div class="descricao">
+                    <span>Descrição: </span>
+                    <input class="inputDescricao" type="text" placeholder="Descrição">
+                </div>
+                <div class="localizacao">
+                    <span>Localização: </span>
+                    <div class="containerLocalizacao">
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="opcao">
+                    <span>Opção: </span>
+                    <select id="selecionarDescartavel">
+                        <option value="paredeCentro" selected>Descartável</option>
+                        <option value="armario">Não Descartável</option>
+                    </select>
+                    <span>QTD: </span>
+                    <input class="inputQtd" type="text" placeholder="xx">
+                </div>
+                <div class="anexo">
+                    <button class="addAnexo">Adicionar anexo</button>
+                </div>
+                <button (click)="cadastrarProduto()" class="botaoCadastrar">Cadastrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <app-header></app-header>
 <app-filtro></app-filtro>
 
@@ -5,15 +163,20 @@
     <div class="divPrincipal">
         <div id="caminho">
             <img id="casa" src="../../../assets/casa.png" alt="Casa">
-            <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
-            <p>Reservas</p>
         </div>
         <div id="container">
             <div id="containerConteudo">
                 <div id="containerInput">
-                    <div id="divInput">
-                        <input id="input" type="text" placeholder="Pesquise por produto...">
-                        <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                    <div id="containerLinhaInput">
+                        <div id="divInput">
+                            <input id="input" type="text" placeholder="Pesquise por produto...">
+                            <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                        </div>
+                        <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModalLocalizacao()">
+                            Cadastrar localizações
+                        </button>
+                        <button *ngIf="listaItens == 1" id="botaoCadastrarProduto"
+                            (click)="aparecerModalCadastrar()"> Cadastrar Item</button>
                     </div>
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
@@ -70,12 +233,12 @@
                     </div>
                 </div>
                 <div *ngIf="devolucoes == 1" class="containerDevolucoes">
-                    <app-reserva-atendente></app-reserva-atendente>
-                    <app-reserva-atendente></app-reserva-atendente>
+                    <app-reserva-atendente (click)="abrirDevolucao(1)"></app-reserva-atendente>
+                    <app-reserva-atendente (click)="abrirDevolucao(1)"></app-reserva-atendente>
                 </div>
                 <div *ngIf="retirada == 1" class="containerRetirada">
-                    <app-reserva-atendente></app-reserva-atendente>
-                    <app-reserva-atendente></app-reserva-atendente>
+                    <app-reserva-atendente (click)="abrirDevolucao(2)"></app-reserva-atendente>
+                    <app-reserva-atendente (click)="abrirDevolucao(2)"></app-reserva-atendente>
                 </div>
                 <div *ngIf="listaItens == 1" class="containerLista">
                     <app-item *ngFor="let item of listaItens2" [item]="item"></app-item>

@@ -24,7 +24,6 @@ export class ItemComponent implements OnInit {
 
   abrirModalItem() {
     this.aparecer = true;
-    console.log(this.item)
   }
 
   fecharModal() {
