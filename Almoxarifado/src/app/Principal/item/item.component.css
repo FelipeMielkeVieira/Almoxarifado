@@ -261,7 +261,7 @@
 
 .containerAcoes {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 1.6rem;
     margin-bottom: 0.7rem;
 }
@@ -288,5 +288,5 @@
 }
 
 .sacolaIcon {
-    width: 80%;
+    width: 10%;
 }

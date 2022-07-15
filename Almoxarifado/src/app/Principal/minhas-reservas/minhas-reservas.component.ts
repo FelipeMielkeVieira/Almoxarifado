@@ -13,6 +13,9 @@ export class MinhasReservasComponent implements OnInit {
   ngOnInit() {
   }
 
+  reservasPendentes =  0;
+  reservasHistorico =  0;
+
   home() {
     if(localStorage.getItem('usuario') == '1') {
       this.router.navigate(['/professor'])
@@ -22,5 +25,14 @@ export class MinhasReservasComponent implements OnInit {
       this.router.navigate(['/supervisor'])
     }
   }
+
+  botaoHistorico(){
+    this.reservasHistorico = 1;
+    this.reservasPendentes = 1;
+
+
+  }
+
+
 
 }

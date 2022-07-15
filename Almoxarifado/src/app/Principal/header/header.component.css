@@ -120,3 +120,8 @@ p {
     font-size: 14px;
     font-weight: 500;
 }
+
+#logoSite {
+    max-height: 50px;
+    margin-left: 20px;
+}
