@@ -93,11 +93,9 @@ p {
     color: gray;
     text-align: center;
     word-wrap: break-word;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .divOpcao {
