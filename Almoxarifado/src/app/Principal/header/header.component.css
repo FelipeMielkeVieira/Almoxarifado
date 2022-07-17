@@ -88,11 +88,16 @@ p {
 
 .emailUser {
     font-size: 10px;
-    max-width: 180px;
+    max-width: 170px;
     font-weight: 600;
     color: gray;
     text-align: center;
     word-wrap: break-word;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      
 }
 
 .divOpcao {
