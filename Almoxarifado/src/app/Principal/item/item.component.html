@@ -38,16 +38,14 @@
                     <div class="containerQuantidadeInput">
                         <p class="subtituloModal">QTD:</p>
                         <div id="containerQtd">
-                            <div class="containerIconQtd">
-                                <img src="../../../assets/menos.png" alt="" class="menosQtdIcon">
-                            </div>
-                            <span>0</span>
-                            <div class="containerIconQtd">
-                                <img src="../../../assets/mais.png" alt="" class="maisQtdIcon">
-                            </div>
+                            <img src="../../../assets/menos.png" alt="" id="menosQtdIcon" (click)="mudarQtd(2)">
+                            <input *ngIf="item.quantidade > 0" id="inputQtd" [(ngModel)]="qtd">
+                            <div class="divQtdInvalida" *ngIf="item.quantidade < 1">0</div>
+                            <img src="../../../assets/mais.png" alt="" id="maisQtdIcon" (click)="mudarQtd(1)">
                         </div>
                     </div>
-                    <p class="qtdMax">Máx: {{item.quantidade}}</p>
+                    <p *ngIf="item.quantidade > 0" class="qtdMax">Máx: {{item.quantidade}}</p>
+                    <p *ngIf="item.quantidade < 1" class="qtdMax">Item Indisponível</p>
                 </div>
             </div>
 
@@ -57,11 +55,11 @@
                     <div class="containerInputData">
                         <div class="containerDataText">
                             <p class="dataText">
-                                DD/MM/YYYY
+                                {{data1}}
                             </p>
                         </div>
                         <div class="containerIconData">
-                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal">
+                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal" (click)="abrirCalendario(1)">
                         </div>
                     </div>
                 </div>
@@ -70,11 +68,11 @@
                     <div class="containerInputData">
                         <div class="containerDataText">
                             <p class="dataText">
-                                DD/MM/YYYY
+                                {{data2}}
                             </p>
                         </div>
                         <div class="containerIconData">
-                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal">
+                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal" (click)="abrirCalendario(2)">
                         </div>
                     </div>
                 </div>
@@ -86,6 +84,7 @@
                 <img src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola" class="iconModal sacolaIcon">
             </div>
         </div>
-
+        <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>
+        <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario>
     </div>
 </div>
