@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -14,7 +14,7 @@ p {
     width: 100%;
 }
 
-header{
+header {
     position: fixed;
     background: transparent;
     padding: 20px;
@@ -22,7 +22,7 @@ header{
     height: 30px;
 }
 
-a span{
+a span {
     display: flex;
     padding: 0 0 0 1rem;
     /* padding: 0px 2rem; */
@@ -57,7 +57,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     background: #0047B6;
-    cursor:default;
+    cursor: default;
     color: #FFFFFF;
 }
 
@@ -77,17 +77,18 @@ a:hover {
 .ContainerIconGerenciar {
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
 }
 
-#gerenciar{
+#gerenciar {
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     width: 25px;
 }
 
-.ContainerIconMaior, .ContainerIconCalendario {
+.ContainerIconMaior,
+.ContainerIconCalendario {
     padding-left: 25px;
     cursor: pointer;
 }
@@ -98,16 +99,18 @@ a:hover {
 
 .ContainerIconMaior:hover {
     background: #003c9c;
-}   
+}
 
-.textoFiltro, .textoReservas {
+.textoFiltro,
+.textoReservas {
     display: flex;
     justify-content: center;
     width: 100%;
     font-weight: 600;
 }
 
-.textoFiltro, .textoReservas2 {
+.textoFiltro,
+.textoReservas2 {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -115,7 +118,7 @@ a:hover {
     font-size: 15px;
 }
 
-.sidebar{
+.sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -128,7 +131,9 @@ a:hover {
     transition-property: left;
 }
 
-.sidebar a, .filtro, .reservas{
+.sidebar a,
+.filtro,
+.reservas {
     color: rgb(0, 0, 0);
     font-family: "Inter", sans-serif;
     display: block;
@@ -138,23 +143,23 @@ a:hover {
     padding-left: 10px;
     box-sizing: border-box;
     transition: 0.5s;
-    transition-property:background;
+    transition-property: background;
 }
 
-.sidebar a:hover{
+.sidebar a:hover {
     background: #a5a5a5;
 }
 
 
-#check:checked ~ .sidebar{
+#check:checked~.sidebar {
     left: -190px;
 }
 
-#check:checked ~ .sidebar a span{
+#check:checked~.sidebar a span {
     display: none;
 }
 
-#check:checked ~ .sidebar a{
+#check:checked~.sidebar a {
     font-size: 16px;
     margin-left: 170px;
     width: 80px;
@@ -165,14 +170,14 @@ a:hover {
     display: none;
 }
 
-#check:checked ~ .sidebar #iconMaior {
+#check:checked~.sidebar #iconMaior {
     margin-right: 20px;
     width: 15px;
     transition: all 0.7s;
     transform: scaleX(1);
 }
 
-.itensFiltro{
+.itensFiltro {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -190,19 +195,20 @@ a:hover {
     height: 100%;
     position: absolute;
     z-index: 5;
-    background-color:rgba(0, 0, 0, 0.349);
-    animation:fadein 0.5s;
+    background-color: rgba(0, 0, 0, 0.349);
+    animation: fadein 0.5s;
 }
 
 @keyframes fadein {
-	from {
+    from {
         margin-top: -10px;
-		opacity:0;
-	}
-	to {
+        opacity: 0;
+    }
+
+    to {
         margin-top: 0px;
-		opacity:1;
-	}
+        opacity: 1;
+    }
 }
 
 #containerModal {
@@ -236,7 +242,7 @@ a:hover {
 #containerIcon {
     display: flex;
     justify-content: flex-end;
-    margin: 3% 2.5% 0 0; 
+    margin: 3% 2.5% 0 0;
 }
 
 #palavraFiltro {
@@ -290,7 +296,9 @@ a:hover {
     height: 3px;
 }
 
-#containerCadastrar, #textoCadastrar, #riscoTeste{
+#containerCadastrar,
+#textoCadastrar,
+#riscoTeste {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -332,28 +340,28 @@ a:hover {
     cursor: pointer;
 }
 
-#botaoSalvar:hover, #botaoAdicionar:hover {
+#botaoSalvar:hover,
+#botaoAdicionar:hover {
     background-color: #003180;
 }
 
-#containerSalvar, #containerConteudoTeste {
+#containerSalvar,
+#containerConteudoTeste {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 10px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background-color: #EEEEEE;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: #EEEEEE;
     border-radius: 30px;
     border: solid 1px black;
 }
-
-

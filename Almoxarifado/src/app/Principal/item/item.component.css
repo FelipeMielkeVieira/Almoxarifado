@@ -49,7 +49,7 @@
     font-family: 'Inter', sans-serif;
 }
 
-.nomeItem:hover{
+.quadroItem:hover .nomeItem{
     color: #0047B6;
 }
 
