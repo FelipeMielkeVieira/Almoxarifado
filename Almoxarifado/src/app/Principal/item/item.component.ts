@@ -11,6 +11,7 @@ export class ItemComponent implements OnInit {
 
   textoDescartavel: string;
   aparecer: boolean = false;
+  requisicaoSenha = 0;
   
   constructor() { }
 
@@ -36,6 +37,14 @@ export class ItemComponent implements OnInit {
 
   reservar() {
     this.aparecer = false;
+    this.requisicaoSenha = 1;
+    setTimeout(() => {
+      this.requisicaoSenha = 0;
+    }, 5000);
+  }
+
+  fechar() {
+    this.requisicaoSenha = 0;
   }
 
 }
