@@ -105,9 +105,9 @@ p:hover {
 }
 
 .containerLista{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     margin-top: 1%;
 }
 
