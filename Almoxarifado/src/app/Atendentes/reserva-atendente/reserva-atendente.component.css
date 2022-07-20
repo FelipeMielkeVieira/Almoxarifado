@@ -40,7 +40,7 @@ body{
     font-size: 20px;
 }
 
-.nomeProfessor:hover{
+.containerReserva:hover .nomeProfessor{
     color: #0047B6;
 }
 
@@ -92,4 +92,18 @@ body{
 
 .textoProduto{
     font-size: 12px;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #EEEEEE;
+    border-radius: 0px 6px 6px 0px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #d3d3d3;
+    border-radius: 30px;
 }
