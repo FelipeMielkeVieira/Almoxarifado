@@ -32,4 +32,8 @@ export class MinhaSacolaComponent implements OnInit {
       this.router.navigate(['/supervisor/sacolas'])
     }
   }
+
+  reservar() {
+    this.router.navigate(["/professor/sacolas"])
+  }
 }
