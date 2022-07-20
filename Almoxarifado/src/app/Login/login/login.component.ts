@@ -36,14 +36,6 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem('cadastro');
       this.cadastro = 1;
     }
-
-    window.addEventListener("beforeunload", () => {
-      if (localStorage.getItem('lembrarSenha') == '0' || !localStorage.getItem('lembrarSenha')) {
-        localStorage.removeItem('usuario');
-        localStorage.removeItem('emailAtual');
-        localStorage.removeItem('lembrarSenha');
-      }
-    });
   }
 
   ngOnInit() {

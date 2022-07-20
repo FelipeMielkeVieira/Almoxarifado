@@ -146,6 +146,8 @@ export class CalendarioComponent implements OnInit {
   salvar() {
     if(this.diaSelecionado != 0) {
       this.salvarData.emit(this.anoSelecionado + "-" + this.mesSelecionado + "-" + this.diaSelecionado + " " + this.horaSelecionada);
+    } else {
+      this.salvarData.emit("__/__/____ 00:00");
     }
   }
 }

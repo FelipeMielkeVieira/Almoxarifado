@@ -1,3 +1,17 @@
+<!-- -- FeddBack -- -->
+<div *ngIf="feedback == 1" id="modalFeedback">
+    <div class="divInfo">
+        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+        <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+        <span *ngIf="!nao" id="spanTexto">Baixa dada com sucesso!</span>
+        <span *ngIf="nao" id="spanTexto">Retirada confirmada com sucesso!</span>
+    </div>
+    <div id="fundo" style="background-color: #AEAEAE;">
+        <div id="azul"></div>
+    </div>
+</div>
+
+<!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
     
     <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
