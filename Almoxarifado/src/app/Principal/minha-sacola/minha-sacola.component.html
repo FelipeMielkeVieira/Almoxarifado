@@ -2,9 +2,9 @@
 <app-filtro></app-filtro>
 <body>
     <div id="caminho">
-        <img id="casa" src="../../../assets/casa.png" alt="Casa">
+        <img (click)="home()" id="casa" src="../../../assets/casa.png" alt="Casa">
         <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
-        <p>Minha Sacola</p>
+        <p (click)="minhasSacolas()">Minhas Sacolas</p>
         <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
         <p>Detalhes</p>
     </div>

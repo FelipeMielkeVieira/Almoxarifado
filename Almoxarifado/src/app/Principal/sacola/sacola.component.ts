@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sacola',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SacolaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
+
+  id:number = 1;
 
   contadorReservar: number;
   reservaFeita: number;
@@ -64,6 +67,16 @@ export class SacolaComponent implements OnInit {
   salvarData2(event) {
     this.calendarioAberto2 = 0;
     this.dataDevolucao = event;
+  }
+
+  verDetalhes(){
+    if(localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor/sacolas/' + this.id]);
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente/sacolas/' + this.id]);
+    } else {
+      this.router.navigate(['/supervisor/sacolas/' + this.id])
+    }
   }
 
 }

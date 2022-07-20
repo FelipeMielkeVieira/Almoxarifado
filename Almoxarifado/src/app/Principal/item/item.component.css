@@ -206,6 +206,7 @@
 
 .menosQtdIcon, .maisQtdIcon, .iconModal {
     width: 100%;
+    cursor: pointer;
 }
 
 .qtdMax {
