@@ -14,6 +14,19 @@
     </div>
 </div>
 
+<!-- -- FeddBack -- -->
+<div *ngIf="requisicaoSenha == 1" id="modalCadastro">
+    <div class="divInfo">
+        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+        <img id="imgAlerta" src="../../../assets/marca-de-verificacao.png">
+        <span id="spanCadastro">Item reservado com sucesso!</span>
+    </div>
+    <div id="fundo" style="background-color: #AEAEAE;">
+        <div id="azul"></div>
+    </div>
+</div>
+
+
 <div *ngIf="aparecer" id="fundoModal">
     <!-- Modal item -->
     <div id="modalItem">
