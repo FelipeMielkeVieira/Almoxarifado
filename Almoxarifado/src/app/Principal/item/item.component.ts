@@ -31,8 +31,11 @@ export class ItemComponent implements OnInit {
   }
 
   buscarClassificacao(codigoClassificacao) {
-    
     return "Classificação"
+  }
+
+  reservar() {
+    this.aparecer = false;
   }
 
 }

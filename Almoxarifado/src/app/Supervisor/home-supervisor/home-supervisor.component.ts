@@ -81,6 +81,11 @@ export class HomeSupervisorComponent implements OnInit {
     this.cadastrarModal = false;
   }
 
+  botaoConfirmarRetirada() {
+    this.devolucaoModal = false;
+    this.aparecer = false;
+  }
+
   abrirDevolucao(numero) {
     this.devolucaoModal = true;
     this.aparecer = true;
