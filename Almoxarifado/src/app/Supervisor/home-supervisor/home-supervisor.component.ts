@@ -35,6 +35,7 @@ export class HomeSupervisorComponent implements OnInit {
   retirada = 0;
   listaItens = 0;
   contLocalizacoes = 0;
+  feedback = 0;
 
   cadastrarModal = false;
   aparecer = false;
@@ -84,6 +85,11 @@ export class HomeSupervisorComponent implements OnInit {
   botaoConfirmarRetirada() {
     this.devolucaoModal = false;
     this.aparecer = false;
+    this.nao = true;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 
   abrirDevolucao(numero) {
@@ -104,6 +110,15 @@ export class HomeSupervisorComponent implements OnInit {
   darBaixaDevolucao() {
     this.devolucaoModal = false;
     this.aparecer = false;
+    this.nao = false;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
+  }
+
+  fechar() {
+    this.feedback = 0;
   }
 
   informarDefeitoItem() {
