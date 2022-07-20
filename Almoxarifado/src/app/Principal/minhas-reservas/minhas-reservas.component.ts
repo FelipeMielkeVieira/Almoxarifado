@@ -13,7 +13,7 @@ export class MinhasReservasComponent implements OnInit {
   ngOnInit() {
   }
 
-  reservasPendentes =  0;
+  reservasPendentes =  1;
   reservasHistorico =  0;
 
   home() {
@@ -28,9 +28,22 @@ export class MinhasReservasComponent implements OnInit {
 
   botaoHistorico(){
     this.reservasHistorico = 1;
+    this.reservasPendentes = 0;
+
+    let comAzul = document.querySelector('.historicoReservas') as HTMLElement;
+    comAzul.className = "reservasPendentes"
+    let semAzul = document.querySelector('.reservasPendentes') as HTMLElement;
+    semAzul.className = "historicoReservas"
+  }
+
+  botaoReservas(){
+    this.reservasHistorico = 0;
     this.reservasPendentes = 1;
 
-
+    let comAzul = document.querySelector('.reservasPendentes') as HTMLElement;
+    comAzul.className = "historicoReservas"
+    let semAzul = document.querySelector('.historicoReservas') as HTMLElement;
+    semAzul.className = "reservasPendentes"
   }
 
 

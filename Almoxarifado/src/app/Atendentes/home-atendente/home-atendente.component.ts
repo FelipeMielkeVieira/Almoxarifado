@@ -168,6 +168,11 @@ export class HomeAtendenteComponent implements OnInit {
     this.devolucaoModal = true;
   }
 
+  botaoConfirmarRetirada() {
+    this.devolucaoModal = false;
+    this.aparecer = false;
+  }
+
   cadastrar() {
     this.aparecer = false;
     this.cadastrarModal = false;

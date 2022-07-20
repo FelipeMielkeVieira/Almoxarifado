@@ -83,36 +83,37 @@ main {
     opacity: 0.7;
 }
 
-#reservasPendentes {
+.reservasPendentes {
     background-color: #0047B6;
     color: #fff;
 }
 
-#reservasPendentes:hover {
+.reservasPendentes:hover {
     cursor: pointer;
 }
 
-#historicoReservas {
+.historicoReservas {
     background-color: #fff;
 }
 
-#historicoReservas:hover {
+.historicoReservas:hover {
     cursor: pointer;
 }
 
-#reservasPendentes, #historicoReservas {
+.reservasPendentes, .historicoReservas {
     padding: 5px 10px;
     border: 1px solid rgba(0, 0, 0, 0.466);
     border-radius: 5px 5px 0 0;
 }
 
-#reservasPendentes:hover {
+.reservasPendentes:hover {
     background-color: #003180;
 }
 
-#historicoReservas:hover {
+.historicoReservas:hover {
     background-color: rgb(212, 212, 212);
 }
+
 
 #risco {
     margin-top: 0.5rem;

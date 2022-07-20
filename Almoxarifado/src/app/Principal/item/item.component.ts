@@ -17,6 +17,9 @@ export class ItemComponent implements OnInit {
   calendarioAberto2: number = 0;
   data1: string = "__/__/____ 00:00";
   data2: string = "__/__/____ 00:00";
+
+  requisicaoSenha = 0;
+
   
   constructor() { }
 
@@ -49,7 +52,6 @@ export class ItemComponent implements OnInit {
   }
 
   buscarClassificacao(codigoClassificacao) {
-    
     return "Classificação"
   }
 
@@ -71,6 +73,18 @@ export class ItemComponent implements OnInit {
   salvarData2(data) {
     this.calendarioAberto2 = 0;
     this.data2 = data;
+  }
+
+  reservar() {
+    this.aparecer = false;
+    this.requisicaoSenha = 1;
+    setTimeout(() => {
+      this.requisicaoSenha = 0;
+    }, 5000);
+  }
+
+  fechar() {
+    this.requisicaoSenha = 0;
   }
 
 }

@@ -2,9 +2,9 @@
 <app-filtro></app-filtro>
 <body>
     <div id="caminho">
-        <img id="casa" src="../../../assets/casa.png" alt="Casa">
+        <img (click)="home()" id="casa" src="../../../assets/casa.png" alt="Casa">
         <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
-        <p>Minha Sacola</p>
+        <p (click)="minhasSacolas()">Minhas Sacolas</p>
         <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
         <p>Detalhes</p>
     </div>
@@ -115,7 +115,7 @@
                     <div class="divisaoData"></div>
                     <span class="textoData">01/07/2022 - 15:00</span>
                 </div>
-                <button class="botaoReservar">Reservar</button>
+                <button (click)="reservar()" class="botaoReservar">Reservar</button>
             </div>
         </div>
     </div>

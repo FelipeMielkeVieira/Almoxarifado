@@ -16,17 +16,15 @@
                 <p id="resultados">{{ numResultados }} Resultados encontrados</p>
             </div>
             <div id="botoes">
-                <button id="reservasPendentes">Reservas pendentes</button>
-                <button (onclick) = "botaoHistorico()" id="historicoReservas">Histórico de reservas</button>
-            </div>
+                <button (click)="botaoReservas()" class="reservasPendentes">Reservas pendentes</button>
+                <button (click)="botaoHistorico()" class="historicoReservas">Histórico de reservas</button>
+            </div> 
             <div id="risco"></div>
             <!-- <app-reserva *ngFor="let reserva of listaReservas"></app-reserva> -->
             <div *ngIf="reservasPendentes == 1" id="containerReservas">
-                <app-reserva class="reserva"></app-reserva>
-                <app-reserva class="reserva"></app-reserva>
-                <!-- <app-reserva class="reserva" [corStatus]="amarelo"></app-reserva>
-                <app-reserva class="reserva" [corStatus]="verde"></app-reserva>
-                <app-reserva class="reserva" [corStatus]="verde"></app-reserva> -->
+                <app-reserva class="reserva" [corStatus]="'atrasado'"></app-reserva>
+                <app-reserva class="reserva" [corStatus]="'perto'"></app-reserva>
+                <app-reserva class="reserva" [corStatus]="'longe'"></app-reserva>
             </div>
             <div *ngIf="reservasHistorico == 1" id="containerReservas">
                 <app-reserva class="reserva"></app-reserva>                 
