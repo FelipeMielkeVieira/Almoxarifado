@@ -12,6 +12,15 @@ export class ItemComponent implements OnInit {
   textoDescartavel: string;
   aparecer: boolean = false;
   feedback = 0;
+  qtd: number = 1;
+
+  calendarioAberto1: number = 0;
+  calendarioAberto2: number = 0;
+  data1: string = "__/__/____ 00:00";
+  data2: string = "__/__/____ 00:00";
+
+  requisicaoSenha = 0;
+
   
   constructor() { }
 
@@ -31,8 +40,40 @@ export class ItemComponent implements OnInit {
     this.aparecer = false;
   }
 
+  mudarQtd(variavel) {
+    if(variavel == 1) {
+      if(this.qtd < this.item.quantidade) {
+        this.qtd++;
+      }
+    } else {
+      if(this.qtd > 1) {
+        this.qtd--;
+      }
+    }
+  }
+
   buscarClassificacao(codigoClassificacao) {
     return "Classificação"
+  }
+
+  abrirCalendario(numero) {
+    if(numero == 1) {
+      this.calendarioAberto2 = 0;
+      this.calendarioAberto1 = 1;
+    } else {
+      this.calendarioAberto1 = 0;
+      this.calendarioAberto2 = 1;
+    }
+  }
+
+  salvarData1(data) {
+    this.calendarioAberto1 = 0;
+    this.data1 = data;
+  }
+
+  salvarData2(data) {
+    this.calendarioAberto2 = 0;
+    this.data2 = data;
   }
 
   reservar() {
