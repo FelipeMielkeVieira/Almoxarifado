@@ -307,7 +307,8 @@
     bottom:0.5rem;
     height: 12%;
     right: 0.5rem;
-    animation: fadein 1s, lateral 1.5s;
+    animation: fadein 1s;
+    /* animation: fadein 1s, lateral 1.5s; */
 }
 
 .divInfo {
@@ -367,7 +368,7 @@
     }
 }
 
-@keyframes lateral {
+/* @keyframes lateral {
     from {
         right: -5rem;
     }
@@ -375,4 +376,4 @@
     to {
         right: 0.5rem;
     }
-}
+} */
