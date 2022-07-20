@@ -483,6 +483,7 @@ p:hover {
     border: solid 1px black;
     border-radius: 5px;
     margin-left: 10px;
+    padding-left: 10px;
 }
 
 .inputDescricao{
@@ -491,6 +492,8 @@ p:hover {
     border: solid 1px black;
     border-radius: 5px;
     margin-left: 10px;
+    padding: 10px;
+    resize: none;
 }
 
 .nomeProduto{
@@ -572,6 +575,7 @@ p:hover {
 .inputQtd{
     width: 4.563rem;
     height: 1.8rem;
+    padding-left: 10px;
 }
 
 .addAnexo{
@@ -665,6 +669,7 @@ p:hover {
 
 #containerNome {
     display: flex;
+    align-items: center;
 }
 
 #containerNome, #containerClassificacao {
