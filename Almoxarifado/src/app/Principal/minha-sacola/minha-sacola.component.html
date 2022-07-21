@@ -4,12 +4,14 @@
     <div id="caminho">
         <img (click)="home()" id="casa" src="../../../assets/casa.png" alt="Casa">
         <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
-        <p (click)="minhasSacolas()">Minhas Sacolas</p>
+        <p (click)="minhasSacolas()" *ngIf="usuario != 1">Minhas Sacolas</p>
+        <p (click)="minhasReservas()" *ngIf="usuario == 1">Minhas Reservas</p>
         <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
         <p>Detalhes</p>
     </div>
     <div class="tituloSacola">
-        <b><span class="titulos">Minha Sacola</span></b>
+        <b><span class="titulos" *ngIf="usuario != 1">Minha Sacola</span></b>
+        <b><span class="titulos" *ngIf="usuario == 1">Minha Reserva</span></b>
     </div>
     <div class="divMain">
         <div class="divProdutos">

@@ -40,4 +40,8 @@ export class MinhaSacolaComponent implements OnInit {
   reservar() {
     this.router.navigate(["/professor/sacolas"])
   }
+
+  minhasReservas() {
+    this.router.navigate(['/professor/reservas'])
+  }
 }
