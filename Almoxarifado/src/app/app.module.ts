@@ -31,7 +31,10 @@ const rotas: Routes = [
   {
     path: 'professor', canActivate: [CheckLogged], children: [
       { path: '', component: HomeProfessorComponent },
-      { path: 'reservas', component: MinhasReservasComponent },
+      { path: 'reservas', children: [
+        { path: '', component: MinhasReservasComponent},
+        { path: ':id', component: MinhaSacolaComponent}
+      ] },
       {
         path: 'sacolas', children: [
           { path: '', component: SacolasComponent },

@@ -115,7 +115,7 @@
                     <div class="divisaoData"></div>
                     <span class="textoData">01/07/2022 - 15:00</span>
                 </div>
-                <button (click)="reservar()" class="botaoReservar">Reservar</button>
+                <button *ngIf="usuario != 1" (click)="reservar()" class="botaoReservar">Reservar</button>
             </div>
         </div>
     </div>

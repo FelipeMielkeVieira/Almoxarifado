@@ -116,3 +116,17 @@
 .longe {
     background-color: #009B19;
 }
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #EEEEEE;
+    border-radius: 0px 6px 6px 0px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #d3d3d3;
+    border-radius: 30px;
+}

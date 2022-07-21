@@ -11,7 +11,11 @@ export class MinhaSacolaComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.usuario = parseInt(localStorage.getItem('reserva'));
+    localStorage.removeItem('reserva');
   }
+
+  usuario: number;
 
   home() {
     if(localStorage.getItem('usuario') == '1') {
