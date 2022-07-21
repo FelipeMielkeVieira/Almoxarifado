@@ -282,7 +282,7 @@
 
 .containerAcoes {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 1.6rem;
     margin-bottom: 0.7rem;
 }
