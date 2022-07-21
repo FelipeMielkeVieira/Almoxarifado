@@ -195,6 +195,16 @@ export class HomeAtendenteComponent implements OnInit {
     }, 5000);
   }
 
+  cadastrar2(){
+    this.aparecer = false;
+    this.cadastrarModal = false;
+    this.nao = 3;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
+  }
+
   filtrarLocalizacao() {
     if(this.localizacaoAtual == "paredeCentro") {
       this.localizacoesFiltradas = this.paredeCentro;
