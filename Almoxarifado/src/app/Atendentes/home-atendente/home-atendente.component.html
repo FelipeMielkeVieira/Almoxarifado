@@ -1,3 +1,18 @@
+<!-- -- FeddBack -- -->
+<div *ngIf="feedback == 1" id="modalFeedback">
+    <div class="divInfo">
+        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+        <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+        <span *ngIf="nao == 2" id="spanTexto">Baixa dada com sucesso!</span>
+        <span *ngIf="nao == 1" id="spanTexto">Retirada confirmada!</span>
+        <span *ngIf="nao== 0" id="spanTexto">Item cadastrado!</span>
+    </div>
+    <div id="fundo" style="background-color: #AEAEAE;">
+        <div id="azul"></div>
+    </div>
+</div>
+
+<!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
     <!-- Baixa nas devoluções -->
     <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
@@ -20,18 +35,18 @@
                                 <!-- {{ item.posicao }} -->
                                 <p>posicao</p>
                                 <!-- {{ item.qtd }} -->
-                                <p *ngIf="!nao">qtd</p>
-                                <p *ngIf="nao" id="quantidadeProduto">qtd</p>
+                                <p *ngIf="nao == 2">qtd</p>
+                                <p *ngIf="nao == 1" id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
-                                <button *ngIf="!nao" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
+                                <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
                                     Defeito</button>
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
-            <button *ngIf="!nao" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
-            <button *ngIf="nao" (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar
+            <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
+            <button *ngIf="nao == 1" (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar
                 retirada</button>
         </div>
     </div>

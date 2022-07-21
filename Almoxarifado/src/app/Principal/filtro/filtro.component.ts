@@ -17,6 +17,7 @@ export class FiltroComponent implements OnInit {
   listaClassificacoes;
   usuario: number;
   aparecer: number = 0;
+  feedback = 0;
 
   filtroSelecionado:number;
 
@@ -39,6 +40,14 @@ export class FiltroComponent implements OnInit {
 
   modalFiltro() {
     this.aparecer = 1;
+  }
+
+  salvar() {
+    this.aparecer = 0;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 
 }

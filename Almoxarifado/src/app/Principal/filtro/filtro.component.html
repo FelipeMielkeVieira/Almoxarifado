@@ -1,3 +1,17 @@
+<!-- -- FeddBack -- -->
+<div *ngIf="feedback == 1" id="modalFeedback">
+    <div class="divInfo">
+        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+        <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+        <span id="spanTexto">Filtro salvo com sucesso!</span>
+    </div>
+    <div id="fundo" style="background-color: #AEAEAE;">
+        <div id="azul"></div>
+    </div>
+</div>
+
+<!-- -------------------------------------------------------- -->
+
 <div *ngIf="aparecer == 1" id="fundoModal">
     <div id="containerModal">
         <div id="riscoAzul"></div>

@@ -19,10 +19,12 @@ export class HomeAtendenteComponent implements OnInit {
   confirmarRetirada: number = 0
   baixaDevolucoes: number = 1
   aparecerEspecificacaoReserva: boolean = false;
-  nao: boolean = false;
+  nao= 0;
   cadastroProduto: number = 0;
   codUser: number;
   listaItens2;
+  feedback = 0;
+  item = 0;
 
   paredeCentro = [];
   armario = [];
@@ -142,9 +144,9 @@ export class HomeAtendenteComponent implements OnInit {
     this.devolucaoModal = true;
     this.aparecer = true;
     if (numero == 2) {
-      this.nao = true;
+      this.nao = 1;
     } else {
-      this.nao = false;
+      this.nao = 2;
     }
   }
 
@@ -156,6 +158,11 @@ export class HomeAtendenteComponent implements OnInit {
   darBaixaDevolucao() {
     this.devolucaoModal = false;
     this.aparecer = false;
+    this.nao = 2;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 
   informarDefeitoItem() {
@@ -171,11 +178,21 @@ export class HomeAtendenteComponent implements OnInit {
   botaoConfirmarRetirada() {
     this.devolucaoModal = false;
     this.aparecer = false;
+    this.nao = 1;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 
   cadastrar() {
     this.aparecer = false;
     this.cadastrarModal = false;
+    this.nao = 0;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 
   filtrarLocalizacao() {

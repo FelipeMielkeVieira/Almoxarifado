@@ -43,7 +43,7 @@ export class HomeSupervisorComponent implements OnInit {
 
   informarDefeitoModal: boolean = false;
   devolucaoModal: boolean = false;
-  nao: boolean;
+  nao = 0;
 
   modalRecusar() {
     this.contadorRecusar = 1;
@@ -80,12 +80,17 @@ export class HomeSupervisorComponent implements OnInit {
   cadastrarProduto() {
     this.aparecer = false;
     this.cadastrarModal = false;
+    this.nao = 0;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 
   botaoConfirmarRetirada() {
     this.devolucaoModal = false;
     this.aparecer = false;
-    this.nao = true;
+    this.nao = 1;
     this.feedback = 1;
     setTimeout(() => {
       this.feedback = 0;
@@ -96,9 +101,9 @@ export class HomeSupervisorComponent implements OnInit {
     this.devolucaoModal = true;
     this.aparecer = true;
     if (numero == 2) {
-      this.nao = true;
+      this.nao = 1;
     } else {
-      this.nao = false;
+      this.nao = 2;
     }
   }
 
@@ -110,7 +115,7 @@ export class HomeSupervisorComponent implements OnInit {
   darBaixaDevolucao() {
     this.devolucaoModal = false;
     this.aparecer = false;
-    this.nao = false;
+    this.nao = 2;
     this.feedback = 1;
     setTimeout(() => {
       this.feedback = 0;
