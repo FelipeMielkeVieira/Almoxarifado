@@ -16,6 +16,7 @@ export class MinhaSacolaComponent implements OnInit {
   }
 
   usuario: number;
+  listaProfessores = this.buscarProfessores();
 
   home() {
     if(localStorage.getItem('usuario') == '1') {
@@ -43,5 +44,19 @@ export class MinhaSacolaComponent implements OnInit {
 
   minhasReservas() {
     this.router.navigate(['/professor/reservas'])
+  }
+
+  atendente() {
+    let usuario = parseInt(localStorage.getItem("usuario"));
+
+    if (usuario == 2 || usuario == 3)
+      return true;
+    return false;
+  }
+
+  buscarProfessores() {
+    return [{ id: 1, nome: "Professor 1" }, { id: 2, nome: "Professor 2" },
+    { id: 3, nome: "Professor 3" }, { id: 4, nome: "Professor 4" },
+    { id: 5, nome: "Professor 5" }];
   }
 }
