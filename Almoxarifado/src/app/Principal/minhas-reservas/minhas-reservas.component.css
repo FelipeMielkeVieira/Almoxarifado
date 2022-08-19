@@ -137,3 +137,28 @@ main {
 .reserva {
     /* margin-top: 30px; */
 }
+
+.divLegenda {
+    float: right;
+    width: 60%;
+    min-height: 28px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.legenda {
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.bola {
+    width: 15px;
+    height: 15px;
+    border-radius: 100px;
+}
+
+.labelLegenda {
+    margin-left: 10px;
+    font-size: 14px;
+}
