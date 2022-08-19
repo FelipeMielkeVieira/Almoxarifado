@@ -45,6 +45,8 @@ export class HomeSupervisorComponent implements OnInit {
   devolucaoModal: boolean = false;
   nao = 0;
 
+  emBloco = 0;
+
   modalRecusar() {
     this.contadorRecusar = 1;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
@@ -165,6 +167,14 @@ export class HomeSupervisorComponent implements OnInit {
 
     let comAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
     comAzul.className = "comAzul"
+  }
+
+  mostrarEmBloco() {
+    this.emBloco = 0;
+  }
+
+  mostrarEmLista() {
+    this.emBloco = 1;
   }
 
   gerenciarUsuarios() {

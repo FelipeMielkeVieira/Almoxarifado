@@ -72,7 +72,8 @@
                             </p>
                         </div>
                         <div class="containerIconData">
-                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal" (click)="abrirCalendario(1)">
+                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal"
+                                (click)="abrirCalendario(1)">
                         </div>
                     </div>
                 </div>
@@ -85,9 +86,18 @@
                             </p>
                         </div>
                         <div class="containerIconData">
-                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal" (click)="abrirCalendario(2)">
+                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal"
+                                (click)="abrirCalendario(2)">
                         </div>
                     </div>
+                </div>
+            </div>
+            <div *ngIf="atendente()" id="adicionarProfessor">
+                <p class="subtituloModal marginBottom">Professor: </p>
+                <div class="containerInputData">
+                    <select name="" id="professores">
+                        <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{ professor.nome }}</option>
+                    </select>
                 </div>
             </div>
             <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>

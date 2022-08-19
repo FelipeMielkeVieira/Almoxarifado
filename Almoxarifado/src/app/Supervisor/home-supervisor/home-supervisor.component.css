@@ -64,6 +64,33 @@ p:hover {
     width: 100%;
 }
 
+#iconListaBloco {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 10px;
+}
+
+#emBloco {
+    width: 1.5rem;
+    cursor: pointer;
+    animation: opacidade 0.5s;
+}
+
+#emLista {
+    width: 1.5rem;
+    cursor: pointer;
+    animation: opacidade 0.5s;
+}
+
+@keyframes opacidade {
+	from {
+		opacity:0;
+	}
+	to {
+		opacity:1;
+	}
+}
+
 #lupa {
     opacity: 0.7;
 }
@@ -112,7 +139,7 @@ p:hover {
 }
 
 
-.containerUsuario {
+.containerUsuario, .containerUsuarioLista {
     width: 22.5rem;
     height: 5.625rem;
     border-radius: 5px;
@@ -120,9 +147,13 @@ p:hover {
     padding: 10px 10px 0px 10px;
 }
 
-.containerInfo {
+#containerUserImagemTexto {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+}
+
+.containerUsuarioLista {
+    width: 100rem;
 }
 
 .containerImg {
@@ -132,6 +163,8 @@ p:hover {
 .containerInfo {
     margin-left: 2%;
     width: 16.875rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .imgUser {
@@ -206,6 +239,7 @@ p:hover {
 .containerUser {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 /* Modais */
@@ -302,12 +336,17 @@ p:hover {
     cursor: pointer;
 }
 
-.containerUsuarios {
+.containerUsuarios, .containerUsuariosLista {
     width: 22.5rem;
     margin-top: 1%;
     border-radius: 5px;
     border: solid 1px black;
     padding: 10px 10px 0px 10px;
+}
+
+.containerUsuariosLista {
+    width: 100rem;
+    height: 5rem;
 }
 
 .parteBaixo {
@@ -343,6 +382,10 @@ p:hover {
     height: 100%;
     margin-right: 1.7%;
     margin-bottom: 10%;
+}
+
+.containerLixeiraLista{
+    height: 100%;
 }
 
 .semAzul {
@@ -438,6 +481,10 @@ p:hover {
 #containerLinhaInput {
     display: flex;
     justify-content: space-between;
+}
+
+#containerInputOrdenar {
+    display: flex;
 }
 
 /* Modal Cadastrar Produto */
