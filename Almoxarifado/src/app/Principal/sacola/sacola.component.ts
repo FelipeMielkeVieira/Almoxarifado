@@ -21,6 +21,8 @@ export class SacolaComponent implements OnInit {
   dataRetirada: string = "__/__/____ 00:00"
   dataDevolucao: string = "__/__/____ 00:00"
 
+  listaProfessores = this.buscarProfessores();
+
   ngOnInit() {
   }
 
@@ -77,6 +79,12 @@ export class SacolaComponent implements OnInit {
     } else {
       this.router.navigate(['/supervisor/sacolas/' + this.id])
     }
+  }
+
+  buscarProfessores() {
+    return [{ id: 1, nome: "Professor 1" }, { id: 2, nome: "Professor 2" },
+    { id: 3, nome: "Professor 3" }, { id: 4, nome: "Professor 4" },
+    { id: 5, nome: "Professor 5" }];
   }
 
 }

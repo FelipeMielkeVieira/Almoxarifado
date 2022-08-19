@@ -35,6 +35,12 @@
           </li>
         </ul>
         <div id="botoes">
+          <div id="adicionarProfessor">
+            <select name="" id="professores">
+              <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{ professor.nome }}
+              </option>
+            </select>
+          </div>
           <button class="botao" (click)="verDetalhes()" style="margin-bottom: 5px;">Ver Detalhes</button>
           <button class="botao" (click)="reservar()">Reservar</button>
         </div>

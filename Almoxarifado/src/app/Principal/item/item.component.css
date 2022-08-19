@@ -389,6 +389,10 @@
     border-radius: inherit;
 }
 
+.marginBottom {
+    margin-bottom: 0.5rem;
+}
+
 @keyframes animacao {
     from {
         width: 0%;

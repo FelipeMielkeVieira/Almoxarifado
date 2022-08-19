@@ -93,7 +93,7 @@
                 </div>
             </div>
             <div *ngIf="atendente()" id="adicionarProfessor">
-                <p class="subtituloModal">Professor: </p>
+                <p class="subtituloModal marginBottom">Professor: </p>
                 <div class="containerInputData">
                     <select name="" id="professores">
                         <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{ professor.nome }}</option>
