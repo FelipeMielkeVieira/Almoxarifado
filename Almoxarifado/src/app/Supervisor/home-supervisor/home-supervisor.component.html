@@ -181,9 +181,15 @@
             <div id="containerConteudo">
                 <div id="containerInput">
                     <div id="containerLinhaInput">
-                        <div id="divInput">
-                            <input id="input" type="text" placeholder="Pesquise por produto...">
-                            <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                        <div id="containerInputOrdenar">
+                            <div id="divInput">
+                                <input id="input" type="text" placeholder="Pesquise por produto...">
+                                <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                            </div>
+                            <div id="iconListaBloco">
+                                <img *ngIf="emBloco == 1" (click) = "mostrarEmBloco()" id="emBloco" src="../../../assets/emBloco.png" alt="em bloco">
+                                <img *ngIf="emBloco == 0" (click) = "mostrarEmLista()" id="emLista" src="../../../assets/emLista.png" alt="em lista">
+                            </div>
                         </div>
                         <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModalLocalizacao()">
                             Cadastrar localizações
@@ -202,7 +208,7 @@
                     <button (click)="localizacoes()" id="localizacoes" class="semAzul">Localizações</button>
                 </div>
                 <div id="risco"></div>
-                <div *ngIf="gerenciaCadastros == 1" class="usuarios">
+                <div *ngIf="gerenciaCadastros == 1 && emBloco == 0" class="usuarios">
                     <div class="containerUsuario">
                         <div class="containerUser">
                             <img class="imgUser" src="../../../assets/user.png" alt="">
@@ -221,7 +227,28 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="gerenciaUsuarios == 1" class="telaUsuarios">
+                <div *ngIf="gerenciaCadastros == 1 && emBloco == 1" class="usuarios">
+                    <div class="containerUsuarioLista">
+                        <div class="containerUser">
+                            <div id="containerUserImagemTexto">
+                                <img class="imgUser" src="../../../assets/user.png" alt="">
+                                <div class="containerInfo">
+                                    <span class="user">Nome Sobrenome</span>
+                                    <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="containerOpcoes">
+                            <div (click)="modalRecusar()" class="recusar">
+                                <img class="icone" src="../../../assets/close.png" alt="">
+                            </div>
+                            <div (click)="modalAceitar()" class="aceitar">
+                                <img class="icone" src="../../../assets/verifica.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="gerenciaUsuarios == 1 && emBloco == 0" class="telaUsuarios">
                     <div class="containerUsuarios">
                         <div class="containerUser">
                             <img class="imgUser" src="../../../assets/user.png" alt="">
@@ -242,6 +269,32 @@
                             </select>
                             <div class="aceitar">
                                 <img class="icone" src="../../../assets/verifica.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="gerenciaUsuarios == 1 && emBloco == 1" class="telaUsuarios">
+                    <div class="containerUsuariosLista">
+                        <div class="containerUser">
+                            <div id="containerUserImagemTexto">
+                                <img class="imgUser" src="../../../assets/user.png" alt="">
+                                <div class="containerInfo">
+                                    <span class="user">Nome Sobrenome</span>
+                                    <span class="email">nome_sobrenome@edu.sc.senai.br</span>
+                                </div>
+                            </div>
+                            <div class="parteBaixo">
+                                <select id="selecionarFuncao2">
+                                    <option value="paredeCentro" selected>Professor</option>
+                                    <option value="armario">Atendente 1</option>
+                                    <option value="porta">Atendente 2</option>
+                                </select>
+                                <div class="aceitar">
+                                    <img class="icone" src="../../../assets/verifica.png" alt="">
+                                </div>
+                            </div>
+                            <div class="containerLixeiraLista">
+                                <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
                             </div>
                         </div>
                     </div>
