@@ -14,7 +14,7 @@
 
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
-    
+
     <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
         <hr class="riscoAzul">
         <div id="containerDevolucaoModal">
@@ -38,7 +38,8 @@
                                 <p *ngIf="nao == 2">qtd</p>
                                 <p *ngIf="nao == 1" id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
-                                <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
+                                <button *ngIf="nao == 2" (click)="informarDefeitoItem()"
+                                    class="btnDevolucaoModal">Informar
                                     Defeito</button>
                             </div>
                         </div>
@@ -70,7 +71,7 @@
             </div>
         </div>
     </div>
-    
+
     <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
         <hr class="riscoAzul">
         <div id="containerIcons">
@@ -175,35 +176,44 @@
             <div id="containerConteudo">
                 <div id="containerInput">
                     <div id="containerLinhaInput">
-                        <div id="divInput">
-                            <input *ngIf="gerenciaCadastros == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por usuário...">
-                            <input *ngIf="gerenciaUsuarios == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por usuário...">
-                            <input *ngIf="devolucoes == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
-                            <input *ngIf="retirada == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
-                            <input *ngIf="listaItens == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
-                            <input *ngIf="contLocalizacoes == 1" [(ngModel)]="inputGeral" (keyup)="pesquisaLocalizacao()" class="input" type="text" placeholder="Pesquise por localização...">
-                            <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                         <div id="containerInputOrdenar">
                             <div id="divInput">
-                                <input id="input" type="text" placeholder="Pesquise por produto...">
+                                <input *ngIf="gerenciaCadastros == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por usuário...">
+                                <input *ngIf="gerenciaUsuarios == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por usuário...">
+                                <input *ngIf="devolucoes == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por produto...">
+                                <input *ngIf="retirada == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por produto...">
+                                <input *ngIf="listaItens == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por produto...">
+                                <input *ngIf="contLocalizacoes == 1" [(ngModel)]="inputGeral"
+                                    (keyup)="pesquisaLocalizacao()" class="input" type="text"
+                                    placeholder="Pesquise por localização...">
                                 <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                             </div>
                             <div id="iconListaBloco">
-                                <img *ngIf="emBloco == 1" (click) = "mostrarEmBloco()" id="emBloco" src="../../../assets/emBloco.png" alt="em bloco">
-                                <img *ngIf="emBloco == 0" (click) = "mostrarEmLista()" id="emLista" src="../../../assets/emLista.png" alt="em lista">
+                                <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
+                                    src="../../../assets/emBloco.png" alt="em bloco">
+                                <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
+                                    src="../../../assets/emLista.png" alt="em lista">
                             </div>
                         </div>
-                        <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModalLocalizacao()">
+                        <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes"
+                            (click)="aparecerModalLocalizacao()">
                             Cadastrar localizações
                         </button>
-                        <button *ngIf="listaItens == 1" id="botaoCadastrarProduto"
-                            (click)="aparecerModalCadastrar()"> Cadastrar Item</button>
+                        <button *ngIf="listaItens == 1" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
+                            Cadastrar Item</button>
                     </div>
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
                 <div id="botoes">
-                    <button (click)="gerenciarUsuarios()" id="gerenciarUsuarios" class="comAzul">Gerenciar usuários</button>
-                    <button (click)="gerenciarCadastros()" id="gerenciarCadastros" class="semAzul">Gerenciar cadastros</button>
+                    <button (click)="gerenciarUsuarios()" id="gerenciarUsuarios" class="comAzul">Gerenciar
+                        usuários</button>
+                    <button (click)="gerenciarCadastros()" id="gerenciarCadastros" class="semAzul">Gerenciar
+                        cadastros</button>
                     <button (click)="baixaDevolucoes()" id="devolucoes" class="semAzul">Baixa nas devoluções</button>
                     <button (click)="confirmarRetirada()" id="retirada" class="semAzul">Confirmar retirada</button>
                     <button (click)="listaDeItens()" id="listaItens" class="semAzul">Lista de itens</button>
@@ -316,7 +326,8 @@
                     <div id="containerLocalizacoes">
                         <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
                             <p>{{loc.nome}}</p>
-                            <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo" (click)="excluirLocalizacao(i)">
+                            <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo"
+                                (click)="excluirLocalizacao(i)">
                         </div>
                     </div>
                 </div>
