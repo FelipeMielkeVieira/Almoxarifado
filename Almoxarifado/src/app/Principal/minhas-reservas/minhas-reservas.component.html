@@ -4,7 +4,7 @@
     <div id="caminho">
         <img id="casa" src="../../../assets/casa.png" alt="Casa" (click)="home()">
         <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
-        <p id="caminhoReservas">Reservas</p>
+        <p id="caminhoReservas">Minhas Reservas</p>
     </div>
     <div id="container">
         <div id="containerConteudo">
@@ -18,7 +18,21 @@
             <div id="botoes">
                 <button (click)="botaoReservas()" class="reservasPendentes">Reservas pendentes</button>
                 <button (click)="botaoHistorico()" class="historicoReservas">Histórico de reservas</button>
-            </div> 
+                <div class="divLegenda">
+                    <div class="legenda">
+                        <div class="bola" style="background-color: red;"></div>
+                        <span class="labelLegenda">Devolução Atrasada</span>
+                    </div>
+                    <div class="legenda">
+                        <div class="bola" style="background-color: rgb(179, 179, 12);"></div>
+                        <span class="labelLegenda">Esperando Devolução</span>
+                    </div>
+                    <div class="legenda">
+                        <div class="bola" style="background-color: green;"></div>
+                        <span class="labelLegenda">Esperando Retirada</span>
+                    </div>
+                </div>
+            </div>
             <div id="risco"></div>
             <!-- <app-reserva *ngFor="let reserva of listaReservas"></app-reserva> -->
             <div *ngIf="reservasPendentes == 1" id="containerReservas">
