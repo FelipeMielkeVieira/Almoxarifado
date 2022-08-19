@@ -300,7 +300,7 @@
                     </div>
                 </div>
                 <div *ngIf="devolucoes == 1" class="containerDevolucoes">
-                    <app-reserva-atendente (click)="abrirDevolucao(1)"></app-reserva-atendente>
+                    <app-reserva-atendente [lista]="1" (click)="abrirDevolucao(1)"></app-reserva-atendente>
                     <app-reserva-atendente (click)="abrirDevolucao(1)"></app-reserva-atendente>
                 </div>
                 <div *ngIf="retirada == 1" class="containerRetirada">

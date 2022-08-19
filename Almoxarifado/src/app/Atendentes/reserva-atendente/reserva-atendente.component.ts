@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-reserva-atendente',
@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservaAtendenteComponent implements OnInit {
 
+  @Input() lista;
+
   constructor() { }
 
   ngOnInit() {
+    if (this.lista == 1) {
+      console.log(1);
+    }
   }
+
+
 }
