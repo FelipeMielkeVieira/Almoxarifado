@@ -35,7 +35,7 @@
           </li>
         </ul>
         <div id="botoes">
-          <div id="adicionarProfessor">
+          <div *ngIf="atendente()" id="adicionarProfessor">
             <select name="" id="professores">
               <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{ professor.nome }}
               </option>
