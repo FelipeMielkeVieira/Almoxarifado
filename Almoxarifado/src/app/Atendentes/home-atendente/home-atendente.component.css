@@ -717,6 +717,37 @@ label{
     width: 20px;
 }
 
+#containerInputOrdenar {
+    display: flex;
+}
+
+#iconListaBloco {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 10px;
+}
+
+#emBloco {
+    width: 1.5rem;
+    cursor: pointer;
+    animation: opacidade 0.5s;
+}
+
+#emLista {
+    width: 1.5rem;
+    cursor: pointer;
+    animation: opacidade 0.5s;
+}
+
+@keyframes opacidade {
+	from {
+		opacity:0;
+	}
+	to {
+		opacity:1;
+	}
+}
+
 #containerQtd {
     display: flex;
     border: 1px solid black;
