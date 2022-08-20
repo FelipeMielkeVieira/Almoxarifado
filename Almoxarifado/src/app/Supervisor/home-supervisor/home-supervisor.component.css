@@ -57,7 +57,7 @@ p:hover {
     height: 2.4rem;
 }
 
-#input {
+.input {
     padding-left: 0.5rem;
     outline: none;
     border: 0;
@@ -608,8 +608,8 @@ p:hover {
     align-items: flex-end;
 }
 
-#localizacaoProduto {
-    width: 4.12rem;
+.localizacaoProduto {
+    width: 3.5rem;
     height: 1.8rem; 
     border-radius: 5px;
     outline: none;
@@ -671,7 +671,7 @@ p:hover {
 
 #containerModalLocalizacao {
     width: 22rem;
-    height: 17rem;
+    height: 10rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
@@ -1130,3 +1130,23 @@ p:hover {
         right: 0.5rem;
     }
 } */
+
+.divPonto {
+    min-height: 30px;
+    min-width: 30px;
+    border-radius: 100px;
+    background-color: #0046b6be;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-left: 10px;
+}
+
+.divPonto:hover {
+    cursor: pointer;
+}
+
+.imgMaisLoc {
+    width: 20px;
+}

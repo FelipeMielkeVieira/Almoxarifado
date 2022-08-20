@@ -10,22 +10,20 @@ export class HomeSupervisorComponent implements OnInit {
 
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
-    this.paredeCentro = service.paredeCentro;
-    this.armario = service.armario;
-    this.porta = service.porta;
+    this.localizacoesLista = service.localizacoes;
+    this.localizacoesFiltradas = this.localizacoesLista;
   }
 
   listaItens2;
+  inputGeral = "";
 
   ngOnInit() {
-    this.filtrarLocalizacao();
+
   }
 
   localizacaoAtual = "paredeCentro";
   localizacoesFiltradas = [];
-  paredeCentro = [];
-  armario = [];
-  porta = [];
+  localizacoesLista = [];
 
   contadorRecusar = 0;
   contadorAceitar = 0;
@@ -36,6 +34,8 @@ export class HomeSupervisorComponent implements OnInit {
   listaItens = 0;
   contLocalizacoes = 0;
   feedback = 0;
+
+  localizacoesItem = 1;
 
   cadastrarModal = false;
   aparecer = false;
@@ -297,48 +297,36 @@ export class HomeSupervisorComponent implements OnInit {
     comAzul.className = "comAzul"
   }
 
-  filtrarLocalizacao() {
-    if(this.localizacaoAtual == "paredeCentro") {
-      this.localizacoesFiltradas = this.paredeCentro;
-    }
-    if(this.localizacaoAtual == "armario") {
-      this.localizacoesFiltradas = this.armario;
-    }
-    if(this.localizacaoAtual == "porta") {
-      this.localizacoesFiltradas = this.porta;
-    }
-  }
-
-  excluirLocalizacao(index) {
+  excluirLocalizacao(index: number) {
     let loc = this.localizacoesFiltradas[index];
-    let index1 = this.service.paredeCentro.findIndex((e) => {
+    let index1 = this.service.localizacoes.findIndex((e) => {
       if(e.nome == loc.nome) {
         return true;
       };
       return false;
     })
     if(index1 != -1) {
-      this.service.paredeCentro.splice(index1, 1);
+      this.service.localizacoes.splice(index1, 1);
     }
+  }
 
-    let index2 = this.service.armario.findIndex((e) => {
-      if(e.nome == loc.nome) {
-        return true;
-      };
-      return false;
-    })
-    if(index2 != -1) {
-      this.service.armario.splice(index2, 1);
+  pesquisaLocalizacao() {
+    var self = this;
+    const listaFiltrada = this.localizacoesLista.filter(function(a) {
+      return a.nome.toLowerCase().indexOf(self.inputGeral.toLowerCase()) > -1
+    });
+    this.localizacoesFiltradas = listaFiltrada;
+  }
+
+  adicionarLocalizacao() {
+    if(this.localizacoesItem < 6) {
+      this.localizacoesItem++;
     }
+  }
 
-    let index3 = this.service.porta.findIndex((e) => {
-      if(e.nome == loc.nome) {
-        return true;
-      };
-      return false;
-    })
-    if(index3 != -1) {
-      this.service.porta.splice(index3, 1);
+  diminuirLocalizacao() {
+    if(this.localizacoesItem > 0) {
+      this.localizacoesItem--;
     }
   }
 
