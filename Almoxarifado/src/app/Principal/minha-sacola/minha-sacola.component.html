@@ -118,6 +118,7 @@
                     <span class="textoData">01/07/2022 - 15:00</span>
                 </div>
 
+
                 <b><span class="tituloData">Professor</span></b>
                 <div *ngIf="atendente()" id="adicionarProfessor">
                     <select name="" id="professores">
@@ -126,6 +127,11 @@
                 </div>
 
                 <button *ngIf="usuario != 1" (click)="reservar()" class="botaoReservar">Reservar</button>
+                <div class="divBotoes">
+                    <button class="botaoReservar" (click)="excluir()">Excluir Sacola</button>   
+                    <button *ngIf="usuario != 1" (click)="reservar()" class="botaoReservar">Reservar</button>
+                </div>
+
             </div>
         </div>
     </div>

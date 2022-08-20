@@ -56,4 +56,14 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  sacolas(){
+    if(localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor/sacolas']);
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente/sacolas']);
+    } else {
+      this.router.navigate(['/supervisor/sacolas'])
+    }
+  }
+
 }

@@ -591,6 +591,25 @@ p {
     flex-wrap: wrap;
 }
 
+#arquivo{
+    display: none;  
+}
+
+.inputAnexo{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+label{
+    margin-left: 5px;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../../assets/pasta.png);
+    cursor: pointer;
+}
+
 /* ----- Fedback ----- */
 
 
@@ -696,6 +715,37 @@ p {
 
 .imgMaisLoc {
     width: 20px;
+}
+
+#containerInputOrdenar {
+    display: flex;
+}
+
+#iconListaBloco {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 10px;
+}
+
+#emBloco {
+    width: 1.5rem;
+    cursor: pointer;
+    animation: opacidade 0.5s;
+}
+
+#emLista {
+    width: 1.5rem;
+    cursor: pointer;
+    animation: opacidade 0.5s;
+}
+
+@keyframes opacidade {
+	from {
+		opacity:0;
+	}
+	to {
+		opacity:1;
+	}
 }
 
 #containerQtd {

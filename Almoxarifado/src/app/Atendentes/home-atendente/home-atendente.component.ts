@@ -34,6 +34,8 @@ export class HomeAtendenteComponent implements OnInit {
 
   localizacoesItem = 1;
 
+  emBloco = 0;
+
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
     this.codUser = parseInt(localStorage.getItem('usuario'));
@@ -240,6 +242,14 @@ export class HomeAtendenteComponent implements OnInit {
     if(this.localizacoesItem > 0) {
       this.localizacoesItem--;
     }
+  }
+
+  mostrarEmBloco() {
+    this.emBloco = 0;
+  }
+
+  mostrarEmLista() {
+    this.emBloco = 1;
   }
 
   acaoSegundariaDevolucaoModal() {

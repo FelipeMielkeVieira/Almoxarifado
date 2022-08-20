@@ -31,9 +31,6 @@
     width: 50%;
 }
 
-.dataTitulo {
-}
-
 #divisaoCentral {
     display: flex;
 }
@@ -234,4 +231,12 @@
 ::-webkit-scrollbar-thumb{
     background-color: #d3d3d3;
     border-radius: 30px;
+}
+
+.iconeLixeira{
+    margin: 0;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
 }

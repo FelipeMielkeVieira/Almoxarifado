@@ -168,7 +168,9 @@
                     <input class="inputQtd" type="text" placeholder="xx">
                 </div>
                 <div class="anexo">
-                    <button class="addAnexo">Adicionar anexo</button>
+                    <input type="text" placeholder="Adicionar Anexo" class="inputAnexo">  
+                    <label for="arquivo"> </label>
+                    <input type="file" name="arquivo" id="arquivo">
                 </div>
                 <button (click)="cadastrar()" class="botaoCadastrar">Cadastrar</button>
             </div>
@@ -184,12 +186,20 @@
     <div id="containerConteudo">
         <div id="containerInput">
             <div id="containerLinhaInput">
-                <div id="divInput">
-                    <input *ngIf="listaItens == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
-                    <input *ngIf="baixaDevolucoes == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
-                    <input *ngIf="confirmarRetirada == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
-                    <input *ngIf="localizacao == 1" [(ngModel)]="inputGeral" (keyup)="pesquisaLocalizacao()" class="input" type="text" placeholder="Pesquise por localização...">
-                    <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                <div id="containerInputOrdenar">
+                    <div id="divInput">
+                        <input *ngIf="listaItens == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
+                        <input *ngIf="baixaDevolucoes == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
+                        <input *ngIf="confirmarRetirada == 1" [(ngModel)]="inputGeral" class="input" type="text" placeholder="Pesquise por produto...">
+                        <input *ngIf="localizacao == 1" [(ngModel)]="inputGeral" (keyup)="pesquisaLocalizacao()" class="input" type="text" placeholder="Pesquise por localização...">
+                        <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                    </div>
+                    <div id="iconListaBloco">
+                        <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
+                            src="../../../assets/emBloco.png" alt="em bloco">
+                        <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
+                            src="../../../assets/emLista.png" alt="em lista">
+                    </div>
                 </div>
                 <button *ngIf="localizacao == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModalLocalizacao()">
                     Cadastrar localizações
@@ -212,20 +222,24 @@
 
         <div *ngIf="baixaDevolucoes == 1" id="conteudoBaixaDevolucoes">
             <div id="containerDevolucoes">
-                <app-reserva-atendente (click)="abrirDevolucao(1)"></app-reserva-atendente>
+                <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(1)"></app-reserva-atendente>
             </div>
         </div>
 
         <div *ngIf="confirmarRetirada == 1" id="conteudoConfirmarRetirada">
             <div id="containerRetiradas">
                 <!-- *ngFor="let reserva of listaReservas" -->
-                <app-reserva-atendente (click)="abrirDevolucao(2)"></app-reserva-atendente>
+                <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente>
             </div>
         </div>
 
         <div *ngIf="listaItens == 1" id="conteudoListaItens">
             <div id="containerItens">
-                <app-item *ngFor="let item of listaItens2" [item]="item"></app-item>
+
+               
+
+                <app-item [lista]="emBloco" *ngFor="let item of listaItens2" [item]="item"></app-item>
+
             </div>
             <!-- <div *ngFor="let item of listaItens" id="containerItens">
                 <app-item></app-item>
