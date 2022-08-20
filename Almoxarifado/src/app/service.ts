@@ -61,24 +61,18 @@ export class UsersService {
         {id: 3, produtoId: 3, portaId: 8, paredeCentroId: 2, armarioId: 1}
     ]
 
-    paredeCentro = [
+    localizacoes = [
         {id: 1, nome: "P1"},
         {id: 2, nome: "P2"},
         {id: 3, nome: "P3"},
         {id: 4, nome: "P4"},
         {id: 5, nome: "CE"},
-        {id: 6, nome: "CD"}
-    ]
-
-    armario = [
+        {id: 6, nome: "CD"},
         {id: 1, nome: "A1"},
         {id: 2, nome: "A2"},
         {id: 3, nome: "A3"},
         {id: 4, nome: "A4"},
-        {id: 5, nome: "A5"}
-    ]
-
-    porta = [
+        {id: 5, nome: "A5"},
         {id: 1, nome: "1"},
         {id: 2, nome: "2"},
         {id: 3, nome: "3"},
@@ -98,7 +92,7 @@ export class UsersService {
         {id: 17, nome: "17"},
         {id: 18, nome: "18"},
         {id: 19, nome: "19"},
-        {id: 20, nome: "20"}
+        {id: 20, nome: "20"},
     ]
 
     // findAll(): Observable<Object[]> {

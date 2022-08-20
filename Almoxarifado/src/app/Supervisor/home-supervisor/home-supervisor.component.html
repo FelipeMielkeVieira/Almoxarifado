@@ -14,7 +14,7 @@
 
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
-    
+
     <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
         <hr class="riscoAzul">
         <div id="containerDevolucaoModal">
@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-    
+
     <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
         <hr class="riscoAzul">
         <div id="containerIcons">
@@ -83,25 +83,6 @@
             <div id="containerNome">
                 <span>Nome:</span>
                 <input id="inputNome" type="text" placeholder="Nome">
-            </div>
-            <div id="containerClassificacao">
-                <p style="margin-top: 15px">
-                    Classificação:
-                </p>
-                <div id="containerCheckbox">
-                    <div>
-                        <input type="radio" id="paredeCentro" name="drone" value="paredeCentro">
-                        <label for="paredeCentro">Parede/Centro</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="armario" name="drone" value="armario">
-                        <label for="armario">Armário</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="porta" name="drone" value="porta">
-                        <label for="porta">Porta</label>
-                    </div>
-                </div>
             </div>
             <div id="containerCadastrar">
                 <button id="botaoCadastrar" (click)="cadastrar()">Cadastrar</button>
@@ -134,23 +115,36 @@
                     <textarea class="inputDescricao" placeholder="Descrição"></textarea>
                 </div>
                 <div class="localizacao">
-                    <span>Localização: </span>
-                    <div class="containerLocalizacao">
-                        <select id="localizacaoProduto">
-                            <option value="paredeCentro">xx</option>
-                            <option value="armario" selected>xx</option>
-                            <option value="porta">xx</option>
-                        </select>
-                        <select id="localizacaoProduto">
-                            <option value="paredeCentro">xx</option>
-                            <option value="armario" selected>xx</option>
-                            <option value="porta">xx</option>
-                        </select>
-                        <select id="localizacaoProduto">
-                            <option value="paredeCentro">xx</option>
-                            <option value="armario" selected>xx</option>
-                            <option value="porta">xx</option>
-                        </select>
+                    <div style="display: flex;">
+                        <span style="margin-right: 10px;">Localização: </span>
+                        <div class="containerLocalizacao">
+                            <select *ngIf="localizacoesItem > 0" id="localizacaoProduto1" class="localizacaoProduto">
+                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                            </select>
+                            <select *ngIf="localizacoesItem > 1" id="localizacaoProduto2" class="localizacaoProduto">
+                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                            </select>
+                            <select *ngIf="localizacoesItem > 2" id="localizacaoProduto3" class="localizacaoProduto">
+                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                            </select>
+                            <select *ngIf="localizacoesItem > 3" id="localizacaoProduto4" class="localizacaoProduto">
+                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                            </select>
+                            <select *ngIf="localizacoesItem > 4" id="localizacaoProduto5" class="localizacaoProduto">
+                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                            </select>
+                            <select *ngIf="localizacoesItem > 5" id="localizacaoProduto6" class="localizacaoProduto">
+                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display: flex;">
+                        <div class="divPonto" (click)="adicionarLocalizacao()">
+                            <img class="imgMaisLoc" src="../../../assets/mais.png">
+                        </div>
+                        <div class="divPonto" (click)="diminuirLocalizacao()">
+                            <img class="imgMaisLoc" src="../../../assets/menos.png">
+                        </div>
                     </div>
                 </div>
                 <div class="opcao">
@@ -186,25 +180,42 @@
                     <div id="containerLinhaInput">
                         <div id="containerInputOrdenar">
                             <div id="divInput">
-                                <input id="input" type="text" placeholder="Pesquise por produto...">
+                                <input *ngIf="gerenciaCadastros == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por usuário...">
+                                <input *ngIf="gerenciaUsuarios == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por usuário...">
+                                <input *ngIf="devolucoes == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por produto...">
+                                <input *ngIf="retirada == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por produto...">
+                                <input *ngIf="listaItens == 1" [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="Pesquise por produto...">
+                                <input *ngIf="contLocalizacoes == 1" [(ngModel)]="inputGeral"
+                                    (keyup)="pesquisaLocalizacao()" class="input" type="text"
+                                    placeholder="Pesquise por localização...">
                                 <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                             </div>
                             <div id="iconListaBloco">
-                                <img *ngIf="emBloco == 1" (click) = "mostrarEmBloco()" id="emBloco" src="../../../assets/emBloco.png" alt="em bloco">
-                                <img *ngIf="emBloco == 0" (click) = "mostrarEmLista()" id="emLista" src="../../../assets/emLista.png" alt="em lista">
+                                <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
+                                    src="../../../assets/emBloco.png" alt="em bloco">
+                                <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
+                                    src="../../../assets/emLista.png" alt="em lista">
                             </div>
                         </div>
-                        <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes" (click)="aparecerModalLocalizacao()">
+                        <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes"
+                            (click)="aparecerModalLocalizacao()">
                             Cadastrar localizações
                         </button>
-                        <button *ngIf="listaItens == 1" id="botaoCadastrarProduto"
-                            (click)="aparecerModalCadastrar()"> Cadastrar Item</button>
+                        <button *ngIf="listaItens == 1" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
+                            Cadastrar Item</button>
                     </div>
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
                 <div id="botoes">
-                    <button (click)="gerenciarUsuarios()" id="gerenciarUsuarios" class="comAzul">Gerenciar usuários</button>
-                    <button (click)="gerenciarCadastros()" id="gerenciarCadastros" class="semAzul">Gerenciar cadastros</button>
+                    <button (click)="gerenciarUsuarios()" id="gerenciarUsuarios" class="comAzul">Gerenciar
+                        usuários</button>
+                    <button (click)="gerenciarCadastros()" id="gerenciarCadastros" class="semAzul">Gerenciar
+                        cadastros</button>
                     <button (click)="baixaDevolucoes()" id="devolucoes" class="semAzul">Baixa nas devoluções</button>
                     <button (click)="confirmarRetirada()" id="retirada" class="semAzul">Confirmar retirada</button>
                     <button (click)="listaDeItens()" id="listaItens" class="semAzul">Lista de itens</button>
@@ -314,23 +325,12 @@
                     <app-item *ngFor="let item of listaItens2" [item]="item"></app-item>
                 </div>
                 <div *ngIf="contLocalizacoes == 1" id="conteudoLocalizacoes">
-                    <select id="selecionarLocalizacao" [(ngModel)]="localizacaoAtual" (change)="filtrarLocalizacao(t)">
-                        <option value="paredeCentro" selected>Parede / Centro</option>
-                        <option value="armario">Armário</option>
-                        <option value="porta">Porta</option>
-                    </select>
                     <div id="containerLocalizacoes">
                         <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
                             <p>{{loc.nome}}</p>
-                            <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo" (click)="excluirLocalizacao(i)">
+                            <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo"
+                                (click)="excluirLocalizacao(i)">
                         </div>
-                        <!-- <div *ngFor="let localizacao of listaLocalizacoes" id="divLocalizacao">
-                        <p>
-                            {{localizacaoNome}}
-                            P1
-                        </p>
-                        <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo">
-                    </div> -->
                     </div>
                 </div>
             </div>

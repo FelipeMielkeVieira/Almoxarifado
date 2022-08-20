@@ -86,7 +86,7 @@ p {
     justify-content: space-between;
 }
 
-#input {
+.input {
     padding-left: 0.5rem;
     outline: none;
     border: 0;
@@ -313,7 +313,7 @@ p {
 
 #containerModalLocalizacao {
     width: 22rem;
-    height: 17rem;
+    height: 10rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
@@ -509,7 +509,7 @@ p {
 .localizacao{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     margin-top: 10px;
 }
@@ -541,8 +541,8 @@ p {
     align-items: flex-end;
 }
 
-#localizacaoProduto {
-    width: 4.12rem;
+.localizacaoProduto {
+    width: 3.5rem;
     height: 1.8rem; 
     border-radius: 5px;
     outline: none;
@@ -677,3 +677,23 @@ p {
         right: 0.5rem;
     }
 } */
+
+.divPonto {
+    min-height: 30px;
+    min-width: 30px;
+    border-radius: 100px;
+    background-color: #0046b6be;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-left: 10px;
+}
+
+.divPonto:hover {
+    cursor: pointer;
+}
+
+.imgMaisLoc {
+    width: 20px;
+}
