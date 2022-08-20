@@ -242,7 +242,9 @@ export class ItemComponent implements OnInit {
   }
 
   abrirModalItem() {
-    this.aparecer = true;
+    if(!this.aparecer) {
+      this.aparecer = true;
+    }
   }
 
   abrirModalEditar() {
