@@ -591,6 +591,25 @@ p {
     flex-wrap: wrap;
 }
 
+#arquivo{
+    display: none;  
+}
+
+.inputAnexo{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+label{
+    margin-left: 5px;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../../assets/pasta.png);
+    cursor: pointer;
+}
+
 /* ----- Fedback ----- */
 
 

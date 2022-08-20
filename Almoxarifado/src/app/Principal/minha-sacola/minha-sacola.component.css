@@ -238,3 +238,10 @@ p:hover {
     margin-top: 1.2rem;
     margin-left: 5.5rem;
 }
+
+.divBotoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+}
