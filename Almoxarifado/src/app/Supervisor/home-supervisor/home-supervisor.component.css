@@ -138,6 +138,12 @@ p:hover {
     margin-top: 1%;
 }
 
+.containerListaLista{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 1%;
+}
+
 
 .containerUsuario, .containerUsuarioLista {
     width: 22.5rem;

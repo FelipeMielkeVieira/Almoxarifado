@@ -314,15 +314,18 @@
                     </div>
                 </div>
                 <div *ngIf="devolucoes == 1" class="containerDevolucoes">
-                    <app-reserva-atendente [lista]="1" (click)="abrirDevolucao(1)"></app-reserva-atendente>
-                    <app-reserva-atendente (click)="abrirDevolucao(1)"></app-reserva-atendente>
+                    <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(1)"></app-reserva-atendente>
+                    <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(1)"></app-reserva-atendente>
                 </div>
                 <div *ngIf="retirada == 1" class="containerRetirada">
-                    <app-reserva-atendente (click)="abrirDevolucao(2)"></app-reserva-atendente>
-                    <app-reserva-atendente (click)="abrirDevolucao(2)"></app-reserva-atendente>
+                    <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente>
+                    <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente>
                 </div>
-                <div *ngIf="listaItens == 1" class="containerLista">
-                    <app-item *ngFor="let item of listaItens2" [item]="item"></app-item>
+                <div *ngIf="listaItens == 1 && emBloco == 0" class="containerLista">
+                    <app-item [lista]="emBloco" *ngFor="let item of listaItens2" [item]="item"></app-item>
+                </div>
+                <div *ngIf="listaItens == 1 && emBloco == 1" class="containerListaLista">
+                    <app-item [lista]="emBloco" *ngFor="let item of listaItens2" [item]="item"></app-item>
                 </div>
                 <div *ngIf="contLocalizacoes == 1" id="conteudoLocalizacoes">
                     <div id="containerLocalizacoes">

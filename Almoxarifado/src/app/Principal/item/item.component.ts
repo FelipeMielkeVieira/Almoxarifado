@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ItemComponent implements OnInit {
 
   @Input() item;
+  @Input() lista;
 
   textoDescartavel: string;
   aparecer: boolean = false;
