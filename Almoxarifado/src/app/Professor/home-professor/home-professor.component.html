@@ -3,15 +3,28 @@
 <main>
     <div id="container">
         <div id="containerInput">
-            <div id="divInput">
-                <input id="input" type="text" placeholder="Pesquise por produto...">
-                <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+            <div id="containerInputOrdenar">
+                <div id="divInput">
+                    <input id="input" type="text" placeholder="Pesquise por produto...">
+                    <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                </div>
+                <div id="iconListaBloco">
+                    <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
+                        src="../../../assets/emBloco.png" alt="em bloco">
+                    <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
+                        src="../../../assets/emLista.png" alt="em lista">
+                </div>
             </div>
+            
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
 
-        <div id="containerItens">
-            <app-item *ngFor="let item of listaItens" [item]="item"></app-item>
+        <div *ngIf="emBloco == 0" id="containerItens">
+            <app-item [lista]="emBloco" *ngFor="let item of listaItens" [item]="item"></app-item>
+        </div>
+
+        <div *ngIf="emBloco == 1" id="containerListaLista">
+            <app-item [lista]="emBloco" *ngFor="let item of listaItens" [item]="item"></app-item>
         </div>
 
         <!-- Fundo transparente -->

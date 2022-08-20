@@ -13,7 +13,16 @@ export class HomeProfessorComponent implements OnInit {
   }
 
   listaItens;
+  emBloco = 0;
 
   ngOnInit() {
+  }
+
+  mostrarEmBloco() {
+    this.emBloco = 0;
+  }
+
+  mostrarEmLista() {
+    this.emBloco = 1;
   }
 }
