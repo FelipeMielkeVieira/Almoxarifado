@@ -42,4 +42,8 @@ export class ReservaComponent implements OnInit {
     this.router.navigate(['/professor/reservas/1'])
   }
 
+  formatarData(data: string) {
+    return new Date(data).toLocaleString();
+  }
+
 }

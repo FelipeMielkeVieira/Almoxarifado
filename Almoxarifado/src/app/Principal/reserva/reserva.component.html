@@ -7,14 +7,14 @@
                 <div class="dataInput">
                     <img class="calendario" src="./assets/calendario.png" alt="Calendário">
                     <div class="dataTexto">
-                        <p id="dataRetirada">{{ reserva.data_retirada }}</p>
+                        <p id="dataRetirada">{{ formatarData(reserva.data_retirada) }}</p>
                     </div>
                 </div>
                 <h3 class="dataTitulo">Data de devolução:</h3>
                 <div class="dataInput">
                     <img class="calendario" src="./assets/calendario.png" alt="Calendário">
                     <div class="dataTexto">
-                        <p id="dataDevolucao">{{ reserva.data_devolucao }}</p>
+                        <p id="dataDevolucao">{{ formatarData(reserva.data_devolucao) }}</p>
                     </div>
                 </div>
             </div>
