@@ -26,7 +26,7 @@
             <ul id="listaItemsBaixaDevolucao">
                 <li>
                     <!-- *ngFor="let item of listaItemsBaixaDevolucao" -->
-                    <div class="containerConteudoBaixaDevolucao">
+                    <div  class="containerConteudoBaixaDevolucao">
                         <div class="containerImgBaixaDevolucao">
                             <img class="imgItemBaixaDevolucao" src="../../../assets/Rele.png" alt="Relé térmico">
                         </div>
@@ -39,9 +39,11 @@
                                 <p *ngIf="nao == 2">qtd</p>
                                 <p *ngIf="nao == 1" id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
-                                <!-- div#botoes -->
-                                <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
-                                    Defeito</button>
+                                <div class="botoesDevolucaoModal">
+                                    <button (click)="acaoSegundariaDevolucaoModal()" class="btnDevolucaoModal" style="background-color: red; margin-bottom: 0.2rem;">{{ textoAcaoSegundariaDevolucaoModal() }}</button>
+                                    <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
+                                        Defeito</button>
+                                </div>
                             </div>
                         </div>
                     </div>
