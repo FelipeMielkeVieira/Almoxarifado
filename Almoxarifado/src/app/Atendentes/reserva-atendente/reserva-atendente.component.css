@@ -15,6 +15,15 @@ body{
     margin-bottom: 2%;
 }
 
+.containerReservaLista{
+    display: flex;
+    flex-direction: row;
+    width: 72rem; 
+    border-radius: 5px;
+    border: solid 0.5px black;
+    margin-bottom: 2%;
+}
+
 .containerReserva:hover {
     cursor: pointer;
 }

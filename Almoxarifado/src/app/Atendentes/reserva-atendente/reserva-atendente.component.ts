@@ -12,9 +12,6 @@ export class ReservaAtendenteComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (this.lista == 1) {
-      console.log(1);
-    }
   }
 
 
