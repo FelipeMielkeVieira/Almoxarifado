@@ -51,6 +51,10 @@ export class HomeAtendenteComponent implements OnInit {
     this.localizacaoModal = true;
   }
 
+  fechar() {
+    this.feedback = 0;
+  }
+
   fecharModalLocalizacao() {
     this.aparecer = false;
     this.localizacaoModal = false;

@@ -48,11 +48,12 @@ export class UsersService {
     ]
 
     reserva = [
-
+        {id: 1, data_retirada: '2022-06-20', data_devolucao: '2022-09-30', status: 2, usuario_email: 'felipe_mielke-vieira@estudante.sc.senai.br'}
     ]
 
     reservaProduto = [
-
+        {id: 1, qtd_produto: 3, reserva_id: 1, produto_id: 1},
+        {id: 2, qtd_produto: 5, reserva_id: 1, produto_id: 2}
     ]
 
     produtoLocalizacao = [
@@ -98,4 +99,12 @@ export class UsersService {
     // findAll(): Observable<Object[]> {
     //     return this.httpClient.get<Object[]>('http://localhost:3000/users');
     // }
+
+    retornaProduto(id: number) {
+        for (const e of this.itens) {
+            if(e.id == id) {
+                return e;
+            }   
+        }
+    }
 }

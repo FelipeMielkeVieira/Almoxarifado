@@ -1,5 +1,5 @@
 <div id="containerSacola">
-    <hr id="status" [ngClass]="corStatus">
+    <hr id="status">
     <div id="container">
         <h3 class="dataTitulo">Data de retirada:</h3>
         <div id="divisaoCentral">
@@ -7,14 +7,14 @@
                 <div class="dataInput">
                     <img class="calendario" src="./assets/calendario.png" alt="Calendário">
                     <div class="dataTexto">
-                        <p id="dataRetirada">{{ dataRetirada }}</p>
+                        <p id="dataRetirada">{{ reserva.data_retirada }}</p>
                     </div>
                 </div>
                 <h3 class="dataTitulo">Data de devolução:</h3>
                 <div class="dataInput">
                     <img class="calendario" src="./assets/calendario.png" alt="Calendário">
                     <div class="dataTexto">
-                        <p id="dataDevolucao">{{ dataDevolucao }}</p>
+                        <p id="dataDevolucao">{{ reserva.data_devolucao }}</p>
                     </div>
                 </div>
             </div>
