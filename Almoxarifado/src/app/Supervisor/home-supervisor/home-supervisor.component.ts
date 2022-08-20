@@ -330,4 +330,25 @@ export class HomeSupervisorComponent implements OnInit {
     }
   }
 
+  acaoSegundariaDevolucaoModal() {
+    if (this.nao == 2)
+      this.produtoNaoDevolvido()
+    this.removerProdutoSacola()
+  }
+
+  produtoNaoDevolvido() {
+    //fazer lógica para dizer que o item não foi devolvido
+    //desse jeito, a sacola ainda vai existir com os itens não devolvidos
+  }
+
+  removerProdutoSacola() {
+    //item deve ser removido da sacola
+  }
+
+  textoAcaoSegundariaDevolucaoModal() {
+    if (this.nao == 2)
+      return "Não devolvido";
+    return "Remover"
+  }
+
 }

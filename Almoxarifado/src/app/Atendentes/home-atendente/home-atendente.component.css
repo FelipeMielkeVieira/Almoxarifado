@@ -226,6 +226,12 @@ p {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.botoesDevolucaoModal {
+    display: flex;
+    flex-direction: column;
 }
 
 .btnDevolucaoModal {

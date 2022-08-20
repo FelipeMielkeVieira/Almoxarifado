@@ -1,4 +1,4 @@
-<div (click)="abrirModalItem()" class="quadroItem">
+<div *ngIf="lista == 0" (click)="abrirModalItem()" class="quadroItem">
     <div class="imagemItem">
         <img class="imgProduto" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="">
     </div>
@@ -7,6 +7,22 @@
         <div class="baixoItem">
             <span>{{textoDescartavel}}</span>
             <div class="infoItem">
+                <span>QTD:</span>
+                <span>{{item.quantidade}} UN</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="lista == 1" (click)="abrirModalItem()" class="quadroItemLista">
+    <div class="imagemItem">
+        <img class="imgProdutoLista" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="">
+    </div>
+    <div class="descricaoItemLista">
+        <span class="nomeItem">{{item.nome}}</span>
+        <div class="baixoItem">
+            <span>{{textoDescartavel}}</span>
+            <div class="infoItemLista">
                 <span>QTD:</span>
                 <span>{{item.quantidade}} UN</span>
             </div>

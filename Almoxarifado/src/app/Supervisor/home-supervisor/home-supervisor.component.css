@@ -138,6 +138,12 @@ p:hover {
     margin-top: 1%;
 }
 
+.containerListaLista{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 1%;
+}
+
 
 .containerUsuario, .containerUsuarioLista {
     width: 22.5rem;
@@ -880,6 +886,12 @@ p:hover {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.botoesDevolucaoModal {
+    display: flex;
+    flex-direction: column;
 }
 
 .btnDevolucaoModal {
