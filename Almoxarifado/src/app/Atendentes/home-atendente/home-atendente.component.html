@@ -26,7 +26,7 @@
             <ul id="listaItemsBaixaDevolucao">
                 <li>
                     <!-- *ngFor="let item of listaItemsBaixaDevolucao" -->
-                    <div class="containerConteudoBaixaDevolucao">
+                    <div  class="containerConteudoBaixaDevolucao">
                         <div class="containerImgBaixaDevolucao">
                             <img class="imgItemBaixaDevolucao" src="../../../assets/Rele.png" alt="Relé térmico">
                         </div>
@@ -39,9 +39,11 @@
                                 <p *ngIf="nao == 2">qtd</p>
                                 <p *ngIf="nao == 1" id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
-                                <!-- div#botoes -->
-                                <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
-                                    Defeito</button>
+                                <div class="botoesDevolucaoModal">
+                                    <button (click)="acaoSegundariaDevolucaoModal()" class="btnDevolucaoModal" style="background-color: red; margin-bottom: 0.2rem;">{{ textoAcaoSegundariaDevolucaoModal() }}</button>
+                                    <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
+                                        Defeito</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,6 +66,14 @@
             <div id="containerConteudoInformarDefeito">
                 <!-- <input type="textarea" id="informarDefeitoInput"> -->
                 <textarea id="texteArea" rows="15" cols="60" maxlength="500"></textarea>
+                <div class="divOpcoes">
+                    <div id="containerQtd">
+                        <!-- <img src="../../../assets/menos.png" alt="" id="menosQtdIcon" (click)="mudarQtd(2)">
+                        <input *ngIf="item.quantidade > 0" id="inputQtd">
+                        <div class="divQtdInvalida" *ngIf="item.quantidade < 1">0</div>
+                        <img src="../../../assets/mais.png" alt="" id="maisQtdIcon" (click)="mudarQtd(1)"> -->
+                    </div>
+                </div>
                 <div class="divBotoes">
                     <button (click)="voltarDevolucaoItens()" id="voltarInformarDefeito"
                         class="btnDevolucaoModal">Voltar</button>

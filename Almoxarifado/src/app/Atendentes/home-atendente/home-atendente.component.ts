@@ -53,6 +53,10 @@ export class HomeAtendenteComponent implements OnInit {
     this.localizacaoModal = true;
   }
 
+  fechar() {
+    this.feedback = 0;
+  }
+
   fecharModalLocalizacao() {
     this.aparecer = false;
     this.localizacaoModal = false;
@@ -246,5 +250,26 @@ export class HomeAtendenteComponent implements OnInit {
 
   mostrarEmLista() {
     this.emBloco = 1;
+  }
+
+  acaoSegundariaDevolucaoModal() {
+    if (this.nao == 2)
+      this.produtoNaoDevolvido()
+    this.removerProdutoSacola()
+  }
+
+  produtoNaoDevolvido() {
+    //fazer lógica para dizer que o item não foi devolvido
+    //desse jeito, a sacola ainda vai existir com os itens não devolvidos
+  }
+
+  removerProdutoSacola() {
+    //item deve ser removido da sacola
+  }
+
+  textoAcaoSegundariaDevolucaoModal() {
+    if (this.nao == 2)
+      return "Não devolvido";
+    return "Remover"
   }
 }

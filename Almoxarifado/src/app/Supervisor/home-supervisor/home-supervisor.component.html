@@ -38,9 +38,11 @@
                                 <p *ngIf="nao == 2">qtd</p>
                                 <p *ngIf="nao == 1" id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
-                                <button *ngIf="nao == 2" (click)="informarDefeitoItem()"
-                                    class="btnDevolucaoModal">Informar
-                                    Defeito</button>
+                                <div class="botoesDevolucaoModal">
+                                    <button (click)="acaoSegundariaDevolucaoModal()" class="btnDevolucaoModal" style="background-color: red; margin-bottom: 0.2rem;">{{ textoAcaoSegundariaDevolucaoModal() }}</button>
+                                    <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
+                                        Defeito</button>
+                                </div>
                             </div>
                         </div>
                     </div>

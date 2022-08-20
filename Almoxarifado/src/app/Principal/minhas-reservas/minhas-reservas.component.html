@@ -34,14 +34,11 @@
                 </div>
             </div>
             <div id="risco"></div>
-            <!-- <app-reserva *ngFor="let reserva of listaReservas"></app-reserva> -->
             <div *ngIf="reservasPendentes == 1" id="containerReservas">
-                <app-reserva class="reserva" [corStatus]="'atrasado'"></app-reserva>
-                <app-reserva class="reserva" [corStatus]="'perto'"></app-reserva>
-                <app-reserva class="reserva" [corStatus]="'longe'"></app-reserva>
+                <app-reserva *ngFor="let reserva of listaReservas" class="reserva" [reserva]="reserva"></app-reserva>
             </div>
             <div *ngIf="reservasHistorico == 1" id="containerReservas">
-                <app-reserva class="reserva"></app-reserva>                 
+                <app-reserva *ngFor="let reserva of listaReservas2" class="reserva" [reserva]="reserva"></app-reserva>                 
             </div>
         </div>
     </div>

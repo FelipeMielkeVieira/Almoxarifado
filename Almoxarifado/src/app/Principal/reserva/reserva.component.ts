@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-reserva',
@@ -8,17 +9,32 @@ import { Router } from '@angular/router';
 })
 export class ReservaComponent implements OnInit {
 
-  @Input() corStatus: string;
+  @Input() reserva: {id: 0, data_retirada: '0000-00-00', data_devolucao: '0000-00-00', status: number, usuario_email: ''};
 
-  listaItens = [
-    {nome: "Abracadeira"},
-    {nome: "Resistor"},
-    {nome: "Bateria"}
-  ]
+  listaItens = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: UsersService) { }
 
   ngOnInit() {
+    var self = this;
+    this.service.reservaProduto.forEach((e) => {
+      if(e.reserva_id == self.reserva.id) {
+        self.listaItens.push(self.service.retornaProduto(e.id));
+      }
+    })
+    this.mudarCor();
+  }
+
+  mudarCor() {
+    let divLinha = document.querySelector("#status") as HTMLHRElement;
+    if(new Date() > new Date(this.reserva.data_devolucao) && this.reserva.status == 2) {
+      divLinha.className = 'atrasado';
+    } else
+    if(new Date() > new Date(this.reserva.data_retirada) && this.reserva.status == 2) {
+      divLinha.className = 'perto';
+    } else if(this.reserva.status == 1) {
+      divLinha.className = 'longe';
+    }
   }
 
   verDetalhes() {

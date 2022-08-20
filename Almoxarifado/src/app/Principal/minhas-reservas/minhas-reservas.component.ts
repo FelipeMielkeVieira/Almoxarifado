@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-minhas-reservas',
@@ -8,13 +9,26 @@ import { Router } from '@angular/router';
 })
 export class MinhasReservasComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: UsersService) { }
 
   ngOnInit() {
+    var self = this;
+    this.service.reserva.forEach(e => {
+      if(localStorage.getItem('emailAtual') == e.usuario_email && e.status < 3) {
+        self.listaReservas.push(e);
+      }
+    });
+    this.service.reserva.forEach(e => {
+      if(localStorage.getItem('emailAtual') == e.usuario_email && e.status > 2) {
+        self.listaReservas2.push(e);
+      }
+    });
   }
 
   reservasPendentes =  1;
   reservasHistorico =  0;
+  listaReservas = [];
+  listaReservas2 = [];
 
   home() {
     if(localStorage.getItem('usuario') == '1') {

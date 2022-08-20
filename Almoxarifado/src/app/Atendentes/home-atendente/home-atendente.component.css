@@ -226,6 +226,12 @@ p {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.botoesDevolucaoModal {
+    display: flex;
+    flex-direction: column;
 }
 
 .btnDevolucaoModal {
@@ -721,4 +727,43 @@ p {
 	to {
 		opacity:1;
 	}
+}
+
+#containerQtd {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    width: 30%; 
+    min-width: 100px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.divQtdInvalida {
+    padding: 0% 7%;
+}
+
+#menosQtdIcon, #maisQtdIcon {
+    width: 30%;
+    padding: 7% 7%;
+}
+
+#menosQtdIcon {
+    border-right: 1px solid black;
+}
+
+#maisQtdIcon {
+    border-left: 1px solid black;
+}
+
+#menosQtdIcon, #maisQtdIcon:hover {
+    cursor: pointer;
+}
+
+#inputQtd {
+    width: 30%;
+    border: none;
+    outline: none;
+    text-align: center;
 }
