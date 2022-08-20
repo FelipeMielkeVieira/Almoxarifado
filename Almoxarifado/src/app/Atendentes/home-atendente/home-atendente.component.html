@@ -168,7 +168,9 @@
                     <input class="inputQtd" type="text" placeholder="xx">
                 </div>
                 <div class="anexo">
-                    <button class="addAnexo">Adicionar anexo</button>
+                    <input type="text" placeholder="Adicionar Anexo" class="inputAnexo">  
+                    <label for="arquivo"> </label>
+                    <input type="file" name="arquivo" id="arquivo">
                 </div>
                 <button (click)="cadastrar()" class="botaoCadastrar">Cadastrar</button>
             </div>
@@ -233,7 +235,11 @@
 
         <div *ngIf="listaItens == 1" id="conteudoListaItens">
             <div id="containerItens">
+
+               
+
                 <app-item [lista]="emBloco" *ngFor="let item of listaItens2" [item]="item"></app-item>
+
             </div>
             <!-- <div *ngFor="let item of listaItens" id="containerItens">
                 <app-item></app-item>

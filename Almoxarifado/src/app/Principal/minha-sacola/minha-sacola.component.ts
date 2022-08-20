@@ -39,11 +39,33 @@ export class MinhaSacolaComponent implements OnInit {
   }
 
   reservar() {
-    this.router.navigate(["/professor/sacolas"])
+    if(localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor/sacolas']);
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente/sacolas']);
+    } else {
+      this.router.navigate(['/supervisor/sacolas'])
+    }
+  }
+
+  excluir() {
+    if(localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor/sacolas']);
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente/sacolas']);
+    } else {
+      this.router.navigate(['/supervisor/sacolas'])
+    }
   }
 
   minhasReservas() {
-    this.router.navigate(['/professor/reservas'])
+    if(localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor/reservas']);
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/professor/reservas']);
+    } else {
+      this.router.navigate(['/professor/reservas'])
+    }
   }
 
   atendente() {

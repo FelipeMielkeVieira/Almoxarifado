@@ -1,8 +1,14 @@
 <div *ngIf="lista == 0" (click)="abrirModalItem()" class="quadroItem">
+<div class="quadroItem">
+    <div class="ferramentas" (click)="abrirModalEditar()">
+        <img src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar" alt="iconeEditar">
+        <img src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeEditar"
+            alt="iconeExcluir  ">
+    </div>
     <div class="imagemItem">
         <img class="imgProduto" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="">
     </div>
-    <div class="descricaoItem">
+    <div class="descricaoItem" (click)="abrirModalItem()">
         <span class="nomeItem">{{item.nome}}</span>
         <div class="baixoItem">
             <span>{{textoDescartavel}}</span>
@@ -36,6 +42,17 @@
         <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
         <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
         <span id="spanTexto">Item reservado com sucesso!</span>
+    </div>
+    <div id="fundo" style="background-color: #AEAEAE;">
+        <div id="azul"></div>
+    </div>
+</div>
+
+<div *ngIf="feedback == 2" id="modalFeedback">
+    <div class="divInfo">
+        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+        <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+        <span id="spanTexto">Item editado com sucesso!</span>
     </div>
     <div id="fundo" style="background-color: #AEAEAE;">
         <div id="azul"></div>
@@ -125,5 +142,71 @@
         </div>
         <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>
         <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario>
+    </div>
+</div>
+
+<!-- Modal Editar Item -->
+<div *ngIf="aparecer2" id="fundoModal">
+    <div *ngIf="cadastrarModal" id="containerModalCadastrar">
+        <hr class="riscoAzul">
+        <div id="containerIcons">
+            <img id="iconFechar" (click)="fecharModalCadastrar()" src="../../../assets/close.png" alt="fechar">
+        </div>
+        <div class="principal">
+            <div class="containerModalCadastrar">
+                <div class="divImg">
+                    <button class="selecionarImg">Selecionar Imagem</button>
+                </div>
+                <div class="nomeProduto">
+                    <span>Nome Produto: </span>
+                    <div class="containerInput">
+                        <input class="inputsCadastro" type="text" placeholder="Nome produto">
+                    </div>
+                </div>
+                <div class="classificacao">
+                    <span>Classificação: </span>
+                    <input class="inputsCadastro" type="text" placeholder="Classificação">
+                </div>
+                <div class="descricao">
+                    <span>Descrição: </span>
+                    <textarea class="inputDescricao" placeholder="Descrição"></textarea>
+                </div>
+                <div class="localizacao">
+                    <span>Localização: </span>
+                    <div class="containerLocalizacao">
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                        <select id="localizacaoProduto">
+                            <option value="paredeCentro">xx</option>
+                            <option value="armario" selected>xx</option>
+                            <option value="porta">xx</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="opcao">
+                    <span>Opção: </span>
+                    <select id="selecionarDescartavel">
+                        <option value="paredeCentro" selected>Descartável</option>
+                        <option value="armario">Não Descartável</option>
+                    </select>
+                    <span>QTD: </span>
+                    <input class="inputQtd" type="text" placeholder="xx">
+                </div>
+                <div class="anexo">
+                    <input type="text" placeholder="Adicionar Anexo" class="inputAnexo">
+                    <label for="arquivo"> </label>
+                    <input type="file" name="arquivo" id="arquivo">
+                </div>
+                <button (click)="editarItem()" class="botaoCadastrar">Editar</button>
+            </div>
+        </div>
     </div>
 </div>
