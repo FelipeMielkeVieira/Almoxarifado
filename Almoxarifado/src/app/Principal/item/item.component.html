@@ -145,20 +145,6 @@
                         class="iconModal sacolaIcon">
                 </div>
             </div>
-            <div *ngIf="atendente()" id="adicionarProfessor">
-                <p class="subtituloModal marginBottom">Professor: </p>
-                <div class="containerInputData">
-                    <select name="" id="professores">
-                        <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{ professor.nome }}</option>
-                    </select>
-                </div>
-            </div>
-            <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>
-            <div class="containerAcoes">
-                <button class="btnModal" (click)="reservar()">Reservar Agora</button>
-                <!-- <img src="../../../assets/documento.png" alt="Ver Detalhes" class="iconModal sacolaIcon"> -->
-                <img (click)="adicionarNaSacola()" src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola" class="iconModal sacolaIcon">
-            </div>
             <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>
             <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario>
         </div>
