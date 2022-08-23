@@ -14,7 +14,6 @@ import { HomeProfessorComponent } from './Professor/home-professor/home-professo
 import { MinhasReservasComponent } from './Principal/minhas-reservas/minhas-reservas.component';
 import { MinhaSacolaComponent } from './Principal/minha-sacola/minha-sacola.component';
 import { SacolasComponent } from './Principal/sacolas/sacolas.component';
-import { HomeAtendenteComponent } from './Atendentes/home-atendente/home-atendente.component';
 import { HomeSupervisorComponent } from './Supervisor/home-supervisor/home-supervisor.component';
 import { LoginModule } from './Login/login.module';
 import { ProfessorModule } from './Professor/professor.module';
@@ -45,7 +44,7 @@ const rotas: Routes = [
   },
   {
     path: 'atendente', canActivate: [CheckLogged], children: [
-      { path: '', component: HomeAtendenteComponent },
+      { path: '', component: HomeSupervisorComponent },
       {
         path: 'sacolas', children: [
           { path: '', component: SacolasComponent },

@@ -12,13 +12,34 @@ export class HomeSupervisorComponent implements OnInit {
     this.listaItens2 = service.itens;
     this.localizacoesLista = service.localizacoes;
     this.localizacoesFiltradas = this.localizacoesLista;
+    this.tipoUsuario = parseInt(localStorage.getItem("usuario"));
   }
 
   listaItens2;
   inputGeral = "";
+  tipoUsuario = 2;
 
   ngOnInit() {
-
+    setTimeout(() => {
+      let div;
+      switch (this.tipoUsuario) {
+        case 2:
+          this.devolucoes = 1;
+          div = document.querySelector('#devolucoes') as HTMLElement;
+          div.className = "comAzul"
+          break;
+        case 3:
+          this.devolucoes = 1;
+          div = document.querySelector('#devolucoes') as HTMLElement;
+          div.className = "comAzul"
+          break;
+        case 4:
+          this.gerenciaUsuarios = 1;
+          div = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+          div.className = "comAzul";
+          break;
+      }
+    }, 10);
   }
 
   localizacaoAtual = "paredeCentro";
@@ -27,7 +48,7 @@ export class HomeSupervisorComponent implements OnInit {
 
   contadorRecusar = 0;
   contadorAceitar = 0;
-  gerenciaUsuarios = 1;
+  gerenciaUsuarios = 0;
   gerenciaCadastros = 0;
   devolucoes = 0;
   retirada = 0;
@@ -157,16 +178,19 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul4.className = "semAzul"
     let semAzul5 = document.querySelector('#devolucoes') as HTMLElement;
     semAzul5.className = "semAzul"
 
-
-    let comAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    comAzul.className = "comAzul"
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let comAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      comAzul.className = "comAzul"
+    }
   }
 
   mostrarEmBloco() {
@@ -189,16 +213,20 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
     let semAzul5 = document.querySelector('#devolucoes') as HTMLElement;
     semAzul5.className = "semAzul"
 
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
 
-    let comAzul = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    comAzul.className = "comAzul"
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let comAzul = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      comAzul.className = "comAzul"
+    }
   }
 
   baixaDevolucoes() {
@@ -213,16 +241,20 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
-    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul5.className = "semAzul"
-
-
     let comAzul = document.querySelector('#devolucoes') as HTMLElement;
     comAzul.className = "comAzul"
+
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul5.className = "semAzul"
+    }
   }
 
   confirmarRetirada() {
@@ -237,16 +269,20 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
-    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul5.className = "semAzul"
-
-
     let comAzul = document.querySelector('#retirada') as HTMLElement;
     comAzul.className = "comAzul"
+
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul5.className = "semAzul"
+    }
   }
 
   listaDeItens() {
@@ -261,16 +297,20 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#retirada') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
-    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul5.className = "semAzul"
-
-
     let comAzul = document.querySelector('#listaItens') as HTMLElement;
     comAzul.className = "comAzul"
+
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul5.className = "semAzul"
+    }
   }
 
   localizacoes() {
@@ -287,45 +327,49 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul2.className = "semAzul"
     let semAzul3 = document.querySelector('#listaItens') as HTMLElement;
     semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
-    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul5.className = "semAzul"
 
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let comAzul = document.querySelector('#localizacoes') as HTMLElement;
+      comAzul.className = "comAzul"
+    }
 
-    let comAzul = document.querySelector('#localizacoes') as HTMLElement;
-    comAzul.className = "comAzul"
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul5.className = "semAzul"
+    }
   }
 
   excluirLocalizacao(index: number) {
     let loc = this.localizacoesFiltradas[index];
     let index1 = this.service.localizacoes.findIndex((e) => {
-      if(e.nome == loc.nome) {
+      if (e.nome == loc.nome) {
         return true;
       };
       return false;
     })
-    if(index1 != -1) {
+    if (index1 != -1) {
       this.service.localizacoes.splice(index1, 1);
     }
   }
 
   pesquisaLocalizacao() {
     var self = this;
-    const listaFiltrada = this.localizacoesLista.filter(function(a) {
+    const listaFiltrada = this.localizacoesLista.filter(function (a) {
       return a.nome.toLowerCase().indexOf(self.inputGeral.toLowerCase()) > -1
     });
     this.localizacoesFiltradas = listaFiltrada;
   }
 
   adicionarLocalizacao() {
-    if(this.localizacoesItem < 6) {
+    if (this.localizacoesItem < 6) {
       this.localizacoesItem++;
     }
   }
 
   diminuirLocalizacao() {
-    if(this.localizacoesItem > 0) {
+    if (this.localizacoesItem > 0) {
       this.localizacoesItem--;
     }
   }
