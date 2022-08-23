@@ -1,6 +1,45 @@
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
+<!-- -------- MODAL EDITAR USER -------- -->
+<div *ngIf="abrirEditar" id="editarUser">
+  <div id="modalEditar">
+    <div id="barraAzul">
+      <div id="user">
+        <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário">
+        <div id="alterarFoto">
+          Alterar
+        </div>
+      </div>
+    </div>
+    <div id="iconSair">
+      <img (click)="fechar();" id="sair" src="../../../assets/close.png" alt="fechar">
+    </div>
+    <div id="nomeUsuario">
+      <p>Usuário</p>
+    </div>
+    <input type="text" class="inputNome" placeholder="Nome de usuário" [(ngModel)]="usuario">
+    <div id="tituloSenha">
+      <p>Senha</p>
+    </div>
+    <div class="divSenha">
+        <input type="password" class="inputsSenha" id="inputSenha1" placeholder="Senha" [(ngModel)]="senha">
+        <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)">
+    </div>
+    <div id="tituloConfirmarSenha">
+      <p>Confirmar senha</p>
+    </div>
+    <div class="divConfirmarSenha">
+      <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha" [(ngModel)]="ConfirmarSenha">
+      <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)">
+  </div>
+    <button type="button" id="salvar" (click)="salvar()">
+        Salvar
+    </button>
+  </div>
+</div>
+<!-- ----------- FIM MODAL EDITAR USER ------------ -->
+
 <div id="containerHeader">
   <div id="header">
     <div (click)="navegacaoTipo()" id="logo">
@@ -21,9 +60,13 @@
         </span>
       </div>
     </div>
+    <!-- -------- MODAL USER -------- -->
     <div *ngIf="user == 1" class="modalUser">
-      <div *ngIf="user == 1" class="setaUser"></div>
-      <div id="usuarioIcone">
+      <div class="setaUser"></div>
+      <div id="editarPerfil">
+        <img (click)="editarPerfil()" id="editarPerfilIMG" src="../../../assets/editar-texto.png" alt="Editar">
+      </div>
+      <div id="usuarioIconeModal">
         <span class="material-symbols-outlined">
           account_circle
         </span>
@@ -40,6 +83,7 @@
         <span class="spanUser" (click)="logout()">Sair</span>
       </div>
     </div>
+    <!-- ----------- FIM MODAL USER ------------ -->
   </div>
   <div id="barraSeparacao"></div>
 </div>
