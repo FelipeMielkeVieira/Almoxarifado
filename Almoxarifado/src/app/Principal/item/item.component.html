@@ -137,7 +137,7 @@
             <div class="containerAcoes">
                 <button class="btnModal" (click)="reservar()">Reservar Agora</button>
                 <!-- <img src="../../../assets/documento.png" alt="Ver Detalhes" class="iconModal sacolaIcon"> -->
-                <img src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola" class="iconModal sacolaIcon">
+                <img (click)="adicionarNaSacola()" src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola" class="iconModal sacolaIcon">
             </div>
         </div>
         <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>

@@ -242,6 +242,7 @@ export class ItemComponent implements OnInit {
   }
 
   abrirModalItem() {
+    document.documentElement.style.overflow = 'hidden';
     if(!this.aparecer) {
       this.aparecer = true;
     }
@@ -253,6 +254,7 @@ export class ItemComponent implements OnInit {
   }
 
   fecharModal() {
+    document.documentElement.style.overflow = 'auto';
     this.aparecer = false;
   }
 
@@ -293,12 +295,17 @@ export class ItemComponent implements OnInit {
   }
 
   reservar() {
+    document.documentElement.style.overflow = 'auto';
     this.aparecer = false;
     this.aparecer2 = false;
     this.feedback = 1;
     setTimeout(() => {
       this.feedback = 0;
     }, 5000);
+  }
+
+  adicionarNaSacola() {
+    document.documentElement.style.overflow = 'auto';
   }
 
   fechar() {

@@ -14,6 +14,19 @@
 
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
+    <div *ngIf="removerDevolucaoModal" class="modalRecusar">
+        <div class="containerModal">
+            <hr class="riscoAzul">
+            <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+            <div class="containerInfoModal">
+                <span class="textoModal">Tem certeza que deseja remover?</span>
+            </div>
+            <div class="containerBotoes">
+                <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
+                <button (click)="removerDevolucaoModalBtn()" class="botaoRecusar">Remover</button>
+            </div>
+        </div>
+    </div>
 
     <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
         <hr class="riscoAzul">
@@ -39,8 +52,12 @@
                                 <p *ngIf="nao == 1" id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
                                 <div class="botoesDevolucaoModal">
-                                    <button (click)="acaoSegundariaDevolucaoModal()" class="btnDevolucaoModal" style="background-color: red; margin-bottom: 0.2rem;">{{ textoAcaoSegundariaDevolucaoModal() }}</button>
-                                    <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="btnDevolucaoModal">Informar
+                                    <button (click)="acaoSegundariaDevolucaoModal()"
+                                        class="btnDevolucaoModal btnSegundario"
+                                        style="background-color: red; margin-bottom: 0.2rem;">{{
+                                        textoAcaoSegundariaDevolucaoModal() }}</button>
+                                    <button *ngIf="nao == 2" (click)="informarDefeitoItem()"
+                                        class="btnDevolucaoModal">Informar
                                         Defeito</button>
                                 </div>
                             </div>
@@ -341,14 +358,14 @@
     </div>
     <div *ngIf="contadorRecusar == 1" class="modalRecusar">
         <div class="containerModal">
-            <div class="linhaAzul"></div>
+            <hr class="riscoAzul">
             <img class="iconeAlert" src="../../../assets/alert.png" alt="">
             <div class="containerInfoModal">
-                <span class="textoModal">Tem certeza que deseja recusar?</span>
+                <span class="textoModal">{{ buscarTextoModalRecusar() }}</span>
             </div>
             <div class="containerBotoes">
                 <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-                <button class="botaoRecusar">Recusar</button>
+                <button (click)="btnRecusar()" class="botaoRecusar">{{ buscarTextoBotaoModalRecusar() }}</button>
             </div>
         </div>
     </div>

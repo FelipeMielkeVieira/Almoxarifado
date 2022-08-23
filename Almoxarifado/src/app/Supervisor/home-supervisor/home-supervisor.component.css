@@ -679,6 +679,12 @@ p:hover {
     animation:fadein 0.5s;
 }
 
+#confirmarModal {
+    border-radius: 7px;
+    background-color: white;
+    width: 35%;
+}
+
 #containerModalCadastrar{
     width: 33.75rem;
     height: 37.5rem;

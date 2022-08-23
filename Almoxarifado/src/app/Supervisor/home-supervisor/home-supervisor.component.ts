@@ -18,7 +18,7 @@ export class HomeSupervisorComponent implements OnInit {
   inputGeral = "";
 
   ngOnInit() {
-
+  
   }
 
   localizacaoAtual = "paredeCentro";
@@ -40,6 +40,7 @@ export class HomeSupervisorComponent implements OnInit {
   cadastrarModal = false;
   aparecer = false;
   localizacaoModal = false;
+  removerDevolucaoModal = false;
 
   informarDefeitoModal: boolean = false;
   devolucaoModal: boolean = false;
@@ -48,12 +49,14 @@ export class HomeSupervisorComponent implements OnInit {
   emBloco = 0;
 
   modalRecusar() {
+    document.documentElement.style.overflow = 'hidden';
     this.contadorRecusar = 1;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '0.5';
   }
 
   modalAceitar() {
+    document.documentElement.style.overflow = 'hidden';
     this.contadorAceitar = 1;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '0.5';
@@ -90,6 +93,7 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   botaoConfirmarRetirada() {
+    document.documentElement.style.overflow = 'auto';
     this.devolucaoModal = false;
     this.aparecer = false;
     this.nao = 1;
@@ -100,6 +104,7 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   abrirDevolucao(numero) {
+    document.documentElement.style.overflow = 'hidden';
     this.devolucaoModal = true;
     this.aparecer = true;
     if (numero == 2) {
@@ -110,11 +115,13 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   fecharModalBaixaDevolucao() {
+    document.documentElement.style.overflow = 'auto';
     this.devolucaoModal = false;
     this.aparecer = false;
   }
 
   darBaixaDevolucao() {
+    document.documentElement.style.overflow = 'auto';
     this.devolucaoModal = false;
     this.aparecer = false;
     this.nao = 2;
@@ -139,10 +146,15 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   cancelar() {
+    document.documentElement.style.overflow = 'auto';
     this.contadorRecusar = 0;
     this.contadorAceitar = 0;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '1';
+  }
+
+  btnRecusar() {
+    document.documentElement.style.overflow = 'auto';
   }
 
   gerenciarCadastros() {
@@ -331,17 +343,27 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   acaoSegundariaDevolucaoModal() {
-    if (this.nao == 2)
+    if (this.nao == 2) {
       this.produtoNaoDevolvido()
-    this.removerProdutoSacola()
+    } else {
+      this.removerProdutoSacola()
+    }
   }
 
   produtoNaoDevolvido() {
+    let botao = document.querySelector(".btnSegundario") as HTMLElement;
+
+    if (botao.style.backgroundColor == "red") {
+      botao.style.backgroundColor = "gray";
+    } else {
+      botao.style.backgroundColor = "red";
+    }
     //fazer lógica para dizer que o item não foi devolvido
     //desse jeito, a sacola ainda vai existir com os itens não devolvidos
   }
 
   removerProdutoSacola() {
+    this.removerDevolucaoModal = true;
     //item deve ser removido da sacola
   }
 
@@ -349,6 +371,18 @@ export class HomeSupervisorComponent implements OnInit {
     if (this.nao == 2)
       return "Não devolvido";
     return "Remover"
+  }
+
+  buscarTextoModalRecusar() {
+    return "Tem certeza que deseja recusar?"
+  }
+
+  buscarTextoBotaoModalRecusar() {
+    return "Recusar";
+  }
+
+  removerDevolucaoModalBtn() {
+    this.removerDevolucaoModal = false;
   }
 
 }
