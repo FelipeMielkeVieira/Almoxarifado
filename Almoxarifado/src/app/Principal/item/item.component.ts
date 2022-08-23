@@ -83,7 +83,6 @@ export class ItemComponent implements OnInit {
       let comAzul = document.querySelector('#localizacoes') as HTMLElement;
       comAzul.className = "comAzul"
     }
-
   }
 
   telaListaItens() {

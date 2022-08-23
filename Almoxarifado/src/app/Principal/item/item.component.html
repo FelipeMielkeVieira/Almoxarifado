@@ -1,212 +1,217 @@
 <div *ngIf="lista == 0" (click)="abrirModalItem()" class="quadroItem">
-<div class="quadroItem">
-    <div class="ferramentas" (click)="abrirModalEditar()">
-        <img src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar" alt="iconeEditar">
-        <img src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeEditar"
-            alt="iconeExcluir  ">
-    </div>
-    <div class="imagemItem">
-        <img class="imgProduto" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="">
-    </div>
-    <div class="descricaoItem" (click)="abrirModalItem()">
-        <span class="nomeItem">{{item.nome}}</span>
-        <div class="baixoItem">
-            <span>{{textoDescartavel}}</span>
-            <div class="infoItem">
-                <span>QTD:</span>
-                <span>{{item.quantidade}} UN</span>
+    <div class="quadroItem">
+        <div class="ferramentas" (click)="abrirModalEditar()">
+            <img src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar"
+                alt="iconeEditar">
+            <img src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeEditar"
+                alt="iconeExcluir  ">
+        </div>
+        <div class="imagemItem">
+            <img class="imgProduto" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="">
+        </div>
+        <div class="descricaoItem" (click)="abrirModalItem()">
+            <span class="nomeItem">{{item.nome}}</span>
+            <div class="baixoItem">
+                <span>{{textoDescartavel}}</span>
+                <div class="infoItem">
+                    <span>QTD:</span>
+                    <span>{{item.quantidade}} UN</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div *ngIf="lista == 1" (click)="abrirModalItem()" class="quadroItemLista">
-    <div class="imagemItem">
-        <img class="imgProdutoLista" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="">
-    </div>
-    <div class="descricaoItemLista">
-        <span class="nomeItem">{{item.nome}}</span>
-        <div class="baixoItem">
-            <span>{{textoDescartavel}}</span>
-            <div class="infoItemLista">
-                <span>QTD:</span>
-                <span>{{item.quantidade}} UN</span>
+    <div *ngIf="lista == 1" (click)="abrirModalItem()" class="quadroItemLista">
+        <div class="imagemItem">
+            <img class="imgProdutoLista" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe"
+                alt="">
+        </div>
+        <div class="descricaoItemLista">
+            <span class="nomeItem">{{item.nome}}</span>
+            <div class="baixoItem">
+                <span>{{textoDescartavel}}</span>
+                <div class="infoItemLista">
+                    <span>QTD:</span>
+                    <span>{{item.quantidade}} UN</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- -- FeddBack -- -->
-<div *ngIf="feedback == 1" id="modalFeedback">
-    <div class="divInfo">
-        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-        <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
-        <span id="spanTexto">Item reservado com sucesso!</span>
+    <!-- -- FeedBack -- -->
+    <div *ngIf="feedback == 1" id="modalFeedback">
+        <div class="divInfo">
+            <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+            <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+            <span id="spanTexto">Item reservado com sucesso!</span>
+        </div>
+        <div id="fundo" style="background-color: #AEAEAE;">
+            <div id="azul"></div>
+        </div>
     </div>
-    <div id="fundo" style="background-color: #AEAEAE;">
-        <div id="azul"></div>
-    </div>
-</div>
 
-<div *ngIf="feedback == 2" id="modalFeedback">
-    <div class="divInfo">
-        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-        <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
-        <span id="spanTexto">Item editado com sucesso!</span>
+    <div *ngIf="feedback == 2" id="modalFeedback">
+        <div class="divInfo">
+            <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+            <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+            <span id="spanTexto">Item editado com sucesso!</span>
+        </div>
+        <div id="fundo" style="background-color: #AEAEAE;">
+            <div id="azul"></div>
+        </div>
     </div>
-    <div id="fundo" style="background-color: #AEAEAE;">
-        <div id="azul"></div>
-    </div>
-</div>
 
 
-<div *ngIf="aparecer" id="fundoModal">
-    <!-- Modal item -->
-    <div id="modalItem">
-        <hr class="riscoAzul">
-        <div class="containerModal">
-            <div class="fechar">
-                <img class="fecharIcone" (click)="fecharModal()" src="../../../assets/close.png" alt="Fechar">
-            </div>
-            <div class="produtoInfo">
-                <div class="containerImg">
-                    <img class="imgProdModal" src="../../../assets/Rele.png" alt="Relé térmico">
+    <div *ngIf="aparecer" id="fundoModal">
+        <!-- Modal item -->
+        <div id="modalItem">
+            <hr class="riscoAzul">
+            <div class="containerModal">
+                <div class="fechar">
+                    <img class="fecharIcone" (click)="fecharModal()" src="../../../assets/close.png" alt="Fechar">
                 </div>
-                <div class="nomeTipoProd">
-                    <h2 class="tituloAzul">{{ item.nome }}</h2>
-                    <h4 class="tituloAzul">{{ textoDescartavel }}</h4>
+                <div class="produtoInfo">
+                    <div class="containerImg">
+                        <img class="imgProdModal" src="../../../assets/Rele.png" alt="Relé térmico">
+                    </div>
+                    <div class="nomeTipoProd">
+                        <h2 class="tituloAzul">{{ item.nome }}</h2>
+                        <h4 class="tituloAzul">{{ textoDescartavel }}</h4>
+                    </div>
                 </div>
-            </div>
 
-            <div class="containerClassQtd">
-                <p><span class="subtituloModal">Classificação: </span> {{ buscarClassificacao(item.classificacao) }}</p>
-                <div class="quantidadeModal">
-                    <div class="containerQuantidadeInput">
-                        <p class="subtituloModal">QTD:</p>
-                        <div id="containerQtd">
-                            <img src="../../../assets/menos.png" alt="" id="menosQtdIcon" (click)="mudarQtd(2)">
-                            <input *ngIf="item.quantidade > 0" id="inputQtd" [(ngModel)]="qtd">
-                            <div class="divQtdInvalida" *ngIf="item.quantidade < 1">0</div>
-                            <img src="../../../assets/mais.png" alt="" id="maisQtdIcon" (click)="mudarQtd(1)">
+                <div class="containerClassQtd">
+                    <p><span class="subtituloModal">Classificação: </span> {{ buscarClassificacao(item.classificacao) }}
+                    </p>
+                    <div class="quantidadeModal">
+                        <div class="containerQuantidadeInput">
+                            <p class="subtituloModal">QTD:</p>
+                            <div id="containerQtd">
+                                <img src="../../../assets/menos.png" alt="" id="menosQtdIcon" (click)="mudarQtd(2)">
+                                <input *ngIf="item.quantidade > 0" id="inputQtd" [(ngModel)]="qtd">
+                                <div class="divQtdInvalida" *ngIf="item.quantidade < 1">0</div>
+                                <img src="../../../assets/mais.png" alt="" id="maisQtdIcon" (click)="mudarQtd(1)">
+                            </div>
+                        </div>
+                        <p *ngIf="item.quantidade > 0" class="qtdMax">Máx: {{item.quantidade}}</p>
+                        <p *ngIf="item.quantidade < 1" class="qtdMax">Item Indisponível</p>
+                    </div>
+                </div>
+
+                <div class="containerDatas">
+                    <div class="linhaData">
+                        <p class="subtituloModal">Retirada: </p>
+                        <div class="containerInputData">
+                            <div class="containerDataText">
+                                <p class="dataText">
+                                    {{data1}}
+                                </p>
+                            </div>
+                            <div class="containerIconData">
+                                <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal"
+                                    (click)="abrirCalendario(1)">
+                            </div>
                         </div>
                     </div>
-                    <p *ngIf="item.quantidade > 0" class="qtdMax">Máx: {{item.quantidade}}</p>
-                    <p *ngIf="item.quantidade < 1" class="qtdMax">Item Indisponível</p>
+                    <div class="linhaData">
+                        <p class="subtituloModal">Devolução: </p>
+                        <div class="containerInputData">
+                            <div class="containerDataText">
+                                <p class="dataText">
+                                    {{data2}}
+                                </p>
+                            </div>
+                            <div class="containerIconData">
+                                <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal"
+                                    (click)="abrirCalendario(2)">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="containerDatas">
-                <div class="linhaData">
-                    <p class="subtituloModal">Retirada: </p>
+                <div *ngIf="atendente()" id="adicionarProfessor">
+                    <p class="subtituloModal marginBottom">Professor: </p>
                     <div class="containerInputData">
-                        <div class="containerDataText">
-                            <p class="dataText">
-                                {{data1}}
-                            </p>
-                        </div>
-                        <div class="containerIconData">
-                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal"
-                                (click)="abrirCalendario(1)">
-                        </div>
+                        <select name="" id="professores">
+                            <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{
+                                professor.nome }}</option>
+                        </select>
                     </div>
                 </div>
-                <div class="linhaData">
-                    <p class="subtituloModal">Devolução: </p>
-                    <div class="containerInputData">
-                        <div class="containerDataText">
-                            <p class="dataText">
-                                {{data2}}
-                            </p>
-                        </div>
-                        <div class="containerIconData">
-                            <img src="../../../assets/calendario.png" alt="Calendário" class="iconModal"
-                                (click)="abrirCalendario(2)">
-                        </div>
-                    </div>
+                <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>
+                <div class="containerAcoes">
+                    <button class="btnModal" (click)="reservar()">Reservar Agora</button>
+                    <!-- <img src="../../../assets/documento.png" alt="Ver Detalhes" class="iconModal sacolaIcon"> -->
+                    <img src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola"
+                        class="iconModal sacolaIcon">
                 </div>
             </div>
-            <div *ngIf="atendente()" id="adicionarProfessor">
-                <p class="subtituloModal marginBottom">Professor: </p>
-                <div class="containerInputData">
-                    <select name="" id="professores">
-                        <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{ professor.nome }}</option>
-                    </select>
-                </div>
-            </div>
-            <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>
-            <div class="containerAcoes">
-                <button class="btnModal" (click)="reservar()">Reservar Agora</button>
-                <!-- <img src="../../../assets/documento.png" alt="Ver Detalhes" class="iconModal sacolaIcon"> -->
-                <img src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola" class="iconModal sacolaIcon">
-            </div>
+            <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>
+            <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario>
         </div>
-        <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>
-        <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario>
     </div>
-</div>
 
-<!-- Modal Editar Item -->
-<div *ngIf="aparecer2" id="fundoModal">
-    <div *ngIf="cadastrarModal" id="containerModalCadastrar">
-        <hr class="riscoAzul">
-        <div id="containerIcons">
-            <img id="iconFechar" (click)="fecharModalCadastrar()" src="../../../assets/close.png" alt="fechar">
-        </div>
-        <div class="principal">
-            <div class="containerModalCadastrar">
-                <div class="divImg">
-                    <button class="selecionarImg">Selecionar Imagem</button>
-                </div>
-                <div class="nomeProduto">
-                    <span>Nome Produto: </span>
-                    <div class="containerInput">
-                        <input class="inputsCadastro" type="text" placeholder="Nome produto">
+    <!-- Modal Editar Item -->
+    <div *ngIf="aparecer2" id="fundoModal">
+        <div *ngIf="cadastrarModal" id="containerModalCadastrar">
+            <hr class="riscoAzul">
+            <div id="containerIcons">
+                <img id="iconFechar" (click)="fecharModalCadastrar()" src="../../../assets/close.png" alt="fechar">
+            </div>
+            <div class="principal">
+                <div class="containerModalCadastrar">
+                    <div class="divImg">
+                        <button class="selecionarImg">Selecionar Imagem</button>
                     </div>
-                </div>
-                <div class="classificacao">
-                    <span>Classificação: </span>
-                    <input class="inputsCadastro" type="text" placeholder="Classificação">
-                </div>
-                <div class="descricao">
-                    <span>Descrição: </span>
-                    <textarea class="inputDescricao" placeholder="Descrição"></textarea>
-                </div>
-                <div class="localizacao">
-                    <span>Localização: </span>
-                    <div class="containerLocalizacao">
-                        <select id="localizacaoProduto">
-                            <option value="paredeCentro">xx</option>
-                            <option value="armario" selected>xx</option>
-                            <option value="porta">xx</option>
-                        </select>
-                        <select id="localizacaoProduto">
-                            <option value="paredeCentro">xx</option>
-                            <option value="armario" selected>xx</option>
-                            <option value="porta">xx</option>
-                        </select>
-                        <select id="localizacaoProduto">
-                            <option value="paredeCentro">xx</option>
-                            <option value="armario" selected>xx</option>
-                            <option value="porta">xx</option>
-                        </select>
+                    <div class="nomeProduto">
+                        <span>Nome Produto: </span>
+                        <div class="containerInput">
+                            <input class="inputsCadastro" type="text" placeholder="Nome produto">
+                        </div>
                     </div>
+                    <div class="classificacao">
+                        <span>Classificação: </span>
+                        <input class="inputsCadastro" type="text" placeholder="Classificação">
+                    </div>
+                    <div class="descricao">
+                        <span>Descrição: </span>
+                        <textarea class="inputDescricao" placeholder="Descrição"></textarea>
+                    </div>
+                    <div class="localizacao">
+                        <span>Localização: </span>
+                        <div class="containerLocalizacao">
+                            <select id="localizacaoProduto">
+                                <option value="paredeCentro">xx</option>
+                                <option value="armario" selected>xx</option>
+                                <option value="porta">xx</option>
+                            </select>
+                            <select id="localizacaoProduto">
+                                <option value="paredeCentro">xx</option>
+                                <option value="armario" selected>xx</option>
+                                <option value="porta">xx</option>
+                            </select>
+                            <select id="localizacaoProduto">
+                                <option value="paredeCentro">xx</option>
+                                <option value="armario" selected>xx</option>
+                                <option value="porta">xx</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="opcao">
+                        <span>Opção: </span>
+                        <select id="selecionarDescartavel">
+                            <option value="paredeCentro" selected>Descartável</option>
+                            <option value="armario">Não Descartável</option>
+                        </select>
+                        <span>QTD: </span>
+                        <input class="inputQtd" type="text" placeholder="xx">
+                    </div>
+                    <div class="anexo">
+                        <input type="text" placeholder="Adicionar Anexo" class="inputAnexo">
+                        <label for="arquivo"> </label>
+                        <input type="file" name="arquivo" id="arquivo">
+                    </div>
+                    <button (click)="editarItem()" class="botaoCadastrar">Editar</button>
                 </div>
-                <div class="opcao">
-                    <span>Opção: </span>
-                    <select id="selecionarDescartavel">
-                        <option value="paredeCentro" selected>Descartável</option>
-                        <option value="armario">Não Descartável</option>
-                    </select>
-                    <span>QTD: </span>
-                    <input class="inputQtd" type="text" placeholder="xx">
-                </div>
-                <div class="anexo">
-                    <input type="text" placeholder="Adicionar Anexo" class="inputAnexo">
-                    <label for="arquivo"> </label>
-                    <input type="file" name="arquivo" id="arquivo">
-                </div>
-                <button (click)="editarItem()" class="botaoCadastrar">Editar</button>
             </div>
         </div>
     </div>
-</div>
