@@ -223,20 +223,20 @@
                             (click)="aparecerModalLocalizacao()">
                             Cadastrar localizações
                         </button>
-                        <button *ngIf="listaItens == 1" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
+                        <button *ngIf="listaItens == 1 && (tipoUsuario == 3 || tipoUsuario == 4)" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
                             Cadastrar Item</button>
                     </div>
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
                 <div id="botoes">
-                    <button (click)="gerenciarUsuarios()" id="gerenciarUsuarios" class="comAzul">Gerenciar
+                    <button *ngIf="tipoUsuario == 4" (click)="gerenciarUsuarios()" id="gerenciarUsuarios" class="semAzul">Gerenciar
                         usuários</button>
-                    <button (click)="gerenciarCadastros()" id="gerenciarCadastros" class="semAzul">Gerenciar
+                    <button *ngIf="tipoUsuario == 4" (click)="gerenciarCadastros()" id="gerenciarCadastros" class="semAzul">Gerenciar
                         cadastros</button>
                     <button (click)="baixaDevolucoes()" id="devolucoes" class="semAzul">Baixa nas devoluções</button>
                     <button (click)="confirmarRetirada()" id="retirada" class="semAzul">Confirmar retirada</button>
                     <button (click)="listaDeItens()" id="listaItens" class="semAzul">Lista de itens</button>
-                    <button (click)="localizacoes()" id="localizacoes" class="semAzul">Localizações</button>
+                    <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="localizacoes()" id="localizacoes" class="semAzul">Localizações</button>
                 </div>
                 <div id="risco"></div>
                 <div *ngIf="gerenciaCadastros == 1 && emBloco == 0" class="usuarios">

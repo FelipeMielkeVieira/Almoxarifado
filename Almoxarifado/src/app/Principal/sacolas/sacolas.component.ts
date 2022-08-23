@@ -9,7 +9,12 @@ import { UsersService } from 'src/app/service';
 })
 export class SacolasComponent implements OnInit {
 
-  constructor(private router: Router, private service: UsersService) { }
+  constructor(private router: Router, private service: UsersService) {
+    this.listaSacolas = service.retornaSacolasUsuario(localStorage.getItem('emailAtual'));
+    console.log(this.listaSacolas)
+  }
+
+  listaSacolas = [];
 
   ngOnInit() {
   }

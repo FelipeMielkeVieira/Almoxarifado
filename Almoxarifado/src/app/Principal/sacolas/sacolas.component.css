@@ -48,8 +48,10 @@ p:hover {
 }
 
 .containerSacolas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
     min-width: 890px;
+    padding: 0px 50px;
 }
