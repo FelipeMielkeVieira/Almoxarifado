@@ -12,8 +12,7 @@
             <b><span class="tituloPagina">Minhas Sacolas</span></b>
         </div>
         <div class="containerSacolas">
-            <app-sacola></app-sacola>
-            <app-sacola></app-sacola>
+            <app-sacola *ngFor="let sacola of listaSacolas" [sacola]="sacola"></app-sacola>
         </div>
     </div>
 </main>

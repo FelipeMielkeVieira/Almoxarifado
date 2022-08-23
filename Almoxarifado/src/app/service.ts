@@ -36,16 +36,16 @@ export class UsersService {
     itens = [
         {id: 1, nome: "Abraçadeira grande de nylon preta", caracteristicas: "Abraçadeira preta", quantidade: 61, descartavel: true, imagem: "../assets/Abracadeira.jfif", classificacao: 1},
         {id: 2, nome: "Bateria 12V", caracteristicas: "Bateria 12V", quantidade: 0, descartavel: true, imagem: "../assets/bateria.jfif", classificacao: 2},
-        {id: 3, nome: "Chave alanca", caracteristicas: "Chave alanca", quantidade: 5, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6},
-        {id: 4, nome: "Abraçadeira grande de nylon preta literalmente muito boa", caracteristicas: "Boa", quantidade: 25, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6}
+        {id: 3, nome: "Chave alanca", caracteristicas: "Chave alanca", quantidade: 5, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6}
     ]
 
     sacolas = [
-
+        {id: 1, data_retirada: '2022-08-25', data_devolucao: '2022-09-30', usuario_email: 'felipe_mielke-vieira@estudante.sc.senai.br'}
     ]
 
     sacolaProduto = [
-
+        {id: 1, qtd_produto: 2, sacola_id: 1, produto_id: 3},
+        {id: 2, qtd_produto: 4, sacola_id: 1, produto_id: 2}
     ]
 
     reserva = [
@@ -107,5 +107,25 @@ export class UsersService {
                 return e;
             }   
         }
+    }
+
+    retornaSacolasUsuario(email: string) {
+        let listaFinal = [];
+        for (const sacola of this.sacolas) {
+            if(email == sacola.usuario_email) {
+                listaFinal.push(sacola);
+            }
+        }
+        return listaFinal;
+    }
+
+    retornaProdutosSacola(id: number) {
+        let listaFinal = [];
+        for (const sacola of this.sacolaProduto) {
+            if(id == sacola.sacola_id) {
+                listaFinal.push(this.retornaProduto(sacola.produto_id));
+            }
+        }
+        return listaFinal;
     }
 }
