@@ -28,8 +28,14 @@ export class FiltroComponent implements OnInit {
     this.router.navigate([rota]);
   }
 
-  fecharFiltro(id) {
-    this.filtroSelecionado = id;
+  filtrar(item) {
+    this.filtroSelecionado = item;
+    this.fecharFiltro();
+    
+    let divFiltro = document.querySelector("");
+  }
+
+  fecharFiltro() {
     const input = document.querySelector("#check") as HTMLInputElement;
     input.checked = true;
   }
