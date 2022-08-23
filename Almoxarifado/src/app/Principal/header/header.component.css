@@ -84,6 +84,7 @@ p {
 .nomeUser {
     font-weight: 500;
     font-size: 17px;
+    cursor: default;
 }
 
 .emailUser {
@@ -96,6 +97,7 @@ p {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    cursor: default;
 }
 
 .divOpcao {
@@ -128,4 +130,185 @@ p {
     width: 2.5rem;
     max-height: 50px;
     margin-left: 20px;
+}
+
+#usuarioIconeModal {
+    float: left;
+    margin: 0 5px 0 5px;
+    color: #0047B6;
+    cursor: default;
+}
+
+#editarPerfil {
+    top: 10px;
+    position: absolute;
+    width: 90%;
+    display: flex;
+    justify-content: end;
+}
+
+#editarPerfilIMG {
+    width: 1rem;
+    cursor: pointer;
+}
+
+#editarPerfilIMG:hover {
+    animation: aumentar 0.2s;
+    width: 1.15rem;
+}
+
+@keyframes aumentar {
+	from {
+		width: 1rem;
+	}
+	to {
+		width: 1.15rem;
+	}
+}
+
+#editarUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    background-color:rgba(0, 0, 0, 0.349);
+}
+
+#modalEditar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+#barraAzul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10px;
+    background: #0047B6;
+    border-radius: 7px 7px 0px 0px;
+}
+
+#user {
+    position: absolute;
+    margin-top: -30px;
+    width: 6%;
+}
+
+#imagemUsuario {
+    width: 100%;
+}
+
+#alterarFoto {
+    width: 100%;
+    height: 50%;
+    bottom: 5px;
+    position: absolute;
+    z-index: 5;
+    background-color:rgba(0, 0, 0, 0.541);
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 100px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#iconSair {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+#sair {
+    margin: 2%;
+    width: 5%;
+    cursor: pointer;
+}
+
+#nomeUsuario, #tituloSenha, #divSenha, #tituloConfirmarSenha {
+    width: 100%;
+    cursor: default;
+}
+
+#nomeUsuario {
+    margin-top: 15%;
+}
+
+.inputNome {
+    width: 80%;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid #0047B6;
+    margin: 0% 2% 2% 2%;
+    font-family: 'Inter';
+    outline: none;
+}
+
+.divSenha, .divConfirmarSenha {
+    border: none;
+    width: 80%;
+    height: 2rem;
+    border-bottom: 1px solid #0047B6;
+    margin: 0% 2% 2% 2%;
+    font-family: 'Inter';
+    display: flex;
+}
+
+.inputsSenha {
+    width: 90%;
+    border: none;
+    outline: none;
+}
+
+.imgOlho {
+    height: 60%;
+}
+
+.imgOlho:hover {
+    cursor: pointer;
+}
+
+.imgOlho2 {
+    height: 60%;
+}
+
+.imgOlho2:hover {
+    cursor: pointer;
+}
+
+.containerSenha {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 80%;
+}
+
+#salvar {
+    width: 35%;
+    height: 2.2rem;
+    background-color: #0047B6;
+    color: #ffffff;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Inter';
+}
+
+#salvar:hover {
+    cursor: pointer;
+}
+
+#editarUser p {
+    margin-left: 9%;
+    font-size: 20px;
 }
