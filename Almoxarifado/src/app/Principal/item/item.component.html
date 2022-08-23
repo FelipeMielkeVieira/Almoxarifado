@@ -1,11 +1,5 @@
 <div *ngIf="lista == 0">
     <div class="quadroItem">
-        <div class="ferramentas">
-            <img src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar"
-                alt="iconeEditar">
-            <img src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeEditar"
-                alt="iconeExcluir  ">
-        </div>
         <div class="imagemItem" (click)="abrirModalItem()">
             <img class="imgProduto" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="">
         </div>
@@ -18,6 +12,12 @@
                     <span>{{item.quantidade}} UN</span>
                 </div>
             </div>
+        </div>
+        <div class="ferramentas">
+            <img src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar"
+                alt="iconeEditar">
+            <img src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeEditar"
+                alt="iconeExcluir  ">
         </div>
     </div>
 

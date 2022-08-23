@@ -36,7 +36,8 @@ export class UsersService {
     itens = [
         {id: 1, nome: "Abraçadeira grande de nylon preta", caracteristicas: "Abraçadeira preta", quantidade: 61, descartavel: true, imagem: "../assets/Abracadeira.jfif", classificacao: 1},
         {id: 2, nome: "Bateria 12V", caracteristicas: "Bateria 12V", quantidade: 0, descartavel: true, imagem: "../assets/bateria.jfif", classificacao: 2},
-        {id: 3, nome: "Chave alanca", caracteristicas: "Chave alanca", quantidade: 5, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6}
+        {id: 3, nome: "Chave alanca", caracteristicas: "Chave alanca", quantidade: 5, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6},
+        {id: 4, nome: "Abraçadeira grande de nylon preta literalmente muito boa", caracteristicas: "Boa", quantidade: 25, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6}
     ]
 
     sacolas = [

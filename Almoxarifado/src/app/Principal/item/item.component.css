@@ -20,9 +20,12 @@
     */
 
     display: flex;
-    justify-content:center;
+    justify-content: space-between;
     align-items: center;
     width: 22.5rem;
+    height: 7.5rem;
+    max-width: 22.5rem;
+    max-height: 7.5rem;
     /* width: 25%; */
     margin-bottom: 2rem;
     border: solid 1px black;
@@ -81,6 +84,10 @@
     font-size: 16px;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .quadroItem:hover .nomeItem{
@@ -109,7 +116,7 @@
 }
 
 .imagemItem{    
-    width: 50%;
+    width: 35%;
 }
 
 .imgProduto{
@@ -465,7 +472,9 @@
 } */
 
 .ferramentas{
-    width: 0.5rem;
+    display: flex;
+    flex-direction: column ;
+    margin: 2px;
 }
 
 .iconeEditar{
