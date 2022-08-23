@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-item',
@@ -6,14 +7,27 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+  constructor(private service: UsersService) {
+    this.listaItens2 = service.itens;
+  }
+
+  ngOnInit() {
+    if (this.item.descartavel) {
+      this.textoDescartavel = "Descartável"
+    } else {
+      this.textoDescartavel = "Não Descartável"
+    }
+  }
 
   @Input() item;
   @Input() lista;
 
   textoDescartavel: string;
   aparecer: boolean = false;
+  aparecer3: boolean = false;
   feedback = 0;
   qtd: number = 1;
+  modalConfirmacao: number = 0;
   editar = 0;
   aparecer2: boolean = false;
   cadastrarModal: boolean = false;
@@ -36,7 +50,7 @@ export class ItemComponent implements OnInit {
   confirmarRetirada: number = 0
   baixaDevolucoes: number = 1
   aparecerEspecificacaoReserva: boolean = false;
-  nao= 0;
+  nao = 0;
   cadastroProduto: number = 0;
   codUser: number;
 
@@ -45,6 +59,7 @@ export class ItemComponent implements OnInit {
   porta = [];
   localizacoesFiltradas = [];
   localizacaoAtual = "paredeCentro";
+
 
   aparecerModalLocalizacao() {
     this.aparecer = true;
@@ -207,7 +222,7 @@ export class ItemComponent implements OnInit {
     }, 5000);
   }
 
-  cadastrar2(){
+  cadastrar2() {
     this.aparecer = false;
     this.aparecer2 = false;
     this.cadastrarModal = false;
@@ -219,29 +234,19 @@ export class ItemComponent implements OnInit {
   }
 
   filtrarLocalizacao() {
-    if(this.localizacaoAtual == "paredeCentro") {
+    if (this.localizacaoAtual == "paredeCentro") {
       this.localizacoesFiltradas = this.paredeCentro;
     }
-    if(this.localizacaoAtual == "armario") {
+    if (this.localizacaoAtual == "armario") {
       this.localizacoesFiltradas = this.armario;
     }
-    if(this.localizacaoAtual == "porta") {
+    if (this.localizacaoAtual == "porta") {
       this.localizacoesFiltradas = this.porta;
     }
   }
 
-  constructor() { }
-
-  ngOnInit() {
-    if (this.item.descartavel) {
-      this.textoDescartavel = "Descartável"
-    } else {
-      this.textoDescartavel = "Não Descartável"
-    }
-  }
-
   abrirModalItem() {
-    if(!this.aparecer) {
+    if (!this.aparecer) {
       this.aparecer = true;
     }
   }
@@ -312,10 +317,32 @@ export class ItemComponent implements OnInit {
     return false
   }
 
+  removerItem() {
+    this.aparecer3 = true;
+    this.modalConfirmacao = 1;
+  }
+
+  cancelar() {
+    this.aparecer3 = false;
+    this.modalConfirmacao = 0;
+  }
+
   buscarProfessores() {
     return [{ id: 1, nome: "Professor 1" }, { id: 2, nome: "Professor 2" },
     { id: 3, nome: "Professor 3" }, { id: 4, nome: "Professor 4" },
     { id: 5, nome: "Professor 5" }];
+  }
+
+  selectItem() {
+    for (let item2 of this.listaItens2) {
+      if (item2.id == this.item.id) {
+        this.service.itens.splice(this.item.id, 1);
+        break;
+      }
+    }
+
+    this.aparecer3 = false;
+    this.modalConfirmacao = 0;
   }
 
 }

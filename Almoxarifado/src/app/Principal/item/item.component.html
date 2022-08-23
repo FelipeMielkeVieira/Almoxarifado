@@ -16,7 +16,7 @@
         <div class="ferramentas">
             <img src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar"
                 alt="iconeEditar">
-            <img src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeEditar"
+            <img src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeExcluir"
                 alt="iconeExcluir  ">
         </div>
     </div>
@@ -211,6 +211,23 @@
                         <input type="file" name="arquivo" id="arquivo">
                     </div>
                     <button (click)="editarItem()" class="botaoCadastrar">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal confirmação excluir -->
+    <div *ngIf="aparecer3" id="fundoModal">
+        <div *ngIf="modalConfirmacao == 1">
+            <div class="containerModalExcluir">
+                <div class="linhaAzul"></div>
+                <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+                <div class="containerInfoModal">
+                    <span class="textoModal">Tem certeza que deseja remover o item?</span>
+                </div>
+                <div class="containerBotoes">
+                    <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
+                    <button (click)="selectItem()" class="botaoRecusar">Remover</button>
                 </div>
             </div>
         </div>
