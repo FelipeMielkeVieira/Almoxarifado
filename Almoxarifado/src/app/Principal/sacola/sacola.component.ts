@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-sacola',
@@ -8,22 +9,24 @@ import { Router } from '@angular/router';
 })
 export class SacolaComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private service: UsersService) {}
+
+  @Input() sacola: {id: 0, data_retirada: '0000-00-00', data_devolucao: '0000-00-00', usuario_email: ''};
 
   id:number = 1;
+  listaItens = [];
 
-  contadorReservar: number;
+  contadorReservar: number = 0;
+  contadorExcluir: number = 0;
   reservaFeita: number;
 
   calendarioAberto1: number = 0;
   calendarioAberto2: number = 0;
 
-  dataRetirada: string = "__/__/____ 00:00"
-  dataDevolucao: string = "__/__/____ 00:00"
-
   listaProfessores = this.buscarProfessores();
 
   ngOnInit() {
+    this.listaItens = this.service.retornaProdutosSacola(this.sacola.id);
   }
 
   reservar() {
@@ -41,6 +44,7 @@ export class SacolaComponent implements OnInit {
   cancelar() {
     this.contadorReservar = 0;
     this.reservaFeita = 0;
+    this.contadorExcluir = 0;
   }
 
   abrirCalendario1() {
@@ -63,12 +67,12 @@ export class SacolaComponent implements OnInit {
 
   salvarData1(event) {
     this.calendarioAberto1 = 0;
-    this.dataRetirada = event;
+    this.sacola.data_retirada = event;
   }
 
   salvarData2(event) {
     this.calendarioAberto2 = 0;
-    this.dataDevolucao = event;
+    this.sacola.data_devolucao = event;
   }
 
   verDetalhes(){
@@ -92,6 +96,18 @@ export class SacolaComponent implements OnInit {
     return [{ id: 1, nome: "Professor 1" }, { id: 2, nome: "Professor 2" },
     { id: 3, nome: "Professor 3" }, { id: 4, nome: "Professor 4" },
     { id: 5, nome: "Professor 5" }];
+  }
+
+  excluirModal() {
+    this.contadorExcluir = 1;
+  }
+
+  excluir() {
+    this.contadorExcluir = 0;
+  }
+
+  formatarData(data: string) {
+    return new Date(data).toLocaleString();
   }
 
 }

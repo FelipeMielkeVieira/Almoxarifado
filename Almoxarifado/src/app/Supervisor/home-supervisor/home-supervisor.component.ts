@@ -12,13 +12,34 @@ export class HomeSupervisorComponent implements OnInit {
     this.listaItens2 = service.itens;
     this.localizacoesLista = service.localizacoes;
     this.localizacoesFiltradas = this.localizacoesLista;
+    this.tipoUsuario = parseInt(localStorage.getItem("usuario"));
   }
 
   listaItens2;
   inputGeral = "";
+  tipoUsuario = 2;
 
   ngOnInit() {
-
+    setTimeout(() => {
+      let div;
+      switch (this.tipoUsuario) {
+        case 2:
+          this.devolucoes = 1;
+          div = document.querySelector('#devolucoes') as HTMLElement;
+          div.className = "comAzul"
+          break;
+        case 3:
+          this.devolucoes = 1;
+          div = document.querySelector('#devolucoes') as HTMLElement;
+          div.className = "comAzul"
+          break;
+        case 4:
+          this.gerenciaUsuarios = 1;
+          div = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+          div.className = "comAzul";
+          break;
+      }
+    }, 10);
   }
 
   localizacaoAtual = "paredeCentro";
@@ -27,7 +48,7 @@ export class HomeSupervisorComponent implements OnInit {
 
   contadorRecusar = 0;
   contadorAceitar = 0;
-  gerenciaUsuarios = 1;
+  gerenciaUsuarios = 0;
   gerenciaCadastros = 0;
   devolucoes = 0;
   retirada = 0;
@@ -40,6 +61,7 @@ export class HomeSupervisorComponent implements OnInit {
   cadastrarModal = false;
   aparecer = false;
   localizacaoModal = false;
+  removerDevolucaoModal = false;
 
   informarDefeitoModal: boolean = false;
   devolucaoModal: boolean = false;
@@ -48,12 +70,14 @@ export class HomeSupervisorComponent implements OnInit {
   emBloco = 0;
 
   modalRecusar() {
+    document.documentElement.style.overflow = 'hidden';
     this.contadorRecusar = 1;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '0.5';
   }
 
   modalAceitar() {
+    document.documentElement.style.overflow = 'hidden';
     this.contadorAceitar = 1;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '0.5';
@@ -90,6 +114,7 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   botaoConfirmarRetirada() {
+    document.documentElement.style.overflow = 'auto';
     this.devolucaoModal = false;
     this.aparecer = false;
     this.nao = 1;
@@ -100,6 +125,7 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   abrirDevolucao(numero) {
+    document.documentElement.style.overflow = 'hidden';
     this.devolucaoModal = true;
     this.aparecer = true;
     if (numero == 2) {
@@ -110,11 +136,13 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   fecharModalBaixaDevolucao() {
+    document.documentElement.style.overflow = 'auto';
     this.devolucaoModal = false;
     this.aparecer = false;
   }
 
   darBaixaDevolucao() {
+    document.documentElement.style.overflow = 'auto';
     this.devolucaoModal = false;
     this.aparecer = false;
     this.nao = 2;
@@ -139,10 +167,15 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   cancelar() {
+    document.documentElement.style.overflow = 'auto';
     this.contadorRecusar = 0;
     this.contadorAceitar = 0;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '1';
+  }
+
+  btnRecusar() {
+    document.documentElement.style.overflow = 'auto';
   }
 
   gerenciarCadastros() {
@@ -157,16 +190,19 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul4.className = "semAzul"
     let semAzul5 = document.querySelector('#devolucoes') as HTMLElement;
     semAzul5.className = "semAzul"
 
-
-    let comAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    comAzul.className = "comAzul"
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let comAzul = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      comAzul.className = "comAzul"
+    }
   }
 
   mostrarEmBloco() {
@@ -189,16 +225,20 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
     let semAzul5 = document.querySelector('#devolucoes') as HTMLElement;
     semAzul5.className = "semAzul"
 
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
 
-    let comAzul = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    comAzul.className = "comAzul"
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let comAzul = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      comAzul.className = "comAzul"
+    }
   }
 
   baixaDevolucoes() {
@@ -213,16 +253,20 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
-    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul5.className = "semAzul"
-
-
     let comAzul = document.querySelector('#devolucoes') as HTMLElement;
     comAzul.className = "comAzul"
+
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul5.className = "semAzul"
+    }
   }
 
   confirmarRetirada() {
@@ -237,16 +281,20 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
-    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul5.className = "semAzul"
-
-
     let comAzul = document.querySelector('#retirada') as HTMLElement;
     comAzul.className = "comAzul"
+
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul5.className = "semAzul"
+    }
   }
 
   listaDeItens() {
@@ -261,16 +309,20 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul1.className = "semAzul"
     let semAzul2 = document.querySelector('#retirada') as HTMLElement;
     semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-    semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
-    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul5.className = "semAzul"
-
-
     let comAzul = document.querySelector('#listaItens') as HTMLElement;
     comAzul.className = "comAzul"
+
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
+      semAzul3.className = "semAzul"
+    }
+
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul5.className = "semAzul"
+    }
   }
 
   localizacoes() {
@@ -287,61 +339,75 @@ export class HomeSupervisorComponent implements OnInit {
     semAzul2.className = "semAzul"
     let semAzul3 = document.querySelector('#listaItens') as HTMLElement;
     semAzul3.className = "semAzul"
-    let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
-    semAzul4.className = "semAzul"
-    let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-    semAzul5.className = "semAzul"
 
+    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
+      let comAzul = document.querySelector('#localizacoes') as HTMLElement;
+      comAzul.className = "comAzul"
+    }
 
-    let comAzul = document.querySelector('#localizacoes') as HTMLElement;
-    comAzul.className = "comAzul"
+    if (this.tipoUsuario == 4) {
+      let semAzul4 = document.querySelector('#gerenciarCadastros') as HTMLElement;
+      semAzul4.className = "semAzul"
+      let semAzul5 = document.querySelector('#gerenciarUsuarios') as HTMLElement;
+      semAzul5.className = "semAzul"
+    }
   }
 
   excluirLocalizacao(index: number) {
     let loc = this.localizacoesFiltradas[index];
     let index1 = this.service.localizacoes.findIndex((e) => {
-      if(e.nome == loc.nome) {
+      if (e.nome == loc.nome) {
         return true;
       };
       return false;
     })
-    if(index1 != -1) {
+    if (index1 != -1) {
       this.service.localizacoes.splice(index1, 1);
     }
   }
 
   pesquisaLocalizacao() {
     var self = this;
-    const listaFiltrada = this.localizacoesLista.filter(function(a) {
+    const listaFiltrada = this.localizacoesLista.filter(function (a) {
       return a.nome.toLowerCase().indexOf(self.inputGeral.toLowerCase()) > -1
     });
     this.localizacoesFiltradas = listaFiltrada;
   }
 
   adicionarLocalizacao() {
-    if(this.localizacoesItem < 6) {
+    if (this.localizacoesItem < 6) {
       this.localizacoesItem++;
     }
   }
 
   diminuirLocalizacao() {
-    if(this.localizacoesItem > 0) {
+    if (this.localizacoesItem > 0) {
       this.localizacoesItem--;
     }
   }
 
   acaoSegundariaDevolucaoModal() {
-    if (this.nao == 2)
+    if (this.nao == 2) {
       this.produtoNaoDevolvido()
-    this.removerProdutoSacola()
+    } else {
+      this.removerProdutoSacola()
+    }
   }
 
   produtoNaoDevolvido() {
+    let botao = document.querySelector(".btnSegundario") as HTMLElement;
+
+    if (botao.style.backgroundColor == "red") {
+      botao.style.backgroundColor = "gray";
+    } else {
+      botao.style.backgroundColor = "red";
+    }
     //fazer lógica para dizer que o item não foi devolvido
     //desse jeito, a sacola ainda vai existir com os itens não devolvidos
   }
 
   removerProdutoSacola() {
+    this.removerDevolucaoModal = true;
     //item deve ser removido da sacola
   }
 
@@ -349,6 +415,18 @@ export class HomeSupervisorComponent implements OnInit {
     if (this.nao == 2)
       return "Não devolvido";
     return "Remover"
+  }
+
+  buscarTextoModalRecusar() {
+    return "Tem certeza que deseja recusar?"
+  }
+
+  buscarTextoBotaoModalRecusar() {
+    return "Recusar";
+  }
+
+  removerDevolucaoModalBtn() {
+    this.removerDevolucaoModal = false;
   }
 
 }
