@@ -142,10 +142,7 @@
                 <div *ngIf="atendente()" id="adicionarProfessor">
                     <p class="subtituloModal">Professor: </p>
                     <div class="containerInputData">
-                        <select name="" id="professores">
-                            <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{
-                                professor.nome }}</option>
-                        </select>
+                        <input type="text" id="professores" placeholder="Digite o nome">
                     </div>
                 </div>
                 <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>

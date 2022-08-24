@@ -39,7 +39,6 @@ export class ItemComponent implements OnInit {
 
   requisicaoSenha = 0;
 
-  listaProfessores = this.buscarProfessores();
   listaItens2 = [];
 
   localizacaoModal: boolean = false;
@@ -319,7 +318,7 @@ export class ItemComponent implements OnInit {
 
   atendente() {
     let usuario = parseInt(localStorage.getItem("usuario"));
-    if (usuario == 2 || usuario == 3)
+    if (usuario == 2 || usuario == 3 || usuario == 4)
       return true;
     return false
   }
@@ -332,12 +331,6 @@ export class ItemComponent implements OnInit {
   cancelar() {
     this.aparecer3 = false;
     this.modalConfirmacao = 0;
-  }
-
-  buscarProfessores() {
-    return [{ id: 1, nome: "Professor 1" }, { id: 2, nome: "Professor 2" },
-    { id: 3, nome: "Professor 3" }, { id: 4, nome: "Professor 4" },
-    { id: 5, nome: "Professor 5" }];
   }
 
   selectItem() {
