@@ -17,11 +17,7 @@ export class ReservaComponent implements OnInit {
 
   ngOnInit() {
     var self = this;
-    this.service.reservaProduto.forEach((e) => {
-      if(e.reserva_id == self.reserva.id) {
-        self.listaItens.push(self.service.retornaProduto(e.id));
-      }
-    })
+    this.listaItens = this.service.retornaProdutosReserva(this.reserva.id);
     this.mudarCor();
   }
 
