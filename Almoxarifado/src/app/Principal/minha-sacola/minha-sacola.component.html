@@ -15,88 +15,33 @@
     </div>
     <div class="divMain">
         <div class="divProdutos">
-            <div class="containerItem">
+            <div *ngFor="let produto of produtosSacola; let i = index;" class="containerItem">
                 <div class="containerCheckbox">
-                    <input type="checkbox" id="checkbox">
+                    <input type="checkbox" id="checkbox" checked>
                 </div>
-                <div class="linhaDivisao"></div>
-                <img class="img" src="../../../assets/Rele.png" alt="">
-                <div class="infoItem">
-                    <span class="nomeProduto">Nome produto</span>
-                    <div class="quantidade">
-                        <img class="iconeQtd" src="../../../assets/menos.png" alt="">
-                        <div class="divisaoQtd"></div>
-                        <span>05</span>
-                        <div class="divisaoQtd"></div>
-                        <img class="iconeQtd" src="../../../assets/mais.png" alt="">
+                <div class="parteItem">
+                    <div class="divImg">
+                        <img class="img" src="../../../assets/Rele.png" alt="">
+                    </div>
+                    <div class="infoItem">
+                        <span class="nomeProduto">{{produto.nome}}</span>
+                        <div class="quantidade">
+                            <div class="divImagemQtd1">
+                                <img (click)="qtdProduto(1, i)" class="iconeQtd" src="../../../assets/menos.png" alt="">
+                            </div>
+                            <p class="textoQtd">{{produto.qtd_atual}}</p>
+                            <div class="divImagemQtd2">
+                                <img (click)="qtdProduto(2, i)" class="iconeQtd" src="../../../assets/mais.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="parteDireita">
-                    <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
-                    <span class="descartavel">Descartável</span>
-                </div>
-            </div>
-            <div class="containerItem">
-                <div class="containerCheckbox">
-                    <input type="checkbox" id="checkbox">
-                </div>
-                <div class="linhaDivisao"></div>
-                <img class="img" src="../../../assets/Rele.png" alt="">
-                <div class="infoItem">
-                    <span class="nomeProduto">Nome produto</span>
-                    <div class="quantidade">
-                        <img class="iconeQtd" src="../../../assets/menos.png" alt="">
-                        <div class="divisaoQtd"></div>
-                        <span>05</span>
-                        <div class="divisaoQtd"></div>
-                        <img class="iconeQtd" src="../../../assets/mais.png" alt="">
+                    <div style="width: 100%;">
+                        <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
                     </div>
-                </div>
-                <div class="parteDireita">
-                    <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
-                    <span class="descartavel">Descartável</span>
-                </div>
-            </div>
-            <div class="containerItem">
-                <div class="containerCheckbox">
-                    <input type="checkbox" id="checkbox">
-                </div>
-                <div class="linhaDivisao"></div>
-                <img class="img" src="../../../assets/Rele.png" alt="">
-                <div class="infoItem">
-                    <span class="nomeProduto">Nome produto</span>
-                    <div class="quantidade">
-                        <img class="iconeQtd" src="../../../assets/menos.png" alt="">
-                        <div class="divisaoQtd"></div>
-                        <span>05</span>
-                        <div class="divisaoQtd"></div>
-                        <img class="iconeQtd" src="../../../assets/mais.png" alt="">
-                    </div>
-                </div>
-                <div class="parteDireita">
-                    <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
-                    <span class="descartavel">Descartável</span>
-                </div>
-            </div>
-            <div class="containerItem">
-                <div class="containerCheckbox">
-                    <input type="checkbox" id="checkbox">
-                </div>
-                <div class="linhaDivisao"></div>
-                <img class="img" src="../../../assets/Rele.png" alt="">
-                <div class="infoItem">
-                    <span class="nomeProduto">Nome produto</span>
-                    <div class="quantidade">
-                        <img class="iconeQtd" src="../../../assets/menos.png" alt="">
-                        <div class="divisaoQtd"></div>
-                        <span>05</span>
-                        <div class="divisaoQtd"></div>
-                        <img class="iconeQtd" src="../../../assets/mais.png" alt="">
-                    </div>
-                </div>
-                <div class="parteDireita">
-                    <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
-                    <span class="descartavel">Descartável</span>
+                    <p *ngIf="produto.descartavel" class="descartavel">Descartável</p>
+                    <p *ngIf="!produto.descartavel" class="descartavel">Não Descartável</p>
                 </div>
             </div>
         </div>
@@ -125,8 +70,6 @@
                         <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{ professor.nome }}</option>
                     </select>
                 </div>
-
-                <button *ngIf="usuario != 1" (click)="reservar()" class="botaoReservar">Reservar</button>
                 <div class="divBotoes">
                     <button class="botaoReservar" (click)="excluir()">Excluir Sacola</button>   
                     <button *ngIf="usuario != 1" (click)="reservar()" class="botaoReservar">Reservar</button>

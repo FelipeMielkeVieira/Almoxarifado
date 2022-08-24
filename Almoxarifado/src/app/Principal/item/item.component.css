@@ -218,7 +218,8 @@
 }
 
 .subtituloModal {
-    font-weight: bold   ;
+    font-weight: bold;
+    margin-top: 5px;
 }
 
 .quantidadeModal {
@@ -277,7 +278,8 @@
 
 .qtdMax {
     text-align: end;
-    font-size: 12px;
+    font-size: 13px;
+    margin-top: 2px;
 }
 
 .containerDatas {
@@ -766,5 +768,27 @@ label{
     margin: 5px;
     background-color: #0047B6;
     cursor: pointer;
+}
+
+.visualizarAnexo{
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.imgArquivo{
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.containerVisualizarAnexos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
 }
 
