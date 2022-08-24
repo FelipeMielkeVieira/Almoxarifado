@@ -15,6 +15,8 @@ export class HomeProfessorComponent implements OnInit {
   listaItens;
   emBloco = 0;
 
+  modalOrdernar: boolean = false;
+
   ngOnInit() {
   }
 
@@ -24,5 +26,31 @@ export class HomeProfessorComponent implements OnInit {
 
   mostrarEmLista() {
     this.emBloco = 1;
+  }
+  abrirModal(abrir: boolean) {
+    if (abrir) {
+      this.modalOrdernar = true;
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      this.modalOrdernar = false;
+      document.documentElement.style.overflow = 'auto';
+    }
+
+  }
+
+  ordernar() {
+    this.abrirModal(true);
+  }
+
+  fecharModalOrdenar() {
+    this.abrirModal(false);
+  }
+
+  cancelarOrdenar() {
+    this.abrirModal(false);
+  }
+
+  realizarOrdenacao() {
+    this.abrirModal(false);
   }
 }
