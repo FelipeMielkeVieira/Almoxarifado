@@ -40,7 +40,7 @@ export class UsersService {
     ]
 
     sacolas = [
-        {id: 1, data_retirada: '2022-08-25', data_devolucao: '2022-09-30', usuario_email: 'felipe_mielke-vieira@estudante.sc.senai.br'}
+        {id: 1, data_retirada: '2022-08-25 09:00', data_devolucao: '2022-09-30 09:00', usuario_email: 'felipe_mielke-vieira@estudante.sc.senai.br'}
     ]
 
     sacolaProduto = [
@@ -115,6 +115,32 @@ export class UsersService {
                 return sacola;
             }
         }
+    }
+
+    retornaReserva(id: number) {
+        for (const reserva of this.reserva) {
+            if(id == reserva.id) {
+                return reserva;
+            }
+        }
+    }
+
+    retornaProdutosReserva(id: number) {
+        let listaFinal = [];
+        for (const reserva of this.reservaProduto) {
+            if(id == reserva.reserva_id) {
+                let item = this.retornaProduto(reserva.produto_id);
+                listaFinal.push({
+                    id: item.id,
+                    nome: item.nome,
+                    quantidade: item.quantidade,
+                    descartavel: item.descartavel,
+                    imagem: item.imagem,
+                    qtd_atual: reserva.qtd_produto
+                });
+            }
+        }
+        return listaFinal;
     }
 
     retornaSacolasUsuario(email: string) {

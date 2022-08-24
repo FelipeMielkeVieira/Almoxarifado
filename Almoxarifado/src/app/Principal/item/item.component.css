@@ -356,7 +356,21 @@
     font-weight: 500;
 }
 
+.btnModal2 {
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    width: 70%;
+    font-size: large;
+    font-weight: 500;
+}
+
 .btnModal:hover, .sacolaIcon:hover {
+    cursor: pointer;
+}
+
+.btnModal2:hover, .sacolaIcon:hover {
     cursor: pointer;
 }
 

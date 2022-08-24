@@ -10,6 +10,7 @@ import { Day } from "./day.model";
 export class CalendarioComponent implements OnInit {
   
   @Output() salvarData = new EventEmitter<string>();
+  @Input() dataSalva;
   
   public monthDays: Day[];
 
@@ -21,9 +22,32 @@ export class CalendarioComponent implements OnInit {
   diaSelecionado = 0;
   mesSelecionado = 0;
   anoSelecionado = 0;
-  horaSelecionada = 0;
+  horaSelecionada = "0";
 
   constructor(public calendarCreator: CalendarCreator) { }
+
+  ngOnChanges() {
+    let newData = new Date(this.dataSalva);
+    this.diaSelecionado = newData.getDate();
+    this.mesSelecionado = newData.getMonth();
+    this.anoSelecionado = newData.getFullYear();
+
+    let horas = newData.getHours().toString();
+    if(horas.length < 2) {
+      horas = "0" + horas;
+    }
+
+    let minutos = newData.getMinutes().toString();
+    if(minutos.length < 2) {
+      minutos = "0" + minutos;
+    }
+
+    this.horaSelecionada = horas + ":" + minutos;
+  }
+
+  mostrarHora() {
+    console.log(this.horaSelecionada + " - " + this.dataSalva)
+  }
 
   ngOnInit(): void {
     this.setMonthDays(this.calendarCreator.getCurrentMonth());

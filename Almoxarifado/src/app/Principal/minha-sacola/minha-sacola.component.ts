@@ -14,12 +14,20 @@ export class MinhaSacolaComponent implements OnInit {
   ngOnInit() {
     this.usuario = parseInt(localStorage.getItem('reserva'));
     localStorage.removeItem('reserva');
-    this.sacola = this.service.retornaSacola(parseInt(this.route.snapshot.paramMap.get('id')));
-    this.produtosSacola = this.service.retornaProdutosSacola(this.sacola.id);
+    if(this.usuario != 1) {
+      this.sacola = this.service.retornaSacola(parseInt(this.route.snapshot.paramMap.get('id')));
+      this.produtosSacola = this.service.retornaProdutosSacola(this.sacola.id);
+    } else {
+      this.sacola = this.service.retornaReserva(parseInt(this.route.snapshot.paramMap.get('id')));
+      this.produtosSacola = this.service.retornaProdutosReserva(this.sacola.id);
+    }
   }
 
   produtosSacola = [];
   sacola;
+  professorReserva = "";
+  calendarioAberto1 = 0;
+  calendarioAberto2 = 0;
 
   usuario: number;
   listaProfessores = this.buscarProfessores();
@@ -45,13 +53,17 @@ export class MinhaSacolaComponent implements OnInit {
   }
 
   reservar() {
-    if(localStorage.getItem('usuario') == '1') {
-      this.router.navigate(['/professor/sacolas']);
-    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
-      this.router.navigate(['/atendente/sacolas']);
-    } else {
-      this.router.navigate(['/supervisor/sacolas'])
+    if(this.professorReserva != "") {
+      if(localStorage.getItem('usuario') == '1') {
+        this.router.navigate(['/professor/sacolas']);
+      } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+        this.router.navigate(['/atendente/sacolas']);
+      } else {
+        this.router.navigate(['/supervisor/sacolas'])
+      }
     }
+    //Colocar modal de verificação
+    //Fazer a reserva
   }
 
   excluir() {
@@ -62,6 +74,7 @@ export class MinhaSacolaComponent implements OnInit {
     } else {
       this.router.navigate(['/supervisor/sacolas'])
     }
+    //Colocar modal de verificação
   }
 
   minhasReservas() {
@@ -90,5 +103,39 @@ export class MinhaSacolaComponent implements OnInit {
         this.produtosSacola[index].qtd_atual++;
       }
     }
+  }
+
+  abrirCalendario(numero: number) {
+    if(this.usuario != 1) {
+      if(numero == 1) {
+        if(this.calendarioAberto1 == 0) {
+          this.calendarioAberto1 = 1;
+        } else {
+          this.calendarioAberto1 = 0;
+        }
+        this.calendarioAberto2 = 0;
+      } else {
+        if(this.calendarioAberto2 == 0) {
+          this.calendarioAberto2 = 1;
+        } else {
+          this.calendarioAberto2 = 0;
+        }
+        this.calendarioAberto1 = 0;
+      }
+    }
+  }
+
+  salvarData(evento, numero) {
+    if(numero == 1) {
+      this.calendarioAberto1 = 0;
+      this.sacola.data_retirada = evento;
+    } else {
+      this.calendarioAberto2 = 0;
+      this.sacola.data_devolucao = evento;
+    }
+  }
+
+  formatarData(data: string) {
+    return new Date(data).toLocaleString();
   }
 }

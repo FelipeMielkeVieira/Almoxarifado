@@ -298,13 +298,15 @@ export class ItemComponent implements OnInit {
   }
 
   reservar() {
-    document.documentElement.style.overflow = 'auto';
-    this.aparecer = false;
-    this.aparecer2 = false;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
+    if(this.item.quantidade > 0) {
+      document.documentElement.style.overflow = 'auto';
+      this.aparecer = false;
+      this.aparecer2 = false;
+      this.feedback = 1;
+      setTimeout(() => {
+        this.feedback = 0;
+      }, 5000);
+    }
   }
 
   adicionarNaSacola() {

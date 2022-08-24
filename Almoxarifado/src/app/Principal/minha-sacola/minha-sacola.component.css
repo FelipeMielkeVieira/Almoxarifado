@@ -288,3 +288,9 @@ p:hover {
     overflow: visible;
     display: inline;
 }
+
+.inputProfessor {
+    padding: 5px;
+    font-size: 16px;
+    margin: 5px;
+}
