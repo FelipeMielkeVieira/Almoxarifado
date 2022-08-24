@@ -65,9 +65,12 @@
                     </div>
                 </li>
             </ul>
-            <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
-            <button *ngIf="nao == 1" (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar
-                retirada</button>
+                <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
+                <button *ngIf="nao == 1" (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar
+                    retirada</button>
+                <div id="containerCancelarReserva">
+                    <img id="cancelarReserva" src="../../../assets/cancelarReserva.png" alt="Cancelar" title="Cancelar Reserva">
+                </div>
         </div>
     </div>
 
@@ -214,9 +217,9 @@
                             </div>
                             <div id="iconListaBloco">
                                 <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
-                                    src="../../../assets/emBloco.png" alt="em bloco">
+                                    src="../../../assets/emBloco.png" alt="em bloco" title="Ver em bloco">
                                 <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
-                                    src="../../../assets/emLista.png" alt="em lista">
+                                    src="../../../assets/emLista.png" alt="em lista" title="Ver em lista">
                             </div>
                         </div>
                         <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes"

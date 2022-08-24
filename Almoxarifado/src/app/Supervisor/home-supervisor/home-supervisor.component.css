@@ -1162,3 +1162,12 @@ p:hover {
 .imgMaisLoc {
     width: 20px;
 }
+
+#containerCancelarReserva {
+    display: flex;
+    justify-content: end;
+}
+
+#cancelarReserva {
+    width: 7%;
+}
