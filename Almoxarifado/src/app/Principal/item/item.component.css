@@ -501,7 +501,13 @@
 .iconeEditar {
     width: 1.5rem;
     height: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.iconeHistorico{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .iconeExcluir {
@@ -880,3 +886,4 @@ label {
     flex-direction: row;
     margin-top: 1rem;
 }
+
