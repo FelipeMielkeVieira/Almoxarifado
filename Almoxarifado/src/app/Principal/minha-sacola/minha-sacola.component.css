@@ -29,44 +29,49 @@ p:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 23rem;
+    width: 30rem;
+    max-width: 30rem;
+    min-width: 20rem;
     height: 9rem;
     border-radius: 8px;
     border: solid 1px black;
-    padding-top: 5px;
+    padding: 5px;
     margin: 10px;
-    padding-bottom: 5px;
 }
 
 #checkbox {
-    margin-right: 1.875rem;
     width: 3rem;
     height: 2rem;
     cursor: pointer;
 }
 
-.linhaDivisao {
-    width: 0.1rem;
-    height: 50%;
-    background-color: black;
+.divImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    border-left: 1px solid black;
 }
 
 .img {
-    width: 25%;
+    width: 100%;
     height: 40%;
 }
 
 .infoItem {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    width: 50%;
+    height: 80%;
 }
 
 .quantidade {
     margin: 5%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 85%;
     height: 2rem;
@@ -74,37 +79,54 @@ p:hover {
     border: solid 1px black;
 }
 
+.divImagemQtd1 {
+    width: 30%;
+    height: 80%;
+    border-right: 1px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divImagemQtd2 {
+    width: 30%;
+    height: 80%;
+    border-left: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .iconeQtd {
-    width: 0.6em;
-    height: 0.6rem;
-    margin: 3%;
+    width: 0.8em;
+    height: 0.8rem;
     cursor: pointer;
 }
 
-.divisaoQtd {
-    width: 0.5px;
-    height: 60%;
-    border: solid 0.5px black;
-    margin: 8%;
+.textoQtd {
+    width: 40%;
+    text-align: center;
 }
 
 .parteDireita {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-width: 30%;
 }
 
 .iconeLixeira {
-    width: 38%;
+    width: 2.3rem;
     height: 2rem;
-    margin-bottom: 90%;
     cursor: pointer;
+    float: right;
 }
 
 .descartavel {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
+    text-align: end;
 }
 
 .titulos {
@@ -121,6 +143,7 @@ p:hover {
     height: 35rem;
     border: solid 0.5px black;
     border-radius: 10px;
+    background-color: white;
 }
 
 .divisaoContainer {
@@ -244,4 +267,24 @@ p:hover {
     justify-content: center;
     align-items: center;
     width: 30rem;
+}
+
+.containerCheckbox {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.parteItem {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.nomeProduto {
+    margin-left: 5%;
+    font-size: 16px;
+    overflow: visible;
+    display: inline;
 }
