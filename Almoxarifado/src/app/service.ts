@@ -45,7 +45,7 @@ export class UsersService {
 
     sacolaProduto = [
         {id: 1, qtd_produto: 2, sacola_id: 1, produto_id: 3},
-        {id: 2, qtd_produto: 4, sacola_id: 1, produto_id: 2}
+        {id: 2, qtd_produto: 4, sacola_id: 1, produto_id: 1}
     ]
 
     reserva = [
@@ -109,6 +109,14 @@ export class UsersService {
         }
     }
 
+    retornaSacola(id: number) {
+        for (const sacola of this.sacolas) {
+            if(id == sacola.id) {
+                return sacola;
+            }
+        }
+    }
+
     retornaSacolasUsuario(email: string) {
         let listaFinal = [];
         for (const sacola of this.sacolas) {
@@ -123,7 +131,15 @@ export class UsersService {
         let listaFinal = [];
         for (const sacola of this.sacolaProduto) {
             if(id == sacola.sacola_id) {
-                listaFinal.push(this.retornaProduto(sacola.produto_id));
+                let item = this.retornaProduto(sacola.produto_id);
+                listaFinal.push({
+                    id: item.id,
+                    nome: item.nome,
+                    quantidade: item.quantidade,
+                    descartavel: item.descartavel,
+                    imagem: item.imagem,
+                    qtd_atual: sacola.qtd_produto
+                });
             }
         }
         return listaFinal;

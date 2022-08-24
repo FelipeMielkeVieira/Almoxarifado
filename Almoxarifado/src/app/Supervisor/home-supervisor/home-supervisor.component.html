@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal cadastrar produto -->
+    <!-- Modal cadastrar item -->
     <div *ngIf="cadastrarModal" id="containerModalCadastrar">
         <hr class="riscoAzul">
         <div id="containerIcons">
@@ -177,7 +177,9 @@
                     <input class="inputQtd" type="text" placeholder="xx">
                 </div>
                 <div class="anexo">
-                    <button class="addAnexo">Adicionar anexo</button>
+                    <input type="text" placeholder="Adicionar Anexo" class="inputAnexo">
+                    <label for="arquivo"> </label>
+                    <input type="file" name="arquivo" id="arquivo">
                 </div>
                 <button (click)="cadastrarProduto()" class="botaoCadastrar">Cadastrar</button>
             </div>
@@ -228,6 +230,9 @@
                         </button>
                         <button *ngIf="listaItens == 1 && (tipoUsuario == 3 || tipoUsuario == 4)" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
                             Cadastrar Item</button>
+                    </div>
+                    <div id="filtro">
+                        
                     </div>
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-minha-sacola',
@@ -8,12 +9,17 @@ import { Router } from '@angular/router';
 })
 export class MinhaSacolaComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: UsersService) { }
 
   ngOnInit() {
     this.usuario = parseInt(localStorage.getItem('reserva'));
     localStorage.removeItem('reserva');
+    this.sacola = this.service.retornaSacola(parseInt(this.route.snapshot.paramMap.get('id')));
+    this.produtosSacola = this.service.retornaProdutosSacola(this.sacola.id);
   }
+
+  produtosSacola = [];
+  sacola;
 
   usuario: number;
   listaProfessores = this.buscarProfessores();
@@ -80,5 +86,17 @@ export class MinhaSacolaComponent implements OnInit {
     return [{ id: 1, nome: "Professor 1" }, { id: 2, nome: "Professor 2" },
     { id: 3, nome: "Professor 3" }, { id: 4, nome: "Professor 4" },
     { id: 5, nome: "Professor 5" }];
+  }
+
+  qtdProduto(tipo, index) {
+    if(tipo == 1) {
+      if(this.produtosSacola[index].qtd_atual > 1) {
+        this.produtosSacola[index].qtd_atual--;
+      }
+    } else {
+      if(!((this.produtosSacola[index].qtd_atual + 1) > this.produtosSacola[index].quantidade)) {
+        this.produtosSacola[index].qtd_atual++;
+      }
+    }
   }
 }
