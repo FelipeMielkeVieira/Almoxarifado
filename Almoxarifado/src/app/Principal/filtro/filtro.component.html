@@ -10,6 +10,106 @@
     </div>
 </div>
 
+<!-- -------------------------------------------------------- -->
+
+<div *ngIf="aparecer == 1" id="fundoModal">
+    <div id="containerModal">
+        <div id="riscoAzul"></div>
+        <div id="dados">
+            <div id="containerTopo">
+                <div id="palavraFiltro">
+                    <p>
+                        Filtros
+                    </p>
+                </div>
+                <div id="containerIcon">
+                    <img id="iconFechar" (click)="fecharModal()" src="../../../assets/close.png" alt="fechar">
+                </div>
+            </div>
+            <div id="containerConteudoTeste">
+                <div class="divFiltro">
+                    <div id="texto">
+                        Materiais do projeto
+                    </div>
+                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                </div>
+                <div class="divFiltro">
+                    <div id="texto">
+                        Ferramentas Elétricas
+                    </div>
+                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                </div>
+                <div class="divFiltro">
+                    <div id="texto">
+                        Componentes Eletrônicos
+                    </div>
+                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                </div>
+                <div class="divFiltro">
+                    <div id="texto">
+                        Materiais Elétricos
+                    </div>
+                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                </div>
+                <div class="divFiltro">
+                    <div id="texto">
+                        Materiais Elétricos
+                    </div>
+                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                </div>
+                <div class="divFiltro">
+                    <div id="texto">
+                        Materiais Elétricos
+                    </div>
+                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                </div>
+                <div class="divFiltro">
+                    <div id="texto">
+                        Materiais Elétricos
+                    </div>
+                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                </div>
+                <div class="divFiltro">
+                    <div id="texto">
+                        Materiais Elétricos
+                    </div>
+                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                </div>
+                
+            </div>
+            <div id="riscoTeste">
+                <hr id="riscoPequeno">
+            </div>
+            <div id="containerCadastrar">
+                
+                <div id="parteCadastrar">
+                    <div id="textoCadastrar">
+                        <p>
+                            Cadastrar
+                        </p>
+                    </div>
+                    <div id="inputNomeFiltro">
+                        <input type="text" id="NomeFiltro" placeholder="Nome do filtro">
+                    </div>
+                    <div id="containerBotaoAdicionar">
+                        <button id="botaoAdicionar">Adicionar</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="riscoTeste">
+                <hr id="riscoGrande">
+            </div>
+                <div id="containerSalvar">
+                    <button id="botaoSalvar" (click)="salvar()">Salvar</button>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- --------------------------------------------------------- -->
+
 <input type="checkbox" id="check" checked>
 <div id="espacamento"></div>
 <div class="sidebar">
