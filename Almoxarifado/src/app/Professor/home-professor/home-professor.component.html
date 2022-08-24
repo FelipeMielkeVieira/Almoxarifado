@@ -1,3 +1,40 @@
+<div *ngIf="modalOrdernar" id="fundoModalOrdenar">
+    <div id="containerModalOrdenar">
+        <hr class="riscoAzul">
+        <div class="containerFechar">
+            <img class="fecharIcone espacoFecharOrdenarModal" (click)="fecharModalOrdenar()"
+                src="../../../assets/close.png" alt="fechar">
+        </div>
+        <div id="containerConteudoModalOrdernar">
+            <div style="width: 100%;">
+                <h2 class="titleModalOrdenar">Ordenar</h2>
+            </div>
+            <div id="ordenarConteudo">
+                <div>
+                    <p class="subtitleOrdenar">Tipo</p>
+                    <select name="tipoOrdenar" class="selectOrdenar">
+                        <option value="0">Crescente</option>
+                        <option value="1">Decrescente</option>
+                    </select>
+                </div>
+                <div>
+                    <p class="subtitleOrdenar">Opção</p>
+                    <select name="opcaoOrdenar" class="selectOrdenar">
+                        <option value="0">Nome</option>
+                        <option value="1">Quantidade em estoque</option>
+                    </select>
+                </div>
+            </div>
+            <div id="containerBotoesOrdenar">
+                <button class="btnDevolucaoModal" style="background-color: red;"
+                    (click)="cancelarOrdenar()">Cancelar</button>
+                <button class="btnDevolucaoModal" (click)="realizarOrdenacao()">Ordenar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <app-header></app-header>
 <app-filtro></app-filtro>
 <main>
@@ -9,14 +46,16 @@
                     <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                 </div>
                 <div id="iconListaBloco">
-                    <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
-                        src="../../../assets/emBloco.png" alt="em bloco">
-                    <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
-                        src="../../../assets/emLista.png" alt="em lista">
+                    <img src="../../../assets/ordenar.png" id="ordernar" (click)="ordernar()" alt="Ordernar"
+                        title="Ordernar">
+                    <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco" src="../../../assets/emBloco.png"
+                        alt="em bloco">
+                    <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista" src="../../../assets/emLista.png"
+                        alt="em lista">
                 </div>
             </div>
             <div id="filtro">
-                        
+
             </div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
         </div>
@@ -30,6 +69,6 @@
         </div>
 
         <!-- Fundo transparente -->
-        
+
     </div>
 </main>

@@ -12,6 +12,40 @@
     </div>
 </div>
 
+<div *ngIf="modalOrdernar" id="fundoModalOrdenar">
+    <div id="containerModalOrdenar">
+        <hr class="riscoAzul">
+        <div class="containerFechar">
+            <img class="fecharIcone espacoFecharOrdenarModal" (click)="fecharModalOrdenar()" src="../../../assets/close.png" alt="fechar">
+        </div>
+        <div id="containerConteudoModalOrdernar">
+            <div style="width: 100%;">
+                <h2 class="titleModalOrdenar">Ordenar</h2>
+            </div>
+            <div id="ordenarConteudo">
+                <div>
+                    <p class="subtitleOrdenar">Tipo</p>
+                    <select name="tipoOrdenar" class="selectOrdenar">
+                        <option value="0">Crescente</option>
+                        <option value="1">Decrescente</option>
+                    </select>
+                </div>
+                <div>    
+                    <p class="subtitleOrdenar">Opção</p>
+                    <select name="opcaoOrdenar" class="selectOrdenar">
+                        <option value="0">Nome</option>
+                        <option value="1">Quantidade em estoque</option>
+                    </select>
+                </div>
+            </div>
+            <div id="containerBotoesOrdenar">
+                <button class="btnDevolucaoModal" style="background-color: red;" (click)="cancelarOrdenar()">Cancelar</button>
+                <button class="btnDevolucaoModal" (click)="realizarOrdenacao()">Ordenar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
     <div *ngIf="!reserva" id="modalCancelarReserva">
@@ -84,6 +118,13 @@
                         <img (click)="cancelarReserva()" id="cancelarReserva" src="../../../assets/cancelarReserva.png" alt="Cancelar" title="Cancelar Reserva">
                    
                 </div>
+            <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
+            <button *ngIf="nao == 1" (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar
+                retirada</button>
+            <div id="containerCancelarReserva">
+                <img id="cancelarReserva" src="../../../assets/cancelarReserva.png" alt="Cancelar"
+                    title="Cancelar Reserva">
+            </div>
         </div>
     </div>
 
@@ -231,6 +272,8 @@
                                 <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                             </div>
                             <div id="iconListaBloco">
+                                <img src="../../../assets/ordenar.png" id="ordernar" (click)="ordernar()" alt="Ordernar"
+                                    title="Ordernar">
                                 <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
                                     src="../../../assets/emBloco.png" alt="em bloco" title="Ver em bloco">
                                 <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
@@ -241,23 +284,27 @@
                             (click)="aparecerModalLocalizacao()">
                             Cadastrar localizações
                         </button>
-                        <button *ngIf="listaItens == 1 && (tipoUsuario == 3 || tipoUsuario == 4)" id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
+                        <button *ngIf="listaItens == 1 && (tipoUsuario == 3 || tipoUsuario == 4)"
+                            id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
                             Cadastrar Item</button>
                     </div>
                     <div id="filtro">
-                        
+
                     </div>
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
                 <div id="botoes">
-                    <button *ngIf="tipoUsuario == 4" (click)="gerenciarUsuarios()" id="gerenciarUsuarios" class="semAzul">Gerenciar
+                    <button *ngIf="tipoUsuario == 4" (click)="gerenciarUsuarios()" id="gerenciarUsuarios"
+                        class="semAzul">Gerenciar
                         usuários</button>
-                    <button *ngIf="tipoUsuario == 4" (click)="gerenciarCadastros()" id="gerenciarCadastros" class="semAzul">Gerenciar
+                    <button *ngIf="tipoUsuario == 4" (click)="gerenciarCadastros()" id="gerenciarCadastros"
+                        class="semAzul">Gerenciar
                         cadastros</button>
                     <button (click)="baixaDevolucoes()" id="devolucoes" class="semAzul">Baixa nas devoluções</button>
                     <button (click)="confirmarRetirada()" id="retirada" class="semAzul">Confirmar retirada</button>
                     <button (click)="listaDeItens()" id="listaItens" class="semAzul">Lista de itens</button>
-                    <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="localizacoes()" id="localizacoes" class="semAzul">Localizações</button>
+                    <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="localizacoes()" id="localizacoes"
+                        class="semAzul">Localizações</button>
                 </div>
                 <div id="risco"></div>
                 <div *ngIf="gerenciaCadastros == 1 && emBloco == 0" class="usuarios">

@@ -25,21 +25,22 @@ export class ItemComponent implements OnInit {
   textoDescartavel: string;
   aparecer: boolean = false;
   aparecer3: boolean = false;
-  feedback = 0;
-  qtd: number = 1;
-  modalConfirmacao: number = 0;
-  editar = 0;
+  aparecer4: boolean = false;
   aparecer2: boolean = false;
   cadastrarModal: boolean = false;
+  modalAnexos: number = 0;
+  qtd: number = 1;
+  feedback: number = 0;
+  modalConfirmacao: number = 0;
+  editar: number = 0;
+  requisicaoSenha: number = 0;
 
   calendarioAberto1: number = 0;
   calendarioAberto2: number = 0;
   data1: string = "__/__/____ 00:00";
   data2: string = "__/__/____ 00:00";
 
-  requisicaoSenha = 0;
 
-  listaProfessores = this.buscarProfessores();
   listaItens2 = [];
 
   localizacaoModal: boolean = false;
@@ -59,7 +60,6 @@ export class ItemComponent implements OnInit {
   porta = [];
   localizacoesFiltradas = [];
   localizacaoAtual = "paredeCentro";
-
 
   aparecerModalLocalizacao() {
     this.aparecer = true;
@@ -119,10 +119,10 @@ export class ItemComponent implements OnInit {
   }
 
   telaConfirmarRetirada() {
-    this.localizacao = 0
-    this.listaItens = 0
-    this.baixaDevolucoes = 0
-    this.confirmarRetirada = 1
+    this.localizacao = 0;
+    this.listaItens = 0;
+    this.baixaDevolucoes = 0;
+    this.confirmarRetirada = 1;
 
     let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
     semAzul1.className = "semAzul"
@@ -134,7 +134,6 @@ export class ItemComponent implements OnInit {
     }
     let comAzul = document.querySelector('#confirmarRetirada') as HTMLButtonElement;
     comAzul.className = "comAzul"
-
   }
 
   telaBaixaDevolucoes() {
@@ -247,7 +246,7 @@ export class ItemComponent implements OnInit {
 
   abrirModalItem() {
     document.documentElement.style.overflow = 'hidden';
-    if(!this.aparecer) {
+    if (!this.aparecer) {
       this.aparecer = true;
     }
   }
@@ -299,13 +298,15 @@ export class ItemComponent implements OnInit {
   }
 
   reservar() {
-    document.documentElement.style.overflow = 'auto';
-    this.aparecer = false;
-    this.aparecer2 = false;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
+    if(this.item.quantidade > 0) {
+      document.documentElement.style.overflow = 'auto';
+      this.aparecer = false;
+      this.aparecer2 = false;
+      this.feedback = 1;
+      setTimeout(() => {
+        this.feedback = 0;
+      }, 5000);
+    }
   }
 
   adicionarNaSacola() {
@@ -319,7 +320,7 @@ export class ItemComponent implements OnInit {
 
   atendente() {
     let usuario = parseInt(localStorage.getItem("usuario"));
-    if (usuario == 2 || usuario == 3)
+    if (usuario == 2 || usuario == 3 || usuario == 4)
       return true;
     return false
   }
@@ -334,12 +335,6 @@ export class ItemComponent implements OnInit {
     this.modalConfirmacao = 0;
   }
 
-  buscarProfessores() {
-    return [{ id: 1, nome: "Professor 1" }, { id: 2, nome: "Professor 2" },
-    { id: 3, nome: "Professor 3" }, { id: 4, nome: "Professor 4" },
-    { id: 5, nome: "Professor 5" }];
-  }
-
   selectItem() {
     for (let item2 of this.listaItens2) {
       if (item2.id == this.item.id) {
@@ -350,6 +345,16 @@ export class ItemComponent implements OnInit {
 
     this.aparecer3 = false;
     this.modalConfirmacao = 0;
+    this.feedback = 3;
   }
 
+  verAnexos() {
+    this.aparecer4 = true;
+    this.modalAnexos = 1;
+  }
+
+  fecharModalAnexos(){
+    this.aparecer4 = false;
+    this.modalAnexos = 0;
+  }
 }

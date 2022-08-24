@@ -9,6 +9,99 @@ main {
     height: 100%;
 }
 
+/* Modais */
+
+#containerModalOrdenar {
+    background-color: white;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.riscoAzul {
+    width: 100%;
+    height: 12px;
+    background: #0047B6;
+    border: 0;
+    border-radius: 0.3rem 0.3rem 0px 0px;
+}
+
+.containerFechar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fecharIcone {
+    width: 3%;
+    cursor: pointer;
+}
+
+#fundoModalOrdenar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    background-color:rgba(0, 0, 0, 0.349);
+}
+
+#containerConteudoModalOrdernar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px 40px 40px 40px;
+}
+
+#ordenarConteudo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.titleModalOrdenar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subtitleOrdenar {
+    text-align: center;
+}
+
+.selectOrdenar {
+    border-radius: 5px;
+    padding: 8px;
+    outline: none;
+}
+
+#containerBotoesOrdenar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.espacoFecharOrdenarModal {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#ordernar {
+    width: 1.5rem;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btnDevolucaoModal {
+    background-color: #0047B6;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+}
+
+/* Fim Modais */
+
 #container {
     margin-top: 2.3rem;
     width: 80%;

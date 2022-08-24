@@ -1,5 +1,7 @@
 <app-header></app-header>
 <app-filtro></app-filtro>
+<app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData($event, 1)" [dataSalva]="sacola.data_retirada"></app-calendario>
+<app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData($event, 2)" [dataSalva]="sacola.data_devolucao"></app-calendario>
 <body>
     <div id="caminho">
         <img (click)="home()" id="casa" src="../../../assets/casa.png" alt="Casa">
@@ -27,18 +29,18 @@
                         <span class="nomeProduto">{{produto.nome}}</span>
                         <div class="quantidade">
                             <div class="divImagemQtd1">
-                                <img (click)="qtdProduto(1, i)" class="iconeQtd" src="../../../assets/menos.png" alt="">
+                                <img *ngIf="usuario != 1" (click)="qtdProduto(1, i)" class="iconeQtd" src="../../../assets/menos.png" alt="">
                             </div>
                             <p class="textoQtd">{{produto.qtd_atual}}</p>
                             <div class="divImagemQtd2">
-                                <img (click)="qtdProduto(2, i)" class="iconeQtd" src="../../../assets/mais.png" alt="">
+                                <img *ngIf="usuario != 1" (click)="qtdProduto(2, i)" class="iconeQtd" src="../../../assets/mais.png" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="parteDireita">
                     <div style="width: 100%;">
-                        <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
+                        <img *ngIf="usuario != 1" class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
                     </div>
                     <p *ngIf="produto.descartavel" class="descartavel">Descartável</p>
                     <p *ngIf="!produto.descartavel" class="descartavel">Não Descartável</p>
@@ -51,27 +53,20 @@
                 <div class="divisaoContainer"></div>
                 <b><span class="tituloData">Data de Retirada</span></b>
                 <div class="containerData">
-                    <img class="imgCalendario" src="../../../assets/calendario.png" alt="">
+                    <img (click)="abrirCalendario(1)" class="imgCalendario" src="../../../assets/calendario.png" alt="">
                     <div class="divisaoData"></div>
-                    <span class="textoData">30/06/2022 - 13:30</span>
+                    <span class="textoData">{{formatarData(sacola.data_retirada)}}</span>
                 </div>
 
                 <b><span class="tituloData">Data de Devolução</span></b>
                 <div class="containerData">
-                    <img class="imgCalendario" src="../../../assets/calendario.png" alt="">
+                    <img (click)="abrirCalendario(2)" class="imgCalendario" src="../../../assets/calendario.png" alt="">
                     <div class="divisaoData"></div>
-                    <span class="textoData">01/07/2022 - 15:00</span>
+                    <span class="textoData">{{formatarData(sacola.data_devolucao)}}</span>
                 </div>
-
-
-                <b><span class="tituloData">Professor</span></b>
-                <div *ngIf="atendente()" id="adicionarProfessor">
-                    <select name="" id="professores">
-                        <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{ professor.nome }}</option>
-                    </select>
-                </div>
+                <input *ngIf="usuario != 1 && (tipoUsuario == 2 || tipoUsuario == 3 || tipoUsuario == 4)" class="inputProfessor" [(ngModel)]="professorReserva" placeholder="Professor">
                 <div class="divBotoes">
-                    <button class="botaoReservar" (click)="excluir()">Excluir Sacola</button>   
+                    <button *ngIf="usuario != 1" class="botaoReservar" (click)="excluir()">Excluir Sacola</button>   
                     <button *ngIf="usuario != 1" (click)="reservar()" class="botaoReservar">Reservar</button>
                 </div>
 

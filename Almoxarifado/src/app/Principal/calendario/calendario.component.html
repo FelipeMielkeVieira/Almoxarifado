@@ -16,7 +16,7 @@
       </span>
     </div>
     <div class="inputs">
-      <input type="time" class="inputHora" id="inputHora" [(ngModel)]="horaSelecionada">
+      <input type="time" class="inputHora" id="inputHora" (change)="mostrarHora()" [(ngModel)]="horaSelecionada">
       <button class="botaoSalvar" (click)="salvar()">Salvar</button>
     </div>
   </div>

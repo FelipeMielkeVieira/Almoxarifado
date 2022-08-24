@@ -1,8 +1,8 @@
-*{
+* {
     font-family: 'Inter', sans-serif;
 }
 
-.quadroItem{
+.quadroItem {
     /* 
     Código criado primeiro:
     
@@ -60,14 +60,15 @@
     border: solid 1px black;
     border-radius: 5px;
     padding: 0.9rem;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-.quadroItem:hover, .quadroItemLista:hover {
+.quadroItem:hover,
+.quadroItemLista:hover {
     cursor: pointer;
 }
 
-.descricaoItem{
+.descricaoItem {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -75,7 +76,7 @@
     height: 80%;
 }
 
-.descricaoItemLista{
+.descricaoItemLista {
     width: 50%;
     height: 80%;
 }
@@ -90,7 +91,7 @@
     white-space: nowrap;
 }
 
-.quadroItem:hover .nomeItem{
+.quadroItem:hover .nomeItem {
     color: #0047B6;
 }
 
@@ -115,16 +116,16 @@
     display: flex;
 }
 
-.imagemItem{    
+.imagemItem {
     width: 35%;
 }
 
-.imgProduto{
+.imgProduto {
     width: 100%;
     height: 100%;
 }
 
-.imgProdutoLista{
+.imgProdutoLista {
     width: 50%;
 }
 
@@ -139,25 +140,26 @@
     top: 0;
     left: 0;
     z-index: 5;
-    background-color:rgba(0, 0, 0, 0.349);
+    background-color: rgba(0, 0, 0, 0.349);
 }
 
 #modalItem {
     width: 31%;
     border-radius: 0.3rem;
     background-color: white;
-    animation:fadein 0.5s;
+    animation: fadein 0.5s;
 }
 
 @keyframes fadein {
-	from {
+    from {
         margin-top: -10px;
-		opacity:0;
-	}
-	to {
+        opacity: 0;
+    }
+
+    to {
         margin-top: 0px;
-		opacity:1;
-	}
+        opacity: 1;
+    }
 }
 
 .riscoAzul {
@@ -241,7 +243,7 @@
     display: flex;
     border: 1px solid black;
     border-radius: 0.3rem;
-    width: 30%; 
+    width: 30%;
     min-width: 100px;
     justify-content: space-evenly;
     align-items: center;
@@ -252,7 +254,8 @@
     padding: 0% 7%;
 }
 
-#menosQtdIcon, #maisQtdIcon {
+#menosQtdIcon,
+#maisQtdIcon {
     width: 30%;
     padding: 7% 7%;
 }
@@ -265,7 +268,8 @@
     border-left: 1px solid black;
 }
 
-#menosQtdIcon, #maisQtdIcon:hover {
+#menosQtdIcon,
+#maisQtdIcon:hover {
     cursor: pointer;
 }
 
@@ -356,7 +360,21 @@
     font-weight: 500;
 }
 
+.btnModal2 {
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    width: 70%;
+    font-size: large;
+    font-weight: 500;
+}
+
 .btnModal:hover, .sacolaIcon:hover {
+    cursor: pointer;
+}
+
+.btnModal2:hover, .sacolaIcon:hover {
     cursor: pointer;
 }
 
@@ -384,7 +402,7 @@
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     position: absolute;
-    bottom:0.5rem;
+    bottom: 0.5rem;
     height: 12%;
     right: 0.5rem;
     animation: fadein 1s;
@@ -443,6 +461,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    padding: 5px;
     border: 0;
     outline: 0;
     border-radius: inherit;
@@ -473,24 +492,24 @@
     }
 } */
 
-.ferramentas{
+.ferramentas {
     display: flex;
     flex-direction: column;
     margin: 2px;
 }
 
-.iconeEditar{
+.iconeEditar {
     width: 1.5rem;
     height: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-.iconeExcluir{
+.iconeExcluir {
     width: 1.5rem;
     height: 1.5rem;
 }
 
-.containerModalCadastrar{
+.containerModalCadastrar {
     width: 70%;
     display: flex;
     justify-content: center;
@@ -503,35 +522,35 @@
     cursor: pointer;
 }
 
-#containerModalCadastrar{
+#containerModalCadastrar {
     width: 33.75rem;
     height: 37.5rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
-    animation:fadein 0.5s;
+    animation: fadein 0.5s;
 }
 
-.imgRele{
+.imgRele {
     width: 13rem;
 }
 
-.imgFechar{
+.imgFechar {
     position: absolute;
     left: 54%;
     width: 1rem;
     cursor: pointer;
 }
 
-.divImg{
+.divImg {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 6.25rem;
 }
 
-.selecionarImg{
+.selecionarImg {
     background-color: #fff;
     border: solid 1px black;
     border-radius: 5px;
@@ -540,7 +559,7 @@
     cursor: pointer;
 }
 
-.inputsCadastro{
+.inputsCadastro {
     width: 13rem;
     height: 30px;
     border: solid 1px black;
@@ -549,7 +568,7 @@
     padding-left: 10px;
 }
 
-.inputDescricao{
+.inputDescricao {
     width: 13rem;
     height: 80px;
     border: solid 1px black;
@@ -559,7 +578,7 @@
     resize: none;
 }
 
-.nomeProduto{
+.nomeProduto {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -567,7 +586,7 @@
     margin-top: 10px;
 }
 
-.classificacao{
+.classificacao {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -575,7 +594,7 @@
     margin-top: 10px;
 }
 
-.descricao{
+.descricao {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -583,7 +602,7 @@
     margin-top: 10px;
 }
 
-.localizacao{
+.localizacao {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -591,7 +610,7 @@
     margin-top: 10px;
 }
 
-.opcao{
+.opcao {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -599,20 +618,20 @@
     margin-top: 10px;
 }
 
-.principal{
+.principal {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.anexo{
+.anexo {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 4.625rem;
 }
 
-.containerInput{
+.containerInput {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -620,14 +639,14 @@
 
 #localizacaoProduto {
     width: 4.12rem;
-    height: 1.8rem; 
+    height: 1.8rem;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
     margin: 2px;
 }
 
-#selecionarDescartavel{
+#selecionarDescartavel {
     width: 9.5rem;
     height: 1.8rem;
     border-radius: 5px;
@@ -635,13 +654,13 @@
     cursor: pointer;
 }
 
-.inputQtd{
+.inputQtd {
     width: 4.563rem;
     height: 1.8rem;
     padding-left: 10px;
 }
 
-.addAnexo{
+.addAnexo {
     width: 9.188rem;
     height: 31px;
     border: solid 1px black;
@@ -651,7 +670,7 @@
     cursor: pointer;
 }
 
-.botaoCadastrar{
+.botaoCadastrar {
     width: 10.938rem;
     height: 3.188rem;
     background-color: #0047B6;
@@ -659,7 +678,7 @@
     border: none;
     border-radius: 5px;
     font-size: 23px;
-    margin-top: 1.875rem;   
+    margin-top: 1.875rem;
     cursor: pointer;
 }
 
@@ -668,18 +687,18 @@
     flex-wrap: wrap;
 }
 
-#arquivo{
-    display: none;  
+#arquivo {
+    display: none;
 }
 
-.inputAnexo{
+.inputAnexo {
     width: 200px;
     height: 30px;
     border-radius: 5px;
     border: solid 1px black;
 }
 
-label{
+label {
     margin-left: 5px;
     width: 32px;
     height: 32px;
@@ -700,18 +719,19 @@ label{
     top: 30%;
     border: solid 1px black;
     background-color: #fff;
-    animation:fadein 0.5s;
+    animation: fadein 0.5s;
 }
 
 @keyframes fadein {
-	from {
+    from {
         margin-top: -10px;
-		opacity:0;
-	}
-	to {
+        opacity: 0;
+    }
+
+    to {
         margin-top: 0px;
-		opacity:1;
-	}
+        opacity: 1;
+    }
 }
 
 .linhaAzul {
@@ -730,9 +750,9 @@ label{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
-    height: 5px;
-    margin-top: 5%;
+    height: 13rem;
 }
 
 .textoModal {
@@ -743,7 +763,6 @@ label{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 6%;
 }
 
 .botaoCancelar {
@@ -770,7 +789,7 @@ label{
     cursor: pointer;
 }
 
-.visualizarAnexo{
+.visualizarAnexo {
     width: 6rem;
     display: flex;
     justify-content: center;
@@ -779,16 +798,85 @@ label{
     margin: 5px;
 }
 
-.imgArquivo{
+.imgArquivo {
     width: 45px;
     height: 45px;
     cursor: pointer;
 }
 
-.containerVisualizarAnexos{
+.containerVisualizarAnexos {
     width: 100%;
     display: flex;
     flex-direction: row;
     margin-top: 5px;
 }
 
+/* Modal visualizar anexos */
+.containerModalAnexos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 33.375rem;
+    height: 30rem;
+    border-radius: 10px;
+    background-color: #fff;
+    animation: fadein 0.5s;
+}
+
+.containerFechar {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.iconeFechar {
+    padding: 5px;
+    margin: 5px;
+    width: 5%;
+    cursor: pointer;
+}
+
+.campoDescricao{
+    text-align:justify;
+    width: 80%;
+    height: 8rem;
+    overflow: auto;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top:5px;
+    border:solid 1px black;
+}
+
+.textoDescricao {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.containerAnexos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.riscoDivisao{
+    width: 60%;
+    height: 2px;
+    margin-bottom: 2rem;
+    background-color: black;
+}
+
+.iconeAnexo{
+    width: 60px;
+    height: 60px;
+}
+
+.parteAnexos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 1rem;
+}

@@ -34,13 +34,13 @@ export class UsersService {
     ]
 
     itens = [
-        {id: 1, nome: "Abraçadeira grande de nylon preta", caracteristicas: "Abraçadeira preta", quantidade: 61, descartavel: true, imagem: "../assets/Abracadeira.jfif", classificacao: 1},
-        {id: 2, nome: "Bateria 12V", caracteristicas: "Bateria 12V", quantidade: 0, descartavel: true, imagem: "../assets/bateria.jfif", classificacao: 2},
-        {id: 3, nome: "Chave alanca", caracteristicas: "Chave alanca", quantidade: 5, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6}
+        {id: 1, nome: "Abraçadeira grande de nylon preta", descricao: "Abraçadeira preta", quantidade: 61, descartavel: true, imagem: "../assets/Abracadeira.jfif", classificacao: 1},
+        {id: 2, nome: "Bateria 12V", descricao: "Bateria 12V", quantidade: 0, descartavel: true, imagem: "../assets/bateria.jfif", classificacao: 2},
+        {id: 3, nome: "Chave alanca", descricao: "Chave alanca", quantidade: 5, descartavel: false, imagem: "../assets/chave.jfif", classificacao: 6}    
     ]
 
     sacolas = [
-        {id: 1, data_retirada: '2022-08-25', data_devolucao: '2022-09-30', usuario_email: 'felipe_mielke-vieira@estudante.sc.senai.br'}
+        {id: 1, data_retirada: '2022-08-25 09:00', data_devolucao: '2022-09-30 09:00', usuario_email: 'felipe_mielke-vieira@estudante.sc.senai.br'}
     ]
 
     sacolaProduto = [
@@ -115,6 +115,32 @@ export class UsersService {
                 return sacola;
             }
         }
+    }
+
+    retornaReserva(id: number) {
+        for (const reserva of this.reserva) {
+            if(id == reserva.id) {
+                return reserva;
+            }
+        }
+    }
+
+    retornaProdutosReserva(id: number) {
+        let listaFinal = [];
+        for (const reserva of this.reservaProduto) {
+            if(id == reserva.reserva_id) {
+                let item = this.retornaProduto(reserva.produto_id);
+                listaFinal.push({
+                    id: item.id,
+                    nome: item.nome,
+                    quantidade: item.quantidade,
+                    descartavel: item.descartavel,
+                    imagem: item.imagem,
+                    qtd_atual: reserva.qtd_produto
+                });
+            }
+        }
+        return listaFinal;
     }
 
     retornaSacolasUsuario(email: string) {

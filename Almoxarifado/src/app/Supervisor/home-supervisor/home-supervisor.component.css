@@ -74,6 +74,12 @@ h1 {
     margin: 0 0 0 10px;
 }
 
+#ordernar {
+    width: 1.5rem;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
 #emBloco {
     width: 1.5rem;
     cursor: pointer;
@@ -253,6 +259,12 @@ h1 {
 }
 
 /* Modais */
+
+#containerModalOrdenar {
+    background-color: white;
+    border-radius: 10px;
+    width: 30%;
+}
 
 .containerModal {
     position: absolute;
@@ -681,7 +693,7 @@ label{
     flex-wrap: wrap;
 }
 
-#fundoModalLocalizacao {
+#fundoModalLocalizacao, #fundoModalOrdenar {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -690,6 +702,45 @@ label{
     position: absolute;
     z-index: 5;
     background-color:rgba(0, 0, 0, 0.349);
+}
+
+#containerConteudoModalOrdernar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px 40px 40px 40px;
+}
+
+#ordenarConteudo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.titleModalOrdenar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subtitleOrdenar {
+    text-align: center;
+}
+
+.selectOrdenar {
+    border-radius: 5px;
+    padding: 8px;
+    outline: none;
+}
+
+#containerBotoesOrdenar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.espacoFecharOrdenarModal {
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 #containerModalLocalizacao {
