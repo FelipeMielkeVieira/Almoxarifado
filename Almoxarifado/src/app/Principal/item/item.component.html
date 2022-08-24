@@ -93,7 +93,7 @@
                                 <img src="../../../assets/mais.png" alt="" id="maisQtdIcon" (click)="mudarQtd(1)">
                             </div>
                         </div>
-                        <p *ngIf="item.quantidade > 0" class="qtdMax">Máx: {{item.quantidade}}</p>
+                        <b><p *ngIf="item.quantidade > 0" class="qtdMax">Máx: {{item.quantidade}}</p></b>
                         <p *ngIf="item.quantidade < 1" class="qtdMax">Item Indisponível</p>
                     </div>
                 </div>
@@ -127,9 +127,20 @@
                             </div>
                         </div>
                     </div>
+                    <p class="subtituloModal">Anexos:</p>
                 </div>
+                <div class="containerVisualizarAnexos">
+                    <div class="visualizarAnexo">
+                        <img class="imgArquivo" src="../../../assets/pastaMaior.png" alt="visualizarAnexo">
+                        <a href=""><span>Link vai aqui</span></a> 
+                    </div>
+                    <div class="visualizarAnexo">
+                        <img class="imgArquivo" src="../../../assets/pastaMaior.png" alt="visualizarAnexo">
+                        <a href=""><span>Link vai aqui</span></a> 
+                    </div>    
+                </div>        
                 <div *ngIf="atendente()" id="adicionarProfessor">
-                    <p class="subtituloModal marginBottom">Professor: </p>
+                    <p class="subtituloModal">Professor: </p>
                     <div class="containerInputData">
                         <select name="" id="professores">
                             <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{
