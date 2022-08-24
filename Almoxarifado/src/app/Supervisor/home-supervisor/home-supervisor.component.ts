@@ -18,6 +18,7 @@ export class HomeSupervisorComponent implements OnInit {
   listaItens2;
   inputGeral = "";
   tipoUsuario = 2;
+  reserva = true;
 
   ngOnInit() {
     setTimeout(() => {
@@ -427,6 +428,21 @@ export class HomeSupervisorComponent implements OnInit {
 
   removerDevolucaoModalBtn() {
     this.removerDevolucaoModal = false;
+  }
+
+  cancelarReserva() {
+    this.devolucaoModal = false;
+    this.reserva = false;
+  }
+
+  fecharModalCancelarReserva() {
+    this.aparecer = false
+    this.reserva = true;
+  }
+
+  enviar() {
+    this.aparecer = false
+    this.reserva = true;
   }
 
 }

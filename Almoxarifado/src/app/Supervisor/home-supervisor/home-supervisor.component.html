@@ -14,6 +14,17 @@
 
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
+    <div *ngIf="!reserva" id="modalCancelarReserva">
+            <hr class="riscoAzul">
+            <img (click)="fecharModalCancelarReserva()" id="fechar" src="../../../assets/close.png" alt="Fechar">
+            <div id="tituloMotivo">
+                <h1>Qual o motivo?</h1>
+            </div>
+            <textarea id="motivo" placeholder="Insira o motivo aqui..."></textarea>
+            <div id="containerBotaoEnviar">
+                <button (click)="enviar()" id="botaoEnviar">Cancelar Reserva</button>
+            </div>
+    </div>
     <div *ngIf="removerDevolucaoModal" class="modalRecusar">
         <div class="containerModal">
             <hr class="riscoAzul">
@@ -66,10 +77,12 @@
                 </li>
             </ul>
                 <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
-                <button *ngIf="nao == 1" (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal darBaixa">Confirmar
-                    retirada</button>
-                <div id="containerCancelarReserva">
-                    <img id="cancelarReserva" src="../../../assets/cancelarReserva.png" alt="Cancelar" title="Cancelar Reserva">
+                <div *ngIf="nao == 1" id="containerFinal">
+                        <div class="espaco"></div>
+                        <button  (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal confirmarRetirada">Confirmar
+                        retirada</button>
+                        <img (click)="cancelarReserva()" id="cancelarReserva" src="../../../assets/cancelarReserva.png" alt="Cancelar" title="Cancelar Reserva">
+                   
                 </div>
         </div>
     </div>
