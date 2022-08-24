@@ -66,6 +66,7 @@ export class HomeSupervisorComponent implements OnInit {
   informarDefeitoModal: boolean = false;
   devolucaoModal: boolean = false;
   nao = 0;
+  modalOrdernar: boolean = false;
 
   emBloco = 0;
 
@@ -427,6 +428,33 @@ export class HomeSupervisorComponent implements OnInit {
 
   removerDevolucaoModalBtn() {
     this.removerDevolucaoModal = false;
+  }
+
+  abrirModal(abrir: boolean) {
+    if (abrir) {
+      this.modalOrdernar = true;
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      this.modalOrdernar = false;
+      document.documentElement.style.overflow = 'auto';
+    }
+
+  }
+
+  ordernar() {
+    this.abrirModal(true);
+  }
+
+  fecharModalOrdenar() {
+    this.abrirModal(false);
+  }
+
+  cancelarOrdenar() {
+    this.abrirModal(false);
+  }
+
+  realizarOrdenacao() {
+    this.abrirModal(false);
   }
 
 }
