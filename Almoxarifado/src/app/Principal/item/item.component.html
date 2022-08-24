@@ -93,7 +93,9 @@
                                 <img src="../../../assets/mais.png" alt="" id="maisQtdIcon" (click)="mudarQtd(1)">
                             </div>
                         </div>
-                        <b><p *ngIf="item.quantidade > 0" class="qtdMax">Máx: {{item.quantidade}}</p></b>
+                        <b>
+                            <p *ngIf="item.quantidade > 0" class="qtdMax">Máx: {{item.quantidade}}</p>
+                        </b>
                         <p *ngIf="item.quantidade < 1" class="qtdMax">Item Indisponível</p>
                     </div>
                 </div>
@@ -127,18 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="subtituloModal">Anexos:</p>
                 </div>
-                <div class="containerVisualizarAnexos">
-                    <div class="visualizarAnexo">
-                        <img class="imgArquivo" src="../../../assets/pastaMaior.png" alt="visualizarAnexo">
-                        <a href=""><span>Link vai aqui</span></a> 
-                    </div>
-                    <div class="visualizarAnexo">
-                        <img class="imgArquivo" src="../../../assets/pastaMaior.png" alt="visualizarAnexo">
-                        <a href=""><span>Link vai aqui</span></a> 
-                    </div>    
-                </div>        
                 <div *ngIf="atendente()" id="adicionarProfessor">
                     <p class="subtituloModal">Professor: </p>
                     <div class="containerInputData">
@@ -150,6 +141,9 @@
                     <button *ngIf="item.quantidade > 0" class="btnModal" (click)="reservar()">Reservar Agora</button>
                     <button *ngIf="item.quantidade <= 0" class="btnModal2" (click)="reservar()">Reservar Agora</button>
                     <!-- <img src="../../../assets/documento.png" alt="Ver Detalhes" class="iconModal sacolaIcon"> -->
+                    <img (click)="verAnexos()" class="iconModal sacolaIcon" src="../../../assets/anexar-arquivo.png"
+                        alt="anexos">
+
                     <img src="../../../assets/sacola-de-compras.png" alt="Adicionar à sacola"
                         class="iconModal sacolaIcon">
                 </div>
@@ -237,6 +231,49 @@
                 <div class="containerBotoes">
                     <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
                     <button (click)="selectItem()" class="botaoRecusar">Remover</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FeedBack item removido -->
+    <div *ngIf="feedback == 3" id="modalFeedback">
+        <div class="divInfo">
+            <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
+            <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+            <span id="spanTexto">Item removido com sucesso!</span>
+        </div>
+        <div id="fundo" style="background-color: #AEAEAE;">
+            <div id="azul"></div>
+        </div>
+    </div>
+
+    <div *ngIf="aparecer4" id="fundoModal">
+        <div *ngIf="modalAnexos == 1">
+            <div class="containerModalAnexos">
+                <div class="linhaAzul"></div>
+                <div class="containerFechar">
+                    <img (click)="fecharModalAnexos()" class="iconeFechar" src="../../../assets/close.png" alt="iconFechar">
+                </div>
+                <div class="containerInfoModal">
+                    <span class="textoDescricao">Descrição:</span>
+                    <div class="campoDescricao">
+                        <span>
+                            {{ item.descricao }}
+                        </span>
+                    </div>
+                </div>
+                <div class="riscoDivisao"></div>
+                <span class="textoDescricao">Anexos:</span>
+                <div class="parteAnexos">
+                    <div class="containerAnexos">
+                        <img class="iconeAnexo" src="../../../assets/pastaMaior.png" alt="iconeAnexos">
+                        <a href=""><span>Arquivo 01</span></a>
+                    </div>
+                    <div class="containerAnexos">
+                        <img class="iconeAnexo" src="../../../assets/pastaMaior.png" alt="iconeAnexos">
+                        <a href=""><span>Arquivo 02</span></a>
+                    </div>
                 </div>
             </div>
         </div>

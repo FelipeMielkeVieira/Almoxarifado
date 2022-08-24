@@ -25,19 +25,21 @@ export class ItemComponent implements OnInit {
   textoDescartavel: string;
   aparecer: boolean = false;
   aparecer3: boolean = false;
-  feedback = 0;
-  qtd: number = 1;
-  modalConfirmacao: number = 0;
-  editar = 0;
+  aparecer4: boolean = false;
   aparecer2: boolean = false;
   cadastrarModal: boolean = false;
+  modalAnexos: number = 0;
+  qtd: number = 1;
+  feedback: number = 0;
+  modalConfirmacao: number = 0;
+  editar: number = 0;
+  requisicaoSenha: number = 0;
 
   calendarioAberto1: number = 0;
   calendarioAberto2: number = 0;
   data1: string = "__/__/____ 00:00";
   data2: string = "__/__/____ 00:00";
 
-  requisicaoSenha = 0;
 
   listaItens2 = [];
 
@@ -58,7 +60,6 @@ export class ItemComponent implements OnInit {
   porta = [];
   localizacoesFiltradas = [];
   localizacaoAtual = "paredeCentro";
-
 
   aparecerModalLocalizacao() {
     this.aparecer = true;
@@ -118,10 +119,10 @@ export class ItemComponent implements OnInit {
   }
 
   telaConfirmarRetirada() {
-    this.localizacao = 0
-    this.listaItens = 0
-    this.baixaDevolucoes = 0
-    this.confirmarRetirada = 1
+    this.localizacao = 0;
+    this.listaItens = 0;
+    this.baixaDevolucoes = 0;
+    this.confirmarRetirada = 1;
 
     let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
     semAzul1.className = "semAzul"
@@ -133,7 +134,6 @@ export class ItemComponent implements OnInit {
     }
     let comAzul = document.querySelector('#confirmarRetirada') as HTMLButtonElement;
     comAzul.className = "comAzul"
-
   }
 
   telaBaixaDevolucoes() {
@@ -246,7 +246,7 @@ export class ItemComponent implements OnInit {
 
   abrirModalItem() {
     document.documentElement.style.overflow = 'hidden';
-    if(!this.aparecer) {
+    if (!this.aparecer) {
       this.aparecer = true;
     }
   }
@@ -345,6 +345,16 @@ export class ItemComponent implements OnInit {
 
     this.aparecer3 = false;
     this.modalConfirmacao = 0;
+    this.feedback = 3;
   }
 
+  verAnexos() {
+    this.aparecer4 = true;
+    this.modalAnexos = 1;
+  }
+
+  fecharModalAnexos(){
+    this.aparecer4 = false;
+    this.modalAnexos = 0;
+  }
 }
