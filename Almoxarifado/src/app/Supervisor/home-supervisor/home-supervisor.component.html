@@ -174,7 +174,9 @@
                 </div>
                 <div class="classificacao">
                     <span>Classificação: </span>
-                    <input class="inputsCadastro" type="text" placeholder="Classificação">
+                    <select class="inputsCadastro" name="" >
+                        <option *ngFor="let classificacao of listaClassificacao" value="">{{ classificacao.nome }}</option>
+                    </select>
                 </div>
                 <div class="descricao">
                     <span>Descrição: </span>

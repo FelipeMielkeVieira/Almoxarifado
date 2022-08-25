@@ -46,6 +46,7 @@ export class HomeSupervisorComponent implements OnInit {
   localizacaoAtual = "paredeCentro";
   localizacoesFiltradas = [];
   localizacoesLista = [];
+  listaClassificacao = [{ nome: "Nome classificacao" }];
 
   contadorRecusar = 0;
   contadorAceitar = 0;
