@@ -138,4 +138,9 @@ export class MinhaSacolaComponent implements OnInit {
   formatarData(data: string) {
     return new Date(data).toLocaleString();
   }
+
+  cancelarReserva() {
+    
+  }
+
 }
