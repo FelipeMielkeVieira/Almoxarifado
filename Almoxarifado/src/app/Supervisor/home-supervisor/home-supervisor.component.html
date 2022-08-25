@@ -287,7 +287,9 @@
 <main>
     <div class="divPrincipal">
         <div id="caminho">
-            <img id="casa" src="../../../assets/casa.png" alt="Casa">
+            <span id="casa" class="material-symbols-outlined" title="Home">
+                home
+            </span>
         </div>
         <div id="container">
             <div id="containerConteudo">
@@ -308,7 +310,9 @@
                                 <input *ngIf="contLocalizacoes == 1" [(ngModel)]="inputGeral"
                                     (keyup)="pesquisaLocalizacao()" class="input" type="text"
                                     placeholder="Pesquise por localização...">
-                                <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                                    <span id="lupa" class="material-symbols-outlined">
+                                        search
+                                    </span>
                             </div>
                             <div id="iconListaBloco">
                                 <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined" title="Ordernar">

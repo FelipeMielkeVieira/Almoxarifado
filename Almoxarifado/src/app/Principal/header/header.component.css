@@ -147,22 +147,22 @@ p {
     justify-content: end;
 }
 
-#editarPerfilIMG {
-    width: 1rem;
+#iconEditarPerfil {
+    font-size: 20px!important;
     cursor: pointer;
 }
 
-#editarPerfilIMG:hover {
+#iconEditarPerfil:hover {
     animation: aumentar 0.2s;
-    width: 1.15rem;
+    font-size: 22px!important;
 }
 
 @keyframes aumentar {
 	from {
-		width: 1rem;
+		font-size: 20px!important;
 	}
 	to {
-		width: 1.15rem;
+		font-size: 22px!important;
 	}
 }
 
