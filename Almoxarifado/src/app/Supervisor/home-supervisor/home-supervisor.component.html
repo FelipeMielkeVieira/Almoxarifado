@@ -14,6 +14,7 @@
     </div>
 </div>
 
+<!-- ---------- MODAL ORDERNAR ---------- -->
 <div *ngIf="modalOrdernar" id="fundoModalOrdenar">
     <div id="containerModalOrdenar">
         <hr class="riscoAzul">
@@ -43,6 +44,48 @@
             <div id="containerBotoesOrdenar">
                 <button class="btnDevolucaoModal" style="background-color: red;" (click)="cancelarOrdenar()">Cancelar</button>
                 <button class="btnDevolucaoModal" (click)="realizarOrdenacao()">Ordenar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ---------- MODAL FILTRAR ---------- -->
+<div *ngIf="modalFiltrar" id="fundoModalFiltrar">
+    <div id="containerModalFiltrar">
+        <hr class="riscoAzul">
+        <div class="containerFechar">
+            <img class="fecharIcone espacoFecharFiltrarModal" (click)="fecharModalFiltrar()" src="../../../assets/close.png" alt="fechar">
+        </div>
+        <div id="containerConteudoModalFiltrar">
+            <div style="width: 100%;">
+                <h2 class="titleModalOrdenar">Filtrar</h2>
+            </div>
+            <div id="filtrarConteudo">
+                <div id="containerCheckboxes">
+                    <div id="containerEsquerdo">
+                        <div class="containerCadaCheck">
+                            <input type="checkbox" id="descartavelCheckbox">
+                            <label class="checkboxes" for="descartavelCheckbox">Descartável</label>
+                        </div>
+                        <div class="containerCadaCheck">
+                            <input type="checkbox" id="comEstoqueCheckbox">
+                            <label class="checkboxes" for="comEstoqueCheckbox">Com Estoque</label>
+                        </div>
+                    </div>
+                    <div id="containerDireito">
+                        <div class="containerCadaCheck">
+                            <input type="checkbox" id="naoDescartavelCheckbox">
+                            <label class="checkboxes" for="naoDescartavelCheckbox">Não Descartável</label>
+                        </div>
+                        <div class="containerCadaCheck">
+                            <input type="checkbox" id="semEstoqueCheckbox">
+                            <label class="checkboxes" for="descartavelCheckbox">Sem Estoque</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="containerBotao">
+                <button class="btnFiltrarModal" (click)="realizarOrdenacao()">Filtrar</button>
             </div>
         </div>
     </div>
@@ -228,7 +271,7 @@
                 </div>
                 <div class="anexo">
                     <input type="text" placeholder="Adicionar URL do anexo" class="inputAnexo">
-                    <label for="arquivo"> </label>
+                    <label class="arquivoIcon" for="arquivo"> </label>
                     <input type="file" name="arquivo" id="arquivo">
                 </div>
                 <button (click)="cadastrarProduto()" class="botaoCadastrar">Cadastrar</button>
@@ -270,15 +313,15 @@
                             <div id="iconListaBloco">
                                 <img src="../../../assets/ordenar.png" id="ordernar" (click)="ordernar()" alt="Ordernar"
                                     title="Ordernar">
+                                    <div id="containerIconFiltro">
+                                        <span (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined">
+                                            filter_alt
+                                        </span>
+                                    </div>
                                 <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
                                     src="../../../assets/emBloco.png" alt="em bloco" title="Ver em bloco">
                                 <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
                                     src="../../../assets/emLista.png" alt="em lista" title="Ver em lista">
-                            </div>
-                            <div id="containerIconFiltro">
-                                <span id="iconFiltro" class="material-symbols-outlined">
-                                    filter_alt
-                                </span>
                             </div>
                         </div>
                         <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes"

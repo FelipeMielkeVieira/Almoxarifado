@@ -69,6 +69,7 @@ export class HomeSupervisorComponent implements OnInit {
   devolucaoModal: boolean = false;
   nao = 0;
   modalOrdernar: boolean = false;
+  modalFiltrar: boolean = false;
 
   emBloco = 0;
 
@@ -471,6 +472,14 @@ export class HomeSupervisorComponent implements OnInit {
 
   realizarOrdenacao() {
     this.abrirModal(false);
+  }
+
+  filtrar() {
+    this.modalFiltrar = true;
+  }
+
+  fecharModalFiltrar() {
+    this.modalFiltrar = false;
   }
 
 }

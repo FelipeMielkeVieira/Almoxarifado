@@ -71,25 +71,26 @@ h1 {
 #iconListaBloco {
     display: flex;
     align-items: center;
-    margin: 0 0 0 10px;
 }
 
 #ordernar {
     width: 1.5rem;
     cursor: pointer;
-    margin-right: 10px;
+    margin: 0 2% 0 10%;
 }
 
 #emBloco {
     width: 1.5rem;
     cursor: pointer;
     animation: opacidade 0.5s;
+    margin: 0 0 0 2%;
 }
 
 #emLista {
     width: 1.5rem;
     cursor: pointer;
     animation: opacidade 0.5s;
+    margin: 0 0 0 2%;
 }
 
 @keyframes opacidade {
@@ -264,6 +265,11 @@ h1 {
     background-color: white;
     border-radius: 10px;
     width: 30%;
+}
+
+#containerModalFiltrar {
+    background-color: white;
+    border-radius: 10px;
 }
 
 .containerModal {
@@ -630,7 +636,7 @@ h1 {
     padding: 5px;
 }
 
-label{
+.arquivoIcon{
     margin-left: 5px;
     width: 32px;
     height: 32px;
@@ -694,7 +700,7 @@ label{
     flex-wrap: wrap;
 }
 
-#fundoModalLocalizacao, #fundoModalOrdenar {
+#fundoModalLocalizacao, #fundoModalOrdenar, #fundoModalFiltrar {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -705,18 +711,23 @@ label{
     background-color:rgba(0, 0, 0, 0.349);
 }
 
-#containerConteudoModalOrdernar {
+#containerConteudoModalOrdernar, #containerConteudoModalFiltrar {
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 0px 40px 40px 40px;
 }
 
-#ordenarConteudo {
+
+#ordenarConteudo, #filtrarConteudo {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin-bottom: 1rem;
+}
+
+#filtrarConteudo {
+    justify-content: center;
 }
 
 .titleModalOrdenar {
@@ -739,7 +750,7 @@ label{
     justify-content: space-between;
 }
 
-.espacoFecharOrdenarModal {
+.espacoFecharOrdenarModal, .espacoFecharFiltrarModal {
     margin-top: 10px;
     margin-right: 10px;
 }
@@ -1057,16 +1068,17 @@ label{
     justify-content: space-between;
 }
 
-.btnDevolucaoModal {
+.btnDevolucaoModal, .btnFiltrarModal {
     background-color: #0047B6;
     color: white;
     border: 0;
     padding: 0.5rem 0.8rem;
     border-radius: 0.3rem;
+    cursor: pointer;
 }
 
-.btnDevolucaoModal:hover {
-    cursor: pointer;
+.btnFiltrarModal {
+    width: 50%;
 }
 
 /* Informar motivo */
@@ -1290,9 +1302,33 @@ label{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 1%;
+    margin-right: 1%;
 }
 
 #iconFiltro {
-    font-size: 32px;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+#iconFiltro:hover {
+    color: #0047B6;
+}
+
+#containerCheckboxes {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.checkboxes {
+    margin-left: 5px;
+}
+
+#containerBotao {
+    display: flex;
+    justify-content: center;
+}
+
+#containerDireito, #containerEsquerdo {
+    width: 10rem;
 }
