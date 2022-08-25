@@ -1285,3 +1285,14 @@ label{
     margin-top: 3%;
     width: 100%;
 }
+
+#containerIconFiltro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1%;
+}
+
+#iconFiltro {
+    font-size: 32px;
+}
