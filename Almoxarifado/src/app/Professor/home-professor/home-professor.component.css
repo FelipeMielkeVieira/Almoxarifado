@@ -188,3 +188,31 @@ main {
     grid-template-columns: repeat(1, 1fr);
     margin-top: 1%;
 }
+
+#containerPaginacao {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+#paginacao {
+    display: flex;
+    list-style-type: none;
+}
+
+.paginaItem {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 10px;
+    margin: 0px 2px;
+    border-radius: 5px;
+}
+
+.paginaAtiva {
+    background-color: #0047B6;
+    color: white;
+}
+
+#paginacao li:hover {
+    cursor: pointer;
+}

@@ -69,6 +69,15 @@
         </div>
 
         <!-- Fundo transparente -->
-
+        <nav *ngIf="listaPaginas.length > 0" id="containerPaginacao">
+            <ul id="paginacao">
+                <li (click)="voltarPagina()" class="paginaItem">Anterior</li>
+                <li (click)="irPagina(1)" class="paginaItem paginaAtiva">1</li>
+                <li (click)="irPagina(2)" *ngIf="listaPaginas.length >= 2" class="paginaItem">2</li>
+                <li (click)="irPagina(3)" *ngIf="listaPaginas.length >= 3" class="paginaItem">3</li>
+                <li (click)="irPagina(4)" *ngIf="listaPaginas.length >= 4" class="paginaItem">4</li>
+                <li (click)="proximoPagina()" class="paginaItem">Próximo</li>
+            </ul>
+        </nav>
     </div>
 </main>

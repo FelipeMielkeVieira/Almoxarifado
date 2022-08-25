@@ -623,6 +623,7 @@ p:hover {
     height: 30px;
     border-radius: 5px;
     border: solid 1px black;
+    padding: 5px;
 }
 
 label{

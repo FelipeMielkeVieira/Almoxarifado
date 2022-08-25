@@ -12,6 +12,8 @@ export class HomeProfessorComponent implements OnInit {
     this.listaItens = service.itens;
   }
 
+  listaPaginas = ["a", "b"];
+
   listaItens;
   emBloco = 0;
 
@@ -52,5 +54,17 @@ export class HomeProfessorComponent implements OnInit {
 
   realizarOrdenacao() {
     this.abrirModal(false);
+  }
+
+  voltarPagina() {
+
+  }
+
+  irPagina(numero) {
+    
+  }
+
+  proximoPagina() {
+
   }
 }

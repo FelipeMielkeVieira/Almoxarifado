@@ -438,7 +438,6 @@ export class HomeSupervisorComponent implements OnInit {
       this.modalOrdernar = false;
       document.documentElement.style.overflow = 'auto';
     }
-
   }
 
   ordernar() {
