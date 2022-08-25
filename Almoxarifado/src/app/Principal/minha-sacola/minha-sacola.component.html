@@ -66,6 +66,7 @@
                 </div>
                 <input *ngIf="usuario != 1 && (tipoUsuario == 2 || tipoUsuario == 3 || tipoUsuario == 4)" class="inputProfessor" [(ngModel)]="professorReserva" placeholder="Professor">
                 <div class="divBotoes">
+                    <button *ngIf="usuario == 1" class="botaoReservar botaoCancelarReserva" (click)="cancelarReserva()">Cancelar Reserva</button>   
                     <button *ngIf="usuario != 1" class="botaoReservar" (click)="excluir()">Excluir Sacola</button>   
                     <button *ngIf="usuario != 1" (click)="reservar()" class="botaoReservar">Reservar</button>
                 </div>

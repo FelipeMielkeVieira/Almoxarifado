@@ -294,3 +294,7 @@ p:hover {
     font-size: 16px;
     margin: 5px;
 }
+
+.botaoCancelarReserva {
+    background-color: #d10303d8;
+}

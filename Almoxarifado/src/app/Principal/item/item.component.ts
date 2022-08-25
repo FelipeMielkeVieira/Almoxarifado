@@ -9,6 +9,7 @@ import { UsersService } from 'src/app/service';
 export class ItemComponent implements OnInit {
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
+    this.tipoUser = parseInt(localStorage.getItem("usuario"));
   }
 
   ngOnInit() {
@@ -22,45 +23,50 @@ export class ItemComponent implements OnInit {
   @Input() item;
   @Input() lista;
 
+  tipoUser = 0;
+
   textoDescartavel: string;
+
   aparecer: boolean = false;
+  aparecer2: boolean = false;
   aparecer3: boolean = false;
   aparecer4: boolean = false;
-  aparecer2: boolean = false;
+  aparecer5: boolean = false;
   cadastrarModal: boolean = false;
+  localizacaoModal: boolean = false;
+  devolucaoModal: boolean = false;
+  informarDefeitoModal: boolean = false;
+  aparecerEspecificacaoReserva: boolean = false;
+
   modalAnexos: number = 0;
   qtd: number = 1;
   feedback: number = 0;
   modalConfirmacao: number = 0;
   editar: number = 0;
   requisicaoSenha: number = 0;
+  modalHistorico: number = 0;
 
   calendarioAberto1: number = 0;
   calendarioAberto2: number = 0;
   data1: string = "__/__/____ 00:00";
   data2: string = "__/__/____ 00:00";
 
-
-  listaItens2 = [];
-
-  localizacaoModal: boolean = false;
-  devolucaoModal: boolean = false;
-  informarDefeitoModal: boolean = false;
   localizacao: number = 0
   listaItens: number = 0
   confirmarRetirada: number = 0
   baixaDevolucoes: number = 1
-  aparecerEspecificacaoReserva: boolean = false;
-  nao = 0;
+  nao: number = 0;
   cadastroProduto: number = 0;
   codUser: number;
-
+  
+  listaItens2 = [];
   paredeCentro = [];
   armario = [];
   porta = [];
   localizacoesFiltradas = [];
+  
   localizacaoAtual = "paredeCentro";
-
+  
   aparecerModalLocalizacao() {
     this.aparecer = true;
     this.localizacaoModal = true;
@@ -336,11 +342,13 @@ export class ItemComponent implements OnInit {
   }
 
   selectItem() {
+    let contagem = 0;
     for (let item2 of this.listaItens2) {
       if (item2.id == this.item.id) {
-        this.service.itens.splice(this.item.id, 1);
+        this.service.itens.splice(contagem, 1);
         break;
       }
+      contagem++;
     }
 
     this.aparecer3 = false;
@@ -356,5 +364,15 @@ export class ItemComponent implements OnInit {
   fecharModalAnexos(){
     this.aparecer4 = false;
     this.modalAnexos = 0;
+  }
+
+  abrirHistorico(){
+    this.aparecer5 = true;
+    this.modalHistorico = 1;
+  }
+
+  fecharModalHistorico(){
+    this.aparecer5 = false;
+    this.modalHistorico = 0;
   }
 }

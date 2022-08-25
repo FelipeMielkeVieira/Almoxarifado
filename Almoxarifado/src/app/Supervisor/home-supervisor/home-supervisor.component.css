@@ -14,6 +14,10 @@ p:hover {
     color: #0047B6;
 }
 
+h1 {
+    color: #0047B6;
+}
+
 #container {
     display: flex;
     justify-content: center;
@@ -971,17 +975,7 @@ label{
     flex-direction: column;
 }
 
-.btnDevolucaoModal {
-    background-color: #0047B6;
-    color: white;
-    border: 0;
-    padding: 0.5rem 0.8rem;
-    border-radius: 0.3rem;
-}
 
-.btnDevolucaoModal:hover {
-    cursor: pointer;
-}
 
 .darBaixa {
     font-size: large;
@@ -1073,13 +1067,6 @@ label{
 
 .btnDevolucaoModal:hover {
     cursor: pointer;
-}
-
-.darBaixa {
-    font-size: large;
-    font-weight: 500;
-    margin: 2rem 0rem 0rem 0rem;
-    padding: 0.5rem 1.5rem;
 }
 
 /* Informar motivo */
@@ -1234,11 +1221,67 @@ label{
     width: 20px;
 }
 
+#containerFinal {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top: 3%;
+}
+
 #containerCancelarReserva {
     display: flex;
     justify-content: end;
 }
 
-#cancelarReserva {
-    width: 7%;
+#cancelarReserva{
+    width: 5%;
+    cursor: pointer;
+}
+
+#cancelarReserva:hover {
+ /* -------------------------------------- NAO SEIIII ---------------------------------------- */
+}
+
+#modalCancelarReserva {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 26rem;
+    height: 17rem;
+    border-radius: 10px;
+    border: solid 1px black;
+    background-color: #fff;
+    animation:fadein 0.5s;
+}
+
+#tituloMotivo {
+    margin-top: 3%;
+    cursor: default;
+}
+
+#motivo {
+    margin-top: 3%;
+    outline: none;
+    width: 70%;
+    height: 50%;
+    resize: none;
+}
+
+#botaoEnviar {
+    background-color: #0047B6;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+    right: 10px;
+    cursor: pointer;
+}
+
+#containerBotaoEnviar {
+    display: flex;
+    justify-content: end;
+    margin-right: 30%;
+    margin-top: 3%;
+    width: 100%;
 }

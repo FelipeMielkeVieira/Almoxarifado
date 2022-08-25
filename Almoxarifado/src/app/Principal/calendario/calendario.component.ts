@@ -128,6 +128,12 @@ export class CalendarioComponent implements OnInit {
   //   }
   // }
 
+  // formatarMes() {
+  //   for (const day of this.monthDays) {
+      
+  //   }
+  // }
+
   selecionarDia(dia: Day) {
 
     if (dia.weekDayNumber != 1 && dia.weekDayNumber != 7) {

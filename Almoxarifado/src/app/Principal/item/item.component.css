@@ -370,11 +370,13 @@
     font-weight: 500;
 }
 
-.btnModal:hover, .sacolaIcon:hover {
+.btnModal:hover,
+.sacolaIcon:hover {
     cursor: pointer;
 }
 
-.btnModal2:hover, .sacolaIcon:hover {
+.btnModal2:hover,
+.sacolaIcon:hover {
     cursor: pointer;
 }
 
@@ -390,8 +392,6 @@
 }
 
 /* ----- Fedback ----- */
-
-
 #modalFeedback {
     display: flex;
     justify-content: space-between;
@@ -501,7 +501,13 @@
 .iconeEditar {
     width: 1.5rem;
     height: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.iconeHistorico {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .iconeExcluir {
@@ -837,15 +843,15 @@ label {
     cursor: pointer;
 }
 
-.campoDescricao{
-    text-align:justify;
+.campoDescricao {
+    text-align: justify;
     width: 80%;
     height: 8rem;
     overflow: auto;
     border-radius: 5px;
     padding: 5px;
-    margin-top:5px;
-    border:solid 1px black;
+    margin-top: 5px;
+    border: solid 1px black;
 }
 
 .textoDescricao {
@@ -853,7 +859,7 @@ label {
     font-weight: bold;
 }
 
-.containerAnexos{
+.containerAnexos {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -861,22 +867,64 @@ label {
     margin: 5px;
 }
 
-.riscoDivisao{
-    width: 60%;
+.riscoDivisao {
+    width: 70%;
     height: 2px;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
     background-color: black;
 }
 
-.iconeAnexo{
+.iconeAnexo {
     width: 60px;
     height: 60px;
 }
 
-.parteAnexos{
+.parteAnexos {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     margin-top: 1rem;
+}
+
+.containerHistoricos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 20rem;
+    overflow: auto;
+    margin-top: 10px;
+}
+
+.quadroHistorico {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    width: 70%;
+    height: 3.5rem;
+    margin: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+.containerData{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textoData{
+    font-size: 13px;
+    color: rgb(170, 168, 168);
+}
+
+.containerInfoModalHist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 }
