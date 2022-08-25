@@ -336,11 +336,13 @@ export class ItemComponent implements OnInit {
   }
 
   selectItem() {
+    let contagem = 0;
     for (let item2 of this.listaItens2) {
       if (item2.id == this.item.id) {
-        this.service.itens.splice(this.item.id, 1);
+        this.service.itens.splice(contagem, 1);
         break;
       }
+      contagem++;
     }
 
     this.aparecer3 = false;
