@@ -13,7 +13,6 @@ export class MinhaSacolaComponent implements OnInit {
 
   ngOnInit() {
     this.usuario = parseInt(localStorage.getItem('reserva'));
-    localStorage.removeItem('reserva');
     if(this.usuario != 1) {
       this.sacola = this.service.retornaSacola(parseInt(this.route.snapshot.paramMap.get('id')));
       this.produtosSacola = this.service.retornaProdutosSacola(this.sacola.id);

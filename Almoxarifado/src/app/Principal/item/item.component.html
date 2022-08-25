@@ -14,10 +14,10 @@
             </div>
         </div>
         <div class="ferramentas">
-            <img src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar"
+            <img *ngIf="tipoUser == 3 || tipoUser == 4" src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar"
                 alt="iconeEditar">
-            <img class="iconeHistorico" src="../../../assets/historia.png" alt="iconeHistorico">
-            <img src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeExcluir"
+            <img *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4" class="iconeHistorico" src="../../../assets/historia.png" alt="iconeHistorico">
+            <img *ngIf="tipoUser == 3 || tipoUser == 4" src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeExcluir"
                 alt="iconeExcluir  ">
         </div>
     </div>

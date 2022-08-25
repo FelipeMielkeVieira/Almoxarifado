@@ -9,6 +9,7 @@ import { UsersService } from 'src/app/service';
 export class ItemComponent implements OnInit {
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
+    this.tipoUser = parseInt(localStorage.getItem("usuario"));
   }
 
   ngOnInit() {
@@ -21,6 +22,8 @@ export class ItemComponent implements OnInit {
 
   @Input() item;
   @Input() lista;
+
+  tipoUser = 0;
 
   textoDescartavel: string;
   aparecer: boolean = false;

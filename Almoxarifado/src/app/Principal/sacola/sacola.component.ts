@@ -76,6 +76,7 @@ export class SacolaComponent implements OnInit {
   }
 
   verDetalhes(){
+    localStorage.setItem("reserva", "2");
     if(localStorage.getItem('usuario') == '1') {
       this.router.navigate(['/professor/sacolas/' + this.id]);
     } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
