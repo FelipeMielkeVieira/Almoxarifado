@@ -73,24 +73,24 @@ h1 {
     align-items: center;
 }
 
-#ordernar {
-    width: 1.5rem;
-    cursor: pointer;
-    margin: 0 2% 0 10%;
-}
-
-#emBloco {
-    width: 1.5rem;
+#iconEmBloco, #iconOrdernar {
+    font-weight: 250;
+    font-size: 33px;
     cursor: pointer;
     animation: opacidade 0.5s;
-    margin: 0 0 0 2%;
+    margin: 0 0 0 1%;
 }
 
-#emLista {
-    width: 1.5rem;
+#iconEmLista {
+    font-weight: 250;
+    font-size: 35px;
     cursor: pointer;
     animation: opacidade 0.5s;
-    margin: 0 0 0 2%;
+    margin: 0 0 0 1%;
+}
+
+#iconEmLista:hover, #iconEmBloco:hover, #iconOrdernar:hover {
+    color: #0047B6;
 }
 
 @keyframes opacidade {
@@ -715,7 +715,7 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 0px 40px 40px 40px;
+    padding: 5px 40px 20px 40px;
 }
 
 
@@ -1306,6 +1306,7 @@ h1 {
 }
 
 #iconFiltro {
+    font-weight: 250;
     cursor: pointer;
     font-size: 35px;
 }

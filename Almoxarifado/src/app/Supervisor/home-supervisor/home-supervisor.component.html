@@ -311,17 +311,21 @@
                                 <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
                             </div>
                             <div id="iconListaBloco">
-                                <img src="../../../assets/ordenar.png" id="ordernar" (click)="ordernar()" alt="Ordernar"
-                                    title="Ordernar">
+                                <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined" title="Ordernar">
+                                    sync_alt
+                                    </span>
                                     <div id="containerIconFiltro">
                                         <span (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined">
                                             filter_alt
                                         </span>
                                     </div>
-                                <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
-                                    src="../../../assets/emBloco.png" alt="em bloco" title="Ver em bloco">
-                                <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
-                                    src="../../../assets/emLista.png" alt="em lista" title="Ver em lista">
+
+                                    <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="iconEmBloco" class="material-symbols-outlined" title="Ver em bloco">
+                                        grid_view
+                                    </span>
+                                    <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="iconEmLista" class="material-symbols-outlined" title="Ver em lista">
+                                        sort
+                                    </span>
                             </div>
                         </div>
                         <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes"
