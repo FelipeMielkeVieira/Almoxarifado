@@ -14,11 +14,12 @@
             </div>
         </div>
         <div class="ferramentas">
-            <img *ngIf="tipoUser == 3 || tipoUser == 4" src="../../../assets/editar-texto.png" (click)="abrirModalEditar()" class="iconeEditar"
-                alt="iconeEditar">
-            <img *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4" class="iconeHistorico" src="../../../assets/historia.png" alt="iconeHistorico">
-            <img *ngIf="tipoUser == 3 || tipoUser == 4" src="../../../assets/lixeira-de-reciclagem.png" (click)="removerItem()" class="iconeExcluir"
-                alt="iconeExcluir  ">
+            <img *ngIf="tipoUser == 3 || tipoUser == 4" src="../../../assets/editar-texto.png"
+                (click)="abrirModalEditar()" class="iconeEditar" alt="iconeEditar">
+            <img *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4" class="iconeHistorico"
+                (click)="abrirHistorico()" src="../../../assets/historia.png" alt="iconeHistorico">
+            <img *ngIf="tipoUser == 3 || tipoUser == 4" src="../../../assets/lixeira-de-reciclagem.png"
+                (click)="removerItem()" class="iconeExcluir">
         </div>
     </div>
 
@@ -63,8 +64,8 @@
     </div>
 
 
+    <!-- Modal item -->
     <div *ngIf="aparecer" id="fundoModal">
-        <!-- Modal item -->
         <div id="modalItem">
             <hr class="riscoAzul">
             <div class="containerModal">
@@ -249,6 +250,7 @@
         </div>
     </div>
 
+    <!-- Modal ver Anexos -->
     <div *ngIf="aparecer4" id="fundoModal">
         <div *ngIf="modalAnexos == 1">
             <div class="containerModalAnexos">
@@ -275,6 +277,89 @@
                     <div class="containerAnexos">
                         <img class="iconeAnexo" src="../../../assets/pastaMaior.png" alt="iconeAnexos">
                         <a href=""><span>Arquivo 02</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal historico de edição -->
+    <div *ngIf="aparecer5" id="fundoModal">
+        <div *ngIf="modalHistorico == 1">
+            <div class="containerModalAnexos">
+                <div class="linhaAzul"></div>
+                <div class="containerFechar">
+                    <img (click)="fecharModalHistorico()" class="iconeFechar" src="../../../assets/close.png"
+                        alt="iconFechar">
+                </div>
+                <div class="containerInfoModalHist">
+                    <h1>Histórico</h1>
+                    <div class="riscoDivisao"></div>
+                </div>
+                <div class="containerHistoricos">
+                    <div class="quadroHistorico">
+                        <span class="subtituloModal">Atendente</span>
+                        <span class="subtituloModal">Edição</span>
+                        <div class="containerData">
+                            <span class="textoData">20:55</span>
+                            <span class="textoData">24/08/2022</span>
+                        </div>
+                    </div>
+                    <div class="quadroHistorico">
+                        <span class="subtituloModal">Atendente</span>
+                        <span class="subtituloModal">Edição</span>
+                        <div class="containerData">
+                            <span class="textoData">20:55</span>
+                            <span class="textoData">24/08/2022</span>
+                        </div>
+                    </div>
+                    <div class="quadroHistorico">
+                        <span class="subtituloModal">Atendente</span>
+                        <span class="subtituloModal">Edição</span>
+                        <div class="containerData">
+                            <span class="textoData">20:55</span>
+                            <span class="textoData">24/08/2022</span>
+                        </div>
+                    </div>
+                    <div class="quadroHistorico">
+                        <span class="subtituloModal">Atendente</span>
+                        <span class="subtituloModal">Edição</span>
+                        <div class="containerData">
+                            <span class="textoData">20:55</span>
+                            <span class="textoData">24/08/2022</span>
+                        </div>
+                    </div>
+                    <div class="quadroHistorico">
+                        <span class="subtituloModal">Atendente</span>
+                        <span class="subtituloModal">Edição</span>
+                        <div class="containerData">
+                            <span class="textoData">20:55</span>
+                            <span class="textoData">24/08/2022</span>
+                        </div>
+                    </div>
+                    <div class="quadroHistorico">
+                        <span class="subtituloModal">Atendente</span>
+                        <span class="subtituloModal">Edição</span>
+                        <div class="containerData">
+                            <span class="textoData">20:55</span>
+                            <span class="textoData">24/08/2022</span>
+                        </div>
+                    </div>
+                    <div class="quadroHistorico">
+                        <span class="subtituloModal">Atendente</span>
+                        <span class="subtituloModal">Edição</span>
+                        <div class="containerData">
+                            <span class="textoData">20:55</span>
+                            <span class="textoData">24/08/2022</span>
+                        </div>
+                    </div>
+                    <div class="quadroHistorico">
+                        <span class="subtituloModal">Atendente</span>
+                        <span class="subtituloModal">Edição</span>
+                        <div class="containerData">
+                            <span class="textoData">20:55</span>
+                            <span class="textoData">24/08/2022</span>
+                        </div>
                     </div>
                 </div>
             </div>
