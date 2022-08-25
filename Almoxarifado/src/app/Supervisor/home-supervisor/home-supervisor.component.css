@@ -86,6 +86,10 @@ h1 {
     margin: 0 0 0 1%;
 }
 
+#iconOrdernar {
+    transform: rotate(90deg);
+}
+
 #iconEmLista {
     font-weight: 250;
     font-size: 35px;
@@ -261,8 +265,7 @@ h1 {
 }
 
 .icone {
-    width: 10px;
-    height: 10px;
+    font-size: 10px;
 }
 
 .containerUser {
@@ -407,15 +410,25 @@ h1 {
     cursor: pointer;
 }
 
-.iconeLixeira {
-    width: 1.438rem;
-    height: 1.438rem;
+#iconeLixeira {
+    font-size: 28px;
+    font-weight: 300;
+    cursor: pointer;
+    
 }
 
-.iconeLixeira:hover{
-    background-color: rgb(177, 177, 177);
-    border-radius: 10px;
-    cursor: pointer;
+#iconeLixeira:hover{
+    color: #be0101;
+    animation: mudarCor 0.5s;
+}
+
+@keyframes mudarCor {
+    from {
+        color: #000;
+    }
+    to {
+        color: #be0101;
+    }
 }
 
 .containerLixeira{
