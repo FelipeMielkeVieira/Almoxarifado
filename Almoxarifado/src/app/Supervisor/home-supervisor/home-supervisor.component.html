@@ -3,8 +3,12 @@
 <!-- -- FeddBack -- -->
 <div *ngIf="feedback == 1" id="modalFeedback">
     <div class="divInfo">
-        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-        <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+        <span (click)="fechar()" id="fechar" class="icone" class="material-symbols-outlined">
+            close
+        </span>
+        <span id="iconCerto" class="material-symbols-outlined">
+            task_alt
+        </span>
         <span *ngIf="nao == 2" id="spanTexto">Baixa dada com sucesso!</span>
         <span *ngIf="nao == 1" id="spanTexto">Retirada confirmada!</span>
         <span *ngIf="nao== 0" id="spanTexto">Item cadastrado!</span>
@@ -19,7 +23,9 @@
     <div id="containerModalOrdenar">
         <hr class="riscoAzul">
         <div class="containerFechar">
-            <img class="fecharIcone espacoFecharOrdenarModal" (click)="fecharModalOrdenar()" src="../../../assets/close.png" alt="fechar">
+            <span (click)="fecharModalOrdenar()" id="fecharOrdernar" class="icone" class="material-symbols-outlined">
+                close
+            </span>
         </div>
         <div id="containerConteudoModalOrdernar">
             <div style="width: 100%;">
@@ -54,7 +60,9 @@
     <div id="containerModalFiltrar">
         <hr class="riscoAzul">
         <div class="containerFechar">
-            <img class="fecharIcone espacoFecharFiltrarModal" (click)="fecharModalFiltrar()" src="../../../assets/close.png" alt="fechar">
+            <span (click)="fecharModalFiltrar()" id="fecharOrdernar" class="icone" class="material-symbols-outlined">
+                close
+            </span>
         </div>
         <div id="containerConteudoModalFiltrar">
             <div style="width: 100%;">
@@ -95,7 +103,9 @@
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
     <div *ngIf="!reserva" id="modalCancelarReserva">
             <hr class="riscoAzul">
-            <img (click)="fecharModalCancelarReserva()" id="fechar" src="../../../assets/close.png" alt="Fechar">
+            <span (click)="fecharModalCancelarReserva()" id="fechar" class="icone" class="material-symbols-outlined">
+                close
+            </span>
             <div id="tituloMotivo">
                 <h1>Qual o motivo?</h1>
             </div>
@@ -107,7 +117,9 @@
     <div *ngIf="removerDevolucaoModal" class="modalRecusar">
         <div class="containerModal">
             <hr class="riscoAzul">
-            <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+            <span id="iconeAlert" class="material-symbols-outlined">
+                error
+            </span>
             <div class="containerInfoModal">
                 <span class="textoModal">Tem certeza que deseja remover?</span>
             </div>
@@ -122,8 +134,9 @@
         <hr class="riscoAzul">
         <div id="containerDevolucaoModal">
             <div class="containerFechar">
-                <img class="fecharIcone" (click)="fecharModalBaixaDevolucao()" src="../../../assets/close.png"
-                    alt="fechar">
+                <span (click)="fecharModalBaixaDevolucao()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+                    close
+                </span>
             </div>
             <ul id="listaItemsBaixaDevolucao">
                 <li>
@@ -143,11 +156,11 @@
                                 <!-- informarDefeitoItem(item) -->
                                 <div class="botoesDevolucaoModal">
                                     <button (click)="acaoSegundariaDevolucaoModal()"
-                                        class="btnDevolucaoModal btnSegundario"
+                                        class="btnSegundario"
                                         style="background-color: red; margin-bottom: 0.2rem;">{{
                                         textoAcaoSegundariaDevolucaoModal() }}</button>
                                     <button *ngIf="nao == 2" (click)="informarDefeitoItem()"
-                                        class="btnDevolucaoModal">Informar
+                                        class="informarDefeito">Informar
                                         Defeito</button>
                                 </div>
                             </div>
@@ -157,10 +170,9 @@
             </ul>
                 <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
                 <div *ngIf="nao == 1" id="containerFinal">
-                        <div class="espaco"></div>
+                    <button  (click)="cancelarReserva()" class="btnDevolucaoModal cancelarRetirada">Cancelar reserva</button>
                         <button  (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal confirmarRetirada">Confirmar
                         retirada</button>
-                        <img (click)="cancelarReserva()" id="cancelarReserva" src="../../../assets/cancelarReserva.png" alt="Cancelar" title="Cancelar Reserva">
                 </div>
         </div>
     </div>
@@ -169,7 +181,9 @@
         <hr class="riscoAzul">
         <div id="containerInformarDefeitoModal">
             <div class="containerFechar">
-                <img class="fecharIcone" (click)="voltarDevolucaoItens()" src="../../../assets/close.png" alt="fechar">
+                <span (click)="voltarDevolucaoItens()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+                    close
+                </span>
             </div>
             <h2 class="tituloInformarDefeito">Informar Defeito</h2>
             <div id="containerConteudoInformarDefeito">
@@ -188,7 +202,9 @@
     <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
         <hr class="riscoAzul">
         <div id="containerIcons">
-            <img id="iconFechar" (click)="fecharModalLocalizacao()" src="../../../assets/close.png" alt="fechar">
+            <span (click)="fecharModalLocalizacao()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+                close
+            </span>
         </div>
         <div id="dados">
             <div id="containerNome">
@@ -204,7 +220,9 @@
     <div *ngIf="cadastrarModal" id="containerModalCadastrar">
         <hr class="riscoAzul">
         <div id="containerIcons">
-            <img id="iconFechar" (click)="fecharModalCadastrar()" src="../../../assets/close.png" alt="fechar">
+            <span (click)="fecharModalCadastrar()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+                close
+            </span>
         </div>
         <div class="principal">
             <div class="containerModalCadastrar">
@@ -253,10 +271,14 @@
                     </div>
                     <div style="display: flex;">
                         <div class="divPonto" (click)="adicionarLocalizacao()">
-                            <img class="imgMaisLoc" src="../../../assets/mais.png">
+                            <span id="iconMaisLoc" class="material-symbols-outlined">
+                                add
+                            </span>
                         </div>
                         <div class="divPonto" (click)="diminuirLocalizacao()">
-                            <img class="imgMaisLoc" src="../../../assets/menos.png">
+                            <span id="iconMaisLoc" class="material-symbols-outlined">
+                                remove
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -395,10 +417,14 @@
                         </div>
                         <div class="containerOpcoes">
                             <div (click)="modalRecusar()" class="recusar">
-                                <img class="icone" src="../../../assets/close.png" alt="">
+                                <span id="fecharIcone" class="icone" class="material-symbols-outlined">
+                                    close
+                                </span>
                             </div>
                             <div (click)="modalAceitar()" class="aceitar">
-                                <img class="icone" src="../../../assets/verifica.png" alt="">
+                                <span class="icone" class="material-symbols-outlined">
+                                    done
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -455,7 +481,9 @@
                                 </div>
                             </div>
                             <div class="containerLixeiraLista">
-                                <img class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="">
+                                <span id="iconeLixeira" class="material-symbols-outlined">
+                                    delete
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -478,8 +506,9 @@
                     <div id="containerLocalizacoes">
                         <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
                             <p>{{loc.nome}}</p>
-                            <img class="lixo" src="../../../assets/lixeira-de-reciclagem.png" alt="lixo"
-                                (click)="excluirLocalizacao(i)">
+                            <span (click)="excluirLocalizacao(i)" id="lixo" class="material-symbols-outlined">
+                                delete
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -489,7 +518,9 @@
     <div *ngIf="contadorRecusar == 1" class="modalRecusar">
         <div class="containerModal">
             <hr class="riscoAzul">
-            <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+            <span id="iconeAlert" class="material-symbols-outlined">
+                error
+            </span>
             <div class="containerInfoModal">
                 <span class="textoModal">{{ buscarTextoModalRecusar() }}</span>
             </div>
@@ -502,7 +533,9 @@
     <div *ngIf="contadorAceitar == 1" class="modalRecusar">
         <div class="containerModal">
             <div class="linhaAzul"></div>
-            <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+            <span id="iconeAlert" class="material-symbols-outlined">
+                error
+            </span>
             <div class="containerInfoModal">
                 <span class="textoModal">Selecione a função: </span>
                 <select id="selecionarFuncao">
