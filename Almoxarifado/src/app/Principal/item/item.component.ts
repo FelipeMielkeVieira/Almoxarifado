@@ -64,6 +64,7 @@ export class ItemComponent implements OnInit {
   armario = [];
   porta = [];
   localizacoesFiltradas = [];
+  listaClassificacao = [{ nome: "Nome classificacao" }];
   
   localizacaoAtual = "paredeCentro";
   

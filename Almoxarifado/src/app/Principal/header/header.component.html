@@ -13,7 +13,9 @@
       </div>
     </div>
     <div id="iconSair">
-      <img (click)="fechar();" id="sair" src="../../../assets/close.png" alt="fechar">
+      <span (click)="fechar()" id="fecharIcone" class="fecharModalUser" class="material-symbols-outlined">
+        close
+      </span>
     </div>
     <div id="nomeUsuario">
       <p>Usuário</p>
@@ -50,12 +52,12 @@
 
     <div id="icones">
       <div id="sacola">
-        <span class="material-symbols-outlined" (click)="sacolas()">
+        <span id="topHeader" class="material-symbols-outlined" (click)="sacolas()">
           shopping_bag
         </span>
       </div>
       <div id="usuarioIcone" (click)="abrirUser()">
-        <span class="material-symbols-outlined">
+        <span id="topHeader" class="material-symbols-outlined">
           account_circle
         </span>
       </div>
@@ -69,7 +71,7 @@
         </span>
       </div>
       <div id="usuarioIconeModal">
-        <span class="material-symbols-outlined">
+        <span id="topHeader" class="material-symbols-outlined">
           account_circle
         </span>
       </div>
@@ -77,15 +79,21 @@
       <span class="emailUser">{{emailUsuario}}</span>
       <hr style="width: 80%;">
       <div *ngIf="usuarioTipo == 1" class="divOpcao">
-        <img src="../../../assets/agenda.png" class="imgsUser">
+        <span id="iconsUser" class="material-symbols-outlined">
+          pending_actions
+        </span>
         <span class="spanUser" (click)="navegar('/professor/reservas')">Minhas Reservas</span>
       </div>
       <div class="divOpcao">
-        <img src="../../../assets/settings.png" class="imgsUser">
+        <span id="iconsUser" class="material-symbols-outlined">
+          settings
+        </span>
         <span class="spanUser" (click)="abrirConfiguracoes()">Configurações</span>
       </div>
       <div class="divOpcao">
-        <img (click)="logout()" src="../../../assets/sair.png" id="imgUser2">
+        <span (click)="logout()" id="imgUser2" class="material-symbols-outlined">
+          logout
+        </span>
         <span class="spanUser" (click)="logout()">Sair</span>
       </div>
     </div>

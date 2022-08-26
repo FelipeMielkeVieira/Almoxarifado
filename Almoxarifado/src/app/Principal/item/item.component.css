@@ -928,3 +928,20 @@ label {
     flex-direction: column;
     width: 100%;
 }
+
+.inputsCadastro{
+    width: 13rem;
+    height: 30px;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.classificacao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}

@@ -45,8 +45,8 @@ p {
     color: #00296b;
 }
 
-.material-symbols-outlined {
-    font-size: 45px !important;
+#topHeader {
+    font-size: 45px;
 }
 
 #barraSeparacao {
@@ -104,21 +104,20 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.divOpcao:hover {
+    width: 100%;
     cursor: pointer;
 }
 
-.imgsUser {
-    margin-right: 3%;
-    width: 14%;
+#iconsUser {
+    margin: 2%;
+    font-size: 25px;
+    font-weight: 300;
 }
 
 #imgUser2 {
     transform: scaleX(-1);
     margin-right: 3%;
-    width: 14%;
+    font-weight: 300;
 }
 
 .spanUser {
@@ -148,21 +147,21 @@ p {
 }
 
 #iconEditarPerfil {
-    font-size: 20px!important;
+    font-size: 20px;
     cursor: pointer;
 }
 
 #iconEditarPerfil:hover {
     animation: aumentar 0.2s;
-    font-size: 22px!important;
+    font-size: 22px;
 }
 
 @keyframes aumentar {
 	from {
-		font-size: 20px!important;
+		font-size: 20px;
 	}
 	to {
-		font-size: 22px!important;
+		font-size: 22px;
 	}
 }
 
@@ -225,12 +224,6 @@ p {
     display: flex;
     justify-content: end;
     width: 100%;
-}
-
-#sair {
-    margin: 2%;
-    width: 5%;
-    cursor: pointer;
 }
 
 #nomeUsuario, #tituloSenha, #divSenha, #tituloConfirmarSenha {
@@ -311,4 +304,13 @@ p {
 #editarUser p {
     margin-left: 9%;
     font-size: 20px;
+}
+
+#fecharIcone {
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.fecharModalUser {
+    margin: 2%;
 }
