@@ -277,6 +277,15 @@ a:hover {
     animation: mudarCor 0.5s;
 }
 
+@keyframes mudarCor {
+    from {
+        color: #000;
+    }
+    to {
+        color: #be0101;
+    }
+}
+
 #riscoPequeno {
     margin-top: 2%;
     width: 60%;

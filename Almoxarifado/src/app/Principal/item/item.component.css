@@ -328,12 +328,18 @@
 }
 
 #iconModal {
+    font-size: 50px;
+    cursor: pointer;
+    color: #000000;
+}
+
+#iconModal2 {
     font-size: 30px;
     cursor: pointer;
     color: #000000;
 }
 
-#iconModal:hover {
+#iconModal:hover,#iconModal2:hover {
     color: #0047B6;
 }
 
@@ -495,8 +501,21 @@
     margin-bottom: 0.5rem;
 }
 
-#iconeEditar:hover, #iconeHistorico:hover, #iconeExcluir:hover {
+#iconeEditar:hover, #iconeHistorico:hover {
     color: #0047B6;
+}
+#iconeExcluir:hover {
+    color: #be0101;
+    animation: mudarCor 0.5s;
+}
+
+@keyframes mudarCor {
+    from {
+        color: #000;
+    }
+    to {
+        color: #be0101;
+    }
 }
 
 .containerModalCadastrar {
@@ -754,6 +773,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3%;
 }
 
 .botaoCancelar {
