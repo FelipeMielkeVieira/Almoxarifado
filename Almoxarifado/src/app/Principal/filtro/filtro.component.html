@@ -1,8 +1,12 @@
 <!-- -- FeddBack -- -->
 <div *ngIf="feedback == 1" id="modalFeedback">
     <div class="divInfo">
-        <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-        <img id="imgCerto" src="../../../assets/marca-de-verificacao.png">
+        <span (click)="fechar()" class="material-symbols-outlined" id="iconeFechar">
+            close
+        </span>
+        <span class="material-symbols-outlined" id="imgCerto">
+            check_circle
+        </span>
         <span id="spanTexto">Filtro salvo com sucesso!</span>
     </div>
     <div id="fundo" style="background-color: #AEAEAE;">
@@ -23,7 +27,9 @@
                     </p>
                 </div>
                 <div id="containerIcon">
-                    <img id="iconFechar" (click)="fecharModal()" src="../../../assets/close.png" alt="fechar">
+                    <span (click)="fecharModal()" class="material-symbols-outlined" id="iconeFechar">
+                        close
+                    </span>
                 </div>
             </div>
             <div id="containerConteudoTeste">
@@ -31,49 +37,65 @@
                     <div id="texto">
                         Materiais do projeto
                     </div>
-                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                    <span class="material-symbols-outlined" id="iconLixoTeste">
+                        delete
+                    </span>
                 </div>
                 <div class="divFiltro">
                     <div id="texto">
                         Ferramentas Elétricas
                     </div>
-                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                    <span class="material-symbols-outlined" id="iconLixoTeste">
+                        delete
+                    </span>
                 </div>
                 <div class="divFiltro">
                     <div id="texto">
                         Componentes Eletrônicos
                     </div>
-                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                    <span class="material-symbols-outlined" id="iconLixoTeste">
+                        delete
+                    </span>
                 </div>
                 <div class="divFiltro">
                     <div id="texto">
                         Materiais Elétricos
                     </div>
-                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                    <span class="material-symbols-outlined" id="iconLixoTeste">
+                        delete
+                    </span>
                 </div>
                 <div class="divFiltro">
                     <div id="texto">
                         Materiais Elétricos
                     </div>
-                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                    <span class="material-symbols-outlined" id="iconLixoTeste">
+                        delete
+                    </span>
                 </div>
                 <div class="divFiltro">
                     <div id="texto">
                         Materiais Elétricos
                     </div>
-                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                    <span class="material-symbols-outlined" id="iconLixoTeste">
+                        delete
+                    </span>
                 </div>
                 <div class="divFiltro">
                     <div id="texto">
                         Materiais Elétricos
                     </div>
-                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                    <span class="material-symbols-outlined" id="iconLixoTeste">
+                        delete
+                    </span>
                 </div>
                 <div class="divFiltro">
                     <div id="texto">
                         Materiais Elétricos
                     </div>
-                        <img id="iconLixoTeste" src="../../../assets/lixeira-de-reciclagem.png" alt="Lixo" />
+                    <span class="material-symbols-outlined" id="iconLixoTeste">
+                        delete
+                    </span>
                 </div>
                 
             </div>
@@ -120,7 +142,9 @@
             </div>
             <label for="check">
                 <div class="ContainerIconMaior">
-                    <img id="iconMaior" src="../../../assets/simboloMaior.png" alt="Icon maior">
+                    <span class="material-symbols-outlined" id="iconMaior">
+                        arrow_forward_ios
+                    </span>
                 </div>
             </label>
         </div>
@@ -134,8 +158,13 @@
         <div class="textoReservas">
             <span>Minhas reservas</span>
         </div>
-        <div class="ContainerIconCalendario">
-            <img id="gerenciar" src="../../../assets/arquivo-gerenciar.png" alt="Gerenciar">
+        <div class="gerenciarReservas">
+            <span id="gerenciar" id="arquivo" class="material-symbols-outlined">
+                folder
+            </span>
+            <span id="gerenciar" id="settings" class="material-symbols-outlined">
+                settings
+            </span>
         </div>
     </div>
     <div *ngIf="usuario == 3 || usuario == 4" (click)="modalFiltro()" class="reservas">
@@ -143,7 +172,14 @@
             <span>Gerenciar Filtros</span>
         </div>
         <div class="ContainerIconGerenciar">
-            <img id="iconGerenciar" src="../../../assets/gerenciamento-de-projetos (1).png" alt="Gerenciar">
+                <div class="gerenciarReservas">
+                    <span id="gerenciar" id="arquivo" class="material-symbols-outlined">
+                        description
+                    </span>
+                    <span id="gerenciar" id="settings" class="material-symbols-outlined">
+                        settings
+                    </span>
+                </div>
         </div>
     </div>
 </div>

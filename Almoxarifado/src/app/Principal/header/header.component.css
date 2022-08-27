@@ -108,6 +108,11 @@ p {
     cursor: pointer;
 }
 
+.divOpcao:hover {
+    background-color: rgba(214, 214, 214, 0.384);
+    color: #0047B6;
+}
+
 #iconsUser {
     margin: 2%;
     font-size: 25px;

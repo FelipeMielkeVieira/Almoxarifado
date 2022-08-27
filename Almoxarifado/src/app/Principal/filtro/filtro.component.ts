@@ -100,4 +100,8 @@ export class FiltroComponent implements OnInit {
     }, 5000);
   }
 
+  fechar() {
+    this.feedback = 0;
+  }
+
 }

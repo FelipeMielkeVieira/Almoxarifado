@@ -33,6 +33,10 @@
     padding: 0.9rem;
 }
 
+.quadroItem:hover {
+    background-color: rgba(201, 201, 201, 0.616);
+}
+
 .quadroItemLista {
     /* 
     Código criado primeiro:
@@ -89,10 +93,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-.quadroItem:hover .nomeItem {
-    color: #0047B6;
 }
 
 .baixoItem {
@@ -181,12 +181,9 @@
     margin-right: -5%;
 }
 
-.fecharIcone {
+#fecharIcone {
+    font-size: 30px;
     margin-right: -3%;
-    width: 4%;
-}
-
-.fecharIcone:hover {
     cursor: pointer;
 }
 
@@ -256,8 +253,9 @@
 
 #menosQtdIcon,
 #maisQtdIcon {
-    width: 30%;
+    font-size: 20px;
     padding: 7% 7%;
+    cursor: pointer;
 }
 
 #menosQtdIcon {
@@ -266,11 +264,6 @@
 
 #maisQtdIcon {
     border-left: 1px solid black;
-}
-
-#menosQtdIcon,
-#maisQtdIcon:hover {
-    cursor: pointer;
 }
 
 #inputQtd {
@@ -334,13 +327,14 @@
     margin: 3% 3% 0 0;
 }
 
-.iconModal {
-    width: 80%;
-    min-width: 30px;
+#iconModal {
+    font-size: 30px;
+    cursor: pointer;
+    color: #000000;
 }
 
-.iconModal:hover {
-    cursor: pointer;
+#iconModal:hover {
+    color: #0047B6;
 }
 
 .containerAcoes {
@@ -358,6 +352,7 @@
     width: 70%;
     font-size: large;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .btnModal2 {
@@ -368,15 +363,6 @@
     width: 70%;
     font-size: large;
     font-weight: 500;
-}
-
-.btnModal:hover,
-.sacolaIcon:hover {
-    cursor: pointer;
-}
-
-.btnModal2:hover,
-.sacolaIcon:hover {
     cursor: pointer;
 }
 
@@ -420,8 +406,8 @@
 #fechar {
     position: absolute;
     width: 3%;
-    top: 10%;
-    right: 3%;
+    top: 6%;
+    right: 7%;
 }
 
 #fechar:hover {
@@ -429,8 +415,9 @@
 }
 
 #imgCerto {
-    width: 12%;
+    font-size: 40px;
     padding-bottom: 5px;
+    color: #0047B6;
 }
 
 #spanTexto {
@@ -498,21 +485,18 @@
     margin: 2px;
 }
 
-.iconeEditar {
-    width: 1.5rem;
-    height: 1.5rem;
+#iconeEditar, #iconeHistorico, #iconeExcluir {
+    font-size: 30px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+#iconeEditar, #iconeHistorico {
     margin-bottom: 0.5rem;
 }
 
-.iconeHistorico {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.iconeExcluir {
-    width: 1.5rem;
-    height: 1.5rem;
+#iconeEditar:hover, #iconeHistorico:hover, #iconeExcluir:hover {
+    color: #0047B6;
 }
 
 .containerModalCadastrar {
@@ -524,7 +508,7 @@
 }
 
 #iconFechar {
-    width: 5%;
+    font-size: 30px;
     cursor: pointer;
 }
 
@@ -747,9 +731,10 @@ label {
     background-color: #0047B6;
 }
 
-.iconeAlert {
-    width: 4.625rem;
-    margin-top: 5%;
+#iconeAlert {
+    font-size: 100px;
+    margin-top: 3%;
+    color: #0047B6;
 }
 
 .containerInfoModal {
@@ -836,10 +821,10 @@ label {
     align-items: flex-end;
 }
 
-.iconeFechar {
+#iconeFechar {
     padding: 5px;
     margin: 5px;
-    width: 5%;
+    font-size: 30px;
     cursor: pointer;
 }
 
@@ -874,9 +859,8 @@ label {
     background-color: black;
 }
 
-.iconeAnexo {
-    width: 60px;
-    height: 60px;
+#iconeAnexo {
+    font-size: 60px;
 }
 
 .parteAnexos {
