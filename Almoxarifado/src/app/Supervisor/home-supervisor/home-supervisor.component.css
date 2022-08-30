@@ -1332,3 +1332,15 @@ h1 {
 #containerDireito, #containerEsquerdo {
     width: 10rem;
 }
+
+#containerRetirarItemEstoque {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#retirarDoEstoque {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
