@@ -15,12 +15,13 @@ export class HeaderComponent implements OnInit {
 
   olho1: number = 1;
   olho2: number = 1;
+  configuracoes = false;
 
-  constructor(private router: Router, private service: UsersService) {}
+  constructor(private router: Router, private service: UsersService) { }
 
   ngOnInit() {
     this.service.usuarios.forEach((e) => {
-      if(localStorage.getItem('emailAtual') == e.email) {
+      if (localStorage.getItem('emailAtual') == e.email) {
         this.emailUsuario = e.email;
         this.nomeUsuario = e.nome;
       }
@@ -30,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
   nomeUsuario: string;
   emailUsuario: string;
-  
+
   editarPerfil() {
     this.user = 0;
     if (this.abrirEditar == false) {
@@ -38,11 +39,11 @@ export class HeaderComponent implements OnInit {
     } else {
       this.abrirEditar = false;
     }
-    
+
   }
 
   abrirUser() {
-    if(this.user == 0) {
+    if (this.user == 0) {
       this.user = 1;
     } else {
       this.user = 0;
@@ -61,7 +62,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navegacaoTipo() {
-    if(localStorage.getItem('usuario') == '1') {
+    if (localStorage.getItem('usuario') == '1') {
       this.router.navigate(['/professor'])
     } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
       this.router.navigate(['/atendente']);
@@ -70,8 +71,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  sacolas(){
-    if(localStorage.getItem('usuario') == '1') {
+  sacolas() {
+    if (localStorage.getItem('usuario') == '1') {
       this.router.navigate(['/professor/sacolas']);
     } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
       this.router.navigate(['/atendente/sacolas']);
@@ -116,15 +117,22 @@ export class HeaderComponent implements OnInit {
   }
 
   fechar() {
-    if (this.abrirEditar = true) {
-      this.abrirEditar = false;
-    }
+    this.abrirEditar = false;
+    this.configuracoes = false;
   }
 
   salvar() {
     if (this.abrirEditar = true) {
       this.abrirEditar = false;
     }
+  }
+
+  abrirConfiguracoes() {
+    this.configuracoes = !this.configuracoes;
+  }
+
+  salvarConfig() {
+    this.configuracoes = false;
   }
 
 }

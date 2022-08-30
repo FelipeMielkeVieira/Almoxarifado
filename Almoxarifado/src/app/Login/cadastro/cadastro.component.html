@@ -4,8 +4,8 @@
     <div class="divPrincipal">
         <div *ngIf="senhaIncorreta == 1" id="modalCadastro">
             <div class="divInfo">
-                <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-                <img id="imgAlerta2" src="../../../assets/alert.png">
+                <img id="fechar" (click)="fechar()" src="../../../assets/close.png" alt="Fechar modal de informação">
+                <img id="imgAlerta2" src="../../../assets/alert.png" alt="Ícone de alerta">
                 <span id="spanCadastro">Senhas não Correspondem</span>
             </div>
             <div id="fundo" style="background-color: #AEAEAE;">
@@ -14,8 +14,8 @@
         </div>
         <div *ngIf="dadosIncorretos == 1" id="modalCadastro">
             <div class="divInfo">
-                <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-                <img id="imgAlerta2" src="../../../assets/alert.png">
+                <img id="fechar" (click)="fechar()" src="../../../assets/close.png" alt="Fechar modal de informação">
+                <img id="imgAlerta2" src="../../../assets/alert.png" alt="Ícone de alerta">
                 <span id="spanCadastro">Preencha todos os campos</span>
             </div>
             <div id="fundo" style="background-color: #AEAEAE;">
@@ -33,11 +33,11 @@
             <input type="email" class="inputsCadastro" placeholder="Email" [(ngModel)]="email">
             <div class="divSenha">
                 <input type="password" class="inputsCadastro2" placeholder="Senha" id="inputSenha1" [(ngModel)]="senhaUser">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho" (click)="trocarOlho(1)" id="olho1">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho" (click)="trocarOlho(1)" id="olho1" alt="Visualização da senha">
             </div>
             <div class="divSenha">
                 <input type="password" class="inputsCadastro2" placeholder="Confirmar Senha" id="inputSenha2" [(ngModel)]="repetirSenhaUser">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho" (click)="trocarOlho(2)" id="olho2">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho" (click)="trocarOlho(2)" id="olho2" alt="Visualização da senha">
             </div>
             <button id="cadastrar" (click)="cadastrar()">
                 Cadastrar

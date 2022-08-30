@@ -949,3 +949,18 @@ label {
     width: 100%;
     margin-top: 10px;
 }
+
+/* Estilo do filtro */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #EEEEEE;
+    border-radius: 30px;
+    border: solid 1px black;
+}

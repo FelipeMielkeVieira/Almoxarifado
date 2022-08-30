@@ -6,7 +6,7 @@
   <div id="modalEditar">
     <div id="barraAzul">
       <div id="user">
-        <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário">
+        <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem de usuário">
         <div id="alterarFoto">
           Alterar
         </div>
@@ -26,14 +26,14 @@
     </div>
     <div class="divSenha">
         <input type="password" class="inputsSenha" id="inputSenha1" placeholder="Senha" [(ngModel)]="senha">
-        <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)">
+        <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)" alt="Senha está escondida">
     </div>
     <div id="tituloConfirmarSenha">
       <p>Confirmar senha</p>
     </div>
     <div class="divConfirmarSenha">
       <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha" [(ngModel)]="ConfirmarSenha">
-      <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)">
+      <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)" alt="Senha está visível">
   </div>
     <button type="button" id="salvar" (click)="salvar()">
         Salvar
@@ -42,11 +42,54 @@
 </div>
 <!-- ----------- FIM MODAL EDITAR USER ------------ -->
 
+<!-- -------- MODAL CONFIGURAÇÕES -------- -->
+<div *ngIf="configuracoes" id="editarUser">
+  <div id="modalEditar">
+    <div id="barraAzul">
+      <div id="user">
+        <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário">
+        <div id="alterarFoto">
+          Alterar
+        </div>
+      </div>
+    </div>
+    <div id="iconSair">
+      <span (click)="fechar()" id="fecharIcone" class="fecharModalUser" class="material-symbols-outlined">
+        close
+      </span>
+    </div>
+    <div id="nomeUsuario">
+      <p>Tamanho da Fonte</p>
+    </div>
+    <select class="selectFonte">
+      <option>Muito Pequena</option>
+      <option>Pequena</option>
+      <option selected>Padrão</option>
+      <option>Grande</option>
+      <option>Muito Grande</option>
+    </select>
+    <div id="tituloSenha">
+      <p>Modo Escuro</p>
+    </div>
+    <div id="tituloConfirmarSenha">
+      <p>Confirmar senha</p>
+    </div>
+    <div class="divConfirmarSenha">
+      <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha" [(ngModel)]="ConfirmarSenha">
+      <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)" alt="Senha está escondida">
+  </div>
+    <button type="button" id="salvar" (click)="salvarConfig()">
+        Salvar
+    </button>
+  </div>
+</div>
+<!-- ----------- FIM MODAL CONFIGURAÇÕES ------------ -->
+
 <div id="containerHeader">
   <div id="header">
     <div (click)="navegacaoTipo()" id="logo">
-      <img id="logoSesi" src="../../../assets/logo.png" alt="Sesi Senai" />
-      <img src="../../../assets/LogoSite.png" id="logoSite">
+      <img id="logoSesi" src="../../../assets/logo.png" alt="Logo Sesi Senai" />
+      <img src="../../../assets/LogoSite.png" id="logoSite" alt="Logo do AlmaSis">
       <p>AlmaSis</p>
     </div>
 

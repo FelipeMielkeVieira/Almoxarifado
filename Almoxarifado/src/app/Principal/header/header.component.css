@@ -61,6 +61,7 @@ p {
     min-width: 200px;
     width: 14%;
     height: 25vh;
+    min-height: 200px;
     right: 2%;
     background-color: white;
     filter: drop-shadow(4px 6px 6px rgba(0, 0, 0, 0.3));
@@ -318,4 +319,11 @@ p {
 
 .fecharModalUser {
     margin: 2%;
+}
+
+.selectFonte {
+    width: 80%;
+    margin: 10px 0px;
+    padding: 5px;
+    font-size: 17px;
 }

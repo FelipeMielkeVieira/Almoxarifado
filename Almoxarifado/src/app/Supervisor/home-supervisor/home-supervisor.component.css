@@ -333,6 +333,7 @@ h1 {
     width: 100%;
     height: 5px;
     margin-top: 5%;
+    text-align: center;
 }
 
 .textoModal {
@@ -754,7 +755,8 @@ h1 {
 }
 
 .subtitleOrdenar {
-    text-align: center;
+    text-align: left;
+    margin-bottom: 5px;
 }
 
 .selectOrdenar {
@@ -1081,15 +1083,16 @@ h1 {
     cursor: pointer;
 }
 
-.btnDevolucaoModal {
-    margin: 0 5%;
-}
-
 .cancelarRetirada {
     border: #000 solid 1px;
     background-color: #fff;
     color: #000;
+    margin: 0 5%;
     /* background-color: #AAAAAA; */
+}
+
+.confirmarRetirada {
+    margin: 0 5%;
 }
 
 .btnFiltrarModal {
@@ -1127,12 +1130,12 @@ h1 {
 
 #voltarInformarDefeito {
     font-size: large;
-    width: 40%;
+    width: 35%;
 }
 
 #salvarInformarDefeito {
     font-size: large;
-    width: 55%;
+    width: 50%;
 }
 
 #texteArea {
@@ -1331,4 +1334,16 @@ h1 {
 
 #containerDireito, #containerEsquerdo {
     width: 10rem;
+}
+
+#containerRetirarItemEstoque {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#retirarDoEstoque {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
 }

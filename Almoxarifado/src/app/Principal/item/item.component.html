@@ -3,7 +3,7 @@
 <div *ngIf="lista == 0">
     <div class="quadroItem">
         <div class="imagemItem" (click)="abrirModalItem()">
-            <img class="imgProduto" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="">
+            <img class="imgProduto" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="Imagem do Produto">
         </div>
         <div class="descricaoItem" (click)="abrirModalItem()">
             <span class="nomeItem">{{item.nome}}</span>
@@ -31,7 +31,7 @@
     <div *ngIf="lista == 1" (click)="abrirModalItem()" class="quadroItemLista">
         <div class="imagemItem">
             <img class="imgProdutoLista" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe"
-                alt="">
+                alt="Imagem do Produto">
         </div>
         <div class="descricaoItemLista">
             <span class="nomeItem">{{item.nome}}</span>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="produtoInfo">
                     <div class="containerImg">
-                        <img class="imgProdModal" src="../../../assets/Rele.png" alt="Relé térmico">
+                        <img class="imgProdModal" src="../../../assets/Rele.png" alt="Imagem do Produto no Modal">
                     </div>
                     <div class="nomeTipoProd">
                         <h2 class="tituloAzul">{{ item.nome }}</h2>
