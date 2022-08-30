@@ -493,7 +493,7 @@ export class HomeSupervisorComponent implements OnInit {
     this.modalFiltrar = true;
   }
 
-  fecharModalFiltrar() {
+  fecharModalFiltro() {
     this.modalFiltrar = false;
   }
 
