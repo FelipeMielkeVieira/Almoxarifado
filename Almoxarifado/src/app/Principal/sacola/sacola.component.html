@@ -6,14 +6,14 @@
       <div id="parteEsquerda">
         <h3 class="dataTitulo">Data de retirada:</h3>
         <div class="dataInput">
-          <img class="calendario" src="./assets/calendario.png" alt="Calendário" (click)="abrirCalendario1()">
+          <img class="calendario" src="./assets/calendario.png" alt="Editar data de retirada" (click)="abrirCalendario1()">
           <div class="dataTexto">
             <p id="dataRetirada">{{ formatarData(sacola.data_retirada) }}</p>
           </div>
         </div>
         <h3 class="dataTitulo" style="margin-top: 1rem">Data de devolução:</h3>
         <div class="dataInput">
-          <img class="calendario" src="./assets/calendario.png" alt="Calendário" (click)="abrirCalendario2()">
+          <img class="calendario" src="./assets/calendario.png" alt="Editar data de devolução" (click)="abrirCalendario2()">
           <div class="dataTexto">
             <p id="dataDevolucao">{{ formatarData(sacola.data_devolucao) }}</p>
           </div>
@@ -22,7 +22,7 @@
       <div id="parteDireita">
         <ul id="itens">
           <li *ngFor="let item of listaItens" class="item">
-            <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+            <img class="bolaAzul" src="./assets/circulo-azul.png" alt="Ponteiro para o produto">
             {{item.nome}}
           </li>
         </ul>
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div id="excluirSacola">
-        <img (click)="excluirModal()" src="../../../assets/lixeira-de-reciclagem.png" class="iconeLixeira" alt="iconeLixo">
+        <img (click)="excluirModal()" src="../../../assets/lixeira-de-reciclagem.png" class="iconeLixeira" alt="Excluir Sacola">
       </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
 <div *ngIf="contadorReservar == 1" class="fundoModal">
   <div class="containerModal">
     <div class="linhaAzul"></div>
-    <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+    <img class="iconeAlert" src="../../../assets/alert.png" alt="Ícone de Alerta">
     <div class="containerInfoModal">
       <span class="textoModal">Tem certeza que deseja reservar?</span>
     </div>
@@ -59,7 +59,7 @@
 <div *ngIf="contadorExcluir == 1" class="fundoModal">
   <div class="containerModal">
     <div class="linhaAzul"></div>
-    <img class="iconeAlert" src="../../../assets/alert.png" alt="">
+    <img class="iconeAlert" src="../../../assets/alert.png" alt="Ícone de Alerta">
     <div class="containerInfoModal">
       <span class="textoModal">Tem certeza que deseja excluir a sacola?</span>
     </div>

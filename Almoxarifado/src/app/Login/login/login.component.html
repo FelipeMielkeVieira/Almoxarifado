@@ -3,8 +3,8 @@
     <div class="divPrincipal">
         <div *ngIf="cadastro == 1" id="modalCadastro">
             <div class="divInfo">
-                <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-                <img id="imgAlerta" src="../../../assets/alert.png">
+                <img id="fechar" (click)="fechar()" src="../../../assets/close.png" alt="Fechar Modal de Informação">
+                <img id="imgAlerta" src="../../../assets/alert.png" alt="Ícone de alerta">
                 <span id="spanCadastro">Sua solicitação de cadastro foi enviada para confirmação</span>
             </div>
             <div id="fundo" style="background-color: #AEAEAE;">
@@ -13,8 +13,8 @@
         </div>
         <div *ngIf="requisicaoSenha == 1" id="modalCadastro">
             <div class="divInfo">
-                <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-                <img id="imgAlerta" src="../../../assets/alert.png">
+                <img id="fechar" (click)="fechar()" src="../../../assets/close.png" alt="Fechar modal de informação">
+                <img id="imgAlerta" src="../../../assets/alert.png" alt="Ícone de alerta">
                 <span id="spanCadastro">Sua redefinição de senha foi realizada com sucesso</span>
             </div>
             <div id="fundo" style="background-color: #AEAEAE;">
@@ -23,8 +23,8 @@
         </div>
         <div *ngIf="senhaIncorreta == 1" id="modalCadastro">
             <div class="divInfo">
-                <img id="fechar" (click)="fechar()" src="../../../assets/close.png">
-                <img id="imgAlerta2" src="../../../assets/alert.png">
+                <img id="fechar" (click)="fechar()" src="../../../assets/close.png" alt="Fechar modal de informação">
+                <img id="imgAlerta2" src="../../../assets/alert.png" alt="Ícone de alerta">
                 <span id="spanCadastro">Usuário ou senha incorretos</span>
             </div>
             <div id="fundo" style="background-color: #AEAEAE;">
@@ -41,7 +41,7 @@
             <input type="text" class="inputsCadastro" placeholder="Email ou usuário" [(ngModel)]="emailUser">
             <div class="divSenha">
                 <input type="password" class="inputsCadastro2" id="inputSenha1" placeholder="Senha" [(ngModel)]="senhaUser">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
             </div>
             <div class="containerSenha">
                 <span id="esqueciSenha" (click)="esqueciASenha()">Esqueci a senha</span>
@@ -53,7 +53,7 @@
                 </label>
             </div>
             <button type="button" id="entrarGoogle">
-                <img id="imgGoogle" src="../../../assets/google.png" alt="Google icon">
+                <img id="imgGoogle" src="../../../assets/google.png" alt="Ícone do Google">
                 Entrar com o Google
             </button>
             <button type="button" id="entrar" (click)="login()">
@@ -66,7 +66,7 @@
         </div>
     </div>
     <div *ngIf="senha1 == 1 || senha2 == 1 || senha3 == 1" class="modalSenha">
-        <img id="fechar2" (click)="fechar2()" src="../../../assets/close.png">
+        <img id="fechar2" (click)="fechar2()" src="../../../assets/close.png" alt="Fechar modal de senha">
         <h3 id="tituloSenha">Recuperar Senha</h3>
 
         <div *ngIf="senha1 == 1" id="divEmail">
@@ -93,14 +93,14 @@
             <span class="spanNovaSenha">Nova Senha:</span>
             <div class="divSenha2">
                 <input type="password" id="inputSenha2" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)" alt="Trocar visualização de senha">
             </div>
         </div>
         <div *ngIf="senha3 == 1" class="divInputSenha2" id="inputRepetirSenha">
             <span class="spanNovaSenha">Repita a Senha:</span>
             <div class="divSenha2">
                 <input type="password" id="inputSenha3" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova2">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho3" (click)="trocarOlho(3)">
+                <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho3" (click)="trocarOlho(3)" alt="Trocar visualização de senha">
             </div>
         </div>
         <button *ngIf="senha3 == 1" class="enviarCodigo" (click)="enviarNovaSenha()">Enviar</button>

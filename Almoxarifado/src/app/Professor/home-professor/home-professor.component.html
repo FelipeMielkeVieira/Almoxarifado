@@ -3,7 +3,7 @@
         <hr class="riscoAzul">
         <div class="containerFechar">
             <img class="fecharIcone espacoFecharOrdenarModal" (click)="fecharModalOrdenar()"
-                src="../../../assets/close.png" alt="fechar">
+                src="../../../assets/close.png" alt="Fechar Modal de Ordenar">
         </div>
         <div id="containerConteudoModalOrdernar">
             <div style="width: 100%;">
@@ -43,15 +43,15 @@
             <div id="containerInputOrdenar">
                 <div id="divInput">
                     <input id="input" type="text" placeholder="Pesquise por produto...">
-                    <img id="lupa" src="../../../assets/lupa.png" alt="Lupa">
+                    <img id="lupa" src="../../../assets/lupa.png" alt="Fazer Pesquisa">
                 </div>
                 <div id="iconListaBloco">
-                    <img src="../../../assets/ordenar.png" id="ordernar" (click)="ordernar()" alt="Ordernar"
+                    <img src="../../../assets/ordenar.png" id="ordernar" (click)="ordernar()" alt="Ordenar Página"
                         title="Ordernar">
                     <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco" src="../../../assets/emBloco.png"
-                        alt="em bloco">
+                        alt="Visualizando em lista">
                     <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista" src="../../../assets/emLista.png"
-                        alt="em lista">
+                        alt="Visualizando em bloco">
                 </div>
             </div>
             <div id="filtro">
