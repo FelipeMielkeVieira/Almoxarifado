@@ -510,7 +510,7 @@
                     <div id="containerLocalizacoes">
                         <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
                             <p>{{loc.nome}}</p>
-                            <span (click)="excluirLocalizacao(i)" id="lixo" class="material-symbols-outlined">
+                            <span (click)="confirmacaoLocalizacao(i)" id="lixo" class="material-symbols-outlined">
                                 delete
                             </span>
                         </div>
@@ -552,6 +552,22 @@
             <div class="containerBotoes">
                 <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
                 <button class="botaoRecusar">Aceitar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal remover localizacao -->
+    <div *ngIf="aparecerConfirmacao == 1" class="modalRecusar">
+        <div class="containerModal">
+            <hr class="riscoAzul">
+            <span id="iconeAlert" class="material-symbols-outlined">
+                error
+            </span>
+            <div class="containerInfoModal">
+                <span class="textoModal">Tem certeza que deseja remover a localização?</span>
+            </div>
+            <div class="containerBotoes">
+                <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
+                <button (click)="excluirLocalizacao()" class="botaoRecusar">Remover</button>
             </div>
         </div>
     </div>

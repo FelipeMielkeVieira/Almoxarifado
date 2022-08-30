@@ -19,6 +19,9 @@ export class HomeSupervisorComponent implements OnInit {
   inputGeral = "";
   tipoUsuario = 2;
   reserva = true;
+  aparecerConfirmacao = 0;
+  
+  indexExcluir: number = 0;
 
   ngOnInit() {
     setTimeout(() => {
@@ -176,6 +179,7 @@ export class HomeSupervisorComponent implements OnInit {
     this.contadorAceitar = 0;
     let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
     divPrincipal.style.opacity = '1';
+    this.aparecerConfirmacao = 0;
   }
 
   btnRecusar() {
@@ -357,8 +361,14 @@ export class HomeSupervisorComponent implements OnInit {
     }
   }
 
-  excluirLocalizacao(index: number) {
-    let loc = this.localizacoesFiltradas[index];
+  confirmacaoLocalizacao(index: number) {
+    this.aparecerConfirmacao = 1;
+    this.indexExcluir = index;
+  }
+
+  excluirLocalizacao() {
+    this.aparecerConfirmacao = 0;
+    let loc = this.localizacoesFiltradas[this.indexExcluir];
     let index1 = this.service.localizacoes.findIndex((e) => {
       if (e.nome == loc.nome) {
         return true;
