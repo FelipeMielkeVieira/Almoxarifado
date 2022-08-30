@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/service';
 
@@ -129,10 +129,25 @@ export class HeaderComponent implements OnInit {
 
   abrirConfiguracoes() {
     this.configuracoes = !this.configuracoes;
+    this.user = 0;
   }
 
   salvarConfig() {
     this.configuracoes = false;
   }
 
+  @HostListener('document:mousedown', ['$event'])
+  onGlobalClick(event): void {
+    let contagem = 0;
+    for (const path of event.path) {
+      if(path.className == "modalUser") {
+        contagem = 1;
+      }
+    }
+    if(contagem == 0) {
+      if (this.user == 1) {
+        this.user = 0;
+      }
+    }
+  }
 }
