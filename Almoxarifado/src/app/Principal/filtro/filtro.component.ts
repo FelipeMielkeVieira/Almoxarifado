@@ -18,7 +18,6 @@ export class FiltroComponent implements OnInit {
   usuario: number;
   aparecer: number = 0;
   feedback = 0;
-
   filtroSelecionado:number;
 
   ngOnInit() {
@@ -31,7 +30,11 @@ export class FiltroComponent implements OnInit {
   filtrar(item) {
     this.filtroSelecionado = item;
     this.fecharFiltro();
-    
+
+    if(document.querySelector("#containerFiltro")) {
+      this.tirarFiltro();
+    }
+
     let divFiltro = document.querySelector("#filtro");
 
     const containerFiltro = document.createElement("div");
@@ -53,7 +56,8 @@ export class FiltroComponent implements OnInit {
     containerFiltro.style.borderRadius = "5px"
     containerFiltro.style.backgroundColor = "white";
     containerFiltro.style.border = "1px solid gray";
-    containerFiltro.style.width = "fit-content"
+    containerFiltro.style.width = "fit-content";
+    containerFiltro.style.fontSize = "16px";
 
     containerExcluir.style.display = "flex";
     containerExcluir.style.alignItems = "center";

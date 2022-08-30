@@ -25,18 +25,21 @@
       <p>Senha</p>
     </div>
     <div class="divSenha">
-        <input type="password" class="inputsSenha" id="inputSenha1" placeholder="Senha" [(ngModel)]="senha">
-        <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)" alt="Senha está escondida">
+      <input type="password" class="inputsSenha" id="inputSenha1" placeholder="Senha" [(ngModel)]="senha">
+      <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)"
+        alt="Senha está escondida">
     </div>
     <div id="tituloConfirmarSenha">
       <p>Confirmar senha</p>
     </div>
     <div class="divConfirmarSenha">
-      <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha" [(ngModel)]="ConfirmarSenha">
-      <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)" alt="Senha está visível">
-  </div>
+      <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha"
+        [(ngModel)]="ConfirmarSenha">
+      <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)"
+        alt="Senha está visível">
+    </div>
     <button type="button" id="salvar" (click)="salvar()">
-        Salvar
+      Salvar
     </button>
   </div>
 </div>
@@ -68,18 +71,15 @@
       <option>Grande</option>
       <option>Muito Grande</option>
     </select>
-    <div id="tituloSenha">
-      <p>Modo Escuro</p>
+    <div class="divEscuro">
+      <span class="textEscuro">Modo Escuro</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
     </div>
-    <div id="tituloConfirmarSenha">
-      <p>Confirmar senha</p>
-    </div>
-    <div class="divConfirmarSenha">
-      <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha" [(ngModel)]="ConfirmarSenha">
-      <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)" alt="Senha está escondida">
-  </div>
-    <button type="button" id="salvar" (click)="salvarConfig()">
-        Salvar
+    <button type="button" id="salvarConfig" (click)="salvarConfig()">
+      Salvar
     </button>
   </div>
 </div>
