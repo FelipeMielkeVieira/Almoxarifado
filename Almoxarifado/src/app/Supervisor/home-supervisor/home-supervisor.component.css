@@ -755,7 +755,8 @@ h1 {
 }
 
 .subtitleOrdenar {
-    text-align: center;
+    text-align: left;
+    margin-bottom: 5px;
 }
 
 .selectOrdenar {
