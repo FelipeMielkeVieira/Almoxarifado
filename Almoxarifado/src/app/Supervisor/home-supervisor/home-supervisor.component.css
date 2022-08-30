@@ -1085,7 +1085,12 @@ h1 {
     border: #000 solid 1px;
     background-color: #fff;
     color: #000;
+    margin: 0 5%;
     /* background-color: #AAAAAA; */
+}
+
+.confirmarRetirada {
+    margin: 0 5%;
 }
 
 .btnFiltrarModal {
