@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <!-- -- FeddBack -- -->
 <div *ngIf="feedback == 1" id="modalFeedback">
@@ -11,7 +12,8 @@
         </span>
         <span *ngIf="nao == 2" id="spanTexto">Baixa dada com sucesso!</span>
         <span *ngIf="nao == 1" id="spanTexto">Retirada confirmada!</span>
-        <span *ngIf="nao== 0" id="spanTexto">Item cadastrado!</span>
+        <span *ngIf="nao == 0" id="spanTexto">Item cadastrado!</span>
+        <span *ngIf="nao == 3" id="spanTexto">Localização removida com sucesso!</span>
     </div>
     <div id="fundo" style="background-color: #AEAEAE;">
         <div id="azul"></div>
@@ -39,7 +41,7 @@
                         <option value="1">Decrescente</option>
                     </select>
                 </div>
-                <div>    
+                <div>
                     <p class="subtitleOrdenar">Opção</p>
                     <select name="opcaoOrdenar" class="selectOrdenar">
                         <option value="0">Nome</option>
@@ -48,7 +50,8 @@
                 </div>
             </div>
             <div id="containerBotoesOrdenar">
-                <button class="btnDevolucaoModal" style="background-color: red;" (click)="cancelarOrdenar()">Cancelar</button>
+                <button class="btnDevolucaoModal" style="background-color: red;"
+                    (click)="cancelarOrdenar()">Cancelar</button>
                 <button class="btnDevolucaoModal" (click)="realizarOrdenacao()">Ordenar</button>
             </div>
         </div>
@@ -102,17 +105,17 @@
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
     <div *ngIf="!reserva" id="modalCancelarReserva">
-            <hr class="riscoAzul">
-            <span (click)="fecharModalCancelarReserva()" id="fechar" class="icone" class="material-symbols-outlined">
-                close
-            </span>
-            <div id="tituloMotivo">
-                <h1>Qual o motivo?</h1>
-            </div>
-            <textarea id="motivo" placeholder="Insira o motivo aqui..."></textarea>
-            <div id="containerBotaoEnviar">
-                <button (click)="enviar()" id="botaoEnviar">Cancelar Reserva</button>
-            </div>
+        <hr class="riscoAzul">
+        <span (click)="fecharModalCancelarReserva()" id="fechar" class="icone" class="material-symbols-outlined">
+            close
+        </span>
+        <div id="tituloMotivo">
+            <h1>Qual o motivo?</h1>
+        </div>
+        <textarea id="motivo" placeholder="Insira o motivo aqui..."></textarea>
+        <div id="containerBotaoEnviar">
+            <button (click)="enviar()" id="botaoEnviar">Cancelar Reserva</button>
+        </div>
     </div>
     <div *ngIf="removerDevolucaoModal" class="modalRecusar">
         <div class="containerModal">
@@ -134,7 +137,8 @@
         <hr class="riscoAzul">
         <div id="containerDevolucaoModal">
             <div class="containerFechar">
-                <span (click)="fecharModalBaixaDevolucao()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+                <span (click)="fecharModalBaixaDevolucao()" id="fecharIcone" class="icone"
+                    class="material-symbols-outlined">
                     close
                 </span>
             </div>
@@ -155,8 +159,7 @@
                                 <p *ngIf="nao == 1" id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
                                 <div class="botoesDevolucaoModal">
-                                    <button (click)="acaoSegundariaDevolucaoModal()"
-                                        class="btnSegundario"
+                                    <button (click)="acaoSegundariaDevolucaoModal()" class="btnSegundario"
                                         style="background-color: red; margin-bottom: 0.2rem;">{{
                                         textoAcaoSegundariaDevolucaoModal() }}</button>
                                     <button *ngIf="nao == 2" (click)="informarDefeitoItem()"
@@ -168,12 +171,12 @@
                     </div>
                 </li>
             </ul>
-                <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
-                <div *ngIf="nao == 1" id="containerFinal">
-                    <button  (click)="cancelarReserva()" class="btnDevolucaoModal cancelarRetirada">Cancelar reserva</button>
-                        <button  (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal confirmarRetirada">Confirmar
-                        retirada</button>
-                </div>
+            <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
+            <div *ngIf="nao == 1" id="containerFinal">
+                <button (click)="cancelarReserva()" class="btnDevolucaoModal cancelarRetirada">Cancelar reserva</button>
+                <button (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal confirmarRetirada">Confirmar
+                    retirada</button>
+            </div>
         </div>
     </div>
 
@@ -241,8 +244,9 @@
                 </div>
                 <div class="classificacao">
                     <span>Classificação: </span>
-                    <select class="inputsCadastro" name="" >
-                        <option *ngFor="let classificacao of listaClassificacao" value="">{{ classificacao.nome }}</option>
+                    <select class="inputsCadastro" name="">
+                        <option *ngFor="let classificacao of listaClassificacao" value="">{{ classificacao.nome }}
+                        </option>
                     </select>
                 </div>
                 <div class="descricao">
@@ -336,26 +340,29 @@
                                 <input *ngIf="contLocalizacoes == 1" [(ngModel)]="inputGeral"
                                     (keyup)="pesquisaLocalizacao()" class="input" type="text"
                                     placeholder="Pesquise por localização...">
-                                    <span id="lupa" class="material-symbols-outlined">
-                                        search
-                                    </span>
+                                <span id="lupa" class="material-symbols-outlined">
+                                    search
+                                </span>
                             </div>
                             <div id="iconListaBloco">
-                                <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined" title="Ordernar">
+                                <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined"
+                                    title="Ordernar">
                                     sync_alt
+                                </span>
+                                <div id="containerIconFiltro">
+                                    <span (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined">
+                                        filter_alt
                                     </span>
-                                    <div id="containerIconFiltro">
-                                        <span (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined">
-                                            filter_alt
-                                        </span>
-                                    </div>
+                                </div>
 
-                                    <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="iconEmBloco" class="material-symbols-outlined" title="Ver em bloco">
-                                        grid_view
-                                    </span>
-                                    <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="iconEmLista" class="material-symbols-outlined" title="Ver em lista">
-                                        sort
-                                    </span>
+                                <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="iconEmBloco"
+                                    class="material-symbols-outlined" title="Ver em bloco">
+                                    grid_view
+                                </span>
+                                <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="iconEmLista"
+                                    class="material-symbols-outlined" title="Ver em lista">
+                                    sort
+                                </span>
                             </div>
                         </div>
                         <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes"

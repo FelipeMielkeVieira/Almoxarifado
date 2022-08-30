@@ -378,6 +378,11 @@ export class HomeSupervisorComponent implements OnInit {
     if (index1 != -1) {
       this.service.localizacoes.splice(index1, 1);
     }
+    this.feedback = 1;
+    this.nao = 3;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 
   pesquisaLocalizacao() {
