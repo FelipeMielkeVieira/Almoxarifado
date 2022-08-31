@@ -7,11 +7,6 @@
 p {
     font-size: 15px;
     font-weight: 500;
-    cursor: pointer;
-}
-
-p:hover {
-    color: #0047B6;
 }
 
 h1 {
@@ -207,11 +202,6 @@ h1 {
 
 .user {
     font-size: 15px;
-    cursor: default;
-}
-
-.user:hover {
-    color: #0047B6;
     cursor: default;
 }
 
@@ -1302,6 +1292,7 @@ h1 {
     justify-content: center;
     align-items: center;
     margin-right: 1%;
+    position: relative;
 }
 
 #iconFiltro {
@@ -1321,6 +1312,7 @@ h1 {
 }
 
 .checkboxes {
+    animation: all 0.5s;
     margin-left: 5px;
 }
 
@@ -1349,11 +1341,12 @@ h1 {
 
 .modalUser {
     position: absolute;
-    top: 21%;
+    top: 25%;
     min-width: 225px;
-    min-height: 205px;
-    left: 38.1%;
-    background-color: rgb(231, 231, 231);
+    min-height: 215px;
+    left: 12.1%; 
+    margin-top: 35px;
+    background-color: rgb(250, 250, 250);
     filter: drop-shadow(4px 6px 6px rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
@@ -1367,7 +1360,7 @@ h1 {
     height: 10px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid rgb(231, 231, 231);
+    border-bottom: 10px solid rgb(250, 250, 250);
     left: 2%;
     top: -10px;
 }
@@ -1383,5 +1376,20 @@ h1 {
 }
 
 .checkboxes:hover {
-    font-weight: 600;
+    animation: all 0.5s;
+    font-weight: 500;
 }
+
+.tituloFiltroModalUser {
+    margin-top: 10px;
+    color: #0047B6;
+}
+
+#iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+ }
