@@ -13,3 +13,14 @@ html{
     box-sizing: border-box;
 }
 
+:root {
+    --font-size--verysmall: 10px;
+    --font-size--small: 14px;
+    --font-size--default: 16px;
+    --font-size--medium: 18px;
+    --font-size--big: 20px;
+    --font-size--verybig: 24px;
+    --font-size--giant: 30px;
+    --font-size--extreme: 40px;
+}
+

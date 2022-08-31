@@ -3,7 +3,7 @@
 }
 
 p {
-    font-size: 15px;
+    font-size: var(--font-size--small);
     font-weight: 500;
     cursor: pointer;
 }
@@ -43,7 +43,7 @@ p:hover {
 }
 
 .tituloPagina{
-    font-size: 45px;
+    font-size: var(--font-size--extreme);
     color: #0047B6;
 }
 

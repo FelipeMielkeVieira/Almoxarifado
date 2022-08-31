@@ -78,7 +78,7 @@ label{
 
 #esqueciSenha {
     font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
+    font-size: var(--font-size--default);
     color: rgba(0, 0, 0, 0.65);
     margin-top: 1%;
     font-family: 'Inter';
@@ -99,7 +99,7 @@ label{
     border-radius: 5px;
     margin-top: 5%;
     font-family: 'Inter';
-    font-size: 15px;
+    font-size: var(--font-size--small);
 }
 
 #entrarGoogle:hover {
@@ -116,7 +116,7 @@ label{
     height: 2.2rem;
     background-color: #0047B6;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: var(--font-size--default);
     border-radius: 5px;
     border: none;
     margin-top: 5%;
@@ -129,7 +129,7 @@ label{
 
 #textoConta {
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: var(--font-size--default);
     color: rgba(0, 0, 0, 0.65);
     margin: 4%;
 }
@@ -148,7 +148,7 @@ label{
     width: 80%;
     margin: 1%;
     font-family: 'Inter', sans-serif;
-    font-size: 15px;
+    font-size: var(--font-size--small);
     color: rgba(0, 0, 0, 0.80);
 }
 
@@ -197,7 +197,7 @@ label{
 
 #spanCadastro {
     font-family: 'Inter';
-    font-size: 17px;
+    font-size: var(--font-size--default);
     text-align: center;
     font-weight: 600;
 }
@@ -285,7 +285,7 @@ label{
 
 #tituloSenha {
     font-family: 'Inter';
-    font-size: 28px;
+    font-size: var(--font-size--giant);
     color: #0047B6;
     font-weight: 800;
 }
@@ -297,7 +297,7 @@ label{
 #inserirEmail {
     font-family: 'Inter';
     font-weight: 400;
-    font-size: 17px;
+    font-size: var(--font-size--default);
     margin-bottom: 2%;
 }
 
@@ -306,11 +306,11 @@ label{
     border: 1px solid #000000;
     border-radius: 5px;
     padding: 3%;
-    font-size: 16px;
+    font-size: var(--font-size--default);
 }
 
 #avisoCadastro {
-    font-size: 16px;
+    font-size: var(--font-size--default);
     font-family: 'Inter';
     text-align: center;
     padding: 0% 10%;
@@ -321,7 +321,7 @@ label{
     padding: 2% 6%;
     border-radius: 5px;
     color: white;
-    font-size: 16px;
+    font-size: var(--font-size--default);
     font-family: 'Inter';
     font-weight: 600;
     border: 1px solid transparent;
@@ -333,7 +333,7 @@ label{
 
 #inserirCodigo {
     font-family: 'Inter';
-    font-size: 22px;
+    font-size: var(--font-size--big);
     font-weight: 400;
 }
 
@@ -356,14 +356,14 @@ label{
 #timer {
     font-family: 'Inter';
     color: gray;
-    font-size: 16px;
+    font-size: var(--font-size--default);
 }
 
 #reenviar {
     text-decoration: underline;
     color: rgb(90, 86, 86);
     font-family: 'Inter';
-    font-size: 14px;
+    font-size: var(--font-size--small);
 }
 
 #reenviar:hover {
@@ -390,12 +390,12 @@ label{
     border-radius: 5px;
     padding: 3%;
     font-family: 'Inter';
-    font-size: 15px;
+    font-size: var(--font-size--small);
 }
 
 .spanNovaSenha {
     font-family: 'Inter';
-    font-size: 16px;
+    font-size: var(--font-size--default);
     margin-bottom: 1%;
 }
 
@@ -435,7 +435,7 @@ label{
 .inputNovaSenha {
     width: 90%;
     font-family: 'Inter';
-    font-size: 15px;
+    font-size: var(--font-size--small);
     border: none;
 }
 

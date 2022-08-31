@@ -64,12 +64,12 @@
     <div id="nomeUsuario">
       <p>Tamanho da Fonte</p>
     </div>
-    <select class="selectFonte">
-      <option>Muito Pequena</option>
-      <option>Pequena</option>
-      <option selected>Padrão</option>
-      <option>Grande</option>
-      <option>Muito Grande</option>
+    <select class="selectFonte" [(ngModel)]="fonteAtual">
+      <option value="1">Muito Pequena</option>
+      <option value="2">Pequena</option>
+      <option value="3" selected>Padrão</option>
+      <option value="4">Grande</option>
+      <option value="5">Muito Grande</option>
     </select>
     <div class="divEscuro">
       <span class="textEscuro">Modo Escuro</span>

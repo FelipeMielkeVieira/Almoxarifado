@@ -86,7 +86,7 @@
 }
 
 .nomeItem {
-    font-size: 16px;
+    font-size: var(--font-size--default);
     font-weight: 700;
     font-family: 'Inter', sans-serif;
     word-wrap: break-word;
@@ -98,7 +98,7 @@
 .baixoItem {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: var(--font-size--small);
     display: flex;
     flex-direction: column;
 }
@@ -182,7 +182,7 @@
 }
 
 #fecharIcone {
-    font-size: 30px;
+    font-size: var(--font-size--giant);
     margin-right: -3%;
     cursor: pointer;
 }
@@ -240,7 +240,7 @@
     display: flex;
     border: 1px solid black;
     border-radius: 0.3rem;
-    width: 30%;
+    width: 40%;
     min-width: 100px;
     justify-content: space-evenly;
     align-items: center;
@@ -253,7 +253,7 @@
 
 #menosQtdIcon,
 #maisQtdIcon {
-    font-size: 20px;
+    font-size: var(--font-size--medium);
     padding: 7% 7%;
     cursor: pointer;
 }
@@ -267,20 +267,21 @@
 }
 
 #inputQtd {
-    width: 30%;
+    width: 35%;
     border: none;
     outline: none;
     text-align: center;
+    font-size: var(--font-size--medium);
 }
 
 .qtdMax {
     text-align: end;
-    font-size: 13px;
+    font-size: var(--font-size--small);
     margin-top: 2px;
 }
 
 .containerDatas {
-    width: 70%;
+    width: 90%;
 }
 
 .linhaData {
@@ -297,7 +298,7 @@
     justify-content: space-between;
     border: 1px solid black;
     border-radius: 0.3rem;
-    width: 60%;
+    width: 70%;
     min-width: 130px;
     height: 2.3rem;
 }
@@ -309,7 +310,7 @@
 
 .dataText {
     align-items: center;
-    font-size: 12px;
+    font-size: var(--font-size--small);
 }
 
 .containerIconData {
@@ -328,13 +329,13 @@
 }
 
 #iconModal {
-    font-size: 50px;
+    font-size: var(--font-size--extreme);
     cursor: pointer;
     color: #000000;
 }
 
 #iconModal2 {
-    font-size: 30px;
+    font-size: var(--font-size--giant);
     cursor: pointer;
     color: #000000;
 }
@@ -356,7 +357,7 @@
     border-radius: 5px;
     border: 0;
     width: 70%;
-    font-size: large;
+    font-size: var(--font-size--medium);
     font-weight: 500;
     cursor: pointer;
 }
@@ -367,7 +368,7 @@
     border-radius: 5px;
     border: 0;
     width: 70%;
-    font-size: large;
+    font-size: var(--font-size--medium);
     font-weight: 500;
     cursor: pointer;
 }
@@ -421,14 +422,14 @@
 }
 
 #imgCerto {
-    font-size: 40px;
+    font-size: var(--font-size--extreme);
     padding-bottom: 5px;
     color: #0047B6;
 }
 
 #spanTexto {
     font-family: 'Inter';
-    font-size: 17px;
+    font-size: var(--font-size--default);
     text-align: center;
     font-weight: 600;
 }
@@ -492,7 +493,7 @@
 }
 
 #iconeEditar, #iconeHistorico, #iconeExcluir {
-    font-size: 30px;
+    font-size: var(--font-size--giant);
     font-weight: 300;
     cursor: pointer;
 }
@@ -527,7 +528,7 @@
 }
 
 #iconFechar {
-    font-size: 30px;
+    font-size: var(--font-size--giant);
     cursor: pointer;
 }
 
@@ -585,6 +586,7 @@
     margin-left: 10px;
     padding: 10px;
     resize: none;
+    font-size: var(--font-size--default);
 }
 
 .nomeProduto {
@@ -686,7 +688,7 @@
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 23px;
+    font-size: var(--font-size--big);
     margin-top: 1.875rem;
     cursor: pointer;
 }
@@ -766,7 +768,7 @@ label {
 }
 
 .textoModal {
-    font-size: 24px;
+    font-size: var(--font-size--verybig);
 }
 
 .containerBotoes {
@@ -779,7 +781,7 @@ label {
 .botaoCancelar {
     width: 7.813rem;
     height: 2.625rem;
-    font-size: 20px;
+    font-size: var(--font-size--big);
     color: #fff;
     border-radius: 5px;
     border: none;
@@ -791,7 +793,7 @@ label {
 .botaoRecusar {
     width: 7.813rem;
     height: 2.625rem;
-    font-size: 20px;
+    font-size: var(--font-size--big);
     color: #fff;
     border-radius: 5px;
     border: none;
@@ -844,7 +846,7 @@ label {
 #iconeFechar {
     padding: 5px;
     margin: 5px;
-    font-size: 30px;
+    font-size: var(--font-size--giant);
     cursor: pointer;
 }
 
@@ -860,7 +862,7 @@ label {
 }
 
 .textoDescricao {
-    font-size: 18px;
+    font-size: var(--font-size--medium);
     font-weight: bold;
 }
 
@@ -921,7 +923,7 @@ label {
 }
 
 .textoData{
-    font-size: 13px;
+    font-size: var(--font-size--small);
     color: rgb(170, 168, 168);
 }
 
@@ -963,4 +965,8 @@ label {
     background-color: #EEEEEE;
     border-radius: 30px;
     border: solid 1px black;
+}
+
+.descricaoItem {
+    font-size: var(--font-size--default);
 }

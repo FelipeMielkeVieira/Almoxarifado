@@ -9,7 +9,7 @@ body {
 }
 
 p {
-    font-size: 15px;
+    font-size: var(--font-size--small);
     font-weight: 500;
     cursor: pointer;
 }
@@ -124,13 +124,13 @@ p:hover {
 }
 
 .descartavel {
-    font-size: 14px;
+    font-size: var(--font-size--small);
     color: rgba(0, 0, 0, 0.6);
     text-align: end;
 }
 
 .titulos {
-    font-size: 45px;
+    font-size: var(--font-size--extreme);
     color: #0047B6;
 }
 
@@ -165,7 +165,7 @@ p:hover {
     height: 2.8rem;
     color: #ffff;
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: var(--font-size--medium);
     background-color: #0047B6;
     border-radius: 5px;
     border: none;
@@ -194,7 +194,7 @@ p:hover {
 }
 
 .textoData {
-    font-size: 20px;
+    font-size: var(--font-size--big);
     margin: 5px;
     color: black;
 }
@@ -217,7 +217,7 @@ p:hover {
 }
 
 .tituloData {
-    font-size: 23px;
+    font-size: var(--font-size--big);
 }
 
 .divProdutos {
@@ -284,14 +284,14 @@ p:hover {
 
 .nomeProduto {
     margin-left: 5%;
-    font-size: 16px;
+    font-size: var(--font-size--default);
     overflow: visible;
     display: inline;
 }
 
 .inputProfessor {
     padding: 5px;
-    font-size: 16px;
+    font-size: var(--font-size--default);
     margin: 5px;
 }
 

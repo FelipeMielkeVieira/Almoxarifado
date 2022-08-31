@@ -27,7 +27,7 @@
 p {
     margin-left: 12px;
     color: #0047B6;
-    font-size: 25px;
+    font-size: var(--font-size--verybig);
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
@@ -46,7 +46,7 @@ p {
 }
 
 #topHeader {
-    font-size: 45px;
+    font-size: var(--font-size--extreme);
 }
 
 #barraSeparacao {
@@ -84,12 +84,12 @@ p {
 
 .nomeUser {
     font-weight: 500;
-    font-size: 17px;
+    font-size: var(--font-size--default);
     cursor: default;
 }
 
 .emailUser {
-    font-size: 10px;
+    font-size: var(--font-size--verysmall);
     max-width: 170px;
     font-weight: 600;
     color: gray;
@@ -116,7 +116,7 @@ p {
 
 #iconsUser {
     margin: 2%;
-    font-size: 25px;
+    font-size: var(--font-size--verybig);
     font-weight: 300;
 }
 
@@ -127,7 +127,7 @@ p {
 }
 
 .spanUser {
-    font-size: 14px;
+    font-size: var(--font-size--small);
     font-weight: 500;
 }
 
@@ -153,21 +153,21 @@ p {
 }
 
 #iconEditarPerfil {
-    font-size: 20px;
+    font-size: var(--font-size--big);
     cursor: pointer;
 }
 
 #iconEditarPerfil:hover {
     animation: aumentar 0.2s;
-    font-size: 22px;
+    font-size: var(--font-size--big);
 }
 
 @keyframes aumentar {
 	from {
-		font-size: 20px;
+		font-size: var(--font-size--big);
 	}
 	to {
-		font-size: 22px;
+		font-size: var(--font-size--verybig);
 	}
 }
 
@@ -294,7 +294,7 @@ p {
     height: 2.2rem;
     background-color: #0047B6;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: var(--font-size--default);
     border-radius: 5px;
     border: none;
     margin-top: 5%;
@@ -308,12 +308,12 @@ p {
 
 #editarUser p {
     margin-left: 9%;
-    font-size: 20px;
+    font-size: var(--font-size--default);
 }
 
 #fecharIcone {
     cursor: pointer;
-    font-size: 30px;
+    font-size: var(--font-size--giant);
 }
 
 .fecharModalUser {
@@ -324,7 +324,7 @@ p {
     width: 80%;
     margin: 10px 0px;
     padding: 5px;
-    font-size: 17px;
+    font-size: var(--font-size--default);
 }
 
 .divEscuro {
@@ -335,7 +335,7 @@ p {
 
 .textEscuro {
     color: #0047B6;
-    font-size: 20px;
+    font-size: var(--font-size--big);
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
@@ -405,7 +405,7 @@ p {
     height: 2.2rem;
     background-color: #0047B6;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: var(--font-size--default);
     border-radius: 5px;
     border: none;
     margin-top: 10%;
