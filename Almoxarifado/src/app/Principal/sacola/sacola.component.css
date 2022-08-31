@@ -176,7 +176,7 @@
 }
 
 .textoModal {
-    font-size: 22px;
+    font-size: var(--font-size--big);
 }
 
 .containerBotoes {
@@ -189,7 +189,7 @@
 .botaoCancelar {
     width: 7.813rem;
     height: 2.625rem;
-    font-size: 20px;
+    font-size: var(--font-size--big);
     color: #fff;
     border-radius: 5px;
     border: none;
@@ -201,7 +201,7 @@
 .botaoReservar {
     width: 7.813rem;
     height: 2.625rem;
-    font-size: 20px;
+    font-size: var(--font-size--big);
     color: #fff;
     border-radius: 5px;
     border: none;
@@ -211,11 +211,11 @@
 }
 
 #dataRetirada {
-    font-size: 18px;
+    font-size: var(--font-size--medium);
 }
 
 #dataDevolucao {
-    font-size: 18px;
+    font-size: var(--font-size--medium);
 }
 
 ::-webkit-scrollbar{

@@ -41,7 +41,7 @@
 .mesAno {
     font-family: 'Inter';
     color: white;
-    font-size: 18px;
+    font-size: var(--font-size-medium);
     font-weight: 500;
 }
 

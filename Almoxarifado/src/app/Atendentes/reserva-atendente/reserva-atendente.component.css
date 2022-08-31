@@ -46,7 +46,7 @@ body{
 
 .nomeProfessor{
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: var(--font-size--big);
 }
 
 .containerReserva:hover .nomeProfessor{
@@ -104,7 +104,7 @@ body{
 }
 
 .textoProduto{
-    font-size: 12px;
+    font-size: var(--font-size--small);
 }
 
 ::-webkit-scrollbar{

@@ -9,7 +9,7 @@ main {
 }
 
 #caminhoReservas {
-    font-size: 15px;
+    font-size: var(--font-size--small);
     font-weight: 500;
     cursor: pointer;
 }
@@ -78,7 +78,7 @@ main {
 }
 
 #resultados {
-    font-size: 14px;
+    font-size: var(--font-size--small);
     margin-top: 0.3rem;
     opacity: 0.7;
 }
@@ -134,20 +134,17 @@ main {
     /* justify-content: center; */
 }
 
-.reserva {
-    /* margin-top: 30px; */
-}
-
 .divLegenda {
     float: right;
-    width: 60%;
+    width: 70%;
     min-height: 28px;
     display: flex;
     justify-content: space-evenly;
 }
 
 .legenda {
-    width: 25%;
+    width: 28%;
+    min-width: 150px;
     display: flex;
     align-items: center;
 }
@@ -160,5 +157,5 @@ main {
 
 .labelLegenda {
     margin-left: 10px;
-    font-size: 14px;
+    font-size: var(--font-size--small);
 }

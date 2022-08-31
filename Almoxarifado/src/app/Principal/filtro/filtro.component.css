@@ -4,7 +4,7 @@
 }
 
 p {
-    font-size: 20px;
+    font-size: var(--font-size--big);
     font-weight: 600;
     line-height: 36px;
 }
@@ -26,7 +26,7 @@ a span {
     display: flex;
     padding: 0 0 0 1rem;
     /* padding: 0px 2rem; */
-    font-size: 14px;
+    font-size: var(--font-size--small);
 }
 
 a:hover {
@@ -118,7 +118,7 @@ a:hover {
     justify-content: center;
     width: 100%;
     font-weight: 600;
-    font-size: 15px;
+    font-size: var(--font-size--small);
 }
 
 .sidebar {
@@ -163,7 +163,7 @@ a:hover {
 }
 
 #check:checked~.sidebar a {
-    font-size: 16px;
+    font-size: var(--font-size--default);
     margin-left: 170px;
     width: 80px;
     padding-left: 22px;
@@ -276,7 +276,7 @@ a:hover {
 }
 
 #iconLixoTeste {
-    font-size: 30px;
+    font-size: var(--font-size--giant);
     cursor: pointer;
     font-weight: 300;
 }
@@ -350,7 +350,7 @@ a:hover {
     border-radius: 5px;
     background-color: #0047B6;
     color: #fff;
-    font-size: 20px;
+    font-size: var(--font-size--big);
     cursor: pointer;
 }
 
@@ -419,14 +419,14 @@ a:hover {
 }
 
 #imgCerto {
-    font-size: 40px;
+    font-size: var(--font-size--extreme);
     padding-bottom: 5px;
     color: #0047B6;
 }
 
 #spanTexto {
     font-family: 'Inter';
-    font-size: 17px;
+    font-size: var(--font-size--default);
     text-align: center;
     font-weight: 600;
 }
@@ -472,18 +472,18 @@ a:hover {
     position: absolute;
     right: 1%;
     top: 1%;
-    font-size: 30px;
+    font-size: var(--font-size--giant);
     cursor: pointer;
 }
 
 #arquivo {
     margin-left: 10%;
-    font-size: 35px;
+    font-size: var(--font-size--giant);
 }
 
 #settings {
     margin: 30% 0 0 -20%;
-    font-size: 20px;
+    font-size: var(--font-size--big);
 }
 
 .gerenciarReservas {
