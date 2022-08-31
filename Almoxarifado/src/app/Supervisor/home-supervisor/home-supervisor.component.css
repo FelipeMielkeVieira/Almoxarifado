@@ -254,10 +254,6 @@ h1 {
     background-color: #BF0A0A;
 }
 
-.icone {
-    font-size: 10px;
-}
-
 .containerUser {
     display: flex;
     align-items: center;
@@ -1385,7 +1381,7 @@ h1 {
     color: #0047B6;
 }
 
-#iconDeselect {
+.iconDeselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;

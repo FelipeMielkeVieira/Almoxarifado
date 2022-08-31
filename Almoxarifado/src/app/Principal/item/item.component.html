@@ -16,13 +16,13 @@
             </div>
         </div>
         <div class="ferramentas">
-            <span *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined" (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
+            <span *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect" (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
                 edit
             </span>
-            <span *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined"  (click)="abrirHistorico()" id="iconeHistorico">
+            <span *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"  (click)="abrirHistorico()" id="iconeHistorico">
                 history
             </span>
-            <span *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined" (click)="removerItem()" id="iconeExcluir">
+            <span *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect" (click)="removerItem()" id="iconeExcluir">
                 delete
             </span>
         </div>
@@ -48,10 +48,10 @@
     <!-- -- FeedBack -- -->
     <div *ngIf="feedback == 1" id="modalFeedback">
         <div class="divInfo">
-            <span (click)="fechar()" class="material-symbols-outlined" id="fechar">
+            <span (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
                 close
             </span>
-            <span class="material-symbols-outlined" id="imgCerto">
+            <span class="material-symbols-outlined iconDeselect" id="imgCerto">
                 check_circle
             </span>
             <span id="spanTexto">Item reservado com sucesso!</span>
@@ -63,10 +63,10 @@
 
     <div *ngIf="feedback == 2" id="modalFeedback">
         <div class="divInfo">
-            <span (click)="fechar()" class="material-symbols-outlined" id="fechar">
+            <span (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
                 close
             </span>
-            <span class="material-symbols-outlined" id="imgCerto">
+            <span class="material-symbols-outlined iconDeselect" id="imgCerto">
                 check_circle
             </span>
             <span id="spanTexto">Item editado com sucesso!</span>
@@ -83,7 +83,7 @@
             <hr class="riscoAzul">
             <div class="containerModal">
                 <div class="fechar">
-                    <span (click)="fecharModal()" class="material-symbols-outlined" id="fecharIcone">
+                    <span (click)="fecharModal()" class="material-symbols-outlined iconDeselect" id="fecharIcone">
                         close
                     </span>
                 </div>
@@ -105,12 +105,12 @@
                         <div class="containerQuantidadeInput">
                             <p class="subtituloModal">QTD:</p>
                             <div id="containerQtd">
-                                <span class="material-symbols-outlined" id="menosQtdIcon" (click)="mudarQtd(2)">
+                                <span class="material-symbols-outlined iconDeselect" id="menosQtdIcon" (click)="mudarQtd(2)">
                                     remove
                                 </span>
                                 <input *ngIf="item.quantidade > 0" id="inputQtd" [(ngModel)]="qtd">
                                 <div class="divQtdInvalida" *ngIf="item.quantidade < 1">0</div>
-                                <span class="material-symbols-outlined" id="maisQtdIcon" (click)="mudarQtd(1)">
+                                <span class="material-symbols-outlined iconDeselect" id="maisQtdIcon" (click)="mudarQtd(1)">
                                     add
                                 </span>
                             </div>
@@ -132,7 +132,7 @@
                                 </p>
                             </div>
                             <div class="containerIconData">
-                                <span class="material-symbols-outlined" alt="Calendário" id="iconModal2"
+                                <span class="material-symbols-outlined iconDeselect" alt="Calendário" id="iconModal2"
                                 (click)="abrirCalendario(1)">
                                     calendar_month
                                 </span>
@@ -148,7 +148,7 @@
                                 </p>
                             </div>
                             <div class="containerIconData">
-                                <span class="material-symbols-outlined" alt="Calendário" id="iconModal2"
+                                <span class="material-symbols-outlined iconDeselect" alt="Calendário" id="iconModal2"
                                 (click)="abrirCalendario(2)">
                                     calendar_month
                                 </span>
@@ -167,10 +167,10 @@
                     <button *ngIf="item.quantidade > 0" class="btnModal" (click)="reservar()">Reservar Agora</button>
                     <button *ngIf="item.quantidade <= 0" class="btnModal2" (click)="reservar()">Reservar Agora</button>
                     <!-- <img src="../../../assets/documento.png" alt="Ver Detalhes" class="iconModal sacolaIcon"> -->
-                    <span (click)="verAnexos()" id="iconModal" class="material-symbols-outlined" title="Adicionar anexo">
+                    <span (click)="verAnexos()" id="iconModal" class="material-symbols-outlined iconDeselect" title="Adicionar anexo">
                         file_present
                     </span>
-                    <span class="material-symbols-outlined" alt="Adicionar à sacola"
+                    <span class="material-symbols-outlined iconDeselect" alt="Adicionar à sacola"
                     id="iconModal" title="Adicionar à sacola">
                         shopping_bag
                     </span>
@@ -186,7 +186,7 @@
         <div *ngIf="cadastrarModal" id="containerModalCadastrar">
             <hr class="riscoAzul">
             <div id="containerIcons">
-                <span (click)="fecharModalCadastrar()" class="material-symbols-outlined" id="iconFechar">
+                <span (click)="fecharModalCadastrar()" class="material-symbols-outlined iconDeselect" id="iconFechar">
                     close
                 </span>
             </div>
@@ -257,7 +257,7 @@
         <div *ngIf="modalConfirmacao == 1">
             <div class="containerModalExcluir">
                 <div class="linhaAzul"></div>
-                <span class="material-symbols-outlined" id="iconeAlert">
+                <span class="material-symbols-outlined iconDeselect" id="iconeAlert">
                     error
                 </span>
                 <div class="containerInfoModal">
@@ -274,10 +274,10 @@
     <!-- FeedBack item removido -->
     <div *ngIf="feedback == 3" id="modalFeedback">
         <div class="divInfo">
-            <span (click)="fechar()" class="material-symbols-outlined" id="fechar">
+            <span (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
                 close
             </span>
-            <span class="material-symbols-outlined" id="imgCerto">
+            <span class="material-symbols-outlined iconDeselect" id="imgCerto">
                 check_circle
             </span>
             <span id="spanTexto">Item removido!</span>
@@ -293,7 +293,7 @@
             <div class="containerModalAnexos">
                 <div class="linhaAzul"></div>
                 <div class="containerFechar">
-                    <span (click)="fecharModalAnexos()" class="material-symbols-outlined" id="iconeFechar">
+                    <span (click)="fecharModalAnexos()" class="material-symbols-outlined iconDeselect" id="iconeFechar">
                         close
                     </span>
                 </div>
@@ -309,13 +309,13 @@
                 <span class="textoDescricao">Anexos:</span>
                 <div class="parteAnexos">
                     <div class="containerAnexos">
-                        <span class="material-symbols-outlined" id="iconeAnexo">
+                        <span class="material-symbols-outlined iconDeselect" id="iconeAnexo">
                             folder_open
                         </span>
                         <a href=""><span>Arquivo 01</span></a>
                     </div>
                     <div class="containerAnexos">
-                        <span class="material-symbols-outlined" id="iconeAnexo">
+                        <span class="material-symbols-outlined iconDeselect" id="iconeAnexo">
                             folder_open
                         </span>
                         <a href=""><span>Arquivo 02</span></a>
@@ -331,7 +331,7 @@
             <div class="containerModalAnexos">
                 <div class="linhaAzul"></div>
                 <div class="containerFechar">
-                    <span (click)="fecharModalHistorico()" class="material-symbols-outlined" id="iconeFechar">
+                    <span (click)="fecharModalHistorico()" class="material-symbols-outlined iconDeselect" id="iconeFechar">
                         close
                     </span>
                 </div>

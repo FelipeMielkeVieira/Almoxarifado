@@ -5,10 +5,10 @@
 <div *ngIf="feedback == 1" id="modalFeedback">
 
   <div class="divInfo">
-    <span (click)="fechar()" id="fechar" class="icone" class="material-symbols-outlined">
+    <span (click)="fechar()" id="fechar" class="iconDeselect icone" class="material-symbols-outlined iconDeselect">
       close
     </span>
-    <span id="iconCerto" class="material-symbols-outlined">
+    <span id="iconCerto" class="material-symbols-outlined iconDeselect">
       task_alt
     </span>
     <span *ngIf="nao == 2" id="spanTexto">Baixa dada com sucesso!</span>
@@ -26,7 +26,7 @@
   <div id="containerModalOrdenar">
     <hr class="riscoAzul" />
     <div class="containerFechar">
-      <span (click)="fecharModalOrdenar()" id="fecharOrdernar" class="icone" class="material-symbols-outlined">
+      <span (click)="fecharModalOrdenar()" id="fecharOrdernar" class="icone" class="material-symbols-outlined iconDeselect">
         close
       </span>
     </div>
@@ -66,7 +66,7 @@
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
   <div *ngIf="!reserva" id="modalCancelarReserva">
     <hr class="riscoAzul" />
-    <span (click)="fecharModalCancelarReserva()" id="fechar" class="icone" class="material-symbols-outlined">
+    <span (click)="fecharModalCancelarReserva()" id="fechar" class="icone" class="material-symbols-outlined iconDeselect">
       close
     </span>
     <div id="tituloMotivo">
@@ -80,7 +80,7 @@
   <div *ngIf="removerDevolucaoModal" class="modalRecusar">
     <div class="containerModal">
       <hr class="riscoAzul" />
-      <span id="iconeAlert" class="material-symbols-outlined"> error </span>
+      <span id="iconeAlert" class="material-symbols-outlined iconDeselect"> error </span>
       <div class="containerInfoModal">
         <span class="textoModal">Tem certeza que deseja remover?</span>
       </div>
@@ -97,7 +97,7 @@
     <hr class="riscoAzul" />
     <div id="containerDevolucaoModal">
       <div class="containerFechar">
-        <span (click)="fecharModalBaixaDevolucao()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+        <span (click)="fecharModalBaixaDevolucao()" id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
           close
         </span>
       </div>
@@ -149,7 +149,7 @@
     <hr class="riscoAzul" />
     <div id="containerInformarDefeitoModal">
       <div class="containerFechar">
-        <span (click)="voltarDevolucaoItens()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+        <span (click)="voltarDevolucaoItens()" id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
           close
         </span>
       </div>
@@ -176,7 +176,7 @@
   <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
     <hr class="riscoAzul" />
     <div id="containerIcons">
-      <span (click)="fecharModalLocalizacao()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+      <span (click)="fecharModalLocalizacao()" id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
         close
       </span>
     </div>
@@ -194,7 +194,7 @@
   <div *ngIf="cadastrarModal" id="containerModalCadastrar">
     <hr class="riscoAzul" />
     <div id="containerIcons">
-      <span (click)="fecharModalCadastrar()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+      <span (click)="fecharModalCadastrar()" id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
         close
       </span>
     </div>
@@ -259,12 +259,12 @@
           </div>
           <div style="display: flex">
             <div class="divPonto" (click)="adicionarLocalizacao()">
-              <span id="iconMaisLoc" class="material-symbols-outlined">
+              <span id="iconMaisLoc" class="material-symbols-outlined iconDeselect">
                 add
               </span>
             </div>
             <div class="divPonto" (click)="diminuirLocalizacao()">
-              <span id="iconMaisLoc" class="material-symbols-outlined">
+              <span id="iconMaisLoc" class="material-symbols-outlined iconDeselect">
                 remove
               </span>
             </div>
@@ -315,16 +315,16 @@
                   placeholder="Pesquise por produto..." />
                 <input *ngIf="contLocalizacoes == 1" [(ngModel)]="inputGeral" (keyup)="pesquisaLocalizacao()"
                   class="input" type="text" placeholder="Pesquise por localização..." />
-                <span id="lupa" class="material-symbols-outlined">
+                <span id="lupa" class="material-symbols-outlined iconDeselect">
                   search
                 </span>
               </div>
               <div id="iconListaBloco">
-                <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined" title="Ordernar">
+                <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect" title="Ordernar">
                   sync_alt
                 </span>
                 <div id="containerIconFiltro">
-                  <span (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined">
+                  <span (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined iconDeselect">
                     filter_alt
                   </span>
                   <!-- ---------- MODAL FILTRAR ---------- -->
@@ -359,11 +359,11 @@
                   </div>
                 </div>
 
-                <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="iconEmBloco" class="material-symbols-outlined"
+                <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="iconEmBloco" class="material-symbols-outlined iconDeselect"
                   title="Ver em bloco">
                   grid_view
                 </span>
-                <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="iconEmLista" class="material-symbols-outlined"
+                <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="iconEmLista" class="material-symbols-outlined iconDeselect"
                   title="Ver em lista">
                   sort
                 </span>
@@ -413,12 +413,12 @@
             </div>
             <div class="containerOpcoes">
               <div (click)="modalRecusar()" class="recusar">
-                <span class="icone" class="material-symbols-outlined">
+                <span class="icone" class="material-symbols-outlined iconDeselect">
                   close
                 </span>
               </div>
               <div (click)="modalAceitar()" class="aceitar">
-                <span class="icone" class="material-symbols-outlined">
+                <span class="icone" class="material-symbols-outlined iconDeselect">
                   done
                 </span>
               </div>
@@ -438,12 +438,12 @@
             </div>
             <div class="containerOpcoes">
               <div (click)="modalRecusar()" class="recusar">
-                <span id="fecharIcone" class="icone" class="material-symbols-outlined">
+                <span id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
                   close
                 </span>
               </div>
               <div (click)="modalAceitar()" class="aceitar">
-                <span class="icone" class="material-symbols-outlined">
+                <span class="icone" class="material-symbols-outlined iconDeselect">
                   done
                 </span>
               </div>
@@ -459,7 +459,7 @@
                 <span class="email">nome_sobrenome@edu.sc.senai.br</span>
               </div>
               <div class="containerLixeira">
-                <span id="iconeLixeira" class="material-symbols-outlined">
+                <span id="iconeLixeira" class="material-symbols-outlined iconDeselect">
                   delete
                 </span>
               </div>
@@ -472,7 +472,7 @@
                 <option value="supervisor">Supervisor</option>
               </select>
               <div class="aceitar">
-                <span class="icone" class="material-symbols-outlined">
+                <span class="icone" class="material-symbols-outlined iconDeselect">
                   done
                 </span>
               </div>
@@ -496,13 +496,13 @@
                   <option value="porta">Atendente 2</option>
                 </select>
                 <div class="aceitar">
-                  <span class="icone" class="material-symbols-outlined">
+                  <span class="icone" class="material-symbols-outlined iconDeselect">
                     done
                   </span>
                 </div>
               </div>
               <div class="containerLixeiraLista">
-                <span id="iconeLixeira" class="material-symbols-outlined">
+                <span id="iconeLixeira" class="material-symbols-outlined iconDeselect">
                   delete
                 </span>
               </div>
@@ -527,7 +527,7 @@
           <div id="containerLocalizacoes">
             <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
               <p>{{ loc.nome }}</p>
-              <span (click)="confirmacaoLocalizacao(i)" id="lixo" class="material-symbols-outlined">
+              <span (click)="confirmacaoLocalizacao(i)" id="lixo" class="material-symbols-outlined iconDeselect">
                 delete
               </span>
             </div>
@@ -539,7 +539,7 @@
   <div *ngIf="contadorRecusar == 1" class="modalRecusar">
     <div class="containerModal">
       <hr class="riscoAzul" />
-      <span id="iconeAlert" class="material-symbols-outlined"> error </span>
+      <span id="iconeAlert" class="material-symbols-outlined iconDeselect"> error </span>
       <div class="containerInfoModal">
         <span class="textoModal">{{ buscarTextoModalRecusar() }}</span>
       </div>
@@ -554,7 +554,7 @@
   <div *ngIf="contadorAceitar == 1" class="modalRecusar">
     <div class="containerModal">
       <div class="linhaAzul"></div>
-      <span id="iconeAlert" class="material-symbols-outlined"> error </span>
+      <span id="iconeAlert" class="material-symbols-outlined iconDeselect"> error </span>
       <div class="containerInfoModal">
         <span class="textoModal">Selecione a função: </span>
         <select id="selecionarFuncao">
@@ -574,7 +574,7 @@
   <div *ngIf="aparecerConfirmacao == 1" class="modalRecusar">
     <div class="containerModal">
       <hr class="riscoAzul" />
-      <span id="iconeAlert" class="material-symbols-outlined"> error </span>
+      <span id="iconeAlert" class="material-symbols-outlined iconDeselect"> error </span>
       <div class="containerInfoModal">
         <span class="textoModal">Tem certeza que deseja remover a localização?</span>
       </div>
