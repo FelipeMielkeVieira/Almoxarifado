@@ -343,6 +343,9 @@ export class ItemComponent implements OnInit {
   }
 
   selectItem() {
+    this.aparecer3 = false;
+    this.modalConfirmacao = 0;
+    
     let contagem = 0;
     for (let item2 of this.listaItens2) {
       if (item2.id == this.item.id) {
@@ -352,9 +355,10 @@ export class ItemComponent implements OnInit {
       contagem++;
     }
 
-    this.aparecer3 = false;
-    this.modalConfirmacao = 0;
     this.feedback = 3;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 
   verAnexos() {

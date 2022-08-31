@@ -13,7 +13,7 @@
       </div>
     </div>
     <div id="iconSair">
-      <span (click)="fechar()" id="fecharIcone" class="fecharModalUser" class="material-symbols-outlined">
+      <span (click)="fechar()" id="fecharIcone" class="fecharModalUser" class="material-symbols-outlined iconDeselect">
         close
       </span>
     </div>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div id="iconSair">
-      <span (click)="fechar()" id="fecharIcone" class="fecharModalUser" class="material-symbols-outlined">
+      <span (click)="fechar()" id="fecharIcone" class="fecharModalUser" class="material-symbols-outlined iconDeselect">
         close
       </span>
     </div>
@@ -95,12 +95,12 @@
 
     <div id="icones">
       <div id="sacola">
-        <span id="topHeader" class="material-symbols-outlined" (click)="sacolas()">
+        <span id="topHeader" class="material-symbols-outlined iconDeselect" (click)="sacolas()">
           shopping_bag
         </span>
       </div>
       <div id="usuarioIcone" (click)="abrirUser()">
-        <span id="topHeader" class="material-symbols-outlined">
+        <span id="topHeader" class="material-symbols-outlined iconDeselect">
           account_circle
         </span>
       </div>
@@ -109,12 +109,12 @@
     <div *ngIf="user == 1" class="modalUser">
       <div class="setaUser"></div>
       <div id="editarPerfil">
-        <span (click)="editarPerfil()" id="iconEditarPerfil" class="material-symbols-outlined">
+        <span (click)="editarPerfil()" id="iconEditarPerfil" class="material-symbols-outlined iconDeselect">
           edit
         </span>
       </div>
       <div id="usuarioIconeModal">
-        <span id="topHeader" class="material-symbols-outlined">
+        <span id="topHeader" class="material-symbols-outlined iconDeselect">
           account_circle
         </span>
       </div>
@@ -122,19 +122,19 @@
       <span class="emailUser">{{emailUsuario}}</span>
       <hr style="width: 80%;">
       <div *ngIf="usuarioTipo == 1" class="divOpcao">
-        <span id="iconsUser" class="material-symbols-outlined">
+        <span id="iconsUser" class="material-symbols-outlined iconDeselect">
           pending_actions
         </span>
         <span class="spanUser" (click)="navegar('/professor/reservas')">Minhas Reservas</span>
       </div>
       <div class="divOpcao">
-        <span id="iconsUser" class="material-symbols-outlined">
+        <span id="iconsUser" class="material-symbols-outlined iconDeselect">
           settings
         </span>
         <span class="spanUser" (click)="abrirConfiguracoes()">Configurações</span>
       </div>
       <div class="divOpcao">
-        <span (click)="logout()" id="imgUser2" class="material-symbols-outlined">
+        <span (click)="logout()" id="imgUser2" class="material-symbols-outlined iconDeselect">
           logout
         </span>
         <span class="spanUser" (click)="logout()">Sair</span>

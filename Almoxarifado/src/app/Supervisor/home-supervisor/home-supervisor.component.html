@@ -3,17 +3,18 @@
 
 <!-- -- FeddBack -- -->
 <div *ngIf="feedback == 1" id="modalFeedback">
+
     <div class="divInfo">
-        <span (click)="fechar()" id="fechar" class="icone" class="material-symbols-outlined">
+        <span (click)="fechar()" id="fechar" class="iconDeselect icone" class="material-symbols-outlined iconDeselect">
             close
         </span>
-        <span id="iconCerto" class="material-symbols-outlined">
+        <span id="iconCerto" class="material-symbols-outlined iconDeselect">
             task_alt
         </span>
         <span *ngIf="nao == 2" id="spanTexto">Baixa dada com sucesso!</span>
         <span *ngIf="nao == 1" id="spanTexto">Retirada confirmada!</span>
         <span *ngIf="nao == 0" id="spanTexto">Item cadastrado!</span>
-        <span *ngIf="nao == 3" id="spanTexto">Localização removida com sucesso!</span>
+        <span *ngIf="nao == 3" id="spanTexto">Localização removida!</span>
     </div>
     <div id="fundo" style="background-color: #AEAEAE;">
         <div id="azul"></div>
@@ -23,14 +24,15 @@
 <!-- ---------- MODAL ORDERNAR ---------- -->
 <div *ngIf="modalOrdernar" id="fundoModalOrdenar">
     <div id="containerModalOrdenar">
-        <hr class="riscoAzul">
+        <hr class="riscoAzul" />
         <div class="containerFechar">
-            <span (click)="fecharModalOrdenar()" id="fecharOrdernar" class="icone" class="material-symbols-outlined">
+            <span (click)="fecharModalOrdenar()" id="fecharOrdernar" class="icone"
+                class="material-symbols-outlined iconDeselect">
                 close
             </span>
         </div>
         <div id="containerConteudoModalOrdernar">
-            <div style="width: 100%;">
+            <div style="width: 100%">
                 <h2 class="titleModalOrdenar">Ordenar</h2>
             </div>
             <div id="ordenarConteudo">
@@ -50,63 +52,54 @@
                 </div>
             </div>
             <div id="containerBotoesOrdenar">
-                <button class="btnDevolucaoModal" style="background-color: red;"
-                    (click)="cancelarOrdenar()">Cancelar</button>
-                <button class="btnDevolucaoModal" (click)="realizarOrdenacao()">Ordenar</button>
+                <button class="btnDevolucaoModal" style="background-color: red" (click)="cancelarOrdenar()">
+                    Cancelar
+                </button>
+                <button class="btnDevolucaoModal" (click)="realizarOrdenacao()">
+                    Ordenar
+                </button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- ---------- MODAL FILTRAR ---------- -->
-<div *ngIf="modalFiltrar" id="fundoModalFiltrar">
-    <div id="containerModalFiltrar">
-        <hr class="riscoAzul">
-        <div class="containerFechar">
-            <span (click)="fecharModalFiltrar()" id="fecharOrdernar" class="icone" class="material-symbols-outlined">
-                close
-            </span>
-        </div>
-        <div id="containerConteudoModalFiltrar">
-            <div style="width: 100%;">
-                <h2 class="titleModalOrdenar">Filtrar</h2>
-            </div>
-            <div id="filtrarConteudo">
-                <div id="containerCheckboxes">
-                    <div id="containerEsquerdo">
-                        <div class="containerCadaCheck">
-                            <input type="checkbox" id="descartavelCheckbox">
-                            <label class="checkboxes" for="descartavelCheckbox">Descartável</label>
-                        </div>
-                        <div class="containerCadaCheck">
-                            <input type="checkbox" id="comEstoqueCheckbox">
-                            <label class="checkboxes" for="comEstoqueCheckbox">Com Estoque</label>
-                        </div>
-                    </div>
-                    <div id="containerDireito">
-                        <div class="containerCadaCheck">
-                            <input type="checkbox" id="naoDescartavelCheckbox">
-                            <label class="checkboxes" for="naoDescartavelCheckbox">Não Descartável</label>
-                        </div>
-                        <div class="containerCadaCheck">
-                            <input type="checkbox" id="semEstoqueCheckbox">
-                            <label class="checkboxes" for="descartavelCheckbox">Sem Estoque</label>
-                        </div>
-                    </div>
+<div *ngIf="modalFiltrar" id="fundoFiltro" (click)="fecharModalFiltro()">
+    <div class="modalUser">
+        <div class="setaUser"></div>
+        <div id="containerCheckboxes">
+            <div id="containerEsquerdo">
+                <div class="containerCadaCheck">
+                    <input type="checkbox" id="descartavelCheckbox" />
+                    <label class="checkboxes" for="descartavelCheckbox">Descartável</label>
+                </div>
+                <div class="containerCadaCheck">
+                    <input type="checkbox" id="comEstoqueCheckbox" />
+                    <label class="checkboxes" for="comEstoqueCheckbox">Com Estoque</label>
+                </div>
+                <div class="containerCadaCheck">
+                    <input type="checkbox" id="naoDescartavelCheckbox" />
+                    <label class="checkboxes" for="naoDescartavelCheckbox">Não Descartável</label>
+                </div>
+                <div class="containerCadaCheck">
+                    <input type="checkbox" id="semEstoqueCheckbox" />
+                    <label class="checkboxes" for="semEstoqueCheckbox">Sem Estoque</label>
                 </div>
             </div>
-            <div id="containerBotao">
-                <button class="btnFiltrarModal" (click)="realizarOrdenacao()">Filtrar</button>
-            </div>
         </div>
+        <div id="containerBotao">
+            <button class="btnFiltrarModal">Limpar</button>
+        </div>
+        <!-- clicar fora: (click)="fecharModalFiltrar()" -->
     </div>
 </div>
 
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
     <div *ngIf="!reserva" id="modalCancelarReserva">
-        <hr class="riscoAzul">
-        <span (click)="fecharModalCancelarReserva()" id="fechar" class="icone" class="material-symbols-outlined">
+        <hr class="riscoAzul" />
+        <span (click)="fecharModalCancelarReserva()" id="fechar" class="icone"
+            class="material-symbols-outlined iconDeselect">
             close
         </span>
         <div id="tituloMotivo">
@@ -119,26 +112,26 @@
     </div>
     <div *ngIf="removerDevolucaoModal" class="modalRecusar">
         <div class="containerModal">
-            <hr class="riscoAzul">
-            <span id="iconeAlert" class="material-symbols-outlined">
-                error
-            </span>
+            <hr class="riscoAzul" />
+            <span id="iconeAlert" class="material-symbols-outlined iconDeselect"> error </span>
             <div class="containerInfoModal">
                 <span class="textoModal">Tem certeza que deseja remover?</span>
             </div>
             <div class="containerBotoes">
                 <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-                <button (click)="removerDevolucaoModalBtn()" class="botaoRecusar">Remover</button>
+                <button (click)="removerDevolucaoModalBtn()" class="botaoRecusar">
+                    Remover
+                </button>
             </div>
         </div>
     </div>
 
     <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
-        <hr class="riscoAzul">
+        <hr class="riscoAzul" />
         <div id="containerDevolucaoModal">
             <div class="containerFechar">
                 <span (click)="fecharModalBaixaDevolucao()" id="fecharIcone" class="icone"
-                    class="material-symbols-outlined">
+                    class="material-symbols-outlined iconDeselect">
                     close
                 </span>
             </div>
@@ -147,7 +140,7 @@
                     <!-- *ngFor="let item of listaItemsBaixaDevolucao" -->
                     <div class="containerConteudoBaixaDevolucao">
                         <div class="containerImgBaixaDevolucao">
-                            <img class="imgItemBaixaDevolucao" src="../../../assets/Rele.png" alt="Imagem do Produto">
+                            <img class="imgItemBaixaDevolucao" src="../../../assets/Rele.png" alt="Imagem do Produto" />
                         </div>
                         <div class="parteDireitaItemBaixaDevolucao">
                             <h2 class="nomeItemBaixaDevolucao">Nome Produto</h2>
@@ -160,31 +153,38 @@
                                 <!-- informarDefeitoItem(item) -->
                                 <div class="botoesDevolucaoModal">
                                     <button (click)="acaoSegundariaDevolucaoModal()" class="btnSegundario"
-                                        style="background-color: red; margin-bottom: 0.2rem;">{{
-                                        textoAcaoSegundariaDevolucaoModal() }}</button>
-                                    <button *ngIf="nao == 2" (click)="informarDefeitoItem()"
-                                        class="informarDefeito">Informar
-                                        Defeito</button>
+                                        style="background-color: red; margin-bottom: 0.2rem">
+                                        {{ textoAcaoSegundariaDevolucaoModal() }}
+                                    </button>
+                                    <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="informarDefeito">
+                                        Informar Defeito
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
-            <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">Dar baixa</button>
+            <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">
+                Dar baixa
+            </button>
             <div *ngIf="nao == 1" id="containerFinal">
-                <button (click)="cancelarReserva()" class="btnDevolucaoModal cancelarRetirada">Cancelar reserva</button>
-                <button (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal confirmarRetirada">Confirmar
-                    retirada</button>
+                <button (click)="cancelarReserva()" class="btnDevolucaoModal cancelarRetirada">
+                    Cancelar reserva
+                </button>
+                <button (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal confirmarRetirada">
+                    Confirmar retirada
+                </button>
             </div>
         </div>
     </div>
 
     <div *ngIf="informarDefeitoModal" id="containerInformarMotivo">
-        <hr class="riscoAzul">
+        <hr class="riscoAzul" />
         <div id="containerInformarDefeitoModal">
             <div class="containerFechar">
-                <span (click)="voltarDevolucaoItens()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+                <span (click)="voltarDevolucaoItens()" id="fecharIcone" class="icone"
+                    class="material-symbols-outlined iconDeselect">
                     close
                 </span>
             </div>
@@ -193,30 +193,33 @@
                 <!-- <input type="textarea" id="informarDefeitoInput"> -->
                 <textarea id="texteArea" rows="15" cols="60" maxlength="500"></textarea>
                 <div id="containerRetirarItemEstoque">
-                    <input id="retirarDoEstoque" type="checkbox">
+                    <input id="retirarDoEstoque" type="checkbox" />
                     <label for="retirarDoEstoque">Retirar item do estoque</label>
                 </div>
                 <div class="divBotoes">
-                    <button (click)="voltarDevolucaoItens()" id="voltarInformarDefeito"
-                        class="btnDevolucaoModal">Voltar</button>
-                    <button (click)="voltarDevolucaoItens()" id="salvarInformarDefeito"
-                        class="btnDevolucaoModal">Salvar</button>
+                    <button (click)="voltarDevolucaoItens()" id="voltarInformarDefeito" class="btnDevolucaoModal">
+                        Voltar
+                    </button>
+                    <button (click)="voltarDevolucaoItens()" id="salvarInformarDefeito" class="btnDevolucaoModal">
+                        Salvar
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
-        <hr class="riscoAzul">
+        <hr class="riscoAzul" />
         <div id="containerIcons">
-            <span (click)="fecharModalLocalizacao()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+            <span (click)="fecharModalLocalizacao()" id="fecharIcone" class="icone"
+                class="material-symbols-outlined iconDeselect">
                 close
             </span>
         </div>
         <div id="dados">
             <div id="containerNome">
                 <span>Nome:</span>
-                <input id="inputNome" type="text" placeholder="Nome">
+                <input id="inputNome" type="text" placeholder="Nome" />
             </div>
             <div id="containerCadastrar">
                 <button id="botaoCadastrar" (click)="cadastrar()">Cadastrar</button>
@@ -225,9 +228,10 @@
     </div>
     <!-- Modal cadastrar item -->
     <div *ngIf="cadastrarModal" id="containerModalCadastrar">
-        <hr class="riscoAzul">
+        <hr class="riscoAzul" />
         <div id="containerIcons">
-            <span (click)="fecharModalCadastrar()" id="fecharIcone" class="icone" class="material-symbols-outlined">
+            <span (click)="fecharModalCadastrar()" id="fecharIcone" class="icone"
+                class="material-symbols-outlined iconDeselect">
                 close
             </span>
         </div>
@@ -239,13 +243,14 @@
                 <div class="nomeProduto">
                     <span>Nome Produto: </span>
                     <div class="containerInput">
-                        <input class="inputsCadastro" type="text" placeholder="Nome produto">
+                        <input class="inputsCadastro" type="text" placeholder="Nome produto" />
                     </div>
                 </div>
                 <div class="classificacao">
                     <span>Classificação: </span>
                     <select class="inputsCadastro" name="">
-                        <option *ngFor="let classificacao of listaClassificacao" value="">{{ classificacao.nome }}
+                        <option *ngFor="let classificacao of listaClassificacao" value="">
+                            {{ classificacao.nome }}
                         </option>
                     </select>
                 </div>
@@ -254,37 +259,49 @@
                     <textarea class="inputDescricao" placeholder="Descrição"></textarea>
                 </div>
                 <div class="localizacao">
-                    <div style="display: flex;">
-                        <span style="margin-right: 10px;">Localização: </span>
+                    <div style="display: flex">
+                        <span style="margin-right: 10px">Localização: </span>
                         <div class="containerLocalizacao">
                             <select *ngIf="localizacoesItem > 0" id="localizacaoProduto1" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                                <option *ngFor="let loc of localizacoesLista">
+                                    {{ loc.nome }}
+                                </option>
                             </select>
                             <select *ngIf="localizacoesItem > 1" id="localizacaoProduto2" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                                <option *ngFor="let loc of localizacoesLista">
+                                    {{ loc.nome }}
+                                </option>
                             </select>
                             <select *ngIf="localizacoesItem > 2" id="localizacaoProduto3" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                                <option *ngFor="let loc of localizacoesLista">
+                                    {{ loc.nome }}
+                                </option>
                             </select>
                             <select *ngIf="localizacoesItem > 3" id="localizacaoProduto4" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                                <option *ngFor="let loc of localizacoesLista">
+                                    {{ loc.nome }}
+                                </option>
                             </select>
                             <select *ngIf="localizacoesItem > 4" id="localizacaoProduto5" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                                <option *ngFor="let loc of localizacoesLista">
+                                    {{ loc.nome }}
+                                </option>
                             </select>
                             <select *ngIf="localizacoesItem > 5" id="localizacaoProduto6" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">{{loc.nome}}</option>
+                                <option *ngFor="let loc of localizacoesLista">
+                                    {{ loc.nome }}
+                                </option>
                             </select>
                         </div>
                     </div>
-                    <div style="display: flex;">
+                    <div style="display: flex">
                         <div class="divPonto" (click)="adicionarLocalizacao()">
-                            <span id="iconMaisLoc" class="material-symbols-outlined">
+                            <span id="iconMaisLoc" class="material-symbols-outlined iconDeselect">
                                 add
                             </span>
                         </div>
                         <div class="divPonto" (click)="diminuirLocalizacao()">
-                            <span id="iconMaisLoc" class="material-symbols-outlined">
+                            <span id="iconMaisLoc" class="material-symbols-outlined iconDeselect">
                                 remove
                             </span>
                         </div>
@@ -297,16 +314,17 @@
                         <option value="armario">Não Descartável</option>
                     </select>
                     <span>QTD: </span>
-                    <input class="inputQtd" type="text" placeholder="xx">
+                    <input class="inputQtd" type="text" placeholder="xx" />
                 </div>
                 <div class="anexo">
-                    <input type="text" placeholder="Adicionar URL do anexo" class="inputAnexo">
+                    <input type="text" placeholder="Adicionar URL do anexo" class="inputAnexo" />
                     <label class="arquivoIcon" for="arquivo"> </label>
-                    <input type="file" name="arquivo" id="arquivo">
+                    <input type="file" name="arquivo" id="arquivo" />
                 </div>
-                <button (click)="cadastrarProduto()" class="botaoCadastrar">Cadastrar</button>
+                <button (click)="cadastrarProduto()" class="botaoCadastrar">
+                    Cadastrar
+                </button>
             </div>
-
         </div>
     </div>
 </div>
@@ -323,39 +341,74 @@
                         <div id="containerInputOrdenar">
                             <div id="divInput">
                                 <input *ngIf="gerenciaCadastros == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por usuário...">
+                                    placeholder="Pesquise por usuário..." />
                                 <input *ngIf="gerenciaUsuarios == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por usuário...">
+                                    placeholder="Pesquise por usuário..." />
                                 <input *ngIf="devolucoes == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por produto...">
+                                    placeholder="Pesquise por produto..." />
                                 <input *ngIf="retirada == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por produto...">
+                                    placeholder="Pesquise por produto..." />
                                 <input *ngIf="listaItens == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por produto...">
+                                    placeholder="Pesquise por produto..." />
                                 <input *ngIf="contLocalizacoes == 1" [(ngModel)]="inputGeral"
                                     (keyup)="pesquisaLocalizacao()" class="input" type="text"
-                                    placeholder="Pesquise por localização...">
-                                <span id="lupa" class="material-symbols-outlined">
+                                    placeholder="Pesquise por localização..." />
+                                <span id="lupa" class="material-symbols-outlined iconDeselect">
                                     search
                                 </span>
                             </div>
                             <div id="iconListaBloco">
-                                <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined"
-                                    title="Ordernar">
+                                <span (click)="ordernar()" id="iconOrdernar"
+                                    class="material-symbols-outlined iconDeselect" title="Ordernar">
                                     sync_alt
                                 </span>
                                 <div id="containerIconFiltro">
-                                    <span (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined">
+                                    <span (click)="filtrar()" id="iconFiltro"
+                                        class="material-symbols-outlined iconDeselect">
                                         filter_alt
                                     </span>
+                                    <!-- ---------- MODAL FILTRAR ---------- -->
+
+                                    <div *ngIf="modalFiltrar" class="modalUser" (click)="fecharModalFiltro()">
+                                        <h3 class="tituloFiltroModalUser">Filtro</h3>
+                                        <div class="setaUser"></div>
+                                        <div id="containerCheckboxes">
+                                            <div id="containerEsquerdo">
+                                                <div class="containerCadaCheck">
+                                                    <input type="checkbox" id="descartavelCheckbox" />
+                                                    <label class="checkboxes"
+                                                        for="descartavelCheckbox">Descartável</label>
+                                                </div>
+                                                <div class="containerCadaCheck">
+                                                    <input type="checkbox" id="comEstoqueCheckbox" />
+                                                    <label class="checkboxes" for="comEstoqueCheckbox">Com
+                                                        Estoque</label>
+                                                </div>
+                                                <div class="containerCadaCheck">
+                                                    <input type="checkbox" id="naoDescartavelCheckbox" />
+                                                    <label class="checkboxes" for="naoDescartavelCheckbox">Não
+                                                        Descartável</label>
+                                                </div>
+                                                <div class="containerCadaCheck">
+                                                    <input type="checkbox" id="semEstoqueCheckbox" />
+                                                    <label class="checkboxes" for="semEstoqueCheckbox">Sem
+                                                        Estoque</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="containerBotao">
+                                            <button class="btnFiltrarModal">Limpar</button>
+                                        </div>
+                                        <!-- clicar fora: (click)="fecharModalFiltrar()" -->
+                                    </div>
                                 </div>
 
                                 <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="iconEmBloco"
-                                    class="material-symbols-outlined" title="Ver em bloco">
+                                    class="material-symbols-outlined iconDeselect" title="Ver em bloco">
                                     grid_view
                                 </span>
                                 <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="iconEmLista"
-                                    class="material-symbols-outlined" title="Ver em lista">
+                                    class="material-symbols-outlined iconDeselect" title="Ver em lista">
                                     sort
                                 </span>
                             </div>
@@ -366,31 +419,40 @@
                         </button>
                         <button *ngIf="listaItens == 1 && (tipoUsuario == 3 || tipoUsuario == 4)"
                             id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
-                            Cadastrar Item</button>
+                            Cadastrar Item
+                        </button>
                     </div>
-                    <div id="filtro">
-
-                    </div>
+                    <div id="filtro"></div>
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
                 <div id="botoes">
                     <button *ngIf="tipoUsuario == 4" (click)="gerenciarUsuarios()" id="gerenciarUsuarios"
-                        class="semAzul">Gerenciar
-                        usuários</button>
+                        class="semAzul">
+                        Gerenciar usuários
+                    </button>
                     <button *ngIf="tipoUsuario == 4" (click)="gerenciarCadastros()" id="gerenciarCadastros"
-                        class="semAzul">Gerenciar
-                        cadastros</button>
-                    <button (click)="baixaDevolucoes()" id="devolucoes" class="semAzul">Baixa nas devoluções</button>
-                    <button (click)="confirmarRetirada()" id="retirada" class="semAzul">Confirmar retirada</button>
-                    <button (click)="listaDeItens()" id="listaItens" class="semAzul">Lista de itens</button>
+                        class="semAzul">
+                        Gerenciar cadastros
+                    </button>
+                    <button (click)="baixaDevolucoes()" id="devolucoes" class="semAzul">
+                        Baixa nas devoluções
+                    </button>
+                    <button (click)="confirmarRetirada()" id="retirada" class="semAzul">
+                        Confirmar retirada
+                    </button>
+                    <button (click)="listaDeItens()" id="listaItens" class="semAzul">
+                        Lista de itens
+                    </button>
                     <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="localizacoes()" id="localizacoes"
-                        class="semAzul">Localizações</button>
+                        class="semAzul">
+                        Localizações
+                    </button>
                 </div>
                 <div id="risco"></div>
                 <div *ngIf="gerenciaCadastros == 1 && emBloco == 0" class="usuarios">
                     <div class="containerUsuario">
                         <div class="containerUser">
-                            <img class="imgUser" src="../../../assets/user.png" alt="">
+                            <img class="imgUser" src="../../../assets/user.png" alt="" />
                             <div class="containerInfo">
                                 <span class="user">Nome Sobrenome</span>
                                 <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
@@ -398,12 +460,12 @@
                         </div>
                         <div class="containerOpcoes">
                             <div (click)="modalRecusar()" class="recusar">
-                                <span class="icone" class="material-symbols-outlined">
+                                <span class="icone" class="material-symbols-outlined iconDeselect">
                                     close
                                 </span>
                             </div>
                             <div (click)="modalAceitar()" class="aceitar">
-                                <span class="icone" class="material-symbols-outlined">
+                                <span class="icone" class="material-symbols-outlined iconDeselect">
                                     done
                                 </span>
                             </div>
@@ -414,7 +476,7 @@
                     <div class="containerUsuarioLista">
                         <div class="containerUser">
                             <div id="containerUserImagemTexto">
-                                <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário">
+                                <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
                                 <div class="containerInfo">
                                     <span class="user">Nome Sobrenome</span>
                                     <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
@@ -423,12 +485,12 @@
                         </div>
                         <div class="containerOpcoes">
                             <div (click)="modalRecusar()" class="recusar">
-                                <span id="fecharIcone" class="icone" class="material-symbols-outlined">
+                                <span id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
                                     close
                                 </span>
                             </div>
                             <div (click)="modalAceitar()" class="aceitar">
-                                <span class="icone" class="material-symbols-outlined">
+                                <span class="icone" class="material-symbols-outlined iconDeselect">
                                     done
                                 </span>
                             </div>
@@ -438,13 +500,13 @@
                 <div *ngIf="gerenciaUsuarios == 1 && emBloco == 0" class="telaUsuarios">
                     <div class="containerUsuarios">
                         <div class="containerUser">
-                            <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário">
+                            <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
                             <div class="containerInfo">
                                 <span class="user">Nome Sobrenome</span>
                                 <span class="email">nome_sobrenome@edu.sc.senai.br</span>
                             </div>
                             <div class="containerLixeira">
-                                <span id="iconeLixeira" class="material-symbols-outlined">
+                                <span id="iconeLixeira" class="material-symbols-outlined iconDeselect">
                                     delete
                                 </span>
                             </div>
@@ -457,7 +519,7 @@
                                 <option value="supervisor">Supervisor</option>
                             </select>
                             <div class="aceitar">
-                                <span class="icone" class="material-symbols-outlined">
+                                <span class="icone" class="material-symbols-outlined iconDeselect">
                                     done
                                 </span>
                             </div>
@@ -468,7 +530,7 @@
                     <div class="containerUsuariosLista">
                         <div class="containerUser">
                             <div id="containerUserImagemTexto">
-                                <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário">
+                                <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
                                 <div class="containerInfo">
                                     <span class="user">Nome Sobrenome</span>
                                     <span class="email">nome_sobrenome@edu.sc.senai.br</span>
@@ -481,13 +543,13 @@
                                     <option value="porta">Atendente 2</option>
                                 </select>
                                 <div class="aceitar">
-                                    <span class="icone" class="material-symbols-outlined">
+                                    <span class="icone" class="material-symbols-outlined iconDeselect">
                                         done
                                     </span>
                                 </div>
                             </div>
                             <div class="containerLixeiraLista">
-                                <span id="iconeLixeira" class="material-symbols-outlined">
+                                <span id="iconeLixeira" class="material-symbols-outlined iconDeselect">
                                     delete
                                 </span>
                             </div>
@@ -511,8 +573,9 @@
                 <div *ngIf="contLocalizacoes == 1" id="conteudoLocalizacoes">
                     <div id="containerLocalizacoes">
                         <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
-                            <p>{{loc.nome}}</p>
-                            <span (click)="confirmacaoLocalizacao(i)" id="lixo" class="material-symbols-outlined">
+                            <p>{{ loc.nome }}</p>
+                            <span (click)="confirmacaoLocalizacao(i)" id="lixo"
+                                class="material-symbols-outlined iconDeselect">
                                 delete
                             </span>
                         </div>
@@ -523,25 +586,23 @@
     </div>
     <div *ngIf="contadorRecusar == 1" class="modalRecusar">
         <div class="containerModal">
-            <hr class="riscoAzul">
-            <span id="iconeAlert" class="material-symbols-outlined">
-                error
-            </span>
+            <hr class="riscoAzul" />
+            <span id="iconeAlert" class="material-symbols-outlined iconDeselect"> error </span>
             <div class="containerInfoModal">
                 <span class="textoModal">{{ buscarTextoModalRecusar() }}</span>
             </div>
             <div class="containerBotoes">
                 <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-                <button (click)="btnRecusar()" class="botaoRecusar">{{ buscarTextoBotaoModalRecusar() }}</button>
+                <button (click)="btnRecusar()" class="botaoRecusar">
+                    {{ buscarTextoBotaoModalRecusar() }}
+                </button>
             </div>
         </div>
     </div>
     <div *ngIf="contadorAceitar == 1" class="modalRecusar">
         <div class="containerModal">
             <div class="linhaAzul"></div>
-            <span id="iconeAlert" class="material-symbols-outlined">
-                error
-            </span>
+            <span id="iconeAlert" class="material-symbols-outlined iconDeselect"> error </span>
             <div class="containerInfoModal">
                 <span class="textoModal">Selecione a função: </span>
                 <select id="selecionarFuncao">
@@ -560,16 +621,16 @@
     <!-- Modal remover localizacao -->
     <div *ngIf="aparecerConfirmacao == 1" class="modalRecusar">
         <div class="containerModal">
-            <hr class="riscoAzul">
-            <span id="iconeAlert" class="material-symbols-outlined">
-                error
-            </span>
+            <hr class="riscoAzul" />
+            <span id="iconeAlert" class="material-symbols-outlined iconDeselect"> error </span>
             <div class="containerInfoModal">
                 <span class="textoModal">Tem certeza que deseja remover a localização?</span>
             </div>
             <div class="containerBotoes">
                 <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-                <button (click)="excluirLocalizacao()" class="botaoRecusar">Remover</button>
+                <button (click)="excluirLocalizacao()" class="botaoRecusar">
+                    Remover
+                </button>
             </div>
         </div>
     </div>

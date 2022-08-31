@@ -13,7 +13,8 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-#header, #logo {
+#header,
+#logo {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,6 +31,15 @@ p {
     font-size: var(--font-size--verybig);
     font-family: "Inter", sans-serif;
     font-weight: 600;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #sacola,
@@ -179,7 +189,7 @@ p {
     height: 100%;
     position: absolute;
     z-index: 5;
-    background-color:rgba(0, 0, 0, 0.349);
+    background-color: rgba(0, 0, 0, 0.349);
 }
 
 #modalEditar {
@@ -217,7 +227,7 @@ p {
     bottom: 5px;
     position: absolute;
     z-index: 5;
-    background-color:rgba(0, 0, 0, 0.541);
+    background-color: rgba(0, 0, 0, 0.541);
     color: rgb(255, 255, 255);
     border-radius: 0px 0px 100px 100px;
     display: flex;
@@ -232,7 +242,10 @@ p {
     width: 100%;
 }
 
-#nomeUsuario, #tituloSenha, #divSenha, #tituloConfirmarSenha {
+#nomeUsuario,
+#tituloSenha,
+#divSenha,
+#tituloConfirmarSenha {
     width: 100%;
 }
 
@@ -250,7 +263,8 @@ p {
     outline: none;
 }
 
-.divSenha, .divConfirmarSenha {
+.divSenha,
+.divConfirmarSenha {
     border: none;
     width: 80%;
     height: 2rem;
@@ -345,15 +359,15 @@ p {
     display: inline-block;
     width: 52px;
     height: 30px;
-  }
-  
-  .switch input { 
+}
+
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  .slider {
+}
+
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -363,9 +377,9 @@ p {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: 22px;
@@ -375,30 +389,30 @@ p {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
+}
+
+input:checked+.slider {
     background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
+}
+
+input:focus+.slider {
     box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
+}
+
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
+}
+
+/* Rounded sliders */
+.slider.round {
     border-radius: 34px;
-  }
-  
-  .slider.round:before {
+}
+
+.slider.round:before {
     border-radius: 50%;
-  }
+}
 
 #salvarConfig {
     width: 35%;
