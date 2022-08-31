@@ -226,14 +226,13 @@
     flex-direction: column;
     width: 50%;
     margin-top: 1rem;
-
 }
 
 .containerQuantidadeInput {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 #containerQtd {
@@ -560,6 +559,9 @@
 }
 
 .selecionarImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
     border: solid 1px black;
     border-radius: 5px;
@@ -963,4 +965,14 @@ label {
     background-color: #EEEEEE;
     border-radius: 30px;
     border: solid 1px black;
+}
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
+.texto {
+    display: flex;
 }

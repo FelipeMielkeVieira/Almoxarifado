@@ -1385,3 +1385,13 @@ h1 {
 .checkboxes:hover {
     font-weight: 600;
 }
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
+.texto {
+    display: flex;
+}
