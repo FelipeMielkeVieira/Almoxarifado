@@ -298,3 +298,13 @@ p:hover {
 .botaoCancelarReserva {
     background-color: #d10303d8;
 }
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
+.texto {
+    display: flex;
+}

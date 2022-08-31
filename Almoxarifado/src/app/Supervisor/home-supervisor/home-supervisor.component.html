@@ -62,36 +62,6 @@
   </div>
 </div>
 
-<!-- ---------- MODAL FILTRAR ---------- -->
-<div *ngIf="modalFiltrar" id="fundoFiltro" (click)="fecharModalFiltro()">
-    <div  class="modalUser" >
-      <div class="setaUser"></div>
-      <div id="containerCheckboxes">
-        <div id="containerEsquerdo">
-          <div class="containerCadaCheck">
-            <input type="checkbox" id="descartavelCheckbox" />
-            <label class="checkboxes" for="descartavelCheckbox">Descartável</label>
-          </div>
-          <div class="containerCadaCheck">
-            <input type="checkbox" id="comEstoqueCheckbox" />
-            <label class="checkboxes" for="comEstoqueCheckbox">Com Estoque</label>
-          </div>
-          <div class="containerCadaCheck">
-            <input type="checkbox" id="naoDescartavelCheckbox" />
-            <label class="checkboxes" for="naoDescartavelCheckbox">Não Descartável</label>
-          </div>
-          <div class="containerCadaCheck">
-            <input type="checkbox" id="semEstoqueCheckbox" />
-            <label class="checkboxes" for="semEstoqueCheckbox">Sem Estoque</label>
-          </div>
-        </div>
-      </div>
-      <div id="containerBotao">
-        <button class="btnFiltrarModal">Limpar</button>
-      </div>
-      <!-- clicar fora: (click)="fecharModalFiltrar()" -->
-    </div>
-</div>
 
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
@@ -213,7 +183,10 @@
     </div>
     <div id="dados">
       <div id="containerNome">
-        <span>Nome:</span>
+        <div class="texto">
+          <span>Nome:</span>
+          <div class="asterisco">*</div>
+      </div>
         <input id="inputNome" type="text" placeholder="Nome" />
       </div>
       <div id="containerCadastrar">
@@ -232,16 +205,24 @@
     <div class="principal">
       <div class="containerModalCadastrar">
         <div class="divImg">
-          <button class="selecionarImg">Selecionar Imagem</button>
+          <button class="selecionarImg">Selecionar Imagem
+            <div class="asterisco">*</div>
+          </button>
         </div>
         <div class="nomeProduto">
-          <span>Nome Produto: </span>
+          <div class="texto">
+            <span>Nome Produto:</span>
+            <div class="asterisco">*</div>
+        </div>
           <div class="containerInput">
             <input class="inputsCadastro" type="text" placeholder="Nome produto" />
           </div>
         </div>
         <div class="classificacao">
-          <span>Classificação: </span>
+          <div class="texto">
+            <span>Classificação:</span>
+            <div class="asterisco">*</div>
+        </div>
           <select class="inputsCadastro" name="">
             <option *ngFor="let classificacao of listaClassificacao" value="">
               {{ classificacao.nome }}
@@ -249,12 +230,18 @@
           </select>
         </div>
         <div class="descricao">
-          <span>Descrição: </span>
+          <div class="texto">
+            <span>Descrição: </span>
+            <div class="asterisco">*</div>
+        </div>
           <textarea class="inputDescricao" placeholder="Descrição"></textarea>
         </div>
         <div class="localizacao">
           <div style="display: flex">
-            <span style="margin-right: 10px">Localização: </span>
+            <div class="texto">
+              <span style="margin-right: 10px">Localização: </span>
+              <div class="asterisco">*</div>
+          </div>
             <div class="containerLocalizacao">
               <select *ngIf="localizacoesItem > 0" id="localizacaoProduto1" class="localizacaoProduto">
                 <option *ngFor="let loc of localizacoesLista">
@@ -302,12 +289,18 @@
           </div>
         </div>
         <div class="opcao">
-          <span>Opção: </span>
+          <div class="texto">
+            <span>Opção: </span>
+            <div class="asterisco">*</div>
+        </div>
           <select id="selecionarDescartavel">
             <option value="paredeCentro" selected>Descartável</option>
             <option value="armario">Não Descartável</option>
           </select>
-          <span>QTD: </span>
+          <div class="texto">
+            <span>QTD: </span>
+            <div class="asterisco">*</div>
+        </div>
           <input class="inputQtd" type="text" placeholder="xx" />
         </div>
         <div class="anexo">

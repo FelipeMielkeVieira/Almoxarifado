@@ -548,6 +548,9 @@ h1 {
 }
 
 .selecionarImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
     border: solid 1px black;
     border-radius: 5px;

@@ -452,3 +452,13 @@ label{
     flex-direction: column;
     justify-content: end;
 }
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
+.texto {
+    display: flex;
+}

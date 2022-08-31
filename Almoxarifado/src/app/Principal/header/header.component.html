@@ -18,11 +18,19 @@
       </span>
     </div>
     <div id="nomeUsuario">
-      <p>Usuário</p>
+      <div class="texto">
+        <p>Usuário</p>
+        <div class="asterisco">*</div>
+    </div>
+      
     </div>
     <input type="text" class="inputNome" placeholder="Nome de usuário" [(ngModel)]="usuario">
     <div id="tituloSenha">
-      <p>Senha</p>
+      <div class="texto">
+        <p>Senha</p>
+        <div class="asterisco">*</div>
+    </div>
+      
     </div>
     <div class="divSenha">
       <input type="password" class="inputsSenha" id="inputSenha1" placeholder="Senha" [(ngModel)]="senha">
@@ -30,7 +38,10 @@
         alt="Senha está escondida">
     </div>
     <div id="tituloConfirmarSenha">
-      <p>Confirmar senha</p>
+      <div class="texto">
+        <p>Confirmar senha</p>
+        <div class="asterisco">*</div>
+    </div>
     </div>
     <div class="divConfirmarSenha">
       <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha"

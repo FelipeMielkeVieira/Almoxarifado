@@ -51,14 +51,20 @@
             <div class="containerResumo">
                 <b><span class="titulos">Resumo</span></b>
                 <div class="divisaoContainer"></div>
-                <b><span class="tituloData">Data de Retirada</span></b>
+                <div class="texto">
+                    <b><span class="tituloData">Data de Retirada</span></b>
+                    <div class="asterisco">*</div>
+                </div>
                 <div class="containerData">
                     <img (click)="abrirCalendario(1)" class="imgCalendario" src="../../../assets/calendario.png" alt="Editar data de retirada">
                     <div class="divisaoData"></div>
                     <span class="textoData">{{formatarData(sacola.data_retirada)}}</span>
                 </div>
 
-                <b><span class="tituloData">Data de Devolução</span></b>
+                <div class="texto">
+                    <b><span class="tituloData">Data de Devolução</span></b>
+                    <div class="asterisco">*</div>
+                </div>
                 <div class="containerData">
                     <img (click)="abrirCalendario(2)" class="imgCalendario" src="../../../assets/calendario.png" alt="Editar data de devolução">
                     <div class="divisaoData"></div>

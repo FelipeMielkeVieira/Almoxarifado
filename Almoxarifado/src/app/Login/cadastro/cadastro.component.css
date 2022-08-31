@@ -206,3 +206,13 @@ a{
         border-radius: 0px 0px 0px 0px;
     }
 }
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
+.texto {
+    display: flex;
+}
