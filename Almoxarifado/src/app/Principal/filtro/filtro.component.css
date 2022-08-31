@@ -33,6 +33,15 @@ a:hover {
     cursor: pointer;
 }
 
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .sidebar {
     z-index: 1;
     margin-top: -85px;
@@ -272,7 +281,7 @@ a:hover {
     font-weight: 300;
 }
 
-#iconLixoTeste:hover{
+#iconLixoTeste:hover {
     color: #be0101;
     animation: mudarCor 0.5s;
 }
@@ -281,6 +290,7 @@ a:hover {
     from {
         color: #000;
     }
+
     to {
         color: #be0101;
     }
@@ -382,7 +392,7 @@ a:hover {
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     position: absolute;
-    bottom:0.5rem;
+    bottom: 0.5rem;
     height: 12%;
     right: 0.5rem;
     animation: fadein 1s;

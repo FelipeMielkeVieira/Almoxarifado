@@ -53,6 +53,10 @@ body{
     color: #0047B6;
 }
 
+.containerReserva:hover {
+    background-color: rgba(201, 201, 201, 0.616);
+}
+
 .data{
     font-family: 'Inter', sans-serif;
     margin-top: 5%;
