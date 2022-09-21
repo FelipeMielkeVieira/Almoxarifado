@@ -24,26 +24,27 @@ export class HomeSupervisorComponent implements OnInit {
   indexExcluir: number = 0;
 
   ngOnInit() {
-    setTimeout(() => {
       let div;
-      switch (this.tipoUsuario) {
-        case 2:
-          this.devolucoes = 1;
-          div = document.querySelector('#devolucoes') as HTMLElement;
-          div.className = "comAzul"
-          break;
-        case 3:
-          this.devolucoes = 1;
-          div = document.querySelector('#devolucoes') as HTMLElement;
-          div.className = "comAzul"
-          break;
-        case 4:
-          this.gerenciaUsuarios = 1;
-          div = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-          div.className = "comAzul";
-          break;
-      }
-    }, 10);
+      
+      setTimeout(() => {
+        switch (this.tipoUsuario) {
+          case 2:
+            this.devolucoes = 1;
+            div = document.querySelector('#devolucoes') as HTMLElement;
+            div.class = "comAzul"
+            break;
+          case 3:
+            this.devolucoes = 1;
+            div = document.querySelector('#devolucoes') as HTMLElement;
+            div.class = "comAzul"
+            break;
+          case 4:
+            this.gerenciaUsuarios = 1;
+            div = document.getElementById('gerenciarUsuarios');
+            div.className = "comAzul";
+            break;
+          }
+      }, 10);
   }
 
   localizacaoAtual = "paredeCentro";
