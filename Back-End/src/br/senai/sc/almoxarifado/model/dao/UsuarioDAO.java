@@ -10,6 +10,7 @@ import br.senai.sc.almoxarifado.model.factory.UsuarioFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class UsuarioDAO {
 
@@ -32,7 +33,7 @@ public class UsuarioDAO {
                     (usuario instanceof Professor) ? "PROFESSOR" :
                             (usuario instanceof Atendente1) ? "ATENDENTE1" :
                                     (usuario instanceof Atendente2) ? "ATENDENTE2" : "SUPERVISOR"
-                    ));
+            ));
 
             try {
                 statement.execute();
@@ -53,7 +54,7 @@ public class UsuarioDAO {
             stmt.setString(1, email);
 
             try (ResultSet resultSet = stmt.executeQuery()) {
-                if(resultSet != null && resultSet.next()) {
+                if (resultSet != null && resultSet.next()) {
                     return extrairObjeto(resultSet);
                 }
             } catch (Exception e) {
@@ -65,6 +66,76 @@ public class UsuarioDAO {
         }
 
         throw new RuntimeException("E-mail não encontrado!");
+    }
+
+    public ArrayList<Usuario> selecionarTodos(int id) {
+        String sql = "select * from usuario where id > ? limit 18";
+
+        try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            try (ResultSet resultSet = stmt.executeQuery()) {
+
+                ArrayList<Usuario> usuarios = new ArrayList<>();
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        usuarios.add(extrairObjeto(resultSet));
+                    }
+                    return usuarios;
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na execução do comando SQL");
+        }
+
+        throw new RuntimeException("Nenhum usuário encontrado!");
+    }
+
+    public ArrayList<Usuario> selecionarPorNome(String nome) {
+
+        String sql = "select * from usuario where nome like ? limit 18";
+
+        try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
+
+            stmt.setString(1, "%" + nome + "%");
+            try (ResultSet resultSet = stmt.executeQuery()) {
+
+                ArrayList<Usuario> usuarios = new ArrayList<>();
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        usuarios.add(extrairObjeto(resultSet));
+                    }
+                    return usuarios;
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na execução do comando SQL");
+        }
+
+        throw new RuntimeException("Nenhum usuário encontrado!");
+    }
+
+    public void removerUsuario(int id) {
+        String sql = "delete from usuario where id = ?";
+
+        try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            try {
+               stmt.execute();
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
     }
 
     private Usuario extrairObjeto(ResultSet resultSet) {

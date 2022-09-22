@@ -8,15 +8,13 @@ public class Produto {
     private String nomeProduto;
     private String caracteristicasProduto;
     private String anexosProduto;
-    private boolean produtoDescartavel;
+    private Boolean produtoDescartavel;
     private Byte imagemProduto;
 
     private ArrayList<Localizacao> listaLocalizacoesProduto;
     private Classificacao classificacaoProduto;
 
-    public Produto() { }
-
-    public Produto(Integer codigoProduto, Integer quantidadeProduto, String nomeProduto, String caracteristicasProduto, String anexosProduto, boolean produtoDescartavel, Byte imagemProduto, ArrayList<Localizacao> listaLocalizacoesProduto, Classificacao classificacaoProduto) {
+    public Produto(Integer codigoProduto, Integer quantidadeProduto, String nomeProduto, String caracteristicasProduto, String anexosProduto, Boolean produtoDescartavel, Byte imagemProduto, ArrayList<Localizacao> listaLocalizacoesProduto, Classificacao classificacaoProduto) {
         this.codigoProduto = codigoProduto;
         this.quantidadeProduto = quantidadeProduto;
         this.nomeProduto = nomeProduto;
