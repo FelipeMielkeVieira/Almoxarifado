@@ -20,30 +20,32 @@ export class HomeSupervisorComponent implements OnInit {
   tipoUsuario = 2;
   reserva = true;
   aparecerConfirmacao = 0;
+  nomeLoc
   
   indexExcluir: number = 0;
 
   ngOnInit() {
-    setTimeout(() => {
       let div;
-      switch (this.tipoUsuario) {
-        case 2:
-          this.devolucoes = 1;
-          div = document.querySelector('#devolucoes') as HTMLElement;
-          div.className = "comAzul"
-          break;
-        case 3:
-          this.devolucoes = 1;
-          div = document.querySelector('#devolucoes') as HTMLElement;
-          div.className = "comAzul"
-          break;
-        case 4:
-          this.gerenciaUsuarios = 1;
-          div = document.querySelector('#gerenciarUsuarios') as HTMLElement;
-          div.className = "comAzul";
-          break;
-      }
-    }, 10);
+      
+      setTimeout(() => {
+        switch (this.tipoUsuario) {
+          case 2:
+            this.devolucoes = 1;
+            div = document.querySelector('#devolucoes') as HTMLElement;
+            div.class = "comAzul"
+            break;
+          case 3:
+            this.devolucoes = 1;
+            div = document.querySelector('#devolucoes') as HTMLElement;
+            div.class = "comAzul"
+            break;
+          case 4:
+            this.gerenciaUsuarios = 1;
+            div = document.getElementById('gerenciarUsuarios');
+            div.className = "comAzul";
+            break;
+          }
+      }, 10);
   }
 
   localizacaoAtual = "paredeCentro";
@@ -495,6 +497,17 @@ export class HomeSupervisorComponent implements OnInit {
 
   fecharModalFiltro() {
     this.modalFiltrar = false;
+  }
+
+  cadastrar() {
+    this.service.localizacoes.push({id: this.service.localizacoes.length+1,nome: this.nomeLoc });
+    this.fecharModalLocalizacao();
+    this.nao = 4;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
+    console.log(this.service.localizacoes);
   }
 
 }
