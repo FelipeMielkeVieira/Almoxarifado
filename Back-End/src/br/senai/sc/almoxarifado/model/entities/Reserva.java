@@ -39,17 +39,17 @@ public class Reserva {
         this.statusReserva = statusReserva;
     }
 
-    public Date getDataRetirada() {
-        return dataRetirada;
-    }
+//    public Date getDataRetirada() {
+//        return dataRetirada;
+//    }
 
     public void setDataRetirada(Date dataRetirada) {
         this.dataRetirada = dataRetirada;
     }
 
-    public Date getDataDevolucao() {
-        return dataDevolucao;
-    }
+//    public Date getDataDevolucao() {
+//        return dataDevolucao;
+//    }
 
     public void setDataDevolucao(Date dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
