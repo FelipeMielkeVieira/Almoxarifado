@@ -20,6 +20,7 @@ export class HomeSupervisorComponent implements OnInit {
   tipoUsuario = 2;
   reserva = true;
   aparecerConfirmacao = 0;
+  nomeLoc
   
   indexExcluir: number = 0;
 
@@ -496,6 +497,17 @@ export class HomeSupervisorComponent implements OnInit {
 
   fecharModalFiltro() {
     this.modalFiltrar = false;
+  }
+
+  cadastrar() {
+    this.service.localizacoes.push({id: this.service.localizacoes.length+1,nome: this.nomeLoc });
+    this.fecharModalLocalizacao();
+    this.nao = 4;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
+    console.log(this.service.localizacoes);
   }
 
 }
