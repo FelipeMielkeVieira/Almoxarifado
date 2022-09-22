@@ -12,8 +12,7 @@ public class Reserva {
     private Usuario emailUsuario;
     private ArrayList<ReservaProduto> listaProdutosReserva;
 
-    public Reserva() {
-    }
+    public Reserva() { }
 
     public Reserva(Integer codigoReserva, Integer statusReserva, Date dataRetirada, Date dataDevolucao, Usuario emailUsuario, ArrayList<ReservaProduto> listaProdutosReserva) {
         this.codigoReserva = codigoReserva;

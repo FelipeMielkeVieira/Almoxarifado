@@ -4,8 +4,7 @@ public class Localizacao {
     private Integer codigoLocalizacao;
     private String  nome;
 
-    public Localizacao() {
-    }
+    public Localizacao() { }
 
     public Localizacao(Integer codigoLocalizacao, String nome) {
         this.codigoLocalizacao = codigoLocalizacao;

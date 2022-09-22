@@ -11,8 +11,7 @@ public class Sacola {
     private Usuario emailUsuario;
     private ArrayList<SacolaProduto> listaProdutosReserva;
 
-    public Sacola() {
-    }
+    public Sacola() { }
 
     public Sacola(Integer codigoSacola, Date dataRetirada, Date dataDevolucao, Usuario emailUsuario, ArrayList<SacolaProduto> listaProdutosReserva) {
         this.codigoSacola = codigoSacola;

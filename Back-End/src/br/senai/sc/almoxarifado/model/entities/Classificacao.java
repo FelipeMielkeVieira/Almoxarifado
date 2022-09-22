@@ -4,8 +4,7 @@ public class Classificacao {
     private Integer codigoClassificacao;
     private String classificacao;
 
-    public Classificacao() {
-    }
+    public Classificacao() { }
 
     public Classificacao(Integer codigoClassificacao, String classificacao) {
         this.codigoClassificacao = codigoClassificacao;

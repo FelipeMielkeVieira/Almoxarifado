@@ -14,8 +14,7 @@ public class Produto {
     private ArrayList<Localizacao> listaLocalizacoesProduto;
     private Classificacao classificacaoProduto;
 
-    public Produto() {
-    }
+    public Produto() { }
 
     public Produto(Integer codigoProduto, Integer quantidadeProduto, String nomeProduto, String caracteristicasProduto, String anexosProduto, boolean produtoDescartavel, Byte imagemProduto, ArrayList<Localizacao> listaLocalizacoesProduto, Classificacao classificacaoProduto) {
         this.codigoProduto = codigoProduto;

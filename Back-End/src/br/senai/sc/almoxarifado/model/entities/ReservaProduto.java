@@ -7,8 +7,7 @@ public class ReservaProduto {
     private Reserva codigoReserva;
     private Produto produtoReserva;
 
-    public ReservaProduto() {
-    }
+    public ReservaProduto() { }
 
     public ReservaProduto(Integer codigoReservaProduto, Integer qtdProduto, Reserva codigoReserva, Produto produtoReserva) {
         this.codigoReservaProduto = codigoReservaProduto;

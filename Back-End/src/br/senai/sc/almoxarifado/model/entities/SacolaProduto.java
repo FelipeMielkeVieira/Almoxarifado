@@ -7,8 +7,7 @@ public class SacolaProduto {
     private Sacola  codigoSacola;
     private Produto codigoProduto;
 
-    public SacolaProduto() {
-    }
+    public SacolaProduto() { }
 
     public SacolaProduto(Integer codigoSacolaProduto, Integer qtdProduto, Sacola codigoSacola, Produto codigoProduto) {
         this.codigoSacolaProduto = codigoSacolaProduto;
