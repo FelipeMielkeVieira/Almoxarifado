@@ -109,11 +109,8 @@ a{
     display: flex;
 }
 
-.imgOlho {
-    height: 80%;
-}
 
-.imgOlho:hover {
+.imgOlho {
     cursor: pointer;
 }
 

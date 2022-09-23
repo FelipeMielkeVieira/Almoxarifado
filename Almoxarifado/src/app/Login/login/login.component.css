@@ -402,7 +402,6 @@ label{
 .divSenha {
     border: none;
     width: 80%;
-    height: 2rem;
     border-bottom: 1px solid #0047B6;
     margin: 2%;
     font-family: 'Inter';
@@ -414,11 +413,7 @@ label{
     border: none;
 }
 
-.imgOlho {
-    height: 80%;
-}
-
-.imgOlho:hover {
+.imgOlho, .imgOlho2, .imgOlho3 {
     cursor: pointer;
 }
 
@@ -429,7 +424,6 @@ label{
     font-family: 'Inter';
     display: flex;
     align-items: center;
-    height: 45%;
 }
 
 .inputNovaSenha {
@@ -437,14 +431,6 @@ label{
     font-family: 'Inter';
     font-size: var(--font-size--small);
     border: none;
-}
-
-.imgOlho2 {
-    height: 60%;
-}
-
-.imgOlho2:hover {
-    cursor: pointer;
 }
 
 .inputSenhaNova {
