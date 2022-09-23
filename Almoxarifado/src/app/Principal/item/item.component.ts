@@ -48,8 +48,8 @@ export class ItemComponent implements OnInit {
 
   calendarioAberto1: number = 0;
   calendarioAberto2: number = 0;
-  data1: string = "__/__/____ 00:00";
-  data2: string = "__/__/____ 00:00";
+  data1: Date = new Date();
+  data2: Date = new Date();
 
   localizacao: number = 0
   listaItens: number = 0
@@ -379,5 +379,14 @@ export class ItemComponent implements OnInit {
   fecharModalHistorico(){
     this.aparecer5 = false;
     this.modalHistorico = 0;
+  }
+
+  formatarData(data: string) {
+    let dataNova = new Date(data).toLocaleString();
+    if(dataNova == "Invalid Date") {
+      return "00/00/0000 00:00:00"
+    } else {
+      return dataNova;
+    }
   }
 }

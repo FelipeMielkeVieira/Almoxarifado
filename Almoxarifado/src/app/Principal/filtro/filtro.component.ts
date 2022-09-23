@@ -57,7 +57,7 @@ export class FiltroComponent implements OnInit {
     containerFiltro.style.backgroundColor = "white";
     containerFiltro.style.border = "1px solid gray";
     containerFiltro.style.width = "fit-content";
-    containerFiltro.style.fontSize = "16px";
+    containerFiltro.style.fontSize = "var(--font-size--default)";
 
     containerExcluir.style.display = "flex";
     containerExcluir.style.alignItems = "center";
