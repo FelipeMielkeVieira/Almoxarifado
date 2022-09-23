@@ -16,20 +16,20 @@ public class UsuarioDAO {
 
     private final Connection conexaoUsuario;
 
-    public UsuarioDAO(Connection conexaoUsuario) {
+    public UsuarioDAO() {
         this.conexaoUsuario = new ConexaoFactory().conectaBD();
     }
 
     public void inserirUsuario(Usuario usuario) {
 
-        String sql = "insert into usuario (email, senha, nome, tipo) values (?, ?, ?, ?)";
+        String sql = "INSERT INTO USUARIO (EMAIL, SENHA, NOME, TIPO) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement statement = conexaoUsuario.prepareStatement(sql)) {
 
             statement.setString(1, usuario.getEmailUsuario());
             statement.setString(2, usuario.getSenhaUsuario());
             statement.setString(3, usuario.getNomeUsuario());
-            statement.setString(7, (
+            statement.setString(4, (
                     (usuario instanceof Professor) ? "PROFESSOR" :
                             (usuario instanceof Atendente1) ? "ATENDENTE1" :
                                     (usuario instanceof Atendente2) ? "ATENDENTE2" : "SUPERVISOR"
@@ -47,7 +47,7 @@ public class UsuarioDAO {
     }
 
     public Usuario selecionarPorEmail(String email) {
-        String sql = "select * from pessoa where email = ?";
+        String sql = "SELECT * FROM USUARIO WHERE EMAIL = ?";
 
         try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
 
@@ -68,12 +68,13 @@ public class UsuarioDAO {
         throw new RuntimeException("E-mail não encontrado!");
     }
 
-    public ArrayList<Usuario> selecionarTodos(int id) {
-        String sql = "select * from usuario where id > ? limit 18";
+    public ArrayList<Usuario> selecionarTodos(int comeco, int limite) {
+        String sql = "SELECT * FROM USUARIO LIMIT ?, ?";
 
         try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
 
-            stmt.setInt(1, id);
+            stmt.setInt(1, comeco);
+            stmt.setInt(2, limite);
             try (ResultSet resultSet = stmt.executeQuery()) {
 
                 ArrayList<Usuario> usuarios = new ArrayList<>();
@@ -94,13 +95,15 @@ public class UsuarioDAO {
         throw new RuntimeException("Nenhum usuário encontrado!");
     }
 
-    public ArrayList<Usuario> selecionarPorNome(String nome) {
+    public ArrayList<Usuario> selecionarPorNome(String nome, int comeco, int limite) {
 
-        String sql = "select * from usuario where nome like ? limit 18";
+        String sql = "SELECT * FROM USUARIO WHERE NOME LIKE ? LIMIT ?, ?";
 
         try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
 
             stmt.setString(1, "%" + nome + "%");
+            stmt.setInt(2, comeco);
+            stmt.setInt(3, limite);
             try (ResultSet resultSet = stmt.executeQuery()) {
 
                 ArrayList<Usuario> usuarios = new ArrayList<>();
@@ -121,12 +124,12 @@ public class UsuarioDAO {
         throw new RuntimeException("Nenhum usuário encontrado!");
     }
 
-    public void removerUsuario(int id) {
-        String sql = "delete from usuario where id = ?";
+    public void removerUsuario(String email) {
+        String sql = "DELETE FROM USUARIO WHERE EMAIL = ?";
 
         try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
 
-            stmt.setInt(1, id);
+            stmt.setString(1, email);
             try {
                stmt.execute();
             } catch (Exception e) {
