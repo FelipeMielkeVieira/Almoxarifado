@@ -1,5 +1,5 @@
 <html>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <body>
     <div class="divPrincipal">
         <div *ngIf="senhaIncorreta == 1" id="modalCadastro">
@@ -33,11 +33,21 @@
             <input type="email" class="inputsCadastro" placeholder="Email" [(ngModel)]="email">
             <div class="divSenha">
                 <input type="password" class="inputsCadastro2" placeholder="Senha" id="inputSenha1" [(ngModel)]="senhaUser">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho" (click)="trocarOlho(1)" id="olho1" alt="Visualização da senha">
+                <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
+                    visibility_off
+                    </span>
+                <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
+                    visibility
+                </span>
             </div>
             <div class="divSenha">
                 <input type="password" class="inputsCadastro2" placeholder="Confirmar Senha" id="inputSenha2" [(ngModel)]="repetirSenhaUser">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho" (click)="trocarOlho(2)" id="olho2" alt="Visualização da senha">
+                <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
+                    visibility_off
+                    </span>
+                <span *ngIf="trocarOlho2" class="material-symbols-outlined imgOlho iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
+                    visibility
+                </span>
             </div>
             <button id="cadastrar" (click)="cadastrar()">
                 Cadastrar

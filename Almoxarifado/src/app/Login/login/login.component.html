@@ -1,4 +1,5 @@
 <html>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <body>
     <div class="divPrincipal">
         <div *ngIf="cadastro == 1" id="modalCadastro">
@@ -41,7 +42,12 @@
             <input type="text" class="inputsCadastro" placeholder="Email ou usuário" [(ngModel)]="emailUser">
             <div class="divSenha">
                 <input type="password" class="inputsCadastro2" id="inputSenha1" placeholder="Senha" [(ngModel)]="senhaUser">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
+                <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
+                    visibility_off
+                    </span>
+                <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
+                    visibility
+                </span>
             </div>
             <div class="containerSenha">
                 <span id="esqueciSenha" (click)="esqueciASenha()">Esqueci a senha</span>
@@ -100,7 +106,12 @@
             </div>
             <div class="divSenha2">
                 <input type="password" id="inputSenha2" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)" alt="Trocar visualização de senha">
+                <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
+                    visibility_off
+                    </span>
+                <span *ngIf="trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
+                    visibility
+                </span>
             </div>
         </div>
         <div *ngIf="senha3 == 1" class="divInputSenha2" id="inputRepetirSenha">
@@ -110,7 +121,12 @@
             </div>
             <div class="divSenha2">
                 <input type="password" id="inputSenha3" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova2">
-                <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho3" (click)="trocarOlho(3)" alt="Trocar visualização de senha">
+                <span *ngIf="!trocarOlho3" class="material-symbols-outlined imgOlho3 iconDeselect" id="olho3" (click)="trocarOlho(3)" alt="Visualização da senha">
+                    visibility_off
+                    </span>
+                <span *ngIf="trocarOlho3" class="material-symbols-outlined imgOlho3 iconDeselect" id="olho3" (click)="trocarOlho(3)" alt="Visualização da senha">
+                    visibility
+                </span>
             </div>
         </div>
         <button *ngIf="senha3 == 1" class="enviarCodigo" (click)="enviarNovaSenha()">Enviar</button>
