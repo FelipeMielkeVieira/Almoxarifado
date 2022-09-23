@@ -2,7 +2,6 @@ package br.senai.sc.almoxarifado.model.dao;
 
 import br.senai.sc.almoxarifado.model.entities.*;
 import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
-import br.senai.sc.almoxarifado.model.factory.UsuarioFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +16,7 @@ public class LocalizacaoDAO {
     }
 
     public void inserirLocalizacao(Localizacao localizacao) {
-        String sql = "INSERT INTO LOCALIZACAO (nome) VALUES (?)";
+        String sql = "INSERT INTO LOCALIZACAO (id, nome) VALUES (null, ?)";
 
         try (PreparedStatement statement = conexaoLocalizacao.prepareStatement(sql)) {
             statement.setString(1, localizacao.getNome());

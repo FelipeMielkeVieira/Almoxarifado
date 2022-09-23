@@ -8,13 +8,13 @@ import br.senai.sc.almoxarifado.model.entities.Usuario;
 
 public class Teste {
     public static void main(String[] args) {
-        usuarioTeste();
+        localizcaoTeste();
     }
 
     public static void usuarioTeste() {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.inserirUsuario(new Atendente1("teste", "teste", "teste"));
-//        usuarioDAO.inserirUsuario(new Atendente1("teste2", "teste2", "teste2"));
+        usuarioDAO.inserirUsuario(new Atendente1("teste2", "teste2", "teste2"));
         System.out.println("Inserido com sucesso!\n");
         System.out.println("Selecionar todos: \n" + usuarioDAO.selecionarTodos(0, 17));
         System.out.println("---------------------------------------------------\n");
@@ -29,11 +29,14 @@ public class Teste {
     public static void localizcaoTeste() {
         LocalizacaoDAO dao = new LocalizacaoDAO();
 
-        dao.inserirLocalizacao(new Localizacao("teste"));
-        dao.inserirLocalizacao(new Localizacao("teste2"));
+        dao.inserirLocalizacao(new Localizacao("aaaa"));
+        dao.inserirLocalizacao(new Localizacao("bbbb"));
 
         System.out.println("Inserido com sucesso!\n");
 
         System.out.println("Selecionar todos: \n" + dao.selecionarTodos(0));
+        System.out.println("---------------------------------------------------\n");
+        dao.removerLocalizacao(1);
+        System.out.println("Localização removida com sucesso");
     }
 }
