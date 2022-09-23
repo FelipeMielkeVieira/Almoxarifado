@@ -2,9 +2,14 @@ package br.senai.sc.almoxarifado.model.dao;
 
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
+import br.senai.sc.almoxarifado.model.factory.ProdutoFactory;
+import br.senai.sc.almoxarifado.model.factory.UsuarioFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class ProdutoDAO {
     private final Connection conexaoProduto;
@@ -34,7 +39,44 @@ public class ProdutoDAO {
         }
     }
 
+    public Collection<Produto> buscarProdutos(Integer indexInicial) {
+        String sql = "select * from produto where id > ? limit 18";
 
+        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
+
+            statement.setInt(1, indexInicial);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+
+                Collection<Produto> listaProdutos = new ArrayList<>();
+                while(resultSet.next()) {
+                    listaProdutos.add(extrairObjeto(resultSet));
+                }
+                return listaProdutos;
+
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL!");
+        }
+    }
+
+    private Produto extrairObjeto(ResultSet resultSet) {
+        try {
+//            return new ProdutoFactory().getProduto(
+//                    resultSet.getInt("id"),
+//                    resultSet.getString("nome"),
+//                    resultSet.getInt("quantidade"),
+//                    resultSet.getBoolean("descartavel"),
+//                    resultSet.getByte("imagem"),
+//                    resultSet.getString("anexos")
+//            );
+            return null;
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao extrair o objeto!");
+        }
+    }
 
 
 }
