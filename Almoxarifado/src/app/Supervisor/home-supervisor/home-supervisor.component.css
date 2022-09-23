@@ -454,6 +454,7 @@ h1 {
     border-radius: 5px 5px 0 0;
     cursor: pointer;
     transition: ease-out 0.2s;
+    display: inline-block;
 }
 
 .semAzul:hover {
@@ -467,6 +468,7 @@ h1 {
     border-radius: 5px 5px 0 0;
     cursor: pointer;
     color: #fff;
+    display: inline-block;
 }
 
 .comAzul:hover {
@@ -1434,4 +1436,8 @@ h1 {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#botoes {
+    min-width: 800px;
 }

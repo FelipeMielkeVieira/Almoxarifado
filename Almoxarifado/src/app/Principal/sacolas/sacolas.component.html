@@ -11,7 +11,10 @@
         <div class="tituloSacolas">
             <b><span class="tituloPagina">Minhas Sacolas</span></b>
         </div>
-        <div class="containerSacolas">
+        <div *ngIf="tamanhoLista == 0" class="divSemSacolas">
+            <h1>Você ainda não possui nenhuma sacola!</h1>
+        </div>
+        <div *ngIf="tamanhoLista > 0" class="containerSacolas">
             <app-sacola *ngFor="let sacola of listaSacolas" [sacola]="sacola"></app-sacola>
         </div>
     </div>
