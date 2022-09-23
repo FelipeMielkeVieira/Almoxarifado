@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service';
 
 @Component({
@@ -18,6 +18,7 @@ export class HomeProfessorComponent implements OnInit {
   emBloco = 0;
 
   modalOrdernar: boolean = false;
+  modalFiltrar: boolean = false;
 
   ngOnInit() {
   }
@@ -66,5 +67,13 @@ export class HomeProfessorComponent implements OnInit {
 
   proximoPagina() {
 
+  }
+
+  filtrar() {
+    this.modalFiltrar = !this.modalFiltrar;
+  }
+
+  fecharModalFiltro() {
+    this.modalFiltrar = false;
   }
 }

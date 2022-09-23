@@ -363,12 +363,12 @@
                 </span>
               </div>
               <div id="iconListaBloco">
-                <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect"
+                <span *ngIf="listaItens == 1" (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect"
                   title="Ordernar">
                   sync_alt
                 </span>
                 <div id="containerIconFiltro">
-                  <span title="Filtro" (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined iconDeselect">
+                  <span *ngIf="listaItens == 1" title="Filtro" (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined iconDeselect">
                     filter_alt
                   </span>
                   <!-- ---------- MODAL FILTRAR ---------- -->
