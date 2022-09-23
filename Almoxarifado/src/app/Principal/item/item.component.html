@@ -28,6 +28,9 @@
         </div>
     </div>
 
+    <!-- AQUI -->
+    </div>
+
     <div *ngIf="lista == 1" (click)="abrirModalItem()" class="quadroItemLista">
         <div class="imagemItem">
             <img class="imgProdutoLista" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe"
@@ -42,6 +45,17 @@
                     <span>{{item.quantidade}} UN</span>
                 </div>
             </div>
+        </div>
+        <div class="ferramentas">
+            <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect" (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
+                edit
+            </span>
+            <span title="Histórico" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"  (click)="abrirHistorico()" id="iconeHistorico">
+                history
+            </span>
+            <span title="Deletar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect" (click)="removerItem()" id="iconeExcluir">
+                delete
+            </span>
         </div>
     </div>
 

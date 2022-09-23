@@ -18,6 +18,7 @@ export class ItemComponent implements OnInit {
     } else {
       this.textoDescartavel = "Não Descartável"
     }
+    console.log("lista: ", this.lista)
   }
 
   @Input() item;
