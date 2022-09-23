@@ -4,7 +4,8 @@
 <!-- -- FeddBack -- -->
 <div *ngIf="feedback == 1" id="modalFeedback">
   <div class="divInfo">
-    <span title="Fechar" (click)="fechar()" id="fechar" class="iconDeselect icone" class="material-symbols-outlined iconDeselect">
+    <span title="Fechar" (click)="fechar()" id="fechar" class="iconDeselect icone"
+      class="material-symbols-outlined iconDeselect">
       close
     </span>
     <span title="Confirmar" id="iconCerto" class="material-symbols-outlined iconDeselect">
@@ -23,7 +24,7 @@
 
 <!-- ---------- MODAL ORDERNAR ---------- -->
 <div *ngIf="modalOrdernar" id="fundoModalOrdenar">
-  <div id="containerModalOrdenar">
+  <!-- <div id="containerModalOrdenar">
     <hr class="riscoAzul" />
     <div class="containerFechar">
       <span title="Fechar" (click)="fecharModalOrdenar()" id="fecharOrdernar" class="icone"
@@ -60,7 +61,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <!-- -- Modal -- -->
@@ -368,11 +369,12 @@
                   sync_alt
                 </span>
                 <div id="containerIconFiltro">
-                  <span title="Filtro" (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined iconDeselect">
+                  <span title="Filtro" (click)="filtrar()" id="iconFiltro"
+                    class="material-symbols-outlined iconDeselect">
                     filter_alt
                   </span>
                   <!-- ---------- MODAL FILTRAR ---------- -->
-
+                  
                   <div *ngIf="modalFiltrar" class="modalUser" (click)="fecharModalFiltro()">
                     <h3 class="tituloFiltroModalUser">Filtro</h3>
                     <div class="setaUser"></div>
@@ -571,7 +573,8 @@
           <div id="containerLocalizacoes">
             <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
               <p>{{ loc.nome }}</p>
-              <span title="Deletar" (click)="confirmacaoLocalizacao(i)" id="lixo" class="material-symbols-outlined iconDeselect">
+              <span title="Deletar" (click)="confirmacaoLocalizacao(i)" id="lixo"
+                class="material-symbols-outlined iconDeselect">
                 delete
               </span>
             </div>

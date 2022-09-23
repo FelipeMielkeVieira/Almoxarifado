@@ -11,6 +11,10 @@ public class Localizacao {
         this.nome = nome;
     }
 
+    public Localizacao(String nome) {
+        this.nome = nome;
+    }
+
     public Integer getCodigoLocalizacao() {
         return codigoLocalizacao;
     }

@@ -20,8 +20,11 @@ export class MinhaSacolaComponent implements OnInit {
       this.sacola = this.service.retornaReserva(parseInt(this.route.snapshot.paramMap.get('id')));
       this.produtosSacola = this.service.retornaProdutosReserva(this.sacola.id);
     }
+    this.dataSacola = new Date(this.sacola.data_devolucao);
   }
 
+  dataAtual = new Date();
+  dataSacola;
   produtosSacola = [];
   sacola;
   professorReserva = "";

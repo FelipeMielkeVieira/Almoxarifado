@@ -55,3 +55,12 @@ p:hover {
     min-width: 890px;
     padding: 0px 50px;
 }
+
+.divSemSacolas {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #0047B6;
+    padding: 20px;
+    border-top: solid rgb(153, 151, 151) 1px;
+}

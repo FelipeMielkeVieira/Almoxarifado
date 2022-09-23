@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class ConexaoFactory {
 
-    private final String URL = "jdbc:mysql://localhost:3306/editora";
+    private final String URL = "jdbc:mysql://localhost:3306/alma_sis";
     private final String USERNAME = "root";
     private final String PASSWORD = "root";
 

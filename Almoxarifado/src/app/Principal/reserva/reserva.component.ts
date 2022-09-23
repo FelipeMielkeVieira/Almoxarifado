@@ -16,7 +16,6 @@ export class ReservaComponent implements OnInit {
   constructor(private router: Router, private service: UsersService) { }
 
   ngOnInit() {
-    var self = this;
     this.listaItens = this.service.retornaProdutosReserva(this.reserva.id);
     this.mudarCor();
   }

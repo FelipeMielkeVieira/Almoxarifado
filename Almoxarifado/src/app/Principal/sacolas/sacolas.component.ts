@@ -11,12 +11,13 @@ export class SacolasComponent implements OnInit {
 
   constructor(private router: Router, private service: UsersService) {
     this.listaSacolas = service.retornaSacolasUsuario(localStorage.getItem('emailAtual'));
-    console.log(this.listaSacolas)
   }
 
   listaSacolas = [];
+  tamanhoLista = 0;
 
   ngOnInit() {
+    this.tamanhoLista = this.listaSacolas.length;
   }
 
   home() {
