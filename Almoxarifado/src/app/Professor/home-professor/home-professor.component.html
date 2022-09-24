@@ -46,13 +46,54 @@
                     <img id="lupa" src="../../../assets/lupa.png" alt="Fazer Pesquisa">
                 </div>
                 <div id="iconListaBloco">
-                    <img src="../../../assets/ordenar.png" id="ordernar" (click)="ordernar()" alt="Ordenar Página"
+                    <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect"
                         title="Ordernar">
-                    <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco" src="../../../assets/emBloco.png"
-                        alt="Visualizando em lista">
-                    <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista" src="../../../assets/emLista.png"
-                        alt="Visualizando em bloco">
+                        sync_alt
+                    </span>
+                        <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
+                        class="material-symbols-outlined iconDeselect" title="Ver em bloco">
+                        grid_view
+                      </span>
+                      <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
+                        class="material-symbols-outlined iconDeselect" title="Ver em lista">
+                        sort
+                      </span>
                 </div>
+                <div id="containerIconFiltro">
+                    <span title="Filtro" (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined iconDeselect">
+                      filter_alt
+                    </span>
+                    <!-- ---------- MODAL FILTRAR ---------- -->
+                    
+                    <div *ngIf="modalFiltrar" class="modalUser" (click)="fecharModalFiltro()">
+                      <h3 class="tituloFiltroModalUser">Filtro</h3>
+                      <div class="setaUser"></div>
+                      <div id="containerCheckboxes">
+                        <div id="containerEsquerdo">
+                          <div class="containerCadaCheck">
+                            <input type="checkbox" id="descartavelCheckbox" />
+                            <label class="checkboxes" for="descartavelCheckbox">Descartável</label>
+                          </div>
+                          <div class="containerCadaCheck">
+                            <input type="checkbox" id="comEstoqueCheckbox" />
+                            <label class="checkboxes" for="comEstoqueCheckbox">Com Estoque</label>
+                          </div>
+                          <div class="containerCadaCheck">
+                            <input type="checkbox" id="naoDescartavelCheckbox" />
+                            <label class="checkboxes" for="naoDescartavelCheckbox">Não Descartável</label>
+                          </div>
+                          <div class="containerCadaCheck">
+                            <input type="checkbox" id="semEstoqueCheckbox" />
+                            <label class="checkboxes" for="semEstoqueCheckbox">Sem Estoque</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="containerBotao">
+                        <button class="btnFiltrarModal">Limpar</button>
+                      </div>
+                      <!-- clicar fora: (click)="fecharModalFiltrar()" -->
+                    </div>
+                  </div>
             </div>
             <div id="filtro">
 
@@ -69,14 +110,14 @@
         </div>
 
         <!-- Fundo transparente -->
-        <nav *ngIf="listaPaginas.length > 0" id="containerPaginacao">
+        <nav *ngIf="numeroPaginas > 0" id="containerPaginacao">
             <ul id="paginacao">
-                <li (click)="voltarPagina()" class="paginaItem">Anterior</li>
-                <li (click)="irPagina(1)" class="paginaItem paginaAtiva">1</li>
-                <li (click)="irPagina(2)" *ngIf="listaPaginas.length >= 2" class="paginaItem">2</li>
-                <li (click)="irPagina(3)" *ngIf="listaPaginas.length >= 3" class="paginaItem">3</li>
-                <li (click)="irPagina(4)" *ngIf="listaPaginas.length >= 4" class="paginaItem">4</li>
-                <li (click)="proximoPagina()" class="paginaItem">Próximo</li>
+                <li *ngIf="paginaAtual > 1" (click)="voltarPagina()" class="paginaItem">Anterior</li>
+                <li (click)="irPagina(paginaAtual - 1)" *ngIf="paginaAtual - 1 > 0" class="paginaItem">{{paginaAtual - 1}}</li>
+                <li class="paginaItem paginaAtiva">{{paginaAtual}}</li>
+                <li (click)="irPagina(paginaAtual + 1)" *ngIf="paginaAtual + 1 <= numeroPaginas" class="paginaItem">{{paginaAtual + 1}}</li>
+                <li (click)="irPagina(paginaAtual + 2)" *ngIf="paginaAtual + 2 <= numeroPaginas" class="paginaItem">{{paginaAtual + 2}}</li>
+                <li (click)="proximoPagina()" class="paginaItem" *ngIf="paginaAtual < numeroPaginas">Próximo</li>
             </ul>
         </nav>
     </div>

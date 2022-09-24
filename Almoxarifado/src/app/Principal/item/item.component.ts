@@ -18,6 +18,7 @@ export class ItemComponent implements OnInit {
     } else {
       this.textoDescartavel = "Não Descartável"
     }
+    console.log("lista: ", this.lista)
   }
 
   @Input() item;
@@ -58,6 +59,7 @@ export class ItemComponent implements OnInit {
   nao: number = 0;
   cadastroProduto: number = 0;
   codUser: number;
+  motivoEdicao: boolean = false;
   
   listaItens2 = [];
   paredeCentro = [];
@@ -220,6 +222,7 @@ export class ItemComponent implements OnInit {
   editarItem() {
     this.aparecer = false;
     this.aparecer2 = false;
+    this.motivoEdicao = true;
     this.cadastrarModal = false;
     this.nao = 0;
     this.feedback = 2;

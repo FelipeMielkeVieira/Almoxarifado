@@ -28,6 +28,9 @@
         </div>
     </div>
 
+    <!-- AQUI -->
+    </div>
+
     <div *ngIf="lista == 1" (click)="abrirModalItem()" class="quadroItemLista">
         <div class="imagemItem">
             <img class="imgProdutoLista" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe"
@@ -42,6 +45,17 @@
                     <span>{{item.quantidade}} UN</span>
                 </div>
             </div>
+        </div>
+        <div class="ferramentas">
+            <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect" (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
+                edit
+            </span>
+            <span title="Histórico" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"  (click)="abrirHistorico()" id="iconeHistorico">
+                history
+            </span>
+            <span title="Deletar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect" (click)="removerItem()" id="iconeExcluir">
+                delete
+            </span>
         </div>
     </div>
 
@@ -283,6 +297,28 @@
             </div>
         </div>
     </div>
+
+    <!-- terminar esse modal (nem ta abrindo) -->
+    <!-- Modal Motivo de edição quantidade  -->
+    <div *ngIf="motivoEdicao" id="fundoModal">
+        <div *ngIf="motivoModal" id="containerModalMotivo">
+            <hr class="riscoAzul">
+            <div id="containerIcons">
+                <span title="Fechar" (click)="fecharModalMotivo()" class="material-symbols-outlined iconDeselect" id="iconFechar">
+                    close
+                </span>
+            </div>
+            <div class="principal">
+                <div class="containerModalMotivo">
+                    <div class="texto">
+                        <span>Motivo da edição da quantidade:</span>
+                        <div class="asterisco">*</div>
+                    </div>
+                    <textarea class="inputDescricao" placeholder="Motivo"></textarea>
+                    <button (click)="editarQuantidade()" class="botaoCadastrar">Editar</button>
+                </div>
+            </div>
+        </div>
 
     <!-- Modal confirmação excluir -->
     <div *ngIf="aparecer3" id="fundoModal">

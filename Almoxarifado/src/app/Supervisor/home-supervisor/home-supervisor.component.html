@@ -23,45 +23,36 @@
 </div>
 
 <!-- ---------- MODAL ORDERNAR ---------- -->
-<div *ngIf="modalOrdernar" id="fundoModalOrdenar">
-  <!-- <div id="containerModalOrdenar">
-    <hr class="riscoAzul" />
-    <div class="containerFechar">
-      <span title="Fechar" (click)="fecharModalOrdenar()" id="fecharOrdernar" class="icone"
-        class="material-symbols-outlined iconDeselect">
-        close
-      </span>
-    </div>
-    <div id="containerConteudoModalOrdernar">
-      <div style="width: 100%">
-        <h2 class="titleModalOrdenar">Ordenar</h2>
-      </div>
-      <div id="ordenarConteudo">
-        <div>
-          <p class="subtitleOrdenar">Tipo</p>
-          <select name="tipoOrdenar" class="selectOrdenar">
-            <option value="0">Crescente</option>
-            <option value="1">Decrescente</option>
-          </select>
+<div *ngIf="modalOrdernar">
+  <div class="modalOrdenar" (click)="fecharModalFiltro()">
+    <h3 class="tituloFiltroModalUser">Ordenar</h3>
+    <div class="setaUser"></div>
+    <div id="containerCheckboxes">
+      <div id="containerEsquerdo">
+        <h4>Tipo</h4>
+        <div class="containerCadaCheck">
+          <input type="checkbox" id="descartavelCheckbox" />
+          <label class="checkboxes" for="descartavelCheckbox">Crescente</label>
         </div>
-        <div>
-          <p class="subtitleOrdenar">Opção</p>
-          <select name="opcaoOrdenar" class="selectOrdenar">
-            <option value="0">Nome</option>
-            <option value="1">Quantidade em estoque</option>
-          </select>
+        <div class="containerCadaCheck">
+          <input type="checkbox" id="comEstoqueCheckbox" />
+          <label class="checkboxes" for="comEstoqueCheckbox">Decrescente</label>
+        </div>
+        <h4>Opção</h4>
+        <div class="containerCadaCheck">
+          <input type="checkbox" id="naoDescartavelCheckbox" />
+          <label class="checkboxes" for="naoDescartavelCheckbox">Nome</label>
+        </div>
+        <div class="containerCadaCheck">
+          <input type="checkbox" id="semEstoqueCheckbox" />
+          <label class="checkboxes" for="semEstoqueCheckbox">Quantidade em estoque</label>
         </div>
       </div>
-      <div id="containerBotoesOrdenar">
-        <button class="btnDevolucaoModal" style="background-color: red" (click)="cancelarOrdenar()">
-          Cancelar
-        </button>
-        <button class="btnDevolucaoModal" (click)="realizarOrdenacao()">
-          Ordenar
-        </button>
-      </div>
     </div>
-  </div> -->
+    <div id="containerBotao">
+      <button class="btnFiltrarModalOrdenar">Limpar</button>
+    </div>
+  </div>
 </div>
 
 <!-- -- Modal -- -->
@@ -364,12 +355,12 @@
                 </span>
               </div>
               <div id="iconListaBloco">
-                <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect"
+                <span *ngIf="listaItens == 1" (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect"
                   title="Ordernar">
                   sync_alt
                 </span>
                 <div id="containerIconFiltro">
-                  <span title="Filtro" (click)="filtrar()" id="iconFiltro"
+                  <span *ngIf="listaItens == 1" title="Filtro" (click)="filtrar()" id="iconFiltro"
                     class="material-symbols-outlined iconDeselect">
                     filter_alt
                   </span>

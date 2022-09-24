@@ -512,11 +512,12 @@ export class HomeSupervisorComponent implements OnInit {
   }
 
   filtrar() {
-    this.modalFiltrar = true;
+    this.modalFiltrar = !this.modalFiltrar;
   }
 
   fecharModalFiltro() {
     this.modalFiltrar = false;
+    this.modalOrdernar = false;
   }
 
   cadastrar() {
@@ -531,19 +532,5 @@ export class HomeSupervisorComponent implements OnInit {
       this.feedback = 0;
     }, 5000);
     console.log(this.service.localizacoes);
-  }
-
-  @HostListener("document:mousedown", ["$event"])
-  onGlobalClick(event): void {
-    let contagem = 0;
-    for (const path of event.path) {
-      if (path.className == "material-symbols-outlined iconDeselect") {
-        contagem = 1;
-      }
-    }
-
-    if (contagem == 0 && event.path[1].id != "containerIconFiltro") {
-      this.modalFiltrar = false;
-    }
   }
 }
