@@ -16,7 +16,7 @@ public class LocalizacaoDAO {
     }
 
     public void inserirLocalizacao(Localizacao localizacao) {
-        String sql = "INSERT INTO LOCALIZACAO (id, nome) VALUES (null, ?)";
+        String sql = "INSERT INTO LOCALIZACAO (ID, NOME) VALUES (NULL, ?)";
 
         try (PreparedStatement statement = conexaoLocalizacao.prepareStatement(sql)) {
             statement.setString(1, localizacao.getNome());
@@ -58,7 +58,7 @@ public class LocalizacaoDAO {
     }
 
     public void removerLocalizacao(int id) {
-        String sql = "DELETE FROM LOCALIZACAO WHERE id = ?";
+        String sql = "DELETE FROM LOCALIZACAO WHERE ID = ?";
 
         try (PreparedStatement stmt = conexaoLocalizacao.prepareStatement(sql)) {
 
@@ -72,6 +72,32 @@ public class LocalizacaoDAO {
         } catch (Exception e) {
             throw new RuntimeException("Erro na preparação do comando SQL");
         }
+    }
+
+    public ArrayList<Localizacao> buscarLocalizacoesPorProduto(int idProduto) {
+        String sql = "SELECT * FROM LOCALIZACAO WHERE ID IN (SELECT ID_LOCALIZACAO FROM PRODUTO_LOCALIZACAO WHERE ID_PRODUTO = ?)";
+
+        try (PreparedStatement stmt = conexaoLocalizacao.prepareStatement(sql)) {
+
+            stmt.setInt(1, idProduto);
+            try (ResultSet resultSet = stmt.executeQuery()) {
+
+                ArrayList<Localizacao> localizacoes = new ArrayList<>();
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        localizacoes.add(extrairObjeto(resultSet));
+                    }
+                    return localizacoes;
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na execução do comando SQL");
+        }
+
+        throw new RuntimeException("Nenhuma localização encontrada!");
     }
 
     private Localizacao extrairObjeto(ResultSet resultSet) {

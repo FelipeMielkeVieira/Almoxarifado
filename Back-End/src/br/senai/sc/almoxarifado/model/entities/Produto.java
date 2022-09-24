@@ -4,17 +4,20 @@ import java.util.ArrayList;
 
 public class Produto {
     private Integer codigoProduto;
-    private Integer quantidadeProduto;
     private String nomeProduto;
     private String caracteristicasProduto;
-    private String anexosProduto;
+    private Integer quantidadeProduto;
     private Boolean produtoDescartavel;
     private Byte imagemProduto;
+    private String anexosProduto;
 
     private ArrayList<Localizacao> listaLocalizacoesProduto;
     private Classificacao classificacaoProduto;
 
-    public Produto(Integer codigoProduto, Integer quantidadeProduto, String nomeProduto, String caracteristicasProduto, String anexosProduto, Boolean produtoDescartavel, Byte imagemProduto, ArrayList<Localizacao> listaLocalizacoesProduto, Classificacao classificacaoProduto) {
+    public Produto(Integer codigoProduto, Integer quantidadeProduto, String nomeProduto,
+                   String caracteristicasProduto, String anexosProduto, Boolean produtoDescartavel,
+                   Byte imagemProduto, ArrayList<Localizacao> listaLocalizacoesProduto,
+                   Classificacao classificacaoProduto) {
         this.codigoProduto = codigoProduto;
         this.quantidadeProduto = quantidadeProduto;
         this.nomeProduto = nomeProduto;

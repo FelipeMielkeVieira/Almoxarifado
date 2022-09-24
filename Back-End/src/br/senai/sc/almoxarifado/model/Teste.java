@@ -1,6 +1,7 @@
 package br.senai.sc.almoxarifado.model;
 
 import br.senai.sc.almoxarifado.model.dao.LocalizacaoDAO;
+import br.senai.sc.almoxarifado.model.dao.ProdutoDAO;
 import br.senai.sc.almoxarifado.model.dao.UsuarioDAO;
 import br.senai.sc.almoxarifado.model.entities.Atendente1;
 import br.senai.sc.almoxarifado.model.entities.Localizacao;
@@ -8,7 +9,7 @@ import br.senai.sc.almoxarifado.model.entities.Usuario;
 
 public class Teste {
     public static void main(String[] args) {
-        localizcaoTeste();
+        produtoTeste();
     }
 
     public static void usuarioTeste() {
@@ -38,5 +39,10 @@ public class Teste {
         System.out.println("---------------------------------------------------\n");
         dao.removerLocalizacao(1);
         System.out.println("Localização removida com sucesso");
+    }
+
+    public static void produtoTeste() {
+        ProdutoDAO dao = new ProdutoDAO();
+        System.out.println(dao.buscarProdutos(1));
     }
 }
