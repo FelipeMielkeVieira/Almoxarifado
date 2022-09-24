@@ -158,16 +158,16 @@ main {
     margin: 0 0 0 10px;
 }
 
-#emBloco {
-    width: 1.5rem;
+#emBloco, #iconOrdernar, #emLista {
+    font-weight: 250;
+    font-size: var(--font-size--giant);
     cursor: pointer;
+    margin: 0 0 0 1%;
     animation: opacidade 0.5s;
 }
 
-#emLista {
-    width: 1.5rem;
-    cursor: pointer;
-    animation: opacidade 0.5s;
+#iconOrdernar {
+    transform: rotate(90deg);
 }
 
 @keyframes opacidade {
@@ -177,6 +177,12 @@ main {
 	to {
 		opacity:1;
 	}
+}
+
+#emLista:hover,
+#iconEmBloco:hover,
+#iconOrdernar:hover {
+    color: #0047B6;
 }
 
 #containerInputOrdenar {

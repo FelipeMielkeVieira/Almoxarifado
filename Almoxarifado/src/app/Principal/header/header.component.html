@@ -34,8 +34,12 @@
     </div>
     <div class="divSenha">
       <input type="password" class="inputsSenha" id="inputSenha1" placeholder="Senha" [(ngModel)]="senha">
-      <img src="../../../assets/olho-fechado.png" class="imgOlho" id="olho1" (click)="trocarOlho(1)"
-        alt="Senha está escondida">
+      <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
+        visibility_off
+      </span>
+      <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
+          visibility
+      </span>
     </div>
     <div id="tituloConfirmarSenha">
       <div class="texto">
@@ -46,8 +50,12 @@
     <div class="divConfirmarSenha">
       <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha"
         [(ngModel)]="ConfirmarSenha">
-      <img src="../../../assets/olho-fechado.png" class="imgOlho2" id="olho2" (click)="trocarOlho(2)"
-        alt="Senha está visível">
+        <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
+          visibility_off
+        </span>
+        <span *ngIf="trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
+          visibility
+        </span>
     </div>
     <button type="button" id="salvar" (click)="salvar()">
       Salvar
