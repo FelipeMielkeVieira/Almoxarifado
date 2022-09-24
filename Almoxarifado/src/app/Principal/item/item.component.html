@@ -298,6 +298,28 @@
         </div>
     </div>
 
+    <!-- terminar esse modal (nem ta abrindo) -->
+    <!-- Modal Motivo de edição quantidade  -->
+    <div *ngIf="motivoEdicao" id="fundoModal">
+        <div *ngIf="motivoModal" id="containerModalMotivo">
+            <hr class="riscoAzul">
+            <div id="containerIcons">
+                <span title="Fechar" (click)="fecharModalMotivo()" class="material-symbols-outlined iconDeselect" id="iconFechar">
+                    close
+                </span>
+            </div>
+            <div class="principal">
+                <div class="containerModalMotivo">
+                    <div class="texto">
+                        <span>Motivo da edição da quantidade:</span>
+                        <div class="asterisco">*</div>
+                    </div>
+                    <textarea class="inputDescricao" placeholder="Motivo"></textarea>
+                    <button (click)="editarQuantidade()" class="botaoCadastrar">Editar</button>
+                </div>
+            </div>
+        </div>
+
     <!-- Modal confirmação excluir -->
     <div *ngIf="aparecer3" id="fundoModal">
         <div *ngIf="modalConfirmacao == 1">

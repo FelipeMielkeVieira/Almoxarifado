@@ -46,12 +46,18 @@
                     <img id="lupa" src="../../../assets/lupa.png" alt="Fazer Pesquisa">
                 </div>
                 <div id="iconListaBloco">
-                    <img src="../../../assets/ordenar.png" id="ordernar" (click)="ordernar()" alt="Ordenar Página"
+                    <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect"
                         title="Ordernar">
-                    <img *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco" src="../../../assets/emBloco.png"
-                        alt="Visualizando em lista">
-                    <img *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista" src="../../../assets/emLista.png"
-                        alt="Visualizando em bloco">
+                        sync_alt
+                    </span>
+                        <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="emBloco"
+                        class="material-symbols-outlined iconDeselect" title="Ver em bloco">
+                        grid_view
+                      </span>
+                      <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="emLista"
+                        class="material-symbols-outlined iconDeselect" title="Ver em lista">
+                        sort
+                      </span>
                 </div>
                 <div id="containerIconFiltro">
                     <span title="Filtro" (click)="filtrar()" id="iconFiltro" class="material-symbols-outlined iconDeselect">
