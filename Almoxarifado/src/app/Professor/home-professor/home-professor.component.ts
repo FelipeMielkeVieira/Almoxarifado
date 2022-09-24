@@ -12,10 +12,12 @@ export class HomeProfessorComponent implements OnInit {
     this.listaItens = service.itens;
   }
 
-  listaPaginas = ["a", "b"];
+  numeroPaginas = 6;
 
   listaItens;
   emBloco = 0;
+
+  paginaAtual = 1;
 
   modalOrdernar: boolean = false;
   modalFiltrar: boolean = false;
@@ -58,15 +60,15 @@ export class HomeProfessorComponent implements OnInit {
   }
 
   voltarPagina() {
-
+    this.paginaAtual--;
   }
 
   irPagina(numero) {
-    
+    this.paginaAtual = numero;
   }
 
   proximoPagina() {
-
+    this.paginaAtual++;
   }
 
   filtrar() {
