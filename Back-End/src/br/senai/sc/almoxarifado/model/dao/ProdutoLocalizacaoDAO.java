@@ -1,6 +1,5 @@
 package br.senai.sc.almoxarifado.model.dao;
 
-import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
 
 import java.sql.Connection;

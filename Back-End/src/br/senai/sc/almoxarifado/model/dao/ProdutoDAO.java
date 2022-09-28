@@ -79,11 +79,11 @@ public class ProdutoDAO {
                     resultSet.getInt("quantidade"),
                     resultSet.getString("nome"),
                     resultSet.getString("caracteristicas"),
-                    resultSet.getString("anexos")
+                    resultSet.getString("anexos"),
                     resultSet.getBoolean("descartavel"),
                     resultSet.getByte("imagem"),
                     localizacoes,
-                    classificacao
+
             );
             return null;
         } catch (Exception e) {

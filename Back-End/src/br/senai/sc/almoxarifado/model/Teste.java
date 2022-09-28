@@ -35,7 +35,7 @@ public class Teste {
 
         System.out.println("Inserido com sucesso!\n");
 
-        System.out.println("Selecionar todos: \n" + dao.selecionarTodos(0));
+        System.out.println("Selecionar todos: \n" + dao.selecionarTodos(0, 100));
         System.out.println("---------------------------------------------------\n");
         dao.removerLocalizacao(1);
         System.out.println("Localização removida com sucesso");
