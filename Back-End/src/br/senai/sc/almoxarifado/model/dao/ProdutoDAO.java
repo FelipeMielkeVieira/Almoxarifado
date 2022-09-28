@@ -85,7 +85,7 @@ public class ProdutoDAO {
                     resultSet.getBoolean("descartavel"),
                     resultSet.getByte("imagem"),
                     localizacoes,
-
+                    classificacao
             );
         } catch (Exception e) {
             throw new RuntimeException("Erro ao extrair o objeto!");
