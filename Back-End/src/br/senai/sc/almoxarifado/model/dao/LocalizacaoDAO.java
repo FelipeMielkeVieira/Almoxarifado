@@ -75,7 +75,7 @@ public class LocalizacaoDAO {
     }
 
     public ArrayList<Localizacao> buscarLocalizacoesPorProduto(int idProduto) {
-        String sql = "SELECT * FROM LOCALIZACAO WHERE ID IN (SELECT ID_LOCALIZACAO FROM PRODUTO_LOCALIZACAO WHERE ID_PRODUTO = ?)";
+        String sql = "SELECT * FROM LOCALIZACAO WHERE ID IN (SELECT LOCALIZACAO_ID FROM PRODUTO_LOCALIZACAO WHERE PRODUTO_ID = ?)";
 
         try (PreparedStatement stmt = conexaoLocalizacao.prepareStatement(sql)) {
 
@@ -84,7 +84,7 @@ public class LocalizacaoDAO {
 
                 ArrayList<Localizacao> localizacoes = new ArrayList<>();
                 if (resultSet != null) {
-                    while (resultSet.next()) {
+                    while (resultSet.next() && resultSet != null) {
                         localizacoes.add(extrairObjeto(resultSet));
                     }
                     return localizacoes;

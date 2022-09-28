@@ -1,5 +1,6 @@
 package br.senai.sc.almoxarifado.model.dao;
 
+import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.Localizacao;
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
@@ -19,7 +20,7 @@ public class ProdutoDAO {
     }
 
     public void inserirProduto(Produto produto) {
-        String sql = "INSERT INTO PRODUTO (NOME, CARACTERISTICAS, QUANTIDADE, DESCARTAVEL, IMAGEM, ANEXOS, CLASSIFICACAO_ID) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
         ProdutoLocalizacaoDAO produtoLocalizacaoDAO = new ProdutoLocalizacaoDAO();
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
 
@@ -47,14 +48,13 @@ public class ProdutoDAO {
     }
 
     public Collection<Produto> buscarProdutos(Integer indexInicial) {
-        String sql = "SELECT * FROM PRODUTO WHERE ID >= ? LIMIT 18";
+        String sql = "SELECT * FROM produto WHERE id >= ? LIMIT 18";
 
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
 
             statement.setInt(1, indexInicial);
 
             try (ResultSet resultSet = statement.executeQuery()) {
-
                 Collection<Produto> listaProdutos = new ArrayList<>();
                 while (resultSet.next()) {
                     listaProdutos.add(extrairObjeto(resultSet));
@@ -73,23 +73,22 @@ public class ProdutoDAO {
         try {
             LocalizacaoDAO localizacaoDAO = new LocalizacaoDAO();
             ArrayList<Localizacao> localizacoes = localizacaoDAO.buscarLocalizacoesPorProduto(resultSet.getInt("id"));
+            ClassificacaoDAO classificacaoDAO = new ClassificacaoDAO();
+            Classificacao classificacao = classificacaoDAO.buscarClassificacaoPorProduto(resultSet.getInt("classificacao_id"));
 
             return new ProdutoFactory().getProduto(
                     resultSet.getInt("id"),
                     resultSet.getInt("quantidade"),
                     resultSet.getString("nome"),
                     resultSet.getString("caracteristicas"),
-                    resultSet.getString("anexos")
+                    resultSet.getString("anexos"),
                     resultSet.getBoolean("descartavel"),
                     resultSet.getByte("imagem"),
                     localizacoes,
                     classificacao
             );
-            return null;
         } catch (Exception e) {
             throw new RuntimeException("Erro ao extrair o objeto!");
         }
     }
-
-
 }
