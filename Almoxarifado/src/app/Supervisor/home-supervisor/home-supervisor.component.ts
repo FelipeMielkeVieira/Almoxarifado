@@ -20,6 +20,8 @@ export class HomeSupervisorComponent implements OnInit {
   reserva = true;
   aparecerConfirmacao = 0;
   nomeLoc;
+  modalClassificacao = 0;
+  inputClassificacao = 0;
 
   indexExcluir: number = 0;
 
@@ -109,11 +111,13 @@ export class HomeSupervisorComponent implements OnInit {
   fecharModalCadastrar() {
     this.aparecer = false;
     this.cadastrarModal = false;
+    this.inputClassificacao  = 0;
   }
 
   cadastrarProduto() {
     this.aparecer = false;
     this.cadastrarModal = false;
+    this.inputClassificacao = 0;
     this.nao = 0;
     this.feedback = 1;
     setTimeout(() => {
@@ -532,5 +536,9 @@ export class HomeSupervisorComponent implements OnInit {
       this.feedback = 0;
     }, 5000);
     console.log(this.service.localizacoes);
+  }
+
+  adicionarClassificacao(){
+    this.inputClassificacao = 1;
   }
 }

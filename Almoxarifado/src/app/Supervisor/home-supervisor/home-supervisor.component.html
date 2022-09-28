@@ -246,11 +246,21 @@
         </div>
         <div class="classificacao">
           <span>Classificação: </span>
+          <div class="addClassificacao">
+            <div class="divPonto" (click)="adicionarClassificacao()">
+              <span title="Adicionar" id="iconMaisLoc" class="material-symbols-outlined iconDeselect">
+                add
+              </span>
+            </div>
+          </div>
           <select class="inputsCadastro" name="">
             <option *ngFor="let classificacao of listaClassificacao" value="">
               {{ classificacao.nome }}
             </option>
           </select>
+        </div>
+        <div class="adicionarClassificacao">
+          <input *ngIf="inputClassificacao == 1" class="inputsCadastro" type="text" placeholder="Cadastrar localização" />
         </div>
         <div class="descricao">
           <span>Descrição: </span>
@@ -355,8 +365,8 @@
                 </span>
               </div>
               <div id="iconListaBloco">
-                <span *ngIf="listaItens == 1" (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect"
-                  title="Ordernar">
+                <span *ngIf="listaItens == 1" (click)="ordernar()" id="iconOrdernar"
+                  class="material-symbols-outlined iconDeselect" title="Ordernar">
                   sync_alt
                 </span>
                 <div id="containerIconFiltro">
@@ -365,7 +375,7 @@
                     filter_alt
                   </span>
                   <!-- ---------- MODAL FILTRAR ---------- -->
-                  
+
                   <div *ngIf="modalFiltrar" class="modalUser" (click)="fecharModalFiltro()">
                     <h3 class="tituloFiltroModalUser">Filtro</h3>
                     <div class="setaUser"></div>
