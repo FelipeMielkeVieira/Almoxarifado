@@ -33,7 +33,7 @@ public class ProdutoDAO {
             statement.setInt(7, produto.getClassificacaoProduto().getCodigoClassificacao());
 
             try {
-                System.out.println(statement.execute());
+                statement.execute();
             } catch (Exception e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
             }

@@ -6,12 +6,32 @@ import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class ClassificacaoDAO {
     private final Connection conexaoClassificacao;
 
     public ClassificacaoDAO() {
         this.conexaoClassificacao = new ConexaoFactory().conectaBD();
+    }
+
+    public void inserirClassificacao(Classificacao classificacao) {
+        String sql = "INSERT INTO CLASSIFICACAO (CLASSIFICACAO) VALUES (?)";
+
+        try (PreparedStatement statement = conexaoClassificacao.prepareStatement(sql)) {
+
+            statement.setString(1, classificacao.getClassificacao());
+
+            try {
+                statement.execute();
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
     }
 
     public Classificacao selecionarId(int id) {
@@ -30,10 +50,30 @@ public class ClassificacaoDAO {
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("Erro na execução do comando SQL");
+            throw new RuntimeException("Erro na preparação do comando SQL");
         }
 
         throw new RuntimeException("E-mail não encontrado!");
+    }
+
+    public Collection<Classificacao> selecionarTodos() {
+        Collection<Classificacao> listaClassificacoes = new ArrayList<>();
+
+        String sql = "SELECT * FROM CLASSIFICACAO";
+
+        try (PreparedStatement statement = conexaoClassificacao.prepareStatement(sql)) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet != null && resultSet.next()) {
+                    listaClassificacoes.add(extrairObjeto(resultSet));
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
+
+        return listaClassificacoes;
     }
 
     public Classificacao buscarClassificacaoPorProduto(int classificacao_id) {
@@ -52,7 +92,7 @@ public class ClassificacaoDAO {
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("Erro na execução do comando SQL");
+            throw new RuntimeException("Erro na preparação do comando SQL");
         }
 
         throw new RuntimeException("E-mail não encontrado!");
