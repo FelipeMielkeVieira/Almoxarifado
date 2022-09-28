@@ -45,5 +45,4 @@ public class ClassificacaoDAO {
             throw new RuntimeException("Erro ao extrair o objeto!");
         }
     }
-
 }

@@ -21,7 +21,6 @@ public class UsuarioDAO {
     }
 
     public void inserirUsuario(Usuario usuario) {
-
         String sql = "INSERT INTO USUARIO (EMAIL, SENHA, NOME, TIPO) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement statement = conexaoUsuario.prepareStatement(sql)) {
@@ -96,7 +95,6 @@ public class UsuarioDAO {
     }
 
     public ArrayList<Usuario> selecionarPorNome(String nome, int comeco, int limite) {
-
         String sql = "SELECT * FROM USUARIO WHERE NOME LIKE ? LIMIT ?, ?";
 
         try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
