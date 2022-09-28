@@ -1,9 +1,6 @@
 package br.senai.sc.almoxarifado.model.dao;
 
-import br.senai.sc.almoxarifado.model.entities.Atendente1;
-import br.senai.sc.almoxarifado.model.entities.Atendente2;
-import br.senai.sc.almoxarifado.model.entities.Professor;
-import br.senai.sc.almoxarifado.model.entities.Usuario;
+import br.senai.sc.almoxarifado.model.entities.*;
 import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
 import br.senai.sc.almoxarifado.model.factory.UsuarioFactory;
 
@@ -30,8 +27,8 @@ public class UsuarioDAO {
             statement.setString(3, usuario.getNomeUsuario());
             statement.setString(4, (
                     (usuario instanceof Professor) ? "PROFESSOR" :
-                            (usuario instanceof Atendente1) ? "ATENDENTE1" :
-                                    (usuario instanceof Atendente2) ? "ATENDENTE2" : "SUPERVISOR"
+                            (usuario instanceof Atendente2) ? "ATENDENTE2" :
+                                    (usuario instanceof Atendente1) ? "ATENDENTE1" : "SUPERVISOR"
             ));
 
             try {
@@ -67,7 +64,7 @@ public class UsuarioDAO {
         throw new RuntimeException("E-mail não encontrado!");
     }
 
-    public ArrayList<Usuario> selecionarTodos(int comeco, int limite) {
+    public ArrayList<Usuario> selecionarTodos(Integer comeco, Integer limite) {
         String sql = "SELECT * FROM USUARIO LIMIT ?, ?";
 
         try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
@@ -94,7 +91,7 @@ public class UsuarioDAO {
         throw new RuntimeException("Nenhum usuário encontrado!");
     }
 
-    public ArrayList<Usuario> selecionarPorNome(String nome, int comeco, int limite) {
+    public ArrayList<Usuario> selecionarPorNome(String nome, Integer comeco, Integer limite) {
         String sql = "SELECT * FROM USUARIO WHERE NOME LIKE ? LIMIT ?, ?";
 
         try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
@@ -134,6 +131,23 @@ public class UsuarioDAO {
                 throw new RuntimeException("Erro na execução do comando SQL");
             }
 
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
+    }
+
+    public void editarUsuario(String email, TipoUsuario tipoUsuario) {
+        String sql = "UPDATE USUARIO SET TIPO = ? WHERE EMAIL = ?";
+
+        try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
+
+            stmt.setString(1, tipoUsuario.toString());
+            stmt.setString(2, email);
+            try {
+                stmt.execute();
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
         } catch (Exception e) {
             throw new RuntimeException("Erro na preparação do comando SQL");
         }

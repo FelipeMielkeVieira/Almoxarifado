@@ -16,7 +16,7 @@ public class LocalizacaoDAO {
     }
 
     public void inserirLocalizacao(Localizacao localizacao) {
-        String sql = "INSERT INTO LOCALIZACAO (ID, NOME) VALUES (NULL, ?)";
+        String sql = "INSERT INTO LOCALIZACAO (NOME) VALUES (?)";
 
         try (PreparedStatement statement = conexaoLocalizacao.prepareStatement(sql)) {
             statement.setString(1, localizacao.getNome());
@@ -31,12 +31,13 @@ public class LocalizacaoDAO {
         }
     }
 
-    public ArrayList<Localizacao> selecionarTodos(int id) {
-        String sql = "SELECT * FROM LOCALIZACAO WHERE ID >= ? LIMIT 100";
+    public ArrayList<Localizacao> selecionarTodos(Integer id, Integer limite) {
+        String sql = "SELECT * FROM LOCALIZACAO WHERE ID >= ? LIMIT ?";
 
         try (PreparedStatement stmt = conexaoLocalizacao.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
+            stmt.setInt(2, limite);
             try (ResultSet resultSet = stmt.executeQuery()) {
 
                 ArrayList<Localizacao> localizacoes = new ArrayList<>();
@@ -57,7 +58,7 @@ public class LocalizacaoDAO {
         throw new RuntimeException("Nenhuma localização encontrada!");
     }
 
-    public void removerLocalizacao(int id) {
+    public void removerLocalizacao(Integer id) {
         String sql = "DELETE FROM LOCALIZACAO WHERE ID = ?";
 
         try (PreparedStatement stmt = conexaoLocalizacao.prepareStatement(sql)) {
@@ -74,7 +75,7 @@ public class LocalizacaoDAO {
         }
     }
 
-    public ArrayList<Localizacao> buscarLocalizacoesPorProduto(int idProduto) {
+    public ArrayList<Localizacao> buscarLocalizacoesPorProduto(Integer idProduto) {
         String sql = "SELECT * FROM LOCALIZACAO WHERE ID IN (SELECT LOCALIZACAO_ID FROM PRODUTO_LOCALIZACAO WHERE PRODUTO_ID = ?)";
 
         try (PreparedStatement stmt = conexaoLocalizacao.prepareStatement(sql)) {
