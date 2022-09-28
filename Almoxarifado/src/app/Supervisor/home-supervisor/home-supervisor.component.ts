@@ -93,27 +93,6 @@ export class HomeSupervisorComponent implements OnInit {
     divPrincipal.style.opacity = "0.5";
   }
 
-  aparecerModalLocalizacao() {
-    this.aparecer = true;
-    this.localizacaoModal = true;
-  }
-
-  fecharModalLocalizacao() {
-    this.aparecer = false;
-    this.localizacaoModal = false;
-  }
-
-  aparecerModalCadastrar() {
-    this.aparecer = true;
-    this.cadastrarModal = true;
-  }
-
-  fecharModalCadastrar() {
-    this.aparecer = false;
-    this.cadastrarModal = false;
-    this.inputClassificacao  = 0;
-  }
-
   cadastrarProduto() {
     this.aparecer = false;
     this.cadastrarModal = false;
@@ -164,20 +143,6 @@ export class HomeSupervisorComponent implements OnInit {
     }, 5000);
   }
 
-  fechar() {
-    this.feedback = 0;
-  }
-
-  informarDefeitoItem() {
-    this.devolucaoModal = false;
-    this.informarDefeitoModal = true;
-  }
-
-  voltarDevolucaoItens() {
-    this.informarDefeitoModal = false;
-    this.devolucaoModal = true;
-  }
-
   cancelar() {
     document.documentElement.style.overflow = "auto";
     this.contadorRecusar = 0;
@@ -220,14 +185,6 @@ export class HomeSupervisorComponent implements OnInit {
       ) as HTMLElement;
       comAzul.className = "comAzul";
     }
-  }
-
-  mostrarEmBloco() {
-    this.emBloco = 0;
-  }
-
-  mostrarEmLista() {
-    this.emBloco = 1;
   }
 
   gerenciarUsuarios() {
@@ -388,11 +345,6 @@ export class HomeSupervisorComponent implements OnInit {
     }
   }
 
-  confirmacaoLocalizacao(index: number) {
-    this.aparecerConfirmacao = 1;
-    this.indexExcluir = index;
-  }
-
   excluirLocalizacao() {
     this.aparecerConfirmacao = 0;
     let loc = this.localizacoesFiltradas[this.indexExcluir];
@@ -420,6 +372,69 @@ export class HomeSupervisorComponent implements OnInit {
     this.localizacoesFiltradas = listaFiltrada;
   }
 
+  produtoNaoDevolvido() {
+    let botao = document.querySelector(".btnSegundario") as HTMLElement;
+
+    if (botao.style.backgroundColor == "red") {
+      botao.style.backgroundColor = "gray";
+    } else {
+      botao.style.backgroundColor = "red";
+    }
+    //fazer lógica para dizer que o item não foi devolvido
+    //desse jeito, a sacola ainda vai existir com os itens não devolvidos
+  }
+
+  abrirModal(abrir: boolean) {
+    if (abrir) {
+      this.modalOrdernar = true;
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      this.modalOrdernar = false;
+      document.documentElement.style.overflow = "auto";
+    }
+  }
+
+  cadastrar() {
+    this.service.localizacoes.push({
+      id: this.service.localizacoes.length + 1,
+      nome: this.nomeLoc,
+    });
+    this.fecharModalLocalizacao();
+    this.nao = 4;
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
+    console.log(this.service.localizacoes);
+  }
+
+  confirmacaoLocalizacao(index: number) {
+    this.aparecerConfirmacao = 1;
+    this.indexExcluir = index;
+  }
+
+  fechar() {
+    this.feedback = 0;
+  }
+
+  informarDefeitoItem() {
+    this.devolucaoModal = false;
+    this.informarDefeitoModal = true;
+  }
+
+  voltarDevolucaoItens() {
+    this.informarDefeitoModal = false;
+    this.devolucaoModal = true;
+  }
+
+  mostrarEmBloco() {
+    this.emBloco = 0;
+  }
+
+  mostrarEmLista() {
+    this.emBloco = 1;
+  }
+
   adicionarLocalizacao() {
     if (this.localizacoesItem < 6) {
       this.localizacoesItem++;
@@ -438,18 +453,6 @@ export class HomeSupervisorComponent implements OnInit {
     } else {
       this.removerProdutoSacola();
     }
-  }
-
-  produtoNaoDevolvido() {
-    let botao = document.querySelector(".btnSegundario") as HTMLElement;
-
-    if (botao.style.backgroundColor == "red") {
-      botao.style.backgroundColor = "gray";
-    } else {
-      botao.style.backgroundColor = "red";
-    }
-    //fazer lógica para dizer que o item não foi devolvido
-    //desse jeito, a sacola ainda vai existir com os itens não devolvidos
   }
 
   removerProdutoSacola() {
@@ -489,16 +492,6 @@ export class HomeSupervisorComponent implements OnInit {
     this.reserva = true;
   }
 
-  abrirModal(abrir: boolean) {
-    if (abrir) {
-      this.modalOrdernar = true;
-      document.documentElement.style.overflow = "hidden";
-    } else {
-      this.modalOrdernar = false;
-      document.documentElement.style.overflow = "auto";
-    }
-  }
-
   ordernar() {
     this.abrirModal(true);
   }
@@ -524,21 +517,28 @@ export class HomeSupervisorComponent implements OnInit {
     this.modalOrdernar = false;
   }
 
-  cadastrar() {
-    this.service.localizacoes.push({
-      id: this.service.localizacoes.length + 1,
-      nome: this.nomeLoc,
-    });
-    this.fecharModalLocalizacao();
-    this.nao = 4;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-    console.log(this.service.localizacoes);
-  }
-
   adicionarClassificacao(){
     this.inputClassificacao = 1;
+  }
+
+  aparecerModalLocalizacao() {
+    this.aparecer = true;
+    this.localizacaoModal = true;
+  }
+
+  fecharModalLocalizacao() {
+    this.aparecer = false;
+    this.localizacaoModal = false;
+  }
+
+  aparecerModalCadastrar() {
+    this.aparecer = true;
+    this.cadastrarModal = true;
+  }
+
+  fecharModalCadastrar() {
+    this.aparecer = false;
+    this.cadastrarModal = false;
+    this.inputClassificacao  = 0;
   }
 }
