@@ -29,4 +29,21 @@ public class ProdutoLocalizacaoDAO {
             throw new RuntimeException("Erro na preparação do comando SQL!");
         }
     }
+
+    public void deletarProdutoLocalizacaoPorProduto(Integer codigoProduto) {
+        String sql = "DELETE FROM PRODUTO_LOCALIZACAO WHERE PRODUTO_ID = ? AND ID > 0;";
+
+        try (PreparedStatement statement = conexaoProdutoLocalizacao.prepareStatement(sql)) {
+            statement.setInt(1, codigoProduto);;
+
+            try {
+                statement.execute();
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL!");
+        }
+    }
 }

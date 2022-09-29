@@ -34,7 +34,7 @@ public class ProdutoDAO {
             try {
                 statement.execute();
 
-                // Obtendo a ResultSet com o id do produto inserido;
+                // Obtendo o ResultSet com o id do produto inserido;
                 ResultSet resultSet = statement.getGeneratedKeys();
                 int idProduto = 0;
                 if (resultSet.next()) {
@@ -50,6 +50,75 @@ public class ProdutoDAO {
                 } catch (Exception e) {
                     throw new RuntimeException("Erro ao inserir as localizações do produto");
                 }
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL!");
+        }
+    }
+
+    public void editarProduto(Produto produto) {
+        String sql = "UPDATE PRODUTO SET NOME = ?, CARACTERISTICAS = ?, QUANTIDADE = ?, DESCARTAVEL = ?, IMAGEM = ?, " +
+                "ANEXOS = ?, CLASSIFICACAO_ID = ? WHERE ID = ?";
+
+        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
+            statement.setString(1, produto.getNomeProduto());
+            statement.setString(2, produto.getCaracteristicasProduto());
+            statement.setInt(3, produto.getQuantidadeProduto());
+            statement.setBoolean(4, produto.isProdutoDescartavel());
+            statement.setByte(5, produto.getImagemProduto());
+            statement.setString(6, produto.getAnexosProduto());
+            statement.setInt(7, produto.getClassificacaoProduto().getCodigoClassificacao());
+            statement.setInt(8, produto.getCodigoProduto());
+
+            try {
+                statement.execute();
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL!");
+        }
+    }
+
+    public void deletarProduto(Produto produto) {
+        String sql = "DELETE FROM PRODUTO WHERE ID = ?";
+
+        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
+            statement.setInt(1, produto.getCodigoProduto());
+            try {
+                statement.execute();
+
+                try {
+                    ProdutoLocalizacaoDAO produtoLocalizacaoDAO = new ProdutoLocalizacaoDAO();
+                    produtoLocalizacaoDAO.deletarProdutoLocalizacaoPorProduto(produto.getCodigoProduto());
+
+                    try {
+                        SacolaProdutoDAO sacolaProdutoDAO = new SacolaProdutoDAO();
+                        sacolaProdutoDAO.deletarProdutoDasSacolas(produto.getCodigoProduto());
+                    } catch (Exception e) {
+                        throw new RuntimeException("Erro ao deletar o produto das sacolas");
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Erro ao deletar localizações do produto");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL!");
+        }
+    }
+
+    public void diminuirQuantidade(Integer quantidadeADiminuir, Integer codigoProduto) {
+        // Tentar fazer diminuir a quantidade do produto sem ter que pegar a quantidade em um comando sql separado
+        String sql = "UPDATE PRODUTO SET QUANTIDADE = ? WHERE ID = ?";
+
+        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
+            statement.setInt(1, );
+            try {
+                statement.execute();
             } catch (Exception e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
             }
