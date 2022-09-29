@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class UsuarioDAO {
 
@@ -117,6 +118,32 @@ public class UsuarioDAO {
         }
 
         throw new RuntimeException("Nenhum usuário encontrado!");
+    }
+
+    public Collection<Usuario> selecionarPorTipo(String tipo, Integer comeco, Integer limite) {
+        String sql = "SELECT * FROM USUARIO WHERE TIPO = ? LIMIT ?, ?";
+        ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+
+        try (PreparedStatement stmt = conexaoUsuario.prepareStatement(sql)) {
+            stmt.setString(1, tipo);
+            stmt.setInt(2, comeco);
+            stmt.setInt(3, limite);
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        listaUsuarios.add(extrairObjeto(resultSet));
+                    }
+                    return listaUsuarios;
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na execução do comando SQL");
+        }
+
+        throw new RuntimeException("Nenhum usuário possui esta função!");
     }
 
     public void removerUsuario(String email) {
