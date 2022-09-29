@@ -29,6 +29,21 @@ public class Produto {
         this.classificacaoProduto = classificacaoProduto;
     }
 
+    public Produto(Integer quantidadeProduto, String nomeProduto,
+                   String caracteristicasProduto, String anexosProduto, Boolean produtoDescartavel,
+                   Byte imagemProduto, ArrayList<Localizacao> listaLocalizacoesProduto,
+                   Classificacao classificacaoProduto) {
+        this.codigoProduto = codigoProduto;
+        this.quantidadeProduto = quantidadeProduto;
+        this.nomeProduto = nomeProduto;
+        this.caracteristicasProduto = caracteristicasProduto;
+        this.anexosProduto = anexosProduto;
+        this.produtoDescartavel = produtoDescartavel;
+        this.imagemProduto = imagemProduto;
+        this.listaLocalizacoesProduto = listaLocalizacoesProduto;
+        this.classificacaoProduto = classificacaoProduto;
+    }
+
     public Integer getCodigoProduto() {
         return codigoProduto;
     }
