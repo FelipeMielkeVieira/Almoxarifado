@@ -1,0 +1,147 @@
+<div class="modalSenha">
+    <img
+      id="fechar2"
+      (click)="fechar2()"
+      src="../../../assets/close.png"
+      alt="Fechar modal de senha"
+    />
+    <h3 id="tituloSenha">Recuperar Senha</h3>
+
+    <!-- Primeira etapa da recuperação de senha (pedir email) -->
+    <div *ngIf="senha1 == 1" id="divEmail">
+      <div class="texto">
+        <h5 id="inserirEmail">Insira seu Email:</h5>
+        <div class="asterisco">*</div>
+      </div>
+
+      <input id="inputEmail" type="email" placeholder="nome@gmail.com" />
+    </div>
+    <span *ngIf="senha1 == 1" id="avisoCadastro"
+      >Caro Usuário, enviaremos um código de verificação no seu email para
+      identificação.</span
+    >
+    <button *ngIf="senha1 == 1" class="enviarCodigo" (click)="esqueciSenha2()">
+      Enviar
+    </button>
+
+    <!-- Segunda etapa da recuperação de senha (inserir código recebido no email) -->
+    <h3 *ngIf="senha2 == 1" id="inserirCodigo">Insira o Código</h3>
+    <div *ngIf="senha2 == 1" id="divCodigo">
+      <input
+        id="cod1"
+        class="inputCodigo"
+        (keyup)="ativarCod2()"
+        maxlength="1"
+      />
+      <input
+        id="cod2"
+        class="inputCodigo"
+        (keyup)="ativarCod3()"
+        maxlength="1"
+      />
+      <input
+        id="cod3"
+        class="inputCodigo"
+        (keyup)="ativarCod4()"
+        maxlength="1"
+      />
+      <input
+        id="cod4"
+        class="inputCodigo"
+        (keyup)="ativarCod5()"
+        maxlength="1"
+      />
+      <input
+        id="cod5"
+        class="inputCodigo"
+        (keyup)="ativarCod6()"
+        maxlength="1"
+      />
+      <input
+        id="cod6"
+        class="inputCodigo"
+        (keyup)="voltarCodigo()"
+        maxlength="1"
+      />
+    </div>
+    <span *ngIf="senha2 == 1" id="timer">{{ tempoString }}</span>
+    <span *ngIf="senha2 == 1" id="reenviar">Reenviar Código</span>
+    <button *ngIf="senha2 == 1" class="enviarCodigo" (click)="esqueciSenha3()">
+      Próximo
+    </button>
+
+    <!-- Terceira e última etapa da recuperação de senha (Colocar nova senha) -->
+    <div *ngIf="senha3 == 1" class="divInputSenha1">
+      <div class="texto">
+        <span class="spanNovaSenha">Nova Senha:</span>
+        <div class="asterisco">*</div>
+      </div>
+      <div class="divSenha2">
+        <input
+          type="password"
+          id="inputSenha2"
+          class="inputNovaSenha"
+          placeholder="*****"
+          [(ngModel)]="senhaNova"
+        />
+        <span
+          *ngIf="!trocarOlho2"
+          class="material-symbols-outlined imgOlho2 iconDeselect"
+          id="olho2"
+          (click)="trocarOlho(2)"
+          alt="Visualização da senha"
+        >
+          visibility_off
+        </span>
+        <span
+          *ngIf="trocarOlho2"
+          class="material-symbols-outlined imgOlho2 iconDeselect"
+          id="olho2"
+          (click)="trocarOlho(2)"
+          alt="Visualização da senha"
+        >
+          visibility
+        </span>
+      </div>
+    </div>
+    <div *ngIf="senha3 == 1" class="divInputSenha2" id="inputRepetirSenha">
+      <div class="texto">
+        <span class="spanNovaSenha">Repita a Senha:</span>
+        <div class="asterisco">*</div>
+      </div>
+      <div class="divSenha2">
+        <input
+          type="password"
+          id="inputSenha3"
+          class="inputNovaSenha"
+          placeholder="*****"
+          [(ngModel)]="senhaNova2"
+        />
+        <span
+          *ngIf="!trocarOlho3"
+          class="material-symbols-outlined imgOlho3 iconDeselect"
+          id="olho3"
+          (click)="trocarOlho(3)"
+          alt="Visualização da senha"
+        >
+          visibility_off
+        </span>
+        <span
+          *ngIf="trocarOlho3"
+          class="material-symbols-outlined imgOlho3 iconDeselect"
+          id="olho3"
+          (click)="trocarOlho(3)"
+          alt="Visualização da senha"
+        >
+          visibility
+        </span>
+      </div>
+    </div>
+    <button
+      *ngIf="senha3 == 1"
+      class="enviarCodigo"
+      (click)="enviarNovaSenha()"
+    >
+      Enviar
+    </button>
+  </div>

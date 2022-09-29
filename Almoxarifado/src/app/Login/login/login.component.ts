@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { UsersService } from 'src/app/service';
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { UsersService } from "src/app/service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
-
   emailUser: string;
   senhaUser: string;
-  senhaIncorreta: number;
 
-  cadastro: number = 0;
-  requisicaoSenha: number = 0;
+  alertaSolicitacaoCadastro: boolean = false;
+  alertaRedefinicaoSenha: boolean = false;
+  alertaSenhaIncorreta: boolean = false;
+  listaTimeoutsAlertas = [];
+
+  modalRedefinicaoSenha: boolean = false;
 
   senha1: number = 0;
   senha2: number = 0;
@@ -35,56 +37,41 @@ export class LoginComponent implements OnInit {
   trocarOlho2: boolean = false;
   trocarOlho3: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private users: UsersService) {
-    if (localStorage.getItem('cadastro')) {
-      localStorage.removeItem('cadastro');
-      this.cadastro = 1;
-    }
-  }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private users: UsersService
+  ) {}
 
   ngOnInit() {
-    if (localStorage.getItem('usuario')) {
+    if (localStorage.getItem("usuario")) {
       this.navegacaoTipo();
     }
-    if (this.cadastro == 1) {
-      this.modalCadastro();
+    if (localStorage.getItem("cadastro")) {
+      localStorage.removeItem("cadastro");
+      this.abrirModalAlerta(1);
     }
   }
 
   lembrar() {
-    if (localStorage.getItem('lembrarSenha') == '0' || !localStorage.getItem('lembrarSenha')) {
-      localStorage.setItem('lembrarSenha', '1');
+    if (
+      localStorage.getItem("lembrarSenha") == "0" ||
+      !localStorage.getItem("lembrarSenha")
+    ) {
+      localStorage.setItem("lembrarSenha", "1");
     } else {
-      localStorage.setItem('lembrarSenha', '0')
+      localStorage.setItem("lembrarSenha", "0");
     }
   }
 
   cadastrar() {
-    this.router.navigate(['/cadastro']);
-  }
-
-  fechar() {
-    this.cadastro = 0;
-    this.requisicaoSenha = 0;
-    this.senhaIncorreta = 0;
+    this.router.navigate(["/cadastro"]);
   }
 
   esqueciASenha() {
-    this.senha1 = 1;
-    let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
-    divPrincipal.style.opacity = '0.5';
-  }
-
-  modalCadastro() {
-    setTimeout(() => {
-      this.cadastro = 0;
-    }, 5000);
-  }
-
-  modalSenha() {
-    setTimeout(() => {
-      this.requisicaoSenha = 0;
-    }, 5000);
+    this.modalRedefinicaoSenha = true;
+    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
+    divPrincipal.style.opacity = "0.5";
   }
 
   fechar2() {
@@ -96,8 +83,8 @@ export class LoginComponent implements OnInit {
     if (this.intervaloTimer) {
       clearInterval(this.intervaloTimer);
     }
-    let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
-    divPrincipal.style.opacity = '1';
+    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
+    divPrincipal.style.opacity = "1";
   }
 
   esqueciSenha2() {
@@ -169,9 +156,13 @@ export class LoginComponent implements OnInit {
       if (this.tempo % 60 == 0 && this.tempo != 0) {
         this.tempoString = this.tempo / 60 + "m restantes";
       } else if (this.tempo > 60) {
-        this.tempoString = ((this.tempo - this.tempo % 60) / 60) + "m e " + this.tempo % 60 + "s restantes";
+        this.tempoString =
+          (this.tempo - (this.tempo % 60)) / 60 +
+          "m e " +
+          (this.tempo % 60) +
+          "s restantes";
       } else if (this.tempo < 0) {
-        this.tempoString = "Código Expirado"
+        this.tempoString = "Código Expirado";
         clearInterval(this.intervaloTimer);
       } else {
         this.tempoString = this.tempo + "s restantes";
@@ -180,25 +171,24 @@ export class LoginComponent implements OnInit {
   }
 
   esqueciSenha3() {
-    this.senha2 = 0
+    this.senha2 = 0;
     this.senha3 = 1;
   }
 
   enviarNovaSenha() {
     this.senha3 = 0;
-    let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
-    divPrincipal.style.opacity = '1';
+    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
+    divPrincipal.style.opacity = "1";
 
     if (this.intervaloTimer) {
       clearInterval(this.intervaloTimer);
     }
 
-    this.requisicaoSenha = 1;
-    this.modalSenha();
+    this.abrirModalAlerta(2);
   }
 
   trocarOlho(input) {
-    let input2: HTMLInputElement
+    let input2: HTMLInputElement;
 
     switch (input) {
       case 1:
@@ -206,11 +196,11 @@ export class LoginComponent implements OnInit {
         if (this.olho1 == 1) {
           this.olho1 = 0;
           this.trocarOlho1 = true;
-          input2.type = 'text';
+          input2.type = "text";
         } else {
           this.olho1 = 1;
           this.trocarOlho1 = false;
-          input2.type = 'password';
+          input2.type = "password";
         }
         break;
       case 2:
@@ -218,11 +208,11 @@ export class LoginComponent implements OnInit {
         if (this.olho2 == 1) {
           this.olho2 = 0;
           this.trocarOlho2 = true;
-          input2.type = 'text';
+          input2.type = "text";
         } else {
           this.olho2 = 1;
           this.trocarOlho2 = false;
-          input2.type = 'password';
+          input2.type = "password";
         }
         break;
       case 3:
@@ -230,41 +220,86 @@ export class LoginComponent implements OnInit {
         if (this.olho3 == 1) {
           this.olho3 = 0;
           this.trocarOlho3 = true;
-          input2.type = 'text';
+          input2.type = "text";
         } else {
           this.olho3 = 1;
           this.trocarOlho3 = false;
-          input2.type = 'password';
+          input2.type = "password";
         }
         break;
     }
   }
 
   login() {
-    let senhaCorreta = 0;
     this.users.usuarios.forEach((e) => {
-      if ((e.email == this.emailUser || e.nome == this.emailUser) && e.senha == this.senhaUser) {
-        localStorage.setItem('usuario', e.tipo.toString());
-        localStorage.setItem('emailAtual', e.email);
-        senhaCorreta++;
+      if (
+        (e.email == this.emailUser || e.nome == this.emailUser) &&
+        e.senha == this.senhaUser
+      ) {
+        localStorage.setItem("usuario", e.tipo.toString());
+        localStorage.setItem("emailAtual", e.email);
         this.navegacaoTipo();
+        return;
       }
-    })
-    if (senhaCorreta == 0) {
-      this.senhaIncorreta = 1;
-      setTimeout(() => {
-        this.senhaIncorreta = 0;
-      }, 5000);
-    }
+    });
+
+    this.abrirModalAlerta(3);
   }
 
   navegacaoTipo() {
-    if (localStorage.getItem('usuario') == '1') {
-      this.router.navigate(['/professor'])
-    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
-      this.router.navigate(['/atendente']);
-    } else if (localStorage.getItem('usuario') == '4') {
-      this.router.navigate(['/supervisor'])
+    if (localStorage.getItem("usuario") == "1") {
+      this.router.navigate(["/professor"]);
+    } else if (
+      localStorage.getItem("usuario") == "2" ||
+      localStorage.getItem("usuario") == "3"
+    ) {
+      this.router.navigate(["/atendente"]);
+    } else if (localStorage.getItem("usuario") == "4") {
+      this.router.navigate(["/supervisor"]);
+    }
+  }
+
+  // Função para abrir os modais de alertas de funções efetuadas, criando um timeout de 5 segundos para desaparecer
+  // Recebe como parâmetro o número / id do modal que deverá ser aberto
+  // Os timeouts são armazenados numa lista
+  abrirModalAlerta(numeroModal) {
+    switch (numeroModal) {
+      case 1:
+        this.alertaSolicitacaoCadastro = true;
+        this.listaTimeoutsAlertas[0] = setTimeout(() => {
+          this.alertaSolicitacaoCadastro = false;
+        }, 5000);
+        break;
+      case 2:
+        this.alertaRedefinicaoSenha = true;
+        this.listaTimeoutsAlertas[1] = setTimeout(() => {
+          this.alertaRedefinicaoSenha = false;
+        }, 5000);
+        break;
+      case 3:
+        this.alertaSenhaIncorreta = true;
+        this.listaTimeoutsAlertas[2] = setTimeout(() => {
+          this.alertaSenhaIncorreta = false;
+        }, 5000);
+        break;
+    }
+  }
+
+  // Função para fechar os modais de alerta, limpando os timeouts respectivos para impedir conflitos
+  fecharModalAlerta(numeroModal) {
+    switch (numeroModal) {
+      case 1:
+        this.alertaSolicitacaoCadastro = false;
+        clearTimeout(this.listaTimeoutsAlertas[0]);
+        break;
+      case 2:
+        this.alertaRedefinicaoSenha = false;
+        clearTimeout(this.listaTimeoutsAlertas[1]);
+        break;
+      case 3:
+        this.alertaSenhaIncorreta = false;
+        clearTimeout(this.listaTimeoutsAlertas[2]);
+        break;
     }
   }
 }
