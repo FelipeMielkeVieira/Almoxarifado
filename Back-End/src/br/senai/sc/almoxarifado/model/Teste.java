@@ -2,6 +2,7 @@ package br.senai.sc.almoxarifado.model;
 
 import br.senai.sc.almoxarifado.model.dao.LocalizacaoDAO;
 import br.senai.sc.almoxarifado.model.dao.ProdutoDAO;
+import br.senai.sc.almoxarifado.model.dao.ProdutoLocalizacaoDAO;
 import br.senai.sc.almoxarifado.model.dao.UsuarioDAO;
 import br.senai.sc.almoxarifado.model.entities.*;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class Teste {
     public static void main(String[] args) {
-        produtoTeste();
+
     }
 
     public static void usuarioTeste() {
@@ -43,19 +44,12 @@ public class Teste {
 
     public static void produtoTeste() {
         ProdutoDAO dao = new ProdutoDAO();
-        System.out.println("Selecionar todos: \n" + dao.buscarProdutos(1));
+        System.out.println("Selecionar todos: \n" + dao.buscarProdutos(18));
         System.out.println("---------------------------------------------------\n");
         ArrayList<Localizacao> localizacoes = new ArrayList<>();
-        localizacoes.add(new Localizacao("bbbb"));
+        localizacoes.add(new Localizacao(2,"bbbb"));
         Produto prod = new Produto( 10, "Teclado mecanico full gold", "amarelo",
                 "as", false, (byte) 0, localizacoes, new Classificacao(1, "P1"));
         dao.inserirProduto(prod);
-
-
-        //Integer codigoProduto, Integer quantidadeProduto, String nomeProduto,
-        //                   String caracteristicasProduto, String anexosProduto, Boolean produtoDescartavel,
-        //                   Byte imagemProduto, ArrayList<Localizacao> listaLocalizacoesProduto,
-        //                   Classificacao classificacaoProduto
-
     }
 }

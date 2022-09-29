@@ -6,10 +6,7 @@ import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
 import br.senai.sc.almoxarifado.model.factory.ProdutoFactory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -21,10 +18,8 @@ public class ProdutoDAO {
     }
 
     public void inserirProduto(Produto produto) {
-        String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?);" +
-                "SELECT * FROM produto";
-        ProdutoLocalizacaoDAO produtoLocalizacaoDAO = new ProdutoLocalizacaoDAO();
-        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
+        String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             statement.setString(1, produto.getNomeProduto());
             statement.setString(2, produto.getCaracteristicasProduto());
@@ -34,18 +29,22 @@ public class ProdutoDAO {
             statement.setString(6, produto.getAnexosProduto());
             statement.setInt(7, produto.getClassificacaoProduto().getCodigoClassificacao());
             try {
-                int indice = statement.executeUpdate();
-//                ResultSet resultSet = statement.getGeneratedKeys();
-                System.out.println("a");
-                ResultSet resultSet = statement.executeQuery();
-                System.out.println(resultSet);
-//                try {
-//                    for (Localizacao localizacao : produto.getListaLocalizacoesProduto()) {
-//                        produtoLocalizacaoDAO.inserirProdutoLocalizacao(resultSet.getInt("id"), localizacao.getCodigoLocalizacao());
-//                    }
-//                } catch (Exception e) {
-//                    throw new RuntimeException("Erro ao inserir as localizações do produto");
-//                }
+                statement.execute();
+                ResultSet resultSet = statement.getGeneratedKeys();
+                int idProduto = 0;
+                if (resultSet.next()) {
+                    idProduto = resultSet.getInt(1);
+                }
+                try {
+                    ProdutoLocalizacaoDAO produtoLocalizacaoDAO = new ProdutoLocalizacaoDAO();
+                    for (Localizacao localizacao : produto.getListaLocalizacoesProduto()) {
+                        System.out.println(localizacao.getCodigoLocalizacao());
+                        System.out.println(idProduto);
+                        produtoLocalizacaoDAO.inserirProdutoLocalizacao(idProduto, localizacao.getCodigoLocalizacao());
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Erro ao inserir as localizações do produto");
+                }
             } catch (Exception e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
             }

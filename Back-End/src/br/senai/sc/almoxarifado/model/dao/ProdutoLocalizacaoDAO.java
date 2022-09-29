@@ -12,15 +12,17 @@ public class ProdutoLocalizacaoDAO {
         this.conexaoProdutoLocalizacao = new ConexaoFactory().conectaBD();
     }
 
-    public void inserirProdutoLocalizacao(int produto_id, int localizcao_id) {
-        String sql = "INSERT INTO PRODUTO_LOCALIZACAO (PRODUTO_ID, LOCALIZACAO_ID) VALUES (?, ?)";
+    public void inserirProdutoLocalizacao(int produtoId, int localizcaoId) {
+        String sql = "INSERT INTO PRODUTO_LOCALIZACAO (PRODUTO_ID, LOCALIZACAO_ID) VALUES (?, ?);";
 
         try (PreparedStatement statement = conexaoProdutoLocalizacao.prepareStatement(sql)) {
-            statement.setInt(1, produto_id);
-            statement.setInt(2, localizcao_id);
+            statement.setInt(1, produtoId);
+            statement.setInt(2, localizcaoId);
 
             try {
+                System.out.println("a");
                 statement.execute();
+                System.out.println("b");
             } catch (Exception e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
             }
