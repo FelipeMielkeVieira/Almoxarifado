@@ -112,11 +112,12 @@ public class ProdutoDAO {
     }
 
     public void diminuirQuantidade(Integer quantidadeADiminuir, Integer codigoProduto) {
-        // Tentar fazer diminuir a quantidade do produto sem ter que pegar a quantidade em um comando sql separado
-        String sql = "UPDATE PRODUTO SET QUANTIDADE = ? WHERE ID = ?";
+        // No comando abaixo a quantidade é setada como a sua própria quantidade menos a quantidade passada por parâmetro
+        String sql = "UPDATE PRODUTO SET QUANTIDADE = QUANTIDADE - ? WHERE ID = ?";
 
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
-            statement.setInt(1, );
+            statement.setInt(1, quantidadeADiminuir);
+            statement.setInt(2, codigoProduto);
             try {
                 statement.execute();
             } catch (Exception e) {
