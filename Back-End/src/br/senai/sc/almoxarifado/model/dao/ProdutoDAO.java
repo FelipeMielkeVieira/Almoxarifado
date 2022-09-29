@@ -20,7 +20,8 @@ public class ProdutoDAO {
     }
 
     public void inserirProduto(Produto produto) {
-        String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?);" +
+                "SELECT * FROM produto";
         ProdutoLocalizacaoDAO produtoLocalizacaoDAO = new ProdutoLocalizacaoDAO();
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
 
@@ -31,16 +32,22 @@ public class ProdutoDAO {
             statement.setByte(5, produto.getImagemProduto());
             statement.setString(6, produto.getAnexosProduto());
             statement.setInt(7, produto.getClassificacaoProduto().getCodigoClassificacao());
-
             try {
-                System.out.println(statement.execute());
+                int indice = statement.executeUpdate();
+//                ResultSet resultSet = statement.getGeneratedKeys();
+                System.out.println("a");
+                ResultSet resultSet = statement.executeQuery();
+                System.out.println(resultSet);
+//                try {
+//                    for (Localizacao localizacao : produto.getListaLocalizacoesProduto()) {
+//                        produtoLocalizacaoDAO.inserirProdutoLocalizacao(resultSet.getInt("id"), localizacao.getCodigoLocalizacao());
+//                    }
+//                } catch (Exception e) {
+//                    throw new RuntimeException("Erro ao inserir as localizações do produto");
+//                }
             } catch (Exception e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
             }
-
-//            try {
-//                produtoLocalizacaoDAO.inserirProdutoLocalizacao();
-//            }
 
         } catch (Exception e) {
             throw new RuntimeException("Erro na preparação do comando SQL!");
