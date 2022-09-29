@@ -82,21 +82,21 @@ public class ProdutoDAO {
         }
     }
 
-    public void deletarProduto(Produto produto) {
+    public void deletarProduto(Integer codigoProduto) {
         String sql = "DELETE FROM PRODUTO WHERE ID = ?";
 
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
-            statement.setInt(1, produto.getCodigoProduto());
+            statement.setInt(1, codigoProduto);
             try {
                 statement.execute();
 
                 try {
                     ProdutoLocalizacaoDAO produtoLocalizacaoDAO = new ProdutoLocalizacaoDAO();
-                    produtoLocalizacaoDAO.deletarProdutoLocalizacaoPorProduto(produto.getCodigoProduto());
+                    produtoLocalizacaoDAO.deletarProdutoLocalizacaoPorProduto(codigoProduto);
 
                     try {
                         SacolaProdutoDAO sacolaProdutoDAO = new SacolaProdutoDAO();
-                        sacolaProdutoDAO.deletarProdutoDasSacolas(produto.getCodigoProduto());
+                        sacolaProdutoDAO.deletarProdutoDasSacolas(codigoProduto);
                     } catch (Exception e) {
                         throw new RuntimeException("Erro ao deletar o produto das sacolas");
                     }
@@ -111,7 +111,7 @@ public class ProdutoDAO {
         }
     }
 
-    public void diminuirQuantidade(Integer quantidadeADiminuir, Integer codigoProduto) {
+    public void diminuirQuantidade(Integer codigoProduto, Integer quantidadeADiminuir) {
         // No comando abaixo a quantidade é setada como a sua própria quantidade menos a quantidade passada por parâmetro
         String sql = "UPDATE PRODUTO SET QUANTIDADE = QUANTIDADE - ? WHERE ID = ?";
 
