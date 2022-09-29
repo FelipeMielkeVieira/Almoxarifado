@@ -153,7 +153,7 @@ public class UsuarioDAO {
 
             stmt.setString(1, email);
             try {
-               stmt.execute();
+                stmt.execute();
             } catch (Exception e) {
                 throw new RuntimeException("Erro na execução do comando SQL");
             }
