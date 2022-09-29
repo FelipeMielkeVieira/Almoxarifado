@@ -24,6 +24,7 @@ public class ProdutoDAO {
      * Método que insere um produto na tabela PRODUTO
      * O método também insere todas as localizações do produto na tabela PRODUTO_LOCALIZACAO
      * @param produto
+     * @throws SQLException
      */
     public void inserirProduto(Produto produto) {
         String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?);";
@@ -69,6 +70,7 @@ public class ProdutoDAO {
     /**
      * Método que atualiza um produto na tabela PRODUTO a partir de seu ID
      * @param produto
+     * @throws SQLException
      */
     public void editarProduto(Produto produto) {
         String sql = "UPDATE PRODUTO SET NOME = ?, CARACTERISTICAS = ?, QUANTIDADE = ?, DESCARTAVEL = ?, IMAGEM = ?, " +
@@ -97,6 +99,7 @@ public class ProdutoDAO {
     /**
      * Método que exclui um produto da tabela PRODUTO a partir de seu ID
      * @param codigoProduto
+     * @throws SQLException
      */
     public void deletarProduto(Integer codigoProduto) {
         String sql = "DELETE FROM PRODUTO WHERE ID = ?";
@@ -131,14 +134,16 @@ public class ProdutoDAO {
      * Método que diminui a quantidade disponível em estoque de certo produto a partir de seu ID
      * @param codigoProduto
      * @param quantidadeADiminuir
+     * @throws SQLException
      */
     public void diminuirQuantidade(Integer codigoProduto, Integer quantidadeADiminuir) {
         // No comando abaixo a quantidade é setada como a sua própria quantidade menos a quantidade passada por parâmetro
-        String sql = "UPDATE PRODUTO SET QUANTIDADE = QUANTIDADE - ? WHERE ID = ?";
+        String sql = "UPDATE PRODUTO SET QUANTIDADE = QUANTIDADE - ? WHERE ID = ? AND QUANTIDADE >= ?;";
 
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
             statement.setInt(1, quantidadeADiminuir);
             statement.setInt(2, codigoProduto);
+            statement.setInt(3, quantidadeADiminuir);
             try {
                 statement.execute();
             } catch (Exception e) {
@@ -153,6 +158,7 @@ public class ProdutoDAO {
      * Método que busca todos produtos da tabela PRODUTO
      * @param indexInicial
      * @return lista de todos os produtos
+     * @throws SQLException
      */
     public Collection<Produto> buscarProdutos(Integer indexInicial) {
         String sql = "SELECT * FROM produto WHERE id >= ? LIMIT 18";
@@ -183,6 +189,7 @@ public class ProdutoDAO {
      * @param comeco
      * @param limite
      * @return lista de produtos encontrados pelo nome
+     * @throws SQLException
      */
     public Collection<Produto> buscarProdutoPorNome(String nome, Integer comeco, Integer limite) {
         String sql = "SELECT * FROM PRODUTO WHERE NOME LIKE ? LIMIT ?, ?";
@@ -216,6 +223,7 @@ public class ProdutoDAO {
      * Método que busca os produtos de acordo com o tipo do filtro aplicado
      * @param tipoFiltro
      * @return lista de produtos com o filtro aplicado
+     * @throws SQLException
      */
     public Collection<Produto> produtosFiltrados(Integer tipoFiltro) { // filtros da página principal ( com estoque, descartável...)
         // * tipoFiltro = 1 -> produtos descartáveis * tipoFiltro = 2 -> produtos não descartáveis * tipoFiltro = 3 -> produtos com estoque * tipoFiltro = 4 -> produtos sem estoque
@@ -254,6 +262,7 @@ public class ProdutoDAO {
      * Método que busca os produtos de acordo com o tipo da ordenação aplicada
      * @param tipoOrdenacao
      * @return lista de produtos com a ordenação aplicada
+     * @throws SQLException
      */
     public Collection<Produto> produtosOrdenados(Integer tipoOrdenacao) { // filtros de ordenação dos produtos na página principal
         // * tipoOrdenacao = 1 -> NOME crescente * tipoOrdenacao = 2 -> NOME decrescente * tipoOrdenacao = 3 -> QUANTIDADE crescente * tipoOrdenacao = 4 -> QUANTIDADE decrescente
@@ -292,6 +301,7 @@ public class ProdutoDAO {
      * Método que cria um objeto Produto a partir de um ResultSet
      * @param resultSet
      * @return objeto Produto
+     * @throws RuntimeException
      */
     private Produto extrairObjeto(ResultSet resultSet) {
         try {
