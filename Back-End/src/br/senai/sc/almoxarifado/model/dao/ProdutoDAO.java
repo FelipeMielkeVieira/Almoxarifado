@@ -9,6 +9,7 @@ import br.senai.sc.almoxarifado.model.factory.ProdutoFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -74,6 +75,98 @@ public class ProdutoDAO {
         } catch (Exception e) {
             throw new RuntimeException("Erro na preparação do comando SQL!");
         }
+    }
+
+    public Collection<Produto> buscarProdutoPorNome(String nome, Integer comeco, Integer limite) {
+        String sql = "SELECT * FROM PRODUTO WHERE NOME LIKE ? LIMIT ?, ?";
+        Collection<Produto> listaProdutos = new ArrayList<>();
+
+        try (PreparedStatement stmt = conexaoProduto.prepareStatement(sql)) {
+
+            stmt.setString(1, "%" + nome + "%");
+            stmt.setInt(2, comeco);
+            stmt.setInt(3, limite);
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        listaProdutos.add(extrairObjeto(resultSet));
+                    }
+                    return listaProdutos;
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
+
+        throw new RuntimeException("Nenhum produto encontrado!");
+    }
+
+    public Collection<Produto> produtosFiltrados(Integer tipoFiltro) { // filtros da página principal ( com estoque, descartável...)
+        // * tipoFiltro = 1 -> produtos descartáveis * tipoFiltro = 2 -> produtos não descartáveis * tipoFiltro = 3 -> produtos com estoque * tipoFiltro = 4 -> produtos sem estoque
+        String sql = "";
+        Collection<Produto> listaProdutos = new ArrayList<>();
+
+        if (tipoFiltro == 1) {
+            sql = "SELECT * FROM PRODUTO WHERE DESCARTAVEL = 1 LIMIT 18";
+        } else if (tipoFiltro == 2) {
+            sql = "SELECT * FROM PRODUTO WHERE DESCARTAVEL = 0 LIMIT 18";
+        } else if (tipoFiltro == 3) {
+            sql = "SELECT * FROM PRODUTO WHERE DESCARTAVEL > 0 LIMIT 18";
+        } else if (tipoFiltro == 4) {
+            sql = "SELECT * FROM PRODUTO WHERE DESCARTAVEL = 0 LIMIT 18";
+        }
+
+        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        listaProdutos.add(extrairObjeto(resultSet));
+                    }
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
+
+        return listaProdutos;
+    }
+
+    public Collection<Produto> produtosOrdenados(Integer tipoOrdenacao) { // filtros de ordenação dos produtos na página principal
+        // * tipoOrdenacao = 1 -> NOME crescente * tipoOrdenacao = 2 -> NOME decrescente * tipoOrdenacao = 3 -> QUANTIDADE crescente * tipoOrdenacao = 4 -> QUANTIDADE decrescente
+        String sql = "";
+        Collection<Produto> listaProdutos = new ArrayList<>();
+
+        if (tipoOrdenacao == 1) {
+            sql = "SELECT * FROM PRODUTO ORDER BY NOME ASC LIMIT 18";
+        } else if (tipoOrdenacao == 2) {
+            sql = "SELECT * FROM PRODUTO ORDER BY NOME DESC LIMIT 18";
+        } else if (tipoOrdenacao == 3) {
+            sql = "SELECT * FROM PRODUTO ORDER BY QUANTIDADE ASC LIMIT 18";
+        } else if (tipoOrdenacao == 4) {
+            sql = "SELECT * FROM PRODUTO ORDER BY QUANTIDADE DESC LIMIT 18";
+        }
+
+        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        listaProdutos.add(extrairObjeto(resultSet));
+                    }
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
+
+        return listaProdutos;
     }
 
     private Produto extrairObjeto(ResultSet resultSet) {

@@ -19,7 +19,9 @@ public class LocalizacaoDAO {
         String sql = "INSERT INTO LOCALIZACAO (NOME) VALUES (?)";
 
         try (PreparedStatement statement = conexaoLocalizacao.prepareStatement(sql)) {
+
             statement.setString(1, localizacao.getNome());
+
             try {
                 statement.execute();
             } catch (Exception e) {
