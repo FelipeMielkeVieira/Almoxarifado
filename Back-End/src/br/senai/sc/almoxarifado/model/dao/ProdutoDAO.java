@@ -19,6 +19,9 @@ public class ProdutoDAO {
 
     public void inserirProduto(Produto produto) {
         String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?);";
+
+        // Criando statement passando por parâmetro o comando sql e Statement.RETURN_GENERATED_KEYS para retornar o id do produto inserido;
+        // O id do produto inserido será utilizado para poder cadastrar suas localizações na tabela intermediária produto_localizacao;
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             statement.setString(1, produto.getNomeProduto());
@@ -30,16 +33,18 @@ public class ProdutoDAO {
             statement.setInt(7, produto.getClassificacaoProduto().getCodigoClassificacao());
             try {
                 statement.execute();
+
+                // Obtendo a ResultSet com o id do produto inserido;
                 ResultSet resultSet = statement.getGeneratedKeys();
                 int idProduto = 0;
                 if (resultSet.next()) {
+                    // Obtendo o id do produto inserido;
                     idProduto = resultSet.getInt(1);
                 }
                 try {
+                    // Inserindo cada localização do produto na tabela intermediária produto_localizacao;
                     ProdutoLocalizacaoDAO produtoLocalizacaoDAO = new ProdutoLocalizacaoDAO();
                     for (Localizacao localizacao : produto.getListaLocalizacoesProduto()) {
-                        System.out.println(localizacao.getCodigoLocalizacao());
-                        System.out.println(idProduto);
                         produtoLocalizacaoDAO.inserirProdutoLocalizacao(idProduto, localizacao.getCodigoLocalizacao());
                     }
                 } catch (Exception e) {
@@ -48,7 +53,6 @@ public class ProdutoDAO {
             } catch (Exception e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
             }
-
         } catch (Exception e) {
             throw new RuntimeException("Erro na preparação do comando SQL!");
         }

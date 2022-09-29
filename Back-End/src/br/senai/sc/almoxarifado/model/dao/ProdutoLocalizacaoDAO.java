@@ -20,9 +20,7 @@ public class ProdutoLocalizacaoDAO {
             statement.setInt(2, localizcaoId);
 
             try {
-                System.out.println("a");
                 statement.execute();
-                System.out.println("b");
             } catch (Exception e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
             }
