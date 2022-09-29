@@ -1,135 +1,105 @@
-<html>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-<body>
-    <div class="divPrincipal">
-        <div *ngIf="cadastro == 1" id="modalCadastro">
-            <div class="divInfo">
-                <img id="fechar" (click)="fechar()" src="../../../assets/close.png" alt="Fechar Modal de Informação">
-                <img id="imgAlerta" src="../../../assets/alert.png" alt="Ícone de alerta">
-                <span id="spanCadastro">Sua solicitação de cadastro foi enviada para confirmação</span>
-            </div>
-            <div id="fundo" style="background-color: #AEAEAE;">
-                <div id="azul"></div>
-            </div>
-        </div>
-        <div *ngIf="requisicaoSenha == 1" id="modalCadastro">
-            <div class="divInfo">
-                <img id="fechar" (click)="fechar()" src="../../../assets/close.png" alt="Fechar modal de informação">
-                <img id="imgAlerta" src="../../../assets/alert.png" alt="Ícone de alerta">
-                <span id="spanCadastro">Sua redefinição de senha foi realizada com sucesso</span>
-            </div>
-            <div id="fundo" style="background-color: #AEAEAE;">
-                <div id="azul"></div>
-            </div>
-        </div>
-        <div *ngIf="senhaIncorreta == 1" id="modalCadastro">
-            <div class="divInfo">
-                <img id="fechar" (click)="fechar()" src="../../../assets/close.png" alt="Fechar modal de informação">
-                <img id="imgAlerta2" src="../../../assets/alert.png" alt="Ícone de alerta">
-                <span id="spanCadastro">Usuário ou senha incorretos</span>
-            </div>
-            <div id="fundo" style="background-color: #AEAEAE;">
-                <div id="vermelho"></div>
-            </div>
-        </div>
-        <div id="containerLogin">
-            <div id="barraAzul">
-                <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário">
-            </div>
-            <h1 id="titulo">
-                AlmaSis
-            </h1>
-            <input type="text" class="inputsCadastro" placeholder="Email ou usuário" [(ngModel)]="emailUser">
-            <div class="divSenha">
-                <input type="password" class="inputsCadastro2" id="inputSenha1" placeholder="Senha" [(ngModel)]="senhaUser">
-                <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
-                    visibility_off
-                    </span>
-                <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1" (click)="trocarOlho(1)" alt="Visualização da senha">
-                    visibility
-                </span>
-            </div>
-            <div class="containerSenha">
-                <span id="esqueciSenha" (click)="esqueciASenha()">Esqueci a senha</span>
-            </div>
-            <div class="containerCheckbox">
-                <input type="checkbox" id="checkbox" (click)="lembrar()">
-                <label for="checkbox">
-                    Lembrar-me
-                </label>
-            </div>
-            <button type="button" id="entrarGoogle">
-                <img id="imgGoogle" src="../../../assets/google.png" alt="Ícone do Google">
-                Entrar com o Google
-            </button>
-            <button type="button" id="entrar" (click)="login()">
-                Entrar
-            </button>
-            <p id="textoConta">
-                Não tem uma conta?
-                <span (click)="cadastrar()" id="cadastrar">Cadastrar</span>
-            </p>
-        </div>
-    </div>
-    <div *ngIf="senha1 == 1 || senha2 == 1 || senha3 == 1" class="modalSenha">
-        <img id="fechar2" (click)="fechar2()" src="../../../assets/close.png" alt="Fechar modal de senha">
-        <h3 id="tituloSenha">Recuperar Senha</h3>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+/>
 
-        <div *ngIf="senha1 == 1" id="divEmail">
-            <div class="texto">
-                <h5 id="inserirEmail">Insira seu Email:</h5>
-                <div class="asterisco">*</div>
-            </div>
-            
-            <input id="inputEmail" type="email" placeholder="nome@gmail.com">
-        </div>
-        <span *ngIf="senha1 == 1" id="avisoCadastro">Caro Usuário, enviaremos um código de verificação no seu email para identificação.</span>
-        <button *ngIf="senha1 == 1" class="enviarCodigo" (click)="esqueciSenha2()">Enviar</button>
-    
-        <h3 *ngIf="senha2 == 1" id="inserirCodigo">Insira o Código</h3>
-        <div *ngIf="senha2 == 1" id="divCodigo">
-            <input id="cod1" class="inputCodigo" (keyup)="ativarCod2()" maxlength="1">
-            <input id="cod2" class="inputCodigo" (keyup)="ativarCod3()" maxlength="1">
-            <input id="cod3" class="inputCodigo" (keyup)="ativarCod4()" maxlength="1">
-            <input id="cod4" class="inputCodigo" (keyup)="ativarCod5()" maxlength="1">
-            <input id="cod5" class="inputCodigo" (keyup)="ativarCod6()" maxlength="1">
-            <input id="cod6" class="inputCodigo" (keyup)="voltarCodigo()" maxlength="1">
-        </div>
-        <span *ngIf="senha2 == 1" id="timer">{{tempoString}}</span>
-        <span *ngIf="senha2 == 1" id="reenviar">Reenviar Código</span>
-        <button *ngIf="senha2 == 1" class="enviarCodigo" (click)="esqueciSenha3()">Próximo</button>
-
-        <div *ngIf="senha3 == 1" class="divInputSenha1">
-            <div class="texto">
-                <span class="spanNovaSenha">Nova Senha:</span>
-                <div class="asterisco">*</div>
-            </div>
-            <div class="divSenha2">
-                <input type="password" id="inputSenha2" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova">
-                <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
-                    visibility_off
-                    </span>
-                <span *ngIf="trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
-                    visibility
-                </span>
-            </div>
-        </div>
-        <div *ngIf="senha3 == 1" class="divInputSenha2" id="inputRepetirSenha">
-            <div class="texto">
-                <span class="spanNovaSenha">Repita a Senha:</span>
-                <div class="asterisco">*</div>
-            </div>
-            <div class="divSenha2">
-                <input type="password" id="inputSenha3" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova2">
-                <span *ngIf="!trocarOlho3" class="material-symbols-outlined imgOlho3 iconDeselect" id="olho3" (click)="trocarOlho(3)" alt="Visualização da senha">
-                    visibility_off
-                    </span>
-                <span *ngIf="trocarOlho3" class="material-symbols-outlined imgOlho3 iconDeselect" id="olho3" (click)="trocarOlho(3)" alt="Visualização da senha">
-                    visibility
-                </span>
-            </div>
-        </div>
-        <button *ngIf="senha3 == 1" class="enviarCodigo" (click)="enviarNovaSenha()">Enviar</button>
+<div class="containerPrincipal">
+  <div class="divPrincipal">
+    <!-- Modal principal para o efetuamento do login -->
+    <div id="containerLogin">
+      <div id="barraAzul">
+        <img
+          id="imagemUsuario"
+          src="../../../assets/user.png"
+          alt="Imagem usuário"
+        />
+      </div>
+      <h1 id="titulo">AlmaSis</h1>
+  
+      <!-- Inputs de email e senha, com ícones para mudar visualização -->
+      <input
+        type="text"
+        class="inputsCadastro"
+        placeholder="Email ou usuário"
+        [(ngModel)]="emailUser"
+      />
+      <div class="divSenha">
+        <input
+          type="password"
+          class="inputsCadastro2"
+          id="inputSenha1"
+          placeholder="Senha"
+          [(ngModel)]="senhaUser"
+        />
+        <span
+          *ngIf="!trocarOlho1"
+          class="material-symbols-outlined imgOlho iconDeselect"
+          id="olho1"
+          (click)="trocarOlho(1)"
+          alt="Visualização da senha"
+        >
+          visibility_off
+        </span>
+        <span
+          *ngIf="trocarOlho1"
+          class="material-symbols-outlined imgOlho iconDeselect"
+          id="olho1"
+          (click)="trocarOlho(1)"
+          alt="Visualização da senha"
+        >
+          visibility
+        </span>
+      </div>
+  
+      <!-- Funções adicionais -> Esqueci Senha, opção de manter login e login com o Google -->
+      <div class="containerSenha">
+        <span id="esqueciSenha" (click)="esqueciASenha()">Esqueci a senha</span>
+      </div>
+      <div class="containerCheckbox">
+        <input type="checkbox" id="checkbox" (click)="lembrar()" />
+        <label for="checkbox"> Lembrar-me </label>
+      </div>
+      <button type="button" id="entrarGoogle">
+        <img
+          id="imgGoogle"
+          src="../../../assets/google.png"
+          alt="Ícone do Google"
+        />
+        Entrar com o Google
+      </button>
+  
+      <!-- Botão de Login -->
+      <button type="button" id="entrar" (click)="login()">Entrar</button>
+  
+      <!-- Redirecionamento para tela de cadastro -->
+      <p id="textoConta">
+        Não tem uma conta?
+        <span (click)="cadastrar()" id="cadastrar">Cadastrar</span>
+      </p>
     </div>
-</body>
-</html>
+  
+    <!-- Modal de Envio de solicitação de cadastro (aparece após efetuar um cadastro na outra página) -->
+    <app-alertaFeito
+      *ngIf="alertaSolicitacaoCadastro"
+      [tipoMensagemModal]="1"
+      (fecharModal)="fecharModalAlerta(1)"
+    ></app-alertaFeito>
+  
+    <!-- Modal de Redefinição de Senha (quando usada a opção "Esqueci a Senha") -->
+    <app-alertaFeito
+      *ngIf="alertaRedefinicaoSenha"
+      [tipoMensagemModal]="2"
+      (fecharModal)="fecharModalAlerta(2)"
+    ></app-alertaFeito>
+  
+    <!-- Modal de alerta caso o usuário ou senha estiverem incorretos -->
+    <app-alertaFeito
+      *ngIf="alertaSenhaIncorreta"
+      [tipoMensagemModal]="3"
+      (fecharModal)="fecharModalAlerta(3)"
+    ></app-alertaFeito>
+  
+    <!-- Modal de recuperação de senha -->
+    <app-esquecerSenha *ngIf="modalRedefinicaoSenha"></app-esquecerSenha>
+  </div>
+</div>

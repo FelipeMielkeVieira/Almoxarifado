@@ -9,7 +9,9 @@ import java.sql.PreparedStatement;
 public class ReservaDAO {
     private final Connection conexaoReserva;
 
-    public ReservaDAO(Connection conexaoReserva) { this.conexaoReserva = new ConexaoFactory().conectaBD(); }
+    public ReservaDAO(Connection conexaoReserva) {
+        this.conexaoReserva = new ConexaoFactory().conectaBD();
+    }
 
     public void inserirReserva(Reserva reserva) {
         String sql = "insert into reserva (data_retirada, data_devolucao, usuario_email) values (?, ?, ?)";

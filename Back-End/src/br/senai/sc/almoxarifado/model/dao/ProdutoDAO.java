@@ -125,6 +125,7 @@ public class ProdutoDAO {
                     while (resultSet.next()) {
                         listaProdutos.add(extrairObjeto(resultSet));
                     }
+                    return listaProdutos;
                 }
             } catch (SQLException e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
@@ -133,7 +134,7 @@ public class ProdutoDAO {
             throw new RuntimeException("Erro na preparação do comando SQL");
         }
 
-        return listaProdutos;
+        throw new RuntimeException("Nenhum produto encontrado!");
     }
 
     public Collection<Produto> produtosOrdenados(Integer tipoOrdenacao) { // filtros de ordenação dos produtos na página principal
@@ -157,6 +158,7 @@ public class ProdutoDAO {
                     while (resultSet.next()) {
                         listaProdutos.add(extrairObjeto(resultSet));
                     }
+                    return listaProdutos;
                 }
             } catch (SQLException e) {
                 throw new RuntimeException("Erro na execução do comando SQL!");
@@ -165,7 +167,7 @@ public class ProdutoDAO {
             throw new RuntimeException("Erro na preparação do comando SQL");
         }
 
-        return listaProdutos;
+        throw new RuntimeException("Nenhum produto encontrado!");
     }
 
     private Produto extrairObjeto(ResultSet resultSet) {
