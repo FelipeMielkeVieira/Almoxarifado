@@ -13,10 +13,18 @@ import java.util.Collection;
 public class ProdutoDAO {
     private final Connection conexaoProduto;
 
+    /**
+     * Construtor da classe ProdutoDAO que ao ser instanciado já efetua conexão com o banco de dados
+     */
     public ProdutoDAO() {
         this.conexaoProduto = new ConexaoFactory().conectaBD();
     }
 
+    /**
+     * Método que insere um produto na tabela PRODUTO
+     * O método também insere todas as localizações do produto na tabela PRODUTO_LOCALIZACAO
+     * @param produto
+     */
     public void inserirProduto(Produto produto) {
         String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
@@ -58,6 +66,10 @@ public class ProdutoDAO {
         }
     }
 
+    /**
+     * Método que atualiza um produto na tabela PRODUTO a partir de seu ID
+     * @param produto
+     */
     public void editarProduto(Produto produto) {
         String sql = "UPDATE PRODUTO SET NOME = ?, CARACTERISTICAS = ?, QUANTIDADE = ?, DESCARTAVEL = ?, IMAGEM = ?, " +
                 "ANEXOS = ?, CLASSIFICACAO_ID = ? WHERE ID = ?";
@@ -82,6 +94,10 @@ public class ProdutoDAO {
         }
     }
 
+    /**
+     * Método que exclui um produto da tabela PRODUTO a partir de seu ID
+     * @param codigoProduto
+     */
     public void deletarProduto(Integer codigoProduto) {
         String sql = "DELETE FROM PRODUTO WHERE ID = ?";
 
@@ -111,6 +127,11 @@ public class ProdutoDAO {
         }
     }
 
+    /**
+     * Método que diminui a quantidade disponível em estoque de certo produto a partir de seu ID
+     * @param codigoProduto
+     * @param quantidadeADiminuir
+     */
     public void diminuirQuantidade(Integer codigoProduto, Integer quantidadeADiminuir) {
         // No comando abaixo a quantidade é setada como a sua própria quantidade menos a quantidade passada por parâmetro
         String sql = "UPDATE PRODUTO SET QUANTIDADE = QUANTIDADE - ? WHERE ID = ?";
@@ -128,6 +149,11 @@ public class ProdutoDAO {
         }
     }
 
+    /**
+     * Método que busca todos produtos da tabela PRODUTO
+     * @param indexInicial
+     * @return lista de todos os produtos
+     */
     public Collection<Produto> buscarProdutos(Integer indexInicial) {
         String sql = "SELECT * FROM produto WHERE id >= ? LIMIT 18";
 
@@ -150,6 +176,14 @@ public class ProdutoDAO {
         }
     }
 
+    /**
+     * Método que busca um produto da tabela PRODUTO a partir de seu nome
+     * Necessário especificar o índice inicial do qual será retornado os produtos bem como o índice final
+     * @param nome
+     * @param comeco
+     * @param limite
+     * @return lista de produtos encontrados pelo nome
+     */
     public Collection<Produto> buscarProdutoPorNome(String nome, Integer comeco, Integer limite) {
         String sql = "SELECT * FROM PRODUTO WHERE NOME LIKE ? LIMIT ?, ?";
         Collection<Produto> listaProdutos = new ArrayList<>();
@@ -178,6 +212,11 @@ public class ProdutoDAO {
         throw new RuntimeException("Nenhum produto encontrado!");
     }
 
+    /**
+     * Método que busca os produtos de acordo com o tipo do filtro aplicado
+     * @param tipoFiltro
+     * @return lista de produtos com o filtro aplicado
+     */
     public Collection<Produto> produtosFiltrados(Integer tipoFiltro) { // filtros da página principal ( com estoque, descartável...)
         // * tipoFiltro = 1 -> produtos descartáveis * tipoFiltro = 2 -> produtos não descartáveis * tipoFiltro = 3 -> produtos com estoque * tipoFiltro = 4 -> produtos sem estoque
         String sql = "";
@@ -211,6 +250,11 @@ public class ProdutoDAO {
         throw new RuntimeException("Nenhum produto encontrado!");
     }
 
+    /**
+     * Método que busca os produtos de acordo com o tipo da ordenação aplicada
+     * @param tipoOrdenacao
+     * @return lista de produtos com a ordenação aplicada
+     */
     public Collection<Produto> produtosOrdenados(Integer tipoOrdenacao) { // filtros de ordenação dos produtos na página principal
         // * tipoOrdenacao = 1 -> NOME crescente * tipoOrdenacao = 2 -> NOME decrescente * tipoOrdenacao = 3 -> QUANTIDADE crescente * tipoOrdenacao = 4 -> QUANTIDADE decrescente
         String sql = "";
@@ -244,6 +288,11 @@ public class ProdutoDAO {
         throw new RuntimeException("Nenhum produto encontrado!");
     }
 
+    /**
+     * Método que cria um objeto Produto a partir de um ResultSet
+     * @param resultSet
+     * @return objeto Produto
+     */
     private Produto extrairObjeto(ResultSet resultSet) {
         try {
             LocalizacaoDAO localizacaoDAO = new LocalizacaoDAO();
