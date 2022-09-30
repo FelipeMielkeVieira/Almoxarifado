@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 public class ReservaDAO {
     private final Connection conexaoReserva;
 
-    public ReservaDAO(Connection conexaoReserva) {
+    public ReservaDAO() {
         this.conexaoReserva = new ConexaoFactory().conectaBD();
     }
 
