@@ -73,6 +73,8 @@ public class Teste {
         //Date dataRetirada, Date dataDevolucao, Usuario usuarioSacola, ArrayList<SacolaProduto> listaSacolaProdutos
 
         Sacola sacola = new Sacola(date1, date1, usuario, lista);
-        sacolaDAO.inserirSacola(sacola);
+//        sacolaDAO.inserirSacola(sacola);
+
+        System.out.println("MANO TA AQ\n\n\n" + sacolaDAO.buscarSacolas(1, 18));
     }
 }
