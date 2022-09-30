@@ -220,15 +220,8 @@ export class ItemComponent implements OnInit {
   }
 
   editarItem() {
-    this.aparecer = false;
-    this.aparecer2 = false;
     this.motivoEdicao = true;
-    this.cadastrarModal = false;
     this.nao = 0;
-    this.feedback = 2;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
   }
 
   cadastrar2() {
@@ -391,5 +384,21 @@ export class ItemComponent implements OnInit {
     } else {
       return dataNova;
     }
+  }
+
+  fecharModalMotivo() {
+    this.motivoEdicao = false;
+  }
+
+  editarQuantidade() {
+    this.aparecer = false;
+    this.aparecer2 = false;
+    this.motivoEdicao = false;
+    this.cadastrarModal = false;
+    this.nao = 0;
+    this.feedback = 2;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
   }
 }
