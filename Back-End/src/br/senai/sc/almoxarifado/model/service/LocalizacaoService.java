@@ -23,4 +23,5 @@ public class LocalizacaoService {
     public ArrayList<Localizacao> buscarLocalizacoesPorProduto(Integer idProduto){
         return new LocalizacaoDAO().buscarLocalizacoesPorProduto(idProduto);
     }
+
 }

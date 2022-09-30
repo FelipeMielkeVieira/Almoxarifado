@@ -5,8 +5,6 @@ import br.senai.sc.almoxarifado.model.entities.Sacola;
 
 public class SacolaService {
 
-    public void inserirSacola(Sacola sacola) {
-        new SacolaDAO().inserirSacola(sacola);
-    }
+    public void inserirSacola(Sacola sacola) { new SacolaDAO().inserirSacola(sacola); }
 
 }
