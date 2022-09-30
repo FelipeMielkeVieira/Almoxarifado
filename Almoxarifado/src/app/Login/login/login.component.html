@@ -15,7 +15,7 @@
         />
       </div>
       <h1 id="titulo">AlmaSis</h1>
-  
+
       <!-- Inputs de email e senha, com ícones para mudar visualização -->
       <input
         type="text"
@@ -32,25 +32,25 @@
           [(ngModel)]="senhaUser"
         />
         <span
-          *ngIf="!trocarOlho1"
+          *ngIf="!visibilidadeOlho"
           class="material-symbols-outlined imgOlho iconDeselect"
           id="olho1"
-          (click)="trocarOlho(1)"
+          (click)="trocarOlho()"
           alt="Visualização da senha"
         >
           visibility_off
         </span>
         <span
-          *ngIf="trocarOlho1"
+          *ngIf="visibilidadeOlho"
           class="material-symbols-outlined imgOlho iconDeselect"
           id="olho1"
-          (click)="trocarOlho(1)"
+          (click)="trocarOlho()"
           alt="Visualização da senha"
         >
           visibility
         </span>
       </div>
-  
+
       <!-- Funções adicionais -> Esqueci Senha, opção de manter login e login com o Google -->
       <div class="containerSenha">
         <span id="esqueciSenha" (click)="esqueciASenha()">Esqueci a senha</span>
@@ -67,39 +67,41 @@
         />
         Entrar com o Google
       </button>
-  
+
       <!-- Botão de Login -->
       <button type="button" id="entrar" (click)="login()">Entrar</button>
-  
+
       <!-- Redirecionamento para tela de cadastro -->
       <p id="textoConta">
         Não tem uma conta?
         <span (click)="cadastrar()" id="cadastrar">Cadastrar</span>
       </p>
     </div>
-  
+
     <!-- Modal de Envio de solicitação de cadastro (aparece após efetuar um cadastro na outra página) -->
     <app-alertaFeito
       *ngIf="alertaSolicitacaoCadastro"
       [tipoMensagemModal]="1"
       (fecharModal)="fecharModalAlerta(1)"
     ></app-alertaFeito>
-  
-    <!-- Modal de Redefinição de Senha (quando usada a opção "Esqueci a Senha") -->
+
+    <!-- Modal de alerta de Redefinição de Senha (quando usada a opção "Esqueci a Senha") -->
     <app-alertaFeito
       *ngIf="alertaRedefinicaoSenha"
       [tipoMensagemModal]="2"
       (fecharModal)="fecharModalAlerta(2)"
     ></app-alertaFeito>
-  
+
     <!-- Modal de alerta caso o usuário ou senha estiverem incorretos -->
     <app-alertaFeito
       *ngIf="alertaSenhaIncorreta"
       [tipoMensagemModal]="3"
       (fecharModal)="fecharModalAlerta(3)"
     ></app-alertaFeito>
-  
-    <!-- Modal de recuperação de senha -->
-    <app-esquecerSenha *ngIf="modalRedefinicaoSenha"></app-esquecerSenha>
   </div>
+  <!-- Modal de recuperação de senha -->
+  <app-esquecerSenha
+    *ngIf="modalRedefinicaoSenha"
+    (fecharModal)="fecharModalSenha($event)"
+  ></app-esquecerSenha>
 </div>

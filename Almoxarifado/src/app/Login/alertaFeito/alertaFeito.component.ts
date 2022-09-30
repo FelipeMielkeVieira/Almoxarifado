@@ -18,10 +18,12 @@ export class AlertaFeitoComponent implements OnInit {
 
   constructor() {}
 
+  // Função para emitir o output e fechar o modal
   fechar() {
     this.fecharModal.emit("fechar");
   }
 
+  // Usado para definir qual será a frase do alerta a partir do input numérico
   ngOnInit() {
     switch (this.tipoMensagemModal) {
       case 1:
@@ -38,6 +40,7 @@ export class AlertaFeitoComponent implements OnInit {
     }
   }
 
+  // Função usada na div inferior do modal para definir sua cor, dependendo do input recebido
   getClass() {
     //Classe da div com animação de cor (Vermelho / Azul) dependendo do input recebido
     if (this.tipoMensagemModal == 1 || this.tipoMensagemModal == 2) {
