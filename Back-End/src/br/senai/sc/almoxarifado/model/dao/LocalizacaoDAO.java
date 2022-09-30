@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class LocalizacaoDAO {
     private final Connection conexaoLocalizacao;
@@ -33,7 +34,7 @@ public class LocalizacaoDAO {
         }
     }
 
-    public ArrayList<Localizacao> selecionarTodos(Integer id, Integer limite) {
+    public Collection<Localizacao> selecionarTodos(Integer id, Integer limite) {
         String sql = "SELECT * FROM LOCALIZACAO WHERE ID >= ? LIMIT ?";
 
         try (PreparedStatement stmt = conexaoLocalizacao.prepareStatement(sql)) {
@@ -42,7 +43,7 @@ public class LocalizacaoDAO {
             stmt.setInt(2, limite);
             try (ResultSet resultSet = stmt.executeQuery()) {
 
-                ArrayList<Localizacao> localizacoes = new ArrayList<>();
+                Collection<Localizacao> localizacoes = new ArrayList<>();
                 if (resultSet != null) {
                     while (resultSet.next()) {
                         localizacoes.add(extrairObjeto(resultSet));

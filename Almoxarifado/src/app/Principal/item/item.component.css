@@ -178,7 +178,7 @@
     border-radius: 0.3rem 0.3rem 0px 0px;
 }
 
-.containerModal {
+.containerModal, .containerModalMotivo {
     padding: 1rem 1.8rem;
 }
 
@@ -592,6 +592,7 @@
     width: 13rem;
     height: 80px;
     border: solid 1px black;
+    outline: none;
     border-radius: 5px;
     margin-left: 10px;
     padding: 10px;
@@ -725,6 +726,16 @@ label {
     height: 32px;
     background-image: url(../../../assets/pasta.png);
     cursor: pointer;
+}
+
+.containerModalMotivo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #fff;
+    animation: fadein 0.5s;
 }
 
 /* Modal Confirmação excluir */
@@ -989,4 +1000,10 @@ label {
 
 .texto {
     display: flex;
+}
+
+.topoModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
