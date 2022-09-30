@@ -21,6 +21,13 @@ public class Sacola {
         this.listaProdutosReserva = listaProdutosReserva;
     }
 
+    public Sacola(Date dataRetirada, Date dataDevolucao, Usuario emailUsuario, ArrayList<SacolaProduto> listaProdutosReserva) {
+        this.dataRetirada = dataRetirada;
+        this.dataDevolucao = dataDevolucao;
+        this.emailUsuario = emailUsuario;
+        this.listaProdutosReserva = listaProdutosReserva;
+    }
+
     public Integer getCodigoSacola() {
         return codigoSacola;
     }
