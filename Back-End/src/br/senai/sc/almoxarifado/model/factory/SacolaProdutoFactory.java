@@ -10,4 +10,9 @@ public class SacolaProdutoFactory {
 
         return new SacolaProduto(codigoSacolaProduto, quantidadeSacolaProduto, sacola, produto);
     }
+
+    public SacolaProduto getSacolaProdutoSemSacola(Integer codigoSacolaProduto, Integer quantidadeSacolaProduto, Produto produto) {
+
+        return new SacolaProduto(codigoSacolaProduto, quantidadeSacolaProduto, null, produto);
+    }
 }

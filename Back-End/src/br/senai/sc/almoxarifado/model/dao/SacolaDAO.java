@@ -59,7 +59,7 @@ public class SacolaDAO {
     }
 
     public Collection<Sacola> buscarSacolas(Integer indexInicial, Integer limiteSacolas) {
-        String sql = "SELECT * FROM SACOLA WHERE id >= ? LIMIT ?";
+        String sql = "SELECT * FROM SACOLA WHERE ID >= ? LIMIT ?";
 
         try (PreparedStatement statement = conexaoSacola.prepareStatement(sql)) {
 
@@ -112,10 +112,12 @@ public class SacolaDAO {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             //Talvez volte uma lista de usuários, dando erro aq
             Usuario usuario = usuarioDAO.selecionarPorEmail(resultSet.getString("USUARIO_EMAIL"));
+            System.out.println("Usuario: " + usuario);
 
             SacolaProdutoDAO sacolaProdutoDAO = new SacolaProdutoDAO();
             ArrayList<SacolaProduto> listaProdutos = sacolaProdutoDAO.buscarProdutosPorSacolaID(resultSet.getInt("id"));
-
+            System.out.println("Lista de produtos: " + listaProdutos);
+            //circular server dependency
             return new SacolaFactory().getSacola(
                     resultSet.getInt("id"),
                     resultSet.getDate("data_retirada"),

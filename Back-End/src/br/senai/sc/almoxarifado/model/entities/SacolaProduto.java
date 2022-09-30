@@ -21,6 +21,12 @@ public class SacolaProduto {
         this.produto = produto;
     }
 
+    public SacolaProduto(Integer codigoSacolaProduto, Integer qtdProduto, Produto produto) {
+        this.codigoSacolaProduto = codigoSacolaProduto;
+        this.qtdProduto = qtdProduto;
+        this.produto = produto;
+    }
+
     public Integer getCodigoSacolaProduto() {
         return codigoSacolaProduto;
     }
