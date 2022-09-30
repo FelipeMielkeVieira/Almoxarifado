@@ -34,7 +34,7 @@ public class ClassificacaoDAO {
         }
     }
 
-    public Classificacao selecionarId(int id) {
+    public Classificacao selecionarId(Integer id) {
         String sql = "SELECT * FROM CLASSIFICACAO WHERE ID = ?";
 
         try (PreparedStatement stmt = conexaoClassificacao.prepareStatement(sql)) {
@@ -76,12 +76,12 @@ public class ClassificacaoDAO {
         return listaClassificacoes;
     }
 
-    public Classificacao buscarClassificacaoPorProduto(int classificacao_id) {
+    public Classificacao buscarClassificacaoPorProduto(int classificacaoId) {
         String sql = "SELECT * FROM classificacao WHERE ID = ?";
 
         try (PreparedStatement stmt = conexaoClassificacao.prepareStatement(sql)) {
 
-            stmt.setInt(1, classificacao_id);
+            stmt.setInt(1, classificacaoId);
 
             try (ResultSet resultSet = stmt.executeQuery()) {
                 if (resultSet != null && resultSet.next()) {
