@@ -1,8 +1,7 @@
 package br.senai.sc.almoxarifado.model.dao;
 
-import br.senai.sc.almoxarifado.model.entities.Localizacao;
-import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.entities.Sacola;
+import br.senai.sc.almoxarifado.model.entities.SacolaProduto;
 import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
 
 import java.sql.Connection;
@@ -18,30 +17,35 @@ public class SacolaDAO {
     }
 
     public void inserirSacola(Sacola sacola) {
-        String sql = "INSERT INTO SACOLA (DATA_RETIRADA, DATA_DEVOLUCAO, USUARIO_EMAIL) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO SACOLA ";
+        if (sacola.getDataRetirada() != null) {
+            sql += "(DATA_RETIRADA, USUARIO_EMAIL, DATA_DEVOLUCAO) VALUES (?, ?, ?);\";";
+        } else {
+            sql += "(DATA_RETIRADA, USUARIO_EMAIL) VALUES (?, ?);";
+        }
 
-        // Criando statement passando por parâmetro o comando sql e Statement.RETURN_GENERATED_KEYS para retornar o id do produto inserido;
-        // O id do produto inserido será utilizado para poder cadastrar suas localizações na tabela intermediária produto_localizacao;
+        // Criando statement passando por parâmetro o comando sql e Statement.RETURN_GENERATED_KEYS para retornar o id da sacola inserida;
+        // O id da sacola inserida será utilizada para poder cadastrar seus produtos na tabela intermediária sacola_produto;
         try (PreparedStatement statement = conexaoSacola.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
             statement.setDate(1, new java.sql.Date(sacola.getDataRetirada().getTime()));
-            statement.setDate(2, new java.sql.Date(sacola.getDataDevolucao().getTime()));
-            statement.setString(3, sacola.getEmailUsuario().getEmailUsuario());
+            statement.setString(2, sacola.getUsuarioSacola().getEmailUsuario());
+            if (sacola.getDataRetirada() != null) {
+                statement.setDate(3, new java.sql.Date(sacola.getDataDevolucao().getTime()));
+            }
             try {
                 statement.execute();
-
-                // Obtendo o ResultSet com o id do produto inserido;
+                // Obtendo o ResultSet com o id da sacola inserida;
                 ResultSet resultSet = statement.getGeneratedKeys();
-                int idProduto = 0;
+                int idSacola = 0;
                 if (resultSet.next()) {
-                    // Obtendo o id do produto inserido;
-                    idProduto = resultSet.getInt(1);
+                    // Obtendo o id da sacola inserida;
+                    idSacola = resultSet.getInt(1);
                 }
                 try {
-                    // Inserindo cada localização do produto na tabela intermediária produto_localizacao;
-                    ProdutoLocalizacaoDAO produtoLocalizacaoDAO = new ProdutoLocalizacaoDAO();
-                    for (Localizacao localizacao : produto.getListaLocalizacoesProduto()) {
-                        produtoLocalizacaoDAO.inserirProdutoLocalizacao(idProduto, localizacao.getCodigoLocalizacao());
+                    // Inserindo cada produto da sacola na tabela intermediária sacola_produto;
+                    SacolaProdutoDAO sacolaProdutoDAO = new SacolaProdutoDAO();
+                    for (SacolaProduto sacolaProduto : sacola.getListaSacolaProdutos()) {
+                        sacolaProdutoDAO.inserirProdutoSacola(idSacola, sacolaProduto.getProduto().getCodigoProduto(), sacolaProduto.getQtdProduto());
                     }
                 } catch (Exception e) {
                     throw new RuntimeException("Erro ao inserir as localizações do produto");

@@ -8,24 +8,24 @@ public class Sacola {
     private Date dataRetirada;
     private Date dataDevolucao;
 
-    private Usuario emailUsuario;
-    private ArrayList<SacolaProduto> listaProdutosReserva;
+    private Usuario usuarioSacola;
+    private ArrayList<SacolaProduto> listaSacolaProdutos;
 
     public Sacola() { }
 
-    public Sacola(Integer codigoSacola, Date dataRetirada, Date dataDevolucao, Usuario emailUsuario, ArrayList<SacolaProduto> listaProdutosReserva) {
+    public Sacola(Integer codigoSacola, Date dataRetirada, Date dataDevolucao, Usuario usuarioSacola, ArrayList<SacolaProduto> listaSacolaProdutos) {
         this.codigoSacola = codigoSacola;
         this.dataRetirada = dataRetirada;
         this.dataDevolucao = dataDevolucao;
-        this.emailUsuario = emailUsuario;
-        this.listaProdutosReserva = listaProdutosReserva;
+        this.usuarioSacola = usuarioSacola;
+        this.listaSacolaProdutos = listaSacolaProdutos;
     }
 
-    public Sacola(Date dataRetirada, Date dataDevolucao, Usuario emailUsuario, ArrayList<SacolaProduto> listaProdutosReserva) {
+    public Sacola(Date dataRetirada, Date dataDevolucao, Usuario usuarioSacola, ArrayList<SacolaProduto> listaSacolaProdutos) {
         this.dataRetirada = dataRetirada;
         this.dataDevolucao = dataDevolucao;
-        this.emailUsuario = emailUsuario;
-        this.listaProdutosReserva = listaProdutosReserva;
+        this.usuarioSacola = usuarioSacola;
+        this.listaSacolaProdutos = listaSacolaProdutos;
     }
 
     public Integer getCodigoSacola() {
@@ -52,20 +52,20 @@ public class Sacola {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public Usuario getEmailUsuario() {
-        return emailUsuario;
+    public Usuario getUsuarioSacola() {
+        return usuarioSacola;
     }
 
-    public void setEmailUsuario(Usuario emailUsuario) {
-        this.emailUsuario = emailUsuario;
+    public void setUsuarioSacola(Usuario usuarioSacola) {
+        this.usuarioSacola = usuarioSacola;
     }
 
-    public ArrayList<SacolaProduto> getListaProdutosReserva() {
-        return listaProdutosReserva;
+    public ArrayList<SacolaProduto> getListaSacolaProdutos() {
+        return listaSacolaProdutos;
     }
 
-    public void setListaProdutosReserva(ArrayList<SacolaProduto> listaProdutosReserva) {
-        this.listaProdutosReserva = listaProdutosReserva;
+    public void setListaSacolaProdutos(ArrayList<SacolaProduto> listaSacolaProdutos) {
+        this.listaSacolaProdutos = listaSacolaProdutos;
     }
 
     @Override
@@ -74,8 +74,8 @@ public class Sacola {
                 "codigoSacola=" + codigoSacola +
                 ", dataRetirada=" + dataRetirada +
                 ", dataDevolucao=" + dataDevolucao +
-                ", emailUsuario=" + emailUsuario +
-                ", listaProdutosReserva=" + listaProdutosReserva +
+                ", emailUsuario=" + usuarioSacola +
+                ", listaProdutosReserva=" + listaSacolaProdutos +
                 '}';
     }
 }

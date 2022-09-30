@@ -53,6 +53,7 @@ public class Teste {
 //        dao.inserirProduto(prod);
 
 //        dao.deletarProduto(23);
-        dao.diminuirQuantidade(19, 15);
+//        dao.diminuirQuantidade(19, 15);
+        dao.deletarProduto(22);
     }
 }

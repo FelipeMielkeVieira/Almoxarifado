@@ -24,6 +24,7 @@ public class ProdutoDAO {
      * Método que insere um produto na tabela PRODUTO
      * O método também insere todas as localizações do produto na tabela PRODUTO_LOCALIZACAO
      * @param produto
+     * @throws RuntimeException
      * @throws SQLException
      */
     public void inserirProduto(Produto produto) {
@@ -70,6 +71,7 @@ public class ProdutoDAO {
     /**
      * Método que atualiza um produto na tabela PRODUTO a partir de seu ID
      * @param produto
+     * @throws RuntimeException
      * @throws SQLException
      */
     public void editarProduto(Produto produto) {
@@ -99,6 +101,7 @@ public class ProdutoDAO {
     /**
      * Método que exclui um produto da tabela PRODUTO a partir de seu ID
      * @param codigoProduto
+     * @throws RuntimeException
      * @throws SQLException
      */
     public void deletarProduto(Integer codigoProduto) {
@@ -134,6 +137,7 @@ public class ProdutoDAO {
      * Método que diminui a quantidade disponível em estoque de certo produto a partir de seu ID
      * @param codigoProduto
      * @param quantidadeADiminuir
+     * @throws RuntimeException
      * @throws SQLException
      */
     public void diminuirQuantidade(Integer codigoProduto, Integer quantidadeADiminuir) {
@@ -158,6 +162,7 @@ public class ProdutoDAO {
      * Método que busca todos produtos da tabela PRODUTO
      * @param indexInicial
      * @return lista de todos os produtos
+     * @throws RuntimeException
      * @throws SQLException
      */
     public Collection<Produto> buscarProdutos(Integer indexInicial) {
@@ -189,6 +194,7 @@ public class ProdutoDAO {
      * @param comeco
      * @param limite
      * @return lista de produtos encontrados pelo nome
+     * @throws RuntimeException
      * @throws SQLException
      */
     public Collection<Produto> buscarProdutoPorNome(String nome, Integer comeco, Integer limite) {
@@ -223,6 +229,7 @@ public class ProdutoDAO {
      * Método que busca os produtos de acordo com o tipo do filtro aplicado
      * @param tipoFiltro
      * @return lista de produtos com o filtro aplicado
+     * @throws RuntimeException
      * @throws SQLException
      */
     public Collection<Produto> produtosFiltrados(Integer tipoFiltro) { // filtros da página principal ( com estoque, descartável...)
@@ -262,6 +269,7 @@ public class ProdutoDAO {
      * Método que busca os produtos de acordo com o tipo da ordenação aplicada
      * @param tipoOrdenacao
      * @return lista de produtos com a ordenação aplicada
+     * @throws RuntimeException
      * @throws SQLException
      */
     public Collection<Produto> produtosOrdenados(Integer tipoOrdenacao) { // filtros de ordenação dos produtos na página principal

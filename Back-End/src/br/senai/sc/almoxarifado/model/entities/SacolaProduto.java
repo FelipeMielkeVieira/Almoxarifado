@@ -4,16 +4,22 @@ public class SacolaProduto {
     private Integer codigoSacolaProduto;
     private Integer qtdProduto;
 
-    private Sacola  codigoSacola;
-    private Produto codigoProduto;
+    private Sacola sacola;
+    private Produto produto;
 
     public SacolaProduto() { }
 
-    public SacolaProduto(Integer codigoSacolaProduto, Integer qtdProduto, Sacola codigoSacola, Produto codigoProduto) {
+    public SacolaProduto(Integer codigoSacolaProduto, Integer qtdProduto, Sacola sacola, Produto produto) {
         this.codigoSacolaProduto = codigoSacolaProduto;
         this.qtdProduto = qtdProduto;
-        this.codigoSacola = codigoSacola;
-        this.codigoProduto = codigoProduto;
+        this.sacola = sacola;
+        this.produto = produto;
+    }
+
+    public SacolaProduto(Integer codigoSacolaProduto, Integer qtdProduto, Produto produto) {
+        this.codigoSacolaProduto = codigoSacolaProduto;
+        this.qtdProduto = qtdProduto;
+        this.produto = produto;
     }
 
     public Integer getCodigoSacolaProduto() {
@@ -32,20 +38,20 @@ public class SacolaProduto {
         this.qtdProduto = qtdProduto;
     }
 
-    public Sacola getCodigoSacola() {
-        return codigoSacola;
+    public Sacola getSacola() {
+        return sacola;
     }
 
-    public void setCodigoSacola(Sacola codigoSacola) {
-        this.codigoSacola = codigoSacola;
+    public void setSacola(Sacola sacola) {
+        this.sacola = sacola;
     }
 
-    public Produto getCodigoProduto() {
-        return codigoProduto;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setCodigoProduto(Produto codigoProduto) {
-        this.codigoProduto = codigoProduto;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     @Override
@@ -53,8 +59,8 @@ public class SacolaProduto {
         return "SacolaProduto{" +
                 "codigoSacolaProduto=" + codigoSacolaProduto +
                 ", qtdProduto=" + qtdProduto +
-                ", codigoSacola=" + codigoSacola +
-                ", codigoProduto=" + codigoProduto +
+                ", codigoSacola=" + sacola +
+                ", codigoProduto=" + produto +
                 '}';
     }
 }
