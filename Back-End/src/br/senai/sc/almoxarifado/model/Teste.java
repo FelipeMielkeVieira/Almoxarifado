@@ -1,16 +1,14 @@
 package br.senai.sc.almoxarifado.model;
 
-import br.senai.sc.almoxarifado.model.dao.LocalizacaoDAO;
-import br.senai.sc.almoxarifado.model.dao.ProdutoDAO;
-import br.senai.sc.almoxarifado.model.dao.ProdutoLocalizacaoDAO;
-import br.senai.sc.almoxarifado.model.dao.UsuarioDAO;
+import br.senai.sc.almoxarifado.model.dao.*;
 import br.senai.sc.almoxarifado.model.entities.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Teste {
     public static void main(String[] args) {
-        produtoTeste();
+        sacolaTeste();
     }
 
     public static void usuarioTeste() {
@@ -44,16 +42,37 @@ public class Teste {
 
     public static void produtoTeste() {
         ProdutoDAO dao = new ProdutoDAO();
-//        System.out.println("Selecionar todos: \n" + dao.buscarProdutos(18));
-//        System.out.println("---------------------------------------------------\n");
+        System.out.println("Selecionar todos: \n" + dao.buscarProdutos(18));
+        System.out.println("---------------------------------------------------\n");
         ArrayList<Localizacao> localizacoes = new ArrayList<>();
         localizacoes.add(new Localizacao(2,"bbbb"));
         Produto prod = new Produto( 23, 10, "Mouse", "vermelho",
                 "as", false, (byte) 0, localizacoes, new Classificacao(1, "P1"));
-//        dao.inserirProduto(prod);
+        dao.inserirProduto(prod);
 
-//        dao.deletarProduto(23);
-//        dao.diminuirQuantidade(19, 15);
+        dao.deletarProduto(23);
+        dao.diminuirQuantidade(19, 15);
         dao.deletarProduto(22);
+    }
+
+    public static void sacolaTeste() {
+        SacolaDAO sacolaDAO = new SacolaDAO();
+
+        Date date1 = new Date();
+        Usuario usuario = new Atendente1("teste", "teste", "teste");
+
+        ArrayList<SacolaProduto> lista = new ArrayList<>();
+        ArrayList<Localizacao> localizacoes = new ArrayList<>();
+        localizacoes.add(new Localizacao(2,"bbbb"));
+        Produto prod =  new Produto( 20, 10, "Mouse", "vermelho",
+                "as", false, (byte) 0, localizacoes, new Classificacao(1, "P1"));
+        //Integer codigoSacolaProduto, Integer qtdProduto, Produto produto
+
+        lista.add(new SacolaProduto(1, prod));
+
+        //Date dataRetirada, Date dataDevolucao, Usuario usuarioSacola, ArrayList<SacolaProduto> listaSacolaProdutos
+
+        Sacola sacola = new Sacola(date1, date1, usuario, lista);
+        sacolaDAO.inserirSacola(sacola);
     }
 }

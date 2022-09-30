@@ -21,9 +21,22 @@ public class Sacola {
         this.listaSacolaProdutos = listaSacolaProdutos;
     }
 
+    public Sacola(Integer codigoSacola, Date dataRetirada, Usuario usuarioSacola, ArrayList<SacolaProduto> listaSacolaProdutos) {
+        this.codigoSacola = codigoSacola;
+        this.dataRetirada = dataRetirada;
+        this.usuarioSacola = usuarioSacola;
+        this.listaSacolaProdutos = listaSacolaProdutos;
+    }
+
     public Sacola(Date dataRetirada, Date dataDevolucao, Usuario usuarioSacola, ArrayList<SacolaProduto> listaSacolaProdutos) {
         this.dataRetirada = dataRetirada;
         this.dataDevolucao = dataDevolucao;
+        this.usuarioSacola = usuarioSacola;
+        this.listaSacolaProdutos = listaSacolaProdutos;
+    }
+
+    public Sacola(Date dataRetirada, Usuario usuarioSacola, ArrayList<SacolaProduto> listaSacolaProdutos) {
+        this.dataRetirada = dataRetirada;
         this.usuarioSacola = usuarioSacola;
         this.listaSacolaProdutos = listaSacolaProdutos;
     }

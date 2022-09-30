@@ -306,6 +306,32 @@ public class ProdutoDAO {
     }
 
     /**
+     * Método que busca o produto a partir de seu ID
+     * @param idProduto
+     * @return Produto
+     * @throws RuntimeException
+     * @throws SQLException
+     */
+    public Produto buscarProdutoPorID(Integer idProduto) {
+        String sql = "SELECT * FROM PRODUTO WHERE ID = ? LIMIT 1;";
+
+        try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {
+            statement.setInt(1, idProduto);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet != null && resultSet.next()) {
+                    return extrairObjeto(resultSet);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
+        throw new RuntimeException("Nenhum produto encontrado!");
+    }
+
+    /**
      * Método que cria um objeto Produto a partir de um ResultSet
      * @param resultSet
      * @return objeto Produto

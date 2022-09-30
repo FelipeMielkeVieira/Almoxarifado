@@ -38,4 +38,5 @@ public class ProdutoService {
     public Collection<Produto> produtosOrdenados(Integer tipoOrdenacao) {
         return new ProdutoDAO().produtosOrdenados(tipoOrdenacao);
     }
+
 }
