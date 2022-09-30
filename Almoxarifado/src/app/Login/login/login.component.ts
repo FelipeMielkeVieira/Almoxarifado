@@ -8,6 +8,7 @@ import { UsersService } from "src/app/service";
   styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
+
   emailUser: string;
   senhaUser: string;
 
@@ -17,25 +18,7 @@ export class LoginComponent implements OnInit {
   listaTimeoutsAlertas = [];
 
   modalRedefinicaoSenha: boolean = false;
-
-  senha1: number = 0;
-  senha2: number = 0;
-  senha3: number = 0;
-
-  senhaNova: string;
-  senhaNova2: string;
-
-  tempo = 300;
-  tempoString = "5m";
-  intervaloTimer = undefined;
-
-  olho1: number = 1;
-  olho2: number = 1;
-  olho3: number = 1;
-
-  trocarOlho1: boolean = false;
-  trocarOlho2: boolean = false;
-  trocarOlho3: boolean = false;
+  visibilidadeOlho = false;
 
   constructor(
     private router: Router,
@@ -74,160 +57,14 @@ export class LoginComponent implements OnInit {
     divPrincipal.style.opacity = "0.5";
   }
 
-  fechar2() {
-    this.senha1 = 0;
-    this.senha2 = 0;
-    this.senha3 = 0;
-    this.senhaNova = undefined;
-    this.senhaNova2 = undefined;
-    if (this.intervaloTimer) {
-      clearInterval(this.intervaloTimer);
-    }
-    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
-    divPrincipal.style.opacity = "1";
-  }
-
-  esqueciSenha2() {
-    this.senha1 = 0;
-    this.senha2 = 1;
-    this.timer();
-  }
-
-  ativarCod2() {
-    let elementoAtual = document.querySelector("#cod1") as HTMLInputElement;
-    if (elementoAtual.value != "") {
-      let elemento = document.querySelector("#cod2") as HTMLInputElement;
-      elemento.focus();
-    }
-  }
-  ativarCod3() {
-    let elementoAtual = document.querySelector("#cod2") as HTMLInputElement;
-    if (elementoAtual.value == "") {
-      let elemento = document.querySelector("#cod1") as HTMLInputElement;
-      elemento.focus();
+  trocarOlho() {
+    let inputSenha = document.querySelector("#inputSenha1") as HTMLInputElement;
+    if (this.visibilidadeOlho) {
+      inputSenha.type = "password";
     } else {
-      let elemento = document.querySelector("#cod3") as HTMLInputElement;
-      elemento.focus();
+      inputSenha.type = "text";
     }
-  }
-  ativarCod4() {
-    let elementoAtual = document.querySelector("#cod3") as HTMLInputElement;
-    if (elementoAtual.value == "") {
-      let elemento = document.querySelector("#cod2") as HTMLInputElement;
-      elemento.focus();
-    } else {
-      let elemento = document.querySelector("#cod4") as HTMLInputElement;
-      elemento.focus();
-    }
-  }
-  ativarCod5() {
-    let elementoAtual = document.querySelector("#cod4") as HTMLInputElement;
-    if (elementoAtual.value == "") {
-      let elemento = document.querySelector("#cod3") as HTMLInputElement;
-      elemento.focus();
-    } else {
-      let elemento = document.querySelector("#cod5") as HTMLInputElement;
-      elemento.focus();
-    }
-  }
-  ativarCod6() {
-    let elementoAtual = document.querySelector("#cod5") as HTMLInputElement;
-    if (elementoAtual.value == "") {
-      let elemento = document.querySelector("#cod4") as HTMLInputElement;
-      elemento.focus();
-    } else {
-      let elemento = document.querySelector("#cod6") as HTMLInputElement;
-      elemento.focus();
-    }
-  }
-  voltarCodigo() {
-    let elementoAtual = document.querySelector("#cod6") as HTMLInputElement;
-    if (elementoAtual.value == "") {
-      let elemento = document.querySelector("#cod5") as HTMLInputElement;
-      elemento.focus();
-    }
-  }
-
-  timer() {
-    this.tempo = 300;
-    this.tempoString = "5m restantes";
-    this.intervaloTimer = setInterval(() => {
-      this.tempo--;
-      if (this.tempo % 60 == 0 && this.tempo != 0) {
-        this.tempoString = this.tempo / 60 + "m restantes";
-      } else if (this.tempo > 60) {
-        this.tempoString =
-          (this.tempo - (this.tempo % 60)) / 60 +
-          "m e " +
-          (this.tempo % 60) +
-          "s restantes";
-      } else if (this.tempo < 0) {
-        this.tempoString = "Código Expirado";
-        clearInterval(this.intervaloTimer);
-      } else {
-        this.tempoString = this.tempo + "s restantes";
-      }
-    }, 1000);
-  }
-
-  esqueciSenha3() {
-    this.senha2 = 0;
-    this.senha3 = 1;
-  }
-
-  enviarNovaSenha() {
-    this.senha3 = 0;
-    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
-    divPrincipal.style.opacity = "1";
-
-    if (this.intervaloTimer) {
-      clearInterval(this.intervaloTimer);
-    }
-
-    this.abrirModalAlerta(2);
-  }
-
-  trocarOlho(input) {
-    let input2: HTMLInputElement;
-
-    switch (input) {
-      case 1:
-        input2 = document.querySelector("#inputSenha1");
-        if (this.olho1 == 1) {
-          this.olho1 = 0;
-          this.trocarOlho1 = true;
-          input2.type = "text";
-        } else {
-          this.olho1 = 1;
-          this.trocarOlho1 = false;
-          input2.type = "password";
-        }
-        break;
-      case 2:
-        input2 = document.querySelector("#inputSenha2");
-        if (this.olho2 == 1) {
-          this.olho2 = 0;
-          this.trocarOlho2 = true;
-          input2.type = "text";
-        } else {
-          this.olho2 = 1;
-          this.trocarOlho2 = false;
-          input2.type = "password";
-        }
-        break;
-      case 3:
-        input2 = document.querySelector("#inputSenha3");
-        if (this.olho3 == 1) {
-          this.olho3 = 0;
-          this.trocarOlho3 = true;
-          input2.type = "text";
-        } else {
-          this.olho3 = 1;
-          this.trocarOlho3 = false;
-          input2.type = "password";
-        }
-        break;
-    }
+    this.visibilidadeOlho = !this.visibilidadeOlho;
   }
 
   login() {
@@ -300,6 +137,18 @@ export class LoginComponent implements OnInit {
         this.alertaSenhaIncorreta = false;
         clearTimeout(this.listaTimeoutsAlertas[2]);
         break;
+    }
+  }
+
+  // Função recebida do "esquecerSenha" para fechar o modal da senha e criar o modal de alerta
+  // Recebe como evento um string dizendo se ele fez a redefinição (chamando modal de conclusão) ou saiu no X
+  fecharModalSenha(event) {
+    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
+    divPrincipal.style.opacity = "1";
+    this.modalRedefinicaoSenha = false;
+
+    if (event == "Finalizado") {
+      this.abrirModalAlerta(2);
     }
   }
 }
