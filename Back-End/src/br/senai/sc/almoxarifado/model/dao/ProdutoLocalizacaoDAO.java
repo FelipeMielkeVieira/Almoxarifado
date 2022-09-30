@@ -34,7 +34,8 @@ public class ProdutoLocalizacaoDAO {
         String sql = "DELETE FROM PRODUTO_LOCALIZACAO WHERE PRODUTO_ID = ? AND ID > 0;";
 
         try (PreparedStatement statement = conexaoProdutoLocalizacao.prepareStatement(sql)) {
-            statement.setInt(1, codigoProduto);;
+            statement.setInt(1, codigoProduto);
+            ;
 
             try {
                 statement.execute();

@@ -16,9 +16,7 @@ public class UsuarioService {
         new UsuarioDAO().removerUsuario(email);
     }
 
-    public void editarUsuario(String email, TipoUsuario tipoUsuario) {
-        new UsuarioDAO().editarUsuario(email, tipoUsuario);
-    }
+    public void editarUsuario(String email, TipoUsuario tipoUsuario) { new UsuarioDAO().editarUsuario(email, tipoUsuario); }
 
     public Usuario selecionarPorEmail(String email) {
         return new UsuarioDAO().selecionarPorEmail(email);
@@ -31,5 +29,6 @@ public class UsuarioService {
     public Collection<Usuario> selecionarPorNome(String nome, Integer comeco, Integer limite) {
         return new UsuarioDAO().selecionarPorNome(nome, comeco, limite);
     }
+
 }
 
