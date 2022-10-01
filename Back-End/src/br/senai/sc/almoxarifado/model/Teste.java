@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class Teste {
     public static void main(String[] args) {
-        sacolaTeste();
+        produtoTeste();
     }
 
     public static void usuarioTeste() {
@@ -42,17 +42,17 @@ public class Teste {
 
     public static void produtoTeste() {
         ProdutoDAO dao = new ProdutoDAO();
-        System.out.println("Selecionar todos: \n" + dao.buscarProdutos(18));
-        System.out.println("---------------------------------------------------\n");
+//        System.out.println("Selecionar todos: \n" + dao.buscarProdutos(18));
+//        System.out.println("---------------------------------------------------\n");
         ArrayList<Localizacao> localizacoes = new ArrayList<>();
         localizacoes.add(new Localizacao(2,"bbbb"));
-        Produto prod = new Produto( 23, 10, "Mouse", "vermelho",
+        Produto prod = new Produto( 10, "Mouse", "vermelho",
                 "as", false, (byte) 0, localizacoes, new Classificacao(1, "P1"));
         dao.inserirProduto(prod);
 
         dao.deletarProduto(23);
-        dao.diminuirQuantidade(19, 15);
-        dao.deletarProduto(22);
+//        dao.diminuirQuantidade(19, 15);
+//        dao.deletarProduto(22);
     }
 
     public static void sacolaTeste() {
