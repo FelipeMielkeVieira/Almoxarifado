@@ -87,7 +87,7 @@ public class Sacola {
                 "codigoSacola=" + codigoSacola +
                 ", dataRetirada=" + dataRetirada +
                 ", dataDevolucao=" + dataDevolucao +
-                ", emailUsuario=" + usuarioSacola +
+                ", usuarioSacola=" + usuarioSacola +
                 ", listaProdutosReserva=" + listaSacolaProdutos +
                 '}';
     }
