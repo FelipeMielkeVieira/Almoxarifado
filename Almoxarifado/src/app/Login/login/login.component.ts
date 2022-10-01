@@ -47,16 +47,19 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // Função para redirecionar o usuário para a página de cadastro
   cadastrar() {
     this.router.navigate(["/cadastro"]);
   }
 
+  // Função para abrir o modal de redefinição de senha
   esqueciASenha() {
     this.modalRedefinicaoSenha = true;
     let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
     divPrincipal.style.opacity = "0.5";
   }
 
+  // Função para trocar a visibilidade da senha
   trocarOlho() {
     let inputSenha = document.querySelector("#inputSenha1") as HTMLInputElement;
     if (this.visibilidadeOlho) {
@@ -67,6 +70,7 @@ export class LoginComponent implements OnInit {
     this.visibilidadeOlho = !this.visibilidadeOlho;
   }
 
+  // Função para verificar se o usuário existe e entrar na página principal caso exista
   login() {
     this.users.usuarios.forEach((e) => {
       if (
@@ -83,6 +87,7 @@ export class LoginComponent implements OnInit {
     this.abrirModalAlerta(3);
   }
 
+  // Função para direcionar o usuário para a página principal dependendo de sua persona
   navegacaoTipo() {
     if (localStorage.getItem("usuario") == "1") {
       this.router.navigate(["/professor"]);
