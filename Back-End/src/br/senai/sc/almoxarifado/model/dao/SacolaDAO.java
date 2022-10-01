@@ -107,17 +107,23 @@ public class SacolaDAO {
         throw new RuntimeException("Nenhum produto encontrado!");
     }
 
+    /**
+     * Método que constrói um objeto Sacola a partir de um ResultSet
+     * Importante: uma sacola possui uma lista de listaSacolasProdutos<SacolaProduto> que por sua vez é composta por,
+     * entre outras coisas, uma Sacola e um Produto. Então quando construímos uma sacola precisamos buscar os produtos, porém a SacolaProduto
+     * contém uma Sacola, o que não faz sentido pois a sacola já está sendo construída e não tem necessidade da SacolaProduto retornar
+     * uma Sacola. Para evitar isso, no extrairObjeto da SacolaProduto, não é retornado a Sacola.
+     * @param resultSet
+     * @return
+     */
     public Sacola extrairObjeto(ResultSet resultSet) {
         try {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            //Talvez volte uma lista de usuários, dando erro aq
             Usuario usuario = usuarioDAO.selecionarPorEmail(resultSet.getString("USUARIO_EMAIL"));
-            System.out.println("Usuario: " + usuario);
 
             SacolaProdutoDAO sacolaProdutoDAO = new SacolaProdutoDAO();
             ArrayList<SacolaProduto> listaProdutos = sacolaProdutoDAO.buscarProdutosPorSacolaID(resultSet.getInt("id"));
-            System.out.println("Lista de produtos: " + listaProdutos);
-            //circular server dependency
+
             return new SacolaFactory().getSacola(
                     resultSet.getInt("id"),
                     resultSet.getDate("data_retirada"),
