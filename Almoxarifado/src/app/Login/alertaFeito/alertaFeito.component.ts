@@ -10,6 +10,9 @@ export class AlertaFeitoComponent implements OnInit {
   //1 - Sua solicitação de cadastro foi enviada para confirmação / Azul
   //2 - Sua redefinição de senha foi realizada com sucesso / Azul
   //3 - Usuário ou senha incorretos / Vermelho
+  //4 - Email Inválido / Vermelho
+  //5 - Código Inválido (Na redefinição de senha, código recebido por email) / Vermelho
+  //6 - As senhas não conferem / Vermelho
   @Input() tipoMensagemModal: number;
 
   //Output para fechar o modal na página de login ao clicar no X
@@ -37,16 +40,34 @@ export class AlertaFeitoComponent implements OnInit {
       case 3:
         this.fraseAlertaModal = "Usuário ou senha incorretos";
         break;
+      case 4:
+        this.fraseAlertaModal = "Email Inválido!";
+        break;
+      case 5:
+        this.fraseAlertaModal = "Código Incorreto!";
+        break;
+      case 6:
+        this.fraseAlertaModal = "As senhas não conferem!";
+        break;
     }
   }
 
   // Função usada na div inferior do modal para definir sua cor, dependendo do input recebido
   getClass() {
     //Classe da div com animação de cor (Vermelho / Azul) dependendo do input recebido
-    if (this.tipoMensagemModal == 1 || this.tipoMensagemModal == 2) {
-      return "animacaoCorAzul";
-    } else {
-      return "animacaoCorVermelha";
+    switch (this.tipoMensagemModal) {
+      case 1:
+        return "animacaoCorAzul";
+      case 2:
+        return "animacaoCorAzul";
+      case 3:
+        return "animacaoCorVermelha";
+      case 4:
+        return "animacaoCorVermelha";
+      case 5:
+        return "animacaoCorVermelha";
+      case 6:
+        return "animacaoCorVermelha";
     }
   }
 }

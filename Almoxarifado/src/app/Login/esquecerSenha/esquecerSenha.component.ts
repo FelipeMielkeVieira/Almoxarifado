@@ -8,14 +8,24 @@ import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 export class EsquecerSenhaComponent implements OnInit {
   etapaRedefinicaoSenha: number = 1;
 
+  emailVerificacao: string = "";
+  emailInvalido = false;
+
   tempoTimer: number;
   timerInsercaoCodigo: any;
+
+  codigoVerificacao: number;
+  listaCodigoInput = ["", "", "", "", "", ""];
+  codigoVerificacaoIncorreto = false;
 
   visibilidadeOlho1 = false;
   visibilidadeOlho2 = false;
 
-  senhaNova : string;
-  senhaNova2 : string;
+  senhaNova: string = "";
+  senhaNova2: string = "";
+  senhasNaoConferem = false;
+
+  timeoutsAlertas = [];
 
   @Output() fecharModal = new EventEmitter<string>();
 
@@ -33,6 +43,26 @@ export class EsquecerSenhaComponent implements OnInit {
   prosseguirEtapaSenha() {
     this.etapaRedefinicaoSenha++;
     if (this.etapaRedefinicaoSenha == 2) {
+      this.verificarEmail();
+    }
+
+    if (this.etapaRedefinicaoSenha == 3) {
+      this.verificarCodigo();
+    }
+  }
+
+  // Função para verificação do email para envio do código. Se estiver válido, irá criar o timer e código aleatório
+  verificarEmail() {
+    if (this.emailVerificacao == "") {
+      this.etapaRedefinicaoSenha--;
+      this.emailInvalido = true;
+
+      this.timeoutsAlertas[0] = setTimeout(() => {
+        this.emailInvalido = false;
+      }, 5000);
+    } else {
+      this.codigoVerificacao = Math.floor(100000 + Math.random() * 900000);
+      console.log(this.codigoVerificacao);
       this.criarTimer();
     }
   }
@@ -57,8 +87,21 @@ export class EsquecerSenhaComponent implements OnInit {
     }
   }
 
+  // Função para verificação do código automático
   verificarCodigo() {
-    
+    let numeroFinal = "";
+    for (let index = 0; index < this.listaCodigoInput.length; index++) {
+      numeroFinal += this.listaCodigoInput[index];
+    }
+
+    if (parseInt(numeroFinal) != this.codigoVerificacao) {
+      this.etapaRedefinicaoSenha--;
+      this.codigoVerificacaoIncorreto = true;
+
+      this.timeoutsAlertas[1] = setTimeout(() => {
+        this.codigoVerificacaoIncorreto = false;
+      }, 5000);
+    }
   }
 
   // Função para criar o timer na segunda etapa da redefinição
@@ -82,6 +125,7 @@ export class EsquecerSenhaComponent implements OnInit {
       );
     } else if (this.tempoTimer < 0) {
       clearInterval(this.timerInsercaoCodigo);
+      this.codigoVerificacao = undefined;
       return "Código Expirado";
     } else {
       return this.tempoTimer + "s restantes";
@@ -91,6 +135,8 @@ export class EsquecerSenhaComponent implements OnInit {
   // Função para reenviar o código na segunda etapa de redefinição
   reenviarCodigo() {
     clearInterval(this.timerInsercaoCodigo);
+    this.codigoVerificacao = Math.floor(100000 + Math.random() * 900000);
+    console.log(this.codigoVerificacao);
     this.criarTimer();
   }
 
@@ -105,11 +151,25 @@ export class EsquecerSenhaComponent implements OnInit {
         break;
     }
 
-    let inputSenha = document.getElementById("inputSenha" + (numeroOlho + 1)) as HTMLInputElement;
-    if(inputSenha.type == "password") {
+    let inputSenha = document.getElementById(
+      "inputSenha" + (numeroOlho + 1)
+    ) as HTMLInputElement;
+    if (inputSenha.type == "password") {
       inputSenha.type = "text";
     } else {
       inputSenha.type = "password";
+    }
+  }
+
+  // Função para verificar se as duas novas senhas conferem
+  verificarNovasSenhas() {
+    if (this.senhaNova == this.senhaNova2 && this.senhaNova != "") {
+      this.enviarNovaSenha();
+    } else {
+      this.senhasNaoConferem = true;
+      this.timeoutsAlertas[2] = setTimeout(() => {
+        this.senhasNaoConferem = false;
+      }, 5000);
     }
   }
 
@@ -119,5 +179,20 @@ export class EsquecerSenhaComponent implements OnInit {
       clearInterval(this.timerInsercaoCodigo);
     }
     this.fecharModal.emit("Finalizado");
+  }
+
+  // Função para fechar os modais de alerta (alertaFeito)
+  fecharModalAlerta(modal: number) {
+    switch (modal) {
+      case 1:
+        this.emailInvalido = false;
+        break;
+      case 2:
+        this.codigoVerificacaoIncorreto = false;
+        break;
+      case 3:
+        this.senhasNaoConferem = false;
+        break;
+    }
   }
 }

@@ -1,3 +1,24 @@
+<!-- Modal de alerta caso o email digitado seja inválido -->
+<app-alertaFeito
+*ngIf="emailInvalido"
+[tipoMensagemModal]="4"
+(fecharModal)="fecharModalAlerta(1)"
+></app-alertaFeito>
+
+<!-- Modal de alerta caso o código aleatório criado estiver incorreto -->
+<app-alertaFeito
+*ngIf="codigoVerificacaoIncorreto"
+[tipoMensagemModal]="5"
+(fecharModal)="fecharModalAlerta(2)"
+></app-alertaFeito>
+
+<!-- Modal de alerta caso o as duas novas senhas não sejam iguais -->
+<app-alertaFeito
+*ngIf="senhasNaoConferem"
+[tipoMensagemModal]="6"
+(fecharModal)="fecharModalAlerta(3)"
+></app-alertaFeito>
+
 <div class="modalSenha">
   <img
     class="sairModal"
@@ -14,7 +35,7 @@
       <div class="asteriscoObrigatorio">*</div>
     </div>
 
-    <input class="inputEmail" type="email" placeholder="nome@gmail.com" />
+    <input [(ngModel)]="emailVerificacao" class="inputEmail" type="email" placeholder="nome@gmail.com"/>
   </div>
   <span *ngIf="etapaRedefinicaoSenha == 1" class="descricaoEnvioCodigo"
     >Caro Usuário, enviaremos um código de verificação no seu email para
@@ -38,36 +59,42 @@
       class="inputCodigo"
       (keyup)="trocarCodigoVerificacao(1)"
       maxlength="1"
+      [(ngModel)]="listaCodigoInput[0]"
     />
     <input
       id="cod2"
       class="inputCodigo"
       (keyup)="trocarCodigoVerificacao(2)"
       maxlength="1"
+      [(ngModel)]="listaCodigoInput[1]"
     />
     <input
       id="cod3"
       class="inputCodigo"
       (keyup)="trocarCodigoVerificacao(3)"
       maxlength="1"
+      [(ngModel)]="listaCodigoInput[2]"
     />
     <input
       id="cod4"
       class="inputCodigo"
       (keyup)="trocarCodigoVerificacao(4)"
       maxlength="1"
+      [(ngModel)]="listaCodigoInput[3]"
     />
     <input
       id="cod5"
       class="inputCodigo"
       (keyup)="trocarCodigoVerificacao(5)"
       maxlength="1"
+      [(ngModel)]="listaCodigoInput[4]"
     />
     <input
       id="cod6"
       class="inputCodigo"
       (keyup)="trocarCodigoVerificacao(6)"
       maxlength="1"
+      [(ngModel)]="listaCodigoInput[5]"
     />
   </div>
   <span *ngIf="etapaRedefinicaoSenha == 2" class="timerInsercaoCodigo">{{
@@ -161,7 +188,7 @@
   <button
     *ngIf="etapaRedefinicaoSenha == 3"
     class="proximaEtapaModal"
-    (click)="enviarNovaSenha()"
+    (click)="verificarNovasSenhas()"
   >
     Enviar
   </button>

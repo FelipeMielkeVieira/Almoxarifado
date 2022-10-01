@@ -140,23 +140,23 @@
       <span class="nomeUser">{{nomeUsuario}}</span>
       <span class="emailUser">{{emailUsuario}}</span>
       <hr style="width: 80%;">
-      <div *ngIf="usuarioTipo == 1" class="divOpcao">
+      <div *ngIf="usuarioTipo == 1" class="divOpcao" (click)="navegar('/professor/reservas')">
         <span title="Usuarios" id="iconsUser" class="material-symbols-outlined iconDeselect">
           pending_actions
         </span>
-        <span class="spanUser" (click)="navegar('/professor/reservas')">Minhas Reservas</span>
+        <span class="spanUser">Minhas Reservas</span>
       </div>
-      <div class="divOpcao">
+      <div class="divOpcao" (click)="abrirConfiguracoes()">
         <span  title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
           settings
         </span>
-        <span class="spanUser" (click)="abrirConfiguracoes()">Configurações</span>
+        <span class="spanUser">Configurações</span>
       </div>
-      <div class="divOpcao">
-        <span title="Deslogar" (click)="logout()" id="imgUser2" class="material-symbols-outlined iconDeselect">
+      <div class="divOpcao" (click)="logout()">
+        <span title="Deslogar" id="imgUser2" class="material-symbols-outlined iconDeselect">
           logout
         </span>
-        <span class="spanUser" (click)="logout()">Sair</span>
+        <span class="spanUser">Sair</span>
       </div>
     </div>
     <!-- ----------- FIM MODAL USER ------------ -->
