@@ -111,7 +111,6 @@
       <img src="../../../assets/LogoSite.png" id="logoSite" alt="Logo do AlmaSis">
       <p>AlmaSis</p>
     </div>
-
     <div id="icones">
       <div id="sacola">
         <span title="Sacola" id="topHeader" class="material-symbols-outlined iconDeselect" (click)="sacolas()">
@@ -153,10 +152,16 @@
         <span class="spanUser" (click)="abrirConfiguracoes()">Configurações</span>
       </div>
       <div class="divOpcao">
-        <span title="Deslogar" (click)="logout()" id="imgUser2" class="material-symbols-outlined iconDeselect">
+        <span  title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
+          help
+        </span>
+        <span class="spanUser" (click)="abrirAjuda()">Ajuda</span>
+      </div>
+      <div class="divOpcao" (click)="logout()">
+        <span title="Deslogar" id="imgUser2" class="material-symbols-outlined iconDeselect">
           logout
         </span>
-        <span class="spanUser" (click)="logout()">Sair</span>
+        <span class="spanUser">Sair</span>
       </div>
     </div>
     <!-- ----------- FIM MODAL USER ------------ -->

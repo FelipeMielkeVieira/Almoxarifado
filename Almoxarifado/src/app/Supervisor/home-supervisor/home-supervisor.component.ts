@@ -76,6 +76,7 @@ export class HomeSupervisorComponent implements OnInit {
   nao = 0;
   modalOrdernar: boolean = false;
   modalFiltrar: boolean = false;
+  ajuda: boolean = true;
 
   emBloco = 0;
 

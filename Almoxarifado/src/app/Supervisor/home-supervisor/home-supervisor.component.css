@@ -1556,3 +1556,25 @@ h1 {
     margin-left: 42%;
     margin-top: 3%;
 }
+
+#caminhosAjuda {
+    width: 79rem;
+    display: flex;
+    margin-top: 1rem;
+}
+
+#containerGeralAjuda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudoGeralAjuda {
+    display: flex;
+    flex-direction: column;
+}
+
+#conteudoAjuda {
+    display: flex;
+    justify-content: center;
+}
