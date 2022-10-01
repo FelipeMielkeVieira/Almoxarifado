@@ -1,6 +1,8 @@
 package br.senai.sc.almoxarifado.model.dao;
 
+import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.HistoricoProduto;
+import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
 
 import javax.xml.transform.Result;
@@ -42,43 +44,48 @@ public class HistoricoProdutoDAO {
         }
     }
 
-//    public Collection<HistoricoProduto> listarTodosHistoricoProduto() {
-//        String sql = "SELECT * FROM HISTORICO_PRODUCAO";
-//        Collection<HistoricoProduto> listaHistoricoProduto = new ArrayList<>();
-//
-//        try (PreparedStatement statement = conexaoHistoricoProduto.prepareStatement(sql)) {
-//            try (ResultSet resultSet = statement.executeQuery()) {
-//                while (resultSet != null && resultSet.next()) {
-//                    listaHistoricoProduto.add(extrairObjeto(resultSet));
-//                }
-//            } catch (SQLException e) {
-//                throw new RuntimeException("Erro na execução do comando SQL");
-//            }
-//        } catch (Exception e) {
-//            throw new RuntimeException("Erro na preparação do comando SQL");
-//        }
-//
-//        return listaHistoricoProduto;
-//    }
+    public Collection<HistoricoProduto> listarTodosHistoricoProduto() {
+        String sql = "SELECT * FROM HISTORICO_PRODUCAO";
+        Collection<HistoricoProduto> listaHistoricoProduto = new ArrayList<>();
 
-//    private HistoricoProduto extrairObjeto(ResultSet resultSet) {
-//        try {
-//            return new HistoricoProduto(
-//                    resultSet.getInt("ID"),
-//                    resultSet.getInt("QUANTIDADE"),
-//                    resultSet.getString("AUTOR"),
-//                    resultSet.getString("NOME"),
-//                    resultSet.getString("CARACTERISTICAS"),
-//                    resultSet.getDate("DATA_EDICAO"),
-//                    resultSet.getBoolean("DESCARTAVEL"),
-//                    resultSet.getBytes("IMAGEM"),
-//                    resultSet.getString("ANEXOS"),
-//                    resultSet.getObject("PRODUTO_ID"),
-//                    resultSet.getObject("CLASSIFICACAO_ID")
-//            );
-//        } catch (Exception e) {
-//            throw new RuntimeException("Erro ao extrair o objeto");
-//        }
-//    }
+        try (PreparedStatement statement = conexaoHistoricoProduto.prepareStatement(sql)) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet != null && resultSet.next()) {
+                    listaHistoricoProduto.add(extrairObjeto(resultSet));
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Erro na execução do comando SQL");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL");
+        }
+
+        return listaHistoricoProduto;
+    }
+
+    private HistoricoProduto extrairObjeto(ResultSet resultSet) {
+        try {
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            Produto produto = produtoDAO.buscarProdutoPorID(resultSet.getInt("PRODUTO_ID"));
+            ClassificacaoDAO classificacaoDAO = new ClassificacaoDAO();
+            Classificacao classificacao = classificacaoDAO.selecionarId(resultSet.getInt("CLASSIFICACAO_ID"));
+
+            return new HistoricoProduto(
+                    resultSet.getInt("ID"),
+                    resultSet.getInt("QUANTIDADE"),
+                    resultSet.getString("AUTOR"),
+                    resultSet.getString("NOME"),
+                    resultSet.getString("CARACTERISTICAS"),
+                    resultSet.getDate("DATA_EDICAO"),
+                    resultSet.getBoolean("DESCARTAVEL"),
+                    resultSet.getBytes("IMAGEM"),
+                    resultSet.getString("ANEXOS"),
+                    produto,
+                    classificacao
+                    );
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao extrair o objeto");
+        }
+    }
 
 }

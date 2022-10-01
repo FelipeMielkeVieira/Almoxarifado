@@ -45,8 +45,8 @@ public class Teste {
 //        System.out.println("Selecionar todos: \n" + dao.buscarProdutos(18));
 //        System.out.println("---------------------------------------------------\n");
         ArrayList<Localizacao> localizacoes = new ArrayList<>();
-        localizacoes.add(new Localizacao(2,"bbbb"));
-        Produto prod = new Produto( 10, "Mouse", "vermelho",
+        localizacoes.add(new Localizacao(2, "bbbb"));
+        Produto prod = new Produto(10, "Mouse", "vermelho",
                 "as", false, (byte) 0, localizacoes, new Classificacao(1, "P1"));
         dao.inserirProduto(prod);
 
@@ -63,8 +63,8 @@ public class Teste {
 
         ArrayList<SacolaProduto> lista = new ArrayList<>();
         ArrayList<Localizacao> localizacoes = new ArrayList<>();
-        localizacoes.add(new Localizacao(2,"bbbb"));
-        Produto prod =  new Produto( 20, 10, "Mouse", "vermelho",
+        localizacoes.add(new Localizacao(2, "bbbb"));
+        Produto prod = new Produto(20, 10, "Mouse", "vermelho",
                 "as", false, (byte) 0, localizacoes, new Classificacao(1, "P1"));
         //Integer codigoSacolaProduto, Integer qtdProduto, Produto produto
 
@@ -77,4 +77,5 @@ public class Teste {
 
         System.out.println("MANO TA AQ\n\n\n" + sacolaDAO.buscarSacolas(1, 18));
     }
+
 }
