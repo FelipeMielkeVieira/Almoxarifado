@@ -444,33 +444,19 @@
 <!-- Modal Motivo de edição quantidade  -->
 
 <div *ngIf="motivoEdicao" id="fundoModal">
-    <div id="containerConteudoModalMotivo">
-        <div class="topoModalMotivo">
-            <hr class="riscoAzul" />
-            <div id="containerIcons">
-                <span
-                title="Fechar"
-                (click)="fecharModalMotivo()"
-                class="material-symbols-outlined iconDeselect"
-                id="iconFechar">
-                    close
-                </span>
-            </div>
-        </div>
-        <div class="principal">
-            <div class="containerModalMotivo">
-                <div class="texto">
-                    <span>Motivo da edição da quantidade:</span>
-                    <div class="asterisco">*</div>
-                </div>
-                <textarea class="inputDescricaoMotivo" placeholder="Motivo"></textarea>
-                <div class="containerBotaoEditarItem">
-                    <button (click)="editarQuantidade()" class="botaoEditarItem">
-                        Confirmar
-                    </button>
-                </div>
-            </div>
-        </div>
+  <div id="containerConteudoModalMotivo">
+    <div class="topoModalMotivo">
+      <hr class="riscoAzul" />
+      <div id="containerIcons">
+        <span
+          title="Fechar"
+          (click)="fecharModalMotivo()"
+          class="material-symbols-outlined iconDeselect"
+          id="iconFechar"
+        >
+          close
+        </span>
+      </div>
     </div>
     <div class="principal">
       <div class="containerModalMotivo">
@@ -478,10 +464,12 @@
           <span>Motivo da edição da quantidade:</span>
           <div class="asterisco">*</div>
         </div>
-        <textarea class="inputDescricao" placeholder="Motivo"></textarea>
-        <button (click)="editarQuantidade()" class="botaoCadastrar">
-          Editar
-        </button>
+        <textarea class="inputDescricaoMotivo" placeholder="Motivo"></textarea>
+        <div class="containerBotaoEditarItem">
+          <button (click)="editarQuantidade()" class="botaoEditarItem">
+            Editar
+          </button>
+        </div>
       </div>
     </div>
   </div>

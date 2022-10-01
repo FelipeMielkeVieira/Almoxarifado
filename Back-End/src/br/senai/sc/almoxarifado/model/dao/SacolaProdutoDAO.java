@@ -45,7 +45,8 @@ public class SacolaProdutoDAO {
         String sql = "DELETE FROM SACOLA_PRODUTO WHERE PRODUTO_ID = ? AND ID > 0;";
 
         try (PreparedStatement statement = conexaoSacolaProduto.prepareStatement(sql)) {
-            statement.setInt(1, codigoProduto);;
+            statement.setInt(1, codigoProduto);
+            ;
 
             try {
                 statement.execute();
@@ -80,16 +81,12 @@ public class SacolaProdutoDAO {
 
     private SacolaProduto extrairObjeto(ResultSet resultSet) {
         try {
-            SacolaDAO sacolaDAO = new SacolaDAO();
-            Sacola sacola = sacolaDAO.buscarSacolaPorID(resultSet.getInt("SACOLA_ID"));
-
             ProdutoDAO produtoDAO = new ProdutoDAO();
             Produto produto = produtoDAO.buscarProdutoPorID(resultSet.getInt("PRODUTO_ID"));
 
-            return new SacolaProdutoFactory().getSacolaProduto(
+            return new SacolaProdutoFactory().getSacolaProdutoSemSacola(
                     resultSet.getInt("id"),
                     resultSet.getInt("qtd_produto"),
-                    sacola,
                     produto
             );
         } catch (Exception e) {
