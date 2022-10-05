@@ -5,6 +5,7 @@ import br.senai.sc.almoxarifado.model.factory.ConexaoFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class ReservaDAO {
     private final Connection conexaoReserva;
@@ -28,6 +29,23 @@ public class ReservaDAO {
                 throw new RuntimeException("Erro na execução do comando SQL!");
             }
 
+        } catch (Exception e) {
+            throw new RuntimeException("Erro na preparação do comando SQL!");
+        }
+    }
+
+    public void atualizarStatusReserva(int codigoReserva, String status){ // Da pra colocar os status como int tmb
+        // Só para testar
+        String sql = "update reserva set status = ? where codigo = ?";
+
+        try (PreparedStatement pstm = conexaoReserva.prepareStatement(sql)){
+            pstm.setString(1, status);
+            pstm.setInt(2, codigoReserva);
+            try{
+                pstm.execute();
+            } catch (SQLException e){
+                throw new RuntimeException("Erro na execução do comando SQL!");
+            }
         } catch (Exception e) {
             throw new RuntimeException("Erro na preparação do comando SQL!");
         }
