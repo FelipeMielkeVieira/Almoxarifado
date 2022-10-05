@@ -9,4 +9,7 @@ public class ReservaService {
         new ReservaDAO().inserirReserva(reserva);
     }
 
+    public void atualizarStatusReserva(int codigoReserva, String status){
+        new ReservaDAO().atualizarStatusReserva(codigoReserva, status);
+    }
 }
