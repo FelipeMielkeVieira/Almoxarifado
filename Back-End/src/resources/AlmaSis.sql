@@ -28,7 +28,7 @@ CREATE TABLE `classificacao` (
   `id` int NOT NULL AUTO_INCREMENT,
   `classificacao` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,6 @@ CREATE TABLE `classificacao` (
 
 LOCK TABLES `classificacao` WRITE;
 /*!40000 ALTER TABLE `classificacao` DISABLE KEYS */;
-INSERT INTO `classificacao` VALUES (1,'P1'),(2,'P2');
 /*!40000 ALTER TABLE `classificacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,6 +56,7 @@ CREATE TABLE `historico_produto` (
   `quantidade` int NOT NULL,
   `descartavel` tinyint NOT NULL,
   `imagem` longblob,
+  `descricao` varchar(200) DEFAULT NULL,
   `anexos` varchar(200) DEFAULT NULL,
   `classificacao_id` int DEFAULT NULL,
   `produto_id` int NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE `localizacao` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,6 @@ CREATE TABLE `localizacao` (
 
 LOCK TABLES `localizacao` WRITE;
 /*!40000 ALTER TABLE `localizacao` DISABLE KEYS */;
-INSERT INTO `localizacao` VALUES (2,'bbbb'),(3,'P3');
 /*!40000 ALTER TABLE `localizacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +119,7 @@ CREATE TABLE `produto` (
   PRIMARY KEY (`id`),
   KEY `classificacao_id` (`classificacao_id`),
   CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`classificacao_id`) REFERENCES `classificacao` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +128,6 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (1,'Teste',120,1,NULL,NULL,1,NULL),(2,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(3,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(4,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(5,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(6,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(7,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(8,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(9,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(10,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(11,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(12,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(13,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(14,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(15,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(16,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(17,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(18,'Teclado mecanico full gold',10,0,'0','as',1,'amarelo'),(19,'Teclado mecanico full gold',5,0,'0','as',1,'amarelo'),(20,'Teclado mecanico full gold',1,0,'0','as',1,'amarelo'),(24,'Mouse',10,0,'0','as',1,'vermelho'),(25,'Mouse',10,0,'0','as',1,'vermelho');
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +147,7 @@ CREATE TABLE `produto_localizacao` (
   KEY `localizacao_id` (`localizacao_id`),
   CONSTRAINT `produto_localizacao_ibfk_1` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `produto_localizacao_ibfk_2` FOREIGN KEY (`localizacao_id`) REFERENCES `localizacao` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +156,6 @@ CREATE TABLE `produto_localizacao` (
 
 LOCK TABLES `produto_localizacao` WRITE;
 /*!40000 ALTER TABLE `produto_localizacao` DISABLE KEYS */;
-INSERT INTO `produto_localizacao` VALUES (2,1,2),(3,1,3),(8,1,2),(16,1,2),(17,20,2),(21,24,2),(22,25,2);
 /*!40000 ALTER TABLE `produto_localizacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +199,7 @@ CREATE TABLE `reserva` (
   `id` int NOT NULL AUTO_INCREMENT,
   `data_retirada` date NOT NULL,
   `data_devolucao` date DEFAULT NULL,
-  `STATUS` enum('DEVOLUCAO_ATRASADA','ESPERANDO_DEVOLUCAO','ESPERANDO_RETIRADA') NOT NULL,
+  `STATUS` enum('FINALIZADO','ESPERANDO_DEVOLUCAO','ESPERANDO_RETIRADA') NOT NULL,
   `usuario_email` varchar(70) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `usuario_email` (`usuario_email`),
@@ -234,7 +231,7 @@ CREATE TABLE `sacola` (
   PRIMARY KEY (`id`),
   KEY `usuario_email` (`usuario_email`),
   CONSTRAINT `sacola_ibfk_1` FOREIGN KEY (`usuario_email`) REFERENCES `usuario` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +240,6 @@ CREATE TABLE `sacola` (
 
 LOCK TABLES `sacola` WRITE;
 /*!40000 ALTER TABLE `sacola` DISABLE KEYS */;
-INSERT INTO `sacola` VALUES (12,'2022-09-30','2022-09-30','teste'),(13,'2022-09-30','2022-09-30','teste');
 /*!40000 ALTER TABLE `sacola` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,7 +260,7 @@ CREATE TABLE `sacola_produto` (
   KEY `produto_id` (`produto_id`),
   CONSTRAINT `sacola_produto_ibfk_1` FOREIGN KEY (`sacola_id`) REFERENCES `sacola` (`id`),
   CONSTRAINT `sacola_produto_ibfk_2` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -273,7 +269,6 @@ CREATE TABLE `sacola_produto` (
 
 LOCK TABLES `sacola_produto` WRITE;
 /*!40000 ALTER TABLE `sacola_produto` DISABLE KEYS */;
-INSERT INTO `sacola_produto` VALUES (9,1,12,20),(10,1,13,20);
 /*!40000 ALTER TABLE `sacola_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,7 +294,6 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('teste','teste','teste','ATENDENTE1'),('teste2','teste2','teste2','ATENDENTE1'),('testee','teste','teste','ATENDENTE1');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -312,4 +306,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-30 21:44:02
+-- Dump completed on 2022-10-05 19:05:19

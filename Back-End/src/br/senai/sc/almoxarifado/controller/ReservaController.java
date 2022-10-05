@@ -9,9 +9,12 @@ public class ReservaController {
     public void inserirReserva(Reserva reserva){
         service.inserirReserva(reserva);
     }
-    
+
     public void atualizarStatusReserva(int codigoReserva, String status){
         service.atualizarStatusReserva(codigoReserva, status);
     }
 
+//    public void excluirReserva(int codigoReserva){
+//        service.excluirReserva(codigoReserva);
+//    }
 }
