@@ -16,9 +16,9 @@ export class SacolaComponent implements OnInit {
   id:number = 1;
   listaItens = [];
 
-  contadorReservar: number = 0;
-  contadorExcluir: number = 0;
-  reservaFeita: number;
+  modalReservar = false;
+  modalExcluir = false;
+  reservaFeita = false;
 
   calendarioAberto1: number = 0;
   calendarioAberto2: number = 0;
@@ -27,24 +27,6 @@ export class SacolaComponent implements OnInit {
 
   ngOnInit() {
     this.listaItens = this.service.retornaProdutosSacola(this.sacola.id);
-  }
-
-  reservar() {
-    this.contadorReservar = 1;
-  }
-
-  finalizarReserva() {
-    this.contadorReservar = 0;
-    this.reservaFeita = 1;
-    setTimeout(() => {
-      this.reservaFeita = 0;
-    }, 5000)
-  }
-
-  cancelar() {
-    this.contadorReservar = 0;
-    this.reservaFeita = 0;
-    this.contadorExcluir = 0;
   }
 
   abrirCalendario1() {
@@ -99,16 +81,52 @@ export class SacolaComponent implements OnInit {
     { id: 5, nome: "Professor 5" }];
   }
 
-  excluirModal() {
-    this.contadorExcluir = 1;
-  }
-
-  excluir() {
-    this.contadorExcluir = 0;
-  }
-
   formatarData(data: string) {
     return new Date(data).toLocaleString();
   }
 
+  abrirModalConfirmacao(numero: number) {
+    let divPrincipal = document.createElement("div");
+    divPrincipal.className = "divOpacidade";
+    let containerSacola = document.querySelector("#containerSacola");
+    containerSacola.appendChild(divPrincipal);
+    switch(numero) {
+      case 1:
+        this.modalExcluir = true;
+        break;
+      case 2:
+        this.modalReservar = true;
+        break;
+    }
+  }
+
+  fecharModalConfirmacao(numero: number, confirmacao: string) {
+    let divPrincipal = document.querySelector(".divOpacidade");
+    divPrincipal.remove();
+    switch(numero) {
+      case 1:
+        this.modalExcluir = false;
+        if(confirmacao == '2') {
+          this.excluirSacola();
+        }
+        break;
+      case 2:
+        this.modalReservar = false;
+        if(confirmacao == '2') {
+          this.finalizarReserva();
+        }
+        break;
+    }
+  }
+
+  excluirSacola() {
+    //Chamar back para excluir a sacola
+  }
+
+  finalizarReserva() {
+    this.reservaFeita = true;
+    setTimeout(() => {
+      this.reservaFeita = false;
+    }, 5000)
+  }
 }

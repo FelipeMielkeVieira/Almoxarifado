@@ -34,38 +34,14 @@
             </select>
           </div>
           <button class="botao" (click)="verDetalhes()" style="margin-bottom: 5px;">Ver Detalhes</button>
-          <button class="botao" (click)="reservar()">Reservar</button>
+          <button class="botao" (click)="abrirModalConfirmacao(2)">Reservar</button>
         </div>
       </div>
       <div id="excluirSacola">
-        <img (click)="excluirModal()" src="../../../assets/lixeira-de-reciclagem.png" class="iconeLixeira" alt="Excluir Sacola">
+        <img (click)="abrirModalConfirmacao(1)" src="../../../assets/lixeira-de-reciclagem.png" class="iconeLixeira" alt="Excluir Sacola">
       </div>
     </div>
   </div>
 </div>
-<div *ngIf="contadorReservar == 1" class="fundoModal">
-  <div class="containerModal">
-    <div class="linhaAzul"></div>
-    <img class="iconeAlert" src="../../../assets/alert.png" alt="Ícone de Alerta">
-    <div class="containerInfoModal">
-      <span class="textoModal">Tem certeza que deseja reservar?</span>
-    </div>
-    <div class="containerBotoes">
-      <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-      <button class="botaoReservar" (click)="finalizarReserva()">Reservar</button>
-    </div>
-  </div>
-</div>
-<div *ngIf="contadorExcluir == 1" class="fundoModal">
-  <div class="containerModal">
-    <div class="linhaAzul"></div>
-    <img class="iconeAlert" src="../../../assets/alert.png" alt="Ícone de Alerta">
-    <div class="containerInfoModal">
-      <span class="textoModal">Tem certeza que deseja excluir a sacola?</span>
-    </div>
-    <div class="containerBotoes">
-      <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-      <button class="botaoReservar" (click)="excluir()">Excluir</button>
-    </div>
-  </div>
-</div>
+<app-confirmacaoExecucao *ngIf="modalExcluir" [tipoMensagemModal]="1" (fecharModal)="fecharModalConfirmacao(1, $event)"></app-confirmacaoExecucao>
+<app-confirmacaoExecucao *ngIf="modalReservar" [tipoMensagemModal]="2" (fecharModal)="fecharModalConfirmacao(2, $event)"></app-confirmacaoExecucao>

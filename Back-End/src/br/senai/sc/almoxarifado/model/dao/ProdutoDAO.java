@@ -28,19 +28,19 @@ public class ProdutoDAO {
      * @throws SQLException
      */
     public void inserirProduto(Produto produto) {
-        String sql = "INSERT INTO produto (nome, caracteristicas, quantidade, descartavel, imagem, anexos, classificacao_id) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO produto (nome, quantidade, descartavel, imagem, anexos, classificacao_id, caracteristicas) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
         // Criando statement passando por parâmetro o comando sql e Statement.RETURN_GENERATED_KEYS para retornar o id do produto inserido;
         // O id do produto inserido será utilizado para poder cadastrar suas localizações na tabela intermediária produto_localizacao;
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             statement.setString(1, produto.getNomeProduto());
-            statement.setString(2, produto.getCaracteristicasProduto());
-            statement.setInt(3, produto.getQuantidadeProduto());
-            statement.setBoolean(4, produto.isProdutoDescartavel());
-            statement.setByte(5, produto.getImagemProduto());
-            statement.setString(6, produto.getAnexosProduto());
-            statement.setInt(7, produto.getClassificacaoProduto().getCodigoClassificacao());
+            statement.setInt(2, produto.getQuantidadeProduto());
+            statement.setBoolean(3, produto.isProdutoDescartavel());
+            statement.setByte(4, produto.getImagemProduto());
+            statement.setString(5, produto.getAnexosProduto());
+            statement.setInt(6, produto.getClassificacaoProduto().getCodigoClassificacao());
+            statement.setString(7, produto.getCaracteristicasProduto());
             try {
                 statement.execute();
 
@@ -61,10 +61,10 @@ public class ProdutoDAO {
                     throw new RuntimeException("Erro ao inserir as localizações do produto");
                 }
             } catch (Exception e) {
-                throw new RuntimeException("Erro na execução do comando SQL!");
+                throw new RuntimeException("Erro na execução do comando SQL aqui!");
             }
         } catch (Exception e) {
-            throw new RuntimeException("Erro na preparação do comando SQL!");
+            throw new RuntimeException("Erro na preparação do comando SQL aqui!");
         }
     }
 
@@ -242,9 +242,9 @@ public class ProdutoDAO {
         } else if (tipoFiltro == 2) {
             sql = "SELECT * FROM PRODUTO WHERE DESCARTAVEL = 0 LIMIT 18";
         } else if (tipoFiltro == 3) {
-            sql = "SELECT * FROM PRODUTO WHERE DESCARTAVEL > 0 LIMIT 18";
+            sql = "SELECT * FROM PRODUTO WHERE QUANTIDADE > 0 LIMIT 18";
         } else if (tipoFiltro == 4) {
-            sql = "SELECT * FROM PRODUTO WHERE DESCARTAVEL = 0 LIMIT 18";
+            sql = "SELECT * FROM PRODUTO WHERE QUANTIDADE = 0 LIMIT 18";
         }
 
         try (PreparedStatement statement = conexaoProduto.prepareStatement(sql)) {

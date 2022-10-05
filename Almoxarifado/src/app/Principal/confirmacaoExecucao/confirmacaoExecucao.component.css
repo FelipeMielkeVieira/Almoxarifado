@@ -1,0 +1,77 @@
+#modalCadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30.5%;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-top: #0047b6 10px solid;
+  border-radius: 8px;
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  height: 30%;
+}
+
+.divInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 2%;
+  height: 80%;
+  width: 80%;
+}
+
+#fecharModal {
+  position: absolute;
+  width: 3%;
+  top: 10%;
+  right: 3%;
+}
+
+#fecharModal:hover {
+  cursor: pointer;
+}
+
+#imgAlerta {
+  width: 20%;
+}
+
+#spanCadastro {
+  font-family: "Inter";
+  font-size: var(--font-size--default);
+  text-align: center;
+  font-weight: 600;
+}
+
+.divBotoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botaoCancelar {
+  font-size: var(--font-size--big);
+  margin-right: 5px;
+  background-color: gray;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 0;
+}
+
+.botaoConfirmar {
+  font-size: var(--font-size--big);
+  margin-right: 5px;
+  background-color: #0047b6;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
