@@ -10,13 +10,14 @@ import { MinhaSacolaComponent } from '../Principal/minha-sacola/minha-sacola.com
 import { SacolasComponent } from '../Principal/sacolas/sacolas.component';
 import { FiltroComponent } from '../Principal/filtro/filtro.component';
 import { CalendarioComponent } from '../Principal/calendario/calendario.component';
+import { ConfirmacaoExecucaoComponent } from './confirmacaoExecucao/confirmacaoExecucao.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [ItemComponent, SacolaComponent, ReservaComponent, HeaderComponent, MinhasReservasComponent, MinhaSacolaComponent, SacolasComponent, FiltroComponent, CalendarioComponent],
-  exports: [ItemComponent, CalendarioComponent, FiltroComponent, HeaderComponent, MinhaSacolaComponent, MinhasReservasComponent, ReservaComponent, SacolaComponent, SacolasComponent]
+  declarations: [ItemComponent, SacolaComponent, ReservaComponent, HeaderComponent, MinhasReservasComponent, MinhaSacolaComponent, SacolasComponent, FiltroComponent, CalendarioComponent, ConfirmacaoExecucaoComponent],
+  exports: [ItemComponent, CalendarioComponent, FiltroComponent, HeaderComponent, MinhaSacolaComponent, MinhasReservasComponent, ReservaComponent, SacolaComponent, SacolasComponent, ConfirmacaoExecucaoComponent]
 })
 export class PrincipalModule { }

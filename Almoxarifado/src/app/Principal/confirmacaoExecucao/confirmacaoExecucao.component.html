@@ -1,0 +1,18 @@
+<!-- Modal para alertas de funções efetuadas ou erros no login -->
+<div id="modalCadastro">
+  <!-- Div com o texto e ícone do modal -->
+  <div class="divInfo">
+    <img
+      id="fecharModal"
+      (click)="fechar(1)"
+      src="../../../assets/close.png"
+      alt="Fechar Modal de Informação"
+    />
+    <img id="imgAlerta" src="../../../assets/alert.png" alt="Ícone de alerta" />
+    <span id="spanCadastro">{{ fraseAlertaModal }}</span>
+    <div class="divBotoes">
+        <button (click)="fechar(1)" class="botaoCancelar">Cancelar</button>
+        <button (click)="fechar(2)" class="botaoConfirmar">Confirmar</button>
+    </div>
+  </div>
+</div>
