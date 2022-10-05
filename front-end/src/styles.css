@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
+
+html{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-size--verysmall: 10px;
+    --font-size--small: 14px;
+    --font-size--default: 16px;
+    --font-size--medium: 18px;
+    --font-size--big: 20px;
+    --font-size--verybig: 24px;
+    --font-size--giant: 30px;
+    --font-size--extreme: 40px;
+}
+
+.divOpacidade {
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    width: 100vw;
+    height: 100vh;
+}
