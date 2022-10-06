@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+.containerPrincipal {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(180deg, #EAEAEA 0%, #DFDFDF 100%);
+    display: flex;
+    justify-content: center;
+}
+
+input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+a {
+    color: rgba(0, 0, 0, 0.65);
+    font-family: 'Inter';
+}
+
+label{
+    margin-left: 5px;
+}
+
+.divPrincipal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+#containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30.5%;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+#imagemUsuario {
+    position: absolute;
+    margin-top: -30px;
+    width: 5%;
+}
+
+#titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    color: #0047B6;
+    margin-top: 10%;
+    font-weight: 500;
+}
+
+#barraAzul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 17px;
+    background: #0047B6;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.inputsCadastro {
+    width: 80%;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid #0047B6;
+    margin: 2%;
+    font-family: 'Inter';
+}
+
+#esqueciSenha {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size--default);
+    color: rgba(0, 0, 0, 0.65);
+    margin-top: 1%;
+    font-family: 'Inter';
+    text-decoration: underline;
+}
+
+#esqueciSenha:hover {
+    cursor: pointer;
+}
+
+#entrarGoogle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 2.5rem;
+    border: solid 0.5px black;
+    border-radius: 5px;
+    margin-top: 5%;
+    font-family: 'Inter';
+    font-size: var(--font-size--small);
+}
+
+#entrarGoogle:hover {
+    cursor: pointer;
+}
+
+#imgGoogle {
+    height: 1.5rem;
+    margin-right: 10%;
+}
+
+#entrar {
+    width: 35%;
+    height: 2.2rem;
+    background-color: #0047B6;
+    color: #ffffff;
+    font-size: var(--font-size--default);
+    border-radius: 5px;
+    border: none;
+    margin-top: 5%;
+    font-family: 'Inter';
+}
+
+#entrar:hover {
+    cursor: pointer;
+}
+
+#textoConta {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size--default);
+    color: rgba(0, 0, 0, 0.65);
+    margin: 4%;
+}
+
+.containerSenha {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 80%;
+}
+
+.containerCheckbox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    margin: 1%;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size--small);
+    color: rgba(0, 0, 0, 0.80);
+}
+
+#checkbox{
+    width: 18px;
+    height: 18px;
+}
+
+#checkbox:hover {
+    cursor: pointer;
+}
+
+.botaoCadastro{
+    border: none;
+}
+
+#cadastrar {
+    text-decoration: underline;
+}
+
+#cadastrar:hover {
+    cursor: pointer;
+}
+
+#fechar:hover {
+    cursor: pointer;
+}
+
+.divSenha {
+    border: none;
+    width: 80%;
+    border-bottom: 1px solid #0047B6;
+    margin: 2%;
+    font-family: 'Inter';
+    display: flex;
+}
+
+.inputsCadastro2 {
+    width: 90%;
+    border: none;
+}
+
+.imgOlho, .imgOlho2, .imgOlho3 {
+    cursor: pointer;
+    user-select: none;
+}
+
+.inputSenhaNova {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}

@@ -1,9 +1,13 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import CheckLogged from './checkLogged.canactivate';
+import { LoginModule } from './Login/login.module';
+import { UsersService } from './service';
 
 @NgModule({
   declarations: [
@@ -12,8 +16,11 @@ import CheckLogged from './checkLogged.canactivate';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    LoginModule
   ],
-  providers: [CheckLogged],
+  providers: [CheckLogged, UsersService],
   bootstrap: [AppComponent]
 })
 

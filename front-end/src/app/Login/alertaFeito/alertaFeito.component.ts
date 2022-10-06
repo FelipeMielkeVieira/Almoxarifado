@@ -69,5 +69,6 @@ export class AlertaFeitoComponent implements OnInit {
       case 6:
         return "animacaoCorVermelha";
     }
+    return "";
   }
 }

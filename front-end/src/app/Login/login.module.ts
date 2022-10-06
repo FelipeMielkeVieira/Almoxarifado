@@ -5,13 +5,15 @@ import { CadastroComponent } from '../Login/cadastro/cadastro.component';
 import { FormsModule } from '@angular/forms';
 import { AlertaFeitoComponent } from './alertaFeito/alertaFeito.component';
 import { EsquecerSenhaComponent } from './esquecerSenha/esquecerSenha.component';
+import { UsersService } from '../service';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [LoginComponent, CadastroComponent, AlertaFeitoComponent, EsquecerSenhaComponent],
-  exports: [CadastroComponent, LoginComponent, AlertaFeitoComponent, EsquecerSenhaComponent]
+  exports: [CadastroComponent, LoginComponent, AlertaFeitoComponent, EsquecerSenhaComponent],
+  providers: [UsersService]
 })
 export class LoginModule { }

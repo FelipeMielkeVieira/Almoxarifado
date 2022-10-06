@@ -52,25 +52,30 @@
           />
         </div>
         <h1 id="titulo">Cadastrar</h1>
+
         <input
           type="text"
           class="inputsCadastro"
           placeholder="Nome"
-          [(ngModel)]="usuario"
+          name="usuario"
+          ngModel
         />
         <input
           type="email"
           class="inputsCadastro"
           placeholder="Email"
-          [(ngModel)]="email"
+          name="email"
+          ngModel
         />
+
         <div class="divSenha">
           <input
             type="password"
             class="inputsCadastro2"
             placeholder="Senha"
             id="inputSenha1"
-            [(ngModel)]="senhaUser"
+            name="senhaUser"
+            ngModel
           />
           <span
             *ngIf="!trocarOlho1"
@@ -97,7 +102,8 @@
             class="inputsCadastro2"
             placeholder="Confirmar Senha"
             id="inputSenha2"
-            [(ngModel)]="repetirSenhaUser"
+            name="repetirSenhaUser"
+            ngModel
           />
           <span
             *ngIf="!trocarOlho2"

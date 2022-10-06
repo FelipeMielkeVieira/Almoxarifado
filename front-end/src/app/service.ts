@@ -160,6 +160,7 @@ export class UsersService {
         return e;
       }
     }
+    return null;
   }
 
   retornaSacola(id: number) {
@@ -168,6 +169,7 @@ export class UsersService {
         return sacola;
       }
     }
+    return null;
   }
 
   retornaReserva(id: number) {
@@ -176,6 +178,7 @@ export class UsersService {
         return reserva;
       }
     }
+    return null;
   }
 
   retornaProdutosReserva(id: number) {
