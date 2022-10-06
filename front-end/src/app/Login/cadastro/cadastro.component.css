@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
+:root {
+    --form-floating-input-padding-t: 0;
+    /* --form-floating-input-padding-b:0; */
+    --form-floating-height: 30rem;
+    --form-floating-padding-x: 2rem;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -49,6 +56,20 @@ a {
     margin-top: 10%;
     font-weight: 500;
 }
+
+.div-float-label {
+    border-bottom: 1px solid black;
+}
+
+.input-float-label {
+    /* padding: 0; */
+    border: 0;
+}
+
+/* .label-float-label {
+    padding: 0; 
+} */
+
 
 #barraAzul {
     display: flex;
