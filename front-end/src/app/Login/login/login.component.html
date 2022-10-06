@@ -22,7 +22,7 @@
         class="inputsCadastro"
         placeholder="Email ou usuário"
         name="emailUser"
-        ngModel
+        [(ngModel)]="emailUser"
       />
       <div class="divSenha">
         <input
@@ -31,7 +31,7 @@
           id="inputSenha1"
           placeholder="Senha"
           name="senhaUser"
-          ngModel
+          [(ngModel)]="senhaUser"
         />
         <span
           *ngIf="!visibilidadeOlho"
