@@ -14,7 +14,7 @@ export class CadastroComponent implements OnInit {
   olho1: number = 1;
   olho2: number = 1;
 
-  usuario: string = "teste";
+  usuario: string;
   email: string | undefined;
   senhaUser: string | undefined;
   repetirSenhaUser: string | undefined;

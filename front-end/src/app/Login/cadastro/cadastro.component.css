@@ -12,7 +12,7 @@ input:focus {
     outline: 0;
 }
 
-a{
+a {
     color: rgba(0, 0, 0, 0.65);
 }
 
@@ -59,13 +59,69 @@ a{
     border-radius: 7px 7px 0px 0px;
 }
 
-.inputsCadastro{
+.inputsCadastro {
     width: 80%;
     height: 2rem;
     border: none;
     border-bottom: 1px solid #0047B6;
     margin: 5px;
     font-family: 'Inter', sans-serif;
+}
+
+.label-float {
+    position: relative;
+    padding-top: 13px;
+}
+
+.label-float input {
+    border: 0;
+    border-bottom: 2px solid lightgrey;
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+.label-float input:focus {
+    border-bottom: 2px solid #3951b2;
+}
+
+.label-float input::placeholder {
+    color: transparent;
+}
+
+.label-float label {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+}
+
+.label-float input:required:invalid+label {
+    color: red;
+}
+
+.label-float input:focus:required:invalid {
+    border-bottom: 2px solid red;
+}
+
+.label-float input:required:invalid+label:before {
+    content: '*';
+}
+
+.label-float input:focus+label,
+.label-float input:not(:placeholder-shown)+label {
+    font-size: 13px;
+    margin-top: 0;
+    color: #3951b2;
 }
 
 #cadastrar {
@@ -78,9 +134,12 @@ a{
     border: none;
     margin-top: 5%;
     font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
 }
 
 #cadastrar:hover {
+    transition: all 0.3s;
+    background-color: #013fa3;
     cursor: pointer;
 }
 
@@ -109,12 +168,19 @@ a{
     display: flex;
 }
 
-
 .imgOlho {
+    padding: 4px;
+    transition: all 0.3s;
     cursor: pointer;
 }
 
-.inputsCadastro2{
+.imgOlho:hover {
+    transition: all 0.3s;
+    border-radius: 50px;
+    background-color: #dddddd;
+}
+
+.inputsCadastro2 {
     width: 90%;
     border: none;
     font-family: 'Inter', sans-serif;

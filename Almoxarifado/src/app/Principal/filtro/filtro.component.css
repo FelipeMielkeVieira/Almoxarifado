@@ -1,3 +1,5 @@
+/* ---------------------- CSS PADRÃO GERAL ---------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +9,6 @@ p {
     font-size: var(--font-size--big);
     font-weight: 600;
     line-height: 36px;
-}
-
-#espacamento {
-    height: 85px;
-    width: 100%;
 }
 
 header {
@@ -33,162 +30,23 @@ a:hover {
     cursor: pointer;
 }
 
-.iconDeselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.sidebar {
-    z-index: 1;
-    margin-top: -85px;
-    padding-top: 85px;
+::-webkit-scrollbar-track {
+    background-color: #EEEEEE;
 }
 
-.sidebar .reservas {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #0047B6;
-    color: #FFFFFF;
-    cursor: pointer;
+::-webkit-scrollbar-thumb {
+    background-color: #EEEEEE;
+    border-radius: 30px;
+    border: solid 1px black;
 }
 
-.sidebar .reservas:hover {
-    background: #003c9c;
-}
+/* ------------------------- FIM CSS PADRAO GERAL ------------------------- */
 
-.sidebar .filtro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #0047B6;
-    cursor: default;
-    color: #FFFFFF;
-}
-
-
-#iconMaior {
-    cursor: pointer;
-    margin-right: 20px;
-    width: 15px;
-    transition: all 0.7s;
-    transform: scaleX(-1)
-}
-
-.ContainerIconGerenciar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#gerenciar {
-    font-weight: 100;
-    position: absolute;
-}
-
-.ContainerIconMaior,
-.ContainerIconCalendario {
-    padding: 6px 5px 0 25px;
-    cursor: pointer;
-}
-
-.ContainerIconCalendario {
-    margin-right: 15px;
-}
-
-.ContainerIconMaior:hover {
-    background: #003c9c;
-}
-
-.textoFiltro,
-.textoReservas {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-weight: 600;
-}
-
-.textoFiltro,
-.textoReservas2 {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-weight: 600;
-    font-size: var(--font-size--small);
-}
-
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    left: 0;
-    background: #EEEEEE;
-    transition: 0.5s;
-    transition-property: left;
-}
-
-.sidebar a,
-.filtro,
-.reservas {
-    color: rgb(0, 0, 0);
-    font-family: "Inter", sans-serif;
-    display: block;
-    width: 100%;
-    line-height: 60px;
-    text-decoration: none;
-    padding-left: 10px;
-    box-sizing: border-box;
-    transition: 0.5s;
-    transition-property: background;
-}
-
-.sidebar a:hover {
-    background: #a5a5a5;
-}
-
-
-#check:checked~.sidebar {
-    left: -190px;
-}
-
-#check:checked~.sidebar a span {
-    display: none;
-}
-
-#check:checked~.sidebar a {
-    font-size: var(--font-size--default);
-    margin-left: 170px;
-    width: 80px;
-    padding-left: 22px;
-}
-
-#check {
-    display: none;
-}
-
-#check:checked~.sidebar #iconMaior {
-    margin-right: 20px;
-    width: 15px;
-    transition: all 0.7s;
-    transform: scaleX(1);
-}
-
-.itensFiltro {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 91%;
-    overflow: auto;
-}
-
-/* ------------------- MODAL PARA GERENCIAR FILTROS ----------------- */
+/* ------------------- MODAL GERENCIAR FILTROS ----------------- */
 
 #fundoModal {
     display: flex;
@@ -238,23 +96,33 @@ a:hover {
     justify-content: space-between;
 }
 
-.containerTopo {
-    height: 90%;
+#palavraFiltro {
+    margin-left: 44%;
 }
 
 #containerIcon {
     display: flex;
     justify-content: flex-end;
     margin: 3% 2.5% 0 0;
-}
-
-#palavraFiltro {
-    margin-left: 44%;
-}
-
-#containerIcon {
     position: relative;
     right: 3%;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#iconeFechar {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    font-size: var(--font-size--giant);
+    cursor: pointer;
 }
 
 #containerConteudoTeste {
@@ -296,6 +164,14 @@ a:hover {
     }
 }
 
+#containerCadastrar,
+#textoCadastrar,
+#riscoTeste {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #riscoPequeno {
     margin-top: 2%;
     width: 60%;
@@ -308,14 +184,6 @@ a:hover {
     width: 80%;
     background-color: rgba(0, 0, 0, 0.521);
     height: 3px;
-}
-
-#containerCadastrar,
-#textoCadastrar,
-#riscoTeste {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #NomeFiltro {
@@ -333,7 +201,6 @@ a:hover {
     margin-top: 2%;
 }
 
-
 #botaoAdicionar {
     padding: 5px 10px;
     border: 1px solid rgb(0, 0, 0);
@@ -341,6 +208,19 @@ a:hover {
     background-color: #0047B6;
     color: #ffff;
     cursor: pointer;
+}
+
+#containerSalvar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#containerSalvar,
+#containerConteudoTeste {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #botaoSalvar {
@@ -359,28 +239,9 @@ a:hover {
     background-color: #003180;
 }
 
-#containerSalvar,
-#containerConteudoTeste {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* -----------------------------FIM MODAL GERENCIAR FILTRO------------------------------------------ */
 
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #EEEEEE;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #EEEEEE;
-    border-radius: 30px;
-    border: solid 1px black;
-}
-
-/* ----- Modal ----- */
+/* <!-- -------- Modal FeddBack Salvo com sucesso ----------- --> */
 
 #modalFeedback {
     display: flex;
@@ -407,14 +268,20 @@ a:hover {
     padding: 2%;
 }
 
-#fechar {
-    position: absolute;
-    width: 3%;
-    top: 10%;
-    right: 3%;
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-#fechar:hover {
+#iconeFechar {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    font-size: var(--font-size--giant);
     cursor: pointer;
 }
 
@@ -435,6 +302,7 @@ a:hover {
     width: 100%;
     height: 10px;
     border-radius: 0px 0px 8px 8px;
+    background-color: #AEAEAE;
 }
 
 #azul {
@@ -450,30 +318,171 @@ a:hover {
     from {
         width: 0%;
     }
-
     to {
         width: 100%;
         border-radius: 0px 0px 8px 8px;
     }
 }
 
-/* @keyframes lateral {
-    from {
-        right: -5rem;
-    }
-
-    to {
-        right: 0.5rem;
-    }
-} */
+/* ----------------------FIM MODAL FEEDBACK SALVO------------------------------ */
 
 
-#iconeFechar {
-    position: absolute;
-    right: 1%;
-    top: 1%;
-    font-size: var(--font-size--giant);
+/*-- -------------------------------FILTRO EM SI-------------------------------------------- */
+#check:checked~.sidebar {
+    left: -190px;
+}
+
+#check:checked~.sidebar a span {
+    display: none;
+}
+
+#check:checked~.sidebar a {
+    font-size: var(--font-size--default);
+    margin-left: 170px;
+    width: 80px;
+    padding-left: 22px;
+}
+
+#check {
+    display: none;
+}
+
+#check:checked~.sidebar #iconMaior {
+    margin-right: 20px;
+    width: 15px;
+    transition: all 0.7s;
+    transform: scaleX(1);
+}
+
+#espacamento {
+    height: 85px;
+    width: 100%;
+}
+
+.sidebar {
+    z-index: 1;
+    margin-top: -85px;
+    padding-top: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: 0;
+    background: #EEEEEE;
+    transition: 0.5s;
+    transition-property: left;
+}
+
+.sidebar a:hover {
+    background: #a5a5a5;
+}
+
+.sidebar .reservas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0047B6;
+    color: #FFFFFF;
     cursor: pointer;
+}
+
+.sidebar .reservas:hover {
+    background: #003c9c;
+}
+
+.sidebar .filtro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0047B6;
+    cursor: default;
+    color: #FFFFFF;
+}
+
+.filtro,
+.sidebar a,
+.reservas {
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 10px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+.containerTopo {
+    height: 90%;
+}
+
+.textoFiltro,
+.textoReservas {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: 600;
+}
+
+.textoFiltro,
+.textoReservas2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: var(--font-size--small);
+}
+
+.ContainerIconMaior,
+.ContainerIconCalendario {
+    padding: 6px 5px 0 25px;
+    cursor: pointer;
+}
+
+.ContainerIconMaior:hover {
+    background: #003c9c;
+}
+
+.ContainerIconCalendario {
+    margin-right: 15px;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#iconMaior {
+    cursor: pointer;
+    margin-right: 20px;
+    width: 15px;
+    transition: all 0.7s;
+    transform: scaleX(-1)
+}
+
+.itensFiltro {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 91%;
+    overflow: auto;
+}
+
+.gerenciarReservas {
+    display: flex;
+}
+
+#gerenciar {
+    font-weight: 100;
+    position: absolute;
 }
 
 #arquivo {
@@ -486,6 +495,20 @@ a:hover {
     font-size: var(--font-size--big);
 }
 
-.gerenciarReservas {
+.ContainerIconGerenciar {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* -------------------------------FIM FILTRO EM SI-------------------------------------------- */
+
+/* @keyframes lateral {
+    from {
+        right: -5rem;
+    }
+
+    to {
+        right: 0.5rem;
+    }
+} */
