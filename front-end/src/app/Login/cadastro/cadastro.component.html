@@ -1,114 +1,59 @@
 <html>
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-  />
-  <body>
-    <div class="divPrincipal">
-      <!-- Modal de aviso para caso o usuário digite duas senhas diferentes -->
-      <app-alertaFeito
-        *ngIf="senhaIncorreta"
-        [tipoMensagemModal]="6"
-        (fecharModal)="fecharModalFeito(1)"
-      ></app-alertaFeito>
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-      <!-- Modal de aviso para caso o usuário não preencha todos os dados -->
-      <app-alertaFeito
-        *ngIf="dadosIncorretos"
-        [tipoMensagemModal]="7"
-        (fecharModal)="fecharModalFeito(2)"
-      ></app-alertaFeito>
+<body>
+  <div class="divPrincipal">
+    <!-- Modal de aviso para caso o usuário digite duas senhas diferentes -->
+    <app-alertaFeito *ngIf="senhaIncorreta" [tipoMensagemModal]="6" (fecharModal)="fecharModalFeito(1)">
+    </app-alertaFeito>
 
-      <div id="containerLogin">
-        <div id="barraAzul">
-          <img
-            id="imagemUsuario"
-            src="../../../assets/user.png"
-            alt="Imagem usuário"
-          />
-        </div>
-        <h1 id="titulo">Cadastrar</h1>
-        <div class="label-float">
-          <input type="text" placeholder="Nome" />
-          <label>Nome</label>
-        </div>
-        <input
-          type="text"
-          class="inputsCadastro"
-          placeholder="Nome"
-          name="usuario"
-          ngModel
-        />
-        <input
-          type="email"
-          class="inputsCadastro"
-          placeholder="Email"
-          name="email"
-          ngModel
-        />
+    <!-- Modal de aviso para caso o usuário não preencha todos os dados -->
+    <app-alertaFeito *ngIf="dadosIncorretos" [tipoMensagemModal]="7" (fecharModal)="fecharModalFeito(2)">
+    </app-alertaFeito>
 
-        <div class="divSenha">
-          <input
-            type="password"
-            class="inputsCadastro2"
-            placeholder="Senha"
-            id="inputSenha1"
-            name="senhaUser"
-            ngModel
-          />
-          <span
-            *ngIf="!trocarOlho1"
-            class="material-symbols-outlined imgOlho iconDeselect"
-            id="olho1"
-            (click)="trocarOlho(1)"
-            alt="Visualização da senha"
-          >
-            visibility_off
-          </span>
-          <span
-            *ngIf="trocarOlho1"
-            class="material-symbols-outlined imgOlho iconDeselect"
-            id="olho1"
-            (click)="trocarOlho(1)"
-            alt="Visualização da senha"
-          >
-            visibility
-          </span>
-        </div>
-        <div class="divSenha">
-          <input
-            type="password"
-            class="inputsCadastro2"
-            placeholder="Confirmar Senha"
-            id="inputSenha2"
-            name="repetirSenhaUser"
-            ngModel
-          />
-          <span
-            *ngIf="!trocarOlho2"
-            class="material-symbols-outlined imgOlho iconDeselect"
-            id="olho2"
-            (click)="trocarOlho(2)"
-            alt="Visualização da senha"
-          >
-            visibility_off
-          </span>
-          <span
-            *ngIf="trocarOlho2"
-            class="material-symbols-outlined imgOlho iconDeselect"
-            id="olho2"
-            (click)="trocarOlho(2)"
-            alt="Visualização da senha"
-          >
-            visibility
-          </span>
-        </div>
-        <button id="cadastrar" (click)="cadastrar()">Cadastrar</button>
-        <p id="textoConta">
-          Já possui uma conta?
-          <span (click)="entrar()" id="entrar">Entrar</span>
-        </p>
+    <div id="containerLogin">
+      <div id="barraAzul">
+        <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário" />
       </div>
+      <h1 id="titulo">Cadastrar</h1>
+      <div class="label-float">
+        <input type="text" placeholder="Nome" />
+        <label>Nome</label>
+      </div>
+      <input type="text" class="inputsCadastro" placeholder="Nome" name="usuario" [(ngModel)]="usuario" />
+      <input type="email" class="inputsCadastro" placeholder="Email" name="email" [(ngModel)]="email" />
+
+      <div class="divSenha">
+        <input type="password" class="inputsCadastro2" placeholder="Senha" id="inputSenha1" name="senhaUser" [(ngModel)]="senhaUser" />
+        <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
+          (click)="trocarOlho(1)" alt="Visualização da senha">
+          visibility_off
+        </span>
+        <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
+          (click)="trocarOlho(1)" alt="Visualização da senha">
+          visibility
+        </span>
+      </div>
+      <div class="divSenha">
+        <input type="password" class="inputsCadastro2" placeholder="Confirmar Senha" id="inputSenha2"
+          name="repetirSenhaUser" [(ngModel)]="repetirSenhaUser" />
+        <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho iconDeselect" id="olho2"
+          (click)="trocarOlho(2)" alt="Visualização da senha">
+          visibility_off
+        </span>
+        <span *ngIf="trocarOlho2" class="material-symbols-outlined imgOlho iconDeselect" id="olho2"
+          (click)="trocarOlho(2)" alt="Visualização da senha">
+          visibility
+        </span>
+      </div>
+      <button id="cadastrar" (click)="cadastrar()">Cadastrar</button>
+      <p id="textoConta">
+        Já possui uma conta?
+        <span (click)="entrar()" id="entrar">Entrar</span>
+      </p>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
