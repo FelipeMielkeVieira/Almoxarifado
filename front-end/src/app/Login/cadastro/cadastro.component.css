@@ -241,7 +241,7 @@ a {
     border-radius: 0px 0px 8px 8px;
 }
 
-#azul {
+/* #azul {
     background-color: #0047B6;
     width: 100%;
     height: 100%;
@@ -257,16 +257,15 @@ a {
     animation-name: animacao;
     animation-duration: 5s;
     border-radius: 0px 0px 8px 8px;
-}
+} */
 
 @keyframes animacao {
     from {
-        width: 0%;
+        opacity: 1;
     }
 
     to {
-        width: 100%;
-        border-radius: 0px 0px 0px 0px;
+        opacity: 0;
     }
 }
 

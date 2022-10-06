@@ -8,21 +8,31 @@ import { UsersService } from 'src/app/service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  nomeUsuario: string;
+  emailUsuario: string;
 
+  // ------------- VARIAVEIS DO MODAL EDITAR USER ------------------
+  abrirEditar: boolean = false;
+  configuracoes: boolean = false;
+  trocarOlho1: boolean = false;
+  olho1: number = 1;
+  trocarOlho2: boolean = false;
+  olho2: number = 1;
+  // ------------- FIM VARIAVEIS DO MODAL EDITAR USER ------------------
+
+  // ------------- VARIAVEIS DO MODAL CONFIGURAÇÕES ------------------
+  // configuracoes: boolean = false;
+  fonteAtual: number = 3;
+  // ------------- FIM VARIAVEIS DO MODAL CONFIGURAÇÕES ------------------
+
+  // -------- VARIAVEIS DO MODAL USER (DENTRO DO HEADER EM SI) --------
   user: number = 0;
   usuarioTipo: number = 0;
-  abrirEditar: boolean = false;
-
-  olho1: number = 1;
-  olho2: number = 1;
-  configuracoes = false;
-  fonteAtual = 3;
-
-  trocarOlho1: boolean = false;
-  trocarOlho2: boolean = false;
+  // ------- FIM VARIAVEIS DO MODAL USER (DENTRO DO HEADER EM SI) ------
 
   constructor(private router: Router, private service: UsersService) { }
 
+  // *Pega o email e nome do usuario logado
   ngOnInit() {
     this.service.usuarios.forEach((e) => {
       if (localStorage.getItem('emailAtual') == e.email) {
@@ -33,58 +43,30 @@ export class HeaderComponent implements OnInit {
     this.usuarioTipo = parseInt(localStorage.getItem('usuario'));
   }
 
-  nomeUsuario: string;
-  emailUsuario: string;
-
-  editarPerfil() {
-    this.user = 0;
-    if (this.abrirEditar == false) {
-      this.abrirEditar = true;
-    } else {
-      this.abrirEditar = false;
+  // *Alguma coisa com o mouse, o resto nn entendi T-T
+  @HostListener('document:mousedown', ['$event'])
+  onGlobalClick(event): void {
+    let contagem = 0;
+    for (const path of event.path) {
+      if(path.className == "modalUser") {
+        contagem = 1;
+      }
     }
-
-  }
-
-  abrirUser() {
-    if (this.user == 0) {
-      this.user = 1;
-    } else {
-      this.user = 0;
+    if(contagem == 0 && event.path[1].id != "usuarioIcone") {
+      if (this.user == 1) {
+        this.user = 0;
+      }
     }
   }
 
-  navegar(rota: String) {
-    this.router.navigate([rota]);
+  // -------------- FUNÇÕES DO MODAL EDITAR USER ------------------
+  // *Fecha o modal de editar e o de configurações
+  fechar() {
+    this.abrirEditar = false;
+    this.configuracoes = false;
   }
 
-  logout() {
-    localStorage.removeItem('usuario');
-    localStorage.removeItem('emailAtual');
-    localStorage.removeItem('lembrarSenha');
-    this.navegar('/');
-  }
-
-  navegacaoTipo() {
-    if (localStorage.getItem('usuario') == '1') {
-      this.router.navigate(['/professor'])
-    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
-      this.router.navigate(['/atendente']);
-    } else {
-      this.router.navigate(['/supervisor'])
-    }
-  }
-
-  sacolas() {
-    if (localStorage.getItem('usuario') == '1') {
-      this.router.navigate(['/professor/sacolas']);
-    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
-      this.router.navigate(['/atendente/sacolas']);
-    } else {
-      this.router.navigate(['/supervisor/sacolas'])
-    }
-  }
-
+  // *Troca o olho do input de senha
   trocarOlho(input) {
     let input2: HTMLInputElement
 
@@ -116,22 +98,22 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  fechar() {
-    this.abrirEditar = false;
-    this.configuracoes = false;
-  }
-
+  // *Irá fechar o modal
   salvar() {
     if (this.abrirEditar = true) {
       this.abrirEditar = false;
     }
   }
+  // -------------- FIM FUNÇÕES DO MODAL EDITAR USER ------------------
 
-  abrirConfiguracoes() {
-    this.configuracoes = !this.configuracoes;
-    this.user = 0;
-  }
+  // ---------------- FUNÇÕES DO MODAL CONFIGURAÇÕES --------------------
+  // *Fecha o modal de editar e o de configurações
+  // fechar() {
+  //   this.abrirEditar = false;
+  //   this.configuracoes = false;
+  // }
 
+  // *Troca a fonte do site
   salvarConfig() {
     this.configuracoes = false;
     if(this.fonteAtual == 1) {
@@ -185,19 +167,76 @@ export class HeaderComponent implements OnInit {
       document.documentElement.style.setProperty('--font-size--extreme', '44px');
     }
   }
+   // ---------------- FIM FUNÇÕES DO MODAL CONFIGURAÇÕES --------------------
 
-  @HostListener('document:mousedown', ['$event'])
-  onGlobalClick(event): void {
-    let contagem = 0;
-    for (const path of event.path) {
-      if(path.className == "modalUser") {
-        contagem = 1;
-      }
-    }
-    if(contagem == 0 && event.path[1].id != "usuarioIcone") {
-      if (this.user == 1) {
-        this.user = 0;
-      }
+  // ----------------------- FUNÇÕES DO HEADER EM SI --------------------------
+  // *Irá navegar conforme o usuário que loga
+  navegacaoTipo() {
+    if (localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor'])
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente']);
+    } else {
+      this.router.navigate(['/supervisor'])
     }
   }
+
+  // *Irá navegar para a página de sacolas
+  sacolas() {
+    if (localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor/sacolas']);
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente/sacolas']);
+    } else {
+      this.router.navigate(['/supervisor/sacolas'])
+    }
+  }
+
+  // *Irá abrir o modal do user
+  abrirUser() {
+    if (this.user == 0) {
+      this.user = 1;
+    } else {
+      this.user = 0;
+    }
+  }
+
+  // -------------------- FUNÇÕES DO MODAL USER (DENTRO DO HEADER EM SI) ---------------------
+
+  // *Irá abrir o modal de editar
+  editarPerfil() {
+    this.user = 0;
+    if (this.abrirEditar == false) {
+      this.abrirEditar = true;
+    } else {
+      this.abrirEditar = false;
+    }
+  }
+
+  // *Irá navegar pela rota recebida
+  navegar(rota: String) {
+    this.router.navigate([rota]);
+  }
+
+  // *Irá abrir as configurações
+  abrirConfiguracoes() {
+    this.configuracoes = !this.configuracoes;
+    this.user = 0;
+  }
+
+  // *Irá abrir a tela de ajuda
+  // abrirAjuda() {
+  //   NAO TEM
+  // }
+
+  // *Irá deslogar do sistema
+  logout() {
+    localStorage.removeItem('usuario');
+    localStorage.removeItem('emailAtual');
+    localStorage.removeItem('lembrarSenha');
+    this.navegar('/');
+  }
+  // ----------------------- FIM DO MODAL USER (DENTRO DO HEADER EM SI) --------------------------
+
+  // ----------------------- FIM FUNÇÕES DO HEADER EM SI --------------------------
 }
