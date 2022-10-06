@@ -1,7 +1,7 @@
-<!-- -- FeddBack -- -->
+<!-- -- Modal FeddBack Salvo com sucesso -- -->
 <div *ngIf="feedback == 1" id="modalFeedback">
     <div class="divInfo">
-        <span (click)="fechar()" class="material-symbols-outlined iconDeselect" id="iconeFechar">
+        <span title="Fechar" (click)="fechar()" class="material-symbols-outlined iconDeselect" id="iconeFechar">
             close
         </span>
         <span title="Certo" class="material-symbols-outlined iconDeselect" id="imgCerto">
@@ -9,13 +9,14 @@
         </span>
         <span id="spanTexto">Filtro salvo com sucesso!</span>
     </div>
-    <div id="fundo" style="background-color: #AEAEAE;">
+    <div id="fundo">
         <div id="azul"></div>
     </div>
 </div>
 
 <!-- -------------------------------------------------------- -->
 
+<!-- --------------------------- MODAL GERENCIAR FILTRO ----------------------------------- -->
 <div *ngIf="aparecer == 1" id="fundoModal">
     <div id="containerModal">
         <div id="riscoAzul"></div>
@@ -97,13 +98,11 @@
                         delete
                     </span>
                 </div>
-                
             </div>
             <div id="riscoTeste">
                 <hr id="riscoPequeno">
             </div>
             <div id="containerCadastrar">
-                
                 <div id="parteCadastrar">
                     <div id="textoCadastrar">
                         <p>
@@ -116,7 +115,6 @@
                     <div id="containerBotaoAdicionar">
                         <button id="botaoAdicionar">Adicionar</button>
                     </div>
-                    
                 </div>
             </div>
             <div id="riscoTeste">
@@ -125,13 +123,13 @@
                 <div id="containerSalvar">
                     <button id="botaoSalvar" (click)="salvar()">Salvar</button>
                 </div>
-            
         </div>
     </div>
 </div>
 
-<!-- --------------------------------------------------------- -->
+<!-- ---------------------------FIM MODAL GERENCIAR FILTRO----------------------------- -->
 
+<!-- -------------------------------FILTRO EM SI-------------------------------------------- -->
 <input type="checkbox" id="check" checked>
 <div id="espacamento"></div>
 <div class="sidebar">
@@ -183,3 +181,5 @@
         </div>
     </div>
 </div>
+
+<!-- -------------------------------FIM FILTRO EM SI-------------------------------------------- -->

@@ -23,10 +23,35 @@ export class FiltroComponent implements OnInit {
   ngOnInit() {
   }
 
-  navegar(rota: String) {
-    this.router.navigate([rota]);
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-= Funções Modal FeddBack Salvo com sucesso =-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+  // *Irá fechar o modal do feedback
+  fechar() {
+    this.feedback = 0;
   }
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-= Fim Funções Modal FeddBack Salvo com sucesso =-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= MODAL GERENCIAR FILTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+  // *Irá fechar o modal de gerenciar filtro
+  fecharModal() {
+    this.aparecer = 0;
+  }
+
+  // *Irá salvar o novo item do filtro, fazendo aparecer o modal de feedback e fechando o modal de gerenciar filtro
+  salvar() {
+    this.fecharModal();
+    this.feedback = 1;
+    setTimeout(() => {
+      this.feedback = 0;
+    }, 5000);
+  }
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FIM MODAL GERENCIAR FILTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FILTRO EM SI =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+  // *Esse é complicado...
   filtrar(item) {
     this.filtroSelecionado = item;
     this.fecharFiltro();
@@ -75,6 +100,17 @@ export class FiltroComponent implements OnInit {
     divFiltro.appendChild(containerFiltro);
   }
 
+  // *Irá levar para uma rota, que seria na opção clicada
+  navegar(rota: String) {
+    this.router.navigate([rota]);
+  }
+
+  // *Irá abrir o modal de gerenciar filtro
+  modalFiltro() {
+    this.aparecer = 1;
+  }
+
+  // *Tendi nn
   tirarFiltro() {
     let divFiltro = document.querySelector("#filtro");
     let containerFiltro = document.querySelector("#containerFiltro");
@@ -83,29 +119,10 @@ export class FiltroComponent implements OnInit {
     this.filtroSelecionado = null;
   }
 
+  // *Caso ele clique na flecha, irá puxar o modal para a direita
   fecharFiltro() {
     const input = document.querySelector("#check") as HTMLInputElement;
     input.checked = true;
   }
-
-  fecharModal() {
-    this.aparecer = 0;
-  }
-
-  modalFiltro() {
-    this.aparecer = 1;
-  }
-
-  salvar() {
-    this.aparecer = 0;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-  }
-
-  fechar() {
-    this.feedback = 0;
-  }
-
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FIM FILTRO EM SI =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 }
