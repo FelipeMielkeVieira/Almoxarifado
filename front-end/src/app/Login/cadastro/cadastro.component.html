@@ -5,44 +5,20 @@
   />
   <body>
     <div class="divPrincipal">
-      <div *ngIf="senhaIncorreta == 1" id="modalCadastro">
-        <div class="divInfo">
-          <img
-            id="fechar"
-            (click)="fechar()"
-            src="../../../assets/close.png"
-            alt="Fechar modal de informação"
-          />
-          <img
-            id="imgAlerta2"
-            src="../../../assets/alert.png"
-            alt="Ícone de alerta"
-          />
-          <span id="spanCadastro">Senhas não Correspondem</span>
-        </div>
-        <div id="fundo" style="background-color: #aeaeae">
-          <div id="vermelho"></div>
-        </div>
-      </div>
-      <div *ngIf="dadosIncorretos == 1" id="modalCadastro">
-        <div class="divInfo">
-          <img
-            id="fechar"
-            (click)="fechar()"
-            src="../../../assets/close.png"
-            alt="Fechar modal de informação"
-          />
-          <img
-            id="imgAlerta2"
-            src="../../../assets/alert.png"
-            alt="Ícone de alerta"
-          />
-          <span id="spanCadastro">Preencha todos os campos</span>
-        </div>
-        <div id="fundo" style="background-color: #aeaeae">
-          <div id="vermelho"></div>
-        </div>
-      </div>
+      <!-- Modal de aviso para caso o usuário digite duas senhas diferentes -->
+      <app-alertaFeito
+        *ngIf="senhaIncorreta"
+        [tipoMensagemModal]="6"
+        (fecharModal)="fecharModalFeito(1)"
+      ></app-alertaFeito>
+
+      <!-- Modal de aviso para caso o usuário não preencha todos os dados -->
+      <app-alertaFeito
+        *ngIf="dadosIncorretos"
+        [tipoMensagemModal]="7"
+        (fecharModal)="fecharModalFeito(2)"
+      ></app-alertaFeito>
+
       <div id="containerLogin">
         <div id="barraAzul">
           <img

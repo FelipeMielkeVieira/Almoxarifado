@@ -13,6 +13,7 @@ export class AlertaFeitoComponent implements OnInit {
   //4 - Email Inválido / Vermelho
   //5 - Código Inválido (Na redefinição de senha, código recebido por email) / Vermelho
   //6 - As senhas não conferem / Vermelho
+  //7 - Preencha todos os Dados / Vermelho
   @Input() tipoMensagemModal: number | undefined;
 
   //Output para fechar o modal na página de login ao clicar no X
@@ -49,6 +50,9 @@ export class AlertaFeitoComponent implements OnInit {
       case 6:
         this.fraseAlertaModal = "As senhas não conferem!";
         break;
+      case 7:
+        this.fraseAlertaModal = "Preencha todos os Dados!";
+        break;
     }
   }
 
@@ -67,6 +71,8 @@ export class AlertaFeitoComponent implements OnInit {
       case 5:
         return "animacaoCorVermelha";
       case 6:
+        return "animacaoCorVermelha";
+      case 7:
         return "animacaoCorVermelha";
     }
     return "";
