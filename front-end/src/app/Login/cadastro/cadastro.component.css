@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(180deg, #EAEAEA 0%, #DFDFDF 100%);
+}
+
+input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+a{
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.divPrincipal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30.5%;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+#imagemUsuario {
+    position: absolute;
+    margin-top: -30px;
+    width: 5%;
+}
+
+#titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    color: #0047B6;
+    margin-top: 10%;
+    font-weight: 500;
+}
+
+#barraAzul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 17px;
+    background: #0047B6;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.inputsCadastro{
+    width: 80%;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid #0047B6;
+    margin: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+#cadastrar {
+    width: 35%;
+    height: 2.2rem;
+    background-color: #0047B6;
+    color: #ffffff;
+    font-size: var(--font-size--default);
+    border-radius: 5px;
+    border: none;
+    margin-top: 5%;
+    font-family: 'Inter', sans-serif;
+}
+
+#cadastrar:hover {
+    cursor: pointer;
+}
+
+#textoConta {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size--default);
+    color: rgba(0, 0, 0, 0.65);
+    margin: 5%;
+}
+
+#entrar {
+    text-decoration: underline;
+}
+
+#entrar:hover {
+    cursor: pointer;
+}
+
+.divSenha {
+    border: none;
+    width: 80%;
+    height: 2rem;
+    border-bottom: 1px solid #0047B6;
+    margin: 2%;
+    font-family: 'Inter';
+    display: flex;
+}
+
+
+.imgOlho {
+    cursor: pointer;
+}
+
+.inputsCadastro2{
+    width: 90%;
+    border: none;
+    font-family: 'Inter', sans-serif;
+}
+
+#modalCadastro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 30.5%;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    position: absolute;
+    top: 2%;
+    height: 14%;
+}
+
+.divInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2%;
+}
+
+#spanCadastro {
+    font-family: 'Inter';
+    font-size: var(--font-size--default);
+    text-align: center;
+    font-weight: 600;
+}
+
+#imgAlerta {
+    width: 8%;
+}
+
+#imgAlerta2 {
+    width: 15%;
+    margin-bottom: 5%;
+}
+
+#fechar {
+    position: absolute;
+    width: 3%;
+    top: 10%;
+    right: 3%;
+}
+
+#fechar:hover {
+    cursor: pointer;
+}
+
+#fundo {
+    width: 100%;
+    height: 10px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+#azul {
+    background-color: #0047B6;
+    width: 100%;
+    height: 100%;
+    animation-name: animacao;
+    animation-duration: 5s;
+    border-radius: 0px 0px 8px 8px;
+}
+
+#vermelho {
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    animation-name: animacao;
+    animation-duration: 5s;
+    border-radius: 0px 0px 8px 8px;
+}
+
+@keyframes animacao {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+        border-radius: 0px 0px 0px 0px;
+    }
+}
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
+.texto {
+    display: flex;
+}
