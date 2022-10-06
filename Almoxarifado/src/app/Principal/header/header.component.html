@@ -22,7 +22,6 @@
         <p>Usuário</p>
         <div class="asterisco">*</div>
       </div>
-
     </div>
     <input type="text" class="inputNome" placeholder="Nome de usuário" [(ngModel)]="usuario">
     <div id="tituloSenha">
@@ -47,8 +46,7 @@
       </div>
     </div>
     <div class="divConfirmarSenha">
-      <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha"
-        [(ngModel)]="ConfirmarSenha">
+      <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha" [(ngModel)]="ConfirmarSenha">
         <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2" (click)="trocarOlho(2)" alt="Visualização da senha">
           visibility_off
         </span>
@@ -103,6 +101,7 @@
 </div>
 <!-- ----------- FIM MODAL CONFIGURAÇÕES ------------ -->
 
+<!-- --------------------- HEADER EM SI --------------------- -->
 <div id="containerHeader">
   <div id="header">
     <div (click)="navegacaoTipo()" id="logo">
@@ -122,7 +121,8 @@
         </span>
       </div>
     </div>
-    <!-- -------- MODAL USER -------- -->
+
+    <!-- -------- MODAL USER (DENTRO DO HEADER EM SI) -------- -->
     <div *ngIf="user == 1" class="modalUser">
       <div class="setaUser"></div>
       <div id="editarPerfil">
@@ -145,13 +145,13 @@
         <span class="spanUser">Minhas Reservas</span>
       </div>
       <div class="divOpcao" (click)="abrirConfiguracoes()">
-        <span  title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
+        <span title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
           settings
         </span>
         <span class="spanUser">Configurações</span>
       </div>
       <div class="divOpcao" (click)="abrirAjuda()">
-        <span  title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
+        <span title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
           help
         </span>
         <span class="spanUser">Ajuda</span>
@@ -163,7 +163,8 @@
         <span class="spanUser">Sair</span>
       </div>
     </div>
-    <!-- ----------- FIM MODAL USER ------------ -->
+    <!-- ----------- FIM MODAL USER (DENTRO DO HEADER EM SI) ------------ -->
   </div>
   <div id="barraSeparacao"></div>
 </div>
+<!-- --------------------- FIM HEADER EM SI --------------------- -->
