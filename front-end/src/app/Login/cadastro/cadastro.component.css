@@ -64,6 +64,7 @@ a {
 }
 
 .input-float-label:focus ~ .label-float-label {
+    margin-top: -2px;
     color: #0047B6;
 }
 
@@ -73,7 +74,7 @@ a {
 
 .label-float-label {
     padding: 0; 
-    padding-top: 16px;
+    padding-top: 18px;
     border: 0;
     width: 100%;
 }
@@ -206,6 +207,7 @@ a {
     transition: all 0.3s;
     cursor: pointer;
     height: fit-content;
+    user-select: none;
 }
 
 .imgOlho:hover {
