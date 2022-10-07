@@ -31,15 +31,13 @@ export class AlertaFeitoComponent implements OnInit {
   ngOnInit() {
     switch (this.tipoMensagemModal) {
       case 1:
-        this.fraseAlertaModal =
-          "Sua solicitação de cadastro foi enviada para confirmação";
+        this.fraseAlertaModal = "Solicitação de cadastro enviada para confirmação!";
         break;
       case 2:
-        this.fraseAlertaModal =
-          "Sua redefinição de senha foi realizada com sucesso";
+        this.fraseAlertaModal = "Sua redefinição de senha foi realizada com sucesso!";
         break;
       case 3:
-        this.fraseAlertaModal = "Usuário ou senha incorretos";
+        this.fraseAlertaModal = "Usuário ou senha incorretos!";
         break;
       case 4:
         this.fraseAlertaModal = "Email Inválido!";

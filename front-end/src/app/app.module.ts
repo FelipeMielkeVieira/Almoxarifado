@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import CheckLogged from './checkLogged.canactivate';
 import { LoginModule } from './Login/login.module';
+import { PrincipalModule } from './Principal/principal.module';
+import { ProfessorModule } from './Professor/professor.module';
 import { UsersService } from './service';
 
 @NgModule({
@@ -18,7 +20,9 @@ import { UsersService } from './service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    LoginModule
+    LoginModule,
+    ProfessorModule,
+    PrincipalModule
   ],
   providers: [CheckLogged, UsersService],
   bootstrap: [AppComponent]

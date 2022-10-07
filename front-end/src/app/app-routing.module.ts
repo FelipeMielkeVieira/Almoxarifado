@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import CheckLogged from './checkLogged.canactivate';
 import { CadastroComponent } from './Login/cadastro/cadastro.component';
 import { LoginComponent } from './Login/login/login.component';
+import { HomeComponent } from './Professor/home/home.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
+  { path: 'professor', canActivate: [CheckLogged], children: [
+    { path: '', component: HomeComponent },
+  ]}
   // {
   //   path: 'professor', canActivate: [CheckLogged], children: [
   //     { path: '', component: HomeProfessorComponent },

@@ -22,7 +22,7 @@
         class="inputsCadastro"
         placeholder="Email ou usuário"
         name="emailUser"
-        ngModel
+        [(ngModel)]="emailUser"
       />
       <div class="divSenha">
         <input
@@ -31,7 +31,7 @@
           id="inputSenha1"
           placeholder="Senha"
           name="senhaUser"
-          ngModel
+          [(ngModel)]="senhaUser"
         />
         <span
           *ngIf="!visibilidadeOlho"
@@ -85,21 +85,24 @@
       *ngIf="alertaSolicitacaoCadastro"
       [tipoMensagemModal]="1"
       (fecharModal)="fecharModalAlerta(1)"
-    ></app-alertaFeito>
+    >
+    </app-alertaFeito>
 
     <!-- Modal de alerta de Redefinição de Senha (quando usada a opção "Esqueci a Senha") -->
     <app-alertaFeito
       *ngIf="alertaRedefinicaoSenha"
       [tipoMensagemModal]="2"
       (fecharModal)="fecharModalAlerta(2)"
-    ></app-alertaFeito>
+    >
+    </app-alertaFeito>
 
     <!-- Modal de alerta caso o usuário ou senha estiverem incorretos -->
     <app-alertaFeito
       *ngIf="alertaSenhaIncorreta"
       [tipoMensagemModal]="3"
       (fecharModal)="fecharModalAlerta(3)"
-    ></app-alertaFeito>
+    >
+    </app-alertaFeito>
   </div>
   <!-- Modal de recuperação de senha -->
   <app-esquecerSenha
