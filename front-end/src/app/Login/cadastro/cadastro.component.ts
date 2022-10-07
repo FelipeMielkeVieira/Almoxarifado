@@ -5,7 +5,7 @@ import { UsersService } from 'src/app/service';
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css' ]
+  styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
 
@@ -23,8 +23,8 @@ export class CadastroComponent implements OnInit {
   dadosIncorretos: boolean = false;    //Variável para modal de preencher todos campos
   listaTimeoutsAlertas: [any, any] = [null, null];
 
-  trocarOlho1: boolean = false;
-  trocarOlho2: boolean = false;
+  senhaVisivel: boolean = false;
+  confirmarSenhaVisivel: boolean = false;
 
   ngOnInit() {
   }
@@ -35,19 +35,20 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    if(this.email && this.usuario && this.senhaUser) {
-      if(this.senhaUser == this.repetirSenhaUser && this.senhaUser != '' && this.senhaUser) {
+    if (this.email && this.usuario && this.senhaUser) {
+      if (this.senhaUser == this.repetirSenhaUser && this.senhaUser != '' && this.senhaUser) {
         localStorage.setItem('cadastro', '1');
-  
+
+
         const user = {
           nome: this.usuario,
           email: this.email,
           senha: this.senhaUser,
           tipo: 0
         }
-        
+
         this.service.usuarios.push(user);
-        this.router.navigate(['']); 
+        this.router.navigate(['']);
       } else {
         this.senhaIncorreta = true;
         setTimeout(() => {
@@ -63,39 +64,25 @@ export class CadastroComponent implements OnInit {
   }
 
   trocarOlho(input: number) {
-    let input2: HTMLInputElement
+    let inputElement: HTMLInputElement
 
-    switch(input) {
+    switch (input) {
       case 1:
-        input2 = document.querySelector("#inputSenha1") as HTMLInputElement;
-        if(this.olho1 == 1) {
-          this.olho1 = 0;
-          this.trocarOlho1 = true;
-          input2.type = 'text';
-        } else {
-          this.olho1 = 1;
-          this.trocarOlho1 = false;
-          input2.type = 'password';
-        }
+        inputElement = document.getElementById("inputSenha") as HTMLInputElement;
+        this.senhaVisivel = !this.senhaVisivel;
+        inputElement.type = this.senhaVisivel ? 'text' : "password";
         break;
       case 2:
-        input2 = document.querySelector("#inputSenha2") as HTMLInputElement;
-        if(this.olho2 == 1) {
-          this.olho2 = 0;
-          this.trocarOlho2 = true;
-          input2.type = 'text';
-        } else {
-          this.olho2 = 1;
-          this.trocarOlho2 = false;
-          input2.type = 'password';
-        }
+        inputElement = document.getElementById("inputConfirmarSenha") as HTMLInputElement;
+        this.confirmarSenhaVisivel = !this.confirmarSenhaVisivel;
+        inputElement.type = this.confirmarSenhaVisivel ? 'text' : "password";
         break;
     }
   }
 
   // Função para abrir os modais de alerta caso algum dado esteja faltando ou esteja incorreto
-  abrirModalFeito(numero : number) {
-    switch(numero) {
+  abrirModalFeito(numero: number) {
+    switch (numero) {
       case 1:
         this.senhaIncorreta = true;
         this.listaTimeoutsAlertas[0] = setTimeout(() => {
@@ -112,8 +99,8 @@ export class CadastroComponent implements OnInit {
   }
 
   // Função para fechar os modais de alerta caso algum dado esteja faltando ou esteja incorreto
-  fecharModalFeito(numero : number) {
-    switch(numero) {
+  fecharModalFeito(numero: number) {
+    switch (numero) {
       case 1:
         this.senhaIncorreta = false;
         clearTimeout(this.listaTimeoutsAlertas[0]);
@@ -124,5 +111,4 @@ export class CadastroComponent implements OnInit {
         break;
     }
   }
-
 }

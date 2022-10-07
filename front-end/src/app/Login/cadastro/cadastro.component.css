@@ -73,6 +73,7 @@ a {
 }
 
 .label-float-label {
+    margin-top: -2px;
     padding: 0; 
     padding-top: 18px;
     border: 0;
