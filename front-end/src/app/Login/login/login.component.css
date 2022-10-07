@@ -87,6 +87,7 @@ label{
 
 #esqueciSenha:hover {
     cursor: pointer;
+    color: #0047B6;
 }
 
 #entrarGoogle {
@@ -95,6 +96,7 @@ label{
     align-items: center;
     width: 50%;
     height: 2.5rem;
+    background: #ffffff;
     border: solid 0.5px black;
     border-radius: 5px;
     margin-top: 5%;
@@ -104,6 +106,7 @@ label{
 
 #entrarGoogle:hover {
     cursor: pointer;
+    color: black;
 }
 
 #imgGoogle {
@@ -120,7 +123,16 @@ label{
     border-radius: 5px;
     border: none;
     margin-top: 5%;
+    transition: all 0.8s;
     font-family: 'Inter';
+}
+
+#entrar:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: black;
+    transition: all 0.5s;
+    border: solid 0.5px black;
 }
 
 #entrar:hover {
@@ -194,6 +206,12 @@ label{
 .imgOlho, .imgOlho2, .imgOlho3 {
     cursor: pointer;
     user-select: none;
+}
+
+.imgOlho:hover {
+    transition: all 0.3s;
+    border-radius: 50px;
+    background-color: #dddddd;
 }
 
 .inputSenhaNova {

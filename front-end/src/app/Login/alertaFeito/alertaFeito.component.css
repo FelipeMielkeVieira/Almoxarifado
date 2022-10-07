@@ -9,10 +9,11 @@
   border-radius: 5px;
   position: absolute;
   top: 2%;
-  left: 1%;
-  height: 13%;
+  left: 72%;
+  min-height: 13%;
   animation-name: animacao;
   animation-duration: 5.5s;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.60);
 }
 
 .divInfo {
@@ -60,14 +61,28 @@
   text-align: center;
   font-weight: 600;
   width: 75%;
+  margin-left: 1%;
 }
 
 @keyframes animacao {
-  from {
+  0% {
+    opacity: 0.3;
+  }
+
+  5%{
     opacity: 1;
   }
 
-  to {
+  79% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.5;
+  }
+
+
+  100% {
     opacity: 0;
   }
 }
