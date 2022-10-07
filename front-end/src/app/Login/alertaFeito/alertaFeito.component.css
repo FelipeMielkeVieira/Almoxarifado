@@ -10,7 +10,7 @@
   position: absolute;
   top: 2%;
   left: 1%;
-  height: 13%;
+  min-height: 13%;
   animation-name: animacao;
   animation-duration: 5.5s;
 }
@@ -60,6 +60,7 @@
   text-align: center;
   font-weight: 600;
   width: 75%;
+  margin-left: 1%;
 }
 
 @keyframes animacao {
