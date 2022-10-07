@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
-:root {
-    --form-floating-input-padding-t: 0;
-    /* --form-floating-input-padding-b:0; */
-    --form-floating-height: 30rem;
-    --form-floating-padding-x: 2rem;
-}
+/* @import "../../../../node_modules/bootstrap"; */
 
 body {
     width: 100%;
@@ -58,18 +53,35 @@ a {
 }
 
 .div-float-label {
+    width: 80%;
     border-bottom: 1px solid black;
 }
 
 .input-float-label {
-    /* padding: 0; */
+    padding: 0;
+    padding-left: 2px;
     border: 0;
 }
 
-/* .label-float-label {
-    padding: 0; 
-} */
+.input-float-label:focus ~ .label-float-label {
+    color: #0047B6;
+}
 
+.div-float-label:has(.input-float-label:focus) {
+    border-color: #0047B6;
+}
+
+.label-float-label {
+    padding: 0; 
+    padding-top: 16px;
+    border: 0;
+    width: 100%;
+}
+
+.div-senha {
+    display: flex;
+    align-items: center;
+}
 
 #barraAzul {
     display: flex;
@@ -193,6 +205,7 @@ a {
     padding: 4px;
     transition: all 0.3s;
     cursor: pointer;
+    height: fit-content;
 }
 
 .imgOlho:hover {

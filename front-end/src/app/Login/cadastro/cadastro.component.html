@@ -17,23 +17,25 @@
         <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário" />
       </div>
       <h1 id="titulo">Cadastrar</h1>
-      <div class="label-float">
-        <input type="text" placeholder="Nome" />
-        <label>Nome</label>
+      <div class="form-floating  div-float-label">
+        <input name="usuario" [(ngModel)]="usuario" type="text" class="form-control input-float-label" id="floatingInput" placeholder="Nome">
+        <label class="label-float-label" for="floatingInput">Nome</label>
       </div>
-      <div class="form-floating mb-3 div-float-label">
-        <input type="email" class="form-control input-float-label" id="floatingInput" placeholder="name@example.com">
-        <label class="label-float-label" for="floatingInput">Email address</label>
+      <div class="form-floating div-float-label">
+        <input name="email" [(ngModel)]="email" type="email" class="form-control input-float-label" id="floatingInput" placeholder="Email">
+        <label class="label-float-label" for="floatingInput">Email</label>
       </div>
-      <input type="text" class="inputsCadastro" placeholder="Nome" name="usuario" ngModel />
-      <input type="email" class="inputsCadastro" placeholder="Email" name="email" ngModel />
 
-      <div class="divSenha">
-        <input type="password" class="inputsCadastro2" placeholder="Senha" id="inputSenha1" name="senhaUser" ngModel />
+      <div class="form-floating div-float-label div-senha">
+        <input name="email" [(ngModel)]="email" type="email" class="form-control input-float-label" id="floatingInput" placeholder="Email">
+        <label class="label-float-label" for="floatingInput">Email</label>
         <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
           (click)="trocarOlho(1)" alt="Visualização da senha">
           visibility_off
         </span>
+      </div>
+      <div class="divSenha">
+        <input type="password" class="inputsCadastro2" placeholder="Senha" id="inputSenha1" name="senhaUser" ngModel />
         <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
           (click)="trocarOlho(1)" alt="Visualização da senha">
           visibility

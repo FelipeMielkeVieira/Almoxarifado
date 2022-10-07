@@ -5,7 +5,7 @@ import { UsersService } from 'src/app/service';
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css', './cadastro.scss']
+  styleUrls: ['./cadastro.component.css' ]
 })
 export class CadastroComponent implements OnInit {
 

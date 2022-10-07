@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-/* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
+/*já estava no arquivo*/
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-html{
+/*
+Pegado de site: https://www.itsolutionstuff.com/post/how-to-add-bootstrap-5-in-angular-12example.html
+ @import "~bootstrap/dist/css/bootstrap.css"; 
+ */
+
+html {
     width: 100vw;
     height: 100vh;
     margin: 0;
