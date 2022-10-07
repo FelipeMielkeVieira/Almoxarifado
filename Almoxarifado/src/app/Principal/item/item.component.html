@@ -3,6 +3,7 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
 />
 
+<!-- --------------- ITEM EM SI EM BLOCO ---------------- -->
 <div *ngIf="lista == 0">
   <div class="quadroItem">
     <div class="imagemItem" (click)="abrirModalItem()">
@@ -53,10 +54,10 @@
       </span>
     </div>
   </div>
-
-  <!-- AQUI -->
 </div>
+<!-- --------------- ITEM EM SI EM BLOCO  ---------------- -->
 
+<!-- ----------------------------- ITEM EM SI EM LISTA ---------------------------- -->
 <div *ngIf="lista == 1" (click)="abrirModalItem()" class="quadroItemLista">
   <div class="imagemItem">
     <img
@@ -106,8 +107,9 @@
     </span>
   </div>
 </div>
+<!-- ----------------------------- ITEM EM SI EM LISTA ---------------------------- -->
 
-<!-- -- FeedBack -- -->
+<!-- ----------------------------- FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
 <div *ngIf="feedback == 1" id="modalFeedback">
   <div class="divInfo">
     <span
@@ -131,7 +133,9 @@
     <div id="azul"></div>
   </div>
 </div>
+<!-- ----------------------------- FIM FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
 
+<!-- ----------------------------- FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
 <div *ngIf="feedback == 2" id="modalFeedback">
   <div class="divInfo">
     <span
@@ -155,8 +159,9 @@
     <div id="azul"></div>
   </div>
 </div>
+<!-- ----------------------------- FIM FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
 
-<!-- Modal item -->
+<!-- ----------------------------- MODAL ITEM ABERTO ---------------------------- -->
 <div *ngIf="aparecer" id="fundoModal">
   <div id="modalItem">
     <hr class="riscoAzul" />
@@ -184,7 +189,6 @@
           <h4 class="tituloAzul">{{ textoDescartavel }}</h4>
         </div>
       </div>
-
       <div class="containerClassQtd">
         <p>
           <span class="subtituloModal">Classificação: </span>
@@ -338,8 +342,9 @@
     ></app-calendario>
   </div>
 </div>
+<!-- ----------------------------- FIM MODAL ITEM ABERTO ---------------------------- -->
 
-<!-- Modal Editar Item -->
+<!-- ----------------------------- MODAL EDITAR ITEM ---------------------------- -->
 <div *ngIf="aparecer2" id="fundoModal">
   <div *ngIf="cadastrarModal" id="containerModalCadastrar">
     <hr class="riscoAzul" />
@@ -440,9 +445,9 @@
     </div>
   </div>
 </div>
+<!-- ----------------------------- FIM MODAL EDITAR ITEM ---------------------------- -->
 
-<!-- Modal Motivo de edição quantidade  -->
-
+<!-- ----------------------------- MODAL MOTIVO EDIÇÃO QUANTIDADE ITENS ---------------------------- -->
 <div *ngIf="motivoEdicao" id="fundoModal">
   <div id="containerConteudoModalMotivo">
     <div class="topoModalMotivo">
@@ -474,8 +479,9 @@
     </div>
   </div>
 </div>
+<!-- ----------------------------- FIM MODAL MOTIVO EDIÇÃO QUANTIDADE ITENS ---------------------------- -->
 
-<!-- Modal confirmação excluir -->
+<!-- ----------------------------- MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
 <div *ngIf="aparecer3" id="fundoModal">
   <div *ngIf="modalConfirmacao == 1">
     <div class="containerModalExcluir">
@@ -497,8 +503,10 @@
     </div>
   </div>
 </div>
+<!-- ----------------------------- FIM MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
 
-<!-- FeedBack item removido -->
+
+<!-- ----------------------------- FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
 <div *ngIf="feedback == 3" id="modalFeedback">
   <div class="divInfo">
     <span
@@ -522,8 +530,9 @@
     <div id="azul"></div>
   </div>
 </div>
+<!-- ----------------------------- FIM FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
 
-<!-- Modal ver Anexos -->
+<!-- ----------------------------- MODAL VER ANEXOS ---------------------------- -->
 <div *ngIf="aparecer4" id="fundoModal">
   <div *ngIf="modalAnexos == 1">
     <div class="containerModalAnexos">
@@ -573,8 +582,9 @@
     </div>
   </div>
 </div>
+<!-- ----------------------------- FIM MODAL VER ANEXOS ---------------------------- -->
 
-<!-- Modal historico de edição -->
+<!-- ----------------------------- MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
 <div *ngIf="aparecer5" id="fundoModal">
   <div *ngIf="modalHistorico == 1">
     <div class="containerModalAnexos">
@@ -662,3 +672,4 @@
     </div>
   </div>
 </div>
+<!-- ----------------------------- FIM MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
