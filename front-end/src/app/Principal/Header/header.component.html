@@ -1,113 +1,47 @@
-<link rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
-<!-- -------- MODAL EDITAR USER -------- -->
-<app-modal-editar-user *ngIf="abrirEditar" (fecharModal)="fecharModalEdicao($event)"></app-modal-editar-user>
-<!-- ----------- FIM MODAL EDITAR USER ------------ -->
-
-<!-- -------- MODAL CONFIGURAÇÕES -------- -->
-<div *ngIf="configuracoes" id="editarUser">
-  <div id="modalEditar">
-    <div id="barraAzul">
-      <div id="user">
-        <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário">
-        <div id="alterarFoto">
-          Alterar
-        </div>
-      </div>
-    </div>
-    <div id="iconSair">
-      <span title="Fechar" (click)="fechar()" id="fecharIcone" class="fecharModalUser" class="material-symbols-outlined iconDeselect">
-        close
-      </span>
-    </div>
-    <div id="nomeUsuario">
-      <p>Tamanho da Fonte</p>
-    </div>
-    <select class="selectFonte" [(ngModel)]="fonteAtual">
-      <option value="1">Muito Pequena</option>
-      <option value="2">Pequena</option>
-      <option value="3" selected>Padrão</option>
-      <option value="4">Grande</option>
-      <option value="5">Muito Grande</option>
-    </select>
-    <div class="divEscuro">
-      <span class="textEscuro">Modo Escuro</span>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-    </div>
-    <button type="button" id="salvarConfig" (click)="salvarConfig()">
-      Salvar
-    </button>
-  </div>
-</div>
-<!-- ----------- FIM MODAL CONFIGURAÇÕES ------------ -->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+/>
 
 <!-- --------------------- HEADER EM SI --------------------- -->
 <div id="containerHeader">
   <div id="header">
     <div (click)="navegacaoTipo()" id="logo">
       <img id="logoSesi" src="../../../assets/logo.png" alt="Logo Sesi Senai" />
-      <img src="../../../assets/LogoSite.png" id="logoSite" alt="Logo do AlmaSis">
+      <img
+        src="../../../assets/LogoSite.png"
+        id="logoSite"
+        alt="Logo do AlmaSis"
+      />
       <p>AlmaSis</p>
     </div>
     <div id="icones">
       <div id="sacola">
-        <span title="Sacola" id="topHeader" class="material-symbols-outlined iconDeselect" (click)="sacolas()">
+        <span
+          title="Sacola"
+          id="topHeader"
+          class="material-symbols-outlined iconDeselect"
+          (click)="sacolas()"
+        >
           shopping_bag
         </span>
       </div>
       <div id="usuarioIcone" (click)="abrirUser()">
-        <span title="Usuario" id="topHeader" class="material-symbols-outlined iconDeselect">
+        <span
+          title="Usuario"
+          id="topHeader"
+          class="material-symbols-outlined iconDeselect"
+        >
           account_circle
         </span>
       </div>
+      <!-- -------- MODAL USER (DENTRO DO HEADER EM SI) -------- -->
+      <app-modal-user
+        *ngIf="modalUser"
+        (fecharModal)="fecharModalUser()"
+      ></app-modal-user>
+      <!-- ----------- FIM MODAL USER (DENTRO DO HEADER EM SI) ------------ -->
     </div>
-
-    <!-- -------- MODAL USER (DENTRO DO HEADER EM SI) -------- -->
-    <div *ngIf="modalUser" class="modalUser">
-      <div class="setaUser"></div>
-      <div id="editarPerfil">
-        <span title="Editar" (click)="editarPerfil()" id="iconEditarPerfil" class="material-symbols-outlined iconDeselect">
-          edit
-        </span>
-      </div>
-      <div id="usuarioIconeModal">
-        <span title="Usuario" id="topHeader" class="material-symbols-outlined iconDeselect">
-          account_circle
-        </span>
-      </div>
-      <span class="nomeUser">{{nomeUsuario}}</span>
-      <span class="emailUser">{{emailUsuario}}</span>
-      <hr style="width: 80%;">
-      <div *ngIf="usuarioTipo == 1" class="divOpcao" (click)="navegar('/professor/reservas')">
-        <span title="Usuarios" id="iconsUser" class="material-symbols-outlined iconDeselect">
-          pending_actions
-        </span>
-        <span class="spanUser">Minhas Reservas</span>
-      </div>
-      <div class="divOpcao" (click)="abrirConfiguracoes()">
-        <span title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
-          settings
-        </span>
-        <span class="spanUser">Configurações</span>
-      </div>
-      <div class="divOpcao" (click)="abrirAjuda()">
-        <span title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
-          help
-        </span>
-        <span class="spanUser">Ajuda</span>
-      </div>
-      <div class="divOpcao" (click)="logout()">
-        <span title="Deslogar" id="imgUser2" class="material-symbols-outlined iconDeselect">
-          logout
-        </span>
-        <span class="spanUser">Sair</span>
-      </div>
-    </div>
-    <!-- ----------- FIM MODAL USER (DENTRO DO HEADER EM SI) ------------ -->
   </div>
   <div id="barraSeparacao"></div>
 </div>

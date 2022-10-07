@@ -1,0 +1,83 @@
+<!-- -------- MODAL EDITAR USER -------- -->
+<app-modal-editar-user
+  *ngIf="abrirEditar"
+  (fecharModal)="fecharModalEdicao($event)"
+></app-modal-editar-user>
+<!-- ----------- FIM MODAL EDITAR USER ------------ -->
+
+<!-- -------- MODAL CONFIGURAÇÕES -------- -->
+<app-modal-configuracoes
+  *ngIf="modalConfiguracoes"
+  (fecharModal)="fecharModalConfiguracoes()"
+></app-modal-configuracoes>
+<!-- ----------- FIM MODAL CONFIGURAÇÕES ------------ -->
+
+<div class="modalUser">
+  <div class="setaUser"></div>
+  <div id="editarPerfil">
+    <span
+      title="Editar"
+      (click)="editarPerfil()"
+      id="iconEditarPerfil"
+      class="material-symbols-outlined iconDeselect"
+    >
+      edit
+    </span>
+  </div>
+  <div id="usuarioIconeModal">
+    <span
+      title="Usuario"
+      id="topHeader"
+      class="material-symbols-outlined iconDeselect"
+    >
+      account_circle
+    </span>
+  </div>
+  <span class="nomeUser">{{ nomeUsuario }}</span>
+  <span class="emailUser">{{ emailUsuario }}</span>
+  <hr style="width: 80%" />
+  <div
+    *ngIf="usuarioTipo == 1"
+    class="divOpcao"
+    (click)="navegar('/professor/reservas')"
+  >
+    <span
+      title="Usuarios"
+      id="iconsUser"
+      class="material-symbols-outlined iconDeselect"
+    >
+      pending_actions
+    </span>
+    <span class="spanUser">Minhas Reservas</span>
+  </div>
+  <div class="divOpcao" (click)="abrirConfiguracoes()">
+    <span
+      title="Configurações"
+      id="iconsUser"
+      class="material-symbols-outlined iconDeselect"
+    >
+      settings
+    </span>
+    <span class="spanUser">Configurações</span>
+  </div>
+  <div class="divOpcao" (click)="abrirAjuda()">
+    <span
+      title="Configurações"
+      id="iconsUser"
+      class="material-symbols-outlined iconDeselect"
+    >
+      help
+    </span>
+    <span class="spanUser">Ajuda</span>
+  </div>
+  <div class="divOpcao" (click)="logout()">
+    <span
+      title="Deslogar"
+      id="imgUser2"
+      class="material-symbols-outlined iconDeselect"
+    >
+      logout
+    </span>
+    <span class="spanUser">Sair</span>
+  </div>
+</div>
