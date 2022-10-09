@@ -5,7 +5,7 @@ import { UsersService } from 'src/app/service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   emailUser: string | undefined;
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   listaTimeoutsAlertas: [any, any, any] = [null, null, null];
 
   modalRedefinicaoSenha: boolean = false;
-  visibilidadeOlho = false;
+  senhaVisivel: boolean = false;
 
   constructor(
     private router: Router,
@@ -60,13 +60,9 @@ export class LoginComponent implements OnInit {
 
   // Função para trocar a visibilidade da senha
   trocarOlho() {
-    let inputSenha = document.querySelector('#inputSenha1') as HTMLInputElement;
-    if (this.visibilidadeOlho) {
-      inputSenha.type = 'password';
-    } else {
-      inputSenha.type = 'text';
-    }
-    this.visibilidadeOlho = !this.visibilidadeOlho;
+    let inputSenha = document.getElementById('inputSenha') as HTMLInputElement;
+    this.senhaVisivel = !this.senhaVisivel;
+    inputSenha.type = inputSenha.type == "text" ? 'password' : 'text';
   }
 
   // Função para verificar se o usuário existe e entrar na página principal caso exista

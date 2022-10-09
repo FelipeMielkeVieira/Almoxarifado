@@ -1,16 +1,16 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   // ------------- VARIAVEIS DO MODAL EDITAR USER ------------------
-  nomeUsuario: string;
-  emailUsuario: string;
+  nomeUsuario: string = "";
+  emailUsuario: string = "";
 
   trocarOlho1: boolean = false;
   olho1: number = 1;
@@ -31,13 +31,14 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private service: UsersService) { }
 
   // *Pega o email e nome do usuario logado
-  ngOnInit() {this.service.usuarios.forEach((e) => {
-    if (localStorage.getItem('emailAtual') == e.email) {
-      this.emailUsuario = e.email;
-      this.nomeUsuario = e.nome;
-    }
-  })
-  this.usuarioTipo = parseInt(localStorage.getItem('usuario') || '0');
+  ngOnInit() {
+    this.service.usuarios.forEach((e) => {
+      if (localStorage.getItem('emailAtual') == e.email) {
+        this.emailUsuario = e.email;
+        this.nomeUsuario = e.nome;
+      }
+    })
+    this.usuarioTipo = parseInt(localStorage.getItem('usuario') || '0');
   }
 
   // ----------------------- FUNÇÕES DO HEADER EM SI --------------------------

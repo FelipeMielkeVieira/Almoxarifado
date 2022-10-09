@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import CheckLogged from './checkLogged.canactivate';
-import { CadastroComponent } from './Login/cadastro/cadastro.component';
-import { LoginComponent } from './Login/login/login.component';
-import { HomeComponent } from './Professor/home/home.component';
+import { CadastroComponent } from './login/cadastro/cadastro.component';
+import { LoginComponent } from './login/login/login.component';
+import { HomeComponent } from './professor/home/home.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -51,9 +52,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

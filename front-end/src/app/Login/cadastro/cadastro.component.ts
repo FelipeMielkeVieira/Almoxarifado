@@ -5,16 +5,12 @@ import { UsersService } from 'src/app/service';
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent implements OnInit {
-
   constructor(private router: Router, private service: UsersService) { }
 
-  olho1: number = 1;
-  olho2: number = 1;
-
-  usuario: string;
+  usuario: string = "";
   email: string | undefined;
   senhaUser: string | undefined;
   repetirSenhaUser: string | undefined;
@@ -23,8 +19,8 @@ export class CadastroComponent implements OnInit {
   dadosIncorretos: boolean = false;    //Variável para modal de preencher todos campos
   listaTimeoutsAlertas: [any, any] = [null, null];
 
-  trocarOlho1: boolean = false;
-  trocarOlho2: boolean = false;
+  senhaVisivel: boolean = false;
+  confirmarSenhaVisivel: boolean = false;
 
   ngOnInit() {
   }
@@ -63,32 +59,18 @@ export class CadastroComponent implements OnInit {
   }
 
   trocarOlho(input: number) {
-    let input2: HTMLInputElement
+    let inputElement: HTMLInputElement
 
-    switch(input) {
+    switch (input) {
       case 1:
-        input2 = document.querySelector("#inputSenha1") as HTMLInputElement;
-        if(this.olho1 == 1) {
-          this.olho1 = 0;
-          this.trocarOlho1 = true;
-          input2.type = 'text';
-        } else {
-          this.olho1 = 1;
-          this.trocarOlho1 = false;
-          input2.type = 'password';
-        }
+        inputElement = document.getElementById("inputSenha") as HTMLInputElement;
+        this.senhaVisivel = !this.senhaVisivel;
+        inputElement.type = this.senhaVisivel ? 'text' : "password";
         break;
       case 2:
-        input2 = document.querySelector("#inputSenha2") as HTMLInputElement;
-        if(this.olho2 == 1) {
-          this.olho2 = 0;
-          this.trocarOlho2 = true;
-          input2.type = 'text';
-        } else {
-          this.olho2 = 1;
-          this.trocarOlho2 = false;
-          input2.type = 'password';
-        }
+        inputElement = document.getElementById("inputConfirmarSenha") as HTMLInputElement;
+        this.confirmarSenhaVisivel = !this.confirmarSenhaVisivel;
+        inputElement.type = this.confirmarSenhaVisivel ? 'text' : "password";
         break;
     }
   }
@@ -124,5 +106,4 @@ export class CadastroComponent implements OnInit {
         break;
     }
   }
-
 }

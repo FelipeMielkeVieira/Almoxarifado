@@ -1,19 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from '../Login/login/login.component';
-import { CadastroComponent } from '../Login/cadastro/cadastro.component';
 import { FormsModule } from '@angular/forms';
-import { AlertaFeitoComponent } from './alertaFeito/alertaFeito.component';
-import { EsquecerSenhaComponent } from './esquecerSenha/esquecerSenha.component';
+
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { LoginComponent } from './login/login.component';
+import { AlertaFeitoComponent } from './alerta-feito/alerta-feito.component';
+import { EsquecerSenhaComponent } from './esquecer-senha/esquecer-senha.component';
+
 import { UsersService } from '../service';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    FormsModule
   ],
-  declarations: [LoginComponent, CadastroComponent, AlertaFeitoComponent, EsquecerSenhaComponent],
-  exports: [CadastroComponent, LoginComponent, AlertaFeitoComponent, EsquecerSenhaComponent],
-  providers: [UsersService]
+  declarations: [
+    CadastroComponent,
+    LoginComponent,
+    AlertaFeitoComponent,
+    EsquecerSenhaComponent
+  ],
+  exports: [
+    CadastroComponent, 
+    LoginComponent, 
+    AlertaFeitoComponent, 
+    EsquecerSenhaComponent
+  ],
+  providers: [
+    UsersService
+  ]
 })
 export class LoginModule { }

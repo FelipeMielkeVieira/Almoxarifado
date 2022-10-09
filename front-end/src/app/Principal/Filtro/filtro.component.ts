@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { UsersService } from 'src/app/service';
+
 
 @Component({
   selector: 'app-filtro',
   templateUrl: './filtro.component.html',
-  styleUrls: ['./filtro.component.css']
+  styleUrls: ['./filtro.component.scss']
 })
 export class FiltroComponent implements OnInit {
-
-  constructor(private router:Router, private service: UsersService) {
+  constructor(private router: Router, private service: UsersService) {
     this.usuario = parseInt(localStorage.getItem('usuario') || "0");
     this.listaClassificacoes = service.classificacoes;
   }
@@ -18,9 +19,10 @@ export class FiltroComponent implements OnInit {
   usuario: number;
 
   modalGerenciarFiltro: boolean = false;
-  
+
   feedback = 0;
-  filtroSelecionado: {classificacao: string} | null;
+  //Adicionado valor inicial como null no começo por sinalização de erro de sintaxe pelo VS Code.
+  filtroSelecionado: { classificacao: string } | null = null;
 
   ngOnInit() {
   }
@@ -54,11 +56,11 @@ export class FiltroComponent implements OnInit {
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FILTRO EM SI =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
   // *Esse é complicado...
-  filtrar(item: {classificacao: string}) {
+  filtrar(item: { classificacao: string }) {
     this.filtroSelecionado = item;
     this.fecharFiltro();
 
-    if(document.querySelector("#containerFiltro")) {
+    if (document.querySelector("#containerFiltro")) {
       this.tirarFiltro();
     }
 
@@ -127,4 +129,5 @@ export class FiltroComponent implements OnInit {
     input.checked = true;
   }
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FIM FILTRO EM SI =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 }

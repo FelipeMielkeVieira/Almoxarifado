@@ -5,44 +5,51 @@
 <body>
   <div class="divPrincipal">
     <!-- Modal de aviso para caso o usuário digite duas senhas diferentes -->
-    <app-alertaFeito *ngIf="senhaIncorreta" [tipoMensagemModal]="6" (fecharModal)="fecharModalFeito(1)">
-    </app-alertaFeito>
+    <app-alerta-feito *ngIf="senhaIncorreta" [tipoMensagemModal]="6" (fecharModal)="fecharModalFeito(1)">
+    </app-alerta-feito>
 
     <!-- Modal de aviso para caso o usuário não preencha todos os dados -->
-    <app-alertaFeito *ngIf="dadosIncorretos" [tipoMensagemModal]="7" (fecharModal)="fecharModalFeito(2)">
-    </app-alertaFeito>
+    <app-alerta-feito *ngIf="dadosIncorretos" [tipoMensagemModal]="7" (fecharModal)="fecharModalFeito(2)">
+    </app-alerta-feito>
 
-    <div id="containerLogin">
+    <div id="containerLogin" class="shadow mb-5 bg-body rounded">
       <div id="barraAzul">
         <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário" />
       </div>
       <h1 id="titulo">Cadastrar</h1>
-      <div class="label-float">
-        <input type="text" placeholder="Nome" />
-        <label>Nome</label>
+      <div class="form-floating div-float-label">
+        <input name="usuario" [(ngModel)]="usuario" type="text" class="form-control input-float-label"
+          placeholder="Nome">
+        <label class="label-float-label" for="usuario">Nome</label>
       </div>
-      <input type="text" class="inputsCadastro" placeholder="Nome" name="usuario" [(ngModel)]="usuario" />
-      <input type="email" class="inputsCadastro" placeholder="Email" name="email" [(ngModel)]="email" />
+      <div class="form-floating div-float-label">
+        <input name="email" [(ngModel)]="email" type="email" class="form-control input-float-label" placeholder="Email">
+        <label class="label-float-label" for="email">Email</label>
+      </div>
 
-      <div class="divSenha">
-        <input type="password" class="inputsCadastro2" placeholder="Senha" id="inputSenha1" name="senhaUser" [(ngModel)]="senhaUser" />
-        <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
-          (click)="trocarOlho(1)" alt="Visualização da senha">
+      <div class="form-floating div-float-label div-senha">
+        <input id="inputSenha" name="senhaUser" [(ngModel)]="senhaUser" type="password"
+          class="form-control input-float-label" placeholder="Email">
+        <label class="label-float-label" for="senhaUser">Senha</label>
+        <span *ngIf="!senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"
+          alt="Visualização da senha">
           visibility_off
         </span>
-        <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
-          (click)="trocarOlho(1)" alt="Visualização da senha">
+        <span *ngIf="senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"
+          alt="Visualização da senha">
           visibility
         </span>
       </div>
-      <div class="divSenha">
-        <input type="password" class="inputsCadastro2" placeholder="Confirmar Senha" id="inputSenha2"
-          name="repetirSenhaUser" [(ngModel)]="repetirSenhaUser" />
-        <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho iconDeselect" id="olho2"
+
+      <div class="form-floating div-float-label div-senha">
+        <input id="inputConfirmarSenha" name="repetirSenhaUser" [(ngModel)]="repetirSenhaUser" type="password"
+          class="form-control input-float-label" placeholder="Email">
+        <label class="label-float-label" for="repetirSenhaUser">Confirmar Senha</label>
+        <span *ngIf="!confirmarSenhaVisivel" class="material-symbols-outlined imgOlho iconDeselect"
           (click)="trocarOlho(2)" alt="Visualização da senha">
           visibility_off
         </span>
-        <span *ngIf="trocarOlho2" class="material-symbols-outlined imgOlho iconDeselect" id="olho2"
+        <span *ngIf="confirmarSenhaVisivel" class="material-symbols-outlined imgOlho iconDeselect"
           (click)="trocarOlho(2)" alt="Visualização da senha">
           visibility
         </span>

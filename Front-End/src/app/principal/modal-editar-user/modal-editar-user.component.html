@@ -1,0 +1,61 @@
+<div id="editarUser">
+    <div id="modalEditar">
+        <div id="barraAzul">
+            <div id="user">
+                <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem de usuário" />
+                <div id="alterarFoto">Alterar</div>
+            </div>
+        </div>
+        <div id="iconSair">
+            <span title="Fechar" (click)="fechar()" id="fecharIcone" class="fecharModalUser"
+                class="material-symbols-outlined iconDeselect">
+                close
+            </span>
+        </div>
+        <div id="nomeUsuario">
+            <div class="texto">
+                <p>Usuário</p>
+                <div class="asterisco">*</div>
+            </div>
+        </div>
+        <input type="text" class="inputNome" placeholder="Nome de usuário" name="usuarioNovo"
+            [(ngModel)]="usuarioNovo" />
+        <div id="tituloSenha">
+            <div class="texto">
+                <p>Senha</p>
+                <div class="asterisco">*</div>
+            </div>
+        </div>
+        <div class="divSenha">
+            <input type="password" class="inputsSenha" id="inputSenha1" placeholder="Senha" name="senhaNova"
+                [(ngModel)]="senhaNova" />
+            <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
+                (click)="trocarOlho(1)" alt="Visualização da senha">
+                visibility_off
+            </span>
+            <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
+                (click)="trocarOlho(1)" alt="Visualização da senha">
+                visibility
+            </span>
+        </div>
+        <div id="tituloConfirmarSenha">
+            <div class="texto">
+                <p>Confirmar senha</p>
+                <div class="asterisco">*</div>
+            </div>
+        </div>
+        <div class="divConfirmarSenha">
+            <input type="password" class="inputsSenha" id="inputSenha2" placeholder="Confirmar senha"
+                name="confirmarSenha" [(ngModel)]="confirmarSenha" />
+            <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2"
+                (click)="trocarOlho(2)" alt="Visualização da senha">
+                visibility_off
+            </span>
+            <span *ngIf="trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2"
+                (click)="trocarOlho(2)" alt="Visualização da senha">
+                visibility
+            </span>
+        </div>
+        <button type="button" id="salvar" (click)="salvar()">Salvar</button>
+    </div>
+</div>

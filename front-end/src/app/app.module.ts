@@ -1,14 +1,14 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import CheckLogged from './checkLogged.canactivate';
-import { LoginModule } from './Login/login.module';
-import { PrincipalModule } from './Principal/principal.module';
-import { ProfessorModule } from './Professor/professor.module';
+import { LoginModule } from './login/login.module';
+import { PrincipalModule } from './principal/principal.module';
+import { ProfessorModule } from './professor/professor.module';
 import { UsersService } from './service';
 
 @NgModule({
@@ -27,5 +27,4 @@ import { UsersService } from './service';
   providers: [CheckLogged, UsersService],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }

@@ -1,0 +1,167 @@
+.modalSenha {
+    width: 26%;
+    height: 40%;
+    position: absolute;
+    top: 30%;
+    left: 37.5%;
+    background-color: #ffffff;
+    filter: drop-shadow(4px 6px 6px rgba(0, 0, 0, 0.3));
+    border-radius: 10px;
+    border-top: 8px solid #0047b6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .sairModal {
+    position: absolute;
+    width: 4%;
+    top: 5%;
+    right: 4%;
+  }
+  
+  .sairModal:hover {
+    cursor: pointer;
+  }
+  
+  .tituloRecuperarSenha {
+    font-family: "Inter";
+    font-size: var(--font-size--giant);
+    color: #0047b6;
+    font-weight: 800;
+  }
+  
+  .divInsercaoEmail {
+    width: 80%;
+  }
+  
+  .labelInsercao {
+    display: flex;
+  }
+  
+  .textoInserirEmail {
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: var(--font-size--default);
+    margin-bottom: 2%;
+  }
+  
+  .asteriscoObrigatorio {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+  }
+  
+  .inputEmail {
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 3%;
+    font-size: var(--font-size--default);
+  }
+  
+  .descricaoEnvioCodigo {
+    font-size: var(--font-size--default);
+    font-family: "Inter";
+    text-align: center;
+    padding: 0% 10%;
+  }
+  
+  .proximaEtapaModal {
+    background-color: #0047b6;
+    padding: 2% 6%;
+    border-radius: 5px;
+    color: white;
+    font-size: var(--font-size--default);
+    font-family: "Inter";
+    font-weight: 600;
+    border: 1px solid transparent;
+  }
+  
+  .proximaEtapaModal:hover {
+    cursor: pointer;
+  }
+  
+  .inserirCodigoRecebido {
+    font-family: "Inter";
+    font-size: var(--font-size--big);
+    font-weight: 400;
+  }
+  
+  .divInputsCodigo {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 10%;
+  }
+  
+  .inputCodigo {
+    width: 10%;
+    height: 100%;
+    background-color: #dedede;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    padding-left: 4%;
+  }
+  
+  .timerInsercaoCodigo {
+    font-family: "Inter";
+    color: gray;
+    font-size: var(--font-size--default);
+  }
+  
+  .opcaoReenvioCodigo {
+    text-decoration: underline;
+    color: rgb(90, 86, 86);
+    font-family: "Inter";
+    font-size: var(--font-size--small);
+  }
+  
+  .opcaoReenvioCodigo:hover {
+    cursor: pointer;
+  }
+  
+  .divInsercaoNovaSenha {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: end;
+  }
+  
+  .spanNovaSenha {
+    font-family: "Inter";
+    font-size: var(--font-size--default);
+    margin-bottom: 1%;
+  }
+  
+  .divInputsNovaSenha {
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 5px;
+    font-family: "Inter";
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+  
+  .inputNovaSenha {
+    width: 90%;
+    font-family: "Inter";
+    font-size: var(--font-size--small);
+    border: none;
+    outline: none;
+  }
+  
+  .iconeOlho {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .divRepeticaoSenha {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+  }
+  
