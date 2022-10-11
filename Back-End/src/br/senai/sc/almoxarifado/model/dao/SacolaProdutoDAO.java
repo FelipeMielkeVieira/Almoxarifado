@@ -19,6 +19,8 @@ public class SacolaProdutoDAO {
     public SacolaProdutoDAO() {
         this.conexaoSacolaProduto = new ConexaoFactory().conectaBD();
     }
+    
+    // Falta fazer o atualizarProdutoSacola, pois pode ser removido quantidade de itens
 
     public void inserirProdutoSacola(Integer idSacola, Integer codigoProduto, Integer qtdProduto) {
         System.out.println("idsacola " + idSacola);
