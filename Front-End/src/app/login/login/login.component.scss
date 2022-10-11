@@ -1,263 +1,261 @@
-.containerPrincipal {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    background: linear-gradient(180deg, #EAEAEA 0%, #DFDFDF 100%);
-    display: flex;
-    justify-content: center;
-}
-
 input:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 a {
-    color: rgba(0, 0, 0, 0.65);
-    font-family: 'Inter';
+  color: rgba(0, 0, 0, 0.65);
+  font-family: "Inter";
+}
+
+.containerPrincipal {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .divPrincipal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
 }
 
 #containerLogin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 30.5%;
-    background-color: #ffffff;
-    border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30.5%;
+  border-radius: 5px;
 }
 
 #imagemUsuario {
-    position: absolute;
-    margin-top: -30px;
-    width: 5%;
+  position: absolute;
+  margin-top: -30px;
+  width: 5%;
 }
 
 #titulo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', sans-serif;
-    color: #0047B6;
-    margin-top: 10%;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  color: #0047b6;
+  margin-top: 10%;
+  font-weight: 500;
 }
 
 .div-float-label {
-    width: 80%;
-    border-bottom: 1px solid black;
+  width: 80%;
+  border-bottom: 1px solid black;
 }
 
 .input-float-label {
-    padding: 0;
-    padding-left: 2px;
-    border: 0;
+  padding: 0;
+  padding-left: 2px;
+  border: 0;
 }
 
 .input-float-label:focus ~ .label-float-label {
-    margin-top: -2px;
-    color: #0047B6;
+  margin-top: -2px;
+  color: #0047b6;
 }
 
 .div-float-label:has(.input-float-label:focus) {
-    border-color: #0047B6;
+  border-color: #0047b6;
 }
 
 .label-float-label {
-    margin-top: -2px;
-    padding: 0; 
-    padding-top: 18px;
-    border: 0;
-    width: 100%;
+  margin-top: -2px;
+  padding: 0;
+  padding-top: 18px;
+  border: 0;
+  width: 100%;
 }
 
 .div-senha {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .label-float {
-    position: relative;
-    padding-top: 13px;
+  position: relative;
+  padding-top: 13px;
 }
 
 #barraAzul {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 17px;
-    background: #0047B6;
-    border-radius: 7px 7px 0px 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 17px;
+  background: #0047b6;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .inputsCadastro {
-    width: 80%;
-    height: 2rem;
-    border: none;
-    border-bottom: 1px solid #0047B6;
-    margin: 2%;
-    font-family: 'Inter';
+  width: 80%;
+  height: 2rem;
+  border: none;
+  border-bottom: 1px solid #0047b6;
+  margin: 2%;
+  font-family: "Inter";
 }
 
 #esqueciSenha {
-    font-family: 'Inter', sans-serif;
-    font-size: var(--font-size--default);
-    color: rgba(0, 0, 0, 0.65);
-    margin-top: 1%;
-    font-family: 'Inter';
-    text-decoration: underline;
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size--default);
+  color: rgba(0, 0, 0, 0.65);
+  margin-top: 1%;
+  font-family: "Inter";
+  text-decoration: underline;
 }
 
 #esqueciSenha:hover {
-    cursor: pointer;
-    color: #0047B6;
+  cursor: pointer;
+  color: #0047b6;
 }
 
 #entrarGoogle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 2.5rem;
-    background: #ffffff;
-    border: solid 0.5px black;
-    border-radius: 5px;
-    margin-top: 5%;
-    font-family: 'Inter';
-    font-size: var(--font-size--small);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 2.5rem;
+  background: #ffffff;
+  border: solid 0.5px black;
+  border-radius: 5px;
+  margin-top: 5%;
+  font-family: "Inter";
+  font-size: var(--font-size--small);
 }
 
 #entrarGoogle:hover {
-    cursor: pointer;
-    color: black;
+  cursor: pointer;
+  color: black;
 }
 
 #imgGoogle {
-    height: 1.5rem;
-    margin-right: 10%;
+  height: 1.5rem;
+  margin-right: 10%;
 }
 
 #entrar {
-    width: 35%;
-    height: 2.2rem;
-    background-color: #0047B6;
-    color: #ffffff;
-    font-size: var(--font-size--default);
-    border-radius: 5px;
-    border: none;
-    margin-top: 5%;
-    transition: all 0.8s;
-    font-family: 'Inter';
+  width: 35%;
+  height: 2.2rem;
+  background-color: #0047b6;
+  color: #ffffff;
+  font-size: var(--font-size--default);
+  border-radius: 5px;
+  border: none;
+  margin-top: 5%;
+  transition: all 0.8s;
+  font-family: "Inter";
 }
 
 #entrar:hover {
-    cursor: pointer;
-    background-color: #ffffff;
-    color: black;
-    transition: all 0.5s;
-    border: solid 0.5px black;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: black;
+  transition: all 0.5s;
+  border: solid 0.5px black;
 }
 
 #entrar:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #textoConta {
-    font-family: 'Inter', sans-serif;
-    font-size: var(--font-size--default);
-    color: rgba(0, 0, 0, 0.65);
-    margin: 4%;
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size--default);
+  color: rgba(0, 0, 0, 0.65);
+  margin: 4%;
 }
 
 .containerSenha {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 80%;
 }
 
 .containerCheckbox {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 80%;
-    margin: 1%;
-    font-family: 'Inter', sans-serif;
-    font-size: var(--font-size--small);
-    color: rgba(0, 0, 0, 0.80);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin: 1%;
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size--small);
+  color: rgba(0, 0, 0, 0.8);
 }
 
-#checkbox{
-    width: 18px;
-    height: 18px;
+#checkbox {
+  width: 18px;
+  height: 18px;
 }
 
 #checkbox:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .label-lembrar-me {
-    font-weight: 500;
-    margin-left: 2%;
-    user-select: none;
+  font-weight: 500;
+  margin-left: 2%;
+  user-select: none;
 }
 
-.botaoCadastro{
-    border: none;
+.botaoCadastro {
+  border: none;
 }
 
 #cadastrar {
-    font-weight: 500;
-    text-decoration: underline;
+  font-weight: 500;
+  text-decoration: underline;
 }
 
 #cadastrar:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #fechar:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .divSenha {
-    border: none;
-    width: 80%;
-    border-bottom: 1px solid #0047B6;
-    margin: 2%;
-    font-family: 'Inter';
-    display: flex;
+  border: none;
+  width: 80%;
+  border-bottom: 1px solid #0047b6;
+  margin: 2%;
+  font-family: "Inter";
+  display: flex;
 }
 
 .inputsCadastro2 {
-    width: 90%;
-    border: none;
+  width: 90%;
+  border: none;
 }
 
 .imgOlho {
-    padding: 4px;
-    transition: all 0.3s;
-    cursor: pointer;
-    height: fit-content;
-    user-select: none;
+  padding: 4px;
+  transition: all 0.3s;
+  cursor: pointer;
+  height: fit-content;
+  user-select: none;
 }
 
 .imgOlho:hover {
-    transition: all 0.3s;
-    border-radius: 50px;
-    background-color: #dddddd;
+  transition: all 0.3s;
+  border-radius: 50px;
+  background-color: #dddddd;
 }
 
 .inputSenhaNova {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }

@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 // Variáveis customizadas;
-$primary: #0047B6;
+$primary: #0047b6;
 
 // Importação das funções e variáveis;
 // Com isso, pode-se usar funções do bootstrap, como o Map;
@@ -17,35 +17,66 @@ $primary: #0047B6;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 html {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size--default);
+}
+
+body.dark-mode {
+  background-color: #2d3436;
+  color: #ffffff;
+
+  .containerPrincipal {
+    background: linear-gradient(180deg, rgb(31, 30, 30) 0%, #2d3436 100%);
+  }
+
+  #containerLogin {
+    background-color: #182747;
+  }
+}
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #2d3436;
+
+  .containerPrincipal {
+    background: linear-gradient(180deg, rgb(238, 235, 235) 0%, #DFDFDF 100%);
+  }
+
+  #containerLogin {
+    background-color: #ffffff;
+  }
+}
+
+body:not(.dark-mode-preloading) {
+  transition: all 0.3s linear;
 }
 
 :root {
-    --font-size--verysmall: 10px;
-    --font-size--small: 14px;
-    --font-size--default: 16px;
-    --font-size--medium: 18px;
-    --font-size--big: 20px;
-    --font-size--verybig: 24px;
-    --font-size--giant: 30px;
-    --font-size--extreme: 40px;
+  --font-size--verysmall: 10px;
+  --font-size--small: 14px;
+  --font-size--default: 16px;
+  --font-size--medium: 18px;
+  --font-size--big: 20px;
+  --font-size--verybig: 24px;
+  --font-size--giant: 30px;
+  --font-size--extreme: 40px;
 }
 
 .divOpacidade {
-    position: absolute;
-    background-color: white;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
-    width: 100vw;
-    height: 100vh;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  width: 100vw;
+  height: 100vh;
 }

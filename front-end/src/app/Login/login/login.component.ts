@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/service';
+import { DarkModeService } from 'angular-dark-mode';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private users: UsersService
+    private users: UsersService,
+    private darkModeService: DarkModeService
   ) {}
 
   ngOnInit() {

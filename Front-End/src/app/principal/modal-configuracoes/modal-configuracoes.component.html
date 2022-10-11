@@ -25,7 +25,7 @@
         <div class="divEscuro">
             <span class="textEscuro">Modo Escuro</span>
             <label class="switch">
-                <input type="checkbox" />
+                <input (change)="trocarModoEscuro()" type="checkbox" id="checkboxEscuro" [checked]="darkMode$ | async"/>
                 <span class="slider round"></span>
             </label>
         </div>

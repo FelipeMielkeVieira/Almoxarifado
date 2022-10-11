@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { DarkModeService } from 'angular-dark-mode';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-modal-configuracoes',
@@ -8,12 +10,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ModalConfiguracoesComponent implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
 
+  darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
+
   fonteAtual: number = 3;
 
-  constructor() { }
+  constructor(private darkModeService: DarkModeService) {
+  }
 
   // *Pega o email e nome do usuario logado
-  ngOnInit() { }
+  ngOnInit() {
+  
+  }
 
   // *Fecha o modal de editar e o de configurações
   fechar() {
@@ -132,6 +139,15 @@ export class ModalConfiguracoesComponent implements OnInit {
         '--font-size--extreme',
         '44px'
       );
+    }
+  }
+
+  trocarModoEscuro() {
+    this.darkModeService.toggle();
+    if(localStorage.getItem("modoEscuro") == "ativo") {
+      localStorage.setItem("modoEscuro", "inativo");
+    } else {
+      localStorage.setItem("modoEscuro", "ativo");
     }
   }
 }
