@@ -11,15 +11,15 @@
       <h1 id="titulo">AlmaSis</h1>
 
       <!-- Inputs de email e senha, com ícones para mudar visualização -->
-      <div class="form-floating div-float-label">
-        <input name="emailUser" [(ngModel)]="emailUser" type="text" class="form-control input-float-label"
+      <div class="form-floating div-float-label divInputLogin">
+        <input name="emailUser" [(ngModel)]="emailUser" type="text" class="form-control input-float-label inputsLogin"
           placeholder="Email ou usuário">
         <label class="label-float-label" for="usuario">Nome</label>
       </div>
       
-      <div class="form-floating div-float-label div-senha">
+      <div class="form-floating div-float-label div-senha divInputLogin">
         <input id="inputSenha" name="senhaUser" [(ngModel)]="senhaUser" type="password"
-          class="form-control input-float-label" placeholder="Email">
+          class="form-control input-float-label inputsLogin" placeholder="Email">
         <label class="label-float-label" for="senhaUser">Senha</label>
         <span *ngIf="!senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho()"
           alt="Visualização da senha">
