@@ -14,7 +14,9 @@ export class ItemComponent implements OnInit {
 
   tipoUser:number = 0;
   textoDescartavel: string;
+  // @Input() item: any;
 
+  //Dizer se o item é descartável ou não
   ngOnInit() {
     if (this.item.descartavel) {
       this.textoDescartavel = "Descartável"
@@ -61,11 +63,11 @@ export class ItemComponent implements OnInit {
   // @Input() lista;
   // aparecer: boolean = false;
   // aparecer2: boolean = false;
+  // aparecer3: boolean = false;
+  // aparecer5: boolean = false;
   // cadastrarModal: boolean = false;
   // modalConfirmacao: number = 0;
-  // aparecer3: boolean = false;
   // modalHistorico: number = 0;
-  // aparecer5: boolean = false;
 
   // abrirModalItem() {
   //   document.documentElement.style.overflow = 'hidden';
@@ -112,15 +114,15 @@ fechar() {
 // <!-- ----------------------------- FIM FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
   
 // <!-- ----------------------------- MODAL ITEM ABERTO ---------------------------- -->
-// aparecer: boolean = false;
 calendarioAberto1: number = 0;
 calendarioAberto2: number = 0;
-modalAnexos: number = 0;
+// aparecer: boolean = false;
+aparecer2: boolean = false;
 aparecer4: boolean = false;
+modalAnexos: number = 0;
 qtd: number = 1;
 // feedback: number = 0;
 // @Input() item;
-aparecer2: boolean = false;
 
 data1: Date = new Date();
 data2: Date = new Date();
@@ -247,216 +249,12 @@ editarQuantidade() {
 }
 // <!-- ----------------------------- FIM MODAL MOTIVO EDIÇÃO QUANTIDADE ITENS ---------------------------- -->
 
-  
-  
-  
-  
-  
-  
-  localizacaoModal: boolean = false;
-  devolucaoModal: boolean = false;
-  informarDefeitoModal: boolean = false;
-  aparecerEspecificacaoReserva: boolean = false;
-
-  
-  
-  
-  
-  editar: number = 0;
-  requisicaoSenha: number = 0;
-  
-
-  localizacao: number = 0
-  listaItens: number = 0
-  confirmarRetirada: number = 0
-  baixaDevolucoes: number = 1
-  
-  cadastroProduto: number = 0;
-  codUser: number;
-  
-  
+// <!-- ----------------------------- MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
+  // aparecer3: boolean = false;
+  // modalConfirmacao: number = 0;
   listaItens2 = [];
-  paredeCentro = [];
-  armario = [];
-  porta = [];
-  localizacoesFiltradas = [];
-  
-  
-  localizacaoAtual = "paredeCentro";
-  
-  aparecerModalLocalizacao() {
-    this.aparecer = true;
-    this.localizacaoModal = true;
-  }
-
-  fecharModalLocalizacao() {
-    this.aparecer = false;
-    this.localizacaoModal = false;
-  }
-
-  aparecerModalCadastrar() {
-    this.aparecer = true;
-    this.cadastrarModal = true;
-  }
-
-  
-
-  telaLocalizacoes() {
-    this.listaItens = 0
-    this.confirmarRetirada = 0
-    this.baixaDevolucoes = 0
-    this.localizacao = 1
-
-    let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
-    semAzul1.className = "semAzul"
-    let semAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
-    semAzul2.className = "semAzul"
-    let semAzul3 = document.querySelector('#listaItens') as HTMLElement;
-    semAzul3.className = "semAzul"
-    if (this.codUser == 3) {
-      let comAzul = document.querySelector('#localizacoes') as HTMLElement;
-      comAzul.className = "comAzul"
-    }
-  }
-
-  telaListaItens() {
-    this.localizacao = 0
-    this.confirmarRetirada = 0
-    this.baixaDevolucoes = 0
-    this.listaItens = 1
-
-    let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
-    semAzul1.className = "semAzul"
-    let semAzul2 = document.querySelector('#confirmarRetirada') as HTMLElement;
-    semAzul2.className = "semAzul"
-    if (this.codUser == 3) {
-      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-      semAzul3.className = "semAzul"
-    }
-    let comAzul = document.querySelector('#listaItens') as HTMLElement;
-    comAzul.className = "comAzul"
-  }
-
-  telaConfirmarRetirada() {
-    this.localizacao = 0;
-    this.listaItens = 0;
-    this.baixaDevolucoes = 0;
-    this.confirmarRetirada = 1;
-
-    let semAzul1 = document.querySelector('#baixaDevolucoes') as HTMLElement;
-    semAzul1.className = "semAzul"
-    let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
-    semAzul2.className = "semAzul"
-    if (this.codUser == 3) {
-      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-      semAzul3.className = "semAzul"
-    }
-    let comAzul = document.querySelector('#confirmarRetirada') as HTMLButtonElement;
-    comAzul.className = "comAzul"
-  }
-
-  telaBaixaDevolucoes() {
-    this.localizacao = 0
-    this.listaItens = 0
-    this.confirmarRetirada = 0
-    this.baixaDevolucoes = 1
-
-    let semAzul1 = document.querySelector('#confirmarRetirada') as HTMLElement;
-    semAzul1.className = "semAzul"
-    let semAzul2 = document.querySelector('#listaItens') as HTMLElement;
-    semAzul2.className = "semAzul"
-    if (this.codUser == 3) {
-      let semAzul3 = document.querySelector('#localizacoes') as HTMLElement;
-      semAzul3.className = "semAzul"
-    }
-    let comAzul = document.querySelector('#baixaDevolucoes') as HTMLElement;
-    comAzul.className = "comAzul"
-  }
-
-  abrirDevolucao(numero) {
-    this.devolucaoModal = true;
-    this.aparecer = true;
-    if (numero == 2) {
-      this.nao = 1;
-    } else {
-      this.nao = 2;
-    }
-  }
-
-  fecharModalBaixaDevolucao() {
-    this.devolucaoModal = false;
-    this.aparecer = false;
-  }
-
-  darBaixaDevolucao() {
-    this.devolucaoModal = false;
-    this.aparecer = false;
-    this.nao = 2;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-  }
-
-  informarDefeitoItem() {
-    this.devolucaoModal = false;
-    this.informarDefeitoModal = true;
-  }
-
-  voltarDevolucaoItens() {
-    this.informarDefeitoModal = false;
-    this.devolucaoModal = true;
-  }
-
-  botaoConfirmarRetirada() {
-    this.devolucaoModal = false;
-    this.aparecer = false;
-    this.nao = 1;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-  }
-
-  cadastrar() {
-    this.aparecer = false;
-    this.aparecer2 = false;
-    this.cadastrarModal = false;
-    this.nao = 0;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-  }
-
-  
-
-  cadastrar2() {
-    this.aparecer = false;
-    this.aparecer2 = false;
-    this.cadastrarModal = false;
-    this.nao = 3;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-  }
-
-  filtrarLocalizacao() {
-    if (this.localizacaoAtual == "paredeCentro") {
-      this.localizacoesFiltradas = this.paredeCentro;
-    }
-    if (this.localizacaoAtual == "armario") {
-      this.localizacoesFiltradas = this.armario;
-    }
-    if (this.localizacaoAtual == "porta") {
-      this.localizacoesFiltradas = this.porta;
-    }
-  }
-
-  adicionarNaSacola() {
-    document.documentElement.style.overflow = 'auto';
-  }
+  // @Input() item;
+  // feedback: number = 0;
 
   cancelar() {
     this.aparecer3 = false;
@@ -481,24 +279,35 @@ editarQuantidade() {
       this.feedback = 0;
     }, 5000);
   }
-
+// <!-- ----------------------------- FIM MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
   
+// <!-- ----------------------------- FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
+// feedback: number = 0;
 
-  fecharModalAnexos(){
-    this.aparecer4 = false;
-    this.modalAnexos = 0;
-  }
-
+// fechar() {
+//   this.feedback = 0;
+//   this.aparecer2 = false;
+// }
+// <!-- ----------------------------- FIM FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
   
+// <!-- ----------------------------- MODAL VER ANEXOS ---------------------------- -->
+// aparecer4: boolean = false;
+// modalAnexos: number = 0;
+// @Input() item;
 
-  fecharModalHistorico(){
-    this.aparecer5 = false;
-    this.modalHistorico = 0;
-  }
-
+fecharModalAnexos(){
+  this.aparecer4 = false;
+  this.modalAnexos = 0;
+}
+// <!-- ----------------------------- FIM MODAL VER ANEXOS ---------------------------- -->
   
+// <!-- ----------------------------- MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
+// aparecer5: boolean = false;
+// modalHistorico: number = 0;
 
-  
-
-  
+fecharModalHistorico(){
+  this.aparecer5 = false;
+  this.modalHistorico = 0;
+}
+// <!-- ----------------------------- FIM MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
 }
