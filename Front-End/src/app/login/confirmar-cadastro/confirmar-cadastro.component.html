@@ -1,0 +1,43 @@
+<div id="fundoModal">
+  <!-- Modal de alerta caso o código aleatório criado estiver incorreto -->
+  <app-alerta-feito *ngIf="codigoVerificacaoIncorreto" [tipoMensagemModal]="5" (fecharModal)="fecharModalAlerta(2)">
+  </app-alerta-feito>
+
+  <div class="modalSenha shadow-lg rounded">
+    <img class="sairModal" (click)="fecharComponente()" src="../../../assets/close.png"
+      alt="Fechar modal de confirmar cadastro" />
+    <div id="modalConteudo">
+
+      <h3 class="tituloInserirCodigo">Verificar Email</h3>
+
+      <!-- Inserir código (inserir código recebido no email) -->
+      <div id="divInsercaoCodigo">
+        <h3 class="inserirCodigoRecebido">
+          Insira o Código
+        </h3>
+        <div class="divInputsCodigo">
+          <input id="cod1" class="inputCodigo" (keyup)="trocarCodigoVerificacao(1)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[0]" />
+          <input id="cod2" class="inputCodigo" (keyup)="trocarCodigoVerificacao(2)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[1]" />
+          <input id="cod3" class="inputCodigo" (keyup)="trocarCodigoVerificacao(3)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[2]" />
+          <input id="cod4" class="inputCodigo" (keyup)="trocarCodigoVerificacao(4)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[3]" />
+          <input id="cod5" class="inputCodigo" (keyup)="trocarCodigoVerificacao(5)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[4]" />
+          <input id="cod6" class="inputCodigo" (keyup)="trocarCodigoVerificacao(6)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[5]" />
+        </div>
+        <span class="timerInsercaoCodigo">{{
+          formatarTempoTimer()
+          }}</span>
+        <span class="opcaoReenvioCodigo" (click)="reenviarCodigo()">Reenviar
+          Código</span>
+        <button class="proximaEtapaModal" (click)="verificarCodigo()">
+          Validar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
