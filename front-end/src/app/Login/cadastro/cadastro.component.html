@@ -2,8 +2,17 @@
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
+
 <body>
   <div class="divPrincipal">
+    <!-- Aqui deve aparecer um componente de confirmar cadastro -->
+    <div *ngIf="modalConfirmarCadastro">
+      <h2>Modal Confirmar Cadastro</h2>
+      <button class="btn btn-outline-primary" (click)="cadastrar()">
+        Cadastrar
+      </button>
+    </div>
+    
     <!-- Modal de aviso para caso o usuário digite duas senhas diferentes -->
     <app-alerta-feito *ngIf="senhaIncorreta" [tipoMensagemModal]="6" (fecharModal)="fecharModalFeito(1)">
     </app-alerta-feito>
@@ -54,7 +63,7 @@
           visibility
         </span>
       </div>
-      <button id="cadastrar" (click)="cadastrar()">Cadastrar</button>
+      <button id="cadastrar" (click)="verificarDadosValidos()">Cadastrar</button>
       <p id="textoConta">
         Já possui uma conta?
         <span (click)="entrar()" id="entrar">Entrar</span>

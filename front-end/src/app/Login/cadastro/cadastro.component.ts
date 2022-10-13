@@ -11,9 +11,9 @@ export class CadastroComponent implements OnInit {
   constructor(private router: Router, private service: UsersService) { }
 
   usuario: string = "";
-  email: string | undefined;
-  senhaUser: string | undefined;
-  repetirSenhaUser: string | undefined;
+  email: string = "";
+  senhaUser: string = "";
+  repetirSenhaUser: string = "";
 
   senhaIncorreta: boolean = false;     //Variável para modal de senhas não correspondem
   dadosIncorretos: boolean = false;    //Variável para modal de preencher todos campos
@@ -22,28 +22,37 @@ export class CadastroComponent implements OnInit {
   senhaVisivel: boolean = false;
   confirmarSenhaVisivel: boolean = false;
 
+  modalConfirmarCadastro: boolean = false;
+
   ngOnInit() {
   }
 
   entrar() {
-    console.log("a")
     this.router.navigate(['']);
   }
 
   cadastrar() {
-    if(this.email && this.usuario && this.senhaUser) {
-      if(this.senhaUser == this.repetirSenhaUser && this.senhaUser != '' && this.senhaUser) {
-        localStorage.setItem('cadastro', '1');
-  
-        const user = {
-          nome: this.usuario,
-          email: this.email,
-          senha: this.senhaUser,
-          tipo: 0
-        }
-        
-        this.service.usuarios.push(user);
-        this.router.navigate(['']); 
+    // Item adicionado no localStorage para poder emitir um feedback na tela de login
+    localStorage.setItem('cadastro', '1');
+
+    const user = {
+      nome: this.usuario,
+      email: this.email,
+      senha: this.senhaUser,
+      tipo: 0
+    }
+
+    this.service.usuarios.push(user);
+    this.controlarModalConfirmarCadastro();
+    this.router.navigate(['']);
+  }
+
+  verificarDadosValidos() {
+    if (this.email && this.usuario && this.senhaUser) {
+      if (this.senhaUser == this.repetirSenhaUser && this.senhaUser != '' && this.senhaUser) {
+        // Ao invés de cadastrar o usuário, deve-se abrir modal de confirmação de cadastro
+        // solicitando para inserir o código de confirmação enviado por email
+        this.controlarModalConfirmarCadastro();
       } else {
         this.senhaIncorreta = true;
         setTimeout(() => {
@@ -58,6 +67,13 @@ export class CadastroComponent implements OnInit {
     }
   }
 
+  // Método para abrir ou fechar o modal de confirmação de cadastro
+  controlarModalConfirmarCadastro() {
+    // Função para abrir modal de confirmação de cadastro
+    this.modalConfirmarCadastro = !this.modalConfirmarCadastro;
+  }
+
+  // Função para mostrar ou esconder a senha
   trocarOlho(input: number) {
     let inputElement: HTMLInputElement
 
@@ -76,8 +92,8 @@ export class CadastroComponent implements OnInit {
   }
 
   // Função para abrir os modais de alerta caso algum dado esteja faltando ou esteja incorreto
-  abrirModalFeito(numero : number) {
-    switch(numero) {
+  abrirModalFeito(numero: number) {
+    switch (numero) {
       case 1:
         this.senhaIncorreta = true;
         this.listaTimeoutsAlertas[0] = setTimeout(() => {
@@ -94,8 +110,8 @@ export class CadastroComponent implements OnInit {
   }
 
   // Função para fechar os modais de alerta caso algum dado esteja faltando ou esteja incorreto
-  fecharModalFeito(numero : number) {
-    switch(numero) {
+  fecharModalFeito(numero: number) {
+    switch (numero) {
       case 1:
         this.senhaIncorreta = false;
         clearTimeout(this.listaTimeoutsAlertas[0]);
