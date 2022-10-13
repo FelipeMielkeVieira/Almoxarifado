@@ -14,6 +14,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    // Ao invés de usar um item setado manualmente, poderia usar o item dark-mode do localStorage
     if(localStorage.getItem("modoEscuro") == "ativo" && document.body.style.backgroundColor == "#ffffff") {
       this.darkModeService.toggle();
     }

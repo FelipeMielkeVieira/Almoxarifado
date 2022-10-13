@@ -72,9 +72,13 @@ a {
     border: 0;
 }
 
-.input-float-label:focus ~ .label-float-label {
+.input-float-label:focus~.label-float-label {
     margin-top: -2px;
     color: #0047B6;
+}
+
+.input-float-label:focus~.imgOlho {
+    color: #0047b6;
 }
 
 .div-float-label:has(.input-float-label:focus) {
@@ -83,7 +87,7 @@ a {
 
 .label-float-label {
     margin-top: -2px;
-    padding: 0; 
+    padding: 0;
     padding-top: 18px;
     border: 0;
     width: 100%;

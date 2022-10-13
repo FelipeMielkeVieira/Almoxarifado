@@ -66,6 +66,6 @@
     <app-alerta-feito *ngIf="alertaSenhaIncorreta" [tipoMensagemModal]="3" (fecharModal)="fecharModalAlerta(3)">
     </app-alerta-feito>
   </div>
-  <!-- Modal de recuperação de senha -->
-  <app-esquecer-senha *ngIf="modalRedefinicaoSenha" (fecharModal)="fecharModalSenha($event)"></app-esquecer-senha>
 </div>
+<!-- Modal de recuperação de senha -->
+<app-esquecer-senha *ngIf="modalRedefinicaoSenha" (fecharModal)="fecharModalSenha($event)"></app-esquecer-senha>

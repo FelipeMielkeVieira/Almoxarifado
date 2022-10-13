@@ -66,6 +66,10 @@ a {
   color: #0047b6;
 }
 
+.input-float-label:focus ~ .imgOlho {
+  color: #0047b6;
+}
+
 .div-float-label:has(.input-float-label:focus) {
   border-color: #0047b6;
 }
