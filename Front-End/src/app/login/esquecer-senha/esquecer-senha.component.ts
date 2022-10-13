@@ -18,20 +18,20 @@ export class EsquecerSenhaComponent implements OnInit {
   listaCodigoInput = ['', '', '', '', '', ''];
   codigoVerificacaoIncorreto = false;
 
-  visibilidadeOlho1 = false;
-  visibilidadeOlho2 = false;
+  senhaVisivel: boolean = false;
+  confirmarSenhaVisivel: boolean = false;
 
   senhaNova: string = '';
-  senhaNova2: string = '';
+  confirmarSenha: string = '';
   senhasNaoConferem = false;
 
   timeoutsAlertas: [any, any, any] = [undefined, undefined, undefined];
 
   @Output() fecharModal = new EventEmitter<string>();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   // Função que emite output para fechar o modal
   fecharComponente() {
@@ -140,30 +140,27 @@ export class EsquecerSenhaComponent implements OnInit {
     this.criarTimer();
   }
 
-  // Função para trocar a visibilidade dos dois olhos na redefinição da nova senha
-  trocarOlho(numeroOlho: number) {
-    switch (numeroOlho) {
+  // Função para trocar a visibilidade da senha
+  trocarOlho(input: number) {
+    let inputElement: HTMLInputElement
+
+    switch (input) {
       case 1:
-        this.visibilidadeOlho1 = !this.visibilidadeOlho1;
+        inputElement = document.getElementById("inputRecuperarSenha") as HTMLInputElement;
+        this.senhaVisivel = !this.senhaVisivel;
+        inputElement.type = this.senhaVisivel ? 'text' : "password";
         break;
       case 2:
-        this.visibilidadeOlho2 = !this.visibilidadeOlho2;
+        inputElement = document.getElementById("inputRecuperarConfirmarSenha") as HTMLInputElement;
+        this.confirmarSenhaVisivel = !this.confirmarSenhaVisivel;
+        inputElement.type = this.confirmarSenhaVisivel ? 'text' : "password";
         break;
-    }
-
-    let inputSenha = document.getElementById(
-      'inputSenha' + (numeroOlho + 1)
-    ) as HTMLInputElement;
-    if (inputSenha.type == 'password') {
-      inputSenha.type = 'text';
-    } else {
-      inputSenha.type = 'password';
     }
   }
 
   // Função para verificar se as duas novas senhas conferem
   verificarNovasSenhas() {
-    if (this.senhaNova == this.senhaNova2 && this.senhaNova != '') {
+    if (this.senhaNova == this.confirmarSenha && this.senhaNova != '') {
       this.enviarNovaSenha();
     } else {
       this.senhasNaoConferem = true;

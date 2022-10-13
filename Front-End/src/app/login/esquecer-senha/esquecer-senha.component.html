@@ -12,7 +12,7 @@
   </app-alerta-feito>
 
   <div class="modalSenha shadow-lg rounded">
-      <img class="sairModal" (click)="fecharComponente()" src="../../../assets/close.png" alt="Fechar modal de senha" />
+    <img class="sairModal" (click)="fecharComponente()" src="../../../assets/close.png" alt="Fechar modal de senha" />
     <div id="modalConteudo">
 
       <h3 class="tituloRecuperarSenha">Recuperar Senha</h3>
@@ -20,83 +20,83 @@
       <!-- Primeira etapa da recuperação de senha (pedir email) -->
       <div *ngIf="etapaRedefinicaoSenha == 1" class="divInsercaoEmail">
         <div class="form-floating div-float-label">
-          <input name="emailVerificacao" [(ngModel)]="emailVerificacao" type="email" class="form-control input-float-label"
-            placeholder="Email">
+          <input name="emailVerificacao" [(ngModel)]="emailVerificacao" type="email"
+            class="form-control input-float-label" placeholder="Email">
           <label class="label-float-label">Email<span class="asteriscoObrigatorio">*</span></label>
         </div>
+        <span class="descricaoEnvioCodigo">Caro Usuário, enviaremos um código de
+          verificação no seu email para
+          identificação.</span>
+        <button class="proximaEtapaModal" (click)="prosseguirEtapaSenha()">
+          Enviar
+        </button>
       </div>
-      <span *ngIf="etapaRedefinicaoSenha == 1" class="descricaoEnvioCodigo">Caro Usuário, enviaremos um código de
-        verificação no seu email para
-        identificação.</span>
-      <button *ngIf="etapaRedefinicaoSenha == 1" class="proximaEtapaModal" (click)="prosseguirEtapaSenha()">
-        Enviar
-      </button>
 
       <!-- Segunda etapa da recuperação de senha (inserir código recebido no email) -->
-      <h3 *ngIf="etapaRedefinicaoSenha == 2" class="inserirCodigoRecebido">
-        Insira o Código
-      </h3>
-      <div *ngIf="etapaRedefinicaoSenha == 2" class="divInputsCodigo">
-        <input id="cod1" class="inputCodigo" (keyup)="trocarCodigoVerificacao(1)" maxlength="1"
-          [(ngModel)]="listaCodigoInput[0]" />
-        <input id="cod2" class="inputCodigo" (keyup)="trocarCodigoVerificacao(2)" maxlength="1"
-          [(ngModel)]="listaCodigoInput[1]" />
-        <input id="cod3" class="inputCodigo" (keyup)="trocarCodigoVerificacao(3)" maxlength="1"
-          [(ngModel)]="listaCodigoInput[2]" />
-        <input id="cod4" class="inputCodigo" (keyup)="trocarCodigoVerificacao(4)" maxlength="1"
-          [(ngModel)]="listaCodigoInput[3]" />
-        <input id="cod5" class="inputCodigo" (keyup)="trocarCodigoVerificacao(5)" maxlength="1"
-          [(ngModel)]="listaCodigoInput[4]" />
-        <input id="cod6" class="inputCodigo" (keyup)="trocarCodigoVerificacao(6)" maxlength="1"
-          [(ngModel)]="listaCodigoInput[5]" />
+      <div *ngIf="etapaRedefinicaoSenha == 2" id="divInsercaoCodigo">
+
+        <h3 class="inserirCodigoRecebido">
+          Insira o Código
+        </h3>
+        <div class="divInputsCodigo">
+          <input id="cod1" class="inputCodigo" (keyup)="trocarCodigoVerificacao(1)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[0]" />
+          <input id="cod2" class="inputCodigo" (keyup)="trocarCodigoVerificacao(2)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[1]" />
+          <input id="cod3" class="inputCodigo" (keyup)="trocarCodigoVerificacao(3)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[2]" />
+          <input id="cod4" class="inputCodigo" (keyup)="trocarCodigoVerificacao(4)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[3]" />
+          <input id="cod5" class="inputCodigo" (keyup)="trocarCodigoVerificacao(5)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[4]" />
+          <input id="cod6" class="inputCodigo" (keyup)="trocarCodigoVerificacao(6)" maxlength="1"
+            [(ngModel)]="listaCodigoInput[5]" />
+        </div>
+        <span class="timerInsercaoCodigo">{{
+          formatarTempoTimer()
+          }}</span>
+        <span class="opcaoReenvioCodigo" (click)="reenviarCodigo()">Reenviar
+          Código</span>
+        <button class="proximaEtapaModal" (click)="prosseguirEtapaSenha()">
+          Próximo
+        </button>
       </div>
-      <span *ngIf="etapaRedefinicaoSenha == 2" class="timerInsercaoCodigo">{{
-        formatarTempoTimer()
-        }}</span>
-      <span *ngIf="etapaRedefinicaoSenha == 2" class="opcaoReenvioCodigo" (click)="reenviarCodigo()">Reenviar
-        Código</span>
-      <button *ngIf="etapaRedefinicaoSenha == 2" class="proximaEtapaModal" (click)="prosseguirEtapaSenha()">
-        Próximo
-      </button>
 
       <!-- Terceira e última etapa da recuperação de senha (Colocar nova senha) -->
       <div *ngIf="etapaRedefinicaoSenha == 3" class="divInsercaoNovaSenha">
-        <div class="labelInsercao">
-          <span class="spanNovaSenha">Nova Senha:</span>
-          <div class="asteriscoObrigatorio">*</div>
-        </div>
-        <div class="divInputsNovaSenha">
-          <input type="password" id="inputSenha2" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova" />
-          <span *ngIf="!visibilidadeOlho1" class="material-symbols-outlined iconeOlho iconDeselect" id="olho1"
-            (click)="trocarOlho(1)" alt="Visualização da senha">
+        <div class="form-floating div-float-label div-senha">
+          <input id="inputRecuperarSenha" name="senhaNova" [(ngModel)]="senhaNova" type="password"
+            class="form-control input-float-label" placeholder="Nova senha">
+          <label class="label-float-label" for="inputRecuperarSenha">Nova senha<span
+              class="asteriscoObrigatorio">*</span></label>
+          <span *ngIf="!senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"
+            alt="Visualização da senha">
             visibility_off
           </span>
-          <span *ngIf="visibilidadeOlho1" class="material-symbols-outlined iconeOlho iconDeselect" id="olho1"
-            (click)="trocarOlho(1)" alt="Visualização da senha">
+          <span *ngIf="senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"
+            alt="Visualização da senha">
             visibility
           </span>
         </div>
-      </div>
-      <div *ngIf="etapaRedefinicaoSenha == 3" class="divRepeticaoSenha" id="inputRepetirSenha">
-        <div class="labelInsercao">
-          <span class="spanNovaSenha">Repita a Senha:</span>
-          <div class="asteriscoObrigatorio">*</div>
-        </div>
-        <div class="divInputsNovaSenha">
-          <input type="password" id="inputSenha3" class="inputNovaSenha" placeholder="*****" [(ngModel)]="senhaNova2" />
-          <span *ngIf="!visibilidadeOlho2" class="material-symbols-outlined iconeOlho iconDeselect" id="olho2"
+
+        <div class="form-floating div-float-label div-senha">
+          <input id="inputRecuperarConfirmarSenha" name="confirmarSenha" [(ngModel)]="confirmarSenha" type="password"
+            class="form-control input-float-label" placeholder="Confirmar Senha">
+          <label class="label-float-label" for="inputRecuperarConfirmarSenha">Confirmar Senha<span
+              class="asteriscoObrigatorio">*</span></label>
+          <span *ngIf="!confirmarSenhaVisivel" class="material-symbols-outlined imgOlho iconDeselect"
             (click)="trocarOlho(2)" alt="Visualização da senha">
             visibility_off
           </span>
-          <span *ngIf="visibilidadeOlho2" class="material-symbols-outlined iconeOlho iconDeselect" id="olho2"
+          <span *ngIf="confirmarSenhaVisivel" class="material-symbols-outlined imgOlho iconDeselect"
             (click)="trocarOlho(2)" alt="Visualização da senha">
             visibility
           </span>
         </div>
+        <button class="proximaEtapaModal" (click)="verificarNovasSenhas()">
+          Enviar
+        </button>
       </div>
-      <button *ngIf="etapaRedefinicaoSenha == 3" class="proximaEtapaModal" (click)="verificarNovasSenhas()">
-        Enviar
-      </button>
     </div>
   </div>
 </div>
