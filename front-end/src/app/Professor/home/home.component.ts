@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/service';
 export class HomeComponent implements OnInit {
   constructor(private service: UsersService) {
     this.listaItens = service.itens;
+    this.listaItensFiltrada = this.listaItens;
     this.numResultados = this.listaItens.length;
   }
 
@@ -17,12 +18,15 @@ export class HomeComponent implements OnInit {
   numResultados = 0;
 
   listaItens;
+  listaItensFiltrada;
   listaEmBloco = true;
 
   paginaAtual = 1;
 
   modalOrdernar: boolean = false;
   modalFiltrar: boolean = false;
+
+  listaFiltros: [boolean, boolean, boolean, boolean] = [false, false, false, false];
 
   ngOnInit() {
   }
@@ -73,11 +77,32 @@ export class HomeComponent implements OnInit {
     this.paginaAtual++;
   }
 
-  filtrar() {
+  abrirModalFiltro() {
     this.modalFiltrar = !this.modalFiltrar;
   }
 
-  fecharModalFiltro() {
+  fecharModalFiltro(event: any) {
     this.modalFiltrar = false;
+    this.listaFiltros = JSON.parse(event);
+  }
+
+  filtrarItens(event: any) {
+    this.listaFiltros = JSON.parse(event);
+
+    this.listaItensFiltrada = this.listaItens.filter(e => {
+      if(this.listaFiltros[0] == true && e.descartavel == false) {
+        return false;
+      }
+      if(this.listaFiltros[1] == true && e.descartavel == true) {
+        return false;
+      }
+      if(this.listaFiltros[2] == true && e.quantidade <= 0) {
+        return false;
+      }
+      if(this.listaFiltros[3] == true && e.quantidade > 0) {
+        return false;
+      }
+      return true;
+    })
   }
 }

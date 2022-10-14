@@ -133,6 +133,7 @@ main {
 #lupa {
     height: 100%;
     opacity: 0.7;
+    user-select: none;
 }
 
 #lupa:hover {
@@ -164,6 +165,7 @@ main {
     cursor: pointer;
     margin: 0 0 0 1%;
     animation: opacidade 0.5s;
+    user-select: none;
 }
 
 #iconOrdernar {
@@ -235,6 +237,7 @@ main {
     font-weight: 250;
     cursor: pointer;
     font-size: 35px;
+    user-select: none;
 }
 
 #iconFiltro:hover {
