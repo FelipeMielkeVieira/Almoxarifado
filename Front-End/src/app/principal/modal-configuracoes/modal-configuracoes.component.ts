@@ -140,6 +140,18 @@ export class ModalConfiguracoesComponent implements OnInit {
         '44px'
       );
     }
+
+    let darkModeInput = document.getElementById("checkboxEscuro") as HTMLInputElement;
+
+    if (darkModeInput.checked) {
+      if (!(JSON.parse(localStorage.getItem('dark-mode') || "")).darkMode) {
+        this.darkModeService.toggle();
+      }
+    } else {
+      if ((JSON.parse(localStorage.getItem('dark-mode') || "")).darkMode) {
+        this.darkModeService.toggle();
+      }
+    }
   }
 
   trocarModoEscuro() {

@@ -1,0 +1,247 @@
+#fundoModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modalSenha {
+  display: flex;
+  justify-content: end;
+  width: 26%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border-top: 12px solid #0047b6;
+  padding: 15px;
+}
+
+.sairModal {
+  position: absolute;
+  width: 1rem;
+  cursor: pointer;
+}
+
+#modalConteudo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.tituloInserirCodigo {
+  font-family: "Inter";
+  font-size: var(--font-size--giant);
+  color: #0047b6;
+  font-weight: 600;
+}
+
+.divInsercaoEmail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.labelInsercao {
+  display: flex;
+}
+
+.textoInserirEmail {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: var(--font-size--default);
+  margin-bottom: 2%;
+}
+
+#divInsercaoCodigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.descricaoEnvioCodigo {
+  font-size: var(--font-size--default);
+  font-family: "Inter";
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.proximaEtapaModal {
+  width: fit-content;
+  background-color: #0047b6;
+  margin-top: 1rem;
+  padding: 2% 6%;
+  border-radius: 5px;
+  color: white;
+  font-size: var(--font-size--default);
+  font-family: "Inter";
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.inserirCodigoRecebido {
+  font-family: "Inter";
+  font-size: var(--font-size--big);
+  font-weight: 400;
+  margin: 0.5rem;
+}
+
+.divInputsCodigo {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.inputCodigo {
+  width: 10%;
+  height: 100%;
+  background-color: #dedede;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  padding-left: 4%;
+}
+
+.timerInsercaoCodigo {
+  font-family: "Inter";
+  color: gray;
+  font-size: var(--font-size--default);
+}
+
+.opcaoReenvioCodigo {
+  text-decoration: underline;
+  color: rgb(90, 86, 86);
+  font-family: "Inter";
+  font-size: var(--font-size--small);
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.divInsercaoNovaSenha {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: end;
+  align-items: center;
+}
+
+.spanNovaSenha {
+  font-family: "Inter";
+  font-size: var(--font-size--default);
+  margin-bottom: 1%;
+}
+
+.divInputsNovaSenha {
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 5px;
+  font-family: "Inter";
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.inputNovaSenha {
+  width: 90%;
+  font-family: "Inter";
+  font-size: var(--font-size--small);
+  border: none;
+  outline: none;
+}
+
+.divRepeticaoSenha {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+}
+
+// Estilização de input
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+.div-float-label {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.input-float-label {
+  padding: 0;
+  padding-left: 2px;
+  border: 0;
+}
+
+.input-float-label:focus~.label-float-label {
+  margin-top: -2px;
+  color: #0047B6;
+}
+
+.input-float-label:focus~.imgOlho {
+  color: #0047b6;
+}
+
+.div-float-label:has(.input-float-label:focus) {
+  border-color: #0047B6;
+}
+
+.label-float-label {
+  margin-top: -2px;
+  padding: 0;
+  padding-top: 18px;
+  border: 0;
+  width: 100%;
+}
+
+.div-senha {
+  display: flex;
+  align-items: center;
+}
+
+.inputsCadastro {
+  width: 80%;
+  height: 2rem;
+  border: none;
+  border-bottom: 1px solid #0047B6;
+  margin: 5px;
+  font-family: 'Inter', sans-serif;
+}
+
+.divSenha {
+  border: none;
+  width: 80%;
+  height: 2rem;
+  border-bottom: 1px solid #0047B6;
+  margin: 2%;
+  font-family: 'Inter';
+  display: flex;
+}
+
+.imgOlho {
+  padding: 4px;
+  transition: all 0.3s;
+  cursor: pointer;
+  height: fit-content;
+  user-select: none;
+}
+
+.imgOlho:hover {
+  transition: all 0.3s;
+  border-radius: 50px;
+  background-color: #dddddd;
+}
+
+.asteriscoObrigatorio {
+  color: #be0101;
+  font-weight: bold;
+  cursor: default;
+}

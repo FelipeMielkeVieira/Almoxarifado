@@ -6,6 +6,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { AlertaFeitoComponent } from './alerta-feito/alerta-feito.component';
 import { EsquecerSenhaComponent } from './esquecer-senha/esquecer-senha.component';
+import { ConfirmarCadastroComponent } from './confirmar-cadastro/confirmar-cadastro.component';
 
 import { UsersService } from '../service';
 
@@ -19,13 +20,15 @@ import { UsersService } from '../service';
     CadastroComponent,
     LoginComponent,
     AlertaFeitoComponent,
-    EsquecerSenhaComponent
+    EsquecerSenhaComponent,
+    ConfirmarCadastroComponent
   ],
   exports: [
     CadastroComponent, 
     LoginComponent, 
     AlertaFeitoComponent, 
-    EsquecerSenhaComponent
+    EsquecerSenhaComponent,
+    ConfirmarCadastroComponent
   ],
   providers: [
     UsersService

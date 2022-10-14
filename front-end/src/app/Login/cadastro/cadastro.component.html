@@ -4,15 +4,11 @@
 
 
 <body>
+  <!-- Aqui deve aparecer um componente de confirmar cadastro -->
+  <app-confirmar-cadastro *ngIf="modalConfirmarCadastro" style="z-index: 2;"></app-confirmar-cadastro>
+
   <div class="divPrincipal">
-    <!-- Aqui deve aparecer um componente de confirmar cadastro -->
-    <div *ngIf="modalConfirmarCadastro">
-      <h2>Modal Confirmar Cadastro</h2>
-      <button class="btn btn-outline-primary" (click)="cadastrar()">
-        Cadastrar
-      </button>
-    </div>
-    
+
     <!-- Modal de aviso para caso o usuário digite duas senhas diferentes -->
     <app-alerta-feito *ngIf="senhaIncorreta" [tipoMensagemModal]="6" (fecharModal)="fecharModalFeito(1)">
     </app-alerta-feito>
