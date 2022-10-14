@@ -7,24 +7,19 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "reserva_produto")
+@Table(name = "anexo_produto")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor()
 @ToString
 @EqualsAndHashCode
-public class ReservaProduto {
-    @Column(nullable = false)
-    private Integer qtd_produto;
-
+public class Anexo_Produto {
     // Foreign keys
-
-    @Column(nullable = false)
-    private Integer reserva_id;
 
     @Column(nullable = false)
     private Integer produto_id;
 
-
+    @Column(nullable = false)
+    private Integer anexo_id;
 }
