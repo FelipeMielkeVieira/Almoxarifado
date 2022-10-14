@@ -6,8 +6,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "classificacao")
-@AllArgsConstructor @NoArgsConstructor()
-@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor()
+@Getter
+@Setter
 @ToString
 @EqualsAndHashCode
 public class Classificacao {
