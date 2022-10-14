@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -30,9 +31,9 @@ public class ClassificacaoController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> findById(@PathVariable(value = "id") Integer id){
         Optional<Classificacao> classificacaoOptional = service.findById(id);
-        if(classificacaoOptional.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
-        }
+//        if(classificacaoOptional.isEmpty()){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
+//        }
         return ResponseEntity.status(HttpStatus.OK).body(classificacaoOptional.get());
     }
 
@@ -42,5 +43,29 @@ public class ClassificacaoController {
         Classificacao classificacao = new Classificacao();
         BeanUtils.copyProperties(classificacaoDTO, classificacao);
         return ResponseEntity.status(HttpStatus.OK).body(service.save(classificacao));
+    }
+
+    @PutMapping("/{idClassificacao}")
+    public ResponseEntity<Object> update(@PathVariable(value = "idCLassificacao") Integer idClassificacao, @RequestBody @Valid ClassificacaoDTO classificacaoDTO){
+        Optional<Classificacao> classificacaoOptional = service.findById(idClassificacao);
+
+//        if(classificacaoOptional.isEmpty()){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
+//        }
+
+        Classificacao classificacao =  new Classificacao();
+        BeanUtils.copyProperties(classificacaoDTO, classificacao, "idClassificacao");
+        service.save(classificacao);
+        return ResponseEntity.status(HttpStatus.OK).body("Classificação atualizada!");
+    }
+
+    @Transactional
+    @DeleteMapping("/{idClassificacao}")
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "idClassificacao") Integer idClassificacao){
+        if(!service.existsById(idClassificacao)){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
+        }
+        service.deleteById(idClassificacao);
+        return ResponseEntity.status(HttpStatus.OK).body("Classificação deletada com sucesso!");
     }
 }

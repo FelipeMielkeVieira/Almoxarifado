@@ -1,17 +1,21 @@
 <!-- Modal para alertas de funções efetuadas ou erros no login -->
 <div id="modalCadastro" class="shadow-sm rounded">
-    <!-- Div com o texto e ícone do modal -->
-    <div class="divInfo">
-      <img id="fecharModal" (click)="fechar()" src="../../../assets/close.png" alt="Fechar Modal de Informação" />
-      <div class="containerIconFiltro">
-        <img id="imgAlerta" src="../../../assets/alert.png" alt="Ícone de alerta" />
-        <div class="divDivisaoAlerta"></div>
-        <span id="spanCadastro">{{ fraseAlertaModal }}</span>
-      </div>
-    </div>
-  
-    <!-- Div menor para progressão azul / vermelha -->
-    <div id="divCorAlerta" style="background-color: #aeaeae">
-      <div [ngClass]="getClass()"></div>
+  <!-- Div com o texto e ícone do modal -->
+  <div class="divInfo">
+    <img
+      id="fecharModal"
+      (click)="fechar()"
+      src="../../../assets/close.png"
+      alt="Fechar Modal de Informação"
+    />
+    <div class="containerIconFiltro">
+      <img
+        id="imgAlerta"
+        src="../../../assets/alert.png"
+        alt="Ícone de alerta"
+      />
+      <div class="divDivisaoAlerta"></div>
+      <span id="spanCadastro">{{ fraseAlertaModal }}</span>
     </div>
   </div>
+</div>

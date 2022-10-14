@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { ModalConfiguracoesComponent } from './modal-configuracoes/modal-configuracoes.component';
 import { ModalEditarUserComponent } from './modal-editar-user/modal-editar-user.component';
 import { ModalUserComponent } from './modal-user/modal-user.component';
+import { ModalFiltragemItens } from './modal-filtragem-itens/modal-filtragem-itens.component';
+import { ModalOrdernar } from './modal-ordenar/modal-ordenar.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { ModalUserComponent } from './modal-user/modal-user.component';
     HeaderComponent,
     ModalConfiguracoesComponent,
     ModalEditarUserComponent,
-    ModalUserComponent
+    ModalUserComponent,
+    ModalFiltragemItens,
+    ModalOrdernar
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,9 @@ import { ModalUserComponent } from './modal-user/modal-user.component';
     HeaderComponent,
     ModalEditarUserComponent,
     ModalConfiguracoesComponent,
-    ModalUserComponent
+    ModalUserComponent,
+    ModalFiltragemItens,
+    ModalOrdernar
   ]
 })
 export class PrincipalModule { }
