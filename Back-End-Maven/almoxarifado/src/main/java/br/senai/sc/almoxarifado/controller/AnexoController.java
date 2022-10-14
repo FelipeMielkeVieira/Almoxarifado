@@ -33,11 +33,11 @@ public class AnexoController {
 
     @GetMapping("/{idAnexo}")
     public ResponseEntity<Object> findById(@PathVariable(value = "id") Integer id){
-        Optional<Anexo> anexoOptional  = service.findById(id);
-        if(anexoOptional.isEmpty()){
+        if (service.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o anexo!");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(anexoOptional.get());
+
+        return ResponseEntity.status(HttpStatus.OK).body(service.findById(id).get());
     }
 
     @PostMapping
@@ -50,11 +50,15 @@ public class AnexoController {
 
     @PutMapping("/{idAnexo}")
     public ResponseEntity<Object> update(@PathVariable(value = "idAnexo") Integer idAnexo, @RequestBody @Valid AnexoDTO anexoDTO){
+//        if (!service.existsById(anexoDTO.getCpf())) {
+//            return ResponseEntity.status(HttpStatus.CONFLICT).body("Esse CPF não existe.");
+//        }
         Optional<Anexo> anexoOptional = service.findById(idAnexo);
 
-        if(anexoOptional.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o anexo!");
-        }
+//        if(anexoOptional.isEmpty()){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o anexo!");
+//        }
+
 
         Anexo anexo =  new Anexo();
         BeanUtils.copyProperties(anexoDTO, anexo, "idAnexo");
