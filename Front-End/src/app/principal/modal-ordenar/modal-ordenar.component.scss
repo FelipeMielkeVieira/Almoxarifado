@@ -1,0 +1,79 @@
+.modalOrdenar {
+    position: absolute;
+    top: 16%;
+    min-width: 250px;
+    min-height: 250px;
+    left: 35.5%;
+    margin-top: 35px;
+    background-color: rgb(250, 250, 250);
+    filter: drop-shadow(4px 6px 6px rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tituloFiltroModalUser {
+    margin-top: 10px;
+    color: #0047B6;
+}
+
+.setaUser {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(250, 250, 250);
+    left: 2%;
+    top: -10px;
+}
+
+#containerCheckboxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+#containerEsquerdo {
+    width: 10rem;
+}
+
+.containerCadaCheck {
+    width: 100%;
+    margin: 5%;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+}
+
+.checkboxes {
+    cursor: pointer;
+    margin-left: 10px;
+    user-select: none;
+}
+
+input {
+    cursor: pointer;
+}
+
+.checkboxes:hover {
+    animation: all 0.5s;
+    font-weight: 500;
+}
+
+#containerBotao {
+    display: flex;
+    justify-content: center;
+}
+
+.btnFiltrarModalOrdenar{
+    background-color: #0047B6;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin: 3px;
+}

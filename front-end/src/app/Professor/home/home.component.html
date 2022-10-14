@@ -1,44 +1,8 @@
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-<div *ngIf="modalOrdernar" id="fundoModalOrdenar">
-    <div id="containerModalOrdenar">
-        <hr class="riscoAzul" />
-        <div class="containerFechar">
-            <img class="fecharIcone espacoFecharOrdenarModal" (click)="fecharModalOrdenar()"
-                src="../../../assets/close.png" alt="Fechar Modal de Ordenar" />
-        </div>
-        <div id="containerConteudoModalOrdernar">
-            <div style="width: 100%">
-                <h2 class="titleModalOrdenar">Ordenar</h2>
-            </div>
-            <div id="ordenarConteudo">
-                <div>
-                    <p class="subtitleOrdenar">Tipo</p>
-                    <select name="tipoOrdenar" class="selectOrdenar">
-                        <option value="0">Crescente</option>
-                        <option value="1">Decrescente</option>
-                    </select>
-                </div>
-                <div>
-                    <p class="subtitleOrdenar">Opção</p>
-                    <select name="opcaoOrdenar" class="selectOrdenar">
-                        <option value="0">Nome</option>
-                        <option value="1">Quantidade em estoque</option>
-                    </select>
-                </div>
-            </div>
-            <div id="containerBotoesOrdenar">
-                <button class="btnDevolucaoModal" style="background-color: red" (click)="cancelarOrdenar()">
-                    Cancelar
-                </button>
-                <button class="btnDevolucaoModal" (click)="realizarOrdenacao()">
-                    Ordenar
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Modal Ordenar -->
+<app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModalOrdenar()" (ordenarItens)="ordenarItens($event)" [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
 
 <!-- Header -->
 <app-header></app-header>
@@ -60,7 +24,7 @@
 
                 <!-- Troca de visualização lista / bloco e ícone de ordenação -->
                 <div id="iconListaBloco">
-                    <span (click)="ordernar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect"
+                    <span (click)="mudarModalOrdenar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect iconsModais"
                         title="Ordernar">
                         sync_alt
                     </span>
@@ -77,7 +41,7 @@
                 <!-- Div para ícone de filtro e opção de filtrar -->
                 <div id="containerIconFiltro">
                     <span title="Filtro" (click)="abrirModalFiltro()" id="iconFiltro"
-                        class="material-symbols-outlined iconDeselect">
+                        class="material-symbols-outlined iconDeselect iconsModais">
                         filter_alt
                     </span>
 

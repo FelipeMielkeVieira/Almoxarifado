@@ -1,27 +1,27 @@
-<div class="modalUser">
-    <h3 class="tituloFiltroModalUser">Filtro</h3>
-    <div class="setaUser"></div>
-    <div id="containerCheckboxes">
-        <div id="containerEsquerdo">
-            <div class="containerCadaCheck">
-                <input (change)="enviarFiltros()" type="checkbox" id="descartavelCheckbox" [(ngModel)]="filtrosAtuais[0]" />
-                <label class="checkboxes" for="descartavelCheckbox">Descartável</label>
+<div class="modalUser parteModal">
+    <h3 class="tituloFiltroModalUser parteModal">Filtro</h3>
+    <div class="setaUser parteModal"></div>
+    <div id="containerCheckboxes" class="parteModal">
+        <div id="containerEsquerdo" class="parteModal">
+            <div class="containerCadaCheck parteModal">
+                <input class="parteModal" (change)="enviarFiltros()" type="checkbox" id="descartavelCheckbox" [(ngModel)]="filtrosAtuais[0]" />
+                <label class="checkboxes parteModal" for="descartavelCheckbox">Descartável</label>
             </div>
-            <div class="containerCadaCheck">
-                <input (change)="enviarFiltros()" type="checkbox" id="naoDescartavelCheckbox" [(ngModel)]="filtrosAtuais[2]" />
-                <label class="checkboxes" for="naoDescartavelCheckbox">Não Descartável</label>
+            <div class="containerCadaCheck parteModal">
+                <input class="parteModal" (change)="enviarFiltros()" type="checkbox" id="naoDescartavelCheckbox" [(ngModel)]="filtrosAtuais[2]" />
+                <label class="checkboxes parteModal" for="naoDescartavelCheckbox">Não Descartável</label>
             </div>
-            <div class="containerCadaCheck">
-                <input (change)="enviarFiltros()" type="checkbox" id="comEstoqueCheckbox" [(ngModel)]="filtrosAtuais[1]" />
-                <label class="checkboxes" for="comEstoqueCheckbox">Com Estoque</label>
+            <div class="containerCadaCheck parteModal">
+                <input class="parteModal" (change)="enviarFiltros()" type="checkbox" id="comEstoqueCheckbox" [(ngModel)]="filtrosAtuais[1]" />
+                <label class="checkboxes parteModal" for="comEstoqueCheckbox">Com Estoque</label>
             </div>
-            <div class="containerCadaCheck">
-                <input (change)="enviarFiltros()" type="checkbox" id="semEstoqueCheckbox" [(ngModel)]="filtrosAtuais[3]" />
-                <label class="checkboxes" for="semEstoqueCheckbox">Sem Estoque</label>
+            <div class="containerCadaCheck parteModal">
+                <input class="parteModal" (change)="enviarFiltros()" type="checkbox" id="semEstoqueCheckbox" [(ngModel)]="filtrosAtuais[3]" />
+                <label class="checkboxes parteModal" for="semEstoqueCheckbox">Sem Estoque</label>
             </div>
         </div>
     </div>
-    <div id="containerBotao">
-        <button class="btnFiltrarModal" (click)="limparFiltros()">Limpar</button>
+    <div id="containerBotao" class="parteModal">
+        <button class="btnFiltrarModal parteModal" (click)="limparFiltros()">Limpar</button>
     </div>
 </div>

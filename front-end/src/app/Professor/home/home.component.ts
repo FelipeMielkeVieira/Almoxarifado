@@ -23,12 +23,28 @@ export class HomeComponent implements OnInit {
 
   paginaAtual = 1;
 
-  modalOrdernar: boolean = false;
+  modalOrdenar: boolean = false;
   modalFiltrar: boolean = false;
 
   listaFiltros: [boolean, boolean, boolean, boolean] = [false, false, false, false];
+  listaOrdenacoes = [false, false, false, false];
 
   ngOnInit() {
+
+    var self = this;
+    window.onclick = function (event) {
+      console.log((event.target as HTMLElement).className.includes("parteModal"));
+      if (!(event.target as HTMLElement).className.includes("parteModal")) {
+        if (!(event.target as HTMLElement).className.includes("iconsModais")) {
+          if (self.modalFiltrar) {
+            self.modalFiltrar = false;
+          }
+          if (self.modalOrdenar) {
+            self.modalOrdenar = false;
+          }
+        }
+      }
+    }
   }
 
   mostrarEmBloco() {
@@ -38,31 +54,9 @@ export class HomeComponent implements OnInit {
   mostrarEmLista() {
     this.listaEmBloco = false;
   }
-  abrirModal(abrir: boolean) {
-    if (abrir) {
-      this.modalOrdernar = true;
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      this.modalOrdernar = false;
-      document.documentElement.style.overflow = 'auto';
-    }
 
-  }
-
-  ordernar() {
-    this.abrirModal(true);
-  }
-
-  fecharModalOrdenar() {
-    this.abrirModal(false);
-  }
-
-  cancelarOrdenar() {
-    this.abrirModal(false);
-  }
-
-  realizarOrdenacao() {
-    this.abrirModal(false);
+  mudarModalOrdenar() {
+    this.modalOrdenar = !this.modalOrdenar;
   }
 
   voltarPagina() {
@@ -90,19 +84,24 @@ export class HomeComponent implements OnInit {
     this.listaFiltros = JSON.parse(event);
 
     this.listaItensFiltrada = this.listaItens.filter(e => {
-      if(this.listaFiltros[0] == true && e.descartavel == false) {
+      if (this.listaFiltros[0] == true && e.descartavel == false) {
         return false;
       }
-      if(this.listaFiltros[1] == true && e.descartavel == true) {
+      if (this.listaFiltros[1] == true && e.descartavel == true) {
         return false;
       }
-      if(this.listaFiltros[2] == true && e.quantidade <= 0) {
+      if (this.listaFiltros[2] == true && e.quantidade <= 0) {
         return false;
       }
-      if(this.listaFiltros[3] == true && e.quantidade > 0) {
+      if (this.listaFiltros[3] == true && e.quantidade > 0) {
         return false;
       }
       return true;
     })
+  }
+
+  ordenarItens(event: any) {
+    this.listaOrdenacoes = JSON.parse(event);
+    //Função para ordenar os itens, recebendo um array de booleanos
   }
 }
