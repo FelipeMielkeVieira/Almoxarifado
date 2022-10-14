@@ -31,9 +31,9 @@ public class ClassificacaoController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> findById(@PathVariable(value = "id") Integer id){
         Optional<Classificacao> classificacaoOptional = service.findById(id);
-        if(classificacaoOptional.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
-        }
+//        if(classificacaoOptional.isEmpty()){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
+//        }
         return ResponseEntity.status(HttpStatus.OK).body(classificacaoOptional.get());
     }
 
@@ -49,9 +49,9 @@ public class ClassificacaoController {
     public ResponseEntity<Object> update(@PathVariable(value = "idCLassificacao") Integer idClassificacao, @RequestBody @Valid ClassificacaoDTO classificacaoDTO){
         Optional<Classificacao> classificacaoOptional = service.findById(idClassificacao);
 
-        if(classificacaoOptional.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
-        }
+//        if(classificacaoOptional.isEmpty()){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
+//        }
 
         Classificacao classificacao =  new Classificacao();
         BeanUtils.copyProperties(classificacaoDTO, classificacao, "idClassificacao");
