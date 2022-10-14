@@ -11,41 +11,17 @@ export class SacolaComponent implements OnInit {
 
   constructor(private router:Router, private service: UsersService) {}
 
+  
   @Input() sacola: {id: 0, data_retirada: '0000-00-00', data_devolucao: '0000-00-00', usuario_email: ''};
-
-  id:number = 1;
   listaItens = [];
-
-  modalReservar = false;
-  modalExcluir = false;
-  reservaFeita = false;
-
-  calendarioAberto1: number = 0;
-  calendarioAberto2: number = 0;
-
-  listaProfessores = this.buscarProfessores();
 
   ngOnInit() {
     this.listaItens = this.service.retornaProdutosSacola(this.sacola.id);
   }
 
-  abrirCalendario1() {
-    this.calendarioAberto2 = 0;
-    if(this.calendarioAberto1 == 0) {
-      this.calendarioAberto1 = 1;
-    } else {
-      this.calendarioAberto1 = 0;
-    }
-  }
-
-  abrirCalendario2() {
-    this.calendarioAberto1 = 0;
-    if(this.calendarioAberto2 == 0) {
-      this.calendarioAberto2 = 1;
-    } else {
-      this.calendarioAberto2 = 0;
-    }
-  }
+  // <!-- --------------------------------------- COMPONENTE DO CALENDARIO  --------------------------------------- -->
+  calendarioAberto1: number = 0;
+  calendarioAberto2: number = 0;
 
   salvarData1(event) {
     this.calendarioAberto1 = 0;
@@ -56,15 +32,33 @@ export class SacolaComponent implements OnInit {
     this.calendarioAberto2 = 0;
     this.sacola.data_devolucao = event;
   }
+  // <!-- --------------------------------------- FIM COMPONENTE DO CALENDARIO  --------------------------------------- -->
 
-  verDetalhes(){
-    localStorage.setItem("reserva", "2");
-    if(localStorage.getItem('usuario') == '1') {
-      this.router.navigate(['/professor/sacolas/' + this.id]);
-    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
-      this.router.navigate(['/atendente/sacolas/' + this.id]);
+  /* <!-- --------------------------------------- CONTEÚDO DA SACOLA  --------------------------------------- --> */
+  listaProfessores = this.buscarProfessores();
+  id:number = 1;
+  modalReservar:boolean = false;
+  modalExcluir:boolean = false;
+
+  abrirCalendario1() {
+    this.calendarioAberto2 = 0;
+    if(this.calendarioAberto1 == 0) {
+      this.calendarioAberto1 = 1;
     } else {
-      this.router.navigate(['/supervisor/sacolas/' + this.id])
+      this.calendarioAberto1 = 0;
+    }
+  }
+  
+  formatarData(data: string) {
+    return new Date(data).toLocaleString();
+  }
+  
+  abrirCalendario2() {
+    this.calendarioAberto1 = 0;
+    if(this.calendarioAberto2 == 0) {
+      this.calendarioAberto2 = 1;
+    } else {
+      this.calendarioAberto2 = 0;
     }
   }
 
@@ -81,8 +75,15 @@ export class SacolaComponent implements OnInit {
     { id: 5, nome: "Professor 5" }];
   }
 
-  formatarData(data: string) {
-    return new Date(data).toLocaleString();
+  verDetalhes(){
+    localStorage.setItem("reserva", "2");
+    if(localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor/sacolas/' + this.id]);
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente/sacolas/' + this.id]);
+    } else {
+      this.router.navigate(['/supervisor/sacolas/' + this.id])
+    }
   }
 
   abrirModalConfirmacao(numero: number) {
@@ -99,7 +100,11 @@ export class SacolaComponent implements OnInit {
         break;
     }
   }
-
+  /* <!-- --------------------------------------- FIM CONTEÚDO DA SACOLA  --------------------------------------- --> */
+  
+  // <!-- --------------------------- COMPONENTE FEEDBACK --------------------------- -->
+  reservaFeita:boolean = false;
+  
   fecharModalConfirmacao(numero: number, confirmacao: string) {
     let divPrincipal = document.querySelector(".divOpacidade");
     divPrincipal.remove();
@@ -129,4 +134,5 @@ export class SacolaComponent implements OnInit {
       this.reservaFeita = false;
     }, 5000)
   }
+  // <!-- --------------------------- FIM COMPONENTE FEEDBACK --------------------------- -->
 }

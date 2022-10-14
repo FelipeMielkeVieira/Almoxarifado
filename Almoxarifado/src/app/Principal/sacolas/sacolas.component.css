@@ -26,14 +26,26 @@ p:hover {
     margin-left: 5.5rem;
 }
 
-#casa {
-    width: 22px;
+#iconHome {
     cursor: pointer;
 }
 
-#maior {
-    padding: 0 2px;
-    width: 18px;
+#iconHome:hover {
+    color: #0047B6;
+}
+
+#iconMaior {
+    margin-top: .25rem;
+    cursor: default;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .tituloSacolas{
