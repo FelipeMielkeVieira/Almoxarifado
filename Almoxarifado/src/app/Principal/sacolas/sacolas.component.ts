@@ -20,6 +20,7 @@ export class SacolasComponent implements OnInit {
     this.tamanhoLista = this.listaSacolas.length;
   }
 
+  // *Irá para o home do usuario logado
   home() {
     if(localStorage.getItem('usuario') == '1') {
       this.router.navigate(['/professor'])

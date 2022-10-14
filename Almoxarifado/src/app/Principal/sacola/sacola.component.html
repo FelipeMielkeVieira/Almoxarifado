@@ -1,19 +1,32 @@
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+/>
+
+<!-- --------------------------------------- COMPONENTE DO CALENDARIO  --------------------------------------- -->
 <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>
 <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario>
+<!-- --------------------------------------- FIM COMPONENTE DO CALENDARIO  --------------------------------------- -->
+
+<!-- --------------------------------------- CONTEÚDO DA SACOLA  --------------------------------------- -->
 <div id="containerSacola">
   <div id="container">
     <div id="divisaoCentral">
       <div id="parteEsquerda">
         <h3 class="dataTitulo">Data de retirada:</h3>
         <div class="dataInput">
-          <img class="calendario" src="./assets/calendario.png" alt="Editar data de retirada" (click)="abrirCalendario1()">
+          <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada" (click)="abrirCalendario1()">
+            calendar_month
+          </span>
           <div class="dataTexto">
             <p id="dataRetirada">{{ formatarData(sacola.data_retirada) }}</p>
           </div>
         </div>
         <h3 class="dataTitulo" style="margin-top: 1rem">Data de devolução:</h3>
         <div class="dataInput">
-          <img class="calendario" src="./assets/calendario.png" alt="Editar data de devolução" (click)="abrirCalendario2()">
+          <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de devolução" (click)="abrirCalendario2()">
+            calendar_month
+          </span>
           <div class="dataTexto">
             <p id="dataDevolucao">{{ formatarData(sacola.data_devolucao) }}</p>
           </div>
@@ -38,10 +51,16 @@
         </div>
       </div>
       <div id="excluirSacola">
-        <img (click)="abrirModalConfirmacao(1)" src="../../../assets/lixeira-de-reciclagem.png" class="iconeLixeira" alt="Excluir Sacola">
+        <span title="Deletar" class="material-symbols-outlined iconDeselect iconeLixeira" (click)="abrirModalConfirmacao(1)" alt="Excluir Sacola">
+        delete
+      </span>
       </div>
     </div>
   </div>
 </div>
+<!-- --------------------------------------- FIM CONTEÚDO DA SACOLA  --------------------------------------- -->
+
+<!-- --------------------------- COMPONENTE FEEDBACK --------------------------- -->
 <app-confirmacaoExecucao *ngIf="modalExcluir" [tipoMensagemModal]="1" (fecharModal)="fecharModalConfirmacao(1, $event)"></app-confirmacaoExecucao>
 <app-confirmacaoExecucao *ngIf="modalReservar" [tipoMensagemModal]="2" (fecharModal)="fecharModalConfirmacao(2, $event)"></app-confirmacaoExecucao>
+<!-- --------------------------- FIM COMPONENTE FEEDBACK --------------------------- -->
