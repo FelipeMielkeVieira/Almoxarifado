@@ -5,5 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface AnexoRepository extends JpaRepository<Anexo, Integer> {
-}
+public interface AnexoRepository extends JpaRepository<Anexo, Integer> { }

@@ -27,4 +27,12 @@ public class ClassificacaoService {
     public <S extends Classificacao> S save(S entity){
         return classificacaoRepository.save(entity);
     }
+
+    public boolean existsById(Integer idClassificacao) {
+        return classificacaoRepository.existsById(idClassificacao);
+    }
+
+    public void deleteById(Integer idClassificacao) {
+        classificacaoRepository.deleteById(idClassificacao);
+    }
 }
