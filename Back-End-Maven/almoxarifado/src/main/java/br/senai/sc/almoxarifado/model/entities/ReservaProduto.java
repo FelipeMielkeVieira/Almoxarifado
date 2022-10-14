@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +21,11 @@ public class ReservaProduto {
 
     // Foreign keys
 
+    @Id
     @Column(nullable = false)
     private Integer reserva_id;
 
+    @Id
     @Column(nullable = false)
     private Integer produto_id;
 
