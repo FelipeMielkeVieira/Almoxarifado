@@ -15,14 +15,26 @@ main {
     margin-left: 5.5rem;
 }
 
-#casa{
-    width: 22px;
+#iconHome {
     cursor: pointer;
 }
 
-#maior {
-    padding: 0 2px;
-    width: 18px;
+#iconHome:hover {
+    color: #0047B6;
+}
+
+#iconMaior {
+    margin-top: .25rem;
+    cursor: default;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #caminhoReservas {
@@ -72,8 +84,14 @@ main {
 }
 
 #lupa {
+    font-size: var(--font-size--giant);
+    font-weight: 350;
     opacity: 0.7;
     cursor: pointer;
+}
+
+#lupa:hover {
+    opacity: 0.8;
 }
 
 #resultados {

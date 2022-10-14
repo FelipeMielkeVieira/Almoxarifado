@@ -8,8 +8,16 @@
 <main>
     <!-- ------------------------------- CAMINHO DO SITE (O PATH) ------------------------------ -->
     <div id="caminho">
-        <img id="casa" src="../../../assets/casa.png" alt="Página Inicial" (click)="home()">
-        <img id="maior" src="../../../assets/maior-preto.png" alt="Seta para a direita">
+        <div id="iconHome" >
+            <span id="iconHome" class="material-symbols-outlined iconDeselect" alt="Casa" (click)="home()">
+              home
+            </span>
+        </div>
+        <div id="iconMaior">
+            <span class="material-symbols-outlined iconDeselect" alt="Maior">
+              arrow_forward_ios
+            </span>
+        </div>
         <p id="caminhoReservas">Minhas Reservas</p>
     </div>
     <!-- ------------------------------- FIM CAMINHO DO SITE (O PATH) ------------------------------ -->
@@ -20,7 +28,9 @@
             <div id="containerInput">
                 <div id="divInput">
                     <input id="input" type="text" placeholder="Pesquise por produto...">
-                    <img id="lupa" src="../../../assets/lupa.png" alt="Fazer Pesquisa">
+                    <span title="Lupa" id="lupa" class="material-symbols-outlined iconDeselect">
+                        search
+                    </span>
                 </div>
                 <p id="resultados">{{ numResultados }} Resultados encontrados</p>
             </div>

@@ -1,14 +1,30 @@
+<!-- ------------------------------- COMPONENTES ----------------------------------- -->
 <app-header></app-header>
 <app-filtro></app-filtro>
 <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData($event, 1)" [dataSalva]="sacola.data_retirada"></app-calendario>
 <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData($event, 2)" [dataSalva]="sacola.data_devolucao"></app-calendario>
+<!-- ------------------------------- FIM COMPONENTES ----------------------------------- -->
+
+<!-- ------------------------------- CONTEÚDO MINHA-SACOLA ------------------------------- -->
 <body>
     <div id="caminho">
-        <img (click)="home()" id="casa" src="../../../assets/casa.png" alt="Página Inicial">
-        <img id="maior" src="../../../assets/maior-preto.png" alt="Seta para a direita">
+        <div id="iconHome" >
+            <span id="iconHome" class="material-symbols-outlined iconDeselect" alt="Casa" (click)="home()">
+              home
+            </span>
+        </div>
+        <div id="iconMaior">
+            <span class="material-symbols-outlined iconDeselect" alt="Maior">
+              arrow_forward_ios
+            </span>
+        </div>
         <p (click)="minhasSacolas()" *ngIf="usuario != 1">Minhas Sacolas</p>
         <p (click)="minhasReservas()" *ngIf="usuario == 1">Minhas Reservas</p>
-        <img id="maior" src="../../../assets/maior-preto.png" alt="Seta para a direita">
+        <div id="iconMaior">
+            <span class="material-symbols-outlined iconDeselect" alt="Maior">
+              arrow_forward_ios
+            </span>
+        </div>
         <p>Detalhes</p>
     </div>
     <div class="tituloSacola">
@@ -29,18 +45,24 @@
                         <span class="nomeProduto">{{produto.nome}}</span>
                         <div class="quantidade">
                             <div class="divImagemQtd1">
-                                <img *ngIf="usuario != 1" (click)="qtdProduto(1, i)" class="iconeQtd" src="../../../assets/menos.png" alt="Diminuir Quantidade">
+                                <span *ngIf="usuario != 1" title="Remover" class="material-symbols-outlined iconDeselect" id="menosQtdIcon" (click)="qtdProduto(1, i)">
+                                    remove
+                                </span>
                             </div>
                             <p class="textoQtd">{{produto.qtd_atual}}</p>
                             <div class="divImagemQtd2">
-                                <img *ngIf="usuario != 1" (click)="qtdProduto(2, i)" class="iconeQtd" src="../../../assets/mais.png" alt="Aumentar Quantidade">
+                                <span *ngIf="usuario != 1" title="Adicionar" class="material-symbols-outlined iconDeselect" id="maisQtdIcon" (click)="qtdProduto(2, i)">
+                                    add
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="parteDireita">
                     <div style="width: 100%;">
-                        <img *ngIf="usuario != 1" class="iconeLixeira" src="../../../assets/lixeira-de-reciclagem.png" alt="Excluir Produto">
+                        <span *ngIf="usuario != 1" title="Deletar" id="iconeLixeira" class="material-symbols-outlined iconDeselect">
+                            delete
+                        </span>
                     </div>
                     <p *ngIf="produto.descartavel" class="descartavel">Descartável</p>
                     <p *ngIf="!produto.descartavel" class="descartavel">Não Descartável</p>
@@ -56,7 +78,9 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerData">
-                    <img (click)="abrirCalendario(1)" class="imgCalendario" src="../../../assets/calendario.png" alt="Editar data de retirada">
+                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada" (click)="abrirCalendario(1)">
+                        calendar_month
+                    </span>
                     <div class="divisaoData"></div>
                     <span class="textoData">{{formatarData(sacola.data_retirada)}}</span>
                 </div>
@@ -66,7 +90,9 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerData">
-                    <img (click)="abrirCalendario(2)" class="imgCalendario" src="../../../assets/calendario.png" alt="Editar data de devolução">
+                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada" (click)="abrirCalendario(2)">
+                        calendar_month
+                    </span>
                     <div class="divisaoData"></div>
                     <span class="textoData">{{formatarData(sacola.data_devolucao)}}</span>
                 </div>
@@ -81,3 +107,4 @@
         </div>
     </div>
 </body>
+<!-- ------------------------------- FIM CONTEÚDO MINHA-SACOLA ------------------------------- -->

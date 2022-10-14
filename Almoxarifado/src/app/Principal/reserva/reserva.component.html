@@ -11,14 +11,18 @@
         <div id="divisaoCentral">
             <div id="parteEsquerda">
                 <div class="dataInput">
-                    <img class="calendario" src="./assets/calendario.png" alt="Calendário">
+                    <span class="material-symbols-outlined iconDeselect calendario" alt="Calendário">
+                        calendar_month
+                    </span>
                     <div class="dataTexto">
                         <p id="dataRetirada">{{ formatarData(reserva.data_retirada) }}</p>
                     </div>
                 </div>
                 <h3 class="dataTitulo">Data de devolução:</h3>
                 <div class="dataInput">
-                    <img class="calendario" src="./assets/calendario.png" alt="Calendário">
+                    <span class="material-symbols-outlined iconDeselect calendario" alt="Calendário">
+                        calendar_month
+                    </span>
                     <div class="dataTexto">
                         <p id="dataDevolucao">{{ formatarData(reserva.data_devolucao) }}</p>
                     </div>

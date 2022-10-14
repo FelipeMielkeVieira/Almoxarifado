@@ -18,6 +18,41 @@ p:hover {
     color: #0047B6;
 }
 
+/* <!-- ------------------------------- CONTEÚDO MINHA-SACOLA ------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* <!-- ------------------------------- FIM CONTEÚDO MINHA-SACOLA ------------------------------- -->*/ */
+
 .divMain {
     display: flex;
     justify-content: center;
@@ -86,6 +121,73 @@ p:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#iconHome {
+    cursor: pointer;
+}
+
+#iconHome:hover {
+    color: #0047B6;
+}
+
+#iconMaior {
+    margin-top: .25rem;
+    cursor: default;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+#iconeLixeira{
+    font-size: var(--font-size--giant);
+    font-weight: 300;
+    cursor: pointer;
+}
+
+#iconeLixeira:hover{
+    color: #be0101;
+    animation: mudarCor 0.5s;
+}
+
+@keyframes mudarCor {
+    from {
+        color: #000;
+    }
+
+    to {
+        color: #be0101;
+    }
+}
+
+.calendario {
+    cursor: pointer;
+}
+
+.calendario:hover {
+    color: #0047B6;
+}
+
+#menosQtdIcon,
+#maisQtdIcon {
+    font-size: var(--font-size--medium);
+    padding: 7% 7%;
+    cursor: pointer;
+}
+
+#menosQtdIcon {
+    border-right: 1px solid black;
+}
+
+#maisQtdIcon {
+    border-left: 1px solid black;
 }
 
 .divImagemQtd2 {
