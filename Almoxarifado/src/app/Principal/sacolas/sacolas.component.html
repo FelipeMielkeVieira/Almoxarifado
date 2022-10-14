@@ -2,12 +2,15 @@
 <app-filtro></app-filtro>
 
 <main>
+    <!-- ------------------------------- COMPONENTE DA SACOLA ------------------------------- -->
     <div class="divPrincipal">
+        <!-- =-=-=-=- Caminho (path) -=-=-=-= -->
         <div id="caminho">
             <img id="casa" src="../../../assets/casa.png" alt="Casa" (click)="home()">
             <img id="maior" src="../../../assets/maior-preto.png" alt="Maior">
             <p>Minhas Sacolas</p>
         </div>
+        <!-- =-=-=-=- Fim Caminho (path) -=-=-=-= -->
         <div class="tituloSacolas">
             <b><span class="tituloPagina">Minhas Sacolas</span></b>
         </div>
@@ -18,4 +21,5 @@
             <app-sacola *ngFor="let sacola of listaSacolas" [sacola]="sacola"></app-sacola>
         </div>
     </div>
+    <!-- ------------------------------- FIM COMPONENTE DA SACOLA ------------------------------- -->
 </main>
