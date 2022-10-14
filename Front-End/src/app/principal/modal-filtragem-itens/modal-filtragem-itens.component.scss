@@ -38,6 +38,12 @@
 .checkboxes {
     animation: all 0.5s;
     margin-left: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+input {
+    cursor: pointer;
 }
 
 #containerBotao {

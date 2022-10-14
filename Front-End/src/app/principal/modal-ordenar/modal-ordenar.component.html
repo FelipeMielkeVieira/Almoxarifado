@@ -1,0 +1,31 @@
+<div>
+  <div class="modalOrdenar parteModal">
+    <h3 class="tituloFiltroModalUser parteModal">Ordenar</h3>
+    <div class="setaUser parteModal"></div>
+    <div id="containerCheckboxes" class="parteModal">
+      <div id="containerEsquerdo" class="parteModal">
+        <h4 class="parteModal">Tipo</h4>
+        <div class="containerCadaCheck parteModal">
+          <input class="parteModal" type="checkbox" id="descartavelCheckbox" [(ngModel)]="listaOrdenacoes[0]" (change)="ordenar(0)" />
+          <label class="checkboxes parteModal" for="descartavelCheckbox">Crescente</label>
+        </div>
+        <div class="containerCadaCheck parteModal">
+          <input class="parteModal" type="checkbox" id="comEstoqueCheckbox" [(ngModel)]="listaOrdenacoes[1]" (change)="ordenar(1)" />
+          <label class="checkboxes parteModal" for="comEstoqueCheckbox">Decrescente</label>
+        </div>
+        <h4 class="parteModal">Opção</h4>
+        <div class="containerCadaCheck parteModal">
+          <input class="parteModal" type="checkbox" id="naoDescartavelCheckbox" [(ngModel)]="listaOrdenacoes[2]" (change)="ordenar(2)" />
+          <label class="checkboxes parteModal" for="naoDescartavelCheckbox">Nome</label>
+        </div>
+        <div class="containerCadaCheck parteModal">
+          <input class="parteModal" type="checkbox" id="semEstoqueCheckbox" [(ngModel)]="listaOrdenacoes[3]" (change)="ordenar(3)" />
+          <label class="checkboxes parteModal" for="semEstoqueCheckbox">Quantidade em estoque</label>
+        </div>
+      </div>
+    </div>
+    <div id="containerBotao" class="parteModal">
+      <button class="btnFiltrarModalOrdenar parteModal" (click)="limparOrdenacao()">Limpar</button>
+    </div>
+  </div>
+</div>
