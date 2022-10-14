@@ -12,6 +12,7 @@ p:hover {
     color: #0047B6;
 }
 
+/* <!-- ------------------------------- COMPONENTE DA SACOLA ------------------------------- --> */
 .divPrincipal{
     width: 100%;
     margin: 0;
@@ -47,15 +48,6 @@ p:hover {
     color: #0047B6;
 }
 
-.containerSacolas{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    justify-items: center;
-    min-width: 890px;
-    padding: 0px 50px;
-}
-
 .divSemSacolas {
     display: flex;
     justify-content: center;
@@ -64,3 +56,13 @@ p:hover {
     padding: 20px;
     border-top: solid rgb(153, 151, 151) 1px;
 }
+
+.containerSacolas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    min-width: 890px;
+    padding: 0px 50px;
+}
+/* <!-- ------------------------------- FIM COMPONENTE DA SACOLA ------------------------------- --> */
