@@ -25,11 +25,13 @@ export class MinhasReservasComponent implements OnInit {
     });
   }
 
-  reservasPendentes =  1;
-  reservasHistorico =  0;
+  // <!-- ------------------------------- CAMINHO DO SITE (O PATH) ------------------------------ -->
+  reservasPendentes: number =  1;
+  reservasHistorico: number =  0;
   listaReservas = [];
   listaReservas2 = [];
 
+  // *Vai para o home do usuário logado
   home() {
     if(localStorage.getItem('usuario') == '1') {
       this.router.navigate(['/professor'])
@@ -40,16 +42,7 @@ export class MinhasReservasComponent implements OnInit {
     }
   }
 
-  botaoHistorico(){
-    this.reservasHistorico = 1;
-    this.reservasPendentes = 0;
-
-    let comAzul = document.querySelector('.historicoReservas') as HTMLElement;
-    comAzul.className = "reservasPendentes"
-    let semAzul = document.querySelector('.reservasPendentes') as HTMLElement;
-    semAzul.className = "historicoReservas"
-  }
-
+  // *Vai para a visualização de reservas
   botaoReservas(){
     this.reservasHistorico = 0;
     this.reservasPendentes = 1;
@@ -60,6 +53,16 @@ export class MinhasReservasComponent implements OnInit {
     semAzul.className = "reservasPendentes"
   }
 
+  // *Vai para a visualização de histórico de reservas
+  botaoHistorico(){
+    this.reservasHistorico = 1;
+    this.reservasPendentes = 0;
 
+    let comAzul = document.querySelector('.historicoReservas') as HTMLElement;
+    comAzul.className = "reservasPendentes"
+    let semAzul = document.querySelector('.reservasPendentes') as HTMLElement;
+    semAzul.className = "historicoReservas"
+  }
 
+  // <!-- ------------------------------- FIM CAMINHO DO SITE (O PATH) ------------------------------ -->
 }
