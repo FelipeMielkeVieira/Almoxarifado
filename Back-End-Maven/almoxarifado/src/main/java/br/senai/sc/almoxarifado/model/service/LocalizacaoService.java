@@ -30,4 +30,8 @@ public class LocalizacaoService {
     public void deleteById(Integer codigoLocalizacao) {
         localizacaoRepository.deleteById(codigoLocalizacao);
     }
+
+    public boolean existsById(Integer integer) {
+        return localizacaoRepository.existsById(integer);
+    }
 }
