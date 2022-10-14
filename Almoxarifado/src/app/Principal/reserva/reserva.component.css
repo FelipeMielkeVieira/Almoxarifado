@@ -3,6 +3,21 @@
     margin: 0;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #EEEEEE;
+    border-radius: 0px 6px 6px 0px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #d3d3d3;
+    border-radius: 30px;
+}
+
+/* <!-- ------------------------------------- COMPONENTE DA RESERVA ------------------------------------- --> */
 #containerSacola {
     width: 95%;
     border-radius: 10px;
@@ -24,10 +39,6 @@
     padding: 0 0 0.8rem 1.5rem;
 }
 
-#parteEsquerda {
-    width: 45%;
-}
-
 .dataTitulo {
     margin-top: 0.8rem;
     font-size: var(--font-size--default);
@@ -35,6 +46,10 @@
 
 #divisaoCentral {
     display: flex;
+}
+
+#parteEsquerda {
+    width: 45%;
 }
 
 .dataInput {
@@ -48,9 +63,6 @@
 
 .calendario {
     width: 10%;
-}
-
-.calendario:hover {
     cursor: pointer;
 }
 
@@ -76,18 +88,18 @@
     overflow-y: auto;
 }
 
-.bolaAzul {
-    width: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
 .item {
     display: flex;
     align-items: center;
     padding: 5px;
     padding-left: 10px;
     text-overflow: ellipsis;
+}
+
+.bolaAzul {
+    width: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #verDetalhes {
@@ -98,14 +110,10 @@
     padding: 0.6rem;
     border-radius: 5px;
     border: 0;
-}
-
-#verDetalhes:hover {
     cursor: pointer;
 }
 
-/* Status */
-
+/* -=- Status -=- */
 .atrasado {
     background-color: #BF0A0A;
 }
@@ -118,16 +126,4 @@
     background-color: #009B19;
 }
 
-::-webkit-scrollbar{
-    width: 10px;
-}
-
-::-webkit-scrollbar-track{
-    background-color: #EEEEEE;
-    border-radius: 0px 6px 6px 0px;
-}
-
-::-webkit-scrollbar-thumb{
-    background-color: #d3d3d3;
-    border-radius: 30px;
-}
+/* <!-- ------------------------------------- FIM COMPONENTE DA RESERVA ------------------------------------- --> */

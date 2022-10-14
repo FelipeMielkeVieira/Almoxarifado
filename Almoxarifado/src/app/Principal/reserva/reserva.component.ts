@@ -20,6 +20,7 @@ export class ReservaComponent implements OnInit {
     this.mudarCor();
   }
 
+  // *Muda a cor do status da reserva
   mudarCor() {
     let divLinha = document.querySelector("#status") as HTMLHRElement;
     if(new Date() > new Date(this.reserva.data_devolucao) && this.reserva.status == 2) {
@@ -32,11 +33,13 @@ export class ReservaComponent implements OnInit {
     }
   }
 
+  // *Entra no detalhe da reserva (Abrindo uma nova pagina)
   verDetalhes() {
     localStorage.setItem('reserva', '1')
     this.router.navigate(['/professor/reservas/1'])
   }
 
+  // *Formata a data
   formatarData(data: string) {
     return new Date(data).toLocaleString();
   }
