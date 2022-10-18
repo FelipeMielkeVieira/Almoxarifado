@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -51,10 +52,12 @@ public class UsuarioController {
         }
 
         Usuario usuario = new Usuario();
-        BeanUtils.copyProperties(usuarioDTO, usuario);
+        BeanUtils.copyProperties(usuarioDTO, usuario, "emailUsuario");
+        usuario.setEmailUsuario(email);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
     }
 
+    @Transactional
     @DeleteMapping("/{email}")
     public ResponseEntity<Object> deleteById(@PathVariable(value = "email") String email) {
         if (!usuarioService.existsById(email)) {

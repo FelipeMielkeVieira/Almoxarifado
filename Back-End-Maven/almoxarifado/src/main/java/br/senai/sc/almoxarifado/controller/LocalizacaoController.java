@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +42,7 @@ public class LocalizacaoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(localizacaoService.save(localizacao));
     }
 
+    @Transactional
     @DeleteMapping("/{codigoLocalizacao}")
     public ResponseEntity<Object> deleteById(@PathVariable(value = "codigoLocalizacao") Integer codigoLocalizacao) {
         if (!localizacaoService.existsById(codigoLocalizacao)) {
