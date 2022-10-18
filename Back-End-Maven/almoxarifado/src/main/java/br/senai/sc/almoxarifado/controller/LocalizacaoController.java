@@ -38,7 +38,7 @@ public class LocalizacaoController {
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid LocalizacaoDTO localizacaoDTO) {
         Localizacao localizacao = new Localizacao();
-        BeanUtils.copyProperties(localizacaoDTO, localizacao, "codigoLocalizacao");
+        BeanUtils.copyProperties(localizacaoDTO, localizacao);
         return ResponseEntity.status(HttpStatus.CREATED).body(localizacaoService.save(localizacao));
     }
 
