@@ -169,10 +169,6 @@ a {
   border: solid 0.5px black;
 }
 
-#entrar:hover {
-  cursor: pointer;
-}
-
 #textoConta {
   font-family: "Inter", sans-serif;
   font-size: var(--font-size--default);
@@ -224,6 +220,7 @@ a {
 
 #cadastrar:hover {
   cursor: pointer;
+  color: #0047B6;
 }
 
 #fechar:hover {

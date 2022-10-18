@@ -1,0 +1,236 @@
+#modalItem {
+    width: 31%;
+    border-radius: 0.3rem;
+    background-color: white;
+    animation: fadein 0.5s;
+}
+
+.riscoAzul {
+    width: 100%;
+    height: 12px;
+    background: #0047B6;
+    border: 0;
+    border-radius: 0.3rem 0.3rem 0px 0px;
+}
+
+.containerModal {
+    padding: 1rem 1.8rem;
+}
+
+#fecharIcone {
+    cursor: pointer;
+}
+
+.fechar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: -5%;
+}
+
+.produtoInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.4rem;
+}
+
+.containerImg {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+}
+
+.imgProdModal {
+    width: 80%;
+}
+
+.nomeTipoProd {
+    width: 60%;
+}
+
+.tituloAzul {
+    color: #0047B6;
+}
+
+.containerClassQtd {
+    margin-bottom: 1rem;
+}
+
+.subtituloModal {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.quantidadeModal {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 1rem;
+}
+
+.containerQuantidadeInput {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.texto {
+    display: flex;
+}
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
+#containerQtd {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    width: 40%;
+    min-width: 100px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+#menosQtdIcon,
+#maisQtdIcon {
+    font-size: var(--font-size--medium);
+    padding: 7% 7%;
+    cursor: pointer;
+}
+
+#menosQtdIcon {
+    border-right: 1px solid black;
+}
+
+#maisQtdIcon {
+    border-left: 1px solid black;
+}
+
+#inputQtd {
+    width: 35%;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: var(--font-size--medium);
+}
+
+.divQtdInvalida {
+    padding: 0% 7%;
+}
+
+.qtdMax {
+    text-align: end;
+    font-size: var(--font-size--small);
+    margin-top: 2px;
+}
+
+.containerDatas {
+    width: 90%;
+}
+
+.linhaData {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.containerInputData {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    width: 70%;
+    min-width: 130px;
+    height: 2.3rem;
+}
+
+.containerDataText {
+    width: 75%;
+    text-align: center;
+}
+
+.dataText {
+    align-items: center;
+    font-size: var(--font-size--small);
+}
+
+.containerIconData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    border-left: 1px solid black;
+}
+
+#professores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border: 0;
+    outline: 0;
+    border-radius: inherit;
+}
+
+.containerAcoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    margin-bottom: 0.7rem;
+}
+
+.btnModal, .btnModal2 {
+    
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    width: 70%;
+    font-size: var(--font-size--medium);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btnModal {
+    background-color: #0047B6;
+}
+
+.btnModal2 {
+    background-color: gray;
+}
+
+#iconModal2 {
+    font-size: var(--font-size--giant);
+    cursor: pointer;
+    color: #000000;
+}
+
+#iconModal {
+    font-size: var(--font-size--extreme);
+    cursor: pointer;
+    color: #000000;
+}
+
+#iconModal:hover, #iconModal2:hover {
+    color: #0047B6;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

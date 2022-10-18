@@ -53,7 +53,6 @@ export class CadastroComponent implements OnInit {
         // Ao invés de cadastrar o usuário, deve-se abrir modal de confirmação de cadastro
         // solicitando para inserir o código de confirmação enviado por email
         let divPrincipal = document.querySelector(".divPrincipal") as HTMLDivElement;
-        console.log(divPrincipal);
         divPrincipal.style.opacity = "0.5";
         this.controlarModalConfirmarCadastro();
       } else {

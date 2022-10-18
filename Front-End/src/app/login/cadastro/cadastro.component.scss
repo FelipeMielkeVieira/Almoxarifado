@@ -55,20 +55,22 @@ a {
 #cadastrar {
     width: 35%;
     height: 2.2rem;
-    background-color: #0047B6;
+    background-color: #0047b6;
     color: #ffffff;
     font-size: var(--font-size--default);
     border-radius: 5px;
     border: none;
     margin-top: 5%;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s;
+    transition: all 0.8s;
+    font-family: "Inter";
 }
 
 #cadastrar:hover {
-    transition: all 0.3s;
-    background-color: #013fa3;
     cursor: pointer;
+    background-color: #ffffff;
+    color: black;
+    transition: all 0.5s;
+    border: solid 0.5px black;
 }
 
 #textoConta {
@@ -85,6 +87,7 @@ a {
 
 #entrar:hover {
     cursor: pointer;
+    color: #0047B6;
 }
 
 .inputsCadastro2 {
