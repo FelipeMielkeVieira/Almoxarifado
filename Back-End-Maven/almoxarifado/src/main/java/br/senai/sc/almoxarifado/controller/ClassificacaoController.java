@@ -17,55 +17,54 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/alma_sis/classificacao")
 public class ClassificacaoController {
-    private ClassificacaoService service;
+    private ClassificacaoService classificacaoService;
 
-    public ClassificacaoController(ClassificacaoService service) {
-        this.service = service;
+    public ClassificacaoController(ClassificacaoService classificacaoService) {
+        this.classificacaoService = classificacaoService;
     }
 
     @GetMapping
     public ResponseEntity<List<Classificacao>> findAll(){
-        return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
+        return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> findById(@PathVariable(value = "id") Integer id){
-        Optional<Classificacao> classificacaoOptional = service.findById(id);
-//        if(classificacaoOptional.isEmpty()){
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
-//        }
-        return ResponseEntity.status(HttpStatus.OK).body(classificacaoOptional.get());
+        if (!classificacaoService.existsById(id)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrada nenhuma classificação com este ID.");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.findById(id).get());
     }
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid ClassificacaoDTO classificacaoDTO){
-        // Falta as validações
+        if (classificacaoService.existsById(classificacaoDTO.getId())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Este ID já está cadastrado.");
+        }
+
         Classificacao classificacao = new Classificacao();
         BeanUtils.copyProperties(classificacaoDTO, classificacao);
-        return ResponseEntity.status(HttpStatus.OK).body(service.save(classificacao));
+        return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.save(classificacao));
     }
 
     @PutMapping("/{idClassificacao}")
     public ResponseEntity<Object> update(@PathVariable(value = "idCLassificacao") Integer idClassificacao, @RequestBody @Valid ClassificacaoDTO classificacaoDTO){
-        Optional<Classificacao> classificacaoOptional = service.findById(idClassificacao);
-
-//        if(classificacaoOptional.isEmpty()){
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
-//        }
+        if (!classificacaoService.existsById(idClassificacao)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Este ID não existe.");
+        }
 
         Classificacao classificacao =  new Classificacao();
         BeanUtils.copyProperties(classificacaoDTO, classificacao, "idClassificacao");
-        service.save(classificacao);
-        return ResponseEntity.status(HttpStatus.OK).body("Classificação atualizada!");
+        return ResponseEntity.status(HttpStatus.CREATED).body(classificacaoService.save(classificacao));
     }
 
     @Transactional
     @DeleteMapping("/{idClassificacao}")
     public ResponseEntity<Object> deleteById(@PathVariable(value = "idClassificacao") Integer idClassificacao){
-        if(!service.existsById(idClassificacao)){
+        if(!classificacaoService.existsById(idClassificacao)){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
         }
-        service.deleteById(idClassificacao);
+        classificacaoService.deleteById(idClassificacao);
         return ResponseEntity.status(HttpStatus.OK).body("Classificação deletada com sucesso!");
     }
 }
