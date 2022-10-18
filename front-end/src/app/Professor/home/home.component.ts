@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
 
     var self = this;
     window.onclick = function (event) {
-      console.log((event.target as HTMLElement).className.includes("parteModal"));
       if (!(event.target as HTMLElement).className.includes("parteModal")) {
         if (!(event.target as HTMLElement).className.includes("iconsModais")) {
           if (self.modalFiltrar) {
@@ -47,12 +46,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  mostrarEmBloco() {
-    this.listaEmBloco = true;
-  }
-
-  mostrarEmLista() {
-    this.listaEmBloco = false;
+  trocarVisualizacaoItem() {
+    this.listaEmBloco = !this.listaEmBloco;
   }
 
   mudarModalOrdenar() {

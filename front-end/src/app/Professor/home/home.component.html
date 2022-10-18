@@ -28,11 +28,11 @@
                         title="Ordernar">
                         sync_alt
                     </span>
-                    <span *ngIf="listaEmBloco" (click)="mostrarEmLista()" id="emBloco"
+                    <span *ngIf="listaEmBloco" (click)="trocarVisualizacaoItem()" id="emBloco"
                         class="material-symbols-outlined iconDeselect" title="Ver em bloco">
                         grid_view
                     </span>
-                    <span *ngIf="!listaEmBloco" (click)="mostrarEmBloco()" id="emLista"
+                    <span *ngIf="!listaEmBloco" (click)="trocarVisualizacaoItem()" id="emLista"
                         class="material-symbols-outlined iconDeselect" title="Ver em lista">
                         sort
                     </span>
@@ -58,11 +58,11 @@
 
         <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
         <div *ngIf="listaEmBloco" id="containerItens">
-            <!-- <app-item [lista]="emBloco" *ngFor="let item of listaItens" [item]="item"></app-item> -->
+            <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
         </div>
 
         <div *ngIf="!listaEmBloco" id="containerListaLista">
-            <!-- <app-item [lista]="emBloco" *ngFor="let item of listaItens" [item]="item"></app-item> -->
+            <app-item [visualizacaoItem]="'emLinha'" *ngFor="let item of listaItens" [item]="item"></app-item>
         </div>
 
         <!-- Listagem de Páginas na parte de baixo da tela -->
