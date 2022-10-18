@@ -9,6 +9,7 @@ import { ModalEditarUserComponent } from './modal-editar-user/modal-editar-user.
 import { ModalUserComponent } from './modal-user/modal-user.component';
 import { ModalFiltragemItens } from './modal-filtragem-itens/modal-filtragem-itens.component';
 import { ModalOrdernar } from './modal-ordenar/modal-ordenar.component';
+import { ItemComponent } from './item/item.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ModalOrdernar } from './modal-ordenar/modal-ordenar.component';
     ModalEditarUserComponent,
     ModalUserComponent,
     ModalFiltragemItens,
-    ModalOrdernar
+    ModalOrdernar,
+    ItemComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { ModalOrdernar } from './modal-ordenar/modal-ordenar.component';
     ModalConfiguracoesComponent,
     ModalUserComponent,
     ModalFiltragemItens,
-    ModalOrdernar
+    ModalOrdernar,
+    ItemComponent
   ]
 })
 export class PrincipalModule { }

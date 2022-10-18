@@ -1,0 +1,489 @@
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!-- --------------- ITEM EM SI EM BLOCO ---------------- -->
+<div [ngClass]="retornarClassesVisualizacao(1)" (click)="abrirModalItem()" title="{{item.nome}}">
+  <div class="imagemItem">
+    <img [ngClass]="retornarClassesVisualizacao(2)" src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe"
+      alt="Imagem do Produto" />
+  </div>
+  <div [ngClass]="retornarClassesVisualizacao(3)">
+    <span class="nomeItem">{{ item.nome }}</span>
+    <div class="baixoItem">
+      <span>{{ retornaTextoDescartavel() }}</span>
+      <div [ngClass]="retornarClassesVisualizacao(4)">
+        <span>QTD:</span>
+        <span>{{ item.quantidade }} UN</span>
+      </div>
+    </div>
+  </div>
+  <div class="ferramentas">
+    <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
+      (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
+      edit
+    </span>
+    <span title="Histórico" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4"
+      class="material-symbols-outlined iconDeselect" (click)="abrirHistorico()" id="iconeHistorico">
+      history
+    </span>
+    <span title="Deletar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
+      (click)="removerItem()" id="iconeExcluir">
+      delete
+    </span>
+  </div>
+</div>
+<!-- --------------- ITEM EM SI EM BLOCO  ---------------- -->
+
+<!-- ----------------------------- FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
+<div *ngIf="feedback == 1" id="modalFeedback">
+  <div class="divInfo">
+    <span title="Fechar" (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
+      close
+    </span>
+    <span title="Confirmar" class="material-symbols-outlined iconDeselect" id="imgCerto">
+      check_circle
+    </span>
+    <span id="spanTexto">Item reservado com sucesso!</span>
+  </div>
+  <div id="fundo" style="background-color: #aeaeae">
+    <div id="azul"></div>
+  </div>
+</div>
+<!-- ----------------------------- FIM FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
+
+<!-- ----------------------------- FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
+<div *ngIf="feedback == 2" id="modalFeedback">
+  <div class="divInfo">
+    <span title="Fechar" (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
+      close
+    </span>
+    <span title="Confirmar" class="material-symbols-outlined iconDeselect" id="imgCerto">
+      check_circle
+    </span>
+    <span id="spanTexto">Item editado com sucesso!</span>
+  </div>
+  <div id="fundo" style="background-color: #aeaeae">
+    <div id="azul"></div>
+  </div>
+</div>
+<!-- ----------------------------- FIM FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
+
+<!-- ----------------------------- MODAL ITEM ABERTO ---------------------------- -->
+<div *ngIf="modalReservar" id="fundoModal">
+  <div id="modalItem">
+    <hr class="riscoAzul" />
+    <div class="containerModal">
+      <div class="fechar">
+        <span title="Fechar" (click)="fecharModal()" class="material-symbols-outlined iconDeselect" id="fecharIcone">
+          close
+        </span>
+      </div>
+      <div class="produtoInfo">
+        <div class="containerImg">
+          <img class="imgProdModal" src="../../../assets/Rele.png" alt="Imagem do Produto no Modal" />
+        </div>
+        <div class="nomeTipoProd">
+          <h2 class="tituloAzul">{{ item.nome }}</h2>
+          <h4 class="tituloAzul">{{ retornaTextoDescartavel() }}</h4>
+        </div>
+      </div>
+      <div class="containerClassQtd">
+        <p>
+          <span class="subtituloModal">Classificação: </span>
+          {{ buscarClassificacao(item.classificacao) }}
+        </p>
+        <div class="quantidadeModal">
+          <div class="containerQuantidadeInput">
+            <div class="texto">
+              <p class="subtituloModal">QTD:</p>
+              <div class="asterisco">*</div>
+            </div>
+            <div id="containerQtd">
+              <span title="Remover" class="material-symbols-outlined iconDeselect" id="menosQtdIcon"
+                (click)="mudarQtd(2)">
+                remove
+              </span>
+              <input *ngIf="item.quantidade > 0" id="inputQtd" [(ngModel)]="qtd" />
+              <div class="divQtdInvalida" *ngIf="item.quantidade < 1">0</div>
+              <span title="Adicionar" class="material-symbols-outlined iconDeselect" id="maisQtdIcon"
+                (click)="mudarQtd(1)">
+                add
+              </span>
+            </div>
+          </div>
+          <b>
+            <p *ngIf="item.quantidade > 0" class="qtdMax">
+              Máx: {{ item.quantidade }}
+            </p>
+          </b>
+          <p *ngIf="item.quantidade < 1" class="qtdMax">Item Indisponível</p>
+        </div>
+      </div>
+
+      <div class="containerDatas">
+        <div class="linhaData">
+          <div class="texto">
+            <p class="subtituloModal">Retirada:</p>
+            <div class="asterisco">*</div>
+          </div>
+          <div class="containerInputData">
+            <div class="containerDataText">
+              <p class="dataText">
+                {{ formatarData(data1) }}
+              </p>
+            </div>
+            <div class="containerIconData">
+              <span title="Calendário" class="material-symbols-outlined iconDeselect" alt="Calendário" id="iconModal2"
+                (click)="abrirCalendario(1)">
+                calendar_month
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="linhaData">
+          <div class="texto">
+            <p class="subtituloModal">Devolução:</p>
+            <div class="asterisco">*</div>
+          </div>
+          <div class="containerInputData">
+            <div class="containerDataText">
+              <p class="dataText">
+                {{ formatarData(data2) }}
+              </p>
+            </div>
+            <div class="containerIconData">
+              <span title="Calendário" class="material-symbols-outlined iconDeselect" alt="Calendário" id="iconModal2"
+                (click)="abrirCalendario(2)">
+                calendar_month
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="atendente()" id="adicionarProfessor">
+        <div class="texto">
+          <p class="subtituloModal">Professor:</p>
+          <div class="asterisco">*</div>
+        </div>
+        <div class="containerInputData">
+          <input type="text" id="professores" placeholder="Digite o nome" />
+        </div>
+      </div>
+      <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>
+      <div class="containerAcoes">
+        <button *ngIf="item.quantidade > 0" class="btnModal" (click)="reservar()">
+          Reservar Agora
+        </button>
+        <button *ngIf="item.quantidade <= 0" class="btnModal2" (click)="reservar()">
+          Reservar Agora
+        </button>
+        <span title="Adicionar Anexo" (click)="verAnexos()" id="iconModal"
+          class="material-symbols-outlined iconDeselect" title="Adicionar anexo">
+          file_present
+        </span>
+        <span title="Sacola" class="material-symbols-outlined iconDeselect" alt="Adicionar à sacola" id="iconModal"
+          title="Adicionar à sacola">
+          shopping_bag
+        </span>
+      </div>
+    </div>
+    <!-- <app-calendario
+      *ngIf="calendarioAberto1 == 1"
+      (salvarData)="salvarData1($event)"
+    ></app-calendario>
+    <app-calendario
+      *ngIf="calendarioAberto2 == 1"
+      (salvarData)="salvarData2($event)"
+    ></app-calendario> -->
+  </div>
+</div>
+<!-- ----------------------------- FIM MODAL ITEM ABERTO ---------------------------- -->
+
+<!-- ----------------------------- MODAL EDITAR ITEM ---------------------------- -->
+<div *ngIf="aparecer2" id="fundoModal">
+  <div *ngIf="cadastrarModal" id="containerModalCadastrar">
+    <hr class="riscoAzul" />
+    <div id="containerIcons">
+      <span title="Fechar" (click)="fecharModalCadastrar()" class="material-symbols-outlined iconDeselect"
+        id="iconFechar">
+        close
+      </span>
+    </div>
+    <div class="principal">
+      <div class="containerModalCadastrar">
+        <div class="divImg">
+          <button class="selecionarImg">
+            Selecionar Imagem
+            <div class="asterisco">*</div>
+          </button>
+        </div>
+        <div class="nomeProduto">
+          <div class="texto">
+            <span>Nome Produto:</span>
+            <div class="asterisco">*</div>
+          </div>
+          <div class="containerInput">
+            <input class="inputsCadastro" type="text" placeholder="Nome produto" />
+          </div>
+        </div>
+        <div class="classificacao">
+          <div class="texto">
+            <span>Classificação:</span>
+            <div class="asterisco">*</div>
+          </div>
+          <select class="inputsCadastro" name="">
+            <option *ngFor="let classificacao of listaClassificacao" value="">
+              {{ classificacao.nome }}
+            </option>
+          </select>
+        </div>
+        <div class="descricao">
+          <div class="texto">
+            <span>Descrição: </span>
+            <div class="asterisco">*</div>
+          </div>
+          <textarea class="inputDescricao" placeholder="Descrição"></textarea>
+        </div>
+        <div class="localizacao">
+          <div class="texto">
+            <span>Localização: </span>
+            <div class="asterisco">*</div>
+          </div>
+          <div class="containerLocalizacao">
+            <select id="localizacaoProduto">
+              <option value="paredeCentro">xx</option>
+              <option value="armario" selected>xx</option>
+              <option value="porta">xx</option>
+            </select>
+            <select id="localizacaoProduto">
+              <option value="paredeCentro">xx</option>
+              <option value="armario" selected>xx</option>
+              <option value="porta">xx</option>
+            </select>
+            <select id="localizacaoProduto">
+              <option value="paredeCentro">xx</option>
+              <option value="armario" selected>xx</option>
+              <option value="porta">xx</option>
+            </select>
+          </div>
+        </div>
+        <div class="opcao">
+          <div class="texto">
+            <span>Opção: </span>
+            <div class="asterisco">*</div>
+          </div>
+          <select id="selecionarDescartavel">
+            <option value="paredeCentro" selected>Descartável</option>
+            <option value="armario">Não Descartável</option>
+          </select>
+          <div class="texto">
+            <span>QTD: </span>
+            <div class="asterisco">*</div>
+          </div>
+          <input class="inputQtd" type="text" placeholder="xx" />
+        </div>
+        <div class="anexo">
+          <input type="text" placeholder="Adicionar Anexo" class="inputAnexo" />
+          <label for="arquivo"> </label>
+          <input type="file" name="arquivo" id="arquivo" />
+        </div>
+        <button (click)="editarItem()" class="botaoCadastrar">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ----------------------------- FIM MODAL EDITAR ITEM ---------------------------- -->
+
+<!-- ----------------------------- MODAL MOTIVO EDIÇÃO QUANTIDADE ITENS ---------------------------- -->
+<div *ngIf="motivoEdicao" id="fundoModal">
+  <div id="containerConteudoModalMotivo">
+    <div class="topoModalMotivo">
+      <hr class="riscoAzul" />
+      <div id="containerIcons">
+        <span title="Fechar" (click)="fecharModalMotivo()" class="material-symbols-outlined iconDeselect"
+          id="iconFechar">
+          close
+        </span>
+      </div>
+    </div>
+    <div class="principal">
+      <div class="containerModalMotivo">
+        <div class="texto">
+          <span>Motivo da edição da quantidade:</span>
+          <div class="asterisco">*</div>
+        </div>
+        <textarea class="inputDescricaoMotivo" placeholder="Motivo"></textarea>
+        <div class="containerBotaoEditarItem">
+          <button (click)="editarQuantidade()" class="botaoEditarItem">
+            Editar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ----------------------------- FIM MODAL MOTIVO EDIÇÃO QUANTIDADE ITENS ---------------------------- -->
+
+<!-- ----------------------------- MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
+<div *ngIf="modalConfirmarRemocao" id="fundoModal">
+  <div *ngIf="modalConfirmacao == 1">
+    <div class="containerModalExcluir">
+      <div class="linhaAzul"></div>
+      <span title="Alerta" class="material-symbols-outlined iconDeselect" id="iconeAlert">
+        error
+      </span>
+      <div class="containerInfoModal">
+        <span class="textoModal">Tem certeza que deseja remover o item?</span>
+      </div>
+      <div class="containerBotoes">
+        <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
+        <button (click)="selectItem()" class="botaoRecusar">Remover</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ----------------------------- FIM MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
+
+
+<!-- ----------------------------- FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
+<div *ngIf="feedback == 3" id="modalFeedback">
+  <div class="divInfo">
+    <span title="Fechar" (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
+      close
+    </span>
+    <span title="Confirmar" class="material-symbols-outlined iconDeselect" id="imgCerto">
+      check_circle
+    </span>
+    <span id="spanTexto">Item removido!</span>
+  </div>
+  <div id="fundo" style="background-color: #aeaeae">
+    <div id="azul"></div>
+  </div>
+</div>
+<!-- ----------------------------- FIM FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
+
+<!-- ----------------------------- MODAL VER ANEXOS ---------------------------- -->
+<div *ngIf="aparecer4" id="fundoModal">
+  <div *ngIf="modalAnexos == 1">
+    <div class="containerModalAnexos">
+      <div class="linhaAzul"></div>
+      <div class="containerFechar">
+        <span title="Fechar" (click)="fecharModalAnexos()" class="material-symbols-outlined iconDeselect"
+          id="iconeFechar">
+          close
+        </span>
+      </div>
+      <div class="containerInfoModal">
+        <span class="textoDescricao">Descrição:</span>
+        <div class="campoDescricao">
+          <span class="descricaoItem">
+            {{ item.descricao }}
+          </span>
+        </div>
+      </div>
+      <div class="riscoDivisao"></div>
+      <span class="textoDescricao">Anexos:</span>
+      <div class="parteAnexos">
+        <div class="containerAnexos">
+          <span title="Anexo" class="material-symbols-outlined iconDeselect" id="iconeAnexo">
+            folder_open
+          </span>
+          <a href=""><span>Arquivo 01</span></a>
+        </div>
+        <div class="containerAnexos">
+          <span title="Anexo" class="material-symbols-outlined iconDeselect" id="iconeAnexo">
+            folder_open
+          </span>
+          <a href=""><span>Arquivo 02</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ----------------------------- FIM MODAL VER ANEXOS ---------------------------- -->
+
+<!-- ----------------------------- MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
+<div *ngIf="aparecer5" id="fundoModal">
+  <div *ngIf="modalHistorico == 1">
+    <div class="containerModalAnexos">
+      <div class="linhaAzul"></div>
+      <div class="containerFechar">
+        <span title="Fechar" (click)="fecharModalHistorico()" class="material-symbols-outlined iconDeselect"
+          id="iconeFechar">
+          close
+        </span>
+      </div>
+      <div class="containerInfoModalHist">
+        <h1>Histórico</h1>
+        <div class="riscoDivisao"></div>
+      </div>
+      <div class="containerHistoricos">
+        <div class="quadroHistorico">
+          <span class="subtituloModal">Atendente</span>
+          <span class="subtituloModal">Edição</span>
+          <div class="containerData">
+            <span class="textoData">20:55</span>
+            <span class="textoData">24/08/2022</span>
+          </div>
+        </div>
+        <div class="quadroHistorico">
+          <span class="subtituloModal">Atendente</span>
+          <span class="subtituloModal">Edição</span>
+          <div class="containerData">
+            <span class="textoData">20:55</span>
+            <span class="textoData">24/08/2022</span>
+          </div>
+        </div>
+        <div class="quadroHistorico">
+          <span class="subtituloModal">Atendente</span>
+          <span class="subtituloModal">Edição</span>
+          <div class="containerData">
+            <span class="textoData">20:55</span>
+            <span class="textoData">24/08/2022</span>
+          </div>
+        </div>
+        <div class="quadroHistorico">
+          <span class="subtituloModal">Atendente</span>
+          <span class="subtituloModal">Edição</span>
+          <div class="containerData">
+            <span class="textoData">20:55</span>
+            <span class="textoData">24/08/2022</span>
+          </div>
+        </div>
+        <div class="quadroHistorico">
+          <span class="subtituloModal">Atendente</span>
+          <span class="subtituloModal">Edição</span>
+          <div class="containerData">
+            <span class="textoData">20:55</span>
+            <span class="textoData">24/08/2022</span>
+          </div>
+        </div>
+        <div class="quadroHistorico">
+          <span class="subtituloModal">Atendente</span>
+          <span class="subtituloModal">Edição</span>
+          <div class="containerData">
+            <span class="textoData">20:55</span>
+            <span class="textoData">24/08/2022</span>
+          </div>
+        </div>
+        <div class="quadroHistorico">
+          <span class="subtituloModal">Atendente</span>
+          <span class="subtituloModal">Edição</span>
+          <div class="containerData">
+            <span class="textoData">20:55</span>
+            <span class="textoData">24/08/2022</span>
+          </div>
+        </div>
+        <div class="quadroHistorico">
+          <span class="subtituloModal">Atendente</span>
+          <span class="subtituloModal">Edição</span>
+          <div class="containerData">
+            <span class="textoData">20:55</span>
+            <span class="textoData">24/08/2022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ----------------------------- FIM MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
