@@ -3,6 +3,7 @@ package br.senai.sc.almoxarifado.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "classificacao")

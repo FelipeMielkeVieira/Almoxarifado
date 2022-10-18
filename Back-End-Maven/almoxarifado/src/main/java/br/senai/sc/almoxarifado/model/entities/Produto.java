@@ -3,6 +3,7 @@ package br.senai.sc.almoxarifado.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "produto")
@@ -35,6 +36,15 @@ public class Produto {
 
     // Foreign key
 
-    @Column
-    private Integer classificacao_id;
+    @ManyToOne
+    @JoinColumn(name = "classificacao_id")
+    private Classificacao classificacao;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "produto_localizacao",
+            joinColumns = {@JoinColumn(name = "produto_id")},
+            inverseJoinColumns = {@JoinColumn(name = "localizacao_id")})
+    private Set<Localizacao> localizacoes;
+
 }
