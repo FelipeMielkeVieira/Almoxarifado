@@ -53,6 +53,7 @@ public class UsuarioController {
 
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuarioDTO, usuario, "emailUsuario");
+        usuario.setEmailUsuario(email);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
     }
 

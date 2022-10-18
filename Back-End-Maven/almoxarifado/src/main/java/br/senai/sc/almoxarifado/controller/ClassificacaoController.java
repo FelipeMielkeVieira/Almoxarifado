@@ -55,6 +55,7 @@ public class ClassificacaoController {
 
         Classificacao classificacao =  new Classificacao();
         BeanUtils.copyProperties(classificacaoDTO, classificacao, "idClassificacao");
+        classificacao.setId(idClassificacao);
         return ResponseEntity.status(HttpStatus.CREATED).body(classificacaoService.save(classificacao));
     }
 

@@ -56,8 +56,8 @@ public class AnexoController {
 
         Anexo anexo =  new Anexo();
         BeanUtils.copyProperties(anexoDTO, anexo, "idAnexo");
-        anexoService.save(anexo);
-        return ResponseEntity.status(HttpStatus.OK).body("Anexo atualizado!");
+        anexo.setId(idAnexo);
+        return ResponseEntity.status(HttpStatus.CREATED).body(anexoService.save(anexo));
     }
 
     @Transactional
