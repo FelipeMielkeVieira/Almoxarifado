@@ -10,6 +10,7 @@ import { LoginModule } from './login/login.module';
 import { PrincipalModule } from './principal/principal.module';
 import { ProfessorModule } from './professor/professor.module';
 import { UsersService } from './service';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UsersService } from './service';
     HttpClientModule,
     LoginModule,
     ProfessorModule,
-    PrincipalModule
+    PrincipalModule,
+    MdbModalModule
   ],
   providers: [CheckLogged, UsersService],
   bootstrap: [AppComponent]

@@ -30,7 +30,6 @@ export class ItemComponent implements OnInit {
   modalConfirmarRemocao: boolean = false;
 
   modalConfirmacao: number = 0;
-  cadastrarModal: boolean = false;
   modalHistorico: number = 0;
   aparecer5: boolean = false;
 
@@ -76,13 +75,11 @@ export class ItemComponent implements OnInit {
   }
 
   abrirModalItem() {
-    document.documentElement.style.overflow = 'hidden';
     this.modalReservar = true;
   }
 
   abrirModalEditar() {
     this.modalEditar = true;
-    this.cadastrarModal = true;
   }
 
   abrirHistorico() {
@@ -95,40 +92,6 @@ export class ItemComponent implements OnInit {
     this.modalConfirmacao = 1;
   }
   // <!-- --------------- FIM ITEM EM SI EM BLOCO  ---------------- -->
-
-  // <!-- ----------------------------- ITEM EM SI EM LISTA ---------------------------- -->
-  // @Input() lista;
-  // aparecer: boolean = false;
-  // aparecer2: boolean = false;
-  // aparecer3: boolean = false;
-  // aparecer5: boolean = false;
-  // cadastrarModal: boolean = false;
-  // modalConfirmacao: number = 0;
-  // modalHistorico: number = 0;
-
-  // abrirModalItem() {
-  //   document.documentElement.style.overflow = 'hidden';
-  //   if (!this.aparecer) {
-  //     this.aparecer = true;
-  //   }
-  // }
-
-  // abrirModalEditar() {
-  //   this.aparecer2 = true;
-  //   this.cadastrarModal = true;
-  // }
-
-  // abrirHistorico(){
-  //   this.aparecer5 = true;
-  //   this.modalHistorico = 1;
-  // }
-
-  // removerItem() {
-  //   this.aparecer3 = true;
-  //   this.modalConfirmacao = 1;
-  // }
-
-  // <!-- ----------------------------- FIM ITEM EM SI EM LISTA ---------------------------- -->
 
   // <!-- ----------------------------- FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
   feedback: number = 0;
@@ -251,7 +214,6 @@ export class ItemComponent implements OnInit {
   fecharModalCadastrar() {
     this.modalReservar = false;
     this.modalEditar = false;
-    this.cadastrarModal = false;
   }
 
   editarItem() {
@@ -276,7 +238,6 @@ export class ItemComponent implements OnInit {
     this.modalReservar = false;
     this.modalEditar = false;
     this.motivoEdicao = false;
-    this.cadastrarModal = false;
     this.nao = 0;
     this.feedback = 2;
     setTimeout(() => {

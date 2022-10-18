@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { UsersService } from 'src/app/service';
-import { DarkModeService } from 'angular-dark-mode';
+import { AlertaFeitoComponent } from '../alerta-feito/alerta-feito.component';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,9 @@ export class LoginComponent implements OnInit {
   emailUser: string | undefined;
   senhaUser: string | undefined;
 
-  alertaSolicitacaoCadastro: boolean = false;
-  alertaRedefinicaoSenha: boolean = false;
-  alertaSenhaIncorreta: boolean = false;
+  alertaSolicitacaoCadastro: any;
+  alertaRedefinicaoSenha: any;
+  alertaSenhaIncorreta: any;
   listaTimeoutsAlertas: [any, any, any] = [null, null, null];
 
   modalRedefinicaoSenha: boolean = false;
@@ -22,9 +23,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private users: UsersService,
-    private darkModeService: DarkModeService
+    private modalService: MdbModalService
   ) {}
 
   ngOnInit() {
@@ -104,39 +104,48 @@ export class LoginComponent implements OnInit {
   abrirModalAlerta(numeroModal: number) {
     switch (numeroModal) {
       case 1:
-        this.alertaSolicitacaoCadastro = true;
+        this.alertaSolicitacaoCadastro = this.modalService.open(AlertaFeitoComponent, {
+          data: { tipoMensagemModal: 1},
+        });
+
         this.listaTimeoutsAlertas[0] = setTimeout(() => {
-          this.alertaSolicitacaoCadastro = false;
+          this.alertaSolicitacaoCadastro.close();
         }, 5000);
         break;
       case 2:
-        this.alertaRedefinicaoSenha = true;
+        this.alertaRedefinicaoSenha = this.modalService.open(AlertaFeitoComponent, {
+          data: { tipoMensagemModal: 2}
+        });
+
         this.listaTimeoutsAlertas[1] = setTimeout(() => {
-          this.alertaRedefinicaoSenha = false;
+          this.alertaRedefinicaoSenha.close();
         }, 5000);
         break;
       case 3:
-        this.alertaSenhaIncorreta = true;
+        this.alertaSenhaIncorreta = this.modalService.open(AlertaFeitoComponent, {
+          data: { tipoMensagemModal: 3}
+        });
+
         this.listaTimeoutsAlertas[2] = setTimeout(() => {
-          this.alertaSenhaIncorreta = false;
+          this.alertaSenhaIncorreta.close();
         }, 5000);
         break;
     }
   }
 
   // Função para fechar os modais de alerta, limpando os timeouts respectivos para impedir conflitos
-  fecharModalAlerta(numeroModal: number) {
+  fecharModalAlerta(numeroModal: any) {
     switch (numeroModal) {
-      case 1:
-        this.alertaSolicitacaoCadastro = false;
+      case "1":
+        this.alertaSolicitacaoCadastro.close();
         clearTimeout(this.listaTimeoutsAlertas[0]);
         break;
-      case 2:
-        this.alertaRedefinicaoSenha = false;
+      case "2":
+        this.alertaRedefinicaoSenha.close();
         clearTimeout(this.listaTimeoutsAlertas[1]);
         break;
-      case 3:
-        this.alertaSenhaIncorreta = false;
+      case "3":
+        this.alertaSenhaIncorreta.close();
         clearTimeout(this.listaTimeoutsAlertas[2]);
         break;
     }

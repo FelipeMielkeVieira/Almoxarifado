@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-alerta-feito',
@@ -14,17 +15,17 @@ export class AlertaFeitoComponent implements OnInit {
   //5 - Código Inválido (Na redefinição de senha, código recebido por email)
   //6 - As senhas não conferem
   //7 - Preencha todos os Dados
-  @Input() tipoMensagemModal: number | undefined;
+  tipoMensagemModal: number | undefined;
 
   //Output para fechar o modal na página de login ao clicar no X
   @Output() fecharModal = new EventEmitter<string>();
   fraseAlertaModal = "";
 
-  constructor() { }
+  constructor() {}
 
   // Função para emitir o output e fechar o modal
   fechar() {
-    this.fecharModal.emit("fechar");
+    this.fecharModal.emit(this.tipoMensagemModal?.toString());
   }
 
   // Usado para definir qual será a frase do alerta a partir do input numérico
