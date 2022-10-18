@@ -44,9 +44,9 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
     }
 
-    @PutMapping
-    public ResponseEntity<Object> update(@RequestBody @Valid UsuarioDTO usuarioDTO) {
-        if (!usuarioService.existsById(usuarioDTO.getEmailUsuario())) {
+    @PutMapping("/{email}")
+    public ResponseEntity<Object> update(@PathVariable(value = "email") String email, @RequestBody @Valid UsuarioDTO usuarioDTO) {
+        if (!usuarioService.existsById(email)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este Email não existe.");
         }
 
