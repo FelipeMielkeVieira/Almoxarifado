@@ -7,6 +7,7 @@ import { UsersService } from 'src/app/service';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
+
   constructor(private service: UsersService) {
     this.listaItens2 = service.itens;
     this.tipoUser = parseInt(localStorage.getItem("usuario") || "");
@@ -14,7 +15,7 @@ export class ItemComponent implements OnInit {
 
   tipoUser: number = 0;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   // <!-- --------------- ITEM EM SI EM BLOCO ---------------- -->
 
@@ -31,6 +32,9 @@ export class ItemComponent implements OnInit {
   modalConfirmacao: number = 0;
   modalAnexos: boolean = false;
   modalHistorico: boolean = false;
+
+  feedbackReservaFeita = false;
+  feedbackColocadoSacola = false;
 
   // Return das classes para visualização do item
   // Número - número definido do elemento HTML
@@ -73,7 +77,8 @@ export class ItemComponent implements OnInit {
     }
   }
 
-  abrirModalItem() {
+  // Função para deixar visível o modal de reserva do item
+  abrirModalReserva() {
     this.modalReservar = true;
   }
 
@@ -92,13 +97,7 @@ export class ItemComponent implements OnInit {
   // <!-- --------------- FIM ITEM EM SI EM BLOCO  ---------------- -->
 
   // <!-- ----------------------------- FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
-  feedback: number = 0;
   // aparecer2: boolean = false;
-
-  fechar() {
-    this.feedback = 0;
-    this.modalEditar = false;
-  }
   // <!-- ----------------------------- fim FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
 
   // <!-- ----------------------------- FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
@@ -118,6 +117,11 @@ export class ItemComponent implements OnInit {
   // cadastrarModal: boolean = false;
   // motivoEdicao: boolean = false;
   nao: number = 0;
+
+  feedback: number = 0;
+  fechar() {
+
+  }
 
   listaClassificacao = [{ nome: "Nome classificacao" }];
 
@@ -216,13 +220,35 @@ export class ItemComponent implements OnInit {
   }
   // <!-- ----------------------------- FIM MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
 
+  // Função para fechar os modais de reserva, edição, etc... do item
   fecharModaisItem(numero: number, event: any) {
-    switch(numero) {
+    switch (numero) {
       case 1:
         this.modalReservar = false;
-        if(event == "reservar") {
-          //Ativar modal de feedback da reserva
+        if (event == "reservar") {
+          this.feedbackReservaFeita = true;
+          setTimeout(() => {
+            this.feedbackReservaFeita = false;
+          }, 4000);
         }
+        if (event == "sacola") {
+          this.feedbackColocadoSacola = true;
+          setTimeout(() => {
+            this.feedbackColocadoSacola = false;
+          }, 4000);
+        }
+        break;
+    }
+  }
+
+  // Função para fechar os modais de feedback sobre ações do item
+  fecharModaisFeedback(numero: number) {
+    switch (numero) {
+      case 1:
+        this.feedbackReservaFeita = false;
+        break;
+      case 2:
+        this.feedbackColocadoSacola = false;
         break;
     }
   }

@@ -11,6 +11,7 @@ import { ModalFiltragemItens } from './modal-filtragem-itens/modal-filtragem-ite
 import { ModalOrdernar } from './modal-ordenar/modal-ordenar.component';
 import { ItemComponent } from './item/item.component';
 import { ModalReservarItem } from './modal-reservar-item/modal-reservar-item.component';
+import { ModalFeedback } from './modal-feedback/modal-feedback.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ModalReservarItem } from './modal-reservar-item/modal-reservar-item.com
     ModalFiltragemItens,
     ModalOrdernar,
     ItemComponent,
-    ModalReservarItem
+    ModalReservarItem,
+    ModalFeedback
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { ModalReservarItem } from './modal-reservar-item/modal-reservar-item.com
     ModalFiltragemItens,
     ModalOrdernar,
     ItemComponent,
-    ModalReservarItem
+    ModalReservarItem,
+    ModalFeedback
   ]
 })
 export class PrincipalModule { }

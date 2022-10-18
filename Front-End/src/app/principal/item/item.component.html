@@ -2,7 +2,7 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <!-- --------------- ITEM EM SI EM BLOCO ---------------- -->
-<div [ngClass]="retornarClassesVisualizacao(1)" (click)="abrirModalItem()" title="{{item.nome}}">
+<div [ngClass]="retornarClassesVisualizacao(1)" (click)="abrirModalReserva()" title="{{item.nome}}">
   <div class="imagemItem">
     <img [ngClass]="retornarClassesVisualizacao(2)"
       src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="Imagem do Produto" />
@@ -34,22 +34,13 @@
 </div>
 <!-- --------------- ITEM EM SI EM BLOCO  ---------------- -->
 
-<!-- ----------------------------- FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
-<div *ngIf="feedback == 1" id="modalFeedback">
-  <div class="divInfo">
-    <span title="Fechar" (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
-      close
-    </span>
-    <span title="Confirmar" class="material-symbols-outlined iconDeselect" id="imgCerto">
-      check_circle
-    </span>
-    <span id="spanTexto">Item reservado com sucesso!</span>
-  </div>
-  <div id="fundo" style="background-color: #aeaeae">
-    <div id="azul"></div>
-  </div>
-</div>
-<!-- ----------------------------- FIM FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
+<!-- Feedback de reserva concluída -->
+<app-modal-feedback *ngIf="feedbackReservaFeita" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(1)">
+</app-modal-feedback>
+
+<!-- Feedback de colocar item na sacola -->
+<app-modal-feedback *ngIf="feedbackColocadoSacola" [tipoFeedback]="2" (fecharModal)="fecharModaisFeedback(2)">
+</app-modal-feedback>
 
 <!-- ----------------------------- FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
 <div *ngIf="feedback == 2" id="modalFeedback">
