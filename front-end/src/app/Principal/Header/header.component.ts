@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/service';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalUserComponent } from '../modal-user/modal-user.component';
 
 @Component({
   selector: 'app-header',
@@ -24,11 +26,11 @@ export class HeaderComponent implements OnInit {
   // ------------- FIM VARIAVEIS DO MODAL CONFIGURAÇÕES ------------------
 
   // -------- VARIAVEIS DO MODAL USER (DENTRO DO HEADER EM SI) --------
-  modalUser: boolean = false;
+  modalUser: any;
   usuarioTipo: number = 0;
   // ------- FIM VARIAVEIS DO MODAL USER (DENTRO DO HEADER EM SI) ------
 
-  constructor(private router: Router, private service: UsersService) { }
+  constructor(private router: Router, private service: UsersService, private modalService: MdbModalService) { }
 
   // *Pega o email e nome do usuario logado
   ngOnInit() {

@@ -18,14 +18,13 @@ export class AlertaFeitoComponent implements OnInit {
   tipoMensagemModal: number | undefined;
 
   //Output para fechar o modal na página de login ao clicar no X
-  @Output() fecharModal = new EventEmitter<string>();
   fraseAlertaModal = "";
 
-  constructor() {}
+  constructor(private modalRef: MdbModalRef<AlertaFeitoComponent>) {}
 
   // Função para emitir o output e fechar o modal
   fechar() {
-    this.fecharModal.emit(this.tipoMensagemModal?.toString());
+    this.modalRef.close();
   }
 
   // Usado para definir qual será a frase do alerta a partir do input numérico
