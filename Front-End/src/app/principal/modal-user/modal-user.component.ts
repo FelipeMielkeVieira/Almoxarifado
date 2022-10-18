@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 import { UsersService } from 'src/app/service';
 
@@ -20,7 +19,7 @@ export class ModalUserComponent implements OnInit {
 
   usuarioTipo: number = 0;
 
-  constructor(private router: Router, private service: UsersService, public modalRef: MdbModalRef<ModalUserComponent>) { }
+  constructor(private router: Router, private service: UsersService) { }
 
   ngOnInit(): void {
     this.service.usuarios.forEach((e) => {
