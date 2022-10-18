@@ -7,5 +7,5 @@ import lombok.ToString;
 @ToString
 public class LocalizacaoDTO {
     private Integer codigoLocalizacao;
-    private String  nome;
+    private String nome;
 }

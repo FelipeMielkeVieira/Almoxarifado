@@ -27,7 +27,7 @@ public class UsuarioController {
 
     @GetMapping("/{email}")
     public ResponseEntity<Object> findById(@PathVariable(value = "email") String email) {
-        if (usuarioService.existsById(email)) {
+        if (!usuarioService.existsById(email)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrada nenhum usuário com este Email.");
         }
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findById(email).get());
