@@ -40,7 +40,7 @@ public class AnexoController {
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid AnexoDTO anexoDTO){
         if (anexoService.existsById(anexoDTO.getId())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Este Email já está cadastrado.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Esse ID já está cadastrado!");
         }
 
         Anexo anexo = new Anexo();
