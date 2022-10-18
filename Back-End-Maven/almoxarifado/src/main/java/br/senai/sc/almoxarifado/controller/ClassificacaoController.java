@@ -43,8 +43,8 @@ public class ClassificacaoController {
         return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.save(classificacao));
     }
 
-    @PutMapping("/{idClassificacao}")
-    public ResponseEntity<Object> update(@PathVariable(value = "idCLassificacao") Integer idClassificacao, @RequestBody @Valid ClassificacaoDTO classificacaoDTO){
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> update(@PathVariable(value = "id") Integer idClassificacao, @RequestBody @Valid ClassificacaoDTO classificacaoDTO){
         if (!classificacaoService.existsById(idClassificacao)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este ID não existe.");
         }
