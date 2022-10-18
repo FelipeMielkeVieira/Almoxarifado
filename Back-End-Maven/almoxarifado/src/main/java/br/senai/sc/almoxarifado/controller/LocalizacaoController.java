@@ -27,8 +27,11 @@ public class LocalizacaoController {
     }
 
     @GetMapping("/{codigoLocalizacao}")
-    public Optional<Localizacao> findById(Integer codigoLocalizacao) {
-        return localizacaoService.findById(codigoLocalizacao);
+    public ResponseEntity<Object> findById(@PathVariable(value = "codigoLocalizacao") Integer codigoLocalizacao) {
+        if (!localizacaoService.existsById(codigoLocalizacao)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findById(codigoLocalizacao).get());
     }
 
     @PostMapping
