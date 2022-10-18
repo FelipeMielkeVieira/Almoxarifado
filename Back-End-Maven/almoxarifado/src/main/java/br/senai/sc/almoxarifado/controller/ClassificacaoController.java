@@ -38,10 +38,6 @@ public class ClassificacaoController {
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid ClassificacaoDTO classificacaoDTO){
-        if (classificacaoService.existsById(classificacaoDTO.getId())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Este ID já está cadastrado.");
-        }
-
         Classificacao classificacao = new Classificacao();
         BeanUtils.copyProperties(classificacaoDTO, classificacao);
         return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.save(classificacao));

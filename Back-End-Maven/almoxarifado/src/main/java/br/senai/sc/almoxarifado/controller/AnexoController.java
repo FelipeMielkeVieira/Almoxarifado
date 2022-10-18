@@ -39,10 +39,6 @@ public class AnexoController {
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid AnexoDTO anexoDTO){
-        if (anexoService.existsById(anexoDTO.getId())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Esse ID já está cadastrado!");
-        }
-
         Anexo anexo = new Anexo();
         BeanUtils.copyProperties(anexoDTO, anexo);
         return ResponseEntity.status(HttpStatus.OK).body(anexoService.save(anexo));
