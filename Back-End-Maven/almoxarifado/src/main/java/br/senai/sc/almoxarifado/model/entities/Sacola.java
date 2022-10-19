@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "sacola")
@@ -17,7 +18,7 @@ public class Sacola {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private Date data_retirada;
@@ -27,6 +28,12 @@ public class Sacola {
 
     // Foreign key
 
-    @Column(length = 70, nullable = false)
-    private String usuario_email;
+    @ManyToOne
+    @JoinColumn(name = "usuario_email", nullable = false)
+    private Usuario usuario;
+
+    // Many-to-many relationship
+
+    @OneToMany(mappedBy = "sacola")
+    Set<SacolaProduto> produtos_sacola;
 }

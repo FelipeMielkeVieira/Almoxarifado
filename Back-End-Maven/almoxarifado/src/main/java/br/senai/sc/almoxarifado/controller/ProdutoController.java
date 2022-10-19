@@ -35,8 +35,6 @@ public class ProdutoController {
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid ProdutoDTO produtoDTO) {
-        System.out.println("Chegou aq");
-        System.out.println("Passou");
         Produto produto = new Produto();
         BeanUtils.copyProperties(produtoDTO, produto);
         System.out.println(produto.toString());
@@ -48,7 +46,6 @@ public class ProdutoController {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este produto não existe.");
         }
-
         Produto produto = new Produto();
         BeanUtils.copyProperties(produtoDTO, produto, "id");
         produto.setId(id);
@@ -61,7 +58,6 @@ public class ProdutoController {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhum produto com este ID.");
         }
-
         produtoService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body("Produto deletado.");
     }

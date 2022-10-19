@@ -55,4 +55,7 @@ public class Produto {
             inverseJoinColumns = @JoinColumn(name = "anexo_id"))
     private Set<Anexo> anexos;
 
+    @OneToMany(mappedBy = "produto")
+    Set<SacolaProduto> sacolas_produto;
+
 }
