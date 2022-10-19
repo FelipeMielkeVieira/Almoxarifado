@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem('cadastro');
       this.abrirModalAlerta(1);
     }
+    if(localStorage.getItem('cadastroEfetuado')){
+      localStorage.removeItem('cadastroEfetuado');
+      this.abrirModalAlerta(1);
+    }
   }
 
   lembrar() {

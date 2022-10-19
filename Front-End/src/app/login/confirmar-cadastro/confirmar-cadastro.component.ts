@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirmar-cadastro',
@@ -29,9 +30,11 @@ export class ConfirmarCadastroComponent implements OnInit {
 
   @Output() fecharModal = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.verificarEmail();
+  }
 
   // Função que emite output para fechar o modal
   fecharComponente() {
@@ -41,6 +44,7 @@ export class ConfirmarCadastroComponent implements OnInit {
 
   // Função para verificação do email para envio do código. Se estiver válido, irá criar o timer e código aleatório
   verificarEmail() {
+    clearInterval(this.timerInsercaoCodigo);
     this.codigoVerificacao = Math.floor(100000 + Math.random() * 900000);
     console.log(this.codigoVerificacao);
     this.criarTimer();
@@ -79,8 +83,10 @@ export class ConfirmarCadastroComponent implements OnInit {
       this.timeoutsAlertas[1] = setTimeout(() => {
         this.codigoVerificacaoIncorreto = false;
       }, 5000);
+    } else {
+      localStorage.setItem('cadastroEfetuado', 'true');
+      this.router.navigate(['']);
     }
-
   }
 
   // Função para criar o timer na segunda etapa da redefinição
