@@ -3,19 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home/home.component';
 import { PrincipalModule } from '../principal/principal.module';
+import { MinhasReservasComponent } from './minhas-reservas/minhas-reservas.component';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    MinhasReservasComponent
   ],
   imports: [
     CommonModule,
     PrincipalModule
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    MinhasReservasComponent
   ]
 })
 export class ProfessorModule { }

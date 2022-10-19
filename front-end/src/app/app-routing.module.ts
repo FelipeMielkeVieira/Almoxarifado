@@ -5,12 +5,16 @@ import CheckLogged from './checkLogged.canactivate';
 import { CadastroComponent } from './login/cadastro/cadastro.component';
 import { LoginComponent } from './login/login/login.component';
 import { HomeComponent } from './professor/home/home.component';
+import { MinhasReservasComponent } from './professor/minhas-reservas/minhas-reservas.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'professor', canActivate: [CheckLogged], children: [
     { path: '', component: HomeComponent },
+    { path: 'reservas', children: [
+      { path: '', component: MinhasReservasComponent },
+    ]}
   ]}
   // {
   //   path: 'professor', canActivate: [CheckLogged], children: [
