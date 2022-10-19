@@ -30,18 +30,15 @@ a:hover {
     cursor: pointer;
 }
 
-::-webkit-scrollbar {
-    width: 10px;
-}
-
 ::-webkit-scrollbar-track {
     background-color: #EEEEEE;
 }
-
+::-webkit-scrollbar {
+    width: 6px;
+    background: #EEEEEE;
+}
 ::-webkit-scrollbar-thumb {
-    background-color: #EEEEEE;
-    border-radius: 30px;
-    border: solid 1px black;
+    background: #dad7d7;
 }
 
 /* ------------------------- FIM CSS PADRAO GERAL ------------------------- */
@@ -478,16 +475,17 @@ a:hover {
 
 .gerenciarReservas {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
 }
 
 #gerenciar {
     font-weight: 100;
-    position: absolute;
 }
 
 #arquivo {
-    margin-left: 10%;
-    font-size: var(--font-size--giant);
+    font-size: 35px;
 }
 
 #settings {
@@ -499,6 +497,11 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#iconsUser {
+    font-size: 100px;
+    font-weight: 400;
 }
 
 /* -------------------------------FIM FILTRO EM SI-------------------------------------------- */
