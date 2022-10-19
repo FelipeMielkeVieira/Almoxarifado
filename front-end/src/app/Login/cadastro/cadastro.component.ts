@@ -17,7 +17,8 @@ export class CadastroComponent implements OnInit {
 
   senhaIncorreta: boolean = false;     //Variável para modal de senhas não correspondem
   dadosIncorretos: boolean = false;    //Variável para modal de preencher todos campos
-  listaTimeoutsAlertas: [any, any] = [null, null];
+  emailInvalido: boolean = false;     //Variável para modal de email incorreto
+  listaTimeoutsAlertas: [any, any, any] = [null, null, null];
 
   senhaVisivel: boolean = false;
   confirmarSenhaVisivel: boolean = false;
@@ -108,6 +109,12 @@ export class CadastroComponent implements OnInit {
           this.dadosIncorretos = false;
         }, 5000);
         break;
+      case 3:
+        this.emailInvalido = true;
+        this.listaTimeoutsAlertas[2] = setTimeout(() => {
+          this.emailInvalido = false;
+        }, 5000);
+        break;
     }
   }
 
@@ -122,6 +129,18 @@ export class CadastroComponent implements OnInit {
         this.dadosIncorretos = false;
         clearTimeout(this.listaTimeoutsAlertas[1]);
         break;
+      case 3:
+        this.emailInvalido = false;
+        clearTimeout(this.listaTimeoutsAlertas[2]);
+        break;
     }
+  }
+
+  // Função para fechar o modal de redefinição de senha
+  fecharModalConfirmacao(event: String) {
+    let divPrincipal = document.querySelector('.divPrincipal') as HTMLElement;
+    divPrincipal.style.opacity = '1';
+
+    this.modalConfirmarCadastro = false;
   }
 }
