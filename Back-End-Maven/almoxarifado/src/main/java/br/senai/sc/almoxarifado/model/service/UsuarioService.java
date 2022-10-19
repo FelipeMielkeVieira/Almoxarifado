@@ -2,9 +2,6 @@ package br.senai.sc.almoxarifado.model.service;
 
 import br.senai.sc.almoxarifado.model.entities.Usuario;
 import br.senai.sc.almoxarifado.repository.UsuarioRepository;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
