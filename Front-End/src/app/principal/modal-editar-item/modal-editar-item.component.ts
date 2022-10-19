@@ -10,28 +10,30 @@ export class ModalEditarItem implements OnInit {
 
     constructor(private service: UsersService) {
         this.listaClassificacoesTotais = this.service.classificacoes;
+        this.qtdInicial = this.item.quantidade;
     }
 
     // Output para fechar o modal, enviando para o componente "Item"
     @Output() fecharModal = new EventEmitter<string>();
 
     // Item recebido do componente pai
-    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };;
+    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
 
     listaClassificacoesTotais: any = [];
     listaClassificacoes: any = [];
 
     // ID da classificação selecionada na edição
     classificacaoAtual: number = 0;
+    qtdInicial: number = 0;
 
     ngOnInit() {
         this.atualizarListaClassificacoes();
     }
 
     // Função que retorna o nome de uma classificacao pelo id
-    retornarNomeClassificacao(id : number) {
+    retornarNomeClassificacao(id: number) {
         for (const classificacao of this.listaClassificacoesTotais) {
-            if(classificacao.id == id) {
+            if (classificacao.id == id) {
                 return classificacao.classificacao;
             }
         }
@@ -43,7 +45,7 @@ export class ModalEditarItem implements OnInit {
         console.log(this.item.classificacao);
         let listaNova = [];
         for (const classificacao of this.listaClassificacoesTotais) {
-            if(classificacao.id != this.item.classificacao) {
+            if (classificacao.id != this.item.classificacao) {
                 listaNova.push(classificacao);
             }
         }
@@ -66,6 +68,10 @@ export class ModalEditarItem implements OnInit {
     }
 
     editarItem() {
-        this.fecharModalEdicao("editar");
+        if (this.item.quantidade == this.qtdInicial) {
+            this.fecharModalEdicao("editar");
+        } else {
+            this.fecharModalEdicao("motivo");
+        }
     }
 }
