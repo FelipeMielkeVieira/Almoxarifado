@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+    // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
     window.onclick = function (event) {
       if (!(event.target as HTMLElement).className.includes("parteModal")) {
@@ -46,35 +47,43 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // Função para mudar a visualização dos itens entre lista e bloco
   trocarVisualizacaoItem() {
     this.listaEmBloco = !this.listaEmBloco;
   }
 
+  // Função para abrir e fechar o modal de ordenação
   mudarModalOrdenar() {
     this.modalOrdenar = !this.modalOrdenar;
   }
 
-  voltarPagina() {
-    this.paginaAtual--;
-  }
-
-  irPagina(numero: any) {
-    this.paginaAtual = numero;
-  }
-
-  proximoPagina() {
-    this.paginaAtual++;
-  }
-
+  // Função para abrir e fechar o modal de filtragem
   abrirModalFiltro() {
     this.modalFiltrar = !this.modalFiltrar;
   }
 
+  // Função para voltar para a página anterior na lista de itens
+  voltarPagina() {
+    this.paginaAtual--;
+  }
+
+  // Função para ir para a próxima página na lista de itens
+  proximoPagina() {
+    this.paginaAtual++;
+  }
+
+  // Função para ir para uma página específica na lista de itens
+  irPagina(numero: any) {
+    this.paginaAtual = numero;
+  }
+
+  // Função para fechar o modal de filtro e receber os filtros definidos
   fecharModalFiltro(event: any) {
     this.modalFiltrar = false;
     this.listaFiltros = JSON.parse(event);
   }
 
+  // Função para listar os itens de acordo com a lista armazenada
   filtrarItens(event: any) {
     this.listaFiltros = JSON.parse(event);
 
@@ -95,8 +104,8 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações
   ordenarItens(event: any) {
     this.listaOrdenacoes = JSON.parse(event);
-    //Função para ordenar os itens, recebendo um array de booleanos
   }
 }
