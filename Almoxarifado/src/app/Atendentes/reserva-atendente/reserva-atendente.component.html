@@ -1,3 +1,4 @@
+<!-- --------------------------- COMPONENTE RESERVA EM BLOCO ------------------------------ -->
 <div *ngIf="lista == 0" class="containerReserva">
     <div class="barraLateral"></div>
     <div class="infoReserva">
@@ -5,7 +6,6 @@
       <span class="data">Retirada: __/__/____</span>
       <span class="data">Devolução: __/__/____</span>
     </div>
-  
     <div id="parteDireita">
       <ul id="itens">
         <li class="item">
@@ -36,6 +36,9 @@
       </div> -->
 </div>
 
+<!-- --------------------------- FIM COMPONENTE RESERVA EM BLOCO ------------------------------ -->
+
+<!-- --------------------------- COMPONENTE RESERVA EM LISTA ------------------------------ -->
 <div *ngIf="lista == 1" class="containerReservaLista">
   <div class="barraLateral"></div>
   <div class="infoReserva">
@@ -64,10 +67,19 @@
       </li>
     </ul>
   </div>
+  <!-- <div id="parteDireita">
+        <ul id="itens">
+          <li class="item" *ngFor="let item of listaItens">
+            <img class="bolaAzul" src="./assets/circulo-azul.png" alt="circulo-azul">
+               {{ item.nome }}
+          </li>
+        </ul>
+      </div> -->
 </div>
+<!-- --------------------------- FIM COMPONENTE RESERVA EM LISTA ------------------------------ -->
 
-<!-- ---------- CANCELAR RESERVA ---------- -->
-
+<!-- --------------------------- MODAL CANCELAR RESERVA ------------------------------ -->
 <div *ngIf="querCancelarReserva" id="ModalCancelarReserva">
   OIII
 </div>
+<!-- --------------------------- FIM MODAL CANCELAR RESERVA ------------------------------ -->
