@@ -15,7 +15,7 @@ import java.util.Set;
 @EqualsAndHashCode
 public class Localizacao {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Integer codigoLocalizacao;
 

@@ -15,7 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode
 public class HistoricoProduto {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Integer id;
 

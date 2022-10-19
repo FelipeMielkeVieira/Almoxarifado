@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ProdutoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/dto/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/dto/ProdutoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Anexo.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Anexo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Classificacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Classificacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/HistoricoProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/HistoricoProduto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Localizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Localizacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/ProdutoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/ProdutoReservaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/ProdutoReservaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Reserva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Sacola.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Sacola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +33,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "C:/Users/kenzo_sato/Documents/GitHub/API-EditoraLivros"
+    "last_opened_file_path": "C:/Users/kenzo_sato/Documents/GitHub/Almoxarifado/Back-End-Maven"
   }
 }]]></component>
   <component name="RunManager">

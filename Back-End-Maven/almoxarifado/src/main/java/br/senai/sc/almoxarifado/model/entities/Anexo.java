@@ -12,7 +12,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 public class Anexo {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Integer id;
 

@@ -15,7 +15,7 @@ import java.util.Set;
 @EqualsAndHashCode
 public class Classificacao {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Integer id;
 
