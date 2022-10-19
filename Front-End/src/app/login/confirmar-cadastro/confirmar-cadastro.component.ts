@@ -26,7 +26,7 @@ export class ConfirmarCadastroComponent implements OnInit {
   confirmarSenha: string = '';
   senhasNaoConferem = false;
 
-  timeoutsAlertas: [any, any, any] = [undefined, undefined, undefined];
+  timeoutsAlertas: [any] = [undefined];
 
   @Output() fecharModal = new EventEmitter<string>();
 
@@ -80,7 +80,7 @@ export class ConfirmarCadastroComponent implements OnInit {
     if (parseInt(numeroFinal) != this.codigoVerificacao) {
       this.codigoVerificacaoIncorreto = true;
 
-      this.timeoutsAlertas[1] = setTimeout(() => {
+      this.timeoutsAlertas[0] = setTimeout(() => {
         this.codigoVerificacaoIncorreto = false;
       }, 5000);
     } else {
@@ -151,46 +151,12 @@ export class ConfirmarCadastroComponent implements OnInit {
     this.fecharModal.emit('Finalizado');
   }
 
-  // Função para abrir os modais de alertas de funções efetuadas, criando um timeout de 5 segundos para desaparecer
-  // Recebe como parâmetro o número / id do modal que deverá ser aberto
-  // Os timeouts são armazenados numa lista
-  abrirModalAlerta(modal: number) {
-    switch (modal) {
-      case 1:
-        this.emailInvalido = true;
-        this.timeoutsAlertas[0] = setTimeout(() => {
-          this.emailInvalido = false;
-        }, 5000);
-        break;
-      case 2:
-        this.codigoVerificacaoIncorreto = true;
-        this.timeoutsAlertas[1] = setTimeout(() => {
-          this.codigoVerificacaoIncorreto = false;
-        }, 5000);
-        break;
-      case 3:
-        this.senhasNaoConferem = true;
-        this.timeoutsAlertas[2] = setTimeout(() => {
-          this.senhasNaoConferem = false;
-        }, 5000);
-        break;
-    }
-  }
-
   // Função para fechar os modais de alerta (alertaFeito)
   fecharModalAlerta(modal: number) {
     switch (modal) {
       case 1:
-        this.emailInvalido = false;
-        clearTimeout(this.timeoutsAlertas[0]);
-        break;
-      case 2:
         this.codigoVerificacaoIncorreto = false;
-        clearTimeout(this.timeoutsAlertas[1]);
-        break;
-      case 3:
-        this.senhasNaoConferem = false;
-        clearTimeout(this.timeoutsAlertas[2]);
+        clearTimeout(this.timeoutsAlertas[0]);
         break;
     }
   }
