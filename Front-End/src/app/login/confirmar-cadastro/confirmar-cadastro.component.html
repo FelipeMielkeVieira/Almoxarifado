@@ -6,15 +6,20 @@
   <div class="modalSenha shadow-lg rounded">
     <img class="sairModal" (click)="fecharComponente()" src="../../../assets/close.png"
       alt="Fechar modal de confirmar cadastro" />
+    
     <div id="modalConteudo">
 
       <h3 class="tituloInserirCodigo">Verificar Email</h3>
 
       <!-- Inserir código (inserir código recebido no email) -->
       <div id="divInsercaoCodigo">
-        <h3 class="inserirCodigoRecebido">
+        <div class="infoModal">
+          <span class="textoVerificarEmail">Olá Usuário, enviamos um código de verificação no email informado. Verifique seu email e informe o código no campo abaixo.</span>
+        </div>
+        <div class="divisaoCadastro"></div>
+        <h4 class="inserirCodigoRecebido">
           Insira o Código
-        </h3>
+        </h4>
         <div class="divInputsCodigo">
           <input id="cod1" class="inputCodigo" (keyup)="trocarCodigoVerificacao(1)" maxlength="1"
             [(ngModel)]="listaCodigoInput[0]" />
@@ -42,7 +47,7 @@
   </div>
 
   <!-- Modal de Código incorreto -->
-  <app-alerta-feito *ngIf="codigoVerificacaoIncorreto" (fecharModal)="fecharModalAlerta(2)" [tipoMensagemModal]="5">
+  <app-alerta-feito *ngIf="codigoVerificacaoIncorreto" (fecharModal)="fecharModalAlerta(1)" [tipoMensagemModal]="5">
   </app-alerta-feito>
-  
+
 </div>

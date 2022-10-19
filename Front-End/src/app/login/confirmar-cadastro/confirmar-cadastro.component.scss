@@ -1,3 +1,9 @@
+hr {
+  padding: 0;
+  height: 1px;
+  color: black;
+}
+
 #fundoModal {
   display: flex;
   justify-content: center;
@@ -12,7 +18,8 @@
 .modalSenha {
   display: flex;
   justify-content: end;
-  width: 26%;
+  width: 30%;
+  min-height: 30%;
   background-color: #ffffff;
   border-radius: 10px;
   border-top: 12px solid #0047b6;
@@ -244,4 +251,22 @@ input:focus {
   color: #be0101;
   font-weight: bold;
   cursor: default;
+}
+
+.infoModal{
+  width: 100%;
+  margin-top: 1%;
+}
+
+.textoVerificarEmail {
+  display: flex;
+  text-align: center;
+  font-size: 16px;
+}
+
+.divisaoCadastro{
+  height: 1px;
+  margin: 4%;
+  width: 50%;
+  background-color: black;
 }

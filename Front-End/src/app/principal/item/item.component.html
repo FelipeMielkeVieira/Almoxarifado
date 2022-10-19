@@ -2,12 +2,12 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <!-- --------------- ITEM EM SI EM BLOCO ---------------- -->
-<div [ngClass]="retornarClassesVisualizacao(1)" (click)="abrirModalReserva()" title="{{item.nome}}">
-  <div class="imagemItem">
+<div [ngClass]="retornarClassesVisualizacao(1)" title="{{item.nome}}">
+  <div class="imagemItem" (click)="abrirModalReserva()">
     <img [ngClass]="retornarClassesVisualizacao(2)"
       src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="Imagem do Produto" />
   </div>
-  <div [ngClass]="retornarClassesVisualizacao(3)">
+  <div [ngClass]="retornarClassesVisualizacao(3)" (click)="abrirModalReserva()">
     <span class="nomeItem">{{ item.nome }}</span>
     <div class="baixoItem">
       <span>{{ retornaTextoDescartavel() }}</span>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="ferramentas">
-    <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
+    <!-- <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
       (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
       edit
     </span>
@@ -28,6 +28,18 @@
     </span>
     <span title="Deletar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
       (click)="removerItem()" id="iconeExcluir">
+      delete
+    </span> -->
+
+    <span title="Editar" class="material-symbols-outlined iconDeselect" (click)="abrirModalEditar()" id="iconeEditar"
+      alt="iconeEditar">
+      edit
+    </span>
+    <span title="Histórico" class="material-symbols-outlined iconDeselect" (click)="abrirHistorico()"
+      id="iconeHistorico">
+      history
+    </span>
+    <span title="Deletar" class="material-symbols-outlined iconDeselect" (click)="removerItem()" id="iconeExcluir">
       delete
     </span>
   </div>
@@ -42,22 +54,9 @@
 <app-modal-feedback *ngIf="feedbackColocadoSacola" [tipoFeedback]="2" (fecharModal)="fecharModaisFeedback(2)">
 </app-modal-feedback>
 
-<!-- ----------------------------- FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
-<div *ngIf="feedback == 2" id="modalFeedback">
-  <div class="divInfo">
-    <span title="Fechar" (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
-      close
-    </span>
-    <span title="Confirmar" class="material-symbols-outlined iconDeselect" id="imgCerto">
-      check_circle
-    </span>
-    <span id="spanTexto">Item editado com sucesso!</span>
-  </div>
-  <div id="fundo" style="background-color: #aeaeae">
-    <div id="azul"></div>
-  </div>
-</div>
-<!-- ----------------------------- FIM FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
+<app-modal-feedback *ngIf="feedbackEditarItem" [tipoFeedback]="3" (fecharModal)="fecharModaisFeedback(3)">
+</app-modal-feedback>
+
 
 <div *ngIf="modalReservar || modalEditar || motivoEdicao || modalConfirmarRemocao || modalAnexos || modalHistorico"
   id="fundoModal">
@@ -67,127 +66,12 @@
   <app-modal-reservar-item *ngIf="modalReservar" [item]="item" (fecharModal)="fecharModaisItem(1, $event)"
     style="width: 100%; display: flex; justify-content: center;"></app-modal-reservar-item>
 
-  <!-- ----------------------------- MODAL EDITAR ITEM ---------------------------- -->
-  <div *ngIf="modalEditar" id="containerModalCadastrar">
-    <hr class="riscoAzul" />
-    <div id="containerIcons">
-      <span title="Fechar" (click)="fecharModalCadastrar()" class="material-symbols-outlined iconDeselect"
-        id="iconFechar">
-        close
-      </span>
-    </div>
-    <div class="principal">
-      <div class="containerModalCadastrar">
-        <div class="divImg">
-          <button class="selecionarImg">
-            Selecionar Imagem
-            <div class="asterisco">*</div>
-          </button>
-        </div>
-        <div class="nomeProduto">
-          <div class="texto">
-            <span>Nome Produto:</span>
-            <div class="asterisco">*</div>
-          </div>
-          <div class="containerInput">
-            <input class="inputsCadastro" type="text" placeholder="Nome produto" />
-          </div>
-        </div>
-        <div class="classificacao">
-          <div class="texto">
-            <span>Classificação:</span>
-            <div class="asterisco">*</div>
-          </div>
-          <select class="inputsCadastro" name="">
-            <option *ngFor="let classificacao of listaClassificacao" value="">
-              {{ classificacao.nome }}
-            </option>
-          </select>
-        </div>
-        <div class="descricao">
-          <div class="texto">
-            <span>Descrição: </span>
-            <div class="asterisco">*</div>
-          </div>
-          <textarea class="inputDescricao" placeholder="Descrição"></textarea>
-        </div>
-        <div class="localizacao">
-          <div class="texto">
-            <span>Localização: </span>
-            <div class="asterisco">*</div>
-          </div>
-          <div class="containerLocalizacao">
-            <select id="localizacaoProduto">
-              <option value="paredeCentro">xx</option>
-              <option value="armario" selected>xx</option>
-              <option value="porta">xx</option>
-            </select>
-            <select id="localizacaoProduto">
-              <option value="paredeCentro">xx</option>
-              <option value="armario" selected>xx</option>
-              <option value="porta">xx</option>
-            </select>
-            <select id="localizacaoProduto">
-              <option value="paredeCentro">xx</option>
-              <option value="armario" selected>xx</option>
-              <option value="porta">xx</option>
-            </select>
-          </div>
-        </div>
-        <div class="opcao">
-          <div class="texto">
-            <span>Opção: </span>
-            <div class="asterisco">*</div>
-          </div>
-          <select id="selecionarDescartavel">
-            <option value="paredeCentro" selected>Descartável</option>
-            <option value="armario">Não Descartável</option>
-          </select>
-          <div class="texto">
-            <span>QTD: </span>
-            <div class="asterisco">*</div>
-          </div>
-          <input class="inputQtd" type="text" placeholder="xx" />
-        </div>
-        <div class="anexo">
-          <input type="text" placeholder="Adicionar Anexo" class="inputAnexo" />
-          <label for="arquivo"> </label>
-          <input type="file" name="arquivo" id="arquivo" />
-        </div>
-        <button (click)="editarItem()" class="botaoCadastrar">Editar</button>
-      </div>
-    </div>
-  </div>
+  <!-- Modal Editar Item -->
+  <app-modal-editar-item *ngIf="modalEditar" [item]="item" (fecharModal)="fecharModaisItem(3, $event)">
+  </app-modal-editar-item>
 
-
-  <!-- ----------------------------- MODAL MOTIVO EDIÇÃO QUANTIDADE ITENS ---------------------------- -->
-  <div *ngIf="motivoEdicao" id="fundoModal">
-    <div id="containerConteudoModalMotivo">
-      <div class="topoModalMotivo">
-        <hr class="riscoAzul" />
-        <div id="containerIcons">
-          <span title="Fechar" (click)="fecharModalMotivo()" class="material-symbols-outlined iconDeselect"
-            id="iconFechar">
-            close
-          </span>
-        </div>
-      </div>
-      <div class="principal">
-        <div class="containerModalMotivo">
-          <div class="texto">
-            <span>Motivo da edição da quantidade:</span>
-            <div class="asterisco">*</div>
-          </div>
-          <textarea class="inputDescricaoMotivo" placeholder="Motivo"></textarea>
-          <div class="containerBotaoEditarItem">
-            <button (click)="editarQuantidade()" class="botaoEditarItem">
-              Editar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Modal Motivo Edição de Quantidade -->
+  <app-modal-motivo-edicao *ngIf="motivoEdicao"></app-modal-motivo-edicao>
 
 
   <!-- ----------------------------- MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
@@ -210,8 +94,8 @@
   </div>
 
 
-  <!-- ----------------------------- MODAL VER ANEXOS ---------------------------- -->
-  <app-anexos-item *ngIf="modalAnexos" [item]="item"></app-anexos-item>
+  <!-- Modal Ver Anexos -->
+  <app-anexos-item *ngIf="modalAnexos" [item]="item" (fecharModal)="fecharModaisItem(2, undefined)"></app-anexos-item>
 
 
   <!-- ----------------------------- MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->

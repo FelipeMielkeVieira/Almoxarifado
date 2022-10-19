@@ -35,6 +35,7 @@ export class ItemComponent implements OnInit {
 
   feedbackReservaFeita = false;
   feedbackColocadoSacola = false;
+  feedbackEditarItem = false;
 
   // Return das classes para visualização do item
   // Número - número definido do elemento HTML
@@ -218,6 +219,22 @@ export class ItemComponent implements OnInit {
             this.feedbackColocadoSacola = false;
           }, 4000);
         }
+        if(event == "anexos") {
+          this.modalAnexos = true;
+        }
+        break;
+      case 2:
+        this.modalAnexos = false;
+        this.modalReservar = true;
+        break;
+      case 3:
+        this.modalEditar = false;
+        if(event == "editar") {
+          this.feedbackEditarItem = true;
+          setTimeout(() => {
+            this.feedbackEditarItem = false;
+          }, 4000);
+        }
         break;
     }
   }
@@ -231,6 +248,14 @@ export class ItemComponent implements OnInit {
       case 2:
         this.feedbackColocadoSacola = false;
         break;
+      case 3:
+        this.feedbackEditarItem = false;
+        break;
     }
+  }
+
+  // Função para abrir e fechar o modal de anexos
+  verAnexos() {
+    this.modalAnexos = !this.modalAnexos;
   }
 }

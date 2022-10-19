@@ -11,6 +11,12 @@ export class MinhaSacolaComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private service: UsersService) { }
 
+// <!-- ------------------------------- GERAL ----------------------------------- -->
+  usuario: number;
+  sacola;
+  produtosSacola = [];
+  dataSacola;
+
   ngOnInit() {
     this.usuario = parseInt(localStorage.getItem('reserva'));
     if(this.usuario != 1) {
@@ -22,17 +28,26 @@ export class MinhaSacolaComponent implements OnInit {
     }
     this.dataSacola = new Date(this.sacola.data_devolucao);
   }
+  // <!-- ------------------------------- FIM GERAL ----------------------------------- -->
 
+  // <!-- ------------------------------- COMPONENTES ----------------------------------- -->
+  calendarioAberto1: number = 0;
+  calendarioAberto2: number = 0;
+
+  salvarData(evento, numero) {
+    if(numero == 1) {
+      this.calendarioAberto1 = 0;
+      this.sacola.data_retirada = evento;
+    } else {
+      this.calendarioAberto2 = 0;
+      this.sacola.data_devolucao = evento;
+    }
+  }
+  // <!-- ------------------------------- FIM COMPONENTES ----------------------------------- -->
+
+  // <!-- ------------------------------- CONTEÚDO MINHA-SACOLA ------------------------------- -->
   dataAtual = new Date();
-  dataSacola;
-  produtosSacola = [];
-  sacola;
   professorReserva = "";
-  calendarioAberto1 = 0;
-  calendarioAberto2 = 0;
-
-  usuario: number;
-  listaProfessores = this.buscarProfessores();
 
   home() {
     if(localStorage.getItem('usuario') == '1') {
@@ -54,31 +69,6 @@ export class MinhaSacolaComponent implements OnInit {
     }
   }
 
-  reservar() {
-    if(this.professorReserva != "") {
-      if(localStorage.getItem('usuario') == '1') {
-        this.router.navigate(['/professor/sacolas']);
-      } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
-        this.router.navigate(['/atendente/sacolas']);
-      } else {
-        this.router.navigate(['/supervisor/sacolas'])
-      }
-    }
-    //Colocar modal de verificação
-    //Fazer a reserva
-  }
-
-  excluir() {
-    if(localStorage.getItem('usuario') == '1') {
-      this.router.navigate(['/professor/sacolas']);
-    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
-      this.router.navigate(['/atendente/sacolas']);
-    } else {
-      this.router.navigate(['/supervisor/sacolas'])
-    }
-    //Colocar modal de verificação
-  }
-
   minhasReservas() {
     if(localStorage.getItem('usuario') == '1') {
       this.router.navigate(['/professor/reservas']);
@@ -87,12 +77,6 @@ export class MinhaSacolaComponent implements OnInit {
     } else {
       this.router.navigate(['/professor/reservas'])
     }
-  }
-
-  buscarProfessores() {
-    return [{ id: 1, nome: "Professor 1" }, { id: 2, nome: "Professor 2" },
-    { id: 3, nome: "Professor 3" }, { id: 4, nome: "Professor 4" },
-    { id: 5, nome: "Professor 5" }];
   }
 
   qtdProduto(tipo, index) {
@@ -127,22 +111,37 @@ export class MinhaSacolaComponent implements OnInit {
     }
   }
 
-  salvarData(evento, numero) {
-    if(numero == 1) {
-      this.calendarioAberto1 = 0;
-      this.sacola.data_retirada = evento;
-    } else {
-      this.calendarioAberto2 = 0;
-      this.sacola.data_devolucao = evento;
-    }
-  }
-
   formatarData(data: string) {
     return new Date(data).toLocaleString();
   }
 
   cancelarReserva() {
-    
   }
 
+  excluir() {
+    if(localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor/sacolas']);
+    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+      this.router.navigate(['/atendente/sacolas']);
+    } else {
+      this.router.navigate(['/supervisor/sacolas'])
+    }
+    //Colocar modal de verificação
+  }
+
+  reservar() {
+    if(this.professorReserva != "") {
+      if(localStorage.getItem('usuario') == '1') {
+        this.router.navigate(['/professor/sacolas']);
+      } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+        this.router.navigate(['/atendente/sacolas']);
+      } else {
+        this.router.navigate(['/supervisor/sacolas'])
+      }
+    }
+    //Colocar modal de verificação
+    //Fazer a reserva
+  }
+
+  // <!-- ------------------------------- FIM CONTEÚDO MINHA-SACOLA ------------------------------- -->
 }

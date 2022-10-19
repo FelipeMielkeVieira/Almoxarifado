@@ -1,120 +1,121 @@
 <div id="modalItem">
-    <hr class="riscoAzul" />
-    <div class="containerModal">
-      <div class="fechar">
-        <span title="Fechar" (click)="fecharModalReserva('fechar')" class="material-symbols-outlined iconDeselect" id="fecharIcone">
-          close
-        </span>
+  <hr class="riscoAzul" />
+  <div class="containerModal">
+    <div class="fechar">
+      <span title="Fechar" (click)="fecharModalReserva('fechar')" class="material-symbols-outlined iconDeselect"
+        id="fecharIcone">
+        close
+      </span>
+    </div>
+    <div class="produtoInfo">
+      <div class="containerImg">
+        <img class="imgProdModal" src="../../../assets/Rele.png" alt="Imagem do Produto no Modal" />
       </div>
-      <div class="produtoInfo">
-        <div class="containerImg">
-          <img class="imgProdModal" src="../../../assets/Rele.png" alt="Imagem do Produto no Modal" />
-        </div>
-        <div class="nomeTipoProd">
-          <h2 class="tituloAzul">{{ item.nome }}</h2>
-          <h4 class="tituloAzul">{{ retornaTextoDescartavel() }}</h4>
-        </div>
+      <div class="nomeTipoProd">
+        <h2 class="tituloAzul">{{ item.nome }}</h2>
+        <h4 class="tituloAzul">{{ retornaTextoDescartavel() }}</h4>
       </div>
-      <div class="containerClassQtd">
-        <p>
-          <span class="subtituloModal">Classificação: </span>
-          {{ buscarClassificacao(item.classificacao) }}
-        </p>
-        <div class="quantidadeModal">
-          <div class="containerQuantidadeInput">
-            <div class="texto">
-              <p class="subtituloModal">QTD:</p>
-              <div class="asterisco">*</div>
-            </div>
-            <div id="containerQtd">
-              <span title="Remover" class="material-symbols-outlined iconDeselect" id="menosQtdIcon"
-                (click)="mudarQtd(2)">
-                remove
-              </span>
-              <input *ngIf="item.quantidade > 0" id="inputQtd" [(ngModel)]="qtdItem" />
-              <div class="divQtdInvalida" *ngIf="item.quantidade < 1">0</div>
-              <span title="Adicionar" class="material-symbols-outlined iconDeselect" id="maisQtdIcon"
-                (click)="mudarQtd(1)">
-                add
-              </span>
-            </div>
-          </div>
-          <b>
-            <p *ngIf="item.quantidade > 0" class="qtdMax">
-              Máx: {{ item.quantidade }}
-            </p>
-          </b>
-          <p *ngIf="item.quantidade < 1" class="qtdMax">Item Indisponível</p>
-        </div>
-      </div>
-      <div class="containerDatas">
-        <div class="linhaData">
+    </div>
+    <div class="containerClassQtd">
+      <p>
+        <span class="subtituloModal">Classificação: </span>
+        {{ buscarClassificacao(item.classificacao) }}
+      </p>
+      <div class="quantidadeModal">
+        <div class="containerQuantidadeInput">
           <div class="texto">
-            <p class="subtituloModal">Retirada:</p>
+            <p class="subtituloModal">QTD:</p>
             <div class="asterisco">*</div>
           </div>
-          <div class="containerInputData">
-            <div class="containerDataText">
-              <p class="dataText">
-                {{ formatarData(dataRetirada) }}
-              </p>
-            </div>
-            <div class="containerIconData">
-              <span title="Calendário" class="material-symbols-outlined iconDeselect" alt="Calendário" id="iconModal2"
-                (click)="abrirCalendario(1)">
-                calendar_month
-              </span>
-            </div>
+          <div id="containerQtd">
+            <span title="Remover" class="material-symbols-outlined iconDeselect" id="menosQtdIcon"
+              (click)="mudarQtd(2)">
+              remove
+            </span>
+            <input *ngIf="item.quantidade > 0" id="inputQtd" [(ngModel)]="qtdItem" />
+            <div class="divQtdInvalida" *ngIf="item.quantidade < 1">0</div>
+            <span title="Adicionar" class="material-symbols-outlined iconDeselect" id="maisQtdIcon"
+              (click)="mudarQtd(1)">
+              add
+            </span>
           </div>
         </div>
-        <div class="linhaData">
-          <div class="texto">
-            <p class="subtituloModal">Devolução:</p>
-            <div class="asterisco">*</div>
-          </div>
-          <div class="containerInputData">
-            <div class="containerDataText">
-              <p class="dataText">
-                {{ formatarData(dataDevolucao) }}
-              </p>
-            </div>
-            <div class="containerIconData">
-              <span title="Calendário" class="material-symbols-outlined iconDeselect" alt="Calendário" id="iconModal2"
-                (click)="abrirCalendario(2)">
-                calendar_month
-              </span>
-            </div>
-          </div>
-        </div>
+        <b>
+          <p *ngIf="item.quantidade > 0" class="qtdMax">
+            Máx: {{ item.quantidade }}
+          </p>
+        </b>
+        <p *ngIf="item.quantidade < 1" class="qtdMax">Item Indisponível</p>
       </div>
-      <div *ngIf="retornarUsuarioGerencia()" id="adicionarProfessor">
+    </div>
+    <div class="containerDatas">
+      <div class="linhaData">
         <div class="texto">
-          <p class="subtituloModal">Professor:</p>
+          <p class="subtituloModal">Retirada:</p>
           <div class="asterisco">*</div>
         </div>
         <div class="containerInputData">
-          <input type="text" id="professores" placeholder="Digite o nome" />
+          <div class="containerDataText">
+            <p class="dataText">
+              {{ formatarData(dataRetirada) }}
+            </p>
+          </div>
+          <div class="containerIconData">
+            <span title="Calendário" class="material-symbols-outlined iconDeselect" alt="Calendário" id="iconModal2"
+              (click)="abrirCalendario(1)">
+              calendar_month
+            </span>
+          </div>
         </div>
       </div>
-      <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>
-      <div class="containerAcoes">
-        <button *ngIf="item.quantidade > 0" class="btnModal" (click)="reservar()">
-          Reservar Agora
-        </button>
-        <button *ngIf="item.quantidade <= 0" class="btnModal2" (click)="reservar()">
-          Reservar Agora
-        </button>
-        <span title="Adicionar Anexo" (click)="verAnexos()" id="iconModal"
-          class="material-symbols-outlined iconDeselect" title="Adicionar anexo">
-          file_present
-        </span>
-        <span title="Sacola" class="material-symbols-outlined iconDeselect" alt="Adicionar à sacola" id="iconModal"
-          title="Adicionar à sacola" (click)="adicionarSacola()">
-          shopping_bag
-        </span>
+      <div class="linhaData">
+        <div class="texto">
+          <p class="subtituloModal">Devolução:</p>
+          <div class="asterisco">*</div>
+        </div>
+        <div class="containerInputData">
+          <div class="containerDataText">
+            <p class="dataText">
+              {{ formatarData(dataDevolucao) }}
+            </p>
+          </div>
+          <div class="containerIconData">
+            <span title="Calendário" class="material-symbols-outlined iconDeselect" alt="Calendário" id="iconModal2"
+              (click)="abrirCalendario(2)">
+              calendar_month
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- <app-calendario
+    <div *ngIf="retornarUsuarioGerencia()" id="adicionarProfessor">
+      <div class="texto">
+        <p class="subtituloModal">Professor:</p>
+        <div class="asterisco">*</div>
+      </div>
+      <div class="containerInputData">
+        <input type="text" id="professores" placeholder="Digite o nome" />
+      </div>
+    </div>
+    <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>
+    <div class="containerAcoes">
+      <button *ngIf="item.quantidade > 0" class="btnModal" (click)="reservar()">
+        Reservar Agora
+      </button>
+      <button *ngIf="item.quantidade <= 0" class="btnModal2" (click)="reservar()">
+        Reservar Agora
+      </button>
+      <span title="Adicionar Anexo" (click)="verAnexos()" id="iconModal" class="material-symbols-outlined iconDeselect"
+        title="Adicionar anexo">
+        file_present
+      </span>
+      <span title="Sacola" class="material-symbols-outlined iconDeselect" alt="Adicionar à sacola" id="iconModal"
+        title="Adicionar à sacola" (click)="adicionarSacola()">
+        shopping_bag
+      </span>
+    </div>
+  </div>
+  <!-- <app-calendario
         *ngIf="calendarioAberto1 == 1"
         (salvarData)="salvarData(1, $event)"
       ></app-calendario>
@@ -122,4 +123,4 @@
         *ngIf="calendarioAberto2 == 1"
         (salvarData)="salvarData2(2, $event)"
       ></app-calendario> -->
-  </div>
+</div>
