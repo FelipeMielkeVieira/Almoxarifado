@@ -1,21 +1,23 @@
 package br.senai.sc.almoxarifado.model.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
+@AllArgsConstructor
+@EqualsAndHashCode
 @Getter
 @Setter
-@EqualsAndHashCode
+@ToString
 public class SacolaProdutoKey implements Serializable {
     @Column(name = "sacola_id")
-    Integer sacolaId;
+    Long sacolaId;
 
     @Column(name = "produto_id")
     Integer produtoId;
+
+    public SacolaProdutoKey() {}
 }
