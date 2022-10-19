@@ -17,8 +17,8 @@ import java.util.Set;
 public class Sacola {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
-    private Long id;
+    @Column(nullable = false, unique = true)
+    private Long sacolaId;
 
     @Column(nullable = false)
     private Date data_retirada;

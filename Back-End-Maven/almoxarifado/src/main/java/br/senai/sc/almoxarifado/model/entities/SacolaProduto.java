@@ -14,6 +14,11 @@ import javax.persistence.*;
 @EqualsAndHashCode
 public class SacolaProduto {
     // Foreign keys
+
+//    @EmbeddedId
+//    public SacolaProdutoKey getId() {
+//        return id;
+//    }
     @EmbeddedId
     SacolaProdutoKey id;
 
@@ -30,5 +35,5 @@ public class SacolaProduto {
     // Attribute
 
     @Column(nullable = false)
-    private Integer qtd_produto;
+    private Long qtd_produto;
 }

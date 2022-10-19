@@ -17,7 +17,7 @@ import java.util.Set;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private Integer id;
 
     @Column(nullable = false)
@@ -44,18 +44,18 @@ public class Produto {
     @ManyToMany
     @JoinTable(
             name = "produto_localizacao",
-            joinColumns = @JoinColumn(name = "produto_id"),
-            inverseJoinColumns = @JoinColumn(name = "localizacao_id"))
+            joinColumns = @JoinColumn(name = "produto_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "localizacao_id", nullable = false))
     private Set<Localizacao> localizacoes;
 
     @ManyToMany
     @JoinTable(
             name = "produto_anexo",
-            joinColumns = @JoinColumn(name = "produto_id"),
-            inverseJoinColumns = @JoinColumn(name = "anexo_id"))
+            joinColumns = @JoinColumn(name = "produto_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "anexo_id", nullable = false))
     private Set<Anexo> anexos;
 
     @OneToMany(mappedBy = "produto")
-    Set<SacolaProduto> sacolas_produto;
+    Set<SacolaProduto> produtos_sacola;
 
 }
