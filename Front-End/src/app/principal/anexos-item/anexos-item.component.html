@@ -1,0 +1,33 @@
+<div class="containerModalAnexos">
+    <div class="linhaAzul"></div>
+    <div class="containerFechar">
+        <span title="Fechar" (click)="fecharModalAnexos()" class="material-symbols-outlined iconDeselect"
+            id="iconeFechar">
+            close
+        </span>
+    </div>
+    <div class="containerInfoModal">
+        <span class="textoDescricao">Descrição:</span>
+        <div class="campoDescricao">
+            <span class="descricaoItem">
+                {{ item.descricao }}
+            </span>
+        </div>
+    </div>
+    <div class="riscoDivisao"></div>
+    <span class="textoDescricao">Anexos:</span>
+    <div class="parteAnexos">
+        <div class="containerAnexos">
+            <span title="Anexo" class="material-symbols-outlined iconDeselect" id="iconeAnexo">
+                folder_open
+            </span>
+            <a href=""><span>Arquivo 01</span></a>
+        </div>
+        <div class="containerAnexos">
+            <span title="Anexo" class="material-symbols-outlined iconDeselect" id="iconeAnexo">
+                folder_open
+            </span>
+            <a href=""><span>Arquivo 02</span></a>
+        </div>
+    </div>
+</div>

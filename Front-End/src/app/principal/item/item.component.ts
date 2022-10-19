@@ -192,25 +192,6 @@ export class ItemComponent implements OnInit {
   }
   // <!-- ----------------------------- FIM MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
 
-  // <!-- ----------------------------- FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
-  // feedback: number = 0;
-
-  // fechar() {
-  //   this.feedback = 0;
-  //   this.aparecer2 = false;
-  // }
-  // <!-- ----------------------------- FIM FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
-
-  // <!-- ----------------------------- MODAL VER ANEXOS ---------------------------- -->
-  // aparecer4: boolean = false;
-  // modalAnexos: number = 0;
-  // @Input() item;
-
-  fecharModalAnexos() {
-    this.modalAnexos = false;
-  }
-  // <!-- ----------------------------- FIM MODAL VER ANEXOS ---------------------------- -->
-
   // <!-- ----------------------------- MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
   // aparecer5: boolean = false;
   // modalHistorico: number = 0;
