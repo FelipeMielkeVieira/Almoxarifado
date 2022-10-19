@@ -18,46 +18,64 @@ p:hover {
     color: #0047B6;
 }
 
-/* <!-- ------------------------------- CONTEÚDO MINHA-SACOLA ------------------------------- -->
+/* <!-- ------------------------------- CONTEÚDO MINHA-SACOLA ------------------------------- -->*/
+#caminho {
+    display: flex;
+    align-items: center;
+    margin-top: 1.2rem;
+    margin-left: 5.5rem;
+}
 
+#iconHome {
+    cursor: pointer;
+}
 
+#iconHome:hover {
+    color: #0047B6;
+}
 
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
+#iconMaior {
+    margin-top: .25rem;
+    cursor: default;
+}
 
+.tituloSacola {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 1px;
+    margin-top: 3%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* <!-- ------------------------------- FIM CONTEÚDO MINHA-SACOLA ------------------------------- -->*/ */
+.titulos {
+    font-size: var(--font-size--extreme);
+    color: #0047B6;
+}
 
 .divMain {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+}
+
+.divProdutos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    height: 28.125rem;
+    overflow: auto;
 }
 
 .containerItem {
@@ -74,10 +92,23 @@ p:hover {
     margin: 10px;
 }
 
+.containerCheckbox {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
 #checkbox {
     width: 3rem;
     height: 2rem;
     cursor: pointer;
+}
+
+.parteItem {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
 }
 
 .divImg {
@@ -103,6 +134,13 @@ p:hover {
     height: 80%;
 }
 
+.nomeProduto {
+    margin-left: 5%;
+    font-size: var(--font-size--default);
+    overflow: visible;
+    display: inline;
+}
+
 .quantidade {
     margin: 5%;
     display: flex;
@@ -123,28 +161,42 @@ p:hover {
     align-items: center;
 }
 
-#iconHome {
+#menosQtdIcon,
+#maisQtdIcon {
+    font-size: var(--font-size--medium);
+    padding: 7% 7%;
     cursor: pointer;
 }
 
-#iconHome:hover {
-    color: #0047B6;
+#menosQtdIcon {
+    border-right: 1px solid black;
 }
 
-#iconMaior {
-    margin-top: .25rem;
-    cursor: default;
+#maisQtdIcon {
+    border-left: 1px solid black;
 }
 
-.iconDeselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.textoQtd {
+    width: 40%;
+    text-align: center;
 }
 
+.divImagemQtd2 {
+    width: 30%;
+    height: 80%;
+    border-left: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parteDireita {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-width: 30%;
+}
 
 #iconeLixeira{
     font-size: var(--font-size--giant);
@@ -167,73 +219,17 @@ p:hover {
     }
 }
 
-.calendario {
-    cursor: pointer;
-}
-
-.calendario:hover {
-    color: #0047B6;
-}
-
-#menosQtdIcon,
-#maisQtdIcon {
-    font-size: var(--font-size--medium);
-    padding: 7% 7%;
-    cursor: pointer;
-}
-
-#menosQtdIcon {
-    border-right: 1px solid black;
-}
-
-#maisQtdIcon {
-    border-left: 1px solid black;
-}
-
-.divImagemQtd2 {
-    width: 30%;
-    height: 80%;
-    border-left: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.iconeQtd {
-    width: 0.8em;
-    height: 0.8rem;
-    cursor: pointer;
-}
-
-.textoQtd {
-    width: 40%;
-    text-align: center;
-}
-
-.parteDireita {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    min-width: 30%;
-}
-
-.iconeLixeira {
-    width: 2.3rem;
-    height: 2rem;
-    cursor: pointer;
-    float: right;
-}
-
 .descartavel {
     font-size: var(--font-size--small);
     color: rgba(0, 0, 0, 0.6);
     text-align: end;
 }
 
-.titulos {
-    font-size: var(--font-size--extreme);
-    color: #0047B6;
+.divResumo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }
 
 .containerResumo {
@@ -255,37 +251,38 @@ p:hover {
     margin: 5%;
 }
 
+.texto {
+    display: flex;
+}
+
+.tituloData {
+    font-size: var(--font-size--big);
+}
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
 .containerData {
     width: 20rem;
     height: 13%;
     border: solid 0.5px black;
     border-radius: 5px;
-}
-
-.botaoReservar {
-    width: 40%;
-    height: 2.8rem;
-    color: #ffff;
-    font-family: 'Inter', sans-serif;
-    font-size: var(--font-size--medium);
-    background-color: #0047B6;
-    border-radius: 5px;
-    border: none;
-    margin: 10px;
-    cursor: pointer;
-}
-
-.imgCalendario {
-    width: 13%;
-    cursor: pointer;
-}
-
-.containerData {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     margin: 4%;
+}
+
+.calendario {
+    cursor: pointer;
+}
+
+.calendario:hover {
+    color: #0047B6;
 }
 
 .divisaoData {
@@ -301,67 +298,10 @@ p:hover {
     color: black;
 }
 
-#adicionarProfessor {
-    width: 20rem;
-    height: 8%;
-    margin-top: 3%;
-    margin-bottom: 2%;
-    border: solid 0.5px black;
-    border-radius: 5px;
-}
-
-#professores {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: inherit;
-    outline: none;
-}
-
-.tituloData {
-    font-size: var(--font-size--big);
-}
-
-.divProdutos {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 40%;
-    height: 28.125rem;
-    overflow: auto;
-}
-
-.divResumo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-}
-
-.tituloSacola {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 1px;
-    margin-top: 3%;
-}
-
-#casa {
-    width: 22px;
-    cursor: pointer;
-}
-
-#maior {
-    padding: 0 2px;
-    width: 18px;
-}
-
-#caminho {
-    display: flex;
-    align-items: center;
-    margin-top: 1.2rem;
-    margin-left: 5.5rem;
+.inputProfessor {
+    padding: 5px;
+    font-size: var(--font-size--default);
+    margin: 5px;
 }
 
 .divBotoes{
@@ -371,42 +311,20 @@ p:hover {
     width: 30rem;
 }
 
-.containerCheckbox {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-}
-
-.parteItem {
-    display: flex;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-}
-
-.nomeProduto {
-    margin-left: 5%;
-    font-size: var(--font-size--default);
-    overflow: visible;
-    display: inline;
-}
-
-.inputProfessor {
-    padding: 5px;
-    font-size: var(--font-size--default);
-    margin: 5px;
+.botaoReservar {
+    width: 40%;
+    height: 2.8rem;
+    color: #ffff;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size--medium);
+    background-color: #0047B6;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .botaoCancelarReserva {
     background-color: #d10303d8;
 }
-
-.asterisco {
-    color: #be0101;
-    font-weight: bold;
-    cursor: default;
-}
-
-.texto {
-    display: flex;
-}
+/* <!-- ------------------------------- FIM CONTEÚDO MINHA-SACOLA ------------------------------- -->*/
