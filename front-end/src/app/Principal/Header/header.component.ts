@@ -66,11 +66,7 @@ export class HeaderComponent implements OnInit {
 
   // *Irá abrir o modal do user
   abrirUser() {
-    if (!this.modalUser) {
-      this.modalUser = true;
-    } else {
-      this.modalUser = false;
-    }
+    this.modalUser = !this.modalUser;
   }
 
   fecharModalUser() {

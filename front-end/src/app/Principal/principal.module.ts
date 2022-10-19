@@ -12,6 +12,7 @@ import { ModalOrdernar } from './modal-ordenar/modal-ordenar.component';
 import { ItemComponent } from './item/item.component';
 import { ModalReservarItem } from './modal-reservar-item/modal-reservar-item.component';
 import { ModalFeedback } from './modal-feedback/modal-feedback.component';
+import { AnexosItemComponent } from './anexos-item/anexos-item.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ModalFeedback } from './modal-feedback/modal-feedback.component';
     ModalOrdernar,
     ItemComponent,
     ModalReservarItem,
-    ModalFeedback
+    ModalFeedback,
+    AnexosItemComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { ModalFeedback } from './modal-feedback/modal-feedback.component';
     ModalOrdernar,
     ItemComponent,
     ModalReservarItem,
-    ModalFeedback
+    ModalFeedback,
+    AnexosItemComponent
   ]
 })
 export class PrincipalModule { }
