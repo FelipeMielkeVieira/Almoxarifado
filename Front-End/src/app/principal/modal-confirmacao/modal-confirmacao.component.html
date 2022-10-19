@@ -1,0 +1,13 @@
+<div class="containerModalExcluir">
+    <div class="linhaAzul"></div>
+    <span title="Alerta" class="material-symbols-outlined iconDeselect" id="iconeAlert">
+        error
+    </span>
+    <div class="containerInfoModal">
+        <span class="textoModal">{{retornaTextoConfirmacao()}}</span>
+    </div>
+    <div class="containerBotoes">
+        <button (click)="fecharModalConfirmacao(false)" class="botaoCancelar">Cancelar</button>
+        <button (click)="fecharModalConfirmacao(true)" class="botaoRecusar">Confirmar</button>
+    </div>
+</div>

@@ -24,10 +24,14 @@
 
                 <!-- Troca de visualização lista / bloco e ícone de ordenação -->
                 <div id="iconListaBloco">
+
+                    <!-- Ícone de ordenação -->
                     <span (click)="mudarModalOrdenar()" id="iconOrdernar" class="material-symbols-outlined iconDeselect iconsModais"
                         title="Ordernar">
                         sync_alt
                     </span>
+
+                    <!-- Ícones de visualização -->
                     <span *ngIf="listaEmBloco" (click)="trocarVisualizacaoItem()" id="emBloco"
                         class="material-symbols-outlined iconDeselect" title="Ver em bloco">
                         grid_view
@@ -45,7 +49,7 @@
                         filter_alt
                     </span>
 
-                    <!-- ---------- MODAL FILTRAR ---------- -->
+                    <!-- Modal Filtrar -->
                     <app-modal-filtragem-itens *ngIf="modalFiltrar" [filtrosAtuais]="listaFiltros"
                         (acaoFiltrar)="filtrarItens($event)" (fecharModal)="fecharModalFiltro($event)">
                     </app-modal-filtragem-itens>

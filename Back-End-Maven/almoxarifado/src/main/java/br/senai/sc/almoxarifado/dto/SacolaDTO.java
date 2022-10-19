@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class SacolaDTO {
-    private Long id;
+    private Long sacolaId;
     private Date data_retirada;
     private Date data_devolucao;
     private Usuario usuario;

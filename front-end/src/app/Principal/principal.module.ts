@@ -15,6 +15,8 @@ import { ModalFeedback } from './modal-feedback/modal-feedback.component';
 import { AnexosItemComponent } from './anexos-item/anexos-item.component';
 import { ModalEditarItem } from './modal-editar-item/modal-editar-item.component';
 import { ModalMotivoEdicaoComponent } from './modal-motivo-edicao/modal-motivo-edicao.component';
+import { ModalConfirmacaoComponent } from './modal-confirmacao/modal-confirmacao.component';
+import { ModalHistoricoEdicaoComponent } from './modal-historico-edicao/modal-historico-edicao.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ModalMotivoEdicaoComponent } from './modal-motivo-edicao/modal-motivo-e
     ModalFeedback,
     AnexosItemComponent,
     ModalEditarItem,
-    ModalMotivoEdicaoComponent
+    ModalMotivoEdicaoComponent,
+    ModalConfirmacaoComponent,
+    ModalHistoricoEdicaoComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +54,9 @@ import { ModalMotivoEdicaoComponent } from './modal-motivo-edicao/modal-motivo-e
     ModalFeedback,
     AnexosItemComponent,
     ModalEditarItem,
-    ModalMotivoEdicaoComponent
+    ModalMotivoEdicaoComponent,
+    ModalConfirmacaoComponent,
+    ModalHistoricoEdicaoComponent
   ]
 })
 export class PrincipalModule { }

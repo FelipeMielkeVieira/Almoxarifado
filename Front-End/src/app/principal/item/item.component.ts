@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { UsersService } from 'src/app/service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -8,8 +7,7 @@ import { UsersService } from 'src/app/service';
 })
 export class ItemComponent implements OnInit {
 
-  constructor(private service: UsersService) {
-    this.listaItens2 = service.itens;
+  constructor() {
     this.tipoUser = parseInt(localStorage.getItem("usuario") || "");
   }
 
@@ -29,13 +27,14 @@ export class ItemComponent implements OnInit {
   modalEditar: boolean = false;
   modalConfirmarRemocao: boolean = false;
 
-  modalConfirmacao: number = 0;
   modalAnexos: boolean = false;
   modalHistorico: boolean = false;
+  modalMotivoEdicao: boolean = false;
 
   feedbackReservaFeita = false;
   feedbackColocadoSacola = false;
   feedbackEditarItem = false;
+  feedbackRemoverItem = false;
 
   // Return das classes para visualização do item
   // Número - número definido do elemento HTML
@@ -83,124 +82,24 @@ export class ItemComponent implements OnInit {
     this.modalReservar = true;
   }
 
+  // Função para abrir o modal de edição do item
   abrirModalEditar() {
     this.modalEditar = true;
   }
 
+  // Função para abrir o modal de histórico do item
   abrirHistorico() {
     this.modalHistorico = true;
   }
 
+  // Função para abrir e fechar o modal de anexos
+  verAnexos() {
+    this.modalAnexos = !this.modalAnexos;
+  }
+
   removerItem() {
     this.modalConfirmarRemocao = true;
-    this.modalConfirmacao = 1;
   }
-  // <!-- --------------- FIM ITEM EM SI EM BLOCO  ---------------- -->
-
-  // <!-- ----------------------------- FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
-  // aparecer2: boolean = false;
-  // <!-- ----------------------------- fim FEEDBACK ITEM RESERVADO COM SUCESSO ---------------------------- -->
-
-  // <!-- ----------------------------- FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
-  // feedback: number = 0;
-  // aparecer2: boolean = false;
-
-  // fechar() {
-  //   this.feedback = 0;
-  //   this.aparecer2 = false;
-  // }
-  // <!-- ----------------------------- FIM FEEDBACK ITEM EDITADO COM SUCESSO ---------------------------- -->
-
-
-  // <!-- ----------------------------- MODAL EDITAR ITEM ---------------------------- -->
-  // aparecer: boolean = false;
-  // aparecer2: boolean = false;
-  // cadastrarModal: boolean = false;
-  // motivoEdicao: boolean = false;
-  nao: number = 0;
-
-  feedback: number = 0;
-  fechar() {
-
-  }
-
-  listaClassificacao = [{ nome: "Nome classificacao" }];
-
-  fecharModalCadastrar() {
-    this.modalReservar = false;
-    this.modalEditar = false;
-  }
-
-  editarItem() {
-    this.motivoEdicao = true;
-    this.nao = 0;
-  }
-  // <!-- ----------------------------- FIM MODAL EDITAR ITEM ---------------------------- -->
-
-  // <!-- ----------------------------- MODAL MOTIVO EDIÇÃO QUANTIDADE ITENS ---------------------------- -->
-  // aparecer: boolean = false;
-  // aparecer2: boolean = false;
-  // cadastrarModal: boolean = false;
-  // nao: number = 0;
-  // feedback: number = 0;
-  motivoEdicao: boolean = false;
-
-  fecharModalMotivo() {
-    this.motivoEdicao = false;
-  }
-
-  editarQuantidade() {
-    this.modalReservar = false;
-    this.modalEditar = false;
-    this.motivoEdicao = false;
-    this.nao = 0;
-    this.feedback = 2;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-  }
-  // <!-- ----------------------------- FIM MODAL MOTIVO EDIÇÃO QUANTIDADE ITENS ---------------------------- -->
-
-  // <!-- ----------------------------- MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
-  // aparecer3: boolean = false;
-  // modalConfirmacao: number = 0;
-  listaItens2: { id: number; nome: string; descricao: string; quantidade: number; descartavel: boolean; imagem: string; classificacao: number; }[] = [];
-  // @Input() item;
-  // feedback: number = 0;
-
-  cancelar() {
-    this.modalConfirmarRemocao = false;
-    this.modalConfirmacao = 0;
-  }
-
-  selectItem() {
-    this.modalConfirmarRemocao = false;
-    this.modalConfirmacao = 0;
-
-    let contagem = 0;
-    for (let item2 of this.listaItens2) {
-      if (item2.id == this.item.id) {
-        this.service.itens.splice(contagem, 1);
-        break;
-      }
-      contagem++;
-    }
-
-    this.feedback = 3;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-  }
-  // <!-- ----------------------------- FIM MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
-
-  // <!-- ----------------------------- MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
-  // aparecer5: boolean = false;
-  // modalHistorico: number = 0;
-
-  fecharModalHistorico() {
-    this.modalHistorico = false;
-  }
-  // <!-- ----------------------------- FIM MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
 
   // Função para fechar os modais de reserva, edição, etc... do item
   fecharModaisItem(numero: number, event: any) {
@@ -219,7 +118,7 @@ export class ItemComponent implements OnInit {
             this.feedbackColocadoSacola = false;
           }, 4000);
         }
-        if(event == "anexos") {
+        if (event == "anexos") {
           this.modalAnexos = true;
         }
         break;
@@ -229,12 +128,29 @@ export class ItemComponent implements OnInit {
         break;
       case 3:
         this.modalEditar = false;
-        if(event == "editar") {
+        if (event == "editar") {
           this.feedbackEditarItem = true;
           setTimeout(() => {
             this.feedbackEditarItem = false;
           }, 4000);
         }
+        if (event == "motivo") {
+          this.modalMotivoEdicao = true;
+        }
+        break;
+      case 4:
+        this.modalMotivoEdicao = false;
+        if (event == "editar") {
+          this.feedbackEditarItem = true;
+          setTimeout(() => {
+            this.feedbackEditarItem = false;
+          }, 4000);
+        } else {
+          this.modalEditar = true;
+        }
+        break;
+      case 5:
+        this.modalHistorico = false;
         break;
     }
   }
@@ -251,11 +167,24 @@ export class ItemComponent implements OnInit {
       case 3:
         this.feedbackEditarItem = false;
         break;
+      case 4:
+        this.feedbackRemoverItem = false;
+        break;
     }
   }
 
-  // Função para abrir e fechar o modal de anexos
-  verAnexos() {
-    this.modalAnexos = !this.modalAnexos;
+  // Função para fechar os modais de confirmação de ações do item
+  fecharModaisConfirmacao(numero: number, resposta: boolean) {
+    switch (numero) {
+      case 1:
+        this.modalConfirmarRemocao = false;
+        if (resposta) {
+          this.feedbackRemoverItem = true;
+          setTimeout(() => {
+            this.feedbackRemoverItem = false;
+          }, 4000);
+        }
+        break;
+    }
   }
 }

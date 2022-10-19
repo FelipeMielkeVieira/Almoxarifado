@@ -1,7 +1,7 @@
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<!-- --------------- ITEM EM SI EM BLOCO ---------------- -->
+<!-- Div do item Completa (recebe classes com ngClass) -->
 <div [ngClass]="retornarClassesVisualizacao(1)" title="{{item.nome}}">
   <div class="imagemItem" (click)="abrirModalReserva()">
     <img [ngClass]="retornarClassesVisualizacao(2)"
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="ferramentas">
-    <!-- <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
+    <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
       (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
       edit
     </span>
@@ -29,22 +29,9 @@
     <span title="Deletar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
       (click)="removerItem()" id="iconeExcluir">
       delete
-    </span> -->
-
-    <span title="Editar" class="material-symbols-outlined iconDeselect" (click)="abrirModalEditar()" id="iconeEditar"
-      alt="iconeEditar">
-      edit
-    </span>
-    <span title="Histórico" class="material-symbols-outlined iconDeselect" (click)="abrirHistorico()"
-      id="iconeHistorico">
-      history
-    </span>
-    <span title="Deletar" class="material-symbols-outlined iconDeselect" (click)="removerItem()" id="iconeExcluir">
-      delete
     </span>
   </div>
 </div>
-<!-- --------------- ITEM EM SI EM BLOCO  ---------------- -->
 
 <!-- Feedback de reserva concluída -->
 <app-modal-feedback *ngIf="feedbackReservaFeita" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(1)">
@@ -54,13 +41,17 @@
 <app-modal-feedback *ngIf="feedbackColocadoSacola" [tipoFeedback]="2" (fecharModal)="fecharModaisFeedback(2)">
 </app-modal-feedback>
 
+<!-- Feedback Item Editado -->
 <app-modal-feedback *ngIf="feedbackEditarItem" [tipoFeedback]="3" (fecharModal)="fecharModaisFeedback(3)">
 </app-modal-feedback>
 
+<!-- Feedback Item Removido -->
+<app-modal-feedback *ngIf="feedbackRemoverItem" [tipoFeedback]="4" (fecharModal)="fecharModaisFeedback(4)">
+</app-modal-feedback>
 
-<div *ngIf="modalReservar || modalEditar || motivoEdicao || modalConfirmarRemocao || modalAnexos || modalHistorico"
+<!-- Div usada como fundo para modais -->
+<div *ngIf="modalReservar || modalEditar || modalMotivoEdicao || modalConfirmarRemocao || modalAnexos || modalHistorico"
   id="fundoModal">
-
 
   <!-- Modal Reservar Item -->
   <app-modal-reservar-item *ngIf="modalReservar" [item]="item" (fecharModal)="fecharModaisItem(1, $event)"
@@ -71,131 +62,17 @@
   </app-modal-editar-item>
 
   <!-- Modal Motivo Edição de Quantidade -->
-  <app-modal-motivo-edicao *ngIf="motivoEdicao"></app-modal-motivo-edicao>
-
-
-  <!-- ----------------------------- MODAL CONFIRMAR REMOÇÃO ---------------------------- -->
-  <div *ngIf="modalConfirmarRemocao" id="fundoModal">
-    <div *ngIf="modalConfirmacao == 1">
-      <div class="containerModalExcluir">
-        <div class="linhaAzul"></div>
-        <span title="Alerta" class="material-symbols-outlined iconDeselect" id="iconeAlert">
-          error
-        </span>
-        <div class="containerInfoModal">
-          <span class="textoModal">Tem certeza que deseja remover o item?</span>
-        </div>
-        <div class="containerBotoes">
-          <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-          <button (click)="selectItem()" class="botaoRecusar">Remover</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <app-modal-motivo-edicao *ngIf="modalMotivoEdicao" [item]="item" (fecharModal)="fecharModaisItem(4, $event)">
+  </app-modal-motivo-edicao>
 
   <!-- Modal Ver Anexos -->
   <app-anexos-item *ngIf="modalAnexos" [item]="item" (fecharModal)="fecharModaisItem(2, undefined)"></app-anexos-item>
 
+  <!-- Modal Histórico de Edição -->
+  <app-modal-historico-edicao *ngIf="modalHistorico" [item]="item" (fecharModal)="fecharModaisItem(5, undefined)">
+  </app-modal-historico-edicao>
 
-  <!-- ----------------------------- MODAL HISTÓRICO DE EDIÇÃO ---------------------------- -->
-  <div *ngIf="modalHistorico">
-    <div class="containerModalAnexos">
-      <div class="linhaAzul"></div>
-      <div class="containerFechar">
-        <span title="Fechar" (click)="fecharModalHistorico()" class="material-symbols-outlined iconDeselect"
-          id="iconeFechar">
-          close
-        </span>
-      </div>
-      <div class="containerInfoModalHist">
-        <h1>Histórico</h1>
-        <div class="riscoDivisao"></div>
-      </div>
-      <div class="containerHistoricos">
-        <div class="quadroHistorico">
-          <span class="subtituloModal">Atendente</span>
-          <span class="subtituloModal">Edição</span>
-          <div class="containerData">
-            <span class="textoData">20:55</span>
-            <span class="textoData">24/08/2022</span>
-          </div>
-        </div>
-        <div class="quadroHistorico">
-          <span class="subtituloModal">Atendente</span>
-          <span class="subtituloModal">Edição</span>
-          <div class="containerData">
-            <span class="textoData">20:55</span>
-            <span class="textoData">24/08/2022</span>
-          </div>
-        </div>
-        <div class="quadroHistorico">
-          <span class="subtituloModal">Atendente</span>
-          <span class="subtituloModal">Edição</span>
-          <div class="containerData">
-            <span class="textoData">20:55</span>
-            <span class="textoData">24/08/2022</span>
-          </div>
-        </div>
-        <div class="quadroHistorico">
-          <span class="subtituloModal">Atendente</span>
-          <span class="subtituloModal">Edição</span>
-          <div class="containerData">
-            <span class="textoData">20:55</span>
-            <span class="textoData">24/08/2022</span>
-          </div>
-        </div>
-        <div class="quadroHistorico">
-          <span class="subtituloModal">Atendente</span>
-          <span class="subtituloModal">Edição</span>
-          <div class="containerData">
-            <span class="textoData">20:55</span>
-            <span class="textoData">24/08/2022</span>
-          </div>
-        </div>
-        <div class="quadroHistorico">
-          <span class="subtituloModal">Atendente</span>
-          <span class="subtituloModal">Edição</span>
-          <div class="containerData">
-            <span class="textoData">20:55</span>
-            <span class="textoData">24/08/2022</span>
-          </div>
-        </div>
-        <div class="quadroHistorico">
-          <span class="subtituloModal">Atendente</span>
-          <span class="subtituloModal">Edição</span>
-          <div class="containerData">
-            <span class="textoData">20:55</span>
-            <span class="textoData">24/08/2022</span>
-          </div>
-        </div>
-        <div class="quadroHistorico">
-          <span class="subtituloModal">Atendente</span>
-          <span class="subtituloModal">Edição</span>
-          <div class="containerData">
-            <span class="textoData">20:55</span>
-            <span class="textoData">24/08/2022</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Modal Confirmar Remoção -->
+  <app-modal-confirmacao *ngIf="modalConfirmarRemocao" [tipoTexto]="1"
+    (fecharModal)="fecharModaisConfirmacao(1, $event)"></app-modal-confirmacao>
 </div>
-
-
-<!-- ----------------------------- FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->
-<div *ngIf="feedback == 3" id="modalFeedback">
-  <div class="divInfo">
-    <span title="Fechar" (click)="fechar()" class="material-symbols-outlined iconDeselect" id="fechar">
-      close
-    </span>
-    <span title="Confirmar" class="material-symbols-outlined iconDeselect" id="imgCerto">
-      check_circle
-    </span>
-    <span id="spanTexto">Item removido!</span>
-  </div>
-  <div id="fundo" style="background-color: #aeaeae">
-    <div id="azul"></div>
-  </div>
-</div>
-<!-- ----------------------------- FIM FEEDBACK REMOVIDO COM SUCESSO ---------------------------- -->

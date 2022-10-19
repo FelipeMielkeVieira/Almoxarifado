@@ -1,9 +1,14 @@
+hr {
+    padding: 0px;
+    margin: 0;
+}
+
 .modalUser {
     position: absolute;
     top: 80%;
     min-width: 200px;
-    width: 14%;
-    height: 25vh;
+    width: 17%;
+    height: 37vh;
     min-height: 200px;
     right: 2%;
     background-color: white;
@@ -34,23 +39,27 @@
 }
 
 #iconEditarPerfil {
-    font-size: var(--font-size--big);
+    font-size: 23px;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 #iconEditarPerfil:hover {
-    animation: aumentar 0.2s;
-    font-size: var(--font-size--big);
+    transition: all 0.3s;
+    background-color: #eeecec8a;
+    border-radius: 5px;
+    font-size: 23px;
+    color: #0047B6;
 }
 
-@keyframes aumentar {
-	from {
-		font-size: var(--font-size--big);
-	}
-	to {
-		font-size: var(--font-size--verybig);
-	}
-}
+// @keyframes aumentar {
+// 	from {
+// 		font-size: var(--font-size--big);
+// 	}
+// 	to {
+// 		font-size: var(--font-size--verybig);
+// 	}
+// }
 
 #usuarioIconeModal {
     float: left;
