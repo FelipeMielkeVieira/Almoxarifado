@@ -1,5 +1,6 @@
 package br.senai.sc.almoxarifado.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -40,11 +41,11 @@ public class Produto {
     @JoinColumn(name = "classificacao_id")
     private Classificacao classificacao;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(
             name = "produto_localizacao",
-            joinColumns = {@JoinColumn(name = "produto_id")},
-            inverseJoinColumns = {@JoinColumn(name = "localizacao_id")})
+            joinColumns = @JoinColumn(name = "produto_id"),
+            inverseJoinColumns = @JoinColumn(name = "localizacao_id"))
     private Set<Localizacao> localizacoes;
 
 }

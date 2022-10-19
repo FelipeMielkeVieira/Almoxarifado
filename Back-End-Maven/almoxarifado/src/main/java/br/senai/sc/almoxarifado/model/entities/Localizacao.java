@@ -1,5 +1,7 @@
 package br.senai.sc.almoxarifado.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,7 +23,4 @@ public class Localizacao {
 
     @Column(length = 45, nullable = false)
     private String  nome;
-
-    @ManyToMany(mappedBy = "localizacoes")
-    Set<Produto> produtos;
 }
