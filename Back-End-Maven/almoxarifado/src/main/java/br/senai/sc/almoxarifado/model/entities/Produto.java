@@ -1,6 +1,5 @@
 package br.senai.sc.almoxarifado.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;

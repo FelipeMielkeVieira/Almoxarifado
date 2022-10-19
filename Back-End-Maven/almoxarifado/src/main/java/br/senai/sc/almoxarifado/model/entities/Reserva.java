@@ -17,7 +17,7 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private Date data_retirada;
@@ -34,7 +34,8 @@ public class Reserva {
 
     // Foreign key
 
-    @Column(length = 70, nullable = false)
-    private String usuario_email;
+    @ManyToOne
+    @JoinColumn(name = "usuario_email", nullable = false)
+    private Usuario usuario;
 
 }
