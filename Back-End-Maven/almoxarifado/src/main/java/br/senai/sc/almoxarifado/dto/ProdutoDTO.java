@@ -1,5 +1,6 @@
 package br.senai.sc.almoxarifado.dto;
 
+import br.senai.sc.almoxarifado.model.entities.Anexo;
 import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.Localizacao;
 import lombok.Getter;
@@ -18,4 +19,5 @@ public class ProdutoDTO {
     private byte imagem;
     private Classificacao classificacao;
     private Set<Localizacao> localizacoes;
+    private Set<Anexo> anexos;
 }

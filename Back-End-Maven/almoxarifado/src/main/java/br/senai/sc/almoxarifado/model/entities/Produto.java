@@ -48,4 +48,11 @@ public class Produto {
             inverseJoinColumns = @JoinColumn(name = "localizacao_id"))
     private Set<Localizacao> localizacoes;
 
+    @ManyToMany
+    @JoinTable(
+            name = "produto_anexo",
+            joinColumns = @JoinColumn(name = "produto_id"),
+            inverseJoinColumns = @JoinColumn(name = "anexo_id"))
+    private Set<Anexo> anexos;
+
 }
