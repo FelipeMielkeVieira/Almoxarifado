@@ -9,7 +9,11 @@ p {
     color: #0047B6;
     font-size: var(--font-size--verybig);
     font-family: "Inter", sans-serif;
-    font-weight: 600;
+    font-weight: 700;
+}
+
+img{
+    user-select: none;
 }
 
 /* ----------------- FIM CSS PADRÃO ------------------- */
