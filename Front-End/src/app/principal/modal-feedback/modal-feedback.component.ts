@@ -22,6 +22,8 @@ export class ModalFeedback implements OnInit {
         return "Reserva efetuada com sucesso!";
       case 2:
         return "Item adicionado à sacola!";
+      case 3:
+        return "Item editado com sucesso!";
     }
     return "";
   }

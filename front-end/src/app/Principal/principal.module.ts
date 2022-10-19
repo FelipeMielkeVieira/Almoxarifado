@@ -13,6 +13,8 @@ import { ItemComponent } from './item/item.component';
 import { ModalReservarItem } from './modal-reservar-item/modal-reservar-item.component';
 import { ModalFeedback } from './modal-feedback/modal-feedback.component';
 import { AnexosItemComponent } from './anexos-item/anexos-item.component';
+import { ModalEditarItem } from './modal-editar-item/modal-editar-item.component';
+import { ModalMotivoEdicaoComponent } from './modal-motivo-edicao/modal-motivo-edicao.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AnexosItemComponent } from './anexos-item/anexos-item.component';
     ItemComponent,
     ModalReservarItem,
     ModalFeedback,
-    AnexosItemComponent
+    AnexosItemComponent,
+    ModalEditarItem,
+    ModalMotivoEdicaoComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,9 @@ import { AnexosItemComponent } from './anexos-item/anexos-item.component';
     ItemComponent,
     ModalReservarItem,
     ModalFeedback,
-    AnexosItemComponent
+    AnexosItemComponent,
+    ModalEditarItem,
+    ModalMotivoEdicaoComponent
   ]
 })
 export class PrincipalModule { }

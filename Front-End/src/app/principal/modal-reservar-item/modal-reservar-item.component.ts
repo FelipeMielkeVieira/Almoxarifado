@@ -28,9 +28,6 @@ export class ModalReservarItem implements OnInit {
   dataRetirada: any = new Date();
   dataDevolucao: any = new Date();
 
-  // Variável que define se o modal de anexos está aberto ou não
-  modalAnexos: boolean = false;
-
   ngOnInit() { }
 
   // Função para fechar o modal, enviando um output recebido
@@ -104,9 +101,9 @@ export class ModalReservarItem implements OnInit {
     }
   }
 
-  // Função para abrir o modal de anexos
+  // Função que envia um Output para fechar o modal e abrir o modal de anexos do item
   verAnexos() {
-    this.modalAnexos = true;
+    this.fecharModalReserva("anexos");
   }
 
   // Função para salvar as datas advindas do calendário, chamada por um Output do componente "Calendario"
