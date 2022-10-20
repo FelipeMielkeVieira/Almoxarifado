@@ -55,7 +55,8 @@
     </div>
 
     <!-- Modal de Envio de solicitação de cadastro (aparece após efetuar um cadastro na outra página) -->
-    <app-alerta-feito *ngIf="alertaSolicitacaoCadastro" (fecharModal)="fecharModalAlerta($event)" [tipoMensagemModal]="1">
+    <app-alerta-feito *ngIf="alertaSolicitacaoCadastro" (fecharModal)="fecharModalAlerta($event)"
+      [tipoMensagemModal]="1">
     </app-alerta-feito>
 
     <!-- Modal de alerta de Redefinição de Senha (quando usada a opção "Esqueci a Senha") -->

@@ -3,7 +3,7 @@
         <div id="barraAzul">
             <div id="user">
                 <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem de usuário" />
-                <div id="alterarFoto">Editar</div>
+                <div id="alterarFoto">Edit</div>
             </div>
         </div>
         <div id="iconSair">
@@ -17,38 +17,6 @@
                 <input name="emailVerificacao" [(ngModel)]="usuarioNovo" type="email"
                     class="form-control input-float-label" placeholder="Email">
                 <label class="label-float-label">Email<span class="asteriscoObrigatorio">*</span></label>
-            </div>
-
-            <div class="senha">
-                <div class="form-floating div-float-label">
-                    <input name="senhaNova" [(ngModel)]="senhaNova" type="password" class="form-control input-float-label"
-                        placeholder="Senha">
-                    <label class="label-float-label">Senha<span class="asteriscoObrigatorio">*</span></label>
-                </div>
-                <span *ngIf="!trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
-                    (click)="trocarOlho(1)" alt="Visualização da senha">
-                    visibility_off
-                </span>
-                <span *ngIf="trocarOlho1" class="material-symbols-outlined imgOlho iconDeselect" id="olho1"
-                    (click)="trocarOlho(1)" alt="Visualização da senha">
-                    visibility
-                </span>
-            </div>
-
-            <div class="confSenha">
-                <div class="form-floating div-float-label">
-                    <input name="confirmarSenha" [(ngModel)]="confirmarSenha" type="password"
-                        class="form-control input-float-label" placeholder="Confirmar Senha">
-                    <label class="label-float-label">Confirmar Senha<span class="asteriscoObrigatorio">*</span></label>
-                </div>
-                <span *ngIf="!trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2"
-                    (click)="trocarOlho(2)" alt="Visualização da senha">
-                    visibility_off
-                </span>
-                <span *ngIf="trocarOlho2" class="material-symbols-outlined imgOlho2 iconDeselect" id="olho2"
-                    (click)="trocarOlho(2)" alt="Visualização da senha">
-                    visibility
-                </span>
             </div>
         </div>
         <button type="button" id="salvar" (click)="salvar()">Salvar</button>
