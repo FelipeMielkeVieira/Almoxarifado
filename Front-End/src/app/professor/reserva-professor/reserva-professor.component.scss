@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #EEEEEE;
+    border-radius: 0px 6px 6px 0px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #d3d3d3;
+    border-radius: 30px;
+}
+
+/* <!-- ------------------------------------- COMPONENTE DA RESERVA ------------------------------------- --> */
+#containerSacola {
+    width: 95%;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+#status {
+    width: 100%;
+    height: 10px;
+    border-radius: 10px 10px 0 0;
+    border: 0px;
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0.8rem 1.5rem;
+}
+
+.dataTitulo {
+    margin-top: 0.8rem;
+    font-size: var(--font-size--default);
+}
+
+#divisaoCentral {
+    display: flex;
+}
+
+#parteEsquerda {
+    width: 45%;
+}
+
+.dataInput {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.3rem;
+    text-align: center;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.dataTexto {
+    width: 100%;
+}
+
+#dataRetirada {
+    font-size: var(--font-size--medium);
+}
+
+#dataDevolucao {
+    font-size: var(--font-size--medium);
+}
+
+#parteDireita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 55%;
+}
+
+#itens {    
+    list-style-type: none;
+    width: 80%;
+    border-radius: 6px;
+    border: 1px solid black;
+    max-height: 60px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+}
+
+.bolaAzul {
+    width: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#verDetalhes {
+    width: 80%;
+    font-weight: bold;
+    color: white;
+    background-color: #0047B6;
+    padding: 0.6rem;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+/* -=- Status -=- */
+.atrasado {
+    background-color: #BF0A0A;
+}
+
+.perto {
+    background-color: #D47606;
+}
+
+.longe {
+    background-color: #009B19;
+}
+
+/* <!-- ------------------------------------- FIM COMPONENTE DA RESERVA ------------------------------------- --> */

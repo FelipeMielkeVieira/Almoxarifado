@@ -19,12 +19,31 @@ export class ModalConfiguracoesComponent implements OnInit {
 
   // *Pega o email e nome do usuario logado
   ngOnInit() {
-  
+    this.selecionaFonteAutomatico();
   }
 
   // *Fecha o modal de editar e o de configurações
   fechar() {
     this.fecharModal.emit();
+  }
+
+  // Função para selecionar automaticamente a fonte do sistema no select-box
+  selecionaFonteAutomatico() {
+    if(document.documentElement.style.getPropertyValue('--font-size--verysmall') == "6px") {
+      this.fonteAtual = 1;
+    }
+    if(document.documentElement.style.getPropertyValue('--font-size--verysmall') == "8px") {
+      this.fonteAtual = 2;
+    }
+    if(document.documentElement.style.getPropertyValue('--font-size--verysmall') == "10px") {
+      this.fonteAtual = 3;
+    }
+    if(document.documentElement.style.getPropertyValue('--font-size--verysmall') == "12px") {
+      this.fonteAtual = 4;
+    }
+    if(document.documentElement.style.getPropertyValue('--font-size--verysmall') == "14px") {
+      this.fonteAtual = 5;
+    }
   }
 
   // *Troca a fonte do site

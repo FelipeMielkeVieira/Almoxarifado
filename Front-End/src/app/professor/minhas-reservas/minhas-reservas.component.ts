@@ -12,28 +12,17 @@ export class MinhasReservasComponent implements OnInit {
   constructor(private router: Router, private service: UsersService) { }
 
   ngOnInit() {
-    var self = this;
-    this.service.reserva.forEach(e => {
-      if(localStorage.getItem('emailAtual') == e.usuario_email && e.status < 3) {
-        self.listaReservas.push(e);
-      }
-    });
-    this.service.reserva.forEach(e => {
-      if(localStorage.getItem('emailAtual') == e.usuario_email && e.status > 2) {
-        self.listaReservas2.push(e);
-      }
-    });
+    this.atualizarListaReservas(1);
   }
 
   // <!-- ------------------------------- CAMINHO DO SITE (O PATH) ------------------------------ -->
-  reservasPendentes: number =  1;
-  reservasHistorico: number =  0;
-  listaReservas : any[] = [];
-  listaReservas2 : any[] = [];
+  reservasPendentes: boolean = true;
+  reservasHistorico: boolean = false;
+  listaReservas: any[] = [];
 
   // *Vai para o home do usuário logado
   home() {
-    if(localStorage.getItem('usuario') == '1') {
+    if (localStorage.getItem('usuario') == '1') {
       this.router.navigate(['/professor'])
     } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
       this.router.navigate(['/atendente']);
@@ -42,26 +31,41 @@ export class MinhasReservasComponent implements OnInit {
     }
   }
 
-  // *Vai para a visualização de reservas
-  botaoReservas(){
-    this.reservasHistorico = 0;
-    this.reservasPendentes = 1;
-
-    let comAzul = document.querySelector('.reservasPendentes') as HTMLElement;
-    comAzul.className = "historicoReservas"
-    let semAzul = document.querySelector('.historicoReservas') as HTMLElement;
-    semAzul.className = "reservasPendentes"
+  // Troca a visualização das reservas
+  trocarVisualizacao(numero: number) {
+    if (numero == 1) {
+      this.reservasHistorico = false;
+      this.reservasPendentes = true;
+      (document.querySelector('.reservasPendentes') as HTMLElement).className = "historicoReservas";
+      (document.querySelector('.historicoReservas') as HTMLElement).className = "reservasPendentes";
+    } else {
+      (document.querySelector('.historicoReservas') as HTMLElement).className = "reservasPendentes";
+      (document.querySelector('.reservasPendentes') as HTMLElement).className = "historicoReservas";
+      this.reservasHistorico = true;
+      this.reservasPendentes = false;
+    }
+    this.atualizarListaReservas(numero);
   }
 
-  // *Vai para a visualização de histórico de reservas
-  botaoHistorico(){
-    this.reservasHistorico = 1;
-    this.reservasPendentes = 0;
-
-    let comAzul = document.querySelector('.historicoReservas') as HTMLElement;
-    comAzul.className = "reservasPendentes"
-    let semAzul = document.querySelector('.reservasPendentes') as HTMLElement;
-    semAzul.className = "historicoReservas"
+  // Atualiza a lista de reservas na troca de visualização
+  atualizarListaReservas(numero: number) {
+    if (numero == 1) {
+      let listaNova: any = [];
+      this.service.reserva.forEach(e => {
+        if (localStorage.getItem('emailAtual') == e.usuario_email && e.status < 3) {
+          listaNova.push(e);
+        }
+      });
+      this.listaReservas = listaNova;
+    } else {
+      let listaNova: any = [];
+      this.service.reserva.forEach(e => {
+        if (localStorage.getItem('emailAtual') == e.usuario_email && e.status > 2) {
+          listaNova.push(e);
+        }
+      });
+      this.listaReservas = listaNova;
+    }
   }
 
   // <!-- ------------------------------- FIM CAMINHO DO SITE (O PATH) ------------------------------ -->
