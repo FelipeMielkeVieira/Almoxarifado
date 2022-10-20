@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 public interface SacolaRepository extends JpaRepository<Sacola, Long> {
 //    @Modifying
     @Query(
-
-                    INSERT INTO SACOLA_PRODUTO (PRODUTO_ID, SACOLA_ID, QTD_PRODUTO) VALUES (:produtoidparam, :sacolaidparam, :qtdprodutoparam);
-            )
+            value =
+                    "INSERT INTO SACOLA_PRODUTO (PRODUTO_ID, SACOLA_ID, QTD_PRODUTO) VALUES (:produtoidparam, :sacolaidparam, :qtdprodutoparam);",
+            nativeQuery = true)
     void salvarProdutosEscolhidos(@Param("produtoidparam") Long produtId, @Param("sacolaidparam") Long sacolaId, @Param("qtdprodutoparam") Long qtdProduto);
 }
