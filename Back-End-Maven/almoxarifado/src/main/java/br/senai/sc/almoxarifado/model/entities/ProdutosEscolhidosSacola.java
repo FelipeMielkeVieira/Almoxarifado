@@ -12,23 +12,25 @@ import javax.persistence.*;
 @NoArgsConstructor()
 @ToString
 @EqualsAndHashCode
-public class SacolaProduto {
+public class ProdutosEscolhidosSacola {
     // Foreign keys
 
 //    @EmbeddedId
 //    public SacolaProdutoKey getId() {
 //        return id;
 //    }
-    @EmbeddedId
-    SacolaProdutoKey id;
+//    @EmbeddedId
+//    SacolaProdutoKey id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @ManyToOne
-    @MapsId("sacolaId")
     @JoinColumn(name = "sacola_id")
     Sacola sacola;
 
     @ManyToOne
-    @MapsId("produtoId")
     @JoinColumn(name = "produto_id")
     Produto produto;
 

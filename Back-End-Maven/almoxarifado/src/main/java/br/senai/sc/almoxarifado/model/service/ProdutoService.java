@@ -23,15 +23,15 @@ public class ProdutoService {
         return produtoRepository.save(entity);
     }
 
-    public Optional<Produto> findById(Integer integer) {
+    public Optional<Produto> findById(Long integer) {
         return produtoRepository.findById(integer);
     }
 
-    public boolean existsById(Integer integer) {
+    public boolean existsById(Long integer) {
         return produtoRepository.existsById(integer);
     }
 
-    public void deleteById(Integer integer) {
+    public void deleteById(Long integer) {
         produtoRepository.deleteById(integer);
     }
 }

@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class SacolaProdutoKey implements Serializable {
+public class SacolaProdutoKey {
     @Column(name = "sacola_id")
     Long sacolaId;
 

@@ -1,6 +1,7 @@
 package br.senai.sc.almoxarifado.controller;
 
 import br.senai.sc.almoxarifado.dto.SacolaDTO;
+import br.senai.sc.almoxarifado.model.entities.ProdutosEscolhidosSacola;
 import br.senai.sc.almoxarifado.model.entities.Sacola;
 import br.senai.sc.almoxarifado.model.service.SacolaService;
 import lombok.AllArgsConstructor;
@@ -36,9 +37,16 @@ public class SacolaController {
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid SacolaDTO sacolaDTO) {
+        System.out.println("sacola dto" + sacolaDTO.toString());
         Sacola sacola = new Sacola();
         BeanUtils.copyProperties(sacolaDTO, sacola);
-        return ResponseEntity.status(HttpStatus.CREATED).body(sacolaService.save(sacola));
+        Sacola sacolaSalva = sacolaService.save(sacola);
+        System.out.println("sacola salva: " + sacolaSalva.toString());
+        for (ProdutosEscolhidosSacola produtoEscolhido : sacolaSalva.getProdutos_sacola()) {
+            sacolaService.salvarProdutosEscolhidos(produtoEscolhido.getProduto().getId(), sacolaSalva.getSacolaId(), produtoEscolhido.getQtd_produto());
+        }
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Sacola criada e itens adicionados!");
     }
 
     @PutMapping("/{id}")

@@ -17,7 +17,7 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, unique = true)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private Integer quantidade;
@@ -54,7 +54,7 @@ public class Produto {
             inverseJoinColumns = @JoinColumn(name = "anexo_id", nullable = false))
     private Set<Anexo> anexos;
 
-    @OneToMany(mappedBy = "produto")
-    Set<SacolaProduto> produtos_sacola;
+//    @OneToMany(mappedBy = "produto")
+//    Set<ProdutosEscolhidos> produtos_sacola;
 
 }

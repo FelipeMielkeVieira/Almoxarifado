@@ -26,7 +26,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findById(@PathVariable(value = "id") Integer id) {
+    public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id) {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhum produto com este ID.");
         }
@@ -42,7 +42,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable(value = "id") Integer id, @RequestBody @Valid ProdutoDTO produtoDTO) {
+    public ResponseEntity<Object> update(@PathVariable(value = "id") Long id, @RequestBody @Valid ProdutoDTO produtoDTO) {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este produto não existe.");
         }
@@ -54,7 +54,7 @@ public class ProdutoController {
 
     @Transactional
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteById(@PathVariable(value = "id") Integer id) {
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "id") Long id) {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhum produto com este ID.");
         }

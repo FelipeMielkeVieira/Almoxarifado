@@ -35,5 +35,5 @@ public class Sacola {
     // Many-to-many relationship
 
     @OneToMany(mappedBy = "sacola")
-    Set<SacolaProduto> produtos_sacola;
+    Set<ProdutosEscolhidosSacola> produtos_sacola;
 }
