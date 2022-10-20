@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #EEEEEE;
+    border-radius: 0px 6px 6px 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d3d3d3;
+    border-radius: 30px;
+}
+
+/* <!-- --------------------------------------- CONTEÚDO DA SACOLA  --------------------------------------- --> */
+#containerSacola {
+    width: 38rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-left: 50px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.2rem;
+}
+
+#divisaoCentral {
+    display: flex;
+}
+
+#parteEsquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.dataInput {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.3rem;
+    text-align: center;
+}
+
+.calendario {
+    cursor: pointer;
+}
+
+.calendario:hover {
+    color: #0047B6;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.dataTexto {
+    width: 100%;
+}
+
+#dataRetirada {
+    font-size: var(--font-size--medium);
+}
+
+#dataDevolucao {
+    font-size: var(--font-size--medium);
+}
+
+#parteDireita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#itens {
+    list-style-type: none;
+    width: 80%;
+    border-radius: 6px;
+    border: 1px solid black;
+    max-height: 3.6rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+}
+
+.bolaAzul {
+    width: 10px;
+    margin-right: 10px;
+}
+
+#botoes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#adicionarProfessor {
+    width: 80%;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    padding: 0.55rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 5px 0px;
+    cursor: pointer;
+}
+
+#professores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    border-radius: inherit;
+}
+
+.botao {
+    width: 80%;
+    font-weight: bold;
+    color: white;
+    background-color: #0047B6;
+    padding: 0.55rem;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+.iconeLixeira {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.iconeLixeira:hover {
+    color: #be0101;
+    animation: mudarCor 0.5s;
+}
+
+@keyframes mudarCor {
+    from {
+        color: #000;
+    }
+
+    to {
+        color: #be0101;
+    }
+}
+
+/* <!-- --------------------------------------- FIM CONTEÚDO DA SACOLA  --------------------------------------- --> */

@@ -1,0 +1,80 @@
+*{
+    font-family: 'Inter',sans-serif;
+}
+
+p {
+    font-size: var(--font-size--small);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+p:hover {
+    color: #0047B6;
+}
+
+/* <!-- ------------------------------- COMPONENTE DA SACOLA ------------------------------- --> */
+.divPrincipal{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#caminho {
+    display: flex;
+    align-items: center;
+    margin-top: 1.2rem;
+    margin-left: 5.5rem;
+}
+
+#iconHome {
+    cursor: pointer;
+}
+
+#iconHome:hover {
+    color: #0047B6;
+}
+
+#iconMaior {
+    margin-top: .25rem;
+    cursor: default;
+}
+
+.iconDeselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tituloSacolas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.tituloPagina{
+    font-size: var(--font-size--extreme);
+    color: #0047B6;
+}
+
+.divSemSacolas {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #0047B6;
+    padding: 20px;
+    border-top: solid rgb(153, 151, 151) 1px;
+}
+
+.containerSacolas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    min-width: 890px;
+    padding: 0px 50px;
+}
+/* <!-- ------------------------------- FIM COMPONENTE DA SACOLA ------------------------------- --> */

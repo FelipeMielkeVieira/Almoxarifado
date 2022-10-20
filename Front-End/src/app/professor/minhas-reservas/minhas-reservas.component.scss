@@ -102,6 +102,15 @@ main {
     opacity: 0.7;
 }
 
+#botoes {
+    display: flex;
+}
+
+#divBotoesNavegacao {
+    display: flex;
+    width: 30%;
+}
+
 .reservasPendentes,
 .historicoReservas {
     padding: 5px 10px;
@@ -113,6 +122,7 @@ main {
 .reservasPendentes {
     background-color: #0047B6;
     color: #fff;
+    font-size: var(--font-size--small);
 }
 
 .reservasPendentes:hover {
@@ -121,6 +131,7 @@ main {
 
 .historicoReservas {
     background-color: #fff;
+    font-size: var(--font-size--small);
 }
 
 .historicoReservas:hover {

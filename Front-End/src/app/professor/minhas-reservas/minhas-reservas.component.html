@@ -1,21 +1,19 @@
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-/>
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <app-header></app-header>
 <app-filtro></app-filtro>
 <main>
     <!-- ------------------------------- CAMINHO DO SITE (O PATH) ------------------------------ -->
     <div id="caminho">
-        <div id="iconHome" >
+        <div id="iconHome">
             <span id="iconHome" class="material-symbols-outlined iconDeselect" alt="Casa" (click)="home()">
-              home
+                home
             </span>
         </div>
         <div id="iconMaior">
             <span class="material-symbols-outlined iconDeselect" alt="Maior">
-              arrow_forward_ios
+                arrow_forward_ios
             </span>
         </div>
         <p id="caminhoReservas">Minhas Reservas</p>
@@ -35,8 +33,10 @@
                 <p id="resultados">x Resultados encontrados</p>
             </div>
             <div id="botoes">
-                <button (click)="botaoReservas()" class="reservasPendentes">Reservas pendentes</button>
-                <button (click)="botaoHistorico()" class="historicoReservas">Histórico de reservas</button>
+                <div id="divBotoesNavegacao">
+                    <button (click)="trocarVisualizacao(1)" class="reservasPendentes">Reservas pendentes</button>
+                    <button (click)="trocarVisualizacao(2)" class="historicoReservas">Histórico de reservas</button>
+                </div>
                 <div class="divLegenda">
                     <div class="legenda">
                         <div class="bola" style="background-color: red;"></div>
@@ -53,11 +53,9 @@
                 </div>
             </div>
             <div id="risco"></div>
-            <div *ngIf="reservasPendentes == 1" id="containerReservas">
-                <!-- <app-reserva *ngFor="let reserva of listaReservas" class="reserva" [reserva]="reserva"></app-reserva> -->
-            </div>
-            <div *ngIf="reservasHistorico == 1" id="containerReservas">
-                <!-- <app-reserva *ngFor="let reserva of listaReservas2" class="reserva" [reserva]="reserva"></app-reserva>                  -->
+            <div id="containerReservas">
+                <app-reserva-professor *ngFor="let reserva of listaReservas" class="reserva" [reserva]="reserva">
+                </app-reserva-professor>
             </div>
         </div>
     </div>

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<app-filtro></app-filtro>
+
+<main>
+    <!-- ------------------------------- COMPONENTE DA SACOLA ------------------------------- -->
+    <div class="divPrincipal">
+        <!-- =-=-=-=- Caminho (path) -=-=-=-= -->
+        <div id="caminho">
+            <div id="iconHome" >
+                <span id="iconHome" class="material-symbols-outlined iconDeselect" alt="Casa" (click)="home()">
+                  home
+                </span>
+            </div>
+            <div id="iconMaior">
+                <span class="material-symbols-outlined iconDeselect" alt="Maior">
+                  arrow_forward_ios
+                </span>
+              </div>
+            <p>Minhas Sacolas</p>
+        </div>
+        <!-- =-=-=-=- Fim Caminho (path) -=-=-=-= -->
+        <div class="tituloSacolas">
+            <b><span class="tituloPagina">Minhas Sacolas</span></b>
+        </div>
+        <div *ngIf="tamanhoLista == 0" class="divSemSacolas">
+            <h1>Você ainda não possui nenhuma sacola!</h1>
+        </div>
+        <div *ngIf="tamanhoLista > 0" class="containerSacolas">
+            <app-sacola *ngFor="let sacola of listaSacolas" [sacola]="sacola"></app-sacola>
+        </div>
+    </div>
+    <!-- ------------------------------- FIM COMPONENTE DA SACOLA ------------------------------- -->
+</main>

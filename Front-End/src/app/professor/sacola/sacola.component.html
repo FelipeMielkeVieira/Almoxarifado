@@ -1,0 +1,63 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!-- --------------------------------------- COMPONENTE DO CALENDARIO  --------------------------------------- -->
+<!-- <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData1($event)"></app-calendario>
+<app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario> -->
+<!-- --------------------------------------- FIM COMPONENTE DO CALENDARIO  --------------------------------------- -->
+
+<!-- --------------------------------------- CONTEÚDO DA SACOLA  --------------------------------------- -->
+<div id="containerSacola">
+    <div id="container">
+        <div id="divisaoCentral">
+            <div id="parteEsquerda">
+                <h3 class="dataTitulo">Data de retirada:</h3>
+                <div class="dataInput">
+                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
+                        (click)="abrirCalendario1()">
+                        calendar_month
+                    </span>
+                    <div class="dataTexto">
+                        <p id="dataRetirada">{{ formatarData(sacola.data_retirada) }}</p>
+                    </div>
+                </div>
+                <h3 class="dataTitulo" style="margin-top: 1rem">Data de devolução:</h3>
+                <div class="dataInput">
+                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de devolução"
+                        (click)="abrirCalendario2()">
+                        calendar_month
+                    </span>
+                    <div class="dataTexto">
+                        <p id="dataDevolucao">{{ formatarData(sacola.data_devolucao) }}</p>
+                    </div>
+                </div>
+            </div>
+            <div id="parteDireita">
+                <ul id="itens">
+                    <li *ngFor="let item of listaItens" class="item">
+                        <img class="bolaAzul" src="./assets/circulo-azul.png" alt="Ponteiro para o produto">
+                        {{item.nome}}
+                    </li>
+                </ul>
+                <div id="botoes">
+                    <div *ngIf="atendente()" id="adicionarProfessor">
+                        <select name="" id="professores">
+                            <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{
+                                professor.nome }}
+                            </option>
+                        </select>
+                    </div>
+                    <button class="botao" (click)="verDetalhes()" style="margin-bottom: 5px;">Ver Detalhes</button>
+                    <button class="botao" (click)="abrirModalConfirmacao(2)">Reservar</button>
+                </div>
+            </div>
+            <div id="excluirSacola">
+                <span title="Deletar" class="material-symbols-outlined iconDeselect iconeLixeira"
+                    (click)="abrirModalConfirmacao(1)" alt="Excluir Sacola">
+                    delete
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- --------------------------------------- FIM CONTEÚDO DA SACOLA  --------------------------------------- -->
