@@ -12,8 +12,8 @@ export class SacolaComponent implements OnInit {
     constructor(private router: Router, private service: UsersService) { }
 
 
-    @Input() sacola =  { id: 0, data_retirada: '0000-00-00', data_devolucao: '0000-00-00', usuario_email: '' };
-    listaItens : any = [];
+    @Input() sacola = { id: 0, data_retirada: '0000-00-00', data_devolucao: '0000-00-00', usuario_email: '' };
+    listaItens: any = [];
 
     ngOnInit() {
         this.listaItens = this.service.retornaProdutosSacola(this.sacola.id);
@@ -87,10 +87,6 @@ export class SacolaComponent implements OnInit {
     }
 
     abrirModalConfirmacao(numero: number) {
-        let divPrincipal = document.createElement("div");
-        divPrincipal.className = "divOpacidade";
-        let containerSacola = document.querySelector("#containerSacola") as HTMLElement;
-        containerSacola.appendChild(divPrincipal);
         switch (numero) {
             case 1:
                 this.modalExcluir = true;
@@ -106,18 +102,16 @@ export class SacolaComponent implements OnInit {
     reservaFeita: boolean = false;
 
     fecharModalConfirmacao(numero: number, confirmacao: any) {
-        let divPrincipal = document.querySelector(".divOpacidade") as HTMLDivElement;
-        divPrincipal.remove();
         switch (numero) {
             case 1:
                 this.modalExcluir = false;
-                if (confirmacao == '2') {
+                if (confirmacao) {
                     this.excluirSacola();
                 }
                 break;
             case 2:
                 this.modalReservar = false;
-                if (confirmacao == '2') {
+                if (confirmacao) {
                     this.finalizarReserva();
                 }
                 break;
@@ -129,10 +123,7 @@ export class SacolaComponent implements OnInit {
     }
 
     finalizarReserva() {
-        this.reservaFeita = true;
-        setTimeout(() => {
-            this.reservaFeita = false;
-        }, 5000)
+        //Chamar back para fazer reserva
     }
     // <!-- --------------------------- FIM COMPONENTE FEEDBACK --------------------------- -->
 }
