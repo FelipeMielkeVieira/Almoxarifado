@@ -105,14 +105,17 @@
       <button *ngIf="item.quantidade <= 0" class="btnModal2" (click)="reservar()">
         Reservar Agora
       </button>
-      <span title="Adicionar Anexo" (click)="verAnexos()" id="iconModal" class="material-symbols-outlined iconDeselect"
-        title="Adicionar anexo">
+      <span title="Ver Anexos" (click)="verAnexos()" id="iconModal" class="material-symbols-outlined iconDeselect">
         file_present
       </span>
-      <span title="Sacola" class="material-symbols-outlined iconDeselect" alt="Adicionar à sacola" id="iconModal"
-        title="Adicionar à sacola" (click)="adicionarSacola()">
-        shopping_bag
-      </span>
+      <div id="adicionarSacola" title="Adicionar à sacola" (click)="adicionarSacola()">
+        <span class="material-symbols-outlined iconDeselect GambiarraAdicionarSacola">
+          add
+        </span>
+        <span class="material-symbols-outlined iconDeselect GambiarraSacola" alt="Adicionar à sacola">
+          shopping_bag
+        </span>
+      </div>
     </div>
   </div>
   <!-- <app-calendario

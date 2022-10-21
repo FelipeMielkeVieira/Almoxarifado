@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,6 +35,6 @@ public class Sacola {
 
     // Many-to-many relationship
 
-    @OneToMany(mappedBy = "sacola")
-    Set<ProdutosEscolhidosSacola> produtos_sacola;
+
+//    List<ProdutosEscolhidosSacola> produtos_sacola;
 }
