@@ -21,8 +21,9 @@ export class DetalhesReservaComponent implements OnInit {
         // this.dataSacola = new Date(this.sacola.data_devolucao);
     }
 
-    // <!-- ------------------------------- GERAL ----------------------------------- -->
+    // Variável para determinar se o componente é de uma reserva ou sacola
     reservaFeita: boolean = false;
+
     sacola: any;
     produtosSacola: any;
     dataSacola: any;
@@ -33,5 +34,36 @@ export class DetalhesReservaComponent implements OnInit {
     // Função para ir para a página especificada pelo parâmetro
     navegacao(url: string) {
         this.router.navigate([url]);
+    }
+
+    // Função para alterar a quantidade de um produto, recebendo um parâmetro opção (1 - diminuir | 2 - adicionar)
+    alterarQtdProduto(opcao: number, index: number) {
+        switch (opcao) {
+            case 1:
+                if (this.produtosSacola[index].qtd_atual > 1) {
+                    this.produtosSacola[index].qtd_atual--;
+                }
+                break;
+            case 2:
+                if (!((this.produtosSacola[index].qtd_atual + 1) > this.produtosSacola[index].quantidade)) {
+                    this.produtosSacola[index].qtd_atual++;
+                }
+        }
+    }
+
+    formatarData(data: string) {
+        return new Date(data).toLocaleString();
+    }
+
+    cancelarReserva() {
+
+    }
+
+    excluirSacola() {
+
+    }
+
+    reservarItens() {
+        
     }
 }

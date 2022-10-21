@@ -21,8 +21,8 @@
                 arrow_forward_ios
             </span>
         </div>
-        <p (click)="navegacao('/professor/sacolas')" *ngIf="usuario != 1">Minhas Sacolas</p>
-        <p (click)="navegacao('/professor/reservas')" *ngIf="usuario == 1">Minhas Reservas</p>
+        <p (click)="navegacao('/professor/sacolas')" *ngIf="!reservaFeita">Minhas Sacolas</p>
+        <p (click)="navegacao('/professor/reservas')" *ngIf="reservaFeita">Minhas Reservas</p>
         <div id="iconMaior">
             <span class="material-symbols-outlined iconDeselect" alt="Maior">
                 arrow_forward_ios
@@ -31,8 +31,8 @@
         <p>Detalhes</p>
     </div>
     <div class="tituloSacola">
-        <b><span class="titulos" *ngIf="usuario != 1">Minha Sacola</span></b>
-        <b><span class="titulos" *ngIf="usuario == 1">Minha Reserva</span></b>
+        <b><span class="titulos" *ngIf="!reservaFeita">Minha Sacola</span></b>
+        <b><span class="titulos" *ngIf="reservaFeita">Minha Reserva</span></b>
     </div>
     <div class="divMain">
         <div class="divProdutos">
@@ -48,17 +48,17 @@
                         <span class="nomeProduto">{{produto.nome}}</span>
                         <div class="quantidade">
                             <div class="divImagemQtd1">
-                                <span *ngIf="usuario != 1" title="Remover"
+                                <span *ngIf="!reservaFeita" title="Remover"
                                     class="material-symbols-outlined iconDeselect" id="menosQtdIcon"
-                                    (click)="qtdProduto(1, i)">
+                                    (click)="alterarQtdProduto(1, i)">
                                     remove
                                 </span>
                             </div>
                             <p class="textoQtd">{{produto.qtd_atual}}</p>
                             <div class="divImagemQtd2">
-                                <span *ngIf="usuario != 1" title="Adicionar"
+                                <span *ngIf="!reservaFeita" title="Adicionar"
                                     class="material-symbols-outlined iconDeselect" id="maisQtdIcon"
-                                    (click)="qtdProduto(2, i)">
+                                    (click)="alterarQtdProduto(2, i)">
                                     add
                                 </span>
                             </div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="parteDireita">
                     <div style="width: 100%;">
-                        <span *ngIf="usuario != 1" title="Deletar" id="iconeLixeira"
+                        <span *ngIf="!reservaFeita" title="Deletar" id="iconeLixeira"
                             class="material-symbols-outlined iconDeselect">
                             delete
                         </span>
@@ -86,10 +86,10 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerData">
-                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
+                    <!-- <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
                         (click)="abrirCalendario(1)">
                         calendar_month
-                    </span>
+                    </span> -->
                     <div class="divisaoData"></div>
                     <span class="textoData">{{formatarData(sacola.data_retirada)}}</span>
                 </div>
@@ -99,21 +99,21 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerData">
-                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
+                    <!-- <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
                         (click)="abrirCalendario(2)">
                         calendar_month
-                    </span>
+                    </span> -->
                     <div class="divisaoData"></div>
                     <span class="textoData">{{formatarData(sacola.data_devolucao)}}</span>
                 </div>
-                <input *ngIf="usuario != 1 && (tipoUsuario == 2 || tipoUsuario == 3 || tipoUsuario == 4)"
+                <!-- <input *ngIf="!reservaFeita && (tipoUsuario == 2 || tipoUsuario == 3 || tipoUsuario == 4)"
                     class="inputProfessor" [(ngModel)]="professorReserva" placeholder="Professor">
                 <div class="divBotoes">
-                    <button *ngIf="usuario == 1 && dataSacola > dataAtual" class="botaoReservar botaoCancelarReserva"
+                    <button *ngIf="reservaFeita && dataSacola > dataAtual" class="botaoReservar botaoCancelarReserva"
                         (click)="cancelarReserva()">Cancelar Reserva</button>
-                    <button *ngIf="usuario != 1" class="botaoReservar" (click)="excluir()">Excluir Sacola</button>
-                    <button *ngIf="usuario != 1" (click)="reservar()" class="botaoReservar">Reservar</button>
-                </div>
+                    <button *ngIf="!reservaFeita" class="botaoReservar" (click)="excluirSacola()">Excluir Sacola</button>
+                    <button *ngIf="!reservaFeita" (click)="reservarItens()" class="botaoReservar">Reservar</button>
+                </div> -->
             </div>
         </div>
     </div>
