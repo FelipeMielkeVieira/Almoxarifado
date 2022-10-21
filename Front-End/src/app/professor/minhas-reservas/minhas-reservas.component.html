@@ -38,17 +38,25 @@
                     <button (click)="trocarVisualizacao(2)" class="historicoReservas">Histórico de reservas</button>
                 </div>
                 <div class="divLegenda">
-                    <div class="legenda">
+                    <div class="legenda" *ngIf="reservasPendentes">
                         <div class="bola" style="background-color: red;"></div>
                         <span class="labelLegenda">Devolução Atrasada</span>
                     </div>
-                    <div class="legenda">
+                    <div class="legenda" *ngIf="reservasPendentes">
                         <div class="bola" style="background-color: #D47606"></div>
                         <span class="labelLegenda">Esperando Devolução</span>
                     </div>
-                    <div class="legenda">
+                    <div class="legenda" *ngIf="reservasPendentes">
                         <div class="bola" style="background-color: green;"></div>
                         <span class="labelLegenda">Esperando Retirada</span>
+                    </div>
+                    <div class="legenda" *ngIf="reservasHistorico">
+                        <div class="bola" style="background-color: red;"></div>
+                        <span class="labelLegenda">Cancelada</span>
+                    </div>
+                    <div class="legenda" *ngIf="reservasHistorico">
+                        <div class="bola" style="background-color: green;"></div>
+                        <span class="labelLegenda">Concluída</span>
                     </div>
                 </div>
             </div>

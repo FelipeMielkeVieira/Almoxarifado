@@ -7,6 +7,7 @@ import { MinhasReservasComponent } from './minhas-reservas/minhas-reservas.compo
 import { ReservaProfessorComponent } from './reserva-professor/reserva-professor.component';
 import { MinhasSacolasComponent } from './minhas-sacolas/minhas-sacolas.component';
 import { SacolaComponent } from './sacola/sacola.component';
+import { DetalhesReservaComponent } from './detalhes-reserva/detalhes-reserva.component';
 
 
 
@@ -16,7 +17,8 @@ import { SacolaComponent } from './sacola/sacola.component';
     MinhasReservasComponent,
     ReservaProfessorComponent,
     MinhasSacolasComponent,
-    SacolaComponent
+    SacolaComponent,
+    DetalhesReservaComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { SacolaComponent } from './sacola/sacola.component';
     MinhasReservasComponent,
     ReservaProfessorComponent,
     MinhasSacolasComponent,
-    SacolaComponent
+    SacolaComponent,
+    DetalhesReservaComponent
   ]
 })
 export class ProfessorModule { }

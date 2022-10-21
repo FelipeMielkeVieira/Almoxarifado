@@ -135,7 +135,8 @@ label {
 
 /* <!-- ----------------------------- ITEM EM SI EM LISTA ---------------------------- --> */
 .quadroItemLista {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
     width: 72rem;
@@ -149,7 +150,7 @@ label {
 }
 
 .imgProdutoLista {
-    width: 50%;
+    display: none;
 }
 
 .descricaoItemLista {
