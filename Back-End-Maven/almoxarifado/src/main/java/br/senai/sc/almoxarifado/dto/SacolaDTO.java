@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -16,5 +17,5 @@ public class SacolaDTO {
     private Date data_retirada;
     private Date data_devolucao;
     private Usuario usuario;
-    Set<ProdutosEscolhidosSacola> produtos_sacola;
+    List<ProdutosEscolhidosSacola> produtos_sacola;
 }
