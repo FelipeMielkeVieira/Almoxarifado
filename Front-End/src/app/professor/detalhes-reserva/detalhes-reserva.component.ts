@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/service';
 export class DetalhesReservaComponent implements OnInit {
 
     constructor(private router: Router, private route: ActivatedRoute, private service: UsersService) {
+        this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
         if (parseInt(localStorage.getItem('reserva') || "0") != 1) {
             this.sacola = this.service.retornaSacola(parseInt(this.route.snapshot.paramMap.get('id') || "0"));
             this.produtosSacola = this.service.retornaProdutosSacola(this.sacola.id);
@@ -24,9 +25,13 @@ export class DetalhesReservaComponent implements OnInit {
     // Variável para determinar se o componente é de uma reserva ou sacola
     reservaFeita: boolean = false;
 
+    tipoUsuario : number;
+    professorReserva : string = "";
+
     sacola: any;
     produtosSacola: any;
     dataSacola: any;
+    dataAtual = new Date();
 
     ngOnInit() {
     }
@@ -64,6 +69,6 @@ export class DetalhesReservaComponent implements OnInit {
     }
 
     reservarItens() {
-        
+
     }
 }

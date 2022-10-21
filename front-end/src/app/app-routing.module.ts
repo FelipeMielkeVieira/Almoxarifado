@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import CheckLogged from './checkLogged.canactivate';
 import { CadastroComponent } from './login/cadastro/cadastro.component';
 import { LoginComponent } from './login/login/login.component';
+import { DetalhesReservaComponent } from './professor/detalhes-reserva/detalhes-reserva.component';
 import { HomeComponent } from './professor/home/home.component';
 import { MinhasReservasComponent } from './professor/minhas-reservas/minhas-reservas.component';
 import { MinhasSacolasComponent } from './professor/minhas-sacolas/minhas-sacolas.component';
@@ -17,11 +18,13 @@ const routes: Routes = [
       {
         path: 'reservas', children: [
           { path: '', component: MinhasReservasComponent },
+          { path: ':id', component: DetalhesReservaComponent }
         ]
       },
       {
         path: 'sacolas', children: [
           { path: '', component: MinhasSacolasComponent },
+          { path: ':id', component: DetalhesReservaComponent }
         ]
       }
     ]

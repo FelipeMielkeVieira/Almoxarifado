@@ -8,6 +8,7 @@ import { ReservaProfessorComponent } from './reserva-professor/reserva-professor
 import { MinhasSacolasComponent } from './minhas-sacolas/minhas-sacolas.component';
 import { SacolaComponent } from './sacola/sacola.component';
 import { DetalhesReservaComponent } from './detalhes-reserva/detalhes-reserva.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +23,8 @@ import { DetalhesReservaComponent } from './detalhes-reserva/detalhes-reserva.co
   ],
   imports: [
     CommonModule,
-    PrincipalModule
+    PrincipalModule,
+    FormsModule
   ],
   exports: [
     HomeComponent,

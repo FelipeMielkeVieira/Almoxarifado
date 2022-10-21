@@ -37,7 +37,7 @@
     <div class="divMain">
         <div class="divProdutos">
             <div *ngFor="let produto of produtosSacola; let i = index;" class="containerItem">
-                <div class="containerCheckbox">
+                <div class="containerCheckbox" *ngIf="!reservaFeita">
                     <input type="checkbox" id="checkbox" checked>
                 </div>
                 <div class="parteItem">
@@ -106,14 +106,14 @@
                     <div class="divisaoData"></div>
                     <span class="textoData">{{formatarData(sacola.data_devolucao)}}</span>
                 </div>
-                <!-- <input *ngIf="!reservaFeita && (tipoUsuario == 2 || tipoUsuario == 3 || tipoUsuario == 4)"
+                <input *ngIf="!reservaFeita && (tipoUsuario == 2 || tipoUsuario == 3 || tipoUsuario == 4)"
                     class="inputProfessor" [(ngModel)]="professorReserva" placeholder="Professor">
                 <div class="divBotoes">
                     <button *ngIf="reservaFeita && dataSacola > dataAtual" class="botaoReservar botaoCancelarReserva"
                         (click)="cancelarReserva()">Cancelar Reserva</button>
                     <button *ngIf="!reservaFeita" class="botaoReservar" (click)="excluirSacola()">Excluir Sacola</button>
                     <button *ngIf="!reservaFeita" (click)="reservarItens()" class="botaoReservar">Reservar</button>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
