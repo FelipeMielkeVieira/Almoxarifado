@@ -19,6 +19,10 @@ export class ModalConfirmacaoComponent implements OnInit {
         switch(this.tipoTexto) {
             case 1:
                 return "Tem certeza que deseja excluir este item?";
+            case 2:
+                return "Tem certeza que deseja excluir essa sacola?";
+            case 3:
+                return "Tem certeza que deseja efetuar a reserva?";
         }
         return "";
     }

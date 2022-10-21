@@ -60,4 +60,15 @@
         </div>
     </div>
 </div>
+
+<div id="fundoModal" *ngIf="modalReservar || modalExcluir">
+
+    <!-- Modal Confirmar Exclusão de Sacola -->
+    <app-modal-confirmacao *ngIf="modalExcluir" [tipoTexto]="2" (fecharModal)="fecharModalConfirmacao(1, $event)">
+    </app-modal-confirmacao>
+
+    <!-- Modal Confirmar Reserva -->
+    <app-modal-confirmacao *ngIf="modalReservar" [tipoTexto]="3" (fecharModal)="fecharModalConfirmacao(2, $event)">
+    </app-modal-confirmacao>
+</div>
 <!-- --------------------------------------- FIM CONTEÚDO DA SACOLA  --------------------------------------- -->
