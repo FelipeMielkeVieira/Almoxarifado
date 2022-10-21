@@ -1,8 +1,13 @@
 #modalItem {
-    width: 31%;
+    width: 45%;
     border-radius: 0.3rem;
     background-color: white;
     animation: fadein 0.5s;
+    min-width: 420px;
+}
+
+hr {
+    margin: 0;
 }
 
 .riscoAzul {
@@ -73,7 +78,6 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .texto {
@@ -104,6 +108,11 @@
     cursor: pointer;
 }
 
+#menosQtdIcon:hover,
+#maisQtdIcon:hover {
+    font-weight: bold;
+}
+
 #menosQtdIcon {
     border-right: 1px solid black;
 }
@@ -125,7 +134,7 @@
 }
 
 .qtdMax {
-    text-align: end;
+    text-align: center;
     font-size: var(--font-size--small);
     margin-top: 2px;
 }
@@ -151,6 +160,10 @@
     width: 70%;
     min-width: 130px;
     height: 2.3rem;
+}
+
+p {
+    margin: 0;
 }
 
 .containerDataText {
@@ -192,7 +205,6 @@
 }
 
 .btnModal, .btnModal2 {
-    
     color: white;
     border-radius: 5px;
     border: 0;
@@ -210,6 +222,11 @@
     background-color: gray;
 }
 
+#adicionarSacola {
+    position: relative;
+    right: -5px;
+}
+
 #iconModal2 {
     font-size: var(--font-size--giant);
     cursor: pointer;
@@ -222,8 +239,24 @@
     color: #000000;
 }
 
-#iconModal:hover, #iconModal2:hover {
+#iconModal:hover, #iconModal2:hover, #adicionarSacola:hover .GambiarraAdicionarSacola,#adicionarSacola:hover .GambiarraSacola {
     color: #0047B6;
+}
+
+.GambiarraSacola {
+    font-size: var(--font-size--extreme);
+    cursor: pointer;
+    color: #000000;
+}
+
+.GambiarraAdicionarSacola {
+    right: inherit;
+    position: absolute;
+    font-size: var(--font-size--giant);
+    cursor: pointer;
+    font-weight: 600;
+    color: #000000;
+    -webkit-text-stroke: 0.5px #fff;
 }
 
 .iconDeselect {

@@ -120,6 +120,7 @@ export class ItemComponent implements OnInit {
         }
         if (event == "anexos") {
           this.modalAnexos = true;
+          this.modalReservar = true;
         }
         break;
       case 2:
