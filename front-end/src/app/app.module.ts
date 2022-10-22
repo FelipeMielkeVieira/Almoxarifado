@@ -5,11 +5,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import CheckLogged from './checkLogged.canactivate';
+import CheckLogged from './checkLogged/checkLogged.canactivate';
 import { LoginModule } from './login/login.module';
 import { PrincipalModule } from './principal/principal.module';
 import { ProfessorModule } from './professor/professor.module';
 import { UsersService } from './service';
+import { GerenciaModule } from './gerencia/gerencia.module';
+import CheckLoggedProfessor from './checkLogged/checkLoggedProfessor.canactivate';
+import CheckLoggedAtendente from './checkLogged/checkLoggedAtendente.canactivate';
+import CheckLoggedSupervisor from './checkLogged/checkLoggedSupervisor.canactivate';
 
 @NgModule({
   declarations: [
@@ -23,8 +27,9 @@ import { UsersService } from './service';
     LoginModule,
     ProfessorModule,
     PrincipalModule,
+    GerenciaModule
   ],
-  providers: [CheckLogged, UsersService],
+  providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
