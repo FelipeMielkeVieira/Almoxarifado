@@ -3,6 +3,7 @@ package br.senai.sc.almoxarifado.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "usuario")
@@ -29,4 +30,13 @@ public class Usuario {
 
     @Column(length = 1, nullable = false)
     private Boolean visibilidadeUsuario;
+
+    //Foreign Keys
+
+    @ManyToMany
+    @JoinTable(
+            name = "itens_favoritados",
+            joinColumns = @JoinColumn(name = "usuario_email", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "produto_id", nullable = false))
+    private Set<Produto> produtosFavoritados;
 }
