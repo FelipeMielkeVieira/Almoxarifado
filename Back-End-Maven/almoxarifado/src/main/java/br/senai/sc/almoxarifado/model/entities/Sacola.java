@@ -32,9 +32,4 @@ public class Sacola {
     @ManyToOne
     @JoinColumn(name = "usuario_email", nullable = false)
     private Usuario usuario;
-
-    // Many-to-many relationship
-
-
-//    List<ProdutosEscolhidosSacola> produtos_sacola;
 }

@@ -49,7 +49,7 @@ public class ProdutoController {
         Produto produto = new Produto();
         BeanUtils.copyProperties(produtoDTO, produto, "id");
         produto.setId(id);
-        return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.save(produto));
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.save(produto));
     }
 
     @Transactional

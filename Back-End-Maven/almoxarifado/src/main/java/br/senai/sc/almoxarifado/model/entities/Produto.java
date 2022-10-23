@@ -53,8 +53,4 @@ public class Produto {
             joinColumns = @JoinColumn(name = "produto_id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "anexo_id", nullable = false))
     private Set<Anexo> anexos;
-
-//    @OneToMany(mappedBy = "produto")
-//    Set<ProdutosEscolhidos> produtos_sacola;
-
 }

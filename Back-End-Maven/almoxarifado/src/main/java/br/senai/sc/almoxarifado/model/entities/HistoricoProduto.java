@@ -17,10 +17,10 @@ public class HistoricoProduto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
-    private Integer quantidade;
+    private Long quantidade;
 
     @Column(length = 100, nullable = false)
     private String nome;
@@ -43,12 +43,11 @@ public class HistoricoProduto {
 
     // Foreign keys
 
-    @Column
-    private Integer classificacao_id;
+    @OneToOne
+    @JoinColumn(name = "produto_id", nullable = false)
+    private Produto produto;
 
-    @Column(nullable = false)
-    private Integer produto_id;
-
-    @Column(length = 70, nullable = false)
-    private String usuario_email;
+    @ManyToOne
+    @JoinColumn(name = "usuario_email", nullable = false)
+    private Usuario usuario;
 }
