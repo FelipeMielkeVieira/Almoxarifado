@@ -23,38 +23,10 @@
 </div>
 <!-- ------------------------------ FIM FEEDBACKS ------------------------------- -->
 
-<!-- ---------- MODAL ORDERNAR ---------- -->
-<div *ngIf="modalOrdernar">
-    <div class="modalOrdenar" (click)="fecharModalFiltro()">
-        <h3 class="tituloFiltroModalUser">Ordenar</h3>
-        <div class="setaUser"></div>
-        <div id="containerCheckboxes">
-            <div id="containerEsquerdo">
-                <h4>Tipo</h4>
-                <div class="containerCadaCheck">
-                    <input type="checkbox" id="descartavelCheckbox" />
-                    <label class="checkboxes" for="descartavelCheckbox">Crescente</label>
-                </div>
-                <div class="containerCadaCheck">
-                    <input type="checkbox" id="comEstoqueCheckbox" />
-                    <label class="checkboxes" for="comEstoqueCheckbox">Decrescente</label>
-                </div>
-                <h4>Opção</h4>
-                <div class="containerCadaCheck">
-                    <input type="checkbox" id="naoDescartavelCheckbox" />
-                    <label class="checkboxes" for="naoDescartavelCheckbox">Nome</label>
-                </div>
-                <div class="containerCadaCheck">
-                    <input type="checkbox" id="semEstoqueCheckbox" />
-                    <label class="checkboxes" for="semEstoqueCheckbox">Quantidade em estoque</label>
-                </div>
-            </div>
-        </div>
-        <div id="containerBotao">
-            <button class="btnFiltrarModalOrdenar">Limpar</button>
-        </div>
-    </div>
-</div>
+
+<!-- Modal Ordenar -->
+<app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModaisPesquisa(1)" (ordenarItens)="ordenarItens($event)"
+    [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
 
 <!-- -- Modal -- -->
 <div *ngIf="aparecer" id="fundoModalLocalizacao">
@@ -171,37 +143,6 @@
             </div>
         </div>
     </div>
-
-    <!-- NÃO SABEMOS PARA O QUE SERVE, PORÉM CONTÉM ID DUPLICADO E ESTÁ DANDO ERRO! -->
-    <!-- <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
-    <hr class="riscoAzul" />
-    <div id="containerIcons">
-      <span
-        (click)="fecharModalLocalizacao()"
-        id="fecharIcone"
-        class="icone"
-        class="material-symbols-outlined iconDeselect"
-      >
-        close
-      </span>
-    </div>
-    <div class="divBotoes">
-      <button
-        (click)="voltarDevolucaoItens()"
-        id="voltarInformarDefeito"
-        class="btnDevolucaoModal"
-      >
-        Voltar
-      </button>
-      <button
-        (click)="voltarDevolucaoItens()"
-        id="salvarInformarDefeito"
-        class="btnDevolucaoModal"
-      >
-        Salvar
-      </button>
-    </div>
-  </div> -->
 
     <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
         <hr class="riscoAzul" />
@@ -495,8 +436,8 @@
                                 </span>
                             </div>
                             <div id="iconListaBloco">
-                                <span *ngIf="listaItens == 1" (click)="ordernar()" id="iconOrdernar"
-                                    class="material-symbols-outlined iconDeselect" title="Ordernar">
+                                <span *ngIf="listaItens == 1" (click)="mudarModaisPesquisa(1)" id="iconOrdernar"
+                                    class="material-symbols-outlined iconDeselect iconsModais" title="Ordernar">
                                     sync_alt
                                 </span>
                                 <div id="containerIconFiltro">

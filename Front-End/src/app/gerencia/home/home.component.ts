@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
   }
 
+  listaOrdenacoes = [false, false, false, false];
+
   listaItens2;
   inputGeral = "";
   tipoUsuario = 2;
@@ -29,6 +31,21 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     let div;
+
+    // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
+    var self = this;
+    window.onclick = function (event) {
+      if (!(event.target as HTMLElement).className.includes("parteModal")) {
+        if (!(event.target as HTMLElement).className.includes("iconsModais")) {
+          if (self.modalFiltrar) {
+            self.modalFiltrar = false;
+          }
+          if (self.modalOrdenar) {
+            self.modalOrdenar = false;
+          }
+        }
+      }
+    }
 
     setTimeout(() => {
       switch (this.tipoUsuario) {
@@ -76,7 +93,7 @@ export class HomeComponent implements OnInit {
   informarDefeitoModal: boolean = false;
   devolucaoModal: boolean = false;
   nao = 0;
-  modalOrdernar: boolean = false;
+  modalOrdenar: boolean = false;
   modalFiltrar: boolean = false;
   ajuda: boolean = true;
 
@@ -387,16 +404,6 @@ export class HomeComponent implements OnInit {
     //desse jeito, a sacola ainda vai existir com os itens não devolvidos
   }
 
-  abrirModal(abrir: boolean) {
-    if (abrir) {
-      this.modalOrdernar = true;
-      document.documentElement.style.overflow = "hidden";
-    } else {
-      this.modalOrdernar = false;
-      document.documentElement.style.overflow = "auto";
-    }
-  }
-
   cadastrar() {
     this.service.localizacoes.push({
       id: this.service.localizacoes.length + 1,
@@ -495,29 +502,12 @@ export class HomeComponent implements OnInit {
     this.reserva = true;
   }
 
-  ordernar() {
-    this.abrirModal(true);
-  }
-
-  fecharModalOrdenar() {
-    this.abrirModal(false);
-  }
-
-  cancelarOrdenar() {
-    this.abrirModal(false);
-  }
-
-  realizarOrdenacao() {
-    this.abrirModal(false);
-  }
-
   filtrar() {
     this.modalFiltrar = !this.modalFiltrar;
   }
 
   fecharModalFiltro() {
     this.modalFiltrar = false;
-    this.modalOrdernar = false;
   }
 
   adicionarClassificacao() {
@@ -543,6 +533,20 @@ export class HomeComponent implements OnInit {
     this.aparecer = false;
     this.cadastrarModal = false;
     this.inputClassificacao = 0;
+  }
+
+  // Função para mudar a visualização do modal de ordenação
+  mudarModaisPesquisa(numero: number) {
+    switch (numero) {
+      case 1:
+        this.modalOrdenar = !this.modalOrdenar;
+        break;
+    }
+  }
+
+  //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações
+  ordenarItens(event: any) {
+    this.listaOrdenacoes = JSON.parse(event);
   }
 
 }

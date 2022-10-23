@@ -40,6 +40,10 @@ export class SacolaComponent implements OnInit {
     modalReservar: boolean = false;
     modalExcluir: boolean = false;
 
+    feedbackReservaFeita = false;
+    feedbackExclusaoSacola = false;
+    reservaFeita: boolean = false;
+
     abrirCalendario1() {
         this.calendarioAberto2 = 0;
         if (this.calendarioAberto1 == 0) {
@@ -99,7 +103,6 @@ export class SacolaComponent implements OnInit {
     /* <!-- --------------------------------------- FIM CONTEÚDO DA SACOLA  --------------------------------------- --> */
 
     // <!-- --------------------------- COMPONENTE FEEDBACK --------------------------- -->
-    reservaFeita: boolean = false;
 
     fecharModalConfirmacao(numero: number, confirmacao: any) {
         switch (numero) {
@@ -107,12 +110,14 @@ export class SacolaComponent implements OnInit {
                 this.modalExcluir = false;
                 if (confirmacao) {
                     this.excluirSacola();
+                    this.abrirModalFeedback(2);
                 }
                 break;
             case 2:
                 this.modalReservar = false;
                 if (confirmacao) {
                     this.finalizarReserva();
+                    this.abrirModalFeedback(1);
                 }
                 break;
         }
@@ -124,6 +129,34 @@ export class SacolaComponent implements OnInit {
 
     finalizarReserva() {
         //Chamar back para fazer reserva
+    }
+
+    abrirModalFeedback(numero: number) {
+        switch (numero) {
+            case 1:
+                this.feedbackReservaFeita = true;
+                setTimeout(() => {
+                    this.feedbackReservaFeita = false;
+                }, 4000);
+                break;
+            case 2:
+                this.feedbackExclusaoSacola = true;
+                setTimeout(() => {
+                    this.feedbackExclusaoSacola = false;
+                }, 4000);
+                break;
+        }
+    }
+
+    fecharModalFeedback(numero: number) {
+        switch (numero) {
+            case 1:
+                this.feedbackReservaFeita = false;
+                break;
+            case 2:
+                this.feedbackExclusaoSacola = false;
+                break;
+        }
     }
     // <!-- --------------------------- FIM COMPONENTE FEEDBACK --------------------------- -->
 }

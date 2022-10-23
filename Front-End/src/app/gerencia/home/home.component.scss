@@ -498,6 +498,7 @@ h1 {
     cursor: pointer;
     transition: ease-out 0.2s;
     display: inline-block;
+    font-size: var(--font-size--small);
 }
 
 .semAzul:hover {
@@ -512,6 +513,7 @@ h1 {
     cursor: pointer;
     color: #fff;
     display: inline-block;
+    font-size: var(--font-size--small);
 }
 
 .comAzul:hover {

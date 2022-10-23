@@ -26,6 +26,8 @@ export class ModalFeedback implements OnInit {
         return "Item editado com sucesso!";
       case 4:
         return "Item removido com sucesso!";
+      case 5:
+        return "Sacola excluída com sucesso!";
     }
     return "";
   }

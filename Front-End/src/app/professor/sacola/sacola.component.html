@@ -76,7 +76,7 @@
                 <div class="tituloData">
                     <span class="dataTitulo">Data de retirada:</span>
                 </div>
-                
+
                 <div class="dataInput">
                     <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
                         (click)="abrirCalendario1()">
@@ -136,4 +136,10 @@
     <app-modal-confirmacao *ngIf="modalReservar" [tipoTexto]="3" (fecharModal)="fecharModalConfirmacao(2, $event)">
     </app-modal-confirmacao>
 </div>
+
+<app-modal-feedback *ngIf="feedbackReservaFeita" [tipoFeedback]="1" (fecharModal)="fecharModalFeedback(1)">
+</app-modal-feedback>
+
+<app-modal-feedback *ngIf="feedbackExclusaoSacola" [tipoFeedback]="5" (fecharModal)="fecharModalFeedback(2)">
+</app-modal-feedback>
 <!-- --------------------------------------- FIM CONTEÚDO DA SACOLA  --------------------------------------- -->
