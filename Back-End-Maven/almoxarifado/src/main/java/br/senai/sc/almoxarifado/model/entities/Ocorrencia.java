@@ -5,35 +5,26 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "sacola_produto")
+@Table(name = "ocorrencia")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor()
 @ToString
 @EqualsAndHashCode
-public class ProdutosEscolhidosSacola {
-    // Foreign keys
-
-//    @EmbeddedId
-//    public SacolaProdutoKey getId() {
-//        return id;
-//    }
-//    @EmbeddedId
-//    SacolaProdutoKey id;
-
+public class Ocorrencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Column(nullable = false)
-    private Long qtd_produto;
+    private String descricao;
 
     //Foreign keys
 
     @ManyToOne
-    @JoinColumn(name = "sacola_id")
-    Sacola sacola;
+    @JoinColumn(name = "reserva_id")
+    Reserva reserva;
 
     @ManyToOne
     @JoinColumn(name = "produto_id")

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SacolaProdutoRepository extends JpaRepository<ProdutosEscolhidosSacola, Long> {
+public interface ProdutosEscolhidosSacolaRepository extends JpaRepository<ProdutosEscolhidosSacola, Long> {
     List<ProdutosEscolhidosSacola> findBySacola(Sacola sacola);
 }

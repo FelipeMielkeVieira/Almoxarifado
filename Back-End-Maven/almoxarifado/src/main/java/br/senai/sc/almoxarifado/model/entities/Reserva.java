@@ -37,5 +37,4 @@ public class Reserva {
     @ManyToOne
     @JoinColumn(name = "usuario_email", nullable = false)
     private Usuario usuario;
-
 }
