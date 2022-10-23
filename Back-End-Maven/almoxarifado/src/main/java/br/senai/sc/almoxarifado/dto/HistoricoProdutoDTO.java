@@ -1,5 +1,6 @@
 package br.senai.sc.almoxarifado.dto;
 
+import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.entities.Usuario;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class HistoricoProdutoDTO {
 
 
     // Foreign keys
+    private Classificacao classificacao;
     private Produto produto;
     private Usuario usuario;
 }

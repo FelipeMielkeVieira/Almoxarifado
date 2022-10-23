@@ -43,6 +43,10 @@ public class HistoricoProduto {
 
     // Foreign keys
 
+    @ManyToOne
+    @JoinColumn(name = "classificacao_id")
+    private Classificacao classificacao;
+
     @OneToOne
     @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
