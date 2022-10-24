@@ -11,7 +11,6 @@ import { DetalhesReservaComponent } from './detalhes-reserva/detalhes-reserva.co
 import { FormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -24,7 +23,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PrincipalModule,
-    FormsModule,
+    FormsModule
   ],
   exports: [
     HomeComponent,

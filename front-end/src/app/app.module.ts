@@ -16,8 +16,6 @@ import CheckLoggedAtendente from './checkLogged/checkLoggedAtendente.canactivate
 import CheckLoggedSupervisor from './checkLogged/checkLoggedSupervisor.canactivate';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule } from '@angular/material/button';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -31,8 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     ProfessorModule,
     PrincipalModule,
     GerenciaModule,
-    BrowserAnimationsModule,
-    MatButtonModule
+    BrowserAnimationsModule
   ],
   providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor],
   bootstrap: [AppComponent]
