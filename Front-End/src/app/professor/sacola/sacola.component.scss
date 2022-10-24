@@ -15,6 +15,10 @@
 }
 
 /* <!-- --------------------------------------- CONTEÚDO DA SACOLA  --------------------------------------- --> */
+p {
+    margin-bottom: 0;
+}
+
 #containerSacola {
     width: 38rem;
     border-radius: 10px;
@@ -36,7 +40,7 @@
 #parteEsquerda {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     width: 50%;
 }
 
@@ -46,12 +50,15 @@
     width: 100%;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 2px;
     text-align: center;
+    margin: 3px;
+    padding: 3px;
 }
 
 .calendario {
     cursor: pointer;
+    width: 1%;
+    margin-left: 1%;
 }
 
 .calendario:hover {
@@ -68,7 +75,10 @@
 }
 
 .dataTexto {
+    display: flex;
     width: 100%;
+    justify-content: center;
+    text-align: center;
 }
 
 #dataRetirada {
@@ -79,6 +89,11 @@
     font-size: var(--font-size--medium);
 }
 
+.containerDatas {
+    width: 100%;
+    cursor: pointer;
+}
+
 #parteDireita {
     display: flex;
     flex-direction: column;
@@ -86,9 +101,11 @@
     text-align: start;
     justify-content: space-between;
     width: 50%;
+    height: 100%;
 }
 
 #itens {
+    cursor: pointer;
     list-style-type: none;
     width: 95%;
     height: 100%;
@@ -96,13 +113,13 @@
     border: 1px solid black;
     overflow-x: hidden;
     overflow-y: auto;
+    margin-bottom: 0;
 }
 
 .item {
     display: flex;
     align-items: center;
     padding: 5px;
-    padding-left: 10px;
     text-overflow: ellipsis;
 }
 
@@ -117,6 +134,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 2%;
 }
 
 #adicionarProfessor {
@@ -150,7 +168,6 @@
     padding: 0.55rem;
     border-radius: 5px;
     border: 0;
-    cursor: pointer;
 }
 
 .iconeLixeira {
@@ -186,7 +203,7 @@
     background-color: rgba(0, 0, 0, 0.349);
 }
 
-.containerBotoes{
+.containerBotoes {
     width: 100%;
     display: flex;
     align-items: center;
@@ -194,15 +211,20 @@
     flex-direction: row;
 }
 
-.tituloData{
+.tituloData {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
 }
 
-.dataTitulo{
-    font-size: 20px;
+.dataTitulo {
+    font-size: 17.5px;
+}
+
+.dataTituloDevolucao {
+    font-size: 17.5px;
+    margin-top: 2%;
 }
 
 /* <!-- --------------------------------------- FIM CONTEÚDO DA SACOLA  --------------------------------------- --> */
