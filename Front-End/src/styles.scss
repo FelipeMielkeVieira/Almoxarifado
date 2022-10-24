@@ -47,7 +47,7 @@ $md-mcgpalette0: (
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $Front-End-primary: mat.define-palette($md-mcgpalette0);
-$Front-End-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$Front-End-accent: mat.define-palette($md-mcgpalette0);
 
 // The warn palette is optional (defaults to red).
 $Front-End-warn: mat.define-palette(mat.$red-palette);
