@@ -21,6 +21,7 @@
         <input id="inputSenha" name="senhaUser" [(ngModel)]="senhaUser" type="password"
           class="form-control input-float-label inputsLogin" placeholder="Email">
         <label class="label-float-label" for="senhaUser">Senha</label>
+
         <span *ngIf="!senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho()"
           alt="Visualização da senha">
           visibility_off
