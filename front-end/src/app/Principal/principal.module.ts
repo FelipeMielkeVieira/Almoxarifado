@@ -18,6 +18,7 @@ import { ModalMotivoEdicaoComponent } from './modal-motivo-edicao/modal-motivo-e
 import { ModalConfirmacaoComponent } from './modal-confirmacao/modal-confirmacao.component';
 import { ModalHistoricoEdicaoComponent } from './modal-historico-edicao/modal-historico-edicao.component';
 import { PaginacaoComponent } from './paginacao/paginacao.component';
+import { AjudaComponent } from './ajuda/ajuda.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PaginacaoComponent } from './paginacao/paginacao.component';
     ModalMotivoEdicaoComponent,
     ModalConfirmacaoComponent,
     ModalHistoricoEdicaoComponent,
-    PaginacaoComponent
+    PaginacaoComponent,
+    AjudaComponent
   ],
   imports: [
     CommonModule,

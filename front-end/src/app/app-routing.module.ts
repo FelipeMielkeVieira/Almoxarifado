@@ -12,10 +12,12 @@ import { MinhasSacolasComponent } from './professor/minhas-sacolas/minhas-sacola
 import CheckLoggedProfessor from './checkLogged/checkLoggedProfessor.canactivate';
 import CheckLoggedAtendente from './checkLogged/checkLoggedAtendente.canactivate';
 import CheckLoggedSupervisor from './checkLogged/checkLoggedSupervisor.canactivate';
+import { AjudaComponent } from './principal/ajuda/ajuda.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
+  { path: 'ajuda', canActivate: [CheckLogged], component: AjudaComponent},
   {
     path: 'professor', canActivate: [CheckLogged, CheckLoggedProfessor], children: [
       { path: '', component: HomeProfessorComponent },

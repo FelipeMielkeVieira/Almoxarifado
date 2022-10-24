@@ -65,7 +65,7 @@ export class ModalUserComponent implements OnInit {
   }
 
   abrirAjuda() {
-    //Colocar rota para ajuda
+    this.router.navigate(['/ajuda']);
   }
 
   // *Irá deslogar do sistema
