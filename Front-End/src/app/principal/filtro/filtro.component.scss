@@ -22,7 +22,6 @@ header {
 a span {
     display: flex;
     padding: 0 0 0 1rem;
-    /* padding: 0px 2rem; */
     font-size: var(--font-size--small);
 }
 
@@ -38,7 +37,17 @@ a:hover {
     background: #EEEEEE;
 }
 ::-webkit-scrollbar-thumb {
+    transition: all .5s ease;
     background: #dad7d7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    transition: all .5s ease;
+    background: #cac7c7;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #bbb8b8;
 }
 
 /* ------------------------- FIM CSS PADRAO GERAL ------------------------- */
