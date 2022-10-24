@@ -1,29 +1,6 @@
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<!-- ------------------------------ FEEDBACKS ------------------------------- -->
-<div *ngIf="feedback == 1" id="modalFeedback">
-    <div class="divInfo">
-        <span title="Fechar" (click)="fechar()" id="fechar" class="iconDeselect icone"
-            class="material-symbols-outlined iconDeselect">
-            close
-        </span>
-        <span title="Confirmar" id="iconCerto" class="material-symbols-outlined iconDeselect">
-            task_alt
-        </span>
-        <span *ngIf="nao == 2" id="spanTexto">Baixa dada com sucesso!</span>
-        <span *ngIf="nao == 1" id="spanTexto">Retirada confirmada!</span>
-        <span *ngIf="nao == 0" id="spanTexto">Item cadastrado!</span>
-        <span *ngIf="nao == 3" id="spanTexto">Localização removida!</span>
-        <span *ngIf="nao == 4" id="spanTexto">Localização cadastrada!</span>
-    </div>
-    <div id="fundo" style="background-color: #aeaeae">
-        <div id="azul"></div>
-    </div>
-</div>
-<!-- ------------------------------ FIM FEEDBACKS ------------------------------- -->
-
-
 <!-- Modal Ordenar -->
 <app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModaisPesquisa(1)" (ordenarItens)="ordenarItens($event)"
     [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
@@ -84,15 +61,15 @@
                                 <!-- {{ item.posicao }} -->
                                 <p>posicao</p>
                                 <!-- {{ item.qtd }} -->
-                                <p *ngIf="nao == 2">qtd</p>
-                                <p *ngIf="nao == 1" id="quantidadeProduto">qtd</p>
+                                <p>qtd</p>
+                                <p id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
                                 <div class="botoesDevolucaoModal">
                                     <button (click)="acaoSegundariaDevolucaoModal()" class="btnSegundario"
                                         style="background-color: red; margin-bottom: 0.2rem">
                                         {{ textoAcaoSegundariaDevolucaoModal() }}
                                     </button>
-                                    <button *ngIf="nao == 2" (click)="informarDefeitoItem()" class="informarDefeito">
+                                    <button (click)="informarDefeitoItem()" class="informarDefeito">
                                         Informar Defeito
                                     </button>
                                 </div>
@@ -101,10 +78,10 @@
                     </div>
                 </li>
             </ul>
-            <button *ngIf="nao == 2" (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">
+            <button (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">
                 Dar baixa
             </button>
-            <div *ngIf="nao == 1" id="containerFinal">
+            <div id="containerFinal">
                 <button (click)="cancelarReserva()" class="btnDevolucaoModal cancelarRetirada">
                     Cancelar reserva
                 </button>
@@ -441,51 +418,17 @@
                                     sync_alt
                                 </span>
                                 <div id="containerIconFiltro">
-                                    <span *ngIf="listaItens == 1" title="Filtro" (click)="filtrar()" id="iconFiltro"
+                                    <span *ngIf="listaItens == 1" title="Filtro" id="iconFiltro"
                                         class="material-symbols-outlined iconDeselect">
                                         filter_alt
                                     </span>
-                                    <!-- ---------- MODAL FILTRAR ---------- -->
-
-                                    <div *ngIf="modalFiltrar" class="modalUser" (click)="fecharModalFiltro()">
-                                        <h3 class="tituloFiltroModalUser">Filtro</h3>
-                                        <div class="setaUser"></div>
-                                        <div id="containerCheckboxes">
-                                            <div id="containerEsquerdo">
-                                                <div class="containerCadaCheck">
-                                                    <input type="checkbox" id="descartavelCheckbox" />
-                                                    <label class="checkboxes"
-                                                        for="descartavelCheckbox">Descartável</label>
-                                                </div>
-                                                <div class="containerCadaCheck">
-                                                    <input type="checkbox" id="comEstoqueCheckbox" />
-                                                    <label class="checkboxes" for="comEstoqueCheckbox">Com
-                                                        Estoque</label>
-                                                </div>
-                                                <div class="containerCadaCheck">
-                                                    <input type="checkbox" id="naoDescartavelCheckbox" />
-                                                    <label class="checkboxes" for="naoDescartavelCheckbox">Não
-                                                        Descartável</label>
-                                                </div>
-                                                <div class="containerCadaCheck">
-                                                    <input type="checkbox" id="semEstoqueCheckbox" />
-                                                    <label class="checkboxes" for="semEstoqueCheckbox">Sem
-                                                        Estoque</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="containerBotao">
-                                            <button class="btnFiltrarModal">Limpar</button>
-                                        </div>
-                                        <!-- clicar fora: (click)="fecharModalFiltrar()" -->
-                                    </div>
                                 </div>
 
-                                <span *ngIf="emBloco == 1" (click)="mostrarEmBloco()" id="iconEmBloco"
+                                <span *ngIf="listaEmBloco" (click)="mudarVisualizacao()" id="iconEmBloco"
                                     class="material-symbols-outlined iconDeselect" title="Ver em bloco">
                                     grid_view
                                 </span>
-                                <span *ngIf="emBloco == 0" (click)="mostrarEmLista()" id="iconEmLista"
+                                <span *ngIf="!listaEmBloco" (click)="mudarVisualizacao()" id="iconEmLista"
                                     class="material-symbols-outlined iconDeselect" title="Ver em lista">
                                     sort
                                 </span>
@@ -527,7 +470,7 @@
                     </button>
                 </div>
                 <div id="risco"></div>
-                <div *ngIf="gerenciaCadastros == 1 && emBloco == 0" class="usuarios">
+                <div *ngIf="gerenciaCadastros == 1 && listaEmBloco" class="usuarios">
                     <div class="containerUsuario">
                         <div class="containerUser">
                             <img class="imgUser" src="../../../assets/user.png" alt="" />
@@ -550,7 +493,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="gerenciaCadastros == 1 && emBloco == 1" class="usuarios">
+                <div *ngIf="gerenciaCadastros == 1 && !listaEmBloco" class="usuarios">
                     <div class="containerUsuarioLista">
                         <div class="containerUser">
                             <div id="containerUserImagemTexto">
@@ -576,7 +519,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="gerenciaUsuarios == 1 && emBloco == 0" class="telaUsuarios">
+                <div *ngIf="gerenciaUsuarios == 1 && listaEmBloco" class="telaUsuarios">
                     <div class="containerUsuarios">
                         <div class="containerUser">
                             <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
@@ -605,7 +548,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="gerenciaUsuarios == 1 && emBloco == 1" class="telaUsuarios">
+                <div *ngIf="gerenciaUsuarios == 1 && !listaEmBloco" class="telaUsuarios">
                     <div class="containerUsuariosLista">
                         <div class="containerUser">
                             <div id="containerUserImagemTexto">
@@ -644,12 +587,17 @@
                     <!-- <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente>
                     <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente> -->
                 </div>
-                <div *ngIf="listaItens == 1 && emBloco == 0" class="containerLista">
-                    <app-item *ngFor="let item of listaItens2" [item]="item"></app-item>
+
+                <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
+                <div *ngIf="listaEmBloco && abaItensAberta" id="containerItens">
+                    <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
-                <div *ngIf="listaItens == 1 && emBloco == 1" class="containerListaLista">
-                    <app-item *ngFor="let item of listaItens2" [item]="item"></app-item>
+
+                <div *ngIf="!listaEmBloco && abaItensAberta" id="containerItensLista">
+                    <app-item [visualizacaoItem]="'emLinha'" *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
+
+
                 <div *ngIf="contLocalizacoes == 1" id="conteudoLocalizacoes">
                     <div id="containerLocalizacoes">
                         <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">

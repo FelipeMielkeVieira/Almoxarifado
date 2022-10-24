@@ -1617,3 +1617,17 @@ h1 {
 #grupoPergunta {
     margin: 1rem;
 }
+
+#containerItens {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-items: center;
+}
+
+#containerItensLista{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 20px;
+}

@@ -9,15 +9,18 @@ import { UsersService } from 'src/app/service';
 export class HomeComponent implements OnInit {
 
   constructor(private service: UsersService) {
-    this.listaItens2 = service.itens;
+    this.listaItens = service.itens;
     this.localizacoesLista = service.localizacoes;
     this.localizacoesFiltradas = this.localizacoesLista;
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
   }
 
   listaOrdenacoes = [false, false, false, false];
+  listaItens: any = [];
+  
+  listaEmBloco = true;
+  abaItensAberta = false;
 
-  listaItens2;
   inputGeral = "";
   tipoUsuario = 2;
   reserva = true;
@@ -37,9 +40,6 @@ export class HomeComponent implements OnInit {
     window.onclick = function (event) {
       if (!(event.target as HTMLElement).className.includes("parteModal")) {
         if (!(event.target as HTMLElement).className.includes("iconsModais")) {
-          if (self.modalFiltrar) {
-            self.modalFiltrar = false;
-          }
           if (self.modalOrdenar) {
             self.modalOrdenar = false;
           }
@@ -79,9 +79,7 @@ export class HomeComponent implements OnInit {
   gerenciaCadastros = 0;
   devolucoes = 0;
   retirada = 0;
-  listaItens = 0;
   contLocalizacoes = 0;
-  feedback = 0;
 
   localizacoesItem = 1;
 
@@ -92,12 +90,8 @@ export class HomeComponent implements OnInit {
 
   informarDefeitoModal: boolean = false;
   devolucaoModal: boolean = false;
-  nao = 0;
   modalOrdenar: boolean = false;
-  modalFiltrar: boolean = false;
   ajuda: boolean = true;
-
-  emBloco = 0;
 
   modalRecusar() {
     document.documentElement.style.overflow = "hidden";
@@ -117,33 +111,18 @@ export class HomeComponent implements OnInit {
     this.aparecer = false;
     this.cadastrarModal = false;
     this.inputClassificacao = 0;
-    this.nao = 0;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
   }
 
   botaoConfirmarRetirada() {
     document.documentElement.style.overflow = "auto";
     this.devolucaoModal = false;
     this.aparecer = false;
-    this.nao = 1;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
   }
 
   abrirDevolucao(numero: number) {
     document.documentElement.style.overflow = "hidden";
     this.devolucaoModal = true;
     this.aparecer = true;
-    if (numero == 2) {
-      this.nao = 1;
-    } else {
-      this.nao = 2;
-    }
   }
 
   fecharModalBaixaDevolucao() {
@@ -156,11 +135,6 @@ export class HomeComponent implements OnInit {
     document.documentElement.style.overflow = "auto";
     this.devolucaoModal = false;
     this.aparecer = false;
-    this.nao = 2;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
   }
 
   cancelar() {
@@ -181,7 +155,7 @@ export class HomeComponent implements OnInit {
     this.gerenciaUsuarios = 0;
     this.devolucoes = 0;
     this.retirada = 0;
-    this.listaItens = 0;
+    this.abaItensAberta = false;
     this.contLocalizacoes = 0;
 
     let semAzul1 = document.querySelector("#retirada") as HTMLElement;
@@ -212,7 +186,7 @@ export class HomeComponent implements OnInit {
     this.gerenciaCadastros = 0;
     this.devolucoes = 0;
     this.retirada = 0;
-    this.listaItens = 0;
+    this.abaItensAberta = false;
     this.contLocalizacoes = 0;
 
     let semAzul1 = document.querySelector("#retirada") as HTMLElement;
@@ -242,7 +216,7 @@ export class HomeComponent implements OnInit {
     this.gerenciaUsuarios = 0;
     this.gerenciaCadastros = 0;
     this.retirada = 0;
-    this.listaItens = 0;
+    this.abaItensAberta = false;
     this.contLocalizacoes = 0;
 
     let semAzul1 = document.querySelector("#retirada") as HTMLElement;
@@ -274,7 +248,7 @@ export class HomeComponent implements OnInit {
     this.devolucoes = 0;
     this.gerenciaUsuarios = 0;
     this.gerenciaCadastros = 0;
-    this.listaItens = 0;
+    this.abaItensAberta = false;
     this.contLocalizacoes = 0;
 
     let semAzul1 = document.querySelector("#devolucoes") as HTMLElement;
@@ -302,7 +276,7 @@ export class HomeComponent implements OnInit {
   }
 
   listaDeItens() {
-    this.listaItens = 1;
+    this.abaItensAberta = true;
     this.retirada = 0;
     this.devolucoes = 0;
     this.gerenciaUsuarios = 0;
@@ -335,7 +309,7 @@ export class HomeComponent implements OnInit {
 
   localizacoes() {
     this.contLocalizacoes = 1;
-    this.listaItens = 0;
+    this.abaItensAberta = false;
     this.retirada = 0;
     this.devolucoes = 0;
     this.gerenciaUsuarios = 0;
@@ -377,11 +351,6 @@ export class HomeComponent implements OnInit {
     if (index1 != -1) {
       this.service.localizacoes.splice(index1, 1);
     }
-    this.feedback = 1;
-    this.nao = 3;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
   }
 
   pesquisaLocalizacao() {
@@ -410,21 +379,11 @@ export class HomeComponent implements OnInit {
       nome: this.nomeLoc,
     });
     this.fecharModalLocalizacao();
-    this.nao = 4;
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
-    console.log(this.service.localizacoes);
   }
 
   confirmacaoLocalizacao(index: number) {
     this.aparecerConfirmacao = 1;
     this.indexExcluir = index;
-  }
-
-  fechar() {
-    this.feedback = 0;
   }
 
   informarDefeitoItem() {
@@ -435,14 +394,6 @@ export class HomeComponent implements OnInit {
   voltarDevolucaoItens() {
     this.informarDefeitoModal = false;
     this.devolucaoModal = true;
-  }
-
-  mostrarEmBloco() {
-    this.emBloco = 0;
-  }
-
-  mostrarEmLista() {
-    this.emBloco = 1;
   }
 
   adicionarLocalizacao() {
@@ -458,11 +409,6 @@ export class HomeComponent implements OnInit {
   }
 
   acaoSegundariaDevolucaoModal() {
-    if (this.nao == 2) {
-      this.produtoNaoDevolvido();
-    } else {
-      this.removerProdutoSacola();
-    }
   }
 
   removerProdutoSacola() {
@@ -471,7 +417,6 @@ export class HomeComponent implements OnInit {
   }
 
   textoAcaoSegundariaDevolucaoModal() {
-    if (this.nao == 2) return "Não devolvido";
     return "Remover";
   }
 
@@ -500,14 +445,6 @@ export class HomeComponent implements OnInit {
   enviar() {
     this.aparecer = false;
     this.reserva = true;
-  }
-
-  filtrar() {
-    this.modalFiltrar = !this.modalFiltrar;
-  }
-
-  fecharModalFiltro() {
-    this.modalFiltrar = false;
   }
 
   adicionarClassificacao() {
@@ -547,6 +484,11 @@ export class HomeComponent implements OnInit {
   //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações
   ordenarItens(event: any) {
     this.listaOrdenacoes = JSON.parse(event);
+  }
+
+  // Função para mudar a visualização dos componentes (Lista / Bloco)
+  mudarVisualizacao() {
+    this.listaEmBloco = !this.listaEmBloco;
   }
 
 }
