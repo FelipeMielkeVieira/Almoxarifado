@@ -14,6 +14,9 @@ import { GerenciaModule } from './gerencia/gerencia.module';
 import CheckLoggedProfessor from './checkLogged/checkLoggedProfessor.canactivate';
 import CheckLoggedAtendente from './checkLogged/checkLoggedAtendente.canactivate';
 import CheckLoggedSupervisor from './checkLogged/checkLoggedSupervisor.canactivate';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import CheckLoggedSupervisor from './checkLogged/checkLoggedSupervisor.canactiva
     LoginModule,
     ProfessorModule,
     PrincipalModule,
-    GerenciaModule
+    GerenciaModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor],
   bootstrap: [AppComponent]
