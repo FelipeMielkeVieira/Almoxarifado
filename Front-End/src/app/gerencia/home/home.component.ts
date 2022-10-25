@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   listaOrdenacoes = [false, false, false, false];
   listaItens: any = [];
 
+  selectAllLocalizacoes: boolean = false;
+
   // Variáveis para abas
   abaGerenciaUsuarios = false;
   abaGerenciaCadastros = false;
@@ -344,4 +346,15 @@ export class HomeComponent implements OnInit {
     this.listaEmBloco = !this.listaEmBloco;
   }
 
+  selectAll() {
+    if (this.selectAllLocalizacoes) {
+      this.service.localizacoes.forEach((localizacao) => {
+        localizacao.checked = false;
+      });
+    } else {
+      this.service.localizacoes.forEach((localizacao) => {
+        localizacao.checked = true;
+      });
+    }
+  }
 }

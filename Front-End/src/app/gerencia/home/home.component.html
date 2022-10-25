@@ -378,7 +378,7 @@
 
                 <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes">
                     <div id="containerAcoesLocalizacao">
-                        <mat-checkbox id="selecionar-tudo">Selecionar tudo</mat-checkbox>
+                        <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoes" (click)="selectAll()">Selecionar tudo</mat-checkbox>
                         <div id="btnLocalizacao">
                             <button (click)="confirmacaoLocalizacao()" class="btn btn-outline-primary btnCustom">Deletar</button>
                         </div>
