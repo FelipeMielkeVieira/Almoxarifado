@@ -44,20 +44,6 @@
                         sort
                     </span>
                 </div>
-
-                <!-- Div para ícone de filtro e opção de filtrar -->
-                <div id="containerIconFiltro">
-                    <span title="Filtro" (click)="abrirModalFiltro()" id="iconFiltro"
-                        class="material-symbols-outlined iconDeselect iconsModais">
-                        filter_alt
-                    </span>
-
-                    <!-- Modal Filtrar -->
-                    <app-modal-filtragem-itens *ngIf="modalFiltrar" [filtrosAtuais]="listaFiltros"
-                        (acaoFiltrar)="filtrarItens($event)" (fecharModal)="fecharModalFiltro($event)">
-                    </app-modal-filtragem-itens>
-
-                </div>
             </div>
             <div id="filtro"></div>
             <p id="resultados">{{ numResultados }} Resultados encontrados</p>
