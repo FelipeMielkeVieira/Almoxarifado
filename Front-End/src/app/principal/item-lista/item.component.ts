@@ -79,8 +79,25 @@ export class ItemListaComponent implements OnInit {
   }
 
   // Função para deixar visível o modal de reserva do item
-  abrirModalReserva() {
-    this.modalReservar = true;
+  abrirModalReserva(event: any) {
+    console.log(event);
+    let idIcone = event.path[0].id;
+    console.log(idIcone);
+
+    switch (idIcone) {
+      case "iconeEditar":
+        this.abrirModalEditar();
+        break;
+      case "iconeHistorico":
+        this.abrirHistorico();
+        break;
+      case "iconeExcluir":
+        this.removerItem();
+        break;
+      default:
+        this.modalReservar = true;
+    }
+    // this.modalReservar = true;
   }
 
   // Função para abrir o modal de edição do item
