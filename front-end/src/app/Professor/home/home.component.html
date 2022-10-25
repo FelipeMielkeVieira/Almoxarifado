@@ -15,9 +15,11 @@
                 <!-- Barra de Pesquisa -->
                 <div id="divInput">
                     <input id="input" type="text" placeholder="Pesquise por produto..." />
-                    <img id="lupa" src="../../../assets/lupa.png" alt="Fazer Pesquisa" />
+                    <span id="iconPesquisar" class="material-symbols-outlined iconDeselect iconsModais" title="Pesquisar">
+                        search
+                    </span>
                 </div>
-                
+
                 <div id="containerOrdenar">
                     <!-- Ícone de ordenação -->
                     <span (click)="mudarModalOrdenar()" id="iconOrdernar"
@@ -67,11 +69,13 @@
         </div>
 
         <div *ngIf="!listaEmBloco" id="containerItensLista">
-            <app-item [visualizacaoItem]="'emLinha'" *ngFor="let item of listaItens" [item]="item"></app-item>
+            <app-item-lista [itens]="listaItens"></app-item-lista>
         </div>
 
         <!-- Listagem de Páginas na parte de baixo da tela -->
-        <nav *ngIf="numeroPaginas > 0" id="containerPaginacao">
+        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+        </mat-paginator>
+        <!-- <nav *ngIf="numeroPaginas > 0" id="containerPaginacao">
             <ul id="paginacao">
                 <li *ngIf="paginaAtual > 1" (click)="voltarPagina()" class="paginaItem">
                     Anterior
@@ -90,6 +94,6 @@
                     Próximo
                 </li>
             </ul>
-        </nav>
+        </nav> -->
     </div>
 </main>

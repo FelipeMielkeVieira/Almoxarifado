@@ -10,6 +10,7 @@ import { SacolaComponent } from './sacola/sacola.component';
 import { DetalhesReservaComponent } from './detalhes-reserva/detalhes-reserva.component';
 import { FormsModule } from '@angular/forms';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PrincipalModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule
   ],
   exports: [
     HomeComponent,

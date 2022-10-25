@@ -373,13 +373,12 @@
                 <div *ngIf="listaEmBloco && abaItens" id="containerItens">
                     <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
-
-                <div *ngIf="!listaEmBloco && abaItens" id="containerItensLista">
-                    <app-item [visualizacaoItem]="'emLinha'" *ngFor="let item of listaItens" [item]="item"></app-item>
+                
+                <div *ngIf="!listaEmBloco && abaItensAberta" id="containerItensLista">
+                    <app-item-lista [itens]="listaItens"></app-item-lista>
                 </div>
 
-
-                <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes">
+                <div *ngIf="contLocalizacoes == 1" id="conteudoLocalizacoes">
                     <div id="containerLocalizacoes">
                         <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
                             <p>{{ loc.nome }}</p>

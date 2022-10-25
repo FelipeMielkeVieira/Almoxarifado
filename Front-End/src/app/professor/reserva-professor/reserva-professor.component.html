@@ -2,12 +2,12 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <!-- ------------------------------------- COMPONENTE DA RESERVA ------------------------------------- -->
-<div id="containerSacola">
+<div id="containerSacola" (click)="verDetalhes()">
     <hr id="status">
     <div id="container">
-        <h3 class="dataTitulo">Data de retirada:</h3>
         <div id="divisaoCentral">
             <div id="parteEsquerda">
+                <span class="dataTitulo">Data de retirada:</span>
                 <div class="dataInput">
                     <span class="material-symbols-outlined iconDeselect calendario" alt="Calendário">
                         calendar_month
@@ -16,7 +16,7 @@
                         <p id="dataRetirada">{{ formatarData(reserva.data_retirada) }}</p>
                     </div>
                 </div>
-                <h3 class="dataTitulo">Data de devolução:</h3>
+                <span class="dataTituloDevolucao">Data de devolução:</span>
                 <div class="dataInput">
                     <span class="material-symbols-outlined iconDeselect calendario" alt="Calendário">
                         calendar_month
@@ -33,7 +33,6 @@
                         {{ item.nome }}
                     </li>
                 </ul>
-                <button id="verDetalhes" (click)="verDetalhes()">Ver Detalhes</button>
             </div>
         </div>
     </div>

@@ -1,0 +1,69 @@
+<table id="tableItens" class="table table-hover">
+  <tbody>
+    <tr *ngFor="let item of itens" id="containerItem">
+      <td class="itemTabela" (click)="abrirModalReserva()">{{ item.nome }}</td>
+      <td class="itemTabela" (click)="abrirModalReserva()"> {{ item.descartavel ? "Descartável" : "Não descartável" }} </td>
+      <td class="itemTabela" (click)="abrirModalReserva()">{{ item.quantidade }} UN</td>
+      <td class="itemTabela" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4">
+        <div class="ferramentas">
+          <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
+            (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
+            edit
+          </span>
+          <span title="Histórico" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4"
+            class="material-symbols-outlined iconDeselect" (click)="abrirHistorico()" id="iconeHistorico">
+            history
+          </span>
+          <span title="Deletar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
+            (click)="removerItem()" id="iconeExcluir">
+            delete
+          </span>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Feedback de reserva concluída -->
+<app-modal-feedback *ngIf="feedbackReservaFeita" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(1)">
+</app-modal-feedback>
+
+<!-- Feedback de colocar item na sacola -->
+<app-modal-feedback *ngIf="feedbackColocadoSacola" [tipoFeedback]="2" (fecharModal)="fecharModaisFeedback(2)">
+</app-modal-feedback>
+
+<!-- Feedback Item Editado -->
+<app-modal-feedback *ngIf="feedbackEditarItem" [tipoFeedback]="3" (fecharModal)="fecharModaisFeedback(3)">
+</app-modal-feedback>
+
+<!-- Feedback Item Removido -->
+<app-modal-feedback *ngIf="feedbackRemoverItem" [tipoFeedback]="4" (fecharModal)="fecharModaisFeedback(4)">
+</app-modal-feedback>
+
+<!-- Div usada como fundo para modais -->
+<div *ngIf="modalReservar || modalEditar || modalMotivoEdicao || modalConfirmarRemocao || modalAnexos || modalHistorico"
+  id="fundoModal">
+
+  <!-- Modal Reservar Item -->
+  <app-modal-reservar-item *ngIf="modalReservar" [item]="item" (fecharModal)="fecharModaisItem(1, $event)"
+    style="width: 100%; display: flex; justify-content: center;"></app-modal-reservar-item>
+
+  <!-- Modal Editar Item -->
+  <app-modal-editar-item *ngIf="modalEditar" [item]="item" (fecharModal)="fecharModaisItem(3, $event)">
+  </app-modal-editar-item>
+
+  <!-- Modal Motivo Edição de Quantidade -->
+  <app-modal-motivo-edicao *ngIf="modalMotivoEdicao" [item]="item" (fecharModal)="fecharModaisItem(4, $event)">
+  </app-modal-motivo-edicao>
+
+  <!-- Modal Ver Anexos -->
+  <app-anexos-item *ngIf="modalAnexos" [item]="item" (fecharModal)="fecharModaisItem(2, undefined)"></app-anexos-item>
+
+  <!-- Modal Histórico de Edição -->
+  <app-modal-historico-edicao *ngIf="modalHistorico" [item]="item" (fecharModal)="fecharModaisItem(5, undefined)">
+  </app-modal-historico-edicao>
+
+  <!-- Modal Confirmar Remoção -->
+  <app-modal-confirmacao *ngIf="modalConfirmarRemocao" [tipoTexto]="1"
+    (fecharModal)="fecharModaisConfirmacao(1, $event)"></app-modal-confirmacao>
+</div>

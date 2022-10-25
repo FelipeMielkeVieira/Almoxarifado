@@ -19,6 +19,7 @@ import { ModalConfirmacaoComponent } from './modal-confirmacao/modal-confirmacao
 import { ModalHistoricoEdicaoComponent } from './modal-historico-edicao/modal-historico-edicao.component';
 import { PaginacaoComponent } from './paginacao/paginacao.component';
 import { AjudaComponent } from './ajuda/ajuda.component';
+import { ItemListaComponent } from './item-lista/item.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { AjudaComponent } from './ajuda/ajuda.component';
     ModalConfirmacaoComponent,
     ModalHistoricoEdicaoComponent,
     PaginacaoComponent,
-    AjudaComponent
+    AjudaComponent,
+    ItemListaComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +62,8 @@ import { AjudaComponent } from './ajuda/ajuda.component';
     ModalEditarItem,
     ModalMotivoEdicaoComponent,
     ModalConfirmacaoComponent,
-    ModalHistoricoEdicaoComponent
+    ModalHistoricoEdicaoComponent,
+    ItemListaComponent
   ]
 })
 export class PrincipalModule { }

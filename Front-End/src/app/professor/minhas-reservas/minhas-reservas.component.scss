@@ -114,8 +114,7 @@ main {
 .reservasPendentes,
 .historicoReservas {
     padding: 5px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.466);
-    border-radius: 5px 5px 0 0;
+    border: none;
     cursor: pointer;
 }
 
@@ -139,11 +138,11 @@ main {
 }
 
 .divLegenda {
-    float: right;
     width: 70%;
     min-height: 28px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: end;
+    align-items: center;
 }
 
 .legenda {
