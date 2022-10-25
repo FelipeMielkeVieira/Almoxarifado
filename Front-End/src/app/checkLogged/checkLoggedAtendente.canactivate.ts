@@ -11,10 +11,10 @@ class CheckLoggedAtendente implements CanActivate {
         state: RouterStateSnapshot,
     ): Observable<boolean> | Promise<boolean> | boolean {
 
-        if (localStorage.getItem('usuario') == "2") {
+        if (localStorage.getItem('usuario') == "2" || localStorage.getItem('usuario') == "3") {
             return true;
         } else {
-            if(localStorage.getItem('usuario') == "1") {
+            if (localStorage.getItem('usuario') == "1") {
                 this.router.navigate(['/professor/']);
             } else {
                 this.router.navigate(['/supervisor/']);
