@@ -156,9 +156,8 @@ export class HomeComponent implements OnInit {
     this.fecharModalLocalizacao();
   }
 
-  confirmacaoLocalizacao(index: number) {
+  confirmacaoLocalizacao() {
     this.aparecerConfirmacao = 1;
-    this.indexExcluir = index;
   }
 
   informarDefeitoItem() {

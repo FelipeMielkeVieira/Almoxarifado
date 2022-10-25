@@ -37,11 +37,10 @@ label {
 #iconeEditar, #iconeHistorico, #iconeExcluir {
     font-size: var(--font-size--giant);
     font-weight: 300;
+    border-radius: 50%;
+    transition: all 0.5s;
+    padding: 5px;
     cursor: pointer;
-}
-
-#iconeEditar, #iconeHistorico {
-    margin-bottom: 0.5rem;
 }
 
 #iconeEditar:hover, #iconeHistorico:hover {
@@ -51,6 +50,11 @@ label {
 #iconeExcluir:hover {
     color: #be0101;
     animation: mudarCor 0.5s;
+}
+
+#iconeEditar:hover, #iconeHistorico:hover, #iconeExcluir:hover {
+    transition: all 0.5s;
+    background-color: rgb(190, 190, 190);
 }
 
 @keyframes mudarCor {

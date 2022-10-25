@@ -1631,3 +1631,13 @@ h1 {
     grid-template-columns: repeat(1, 1fr);
     margin-top: 20px;
 }
+
+#containerAcoesLocalizacao {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5px;
+}
+
+.btnCustom {
+    padding: 5px 15px;
+}

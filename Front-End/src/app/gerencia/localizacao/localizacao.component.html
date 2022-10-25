@@ -1,0 +1,11 @@
+<table id="tableItens" class="table table-hover">
+    <tbody>
+        <tr *ngFor="let localizacao of localizacoes;">
+            <td class="itemTabela displayFlex tdIdLocalizacao">{{ localizacao.id }}</td>
+            <td class="itemTabela displayFlex tdNomeLocalizacao" >{{ localizacao.nome }}</td>
+            <td class="itemTabela displayFlex tdCheck" > 
+                <mat-checkbox></mat-checkbox>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -350,15 +350,13 @@
                     <app-cadastrar-usuario style="width: 100%;" [listaEmBloco]="false"></app-cadastrar-usuario>
                 </div>
 
-
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista (falta lista) -->
                 <div *ngIf="abaGerenciaUsuarios && listaEmBloco" class="telaUsuarios">
                     <app-gerenciar-usuario></app-gerenciar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaUsuarios && !listaEmBloco" class="telaUsuarios">
-                    
-                </div>
 
+                </div>
 
                 <div *ngIf="abaDevolucoes" class="containerDevolucoes">
                     <!-- <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(1)"></app-reserva-atendente>
@@ -373,11 +371,21 @@
                 <div *ngIf="listaEmBloco && abaItens" id="containerItens">
                     <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
-                
+
                 <div *ngIf="!listaEmBloco && abaItens" id="containerItensLista">
                     <app-item-lista [itens]="listaItens"></app-item-lista>
                 </div>
+
+                <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes">
+                    <div id="containerAcoesLocalizacao">
+                        <mat-checkbox id="selecionar-tudo">Selecionar tudo</mat-checkbox>
+                        <div id="btnLocalizacao">
+                            <button (click)="confirmacaoLocalizacao()" class="btn btn-outline-primary btnCustom">Deletar</button>
+                        </div>
+                    </div>
+                    <app-localizacao [localizacoes]="localizacoesFiltradas"></app-localizacao>
+                </div>
             </div>
         </div>
-    </div>
+    </div>    
 </main>
