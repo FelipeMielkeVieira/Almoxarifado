@@ -22,7 +22,9 @@ import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario
     FormsModule
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    GerenciarUsuarioComponent,
+    CadastrarUsuarioComponent
   ]
 })
 export class GerenciaModule { }

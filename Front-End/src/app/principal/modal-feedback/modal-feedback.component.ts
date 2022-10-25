@@ -32,6 +32,10 @@ export class ModalFeedback implements OnInit {
         return "Reserva finalizada com sucesso!";
       case 7:
         return "Reserva confirmada com sucesso!";
+      case 8:
+        return "Cadastro recusado com sucesso!";
+      case 9:
+        return "Cadastro aceito com sucesso!";
     }
     return "";
   }

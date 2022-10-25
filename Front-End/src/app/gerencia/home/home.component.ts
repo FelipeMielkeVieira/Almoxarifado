@@ -17,12 +17,19 @@ export class HomeComponent implements OnInit {
 
   listaOrdenacoes = [false, false, false, false];
   listaItens: any = [];
-  
-  listaEmBloco = true;
-  abaItensAberta = false;
 
+  // Variáveis para abas
+  abaGerenciaUsuarios = false;
+  abaGerenciaCadastros = false;
+  abaDevolucoes = false;
+  abaRetiradas = false;
+  abaItens = false;
+  abaLocalizacoes = false;
+
+  listaEmBloco = true;
   inputGeral = "";
   tipoUsuario = 2;
+  
   reserva = true;
   aparecerConfirmacao = 0;
   nomeLoc: any;
@@ -33,7 +40,6 @@ export class HomeComponent implements OnInit {
   indexExcluir: number = 0;
 
   ngOnInit() {
-    let div;
 
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
@@ -47,23 +53,12 @@ export class HomeComponent implements OnInit {
       }
     }
 
+    // Função para selecionar a aba automaticamente
     setTimeout(() => {
-      switch (this.tipoUsuario) {
-        case 2:
-          this.devolucoes = 1;
-          div = document.querySelector("#devolucoes") as HTMLElement;
-          div.className = "comAzul";
-          break;
-        case 3:
-          this.devolucoes = 1;
-          div = document.querySelector("#devolucoes") as HTMLElement;
-          div.className = "comAzul";
-          break;
-        case 4:
-          this.gerenciaUsuarios = 1;
-          div = document.getElementById("gerenciarUsuarios") as HTMLElement;
-          div.className = "comAzul";
-          break;
+      if (this.tipoUsuario == 2 || this.tipoUsuario == 3) {
+        this.abaDevolucoes = true;
+      } else {
+        this.abaGerenciaUsuarios = true;
       }
     }, 10);
   }
@@ -72,14 +67,6 @@ export class HomeComponent implements OnInit {
   localizacoesFiltradas: any = [];
   localizacoesLista: any = [];
   listaClassificacao = [{ nome: "Nome classificacao" }];
-
-  contadorRecusar = 0;
-  contadorAceitar = 0;
-  gerenciaUsuarios = 0;
-  gerenciaCadastros = 0;
-  devolucoes = 0;
-  retirada = 0;
-  contLocalizacoes = 0;
 
   localizacoesItem = 1;
 
@@ -92,20 +79,6 @@ export class HomeComponent implements OnInit {
   devolucaoModal: boolean = false;
   modalOrdenar: boolean = false;
   ajuda: boolean = true;
-
-  modalRecusar() {
-    document.documentElement.style.overflow = "hidden";
-    this.contadorRecusar = 1;
-    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
-    divPrincipal.style.opacity = "0.5";
-  }
-
-  modalAceitar() {
-    document.documentElement.style.overflow = "hidden";
-    this.contadorAceitar = 1;
-    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
-    divPrincipal.style.opacity = "0.5";
-  }
 
   cadastrarProduto() {
     this.aparecer = false;
@@ -137,206 +110,8 @@ export class HomeComponent implements OnInit {
     this.aparecer = false;
   }
 
-  cancelar() {
-    document.documentElement.style.overflow = "auto";
-    this.contadorRecusar = 0;
-    this.contadorAceitar = 0;
-    let divPrincipal = document.querySelector(".divPrincipal") as HTMLElement;
-    divPrincipal.style.opacity = "1";
-    this.aparecerConfirmacao = 0;
-  }
-
   btnRecusar() {
     document.documentElement.style.overflow = "auto";
-  }
-
-  gerenciarCadastros() {
-    this.gerenciaCadastros = 1;
-    this.gerenciaUsuarios = 0;
-    this.devolucoes = 0;
-    this.retirada = 0;
-    this.abaItensAberta = false;
-    this.contLocalizacoes = 0;
-
-    let semAzul1 = document.querySelector("#retirada") as HTMLElement;
-    semAzul1.className = "semAzul";
-    let semAzul2 = document.querySelector("#listaItens") as HTMLElement;
-    semAzul2.className = "semAzul";
-    let semAzul5 = document.querySelector("#devolucoes") as HTMLElement;
-    semAzul5.className = "semAzul";
-
-    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
-      let semAzul3 = document.querySelector("#localizacoes") as HTMLElement;
-      semAzul3.className = "semAzul";
-    }
-    if (this.tipoUsuario == 4) {
-      let semAzul4 = document.querySelector(
-        "#gerenciarUsuarios"
-      ) as HTMLElement;
-      semAzul4.className = "semAzul";
-      let comAzul = document.querySelector(
-        "#gerenciarCadastros"
-      ) as HTMLElement;
-      comAzul.className = "comAzul";
-    }
-  }
-
-  gerenciarUsuarios() {
-    this.gerenciaUsuarios = 1;
-    this.gerenciaCadastros = 0;
-    this.devolucoes = 0;
-    this.retirada = 0;
-    this.abaItensAberta = false;
-    this.contLocalizacoes = 0;
-
-    let semAzul1 = document.querySelector("#retirada") as HTMLElement;
-    semAzul1.className = "semAzul";
-    let semAzul2 = document.querySelector("#listaItens") as HTMLElement;
-    semAzul2.className = "semAzul";
-    let semAzul5 = document.querySelector("#devolucoes") as HTMLElement;
-    semAzul5.className = "semAzul";
-
-    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
-      let semAzul3 = document.querySelector("#localizacoes") as HTMLElement;
-      semAzul3.className = "semAzul";
-    }
-
-    if (this.tipoUsuario == 4) {
-      let semAzul4 = document.querySelector(
-        "#gerenciarCadastros"
-      ) as HTMLElement;
-      semAzul4.className = "semAzul";
-      let comAzul = document.querySelector("#gerenciarUsuarios") as HTMLElement;
-      comAzul.className = "comAzul";
-    }
-  }
-
-  baixaDevolucoes() {
-    this.devolucoes = 1;
-    this.gerenciaUsuarios = 0;
-    this.gerenciaCadastros = 0;
-    this.retirada = 0;
-    this.abaItensAberta = false;
-    this.contLocalizacoes = 0;
-
-    let semAzul1 = document.querySelector("#retirada") as HTMLElement;
-    semAzul1.className = "semAzul";
-    let semAzul2 = document.querySelector("#listaItens") as HTMLElement;
-    semAzul2.className = "semAzul";
-    let comAzul = document.querySelector("#devolucoes") as HTMLElement;
-    comAzul.className = "comAzul";
-
-    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
-      let semAzul3 = document.querySelector("#localizacoes") as HTMLElement;
-      semAzul3.className = "semAzul";
-    }
-
-    if (this.tipoUsuario == 4) {
-      let semAzul4 = document.querySelector(
-        "#gerenciarCadastros"
-      ) as HTMLElement;
-      semAzul4.className = "semAzul";
-      let semAzul5 = document.querySelector(
-        "#gerenciarUsuarios"
-      ) as HTMLElement;
-      semAzul5.className = "semAzul";
-    }
-  }
-
-  confirmarRetirada() {
-    this.retirada = 1;
-    this.devolucoes = 0;
-    this.gerenciaUsuarios = 0;
-    this.gerenciaCadastros = 0;
-    this.abaItensAberta = false;
-    this.contLocalizacoes = 0;
-
-    let semAzul1 = document.querySelector("#devolucoes") as HTMLElement;
-    semAzul1.className = "semAzul";
-    let semAzul2 = document.querySelector("#listaItens") as HTMLElement;
-    semAzul2.className = "semAzul";
-    let comAzul = document.querySelector("#retirada") as HTMLElement;
-    comAzul.className = "comAzul";
-
-    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
-      let semAzul3 = document.querySelector("#localizacoes") as HTMLElement;
-      semAzul3.className = "semAzul";
-    }
-
-    if (this.tipoUsuario == 4) {
-      let semAzul4 = document.querySelector(
-        "#gerenciarCadastros"
-      ) as HTMLElement;
-      semAzul4.className = "semAzul";
-      let semAzul5 = document.querySelector(
-        "#gerenciarUsuarios"
-      ) as HTMLElement;
-      semAzul5.className = "semAzul";
-    }
-  }
-
-  listaDeItens() {
-    this.abaItensAberta = true;
-    this.retirada = 0;
-    this.devolucoes = 0;
-    this.gerenciaUsuarios = 0;
-    this.gerenciaCadastros = 0;
-    this.contLocalizacoes = 0;
-
-    let semAzul1 = document.querySelector("#devolucoes") as HTMLElement;
-    semAzul1.className = "semAzul";
-    let semAzul2 = document.querySelector("#retirada") as HTMLElement;
-    semAzul2.className = "semAzul";
-    let comAzul = document.querySelector("#listaItens") as HTMLElement;
-    comAzul.className = "comAzul";
-
-    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
-      let semAzul3 = document.querySelector("#localizacoes") as HTMLElement;
-      semAzul3.className = "semAzul";
-    }
-
-    if (this.tipoUsuario == 4) {
-      let semAzul4 = document.querySelector(
-        "#gerenciarCadastros"
-      ) as HTMLElement;
-      semAzul4.className = "semAzul";
-      let semAzul5 = document.querySelector(
-        "#gerenciarUsuarios"
-      ) as HTMLElement;
-      semAzul5.className = "semAzul";
-    }
-  }
-
-  localizacoes() {
-    this.contLocalizacoes = 1;
-    this.abaItensAberta = false;
-    this.retirada = 0;
-    this.devolucoes = 0;
-    this.gerenciaUsuarios = 0;
-    this.gerenciaCadastros = 0;
-
-    let semAzul1 = document.querySelector("#devolucoes") as HTMLElement;
-    semAzul1.className = "semAzul";
-    let semAzul2 = document.querySelector("#retirada") as HTMLElement;
-    semAzul2.className = "semAzul";
-    let semAzul3 = document.querySelector("#listaItens") as HTMLElement;
-    semAzul3.className = "semAzul";
-
-    if (this.tipoUsuario == 3 || this.tipoUsuario == 4) {
-      let comAzul = document.querySelector("#localizacoes") as HTMLElement;
-      comAzul.className = "comAzul";
-    }
-
-    if (this.tipoUsuario == 4) {
-      let semAzul4 = document.querySelector(
-        "#gerenciarCadastros"
-      ) as HTMLElement;
-      semAzul4.className = "semAzul";
-      let semAzul5 = document.querySelector(
-        "#gerenciarUsuarios"
-      ) as HTMLElement;
-      semAzul5.className = "semAzul";
-    }
   }
 
   excluirLocalizacao() {
@@ -420,14 +195,6 @@ export class HomeComponent implements OnInit {
     return "Remover";
   }
 
-  buscarTextoModalRecusar() {
-    return "Tem certeza que deseja recusar?";
-  }
-
-  buscarTextoBotaoModalRecusar() {
-    return "Recusar";
-  }
-
   removerDevolucaoModalBtn() {
     this.removerDevolucaoModal = false;
   }
@@ -470,6 +237,92 @@ export class HomeComponent implements OnInit {
     this.aparecer = false;
     this.cadastrarModal = false;
     this.inputClassificacao = 0;
+  }
+
+  // Função que retorna o placeholder do input de pesquisa principal, dependendo da aba aberta
+  retornaPlaceholderPesquisa() {
+    if (this.abaGerenciaCadastros || this.abaGerenciaUsuarios) {
+      return "Pesquise por usuário...";
+    }
+    if (this.abaDevolucoes || this.abaRetiradas || this.abaItens) {
+      return "Pesquise por produto...";
+    }
+    if (this.abaLocalizacoes) {
+      return "Pesquise por localização...";
+    }
+    return "Pesquisar";
+  }
+
+  // Função para mudar de aba, recebendo o número da aba como parâmetro
+  mudarAba(numero: number) {
+    this.fecharAbas();
+    switch (numero) {
+      case 1:
+        this.abaGerenciaUsuarios = true;
+        break;
+      case 2:
+        this.abaGerenciaCadastros = true;
+        break;
+      case 3:
+        this.abaDevolucoes = true;
+        break;
+      case 4:
+        this.abaRetiradas = true;
+        break;
+      case 5:
+        this.abaItens = true;
+        break;
+      case 6:
+        this.abaLocalizacoes = true;
+        break;
+    }
+  }
+
+  // Função para retornar a classe dos botões de abas (para determinar se são azuis ou não)
+  retornarClasseAba(numero: number) {
+    switch (numero) {
+      case 1:
+        if (this.abaGerenciaUsuarios) {
+          return "comAzul";
+        }
+        return "semAzul";
+      case 2:
+        if (this.abaGerenciaCadastros) {
+          return "comAzul";
+        }
+        return "semAzul";
+      case 3:
+        if (this.abaDevolucoes) {
+          return "comAzul";
+        }
+        return "semAzul";
+      case 4:
+        if (this.abaRetiradas) {
+          return "comAzul";
+        }
+        return "semAzul";
+      case 5:
+        if (this.abaItens) {
+          return "comAzul";
+        }
+        return "semAzul";
+      case 6:
+        if (this.abaLocalizacoes) {
+          return "comAzul";
+        }
+        return "semAzul";
+    }
+    return "semAzul";
+  }
+
+  // Função para "resetar" todas as abas, para posteriormente abrir a aba desejada
+  fecharAbas() {
+    this.abaGerenciaUsuarios = false;
+    this.abaGerenciaCadastros = false;
+    this.abaDevolucoes = false;
+    this.abaRetiradas = false;
+    this.abaItens = false;
+    this.abaLocalizacoes = false;
   }
 
   // Função para mudar a visualização do modal de ordenação

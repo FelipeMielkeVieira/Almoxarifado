@@ -1,1 +1,37 @@
-<p>gerenciar-usuario works!</p>
+<div class="containerUsuarios">
+    <div class="containerUser">
+        <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
+        <div class="containerInfo">
+            <span class="user">Nome Sobrenome</span>
+            <span class="email">nome_sobrenome@edu.sc.senai.br</span>
+        </div>
+        <div class="containerLixeira">
+            <span title="Deletar" id="iconeLixeira" class="material-symbols-outlined iconDeselect">
+                delete
+            </span>
+        </div>
+    </div>
+    <div class="parteBaixo">
+        <select id="selecionarFuncao2">
+            <option value="paredeCentro" selected>Professor</option>
+            <option value="armario">Atendente 1</option>
+            <option value="porta">Atendente 2</option>
+            <option value="supervisor">Supervisor</option>
+        </select>
+        <div class="aceitar">
+            <span title="Cofirmar" class="icone" class="material-symbols-outlined iconDeselect">
+                done
+            </span>
+        </div>
+    </div>
+</div>
+
+<div id="fundoModal" *ngIf="modalConfirmarEdicao || modalConfirmarExclusao">
+    <app-modal-confirmacao *ngIf="modalConfirmarEdicao" [tipoTexto]="6"
+        (fecharModal)="fecharModaisConfirmacao(1, $event)">
+    </app-modal-confirmacao>
+
+    <app-modal-confirmacao *ngIf="modalConfirmarExclusao" [tipoTexto]="7"
+        (fecharModal)="fecharModaisConfirmacao(2, $event)">
+    </app-modal-confirmacao>
+</div>

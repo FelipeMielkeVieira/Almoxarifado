@@ -1,0 +1,109 @@
+#fundoModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+.containerUsuarios {
+    overflow: hidden;
+    min-width: 400px;
+    width: 22.5rem;
+    margin-top: 1%;
+    border-radius: 5px;
+    border: solid 1px black;
+    padding: 10px 10px 0px 10px;
+}
+
+.containerUser {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imgUser {
+    width: 60px;
+    border-radius: 20px;
+}
+
+.containerInfo {
+    margin-left: 2%;
+    width: 16.875rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.user {
+    font-size: var(--font-size--small);
+    cursor: default;
+}
+
+.email {
+    margin-top: 2px;
+    font-size: var(--font-size--small);
+}
+
+.email:hover {
+    text-decoration: underline;
+}
+
+.containerLixeira {
+    height: 100%;
+    margin-right: 1.7%;
+    margin-bottom: 10%;
+}
+
+#iconeLixeira {
+    font-size: var(--font-size--giant);
+    font-weight: 300;
+    cursor: pointer;
+}
+
+#iconeLixeira:hover {
+    color: #be0101;
+    animation: mudarCor 0.5s;
+}
+
+.parteBaixo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+#selecionarFuncao2 {
+    width: 8.625rem;
+    height: 1.813rem;
+    padding: 0 0.5rem;
+    margin-top: -2.5%;
+    margin-right: 5%;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.aceitar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0.938rem;
+    height: 0.938rem;
+    background-color: rgba(0, 155, 25, 0.75);
+    margin: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.aceitar:hover {
+    background-color: #009B19;
+}
+
+.icone {
+    font-size: var(--font-size--verysmall);
+}

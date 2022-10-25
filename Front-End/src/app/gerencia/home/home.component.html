@@ -31,7 +31,7 @@
                 <span class="textoModal">Tem certeza que deseja remover?</span>
             </div>
             <div class="containerBotoes">
-                <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
+                <button class="botaoCancelar">Cancelar</button>
                 <button (click)="removerDevolucaoModalBtn()" class="botaoRecusar">
                     Remover
                 </button>
@@ -268,24 +268,17 @@
                 <div id="containerInput">
                     <div id="containerLinhaInput">
                         <div id="containerInputOrdenar">
+
+                            <!-- Input principal de pesquisa -->
                             <div id="divInput">
-                                <input *ngIf="gerenciaCadastros == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por usuário..." />
-                                <input *ngIf="gerenciaUsuarios == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por usuário..." />
-                                <input *ngIf="devolucoes == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por produto..." />
-                                <input *ngIf="retirada == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por produto..." />
-                                <input *ngIf="listaItens == 1" [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="Pesquise por produto..." />
-                                <input *ngIf="contLocalizacoes == 1" [(ngModel)]="inputGeral"
-                                    (keyup)="pesquisaLocalizacao()" class="input" type="text"
-                                    placeholder="Pesquise por localização..." />
+                                <input [(ngModel)]="inputGeral" class="input" type="text"
+                                    placeholder="{{retornaPlaceholderPesquisa()}}" />
                                 <span title="Lupa" id="lupa" class="material-symbols-outlined iconDeselect">
                                     search
                                 </span>
                             </div>
+
+
                             <div id="iconListaBloco">
                                 <span *ngIf="listaItens == 1" (click)="mudarModaisPesquisa(1)" id="iconOrdernar"
                                     class="material-symbols-outlined iconDeselect iconsModais" title="Ordernar">
@@ -308,7 +301,7 @@
                                 </span>
                             </div>
                         </div>
-                        <button *ngIf="contLocalizacoes == 1" id="botaoCadastrarLocalizacoes"
+                        <button *ngIf="abaLocalizacoes" id="botaoCadastrarLocalizacoes"
                             (click)="aparecerModalLocalizacao()">
                             Cadastrar localizações
                         </button>
@@ -320,159 +313,73 @@
                     <div id="filtro"></div>
                     <p id="resultados">{{ numResultados }} Resultados encontrados</p>
                 </div>
+
+
+                <!-- Botões para troca de abas -->
                 <div id="botoes">
-                    <button *ngIf="tipoUsuario == 4" (click)="gerenciarUsuarios()" id="gerenciarUsuarios"
-                        class="semAzul">
+                    <button *ngIf="tipoUsuario == 4" (click)="mudarAba(1)" id="gerenciarUsuarios"
+                        [ngClass]="retornarClasseAba(1)">
                         Gerenciar usuários
                     </button>
-                    <button *ngIf="tipoUsuario == 4" (click)="gerenciarCadastros()" id="gerenciarCadastros"
-                        class="semAzul">
+                    <button *ngIf="tipoUsuario == 4" (click)="mudarAba(2)" id="gerenciarCadastros"
+                        [ngClass]="retornarClasseAba(2)">
                         Gerenciar cadastros
                     </button>
-                    <button (click)="baixaDevolucoes()" id="devolucoes" class="semAzul">
+                    <button (click)="mudarAba(3)" id="devolucoes" [ngClass]="retornarClasseAba(3)">
                         Baixa nas devoluções
                     </button>
-                    <button (click)="confirmarRetirada()" id="retirada" class="semAzul">
+                    <button (click)="mudarAba(4)" id="retirada" [ngClass]="retornarClasseAba(4)">
                         Confirmar retirada
                     </button>
-                    <button (click)="listaDeItens()" id="listaItens" class="semAzul">
+                    <button (click)="mudarAba(5)" id="listaItens" [ngClass]="retornarClasseAba(5)">
                         Lista de itens
                     </button>
-                    <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="localizacoes()" id="localizacoes"
-                        class="semAzul">
+                    <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="mudarAba(6)" id="localizacoes"
+                        [ngClass]="retornarClasseAba(6)">
                         Localizações
                     </button>
                 </div>
                 <div id="risco"></div>
-                <div *ngIf="gerenciaCadastros == 1 && listaEmBloco" class="usuarios">
-                    <div class="containerUsuario">
-                        <div class="containerUser">
-                            <img class="imgUser" src="../../../assets/user.png" alt="" />
-                            <div class="containerInfo">
-                                <span class="user">Nome Sobrenome</span>
-                                <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
-                            </div>
-                        </div>
-                        <div class="containerOpcoes">
-                            <div (click)="modalRecusar()" class="recusar">
-                                <span title="Fechar" class="icone" class="material-symbols-outlined iconDeselect">
-                                    close
-                                </span>
-                            </div>
-                            <div (click)="modalAceitar()" class="aceitar">
-                                <span title="Confirmar" class="icone" class="material-symbols-outlined iconDeselect">
-                                    done
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+
+
+                <!-- Aba de aceitar / recusar cadastros novos de usuários, separados em bloco ou lista -->
+                <div *ngIf="abaGerenciaCadastros && listaEmBloco" class="usuarios">
+                    <app-cadastrar-usuario [listaEmBloco]="true"></app-cadastrar-usuario>
                 </div>
-                <div *ngIf="gerenciaCadastros == 1 && !listaEmBloco" class="usuarios">
-                    <div class="containerUsuarioLista">
-                        <div class="containerUser">
-                            <div id="containerUserImagemTexto">
-                                <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
-                                <div class="containerInfo">
-                                    <span class="user">Nome Sobrenome</span>
-                                    <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="containerOpcoes">
-                            <div (click)="modalRecusar()" class="recusar">
-                                <span title="Fechar" id="fecharIcone" class="icone"
-                                    class="material-symbols-outlined iconDeselect">
-                                    close
-                                </span>
-                            </div>
-                            <div (click)="modalAceitar()" class="aceitar">
-                                <span title="Cofirmar" class="icone" class="material-symbols-outlined iconDeselect">
-                                    done
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                <div *ngIf="abaGerenciaCadastros && !listaEmBloco" class="usuarios">
+                    <app-cadastrar-usuario style="width: 100%;" [listaEmBloco]="false"></app-cadastrar-usuario>
                 </div>
-                <div *ngIf="gerenciaUsuarios == 1 && listaEmBloco" class="telaUsuarios">
-                    <div class="containerUsuarios">
-                        <div class="containerUser">
-                            <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
-                            <div class="containerInfo">
-                                <span class="user">Nome Sobrenome</span>
-                                <span class="email">nome_sobrenome@edu.sc.senai.br</span>
-                            </div>
-                            <div class="containerLixeira">
-                                <span title="Deletar" id="iconeLixeira" class="material-symbols-outlined iconDeselect">
-                                    delete
-                                </span>
-                            </div>
-                        </div>
-                        <div class="parteBaixo">
-                            <select id="selecionarFuncao2">
-                                <option value="paredeCentro" selected>Professor</option>
-                                <option value="armario">Atendente 1</option>
-                                <option value="porta">Atendente 2</option>
-                                <option value="supervisor">Supervisor</option>
-                            </select>
-                            <div class="aceitar">
-                                <span title="Cofirmar" class="icone" class="material-symbols-outlined iconDeselect">
-                                    done
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+
+
+                <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista (falta lista) -->
+                <div *ngIf="abaGerenciaUsuarios && listaEmBloco" class="telaUsuarios">
+                    <app-gerenciar-usuario></app-gerenciar-usuario>
                 </div>
-                <div *ngIf="gerenciaUsuarios == 1 && !listaEmBloco" class="telaUsuarios">
-                    <div class="containerUsuariosLista">
-                        <div class="containerUser">
-                            <div id="containerUserImagemTexto">
-                                <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
-                                <div class="containerInfo">
-                                    <span class="user">Nome Sobrenome</span>
-                                    <span class="email">nome_sobrenome@edu.sc.senai.br</span>
-                                </div>
-                            </div>
-                            <div class="parteBaixo">
-                                <select id="selecionarFuncao2">
-                                    <option value="paredeCentro" selected>Professor</option>
-                                    <option value="armario">Atendente 1</option>
-                                    <option value="porta">Atendente 2</option>
-                                </select>
-                                <div class="aceitar">
-                                    <span title="Confirmar" class="icone"
-                                        class="material-symbols-outlined iconDeselect">
-                                        done
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="containerLixeiraLista">
-                                <span title="Deletar" id="iconeLixeira" class="material-symbols-outlined iconDeselect">
-                                    delete
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                <div *ngIf="abaGerenciaUsuarios && !listaEmBloco" class="telaUsuarios">
+                    
                 </div>
-                <div *ngIf="devolucoes == 1" class="containerDevolucoes">
+
+
+                <div *ngIf="abaDevolucoes" class="containerDevolucoes">
                     <!-- <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(1)"></app-reserva-atendente>
                     <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(1)"></app-reserva-atendente> -->
                 </div>
-                <div *ngIf="retirada == 1" class="containerRetirada">
+                <div *ngIf="abaRetiradas" class="containerRetirada">
                     <!-- <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente>
                     <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente> -->
                 </div>
 
                 <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
-                <div *ngIf="listaEmBloco && abaItensAberta" id="containerItens">
+                <div *ngIf="listaEmBloco && abaItens" id="containerItens">
                     <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
 
-                <div *ngIf="!listaEmBloco && abaItensAberta" id="containerItensLista">
+                <div *ngIf="!listaEmBloco && abaItens" id="containerItensLista">
                     <app-item [visualizacaoItem]="'emLinha'" *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
 
 
-                <div *ngIf="contLocalizacoes == 1" id="conteudoLocalizacoes">
+                <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes">
                     <div id="containerLocalizacoes">
                         <div *ngFor="let loc of localizacoesFiltradas; let i = index" id="divLocalizacao">
                             <p>{{ loc.nome }}</p>
@@ -483,62 +390,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="contadorRecusar == 1" class="modalRecusar">
-        <div class="containerModal">
-            <hr class="riscoAzul" />
-            <span title="Alerta" id="iconeAlert" class="material-symbols-outlined iconDeselect">
-                error
-            </span>
-            <div class="containerInfoModal">
-                <span class="textoModal">{{ buscarTextoModalRecusar() }}</span>
-            </div>
-            <div class="containerBotoes">
-                <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-                <button (click)="btnRecusar()" class="botaoRecusar">
-                    {{ buscarTextoBotaoModalRecusar() }}
-                </button>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="contadorAceitar == 1" class="modalRecusar">
-        <div class="containerModal">
-            <div class="linhaAzul"></div>
-            <span title="Alerta" id="iconeAlert" class="material-symbols-outlined iconDeselect">
-                error
-            </span>
-            <div class="containerInfoModal">
-                <span class="textoModal">Selecione a função: </span>
-                <select id="selecionarFuncao">
-                    <option value="paredeCentro" selected>Professor</option>
-                    <option value="armario">Atendente 1</option>
-                    <option value="porta">Atendente 2</option>
-                    <option value="supervisor">Supervisor</option>
-                </select>
-            </div>
-            <div class="containerBotoes">
-                <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-                <button class="botaoRecusar">Aceitar</button>
-            </div>
-        </div>
-    </div>
-    <!-- Modal remover localizacao -->
-    <div *ngIf="aparecerConfirmacao == 1" class="modalRecusar">
-        <div class="containerModal">
-            <hr class="riscoAzul" />
-            <span title="Alerta" id="iconeAlert" class="material-symbols-outlined iconDeselect">
-                error
-            </span>
-            <div class="containerInfoModal">
-                <span class="textoModal">Tem certeza que deseja remover a localização?</span>
-            </div>
-            <div class="containerBotoes">
-                <button (click)="cancelar()" class="botaoCancelar">Cancelar</button>
-                <button (click)="excluirLocalizacao()" class="botaoRecusar">
-                    Remover
-                </button>
             </div>
         </div>
     </div>
