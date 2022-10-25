@@ -23,15 +23,6 @@
     <!-- ------------------------- CONTEUDO GERAL DA PÁGINA -------------------------------->
     <div id="container">
         <div id="containerConteudo">
-            <div id="containerInput">
-                <div id="divInput">
-                    <input id="input" type="text" placeholder="Pesquise por produto...">
-                    <span title="Lupa" id="lupa" class="material-symbols-outlined iconDeselect">
-                        search
-                    </span>
-                </div>
-                <p id="resultados">x Resultados encontrados</p>
-            </div>
             <div id="botoes">
                 <div id="divBotoesNavegacao">
                     <button (click)="trocarVisualizacao(1)" class="reservasPendentes">Reservas pendentes</button>
@@ -60,7 +51,15 @@
                     </div>
                 </div>
             </div>
-            <div id="risco"></div>
+            <div id="containerInput">
+                <div id="divInput">
+                    <input id="input" type="text" placeholder="Pesquise por produto...">
+                    <span title="Lupa" id="lupa" class="material-symbols-outlined iconDeselect">
+                        search
+                    </span>
+                </div>
+                <p id="resultados">x Resultados encontrados</p>
+            </div>
             <div id="containerReservas">
                 <app-reserva-professor *ngFor="let reserva of listaReservas" class="reserva" [reserva]="reserva">
                 </app-reserva-professor>
