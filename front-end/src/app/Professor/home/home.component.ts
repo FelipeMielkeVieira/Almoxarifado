@@ -23,9 +23,7 @@ export class HomeComponent implements OnInit {
   paginaAtual = 1;
 
   modalOrdenar: boolean = false;
-  modalFiltrar: boolean = false;
 
-  listaFiltros: [boolean, boolean, boolean, boolean] = [false, false, false, false];
   listaOrdenacoes = [false, false, false, false];
 
   ngOnInit() {
@@ -35,9 +33,6 @@ export class HomeComponent implements OnInit {
     window.onclick = function (event) {
       if (!(event.target as HTMLElement).className.includes("parteModal")) {
         if (!(event.target as HTMLElement).className.includes("iconsModais")) {
-          if (self.modalFiltrar) {
-            self.modalFiltrar = false;
-          }
           if (self.modalOrdenar) {
             self.modalOrdenar = false;
           }
@@ -56,11 +51,6 @@ export class HomeComponent implements OnInit {
     this.modalOrdenar = !this.modalOrdenar;
   }
 
-  // Função para abrir e fechar o modal de filtragem
-  abrirModalFiltro() {
-    this.modalFiltrar = !this.modalFiltrar;
-  }
-
   // Função para voltar para a página anterior na lista de itens
   voltarPagina() {
     this.paginaAtual--;
@@ -74,33 +64,6 @@ export class HomeComponent implements OnInit {
   // Função para ir para uma página específica na lista de itens
   irPagina(numero: any) {
     this.paginaAtual = numero;
-  }
-
-  // Função para fechar o modal de filtro e receber os filtros definidos
-  fecharModalFiltro(event: any) {
-    this.modalFiltrar = false;
-    this.listaFiltros = JSON.parse(event);
-  }
-
-  // Função para listar os itens de acordo com a lista armazenada
-  filtrarItens(event: any) {
-    this.listaFiltros = JSON.parse(event);
-
-    this.listaItensFiltrada = this.listaItens.filter(e => {
-      if (this.listaFiltros[0] == true && e.descartavel == false) {
-        return false;
-      }
-      if (this.listaFiltros[1] == true && e.descartavel == true) {
-        return false;
-      }
-      if (this.listaFiltros[2] == true && e.quantidade <= 0) {
-        return false;
-      }
-      if (this.listaFiltros[3] == true && e.quantidade > 0) {
-        return false;
-      }
-      return true;
-    })
   }
 
   //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações

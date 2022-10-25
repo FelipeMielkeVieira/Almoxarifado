@@ -229,26 +229,6 @@ main {
 #paginacao li:hover {
     cursor: pointer;
 }
-
-#containerIconFiltro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1%;
-    position: relative;
-}
-
-#iconFiltro {
-    font-weight: 250;
-    cursor: pointer;
-    font-size: 35px;
-    user-select: none;
-}
-
-#iconFiltro:hover {
-    color: #0047B6;
-}
-
 #containerCheckboxes {
     display: flex;
     justify-content: space-between;

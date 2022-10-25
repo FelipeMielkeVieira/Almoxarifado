@@ -354,9 +354,7 @@ a:hover {
 }
 
 #check:checked~.sidebar #iconMaior {
-    margin-right: 20px;
-    width: 15px;
-    transition: all 0.7s;
+    // transition: all 0.7s;
     transform: scaleX(1);
 }
 
@@ -443,7 +441,6 @@ a:hover {
     font-size: var(--font-size--small);
 }
 
-.ContainerIconMaior,
 .ContainerIconCalendario {
     padding: 6px 5px 0 25px;
     cursor: pointer;
@@ -451,6 +448,13 @@ a:hover {
 
 .ContainerIconMaior:hover {
     background: #003c9c;
+}
+
+.ContainerIconMaior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px 5px 5px;
 }
 
 .ContainerIconCalendario {
@@ -468,10 +472,9 @@ a:hover {
 
 #iconMaior {
     cursor: pointer;
-    margin-right: 20px;
-    width: 15px;
-    transition: all 0.7s;
-    transform: scaleX(-1)
+    font-size: 2rem;
+    // transition: all 0.7s;
+    // transform: scaleX(-1)
 }
 
 .itensFiltro {
