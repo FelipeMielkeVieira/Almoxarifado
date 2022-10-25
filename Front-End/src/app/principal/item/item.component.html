@@ -2,7 +2,7 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <!-- Div do item Completa (recebe classes com ngClass) -->
-<div [ngClass]="retornarClassesVisualizacao(1)" title="{{item.nome}}">
+<div [ngClass]="retornarClassesVisualizacao(1)" class="shadow-sm rounded" title="{{item.nome}}">
   <div class="imagemItem" (click)="abrirModalReserva()">
     <img [ngClass]="retornarClassesVisualizacao(2)"
       src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="Imagem do Produto" />

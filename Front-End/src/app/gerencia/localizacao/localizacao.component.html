@@ -1,11 +1,21 @@
 <table id="tableItens" class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th class="tdIdLocalizacao">ID</th>
+            <th class="tdNomeLocalizacao">Localização</th>
+        </tr>
+    </thead>
     <tbody>
-        <tr *ngFor="let localizacao of localizacoes;">
-            <td class="itemTabela displayFlex tdIdLocalizacao">{{ localizacao.id }}</td>
-            <td class="itemTabela displayFlex tdNomeLocalizacao" >{{ localizacao.nome }}</td>
-            <td class="itemTabela displayFlex tdCheck" > 
-                <mat-checkbox></mat-checkbox>
+        <!-- [ngClass]="localizacao.checked ? 'table-active' : ''" -->
+        <tr *ngFor="let localizacao of localizacoes;" (click)="selecionarRow(localizacao)">
+            <td class="itemTabela displayFlex tdCheck">
+                <mat-checkbox [disabled]="true" [checked]="localizacao.checked" ></mat-checkbox>
             </td>
+            <td class="itemTabela displayFlex tdIdLocalizacao">{{ localizacao.id }}
+            </td>
+            <td class="itemTabela displayFlex tdNomeLocalizacao">{{
+                localizacao.nome }}</td>
         </tr>
     </tbody>
 </table>

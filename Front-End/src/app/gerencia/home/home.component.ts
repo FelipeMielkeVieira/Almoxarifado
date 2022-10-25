@@ -150,6 +150,7 @@ export class HomeComponent implements OnInit {
 
   cadastrar() {
     this.service.localizacoes.push({
+      checked: false,
       id: this.service.localizacoes.length + 1,
       nome: this.nomeLoc,
     });
