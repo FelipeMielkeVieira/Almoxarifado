@@ -6,7 +6,8 @@
             <span class="email">nome_sobrenome@edu.sc.senai.br</span>
         </div>
         <div class="containerLixeira">
-            <span title="Deletar" id="iconeLixeira" class="material-symbols-outlined iconDeselect">
+            <span (click)="abrirModaisConfirmacao(2)" title="Deletar" id="iconeLixeira"
+                class="material-symbols-outlined iconDeselect">
                 delete
             </span>
         </div>
@@ -19,7 +20,8 @@
             <option value="supervisor">Supervisor</option>
         </select>
         <div class="aceitar">
-            <span title="Cofirmar" class="icone" class="material-symbols-outlined iconDeselect">
+            <span (click)="abrirModaisConfirmacao(1)" title="Cofirmar" class="icone"
+                class="material-symbols-outlined iconDeselect">
                 done
             </span>
         </div>
@@ -35,3 +37,9 @@
         (fecharModal)="fecharModaisConfirmacao(2, $event)">
     </app-modal-confirmacao>
 </div>
+
+<app-modal-feedback *ngIf="feedbackEdicaoUsuario" [tipoFeedback]="10" (fecharModal)="fecharModaisFeedback(1)">
+</app-modal-feedback>
+
+<app-modal-feedback *ngIf="feedbackExclusaoUsuario" [tipoFeedback]="11" (fecharModal)="fecharModaisFeedback(2)">
+</app-modal-feedback>
