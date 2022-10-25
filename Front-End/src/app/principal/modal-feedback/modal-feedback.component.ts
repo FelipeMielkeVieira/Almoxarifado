@@ -36,6 +36,10 @@ export class ModalFeedback implements OnInit {
         return "Cadastro recusado com sucesso!";
       case 9:
         return "Cadastro aceito com sucesso!";
+      case 10:
+        return "Usuário atualizado com sucesso!";
+      case 11:
+        return "Usuário excluído com sucesso!";
     }
     return "";
   }
