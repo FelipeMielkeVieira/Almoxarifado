@@ -25,76 +25,6 @@ label {
     border: solid 1px black;
 }
 
-/* <!-- --------------- ITEM EM SI EM BLOCO ---------------- -->*/
-.quadroItemBloco {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 22.5rem;
-    height: 7.5rem;
-    max-width: 22.5rem;
-    max-height: 7.5rem;
-    margin-bottom: 2rem;
-    border: solid 1px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    padding: 0.9rem;
-    cursor: pointer;
-    user-select: none;
-}
-
-.quadroItemBloco:hover {
-    background-color: rgba(201, 201, 201, 0.616);
-}
-
-.imagemItem {
-    width: 35%;
-}
-
-.imgProdutoBloco {
-    width: 100%;
-    height: 100%;
-}
-
-.descricaoItemBloco {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 60%;
-    height: 90%;
-    font-size: var(--font-size--default);
-}
-
-.nomeItem {
-    font-size: var(--font-size--default);
-    font-weight: 700;
-    font-family: 'Inter', sans-serif;
-    word-wrap: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.baixoItem {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: var(--font-size--small);
-    display: flex;
-    flex-direction: column;
-}
-
-.infoItemBloco {
-    padding-top: 3%;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.ferramentas {
-    display: flex;
-    flex-direction: column;
-    margin: 2px;
-}
-
 .iconDeselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -131,7 +61,6 @@ label {
         color: #be0101;
     }
 }
-/*<!-- --------------- FIM ITEM EM SI EM BLOCO ---------------- -->*/
 
 /* <!-- ----------------------------- ITEM EM SI EM LISTA ---------------------------- --> */
 .quadroItemLista {
@@ -163,6 +92,20 @@ label {
     width: 80%;
     display: flex;
 }
+
+.ferramentas {
+    display: flex;
+    justify-content: center;
+}
+
+#containerItem {
+    cursor: pointer;
+}
+
+.itemTabela {
+    vertical-align: middle;
+}
+
 /* <!-- ----------------------------- FIM ITEM EM SI EM LISTA ---------------------------- --> */
 
 #fundoModal {

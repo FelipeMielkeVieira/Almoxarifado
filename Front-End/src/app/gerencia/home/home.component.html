@@ -466,11 +466,10 @@
                 <div *ngIf="listaEmBloco && abaItensAberta" id="containerItens">
                     <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
-
+                
                 <div *ngIf="!listaEmBloco && abaItensAberta" id="containerItensLista">
-                    <app-item [visualizacaoItem]="'emLinha'" *ngFor="let item of listaItens" [item]="item"></app-item>
+                    <app-item-lista [itens]="listaItens"></app-item-lista>
                 </div>
-
 
                 <div *ngIf="contLocalizacoes == 1" id="conteudoLocalizacoes">
                     <div id="containerLocalizacoes">
