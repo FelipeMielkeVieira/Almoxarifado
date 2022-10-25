@@ -13,15 +13,6 @@ import javax.persistence.*;
 @ToString
 @EqualsAndHashCode
 public class ProdutosEscolhidosSacola {
-    // Foreign keys
-
-//    @EmbeddedId
-//    public SacolaProdutoKey getId() {
-//        return id;
-//    }
-//    @EmbeddedId
-//    SacolaProdutoKey id;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

@@ -25,13 +25,6 @@ public class SacolaService {
         return sacolaRepository.save(entity);
     }
 
-    @Query(value = "INSERT INTO SACOLA_PRODUTO (PRODUTO_ID, SACOLA_ID, QTD_PRODUTO) VALUES (:produtoidparam, :sacolaidparam, :qtdprodutoparam);", nativeQuery = true)
-    @Modifying
-    public void salvarProdutosEscolhidos(Long produtId, Long sacolaId, Long qtdProduto) {
-        System.out.println("chegou aq");
-        sacolaRepository.salvarProdutosEscolhidos(produtId, sacolaId, qtdProduto);
-    }
-
     public Optional<Sacola> findById(Long aLong) {
         return sacolaRepository.findById(aLong);
     }
