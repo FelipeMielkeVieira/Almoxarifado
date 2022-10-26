@@ -35,4 +35,9 @@ export class ModalOcorrenciaComponent implements OnInit {
     this.fecharModal.emit(texto);
   }
 
+  salvarOcorrencia() {
+    //Salvar ocorrência
+    this.fecharModalOcorrencia("salvar");
+  }
+
 }
