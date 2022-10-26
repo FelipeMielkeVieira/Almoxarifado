@@ -1,10 +1,19 @@
 <!-- -- Modal FeddBack Salvo com sucesso -- -->
 <div *ngIf="feedback == 1" id="modalFeedback">
   <div class="divInfo">
-    <span title="Fechar" (click)="fechar()" class="material-symbols-outlined iconDeselect" id="iconeFechar">
+    <span
+      title="Fechar"
+      (click)="fechar()"
+      class="material-symbols-outlined iconDeselect"
+      id="iconeFechar"
+    >
       close
     </span>
-    <span title="Certo" class="material-symbols-outlined iconDeselect" id="imgCerto">
+    <span
+      title="Certo"
+      class="material-symbols-outlined iconDeselect"
+      id="imgCerto"
+    >
       check_circle
     </span>
     <span id="spanTexto">Filtro salvo com sucesso!</span>
@@ -23,10 +32,15 @@
     <div id="dados">
       <div id="containerTopo">
         <div id="palavraFiltro">
-          <p>Filtros</p>
+          <p>Classificações</p>
         </div>
         <div id="containerIcon">
-          <span title="Fechar" (click)="fecharModal()" class="material-symbols-outlined iconDeselect" id="iconeFechar">
+          <span
+            title="Fechar"
+            (click)="fecharModal()"
+            class="material-symbols-outlined iconDeselect"
+            id="iconeFechar"
+          >
             close
           </span>
         </div>
@@ -34,49 +48,81 @@
       <div id="containerConteudoTeste">
         <div class="divFiltro">
           <div id="texto">Materiais do projeto</div>
-          <span title="Deletar" class="material-symbols-outlined iconDeselect" id="iconLixoTeste">
+          <span
+            title="Deletar"
+            class="material-symbols-outlined iconDeselect"
+            id="iconLixoTeste"
+          >
             delete
           </span>
         </div>
         <div class="divFiltro">
           <div id="texto">Ferramentas Elétricas</div>
-          <span title="Deletar" class="material-symbols-outlined iconDeselect" id="iconLixoTeste">
+          <span
+            title="Deletar"
+            class="material-symbols-outlined iconDeselect"
+            id="iconLixoTeste"
+          >
             delete
           </span>
         </div>
         <div class="divFiltro">
           <div id="texto">Componentes Eletrônicos</div>
-          <span title="Deletar" class="material-symbols-outlined iconDeselect" id="iconLixoTeste">
+          <span
+            title="Deletar"
+            class="material-symbols-outlined iconDeselect"
+            id="iconLixoTeste"
+          >
             delete
           </span>
         </div>
         <div class="divFiltro">
           <div id="texto">Materiais Elétricos</div>
-          <span title="Deletar" class="material-symbols-outlined iconDeselect" id="iconLixoTeste">
+          <span
+            title="Deletar"
+            class="material-symbols-outlined iconDeselect"
+            id="iconLixoTeste"
+          >
             delete
           </span>
         </div>
         <div class="divFiltro">
           <div id="texto">Materiais Elétricos</div>
-          <span title="Deletar" class="material-symbols-outlined iconDeselect" id="iconLixoTeste">
+          <span
+            title="Deletar"
+            class="material-symbols-outlined iconDeselect"
+            id="iconLixoTeste"
+          >
             delete
           </span>
         </div>
         <div class="divFiltro">
           <div id="texto">Materiais Elétricos</div>
-          <span title="Deletar" class="material-symbols-outlined iconDeselect" id="iconLixoTeste">
+          <span
+            title="Deletar"
+            class="material-symbols-outlined iconDeselect"
+            id="iconLixoTeste"
+          >
             delete
           </span>
         </div>
         <div class="divFiltro">
           <div id="texto">Materiais Elétricos</div>
-          <span title="Deletar" class="material-symbols-outlined iconDeselect" id="iconLixoTeste">
+          <span
+            title="Deletar"
+            class="material-symbols-outlined iconDeselect"
+            id="iconLixoTeste"
+          >
             delete
           </span>
         </div>
         <div class="divFiltro">
           <div id="texto">Materiais Elétricos</div>
-          <span title="Deletar" class="material-symbols-outlined iconDeselect" id="iconLixoTeste">
+          <span
+            title="Deletar"
+            class="material-symbols-outlined iconDeselect"
+            id="iconLixoTeste"
+          >
             delete
           </span>
         </div>
@@ -90,7 +136,7 @@
             <p>Cadastrar</p>
           </div>
           <div id="inputNomeFiltro">
-            <input type="text" id="NomeFiltro" placeholder="Nome do filtro" />
+            <input type="text" id="NomeFiltro" placeholder="Nome da Classificação" />
           </div>
           <div id="containerBotaoAdicionar">
             <button id="botaoAdicionar">Adicionar</button>
@@ -120,82 +166,94 @@
       </div>
       <label for="check">
         <div class="ContainerIconMaior">
-          <span title="Filtro" class="material-symbols-outlined iconDeselect" id="iconMaior">
+          <span
+            title="Filtro"
+            class="material-symbols-outlined iconDeselect"
+            id="iconMaior"
+          >
             filter_alt
           </span>
-            <!-- <span class="material-symbols-outlined">
+          <!-- <span class="material-symbols-outlined">
               filter_alt_off
               </span> -->
         </div>
       </label>
     </div>
-    <div class="itensFiltro tipoFiltro">
-        <div id="containerDescartavel">
-          <input class="checkbox" type="checkbox" id="checkDescartavel">
+    <div id="containerConteudoFiltro">
+      <div class="itensFiltro tipoFiltro">
+        <div id="containerDescartavel" (click)="checkDescartavel()">
+          <input class="checkbox" type="checkbox" id="checkDescartavel"/>
           <div>
-              <span class="texto">Descartáveis</span>
+            <span class="texto">Descartáveis</span>
           </div>
         </div>
-        <div id="containerDescartavel">
-          <input class="checkbox" type="checkbox" id="checkNaoDescartavel">
+        <div id="containerDescartavel" (click)="checkNaoDescartavel()">
+          <input class="checkbox" type="checkbox" id="checkNaoDescartavel"/>
           <div>
-              <span class="texto">Não Descartáveis</span>
+            <span class="texto">Não Descartáveis</span>
           </div>
         </div>
-        <div id="containerDescartavel">
-          <input class="checkbox" type="checkbox" id="checkSemEstoque">
+        <div id="containerDescartavel" (click)="checkSemEstoque()">
+          <input class="checkbox" type="checkbox" id="checkSemEstoque"/>
           <div>
-              <span class="texto">Sem estoque</span>
+            <span class="texto">Sem estoque</span>
           </div>
         </div>
-        <div id="containerDescartavel">
-          <input class="checkbox" type="checkbox" id="checkComEstoque">
+        <div id="containerDescartavel" (click)="checkComEstoque()">
+          <input class="checkbox" type="checkbox" id="checkComEstoque"/>
           <div>
-              <span class="texto">Com estoque</span>
+            <span class="texto">Com estoque</span>
           </div>
         </div>
-    </div>
-    <div id="separacaoFiltroClassificacao">
-      <div id="riscoSeparar">
-        <hr id="riscoGrande" />
-        <hr id="riscoGrande" />
       </div>
-      <div id="textoClassificacoes">
-        Classificações
+      <div id="separacaoFiltroClassificacao">
+        <div id="riscoSeparar">
+          <hr id="riscoGrande" />
+          <hr id="riscoGrande" />
+        </div>
+        <div id="textoClassificacoes">↓ Classificações ↓</div>
+        <div id="riscoSeparar">
+          <hr id="riscoGrande" />
+        </div>
       </div>
-      <div id="riscoSeparar">
-        <hr id="riscoGrande" />
+      <div class="itensFiltro tipoClassificacao">
+        <a *ngFor="let item of listaClassificacoes" (click)="filtrar(item)">
+          <span>{{ item.classificacao }}</span>
+        </a>
       </div>
-    </div>
-    <div class="itensFiltro tipoClassificacao">
-      <a *ngFor="let item of listaClassificacoes" (click)="filtrar(item)">
-        <span>{{ item.classificacao }}</span>
-      </a>
     </div>
   </div>
-  <div *ngIf="usuario == 1" (click)="navegar('/professor/reservas')" class="reservas">
+  <div
+    *ngIf="usuario == 1"
+    (click)="navegar('/professor/reservas')"
+    class="reservas"
+  >
     <div class="textoReservas">
       <span>Minhas reservas</span>
     </div>
     <div class="gerenciarReservas">
-      <span title="Minhas Reservas" id="iconsUser" id="arquivo" class="material-symbols-outlined iconDeselect">
+      <span
+        title="Minhas Reservas"
+        id="iconsUser"
+        id="arquivo"
+        class="material-symbols-outlined iconDeselect"
+      >
         pending_actions
       </span>
     </div>
   </div>
-  <div *ngIf="usuario == 3 || usuario == 4" (click)="modalFiltro()" class="reservas">
+  <div
+    *ngIf="usuario == 3 || usuario == 4"
+    (click)="modalFiltro()"
+    class="reservas"
+  >
     <div class="textoReservas2">
-      <span>Gerenciar Filtros</span>
+      <span>Gerenciar</span>
     </div>
     <div class="ContainerIconGerenciar">
-      <div class="gerenciarReservas">
-        <span title="Descrição" id="gerenciar" id="arquivo" class="material-symbols-outlined iconDeselect">
-          description
-        </span>
-        <span title="Descrição" id="gerenciar" id="settings" class="material-symbols-outlined iconDeselect">
-          settings
-        </span>
-      </div>
+      <span class="material-symbols-outlined iconDeselect" id="gerenciarIcon">
+        tune
+      </span>
     </div>
   </div>
 </div>
