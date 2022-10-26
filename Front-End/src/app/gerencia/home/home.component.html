@@ -14,6 +14,30 @@
         <div id="container">
             <div id="containerConteudo">
                 <div id="containerInput">
+                    <div id="botoes">
+                        <button *ngIf="tipoUsuario == 4" (click)="mudarAba(1)" id="gerenciarUsuarios"
+                            [ngClass]="retornarClasseAba(1)">
+                            Gerenciar usuários
+                        </button>
+                        <button *ngIf="tipoUsuario == 4" (click)="mudarAba(2)" id="gerenciarCadastros"
+                            [ngClass]="retornarClasseAba(2)">
+                            Gerenciar cadastros
+                        </button>
+                        <button (click)="mudarAba(3)" id="devolucoes" [ngClass]="retornarClasseAba(3)">
+                            Baixa nas devoluções
+                        </button>
+                        <button (click)="mudarAba(4)" id="retirada" [ngClass]="retornarClasseAba(4)">
+                            Confirmar retirada
+                        </button>
+                        <button (click)="mudarAba(5)" id="listaItens" [ngClass]="retornarClasseAba(5)">
+                            Lista de itens
+                        </button>
+                        <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="mudarAba(6)" id="localizacoes"
+                            [ngClass]="retornarClasseAba(6)">
+                            Localizações
+                        </button>
+                    </div>
+                    
                     <div id="containerLinhaInput">
                         <div id="containerInputOrdenar">
 
@@ -57,30 +81,7 @@
 
 
                 <!-- Botões para troca de abas -->
-                <div id="botoes">
-                    <button *ngIf="tipoUsuario == 4" (click)="mudarAba(1)" id="gerenciarUsuarios"
-                        [ngClass]="retornarClasseAba(1)">
-                        Gerenciar usuários
-                    </button>
-                    <button *ngIf="tipoUsuario == 4" (click)="mudarAba(2)" id="gerenciarCadastros"
-                        [ngClass]="retornarClasseAba(2)">
-                        Gerenciar cadastros
-                    </button>
-                    <button (click)="mudarAba(3)" id="devolucoes" [ngClass]="retornarClasseAba(3)">
-                        Baixa nas devoluções
-                    </button>
-                    <button (click)="mudarAba(4)" id="retirada" [ngClass]="retornarClasseAba(4)">
-                        Confirmar retirada
-                    </button>
-                    <button (click)="mudarAba(5)" id="listaItens" [ngClass]="retornarClasseAba(5)">
-                        Lista de itens
-                    </button>
-                    <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="mudarAba(6)" id="localizacoes"
-                        [ngClass]="retornarClasseAba(6)">
-                        Localizações
-                    </button>
-                </div>
-                <div id="risco"></div>
+
 
 
                 <!-- Aba de aceitar / recusar cadastros novos de usuários, separados em bloco ou lista -->
