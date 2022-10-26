@@ -19,6 +19,10 @@ public class ReservaService {
         return reservaRepository.findAll();
     }
 
+    public List<Reserva> findByVisibilidade(Boolean visibilidade) {
+        return reservaRepository.findByVisibilidade(visibilidade);
+    }
+
     public <S extends Reserva> S save(S entity) {
         return reservaRepository.save(entity);
     }

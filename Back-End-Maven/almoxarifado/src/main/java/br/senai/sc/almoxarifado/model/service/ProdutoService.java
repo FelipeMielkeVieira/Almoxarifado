@@ -19,6 +19,10 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
+    public List<Produto> findByVisibilidade(Boolean visibilidade) {
+        return produtoRepository.findByVisibilidade(visibilidade);
+    }
+
     public <S extends Produto> S save(S entity) {
         return produtoRepository.save(entity);
     }

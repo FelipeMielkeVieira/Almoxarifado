@@ -12,12 +12,11 @@ import java.util.Set;
 @Getter
 @Setter
 public class ProdutoDTO {
-    private Long id;
     private Integer quantidade;
     private String nome;
     private String caracteristicas;
-    private boolean descartavel;
-    private byte imagem;
+    private Boolean descartavel;
+    private Byte imagem;
     private Classificacao classificacao;
     private Set<Localizacao> localizacoes;
     private Set<Anexo> anexos;

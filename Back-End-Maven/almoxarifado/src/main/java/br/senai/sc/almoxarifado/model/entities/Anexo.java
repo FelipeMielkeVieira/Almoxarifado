@@ -23,5 +23,5 @@ public class Anexo {
     private Byte anexo;
 
     @Column(nullable = false)
-    private boolean visibilidade;
+    private Boolean visibilidade;
 }

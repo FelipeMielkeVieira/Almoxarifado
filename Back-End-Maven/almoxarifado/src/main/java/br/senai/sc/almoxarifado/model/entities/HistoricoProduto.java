@@ -32,10 +32,10 @@ public class HistoricoProduto {
     private String descricao_alteracao;
 
     @Column(nullable = false)
-    private boolean descartavel;
+    private Boolean descartavel;
 
     @Column
-    private byte imagem;
+    private Byte imagem;
 
     @Column(nullable = false)
     private Date data_edicao;
