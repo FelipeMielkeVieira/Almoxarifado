@@ -61,10 +61,10 @@
     </div>
 </div> -->
 
-<div id="containerSacola">
+<div id="containerSacola" (click)="verDetalhes()">
     <div id="container">
         <div id="divisaoCentral">
-            <div id="parteEsquerda" (click)="verDetalhes()">
+            <div id="parteEsquerda">
                 <ul id="itens">
                     <li *ngFor="let item of listaItens" class="item">
                         <img class="bolaAzul" src="./assets/circulo-azul.png" alt="Ponteiro para o produto">
@@ -73,7 +73,7 @@
                 </ul>
             </div>
             <div id="parteDireita">
-                <div class="containerDatas" (click)="verDetalhes()">
+                <div class="containerDatas">
                     <div class="tituloData">
                         <span class="dataTitulo">Data de retirada:</span>
                     </div>
