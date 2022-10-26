@@ -1,0 +1,120 @@
+.itemTabela {
+    vertical-align: middle;
+}
+
+#fundoModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+// CSS em Lista
+.containerUsuarioLista {
+    overflow: hidden;
+    min-width: 400px;
+    width: 22.5rem;
+    height: 5.625rem;
+    border-radius: 5px;
+    border: solid 1px black;
+    padding: 10px 10px 0px 10px;
+    width: 100%;
+}
+
+.containerUser {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imgUser {
+    width: 60px;
+    border-radius: 20px;
+}
+
+.containerInfo {
+    margin-left: 2%;
+    width: 16.875rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.user {
+    font-size: var(--font-size--small);
+    cursor: default;
+}
+
+.email {
+    margin-top: 2px;
+    font-size: var(--font-size--small);
+}
+
+.email:hover {
+    text-decoration: underline;
+}
+
+.containerOpcoes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    margin-top: -1.5%;
+}
+
+.recusar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0.938rem;
+    height: 0.938rem;
+    background-color: rgba(191, 10, 10, 0.75);
+    margin: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.aceitar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0.938rem;
+    height: 0.938rem;
+    background-color: rgba(0, 155, 25, 0.75);
+    margin: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.aceitar:hover {
+    background-color: #009B19;
+}
+
+.recusar:hover {
+    background-color: #BF0A0A;
+}
+
+.icone {
+    font-size: var(--font-size--verysmall);
+}
+
+#fecharIcone {
+    cursor: pointer;
+}
+
+// CSS em bloco
+
+.containerUsuario {
+    overflow: hidden;
+    min-width: 400px;
+    width: 22.5rem;
+    height: 5.625rem;
+    border-radius: 5px;
+    border: solid 1px black;
+    padding: 10px 10px 0px 10px;
+}

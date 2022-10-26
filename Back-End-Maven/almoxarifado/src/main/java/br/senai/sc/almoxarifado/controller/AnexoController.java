@@ -34,14 +34,14 @@ public class AnexoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o anexo!");
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(anexoService.findById(id).get());
+        return ResponseEntity.status(HttpStatus.FOUND).body(anexoService.findById(id).get());
     }
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid AnexoDTO anexoDTO){
         Anexo anexo = new Anexo();
         BeanUtils.copyProperties(anexoDTO, anexo);
-        return ResponseEntity.status(HttpStatus.OK).body(anexoService.save(anexo));
+        return ResponseEntity.status(HttpStatus.CREATED).body(anexoService.save(anexo));
     }
 
     @PutMapping("/{idAnexo}")
@@ -53,7 +53,7 @@ public class AnexoController {
         Anexo anexo =  new Anexo();
         BeanUtils.copyProperties(anexoDTO, anexo, "idAnexo");
         anexo.setId(idAnexo);
-        return ResponseEntity.status(HttpStatus.CREATED).body(anexoService.save(anexo));
+        return ResponseEntity.status(HttpStatus.OK).body(anexoService.save(anexo));
     }
 
     @Transactional

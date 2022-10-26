@@ -67,7 +67,7 @@ public class SacolaController {
         Sacola sacola = new Sacola();
         BeanUtils.copyProperties(sacolaDTO, sacola, "id");
         sacola.setSacolaId(id);
-        return ResponseEntity.status(HttpStatus.CREATED).body(sacolaService.save(sacola));
+        return ResponseEntity.status(HttpStatus.OK).body(sacolaService.save(sacola));
     }
 
     @Transactional

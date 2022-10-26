@@ -30,7 +30,7 @@ public class ProdutoController {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhum produto com este ID.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.findById(id).get());
+        return ResponseEntity.status(HttpStatus.FOUND).body(produtoService.findById(id).get());
     }
 
     @PostMapping

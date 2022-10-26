@@ -1,0 +1,60 @@
+<table id="tableCadastros" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Aceitar</th>
+            <th>Rejeitar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cadastro of listaCadastros" id="containerCadastros">
+            <td class="itemTabela">{{ cadastro.nome }}</td>
+            <td class="itemTabela">{{ cadastro.email }}</td>
+            <td class="itemTabela">
+                sim
+            </td>
+            <td class="itemTabela">
+                não
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- <div [ngClass]="retornaClasseElemento(1)">
+    <div class="containerUser">
+        <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
+        <div class="containerInfo">
+            <span class="user">Nome Sobrenome</span>
+            <span class="email">nome_sobrenome@estudante.sc.senai.br</span>
+        </div>
+    </div>
+    <div class="containerOpcoes">
+        <div class="recusar" (click)="abrirModaisConfirmacao(1)">
+            <span title="Fechar" id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
+                close
+            </span>
+        </div>
+        <div class="aceitar" (click)="abrirModaisConfirmacao(2)">
+            <span title="Cofirmar" class="icone" class="material-symbols-outlined iconDeselect">
+                done
+            </span>
+        </div>
+    </div>
+</div> -->
+
+<div id="fundoModal" *ngIf="modalConfirmarRecusa || modalConfirmarAceite">
+    <app-modal-confirmacao *ngIf="modalConfirmarRecusa" [tipoTexto]="4"
+        (fecharModal)="fecharModaisConfirmacao(1, $event)">
+    </app-modal-confirmacao>
+
+    <app-modal-confirmacao *ngIf="modalConfirmarAceite" [tipoTexto]="5"
+        (fecharModal)="fecharModaisConfirmacao(2, $event)">
+    </app-modal-confirmacao>
+</div>
+
+<app-modal-feedback *ngIf="feedbackRecusaCadastro" [tipoFeedback]="8" (fecharModal)="fecharModaisFeedback(1)">
+</app-modal-feedback>
+
+<app-modal-feedback *ngIf="feedbackAceiteCadastro" [tipoFeedback]="9" (fecharModal)="fecharModaisFeedback(2)">
+</app-modal-feedback>

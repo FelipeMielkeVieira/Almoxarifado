@@ -31,7 +31,7 @@ public class UsuarioController {
         if (!usuarioService.existsById(email)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrada nenhum usuário com este Email.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findById(email).get());
+        return ResponseEntity.status(HttpStatus.FOUND).body(usuarioService.findById(email).get());
     }
 
     @PostMapping
@@ -54,7 +54,7 @@ public class UsuarioController {
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuarioDTO, usuario, "emailUsuario");
         usuario.setEmailUsuario(email);
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.save(usuario));
     }
 
     @Transactional

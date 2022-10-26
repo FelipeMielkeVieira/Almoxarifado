@@ -259,7 +259,7 @@
                     <app-cadastrar-usuario [listaEmBloco]="true"></app-cadastrar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaCadastros && !listaEmBloco" class="usuarios">
-                    <app-cadastrar-usuario style="width: 100%;" [listaEmBloco]="false"></app-cadastrar-usuario>
+                    <app-cadastrar-usuario-lista [listaCadastros]="listaCadastrosPendentes"></app-cadastrar-usuario-lista>
                 </div>
 
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista (falta lista) -->
