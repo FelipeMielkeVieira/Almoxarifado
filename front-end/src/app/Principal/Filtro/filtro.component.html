@@ -131,38 +131,41 @@
     </div>
     <div class="itensFiltro tipoFiltro">
         <div id="containerDescartavel">
-          <input class="checkbox" type="checkbox">
-          <div class="texto">
-            <a>
-              <span>Descartáveis</span>
-            </a>
+          <input class="checkbox" type="checkbox" id="checkDescartavel">
+          <div>
+              <span class="texto">Descartáveis</span>
           </div>
-          <span title="Descartável" class="material-symbols-outlined iconDeselect iconsSideBar">
-            restore_from_trash
-            </span>
         </div>
         <div id="containerDescartavel">
-          <input class="checkbox" type="checkbox">
-          <div class="texto">
-            <a>
+          <input class="checkbox" type="checkbox" id="checkNaoDescartavel">
+          <div>
               <span class="texto">Não Descartáveis</span>
-            </a>
           </div>
-            <span title="Não Descartável" class="material-symbols-outlined iconDeselect iconsSideBar">
-              delete_forever
-            </span>
         </div>
         <div id="containerDescartavel">
-          <input class="checkbox" type="checkbox">
-          <div class="texto">
-            <a>
+          <input class="checkbox" type="checkbox" id="checkSemEstoque">
+          <div>
               <span class="texto">Sem estoque</span>
-            </a>
           </div>
-          <span title="Sem estoque" class="material-symbols-outlined iconDeselect iconsSideBar">
-            web_asset_off
-          </span>  
         </div>
+        <div id="containerDescartavel">
+          <input class="checkbox" type="checkbox" id="checkComEstoque">
+          <div>
+              <span class="texto">Com estoque</span>
+          </div>
+        </div>
+    </div>
+    <div id="separacaoFiltroClassificacao">
+      <div id="riscoSeparar">
+        <hr id="riscoGrande" />
+        <hr id="riscoGrande" />
+      </div>
+      <div id="textoClassificacoes">
+        Classificações
+      </div>
+      <div id="riscoSeparar">
+        <hr id="riscoGrande" />
+      </div>
     </div>
     <div class="itensFiltro tipoClassificacao">
       <a *ngFor="let item of listaClassificacoes" (click)="filtrar(item)">

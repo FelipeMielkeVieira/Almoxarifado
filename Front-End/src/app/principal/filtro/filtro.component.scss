@@ -338,7 +338,7 @@ a {
     left: -190px;
 }
 
-#check:checked~.sidebar a span {
+#check:checked~.sidebar a span, #check:checked~.sidebar #containerDescartavel, #check:checked~.sidebar #riscoSeparar {
     display: none;
     transition: 10s;
 }
@@ -501,8 +501,8 @@ a {
 #containerDescartavel {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 95%;
+    width: 100%;
+    line-height: 60px;
     transition: 0.5s;
     transition-property: background;
     cursor: pointer;
@@ -513,17 +513,34 @@ a {
 }
 
 .checkbox {
-    margin: 10px 0px 10px 25px;
+    margin: 10px 0px 10px 20px;
     width: 18px;
     height: 18px;
 }
 
 .texto {
-    font-size: var(--font-size--default);
+    font-size: var(--font-size--small);
+    padding: 0 0 0 10px;
 }
 
 .iconsSideBar {
     font-size: 2rem;
+}
+
+#riscoSeparar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#textoClassificacoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a5a5a5;
+    font-size: var(--font-size--small);
+    font-weight: 600;
 }
 
 .gerenciarReservas {
