@@ -103,19 +103,56 @@
                     </app-cadastrar-usuario-lista>
                 </div>
 
-                <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista (falta lista) -->
+                <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista -->
                 <div *ngIf="abaGerenciaUsuarios && listaEmBloco" class="telaUsuarios">
                     <app-gerenciar-usuario></app-gerenciar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaUsuarios && !listaEmBloco" class="telaUsuarios">
-                    <app-gerenciar-usuario-lista [listaUsuarios]="listaUsuarios" style="width: 100%;"></app-gerenciar-usuario-lista>
+                    <app-gerenciar-usuario-lista [listaUsuarios]="listaUsuarios" style="width: 100%;">
+                    </app-gerenciar-usuario-lista>
                 </div>
 
-                <div *ngIf="abaDevolucoes" class="containerDevolucoes">
+                <!-- Aba de baixa nas devoluções, separada em bloco e lista -->
+                <div *ngIf="abaDevolucoes && listaEmBloco" class="containerDevolucoes">
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                 </div>
-                <div *ngIf="abaRetiradas" class="containerRetirada">
+                <div *ngIf="abaDevolucoes && !listaEmBloco" class="containerDevolucoes">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="itemTabela">Nome sobrenome</th>
+                                <th class="itemTabela">Email</th>
+                                <th class="itemTabela center">Função</th>
+                                <th class="itemTabela center">Salvar</th>
+                                <th class="itemTabela center">Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <app-reserva-lista *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"
+                                style="width: 100%;"></app-reserva-lista>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Aba de confirmar retirada, separada em bloco e lista -->
+                <div *ngIf="abaRetiradas && listaEmBloco" class="containerRetirada">
                     <app-reserva *ngFor="let reserva of reservasRetirada" [reserva]="reserva"></app-reserva>
+                </div>
+                <div *ngIf="abaRetiradas && !listaEmBloco" class="containerRetirada">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="itemTabela">Nome sobrenome</th>
+                                <th class="itemTabela">Email</th>
+                                <th class="itemTabela center">Função</th>
+                                <th class="itemTabela center">Salvar</th>
+                                <th class="itemTabela center">Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <app-reserva-lista *ngFor="let reserva of reservasRetirada" [reserva]="reserva" style="width: 100%;"></app-reserva-lista>
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
