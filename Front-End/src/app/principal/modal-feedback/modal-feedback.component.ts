@@ -42,6 +42,8 @@ export class ModalFeedback implements OnInit {
         return "Usuário excluído com sucesso!";
       case 12:
         return "Retirada confirmada com sucesso!";
+      case 13:
+        return "Reserva cancelada com sucesso!";
     }
     return "";
   }
