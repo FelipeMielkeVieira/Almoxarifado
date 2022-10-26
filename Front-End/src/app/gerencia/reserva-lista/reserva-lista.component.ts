@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ReservaListaComponent implements OnInit {
     constructor() { }
 
-    @Input() reserva = { id: 0, data_retirada: "", data_devolucao: "", status: "", usuario_email: "" }
+    @Input() listaReservas: any = [];
 
     modalRetirada = false;
     modalDevolucao = false;
@@ -22,8 +22,9 @@ export class ReservaListaComponent implements OnInit {
     }
 
     // Função para abrir / fechar o modal de detalhes (pode ser devolução ou retirada)
-    mudarModalDetalhes(event: string) {
-        if (this.reserva.status == "AGUARDANDO_RETIRADA") {
+    mudarModalDetalhes(event: string, reserva: any) {
+        if (reserva.status == "AGUARDANDO_RETIRADA") {
+            localStorage.setItem("RESERVA", JSON.stringify(reserva));
             this.modalRetirada = !this.modalRetirada;
             if (event == "retiradaFeita") {
                 this.abrirModaisFeedback(1);
@@ -39,6 +40,7 @@ export class ReservaListaComponent implements OnInit {
             if (event == "atraso") {
                 this.abrirModaisFeedback(4);
             }
+            localStorage.removeItem("RESERVA");
         }
     }
 
@@ -87,6 +89,11 @@ export class ReservaListaComponent implements OnInit {
                 this.feedbackAtrasoDevolucao = false;
                 break;
         }
+    }
+
+    // Função para pegar a reserva que será aberta no modal
+    getReserva() {
+        return JSON.parse(localStorage.getItem("RESERVA") || '{}');
     }
 
 }

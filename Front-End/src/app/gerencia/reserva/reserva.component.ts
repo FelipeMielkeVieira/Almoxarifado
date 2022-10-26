@@ -24,6 +24,7 @@ export class ReservaComponent implements OnInit {
 
     // Função para abrir / fechar o modal de detalhes (pode ser devolução ou retirada)
     mudarModalDetalhes(event: string) {
+        console.log(event)
         if (this.reserva.status == "AGUARDANDO_RETIRADA") {
             this.modalRetirada = !this.modalRetirada;
             if (event == "retiradaFeita") {
