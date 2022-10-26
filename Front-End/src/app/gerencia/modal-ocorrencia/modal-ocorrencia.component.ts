@@ -27,6 +27,10 @@ export class ModalOcorrenciaComponent implements OnInit {
         return "Motivo do Cancelamento";
       case 2:
         return "Motivo da Remoção";
+      case 3:
+        return "Atraso de Devolução";
+      case 4:
+        return "Informar Defeito";
     }
     return "";
   }
