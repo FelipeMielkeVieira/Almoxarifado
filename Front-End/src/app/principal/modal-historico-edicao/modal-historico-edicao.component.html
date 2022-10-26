@@ -1,79 +1,58 @@
 <div class="containerModalAnexos">
-    <div class="linhaAzul"></div>
-    <div class="containerFechar">
-        <span title="Fechar" (click)="fecharModalHistorico()" class="material-symbols-outlined iconDeselect"
-            id="iconeFechar">
-            close
-        </span>
-    </div>
-    <div class="containerInfoModalHist">
-        <h1>Histórico</h1>
-        <div class="riscoDivisao"></div>
-    </div>
-    <div class="containerHistoricos">
-        <div class="quadroHistorico">
-            <span class="subtituloModal">Atendente</span>
-            <span class="subtituloModal">Edição</span>
-            <div class="containerData">
-                <span class="textoData">20:55</span>
-                <span class="textoData">24/08/2022</span>
-            </div>
-        </div>
-        <div class="quadroHistorico">
-            <span class="subtituloModal">Atendente</span>
-            <span class="subtituloModal">Edição</span>
-            <div class="containerData">
-                <span class="textoData">20:55</span>
-                <span class="textoData">24/08/2022</span>
-            </div>
-        </div>
-        <div class="quadroHistorico">
-            <span class="subtituloModal">Atendente</span>
-            <span class="subtituloModal">Edição</span>
-            <div class="containerData">
-                <span class="textoData">20:55</span>
-                <span class="textoData">24/08/2022</span>
-            </div>
-        </div>
-        <div class="quadroHistorico">
-            <span class="subtituloModal">Atendente</span>
-            <span class="subtituloModal">Edição</span>
-            <div class="containerData">
-                <span class="textoData">20:55</span>
-                <span class="textoData">24/08/2022</span>
-            </div>
-        </div>
-        <div class="quadroHistorico">
-            <span class="subtituloModal">Atendente</span>
-            <span class="subtituloModal">Edição</span>
-            <div class="containerData">
-                <span class="textoData">20:55</span>
-                <span class="textoData">24/08/2022</span>
-            </div>
-        </div>
-        <div class="quadroHistorico">
-            <span class="subtituloModal">Atendente</span>
-            <span class="subtituloModal">Edição</span>
-            <div class="containerData">
-                <span class="textoData">20:55</span>
-                <span class="textoData">24/08/2022</span>
-            </div>
-        </div>
-        <div class="quadroHistorico">
-            <span class="subtituloModal">Atendente</span>
-            <span class="subtituloModal">Edição</span>
-            <div class="containerData">
-                <span class="textoData">20:55</span>
-                <span class="textoData">24/08/2022</span>
-            </div>
-        </div>
-        <div class="quadroHistorico">
-            <span class="subtituloModal">Atendente</span>
-            <span class="subtituloModal">Edição</span>
-            <div class="containerData">
-                <span class="textoData">20:55</span>
-                <span class="textoData">24/08/2022</span>
-            </div>
-        </div>
-    </div>
+  <div class="linhaAzul"></div>
+  <div class="containerFechar">
+    <span
+      title="Fechar"
+      (click)="fecharModalHistorico()"
+      class="material-symbols-outlined iconDeselect"
+      id="iconeFechar"
+    >
+      close
+    </span>
+  </div>
+  <div class="containerInfoModalHist">
+    <h1>Histórico</h1>
+    <div class="riscoDivisao"></div>
+  </div>
+  <div id="containerTabela">
+    <table id="tableItens" class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class="tdDescricaoEdicao">Descrição</th>
+          <th class="tdUsuarioEdicao">Usuário</th>
+          <th class="tdDataEdicao">Data</th>
+          <th class="tdHoraEdicao">Hora</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="linhaSelecionavel"
+          *ngFor="let edicao of edicoes"
+          (click)="selecionarRow(edicao)"
+          [ngClass]="edicao.checked ? 'table-active' : ''"
+        >
+          <td class="itemTabela displayFlex tdCheck">
+            <input
+              class="checkboxStyle"
+              [checked]="edicao.checked"
+              type="checkbox"
+            />
+          </td>
+          <td class="itemTabela displayFlex tdDescricaoEdicao" >
+            {{ edicao.descricao }}
+          </td>
+          <td class="itemTabela displayFlex tdUsuarioEdicao">
+            {{ edicao.usuario }}
+          </td>
+          <td class="itemTabela displayFlex tdDataEdicao">
+            {{ edicao.data }}
+          </td>
+          <td class="itemTabela displayFlex tdHoraEdicao">
+            {{ edicao.hora }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
