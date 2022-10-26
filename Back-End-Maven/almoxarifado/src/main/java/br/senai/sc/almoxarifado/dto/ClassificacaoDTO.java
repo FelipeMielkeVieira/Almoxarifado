@@ -8,7 +8,5 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @ToString
 public class ClassificacaoDTO {
-    private Integer id;
-
     private String classificacao;
 }

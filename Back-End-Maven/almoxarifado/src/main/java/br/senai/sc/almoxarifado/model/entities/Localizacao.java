@@ -19,7 +19,7 @@ public class Localizacao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private Integer codigoLocalizacao;
+    private Long id;
 
     @Column(length = 45, nullable = false)
     private String  nome;

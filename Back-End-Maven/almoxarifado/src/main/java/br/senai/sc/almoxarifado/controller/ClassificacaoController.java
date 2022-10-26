@@ -29,7 +29,7 @@ public class ClassificacaoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findById(@PathVariable(value = "id") Integer id){
+    public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id){
         if (!classificacaoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrada nenhuma classificação com este ID.");
         }
@@ -44,23 +44,24 @@ public class ClassificacaoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable(value = "id") Integer idClassificacao, @RequestBody @Valid ClassificacaoDTO classificacaoDTO){
+    public ResponseEntity<Object> update(@PathVariable(value = "id") Long idClassificacao, @RequestBody @Valid ClassificacaoDTO classificacaoDTO){
         if (!classificacaoService.existsById(idClassificacao)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este ID não existe.");
         }
 
         Classificacao classificacao =  new Classificacao();
-        BeanUtils.copyProperties(classificacaoDTO, classificacao, "idClassificacao");
+        BeanUtils.copyProperties(classificacaoDTO, classificacao);
         classificacao.setId(idClassificacao);
         return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.save(classificacao));
     }
 
     @Transactional
     @DeleteMapping("/{idClassificacao}")
-    public ResponseEntity<Object> deleteById(@PathVariable(value = "idClassificacao") Integer idClassificacao){
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "idClassificacao") Long idClassificacao){
         if(!classificacaoService.existsById(idClassificacao)){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
         }
+
         classificacaoService.deleteById(idClassificacao);
         return ResponseEntity.status(HttpStatus.OK).body("Classificação deletada com sucesso!");
     }

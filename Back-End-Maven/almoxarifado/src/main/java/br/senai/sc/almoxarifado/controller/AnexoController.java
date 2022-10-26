@@ -23,29 +23,41 @@ public class AnexoController {
         this.anexoService = anexoService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Anexo>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(anexoService.findAll());
     }
 
+    @GetMapping
+    public ResponseEntity<List<Anexo>> findAllVisible(){
+        return ResponseEntity.status(HttpStatus.OK).body(anexoService.findByVisibilidade(true));
+    }
+
     @GetMapping("/{idAnexo}")
-    public ResponseEntity<Object> findById(@PathVariable(value = "id") Integer id){
-        if (anexoService.existsById(id)) {
+    public ResponseEntity<Object> findById(@PathVariable(value = "idAnexo") Long idAnexo){
+        if (!anexoService.existsById(idAnexo)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o anexo!");
         }
 
-        return ResponseEntity.status(HttpStatus.FOUND).body(anexoService.findById(id).get());
+        Anexo anexo = anexoService.findById(idAnexo).get();
+
+        if (!anexo.isVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("O anexo solicitado foi deletado!");
+        }
+
+        return ResponseEntity.status(HttpStatus.FOUND).body(anexoService.findById(idAnexo).get());
     }
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid AnexoDTO anexoDTO){
         Anexo anexo = new Anexo();
         BeanUtils.copyProperties(anexoDTO, anexo);
+        anexo.setVisibilidade(true);
         return ResponseEntity.status(HttpStatus.CREATED).body(anexoService.save(anexo));
     }
 
     @PutMapping("/{idAnexo}")
-    public ResponseEntity<Object> update(@PathVariable(value = "idAnexo") Integer idAnexo, @RequestBody @Valid AnexoDTO anexoDTO){
+    public ResponseEntity<Object> update(@PathVariable(value = "idAnexo") Long idAnexo, @RequestBody @Valid AnexoDTO anexoDTO){
         if (!anexoService.existsById(idAnexo)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este anexo não existe.");
         }
@@ -58,12 +70,14 @@ public class AnexoController {
 
     @Transactional
     @DeleteMapping("/{idAnexo}")
-    public ResponseEntity<Object> deleteById(@PathVariable(value = "idAnexo") Integer idAnexo){
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "idAnexo") Long idAnexo){
         if(!anexoService.existsById(idAnexo)){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o anexo!");
         }
 
-        anexoService.deleteById(idAnexo);
+        Anexo anexo = anexoService.findById(idAnexo).get();
+        anexo.setVisibilidade(false);
+        anexoService.save(anexo);
         return ResponseEntity.status(HttpStatus.OK).body("Anexo deletado com sucesso!");
     }
 }
