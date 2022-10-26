@@ -1,5 +1,4 @@
 <div id="modalItem">
-  <hr class="riscoAzul" />
   <div class="containerModal">
     <div class="fechar">
       <span title="Fechar" (click)="fecharModalReserva('fechar')" class="material-symbols-outlined iconDeselect"
@@ -94,7 +93,7 @@
         <div class="asterisco">*</div>
       </div>
       <div class="containerInputData">
-        <input type="text" id="professores" placeholder="Digite o nome" />
+        <input type="text" id="professores" placeholder="Digite o nome" [disabled]="isDisabled()" />
       </div>
     </div>
     <span *ngIf="item.quantidade == 0">Este item está indisponível no momento</span>
@@ -105,7 +104,7 @@
       <button *ngIf="item.quantidade <= 0" class="btnModal2" (click)="reservar()">
         Reservar Agora
       </button>
-      <span title="Ver Anexos" (click)="verAnexos()" id="iconModal" class="material-symbols-outlined iconDeselect">
+      <span title="Ver Detalhes" (click)="verDetales()" id="iconModal" class="material-symbols-outlined iconDeselect">
         file_present
       </span>
       <div id="adicionarSacola" title="Adicionar à sacola" (click)="adicionarSacola()">

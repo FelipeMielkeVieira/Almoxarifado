@@ -21,8 +21,8 @@ export class ItemListaComponent implements OnInit {
   @Input() visualizacaoItem: string = "emLista";
 
   // Input com o objeto do item recebido da lista
-  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
-  @Input() itens = [{ id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 }];
+  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [ { descricao: "", anexo: "" } ] };
+  @Input() itens = [{ id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [ { descricao: "", anexo: "" } ] }];
 
   modalReservar: boolean = false;
   modalEditar: boolean = false;
@@ -79,8 +79,25 @@ export class ItemListaComponent implements OnInit {
   }
 
   // Função para deixar visível o modal de reserva do item
-  abrirModalReserva() {
-    this.modalReservar = true;
+  abrirModalReserva(event: any) {
+    console.log(event);
+    let idIcone = event.path[0].id;
+    console.log(idIcone);
+
+    switch (idIcone) {
+      case "iconeEditar":
+        this.abrirModalEditar();
+        break;
+      case "iconeHistorico":
+        this.abrirHistorico();
+        break;
+      case "iconeExcluir":
+        this.removerItem();
+        break;
+      default:
+        this.modalReservar = true;
+    }
+    // this.modalReservar = true;
   }
 
   // Função para abrir o modal de edição do item

@@ -21,6 +21,9 @@ import { PaginacaoComponent } from './paginacao/paginacao.component';
 import { AjudaComponent } from './ajuda/ajuda.component';
 import { ItemListaComponent } from './item-lista/item.component';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { ItemListaComponent } from './item-lista/item.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    MatDividerModule,
+    MatButtonModule
   ],
   exports: [
     FiltroComponent,

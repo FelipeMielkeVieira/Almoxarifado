@@ -22,13 +22,6 @@ export class LocalizacaoComponent implements OnInit {
 
   selecionarRow(localizacao: any) {
     localizacao.checked = !localizacao.checked;
-    // console.log(id);
-    // let tr = event.path.find((el: any) => el.nodeName === 'TR');
-    // tr.classList.toggle('table-active');
-    // console.log(tr);
-    // console.log("event: ", event)
-    // let checkbox = event.path.find((el: any) => el.nodeName === 'INPUT');
-    // checkbox.toggle();
   }
 
   getClass(localizacao: any) {
