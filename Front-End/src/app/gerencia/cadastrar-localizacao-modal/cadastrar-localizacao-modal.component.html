@@ -1,0 +1,32 @@
+<!-- (click)="close()" -->
+
+<div id="modalItem" class="shadow-sm rounded">
+    <div class="containerModal">
+        <!-- fechar -->
+        <div id="fecharModal" >
+            <span (click)="close()" class="material-symbols-outlined iconDeselect icone">
+                close
+            </span>
+        </div>
+        <!-- conteudo -->
+        <div id="conteudo">
+            <h2 class="title">Nova localização</h2>
+            <div class="form-floating div-float-label divInputLogin">
+                <input name="localizacao" [(ngModel)]="localizacao" type="text"
+                    class="form-control input-float-label inputsLogin" placeholder="Localização">
+                <label class="label-float-label">Localização</label>
+            </div>
+            <div id="localizacaoPai">
+                <h2 class="title">Localização pai</h2>
+                <div class="form-floating div-float-label divInputLogin">
+                    <input name="localizacaoPai" [(ngModel)]="localizacaoPai" type="text"
+                        class="form-control input-float-label inputsLogin" placeholder="Localização">
+                    <label class="label-float-label">Localização</label>
+                </div>
+            </div>
+            <div id="containerBotao">
+                <button (click)="cadastrar()" mat-flat-button color="primary">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
