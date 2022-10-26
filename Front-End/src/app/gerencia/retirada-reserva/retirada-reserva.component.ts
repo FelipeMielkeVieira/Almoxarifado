@@ -16,6 +16,7 @@ export class RetiradaReservaComponent implements OnInit {
     confirmacaoRetirada = false;
 
     modalCancelarReserva = false;
+    modalRemoverProduto = false;
 
     ngOnInit() {
     }
@@ -28,7 +29,7 @@ export class RetiradaReservaComponent implements OnInit {
     // Função para fechar o modal caso uma confirmação de retirada seja feita
     confirmacaoReserva(event: boolean) {
         this.confirmacaoRetirada = false;
-        if(event) {
+        if (event) {
             this.fecharModalDetalhes("retiradaFeita");
         }
     }
@@ -40,20 +41,34 @@ export class RetiradaReservaComponent implements OnInit {
 
     // Função para abrir modais de ocorrências
     abrirModaisOcorrencias(numero: number) {
-        switch(numero) {
+        switch (numero) {
             case 1:
                 this.modalCancelarReserva = true;
+                break;
+            case 2:
+                this.modalRemoverProduto = true;
                 break;
         }
     }
 
     // Função para fechar os modais de ocorrências
     fecharModaisOcorrencias(numero: number, event: string) {
-        switch(numero) {
+        switch (numero) {
             case 1:
                 this.modalCancelarReserva = false;
+                if(event == "salvar") {
+                    this.fecharModalDetalhes("reservaCancelada");
+                }
+                break;
+            case 2:
+                this.modalRemoverProduto = false;
                 break;
         }
+    }
+
+    // Função para abrir o modal de ocorrência de remoção de item da reserva
+    removerItem() {
+        this.abrirModaisOcorrencias(2);
     }
 
 }

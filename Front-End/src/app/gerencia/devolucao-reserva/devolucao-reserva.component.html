@@ -1,8 +1,7 @@
 <div id="baixaDevolucoesModal">
     <div id="containerDevolucaoModal">
         <div class="containerFechar">
-            <span (click)="fecharModalDetalhes('fechar')" title="Fechar" id="fecharIcone" class="icone"
-                class="material-symbols-outlined iconDeselect">
+            <span title="Fechar" id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
                 close
             </span>
         </div>
@@ -23,28 +22,32 @@
                                 <p id="quantidadeProduto">qtd</p>
                                 <!-- informarDefeitoItem(item) -->
                             </div>
-                            <button (click)="removerItem()" class="btnSegundario"
-                                style="background-color: red; margin-bottom: 0.2rem">
-                                Remover
-                            </button>
+                            <div class="divBotoesExtras">
+                                <button class="btnSegundario" style="background-color: gray; margin-bottom: 0.2rem">
+                                    Não Devolvido
+                                </button>
+                                <button class="btnSegundario" style="background-color: #0047b6;">
+                                    Informar Defeito
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </li>
         </ul>
         <div id="containerFinal">
-            <button (click)="abrirModaisOcorrencias(1)" class="btnDevolucaoModal cancelarRetirada">
-                Cancelar reserva
+            <button class="btnDevolucaoModal cancelarRetirada">
+                Alertar Atraso
             </button>
-            <button (click)="confirmarReserva()" class="btnDevolucaoModal confirmarRetirada">
-                Confirmar retirada
+            <button class="btnDevolucaoModal confirmarRetirada">
+                Dar Baixa
             </button>
         </div>
     </div>
 </div>
 
 <!-- Div usada como fundo para modais -->
-<div *ngIf="confirmacaoRetirada || modalCancelarReserva || modalRemoverProduto" id="fundoModal">
+<!-- <div *ngIf="confirmacaoRetirada || modalCancelarReserva || modalRemoverProduto" id="fundoModal">
 
     <app-modal-ocorrencia *ngIf="modalCancelarReserva" [tipoOcorrencia]="1"
         (fecharModal)="fecharModaisOcorrencias(1, $event)"></app-modal-ocorrencia>
@@ -52,7 +55,7 @@
     <app-modal-ocorrencia *ngIf="modalRemoverProduto" [tipoOcorrencia]="2"
         (fecharModal)="fecharModaisOcorrencias(2, $event)"></app-modal-ocorrencia>
 
-    <!-- Modal de confirmação de efetuar retirada -->
+    Modal de confirmação de efetuar retirada
     <app-modal-confirmacao *ngIf="confirmacaoRetirada" [tipoTexto]="8" (fecharModal)="confirmacaoReserva($event)">
     </app-modal-confirmacao>
-</div>
+</div> -->

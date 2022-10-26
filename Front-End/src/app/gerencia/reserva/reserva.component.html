@@ -35,8 +35,15 @@
     <!-- Modal de confirmar retirada -->
     <app-retirada-reserva *ngIf="modalRetirada" [reserva]="reserva" (fecharModal)="mudarModalDetalhes($event)">
     </app-retirada-reserva>
+
+    <app-devolucao-reserva *ngIf="modalDevolucao" [reserva]="reserva" (fecharModal)="mudarModalDetalhes($event)">
+    </app-devolucao-reserva>
 </div>
 
 <!-- Feedback retirada confirmada -->
 <app-modal-feedback *ngIf="feedbackRetiradaConfirmada" [tipoFeedback]="12" (fecharModal)="fecharModaisFeedback(1)">
+</app-modal-feedback>
+
+<!-- Feedback reserva cancelada -->
+<app-modal-feedback *ngIf="feedbackReservaCancelada" [tipoFeedback]="13" (fecharModal)="fecharModaisFeedback(2)">
 </app-modal-feedback>
