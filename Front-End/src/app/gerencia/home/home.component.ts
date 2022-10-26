@@ -213,6 +213,11 @@ export class HomeComponent implements OnInit {
     this.localizacaoModal = true;
   }
 
+  // Função para abrir e fechar o modal de ordenação
+  mudarModalOrdenar() {
+    this.modalOrdenar = !this.modalOrdenar;
+  }
+
   excluirLocalizacoes() {
 
   }

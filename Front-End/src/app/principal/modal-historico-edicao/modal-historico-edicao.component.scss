@@ -101,7 +101,7 @@
     width: 90%;
 }
 
-.tdDescricaoEdicao, .tdUsuarioEdicao, .tdDataEdicao, .tdHoraEdicao {
+.tdUsuarioEdicao, .tdDataEdicao, .tdHoraEdicao {
     text-align: center;
 }
 
@@ -111,11 +111,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap
-}
-
-.checkboxStyle {
-    width: 15px;
-    height: 15px;
 }
 
 .itemTabela {
