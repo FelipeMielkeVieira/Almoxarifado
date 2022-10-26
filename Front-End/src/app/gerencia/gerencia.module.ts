@@ -17,6 +17,7 @@ import { ModalOcorrenciaComponent } from './modal-ocorrencia/modal-ocorrencia.co
 import { CadastrarUsuarioListaComponent } from './cadastrar-usuario-lista/cadastrar-usuario-lista.component';
 import { CadastrarLocalizacaoModalComponent } from './cadastrar-localizacao-modal/cadastrar-localizacao-modal.component';
 import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva.component';
+import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva
     ModalOcorrenciaComponent,
     CadastrarUsuarioListaComponent,
     CadastrarLocalizacaoModalComponent,
-    DevolucaoReservaComponent
+    DevolucaoReservaComponent,
+    CadastrarItemComponent
   ],
   imports: [
     CommonModule,

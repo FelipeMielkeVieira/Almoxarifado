@@ -6,11 +6,13 @@
     [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
 
 <!-- Modais que escurecem a tela -->
-<div *ngIf="localizacaoModal" id="fundoModal">
+<div *ngIf="localizacaoModal || modalCadastrarItem" id="fundoModal">
 
     <!-- Modal Cadastrar localização -->
     <app-cadastrar-localizacao-modal *ngIf="localizacaoModal" (fecharModal)="mudarModaisPesquisa(2)">
     </app-cadastrar-localizacao-modal>
+
+    <app-cadastrar-item *ngIf="modalCadastrarItem" (fecharModal)="mudarModaisPesquisa(3)"></app-cadastrar-item>
 </div>
 
 <app-header></app-header>
@@ -77,11 +79,11 @@
                             </div>
                         </div>
                         <button *ngIf="abaLocalizacoes" mat-flat-button color="primary"
-                            (click)="aparecerModalLocalizacao()">
-                            Cadastrar localizações
+                            (click)="mudarModaisPesquisa(2)">
+                            Cadastrar Localização
                         </button>
-                        <button *ngIf="listaItens == 1 && (tipoUsuario == 3 || tipoUsuario == 4)"
-                            id="botaoCadastrarProduto" (click)="aparecerModalCadastrar()">
+                        <button *ngIf="abaItens && (tipoUsuario == 3 || tipoUsuario == 4)" mat-flat-button
+                            color="primary" (click)="mudarModaisPesquisa(3)">
                             Cadastrar Item
                         </button>
                     </div>
@@ -132,7 +134,7 @@
                         <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoes" (click)="selectAll()">
                             Selecionar tudo</mat-checkbox>
                         <div id="btnLocalizacao">
-                            <button (click)="confirmacaoLocalizacao()"
+                            <button (click)="excluirLocalizacoes()"
                                 class="btn btn-outline-primary btnCustom">Deletar</button>
                         </div>
                     </div>
