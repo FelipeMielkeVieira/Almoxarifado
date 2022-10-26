@@ -7,8 +7,13 @@
     </div>
     <div class="principal">
         <div class="containerModalCadastrar">
-            <div class="divImg">
-                <button class="selecionarImg">Selecionar Imagem</button>
+            <div class="containerImagem">
+                <img class="imgPreview" id="imagemItem">
+                <div class="mb-3 divInputImagem">
+                    <label for="formFileSm" class="form-label">Escolher Imagem:</label>
+                    <input class="form-control form-control-sm " id="formFileSm" type="file"
+                        (change)="carregarImagem($event)">
+                </div>
             </div>
             <div class="nomeProduto">
                 <span>Nome Produto: </span>

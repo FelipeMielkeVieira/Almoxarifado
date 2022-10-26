@@ -24,6 +24,15 @@ p {
     border-radius: 10px;
     border: 1px solid black;
     margin-left: 50px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#containerSacola:hover {
+    background-color: #f5f5f5;
+    #itens, .containerDatas .dataInput {
+        background-color: #ffffff;
+    }
 }
 
 #container {
@@ -56,7 +65,6 @@ p {
 }
 
 .calendario {
-    cursor: pointer;
     width: 1%;
     margin-left: 1%;
 }
@@ -105,7 +113,6 @@ p {
 }
 
 #itens {
-    cursor: pointer;
     list-style-type: none;
     width: 95%;
     height: 100%;
