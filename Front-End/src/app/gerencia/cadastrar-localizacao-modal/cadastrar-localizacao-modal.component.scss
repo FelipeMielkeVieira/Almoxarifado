@@ -1,0 +1,99 @@
+#modalItem {
+    border-radius: 0.3rem;
+    background-color: white;
+    animation: fadein 0.5s;
+    position: relative;
+}
+
+.containerModal {
+    border-top: 10px solid #0047B6;
+    border-radius: 0.3rem 0.3rem 0px 0px;
+    padding: 0.5rem 1.8rem;
+    padding-top: 1.5rem;
+}
+
+#fecharModal {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    margin: 10px;
+}
+
+.icone {
+    cursor: pointer;
+}
+
+.conteudo {
+    padding: 1rem 0;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0047B6;
+}
+
+.cadastrar {
+    background-color: #0047B6;
+    padding: 0.5rem 1rem;
+}
+
+#containerBotao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+// Estilização de Inputs
+
+input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.div-float-label {
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+}
+
+.input-float-label {
+    padding: 0;
+    padding-left: 2px;
+    border: 0;
+}
+
+.input-float-label:focus~.div-float-label {
+    border: 0;
+}
+
+.input-float-label:focus~.label-float-label {
+    margin-top: -2px;
+    color: #0047b6;
+}
+
+.input-float-label:focus~.imgOlho {
+    color: #0047b6;
+}
+
+.div-float-label:has(.input-float-label:focus) {
+    border-color: #0047b6;
+}
+
+.label-float-label {
+    margin-top: -2px;
+    padding: 0;
+    padding-top: 18px;
+    border: 0;
+    width: 100%;
+}
+
+.div-senha {
+    display: flex;
+    align-items: center;
+}
+
+.label-float {
+    position: relative;
+    padding-top: 13px;
+}

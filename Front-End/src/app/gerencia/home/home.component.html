@@ -5,6 +5,14 @@
 <app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModaisPesquisa(1)" (ordenarItens)="ordenarItens($event)"
     [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
 
+<!-- Modais que escurecem a tela -->
+<div *ngIf="localizacaoModal" id="fundoModal">
+
+    <!-- Modal Cadastrar localização -->
+    <app-cadastrar-localizacao-modal *ngIf="localizacaoModal" (fecharModal)="mudarModaisPesquisa(2)">
+    </app-cadastrar-localizacao-modal>
+</div>
+
 <app-header></app-header>
 <app-filtro></app-filtro>
 
@@ -37,7 +45,7 @@
                             Localizações
                         </button>
                     </div>
-                    
+
                     <div id="containerLinhaInput">
                         <div id="containerInputOrdenar">
 
@@ -56,12 +64,14 @@
                                     sync_alt
                                 </span>
 
-                                <span *ngIf="listaEmBloco && !abaLocalizacoes" (click)="mudarVisualizacao()" id="iconEmBloco"
-                                    class="material-symbols-outlined iconDeselect" title="Ver em bloco">
+                                <span *ngIf="listaEmBloco && !abaLocalizacoes" (click)="mudarVisualizacao()"
+                                    id="iconEmBloco" class="material-symbols-outlined iconDeselect"
+                                    title="Ver em bloco">
                                     grid_view
                                 </span>
-                                <span *ngIf="!listaEmBloco && !abaLocalizacoes" (click)="mudarVisualizacao()" id="iconEmLista"
-                                    class="material-symbols-outlined iconDeselect" title="Ver em lista">
+                                <span *ngIf="!listaEmBloco && !abaLocalizacoes" (click)="mudarVisualizacao()"
+                                    id="iconEmLista" class="material-symbols-outlined iconDeselect"
+                                    title="Ver em lista">
                                     sort
                                 </span>
                             </div>
@@ -89,7 +99,8 @@
                     <app-cadastrar-usuario [listaEmBloco]="true"></app-cadastrar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaCadastros && !listaEmBloco" class="usuarios">
-                    <app-cadastrar-usuario-lista [listaCadastros]="listaCadastrosPendentes" style="width: 100%;"></app-cadastrar-usuario-lista>
+                    <app-cadastrar-usuario-lista [listaCadastros]="listaCadastrosPendentes" style="width: 100%;">
+                    </app-cadastrar-usuario-lista>
                 </div>
 
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista (falta lista) -->

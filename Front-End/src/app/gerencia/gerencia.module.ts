@@ -9,10 +9,13 @@ import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario
 import { LocalizacaoComponent } from './localizacao/localizacao.component';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 import { ReservaComponent } from './reserva/reserva.component';
 import { RetiradaReservaComponent } from './retirada-reserva/retirada-reserva.component';
 import { ModalOcorrenciaComponent } from './modal-ocorrencia/modal-ocorrencia.component';
 import { CadastrarUsuarioListaComponent } from './cadastrar-usuario-lista/cadastrar-usuario-lista.component';
+import { CadastrarLocalizacaoModalComponent } from './cadastrar-localizacao-modal/cadastrar-localizacao-modal.component';
 import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva.component';
 
 @NgModule({
@@ -25,6 +28,7 @@ import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva
     RetiradaReservaComponent,
     ModalOcorrenciaComponent,
     CadastrarUsuarioListaComponent,
+    CadastrarLocalizacaoModalComponent,
     DevolucaoReservaComponent
   ],
   imports: [
@@ -32,7 +36,9 @@ import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva
     PrincipalModule,
     ProfessorModule,
     FormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDividerModule,
+    MatButtonModule
   ],
   exports: [
     HomeComponent,
