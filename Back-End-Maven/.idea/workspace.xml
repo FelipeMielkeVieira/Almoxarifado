@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="" />
+    <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/dto/AnexoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/dto/AnexoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-usuario-lista/cadastrar-usuario-lista.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-usuario-lista/cadastrar-usuario-lista.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-usuario-lista/cadastrar-usuario-lista.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-usuario-lista/cadastrar-usuario-lista.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/gerencia.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/gerencia.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +40,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kenzo_sato/Documents/GitHub/Almoxarifado/Back-End-Maven&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  }
+}</component>
   <component name="RunManager">
     <configuration name="AlmoxarifadoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.senai.sc.almoxarifado.AlmoxarifadoApplication" />
@@ -86,6 +103,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

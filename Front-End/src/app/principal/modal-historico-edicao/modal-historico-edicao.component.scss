@@ -106,7 +106,11 @@
 }
 
 .tdDescricaoEdicao {
-    max-width: 50ch;
+    max-width: 340px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
 }
 
 .checkboxStyle {
