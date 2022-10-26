@@ -1,7 +1,8 @@
 <div id="baixaDevolucoesModal">
     <div id="containerDevolucaoModal">
         <div class="containerFechar">
-            <span title="Fechar" id="fecharIcone" class="icone" class="material-symbols-outlined iconDeselect">
+            <span (click)="fecharModalDevolucao('fechar')" title="Fechar" id="fecharIcone" class="icone"
+                class="material-symbols-outlined iconDeselect">
                 close
             </span>
         </div>
@@ -23,7 +24,8 @@
                                 <!-- informarDefeitoItem(item) -->
                             </div>
                             <div class="divBotoesExtras">
-                                <button class="btnSegundario" style="background-color: gray; margin-bottom: 0.2rem">
+                                <button (click)="selecionarNaoDevolucao()" id="botaoNaoDevolvido" class="btnSegundario"
+                                    style="background-color: gray; margin-bottom: 0.2rem">
                                     Não Devolvido
                                 </button>
                                 <button class="btnSegundario" style="background-color: #0047b6;">
@@ -39,7 +41,7 @@
             <button class="btnDevolucaoModal cancelarRetirada">
                 Alertar Atraso
             </button>
-            <button class="btnDevolucaoModal confirmarRetirada">
+            <button (click)="darBaixaReserva()" class="btnDevolucaoModal confirmarRetirada">
                 Dar Baixa
             </button>
         </div>
@@ -47,15 +49,16 @@
 </div>
 
 <!-- Div usada como fundo para modais -->
-<!-- <div *ngIf="confirmacaoRetirada || modalCancelarReserva || modalRemoverProduto" id="fundoModal">
+<div *ngIf="modalConfirmacaoDevolucao" id="fundoModal">
 
-    <app-modal-ocorrencia *ngIf="modalCancelarReserva" [tipoOcorrencia]="1"
+    <app-modal-ocorrencia *ngIf="modalAlertarAtraso" [tipoOcorrencia]="3"
         (fecharModal)="fecharModaisOcorrencias(1, $event)"></app-modal-ocorrencia>
 
-    <app-modal-ocorrencia *ngIf="modalRemoverProduto" [tipoOcorrencia]="2"
-        (fecharModal)="fecharModaisOcorrencias(2, $event)"></app-modal-ocorrencia>
+    <!-- <app-modal-ocorrencia *ngIf="modalRemoverProduto" [tipoOcorrencia]="2"
+        (fecharModal)="fecharModaisOcorrencias(2, $event)"></app-modal-ocorrencia> -->
 
-    Modal de confirmação de efetuar retirada
-    <app-modal-confirmacao *ngIf="confirmacaoRetirada" [tipoTexto]="8" (fecharModal)="confirmacaoReserva($event)">
+    <!-- Modal de confirmação de efetuar retirada -->
+    <app-modal-confirmacao *ngIf="modalConfirmacaoDevolucao" [tipoTexto]="9"
+        (fecharModal)="confirmacaoDevolucao($event)">
     </app-modal-confirmacao>
-</div> -->
+</div>

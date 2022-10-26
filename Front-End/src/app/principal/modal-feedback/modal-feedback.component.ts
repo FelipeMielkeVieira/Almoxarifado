@@ -44,6 +44,8 @@ export class ModalFeedback implements OnInit {
         return "Retirada confirmada com sucesso!";
       case 13:
         return "Reserva cancelada com sucesso!";
+      case 14:
+        return "Devolução feita com sucesso!";
     }
     return "";
   }
