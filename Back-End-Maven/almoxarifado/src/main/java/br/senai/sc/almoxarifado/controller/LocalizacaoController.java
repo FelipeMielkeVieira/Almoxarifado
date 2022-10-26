@@ -32,7 +32,7 @@ public class LocalizacaoController {
         if (!localizacaoService.existsById(codigoLocalizacao)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findById(codigoLocalizacao).get());
+        return ResponseEntity.status(HttpStatus.FOUND).body(localizacaoService.findById(codigoLocalizacao).get());
     }
 
     @PostMapping

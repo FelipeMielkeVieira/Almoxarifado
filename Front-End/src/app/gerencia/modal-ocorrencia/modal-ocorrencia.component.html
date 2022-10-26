@@ -15,10 +15,10 @@
                 <label for="retirarDoEstoque">Retirar item do estoque</label>
             </div>
             <div class="divBotoes">
-                <button id="voltarInformarDefeito" class="btnDevolucaoModal">
+                <button (click)="fecharModalOcorrencia('fechar')" id="voltarInformarDefeito" class="btnDevolucaoModal">
                     Voltar
                 </button>
-                <button id="salvarInformarDefeito" class="btnDevolucaoModal">
+                <button (click)="salvarOcorrencia()" id="salvarInformarDefeito" class="btnDevolucaoModal">
                     Salvar
                 </button>
             </div>

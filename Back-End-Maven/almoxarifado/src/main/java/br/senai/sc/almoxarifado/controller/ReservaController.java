@@ -57,7 +57,6 @@ public class ReservaController {
         for (ProdutosEscolhidosReserva produtosEscolhidosReserva : reservaDTO.getProdutos_reserva()) {
             produtosEscolhidosReserva.setReserva(reservaSalva);
             produtosEscolhidosReservaService.save(produtosEscolhidosReserva);
-
         }
 
         for (Ocorrencia ocorrencia : reservaDTO.getOcorrencias()) {
@@ -77,7 +76,7 @@ public class ReservaController {
         Reserva reserva = new Reserva();
         BeanUtils.copyProperties(reservaDTO, reserva, "id");
         reserva.setId(id);
-        return ResponseEntity.status(HttpStatus.CREATED).body(reservaService.save(reserva));
+        return ResponseEntity.status(HttpStatus.OK).body(reservaService.save(reserva));
     }
 
     @Transactional

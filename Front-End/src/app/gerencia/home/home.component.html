@@ -5,176 +5,6 @@
 <app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModaisPesquisa(1)" (ordenarItens)="ordenarItens($event)"
     [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
 
-<!-- -- Modal -- -->
-<div *ngIf="aparecer" id="fundoModalLocalizacao">
-    <div *ngIf="!reserva" id="modalCancelarReserva">
-        <hr class="riscoAzul" />
-        <span title="Fechar" (click)="fecharModalCancelarReserva()" id="fechar" class="icone"
-            class="material-symbols-outlined iconDeselect">
-            close
-        </span>
-        <div id="tituloMotivo">
-            <h1>Qual o motivo?</h1>
-        </div>
-        <textarea id="motivo" placeholder="Insira o motivo aqui..."></textarea>
-        <div id="containerBotaoEnviar">
-            <button (click)="enviar()" id="botaoEnviar">Cancelar Reserva</button>
-        </div>
-    </div>
-    <div *ngIf="removerDevolucaoModal" class="modalRecusar">
-        <div class="containerModal">
-            <hr class="riscoAzul" />
-            <span title="Alerta" id="iconeAlert" class="material-symbols-outlined iconDeselect">
-                error
-            </span>
-            <div class="containerInfoModal">
-                <span class="textoModal">Tem certeza que deseja remover?</span>
-            </div>
-            <div class="containerBotoes">
-                <button class="botaoCancelar">Cancelar</button>
-                <button (click)="removerDevolucaoModalBtn()" class="botaoRecusar">
-                    Remover
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
-        <hr class="riscoAzul" />
-        <div id="containerIcons">
-            <span title="Fechar" (click)="fecharModalLocalizacao()" id="fecharIcone" class="icone"
-                class="material-symbols-outlined iconDeselect">
-                close
-            </span>
-        </div>
-        <div id="dados">
-            <div id="containerNome">
-                <div class="texto">
-                    <span>Nome:</span>
-                    <div class="asterisco">*</div>
-                </div>
-                <input id="inputNome" type="text" [(ngModel)]="nomeLoc" placeholder="Nome" />
-            </div>
-            <div id="containerCadastrar">
-                <button id="botaoCadastrar" (click)="cadastrar()">Cadastrar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal cadastrar item -->
-    <div *ngIf="cadastrarModal" id="containerModalCadastrar">
-        <hr class="riscoAzul" />
-        <div id="containerIcons">
-            <span title="Fechar" (click)="fecharModalCadastrar()" id="fecharIcone" class="icone"
-                class="material-symbols-outlined iconDeselect">
-                close
-            </span>
-        </div>
-        <div class="principal">
-            <div class="containerModalCadastrar">
-                <div class="divImg">
-                    <button class="selecionarImg">Selecionar Imagem</button>
-                </div>
-                <div class="nomeProduto">
-                    <span>Nome Produto: </span>
-                    <div class="containerInput">
-                        <input class="inputsCadastro" type="text" placeholder="Nome produto" />
-                    </div>
-                </div>
-                <div class="classificacao">
-                    <span>Classificação: </span>
-                    <div class="addClassificacao">
-                        <div class="divPonto" (click)="adicionarClassificacao()">
-                            <span title="Adicionar" id="iconMaisLoc" class="material-symbols-outlined iconDeselect">
-                                add
-                            </span>
-                        </div>
-                    </div>
-                    <select class="inputsCadastro" name="">
-                        <option *ngFor="let classificacao of listaClassificacao" value="">
-                            {{ classificacao.nome }}
-                        </option>
-                    </select>
-                </div>
-                <div class="adicionarClassificacao">
-                    <input *ngIf="inputClassificacao == 1" class="inputsCadastro" type="text"
-                        placeholder="Cadastrar localização" />
-                </div>
-                <div class="descricao">
-                    <span>Descrição: </span>
-                    <textarea class="inputDescricao" placeholder="Descrição"></textarea>
-                </div>
-                <div class="localizacao">
-                    <div style="display: flex">
-                        <span style="margin-right: 10px">Localização: </span>
-                        <div class="containerLocalizacao">
-                            <select *ngIf="localizacoesItem > 0" id="localizacaoProduto1" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">
-                                    {{ loc.nome }}
-                                </option>
-                            </select>
-                            <select *ngIf="localizacoesItem > 1" id="localizacaoProduto2" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">
-                                    {{ loc.nome }}
-                                </option>
-                            </select>
-                            <select *ngIf="localizacoesItem > 2" id="localizacaoProduto3" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">
-                                    {{ loc.nome }}
-                                </option>
-                            </select>
-                            <select *ngIf="localizacoesItem > 3" id="localizacaoProduto4" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">
-                                    {{ loc.nome }}
-                                </option>
-                            </select>
-                            <select *ngIf="localizacoesItem > 4" id="localizacaoProduto5" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">
-                                    {{ loc.nome }}
-                                </option>
-                            </select>
-                            <select *ngIf="localizacoesItem > 5" id="localizacaoProduto6" class="localizacaoProduto">
-                                <option *ngFor="let loc of localizacoesLista">
-                                    {{ loc.nome }}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div style="display: flex">
-                        <div class="divPonto" (click)="adicionarLocalizacao()">
-                            <span title="Adicionar" id="iconMaisLoc" class="material-symbols-outlined iconDeselect">
-                                add
-                            </span>
-                        </div>
-                        <div class="divPonto" (click)="diminuirLocalizacao()">
-                            <span title="Deletar" id="iconMaisLoc" class="material-symbols-outlined iconDeselect">
-                                remove
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="opcao">
-                    <span>Opção: </span>
-                    <select id="selecionarDescartavel">
-                        <option value="paredeCentro" selected>Descartável</option>
-                        <option value="armario">Não Descartável</option>
-                    </select>
-                    <span>QTD: </span>
-                    <input class="inputQtd" type="text" placeholder="xx" />
-                </div>
-                <div class="anexo">
-                    <input type="text" placeholder="Adicionar URL do anexo" class="inputAnexo" />
-                    <label class="arquivoIcon" for="arquivo"> </label>
-                    <input type="file" name="arquivo" id="arquivo" />
-                </div>
-                <button (click)="cadastrarProduto()" class="botaoCadastrar">
-                    Cadastrar
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <app-header></app-header>
 <app-filtro></app-filtro>
 
@@ -184,6 +14,30 @@
         <div id="container">
             <div id="containerConteudo">
                 <div id="containerInput">
+                    <div id="botoes">
+                        <button *ngIf="tipoUsuario == 4" (click)="mudarAba(1)" id="gerenciarUsuarios"
+                            [ngClass]="retornarClasseAba(1)">
+                            Gerenciar usuários
+                        </button>
+                        <button *ngIf="tipoUsuario == 4" (click)="mudarAba(2)" id="gerenciarCadastros"
+                            [ngClass]="retornarClasseAba(2)">
+                            Gerenciar cadastros
+                        </button>
+                        <button (click)="mudarAba(3)" id="devolucoes" [ngClass]="retornarClasseAba(3)">
+                            Baixa nas devoluções
+                        </button>
+                        <button (click)="mudarAba(4)" id="retirada" [ngClass]="retornarClasseAba(4)">
+                            Confirmar retirada
+                        </button>
+                        <button (click)="mudarAba(5)" id="listaItens" [ngClass]="retornarClasseAba(5)">
+                            Lista de itens
+                        </button>
+                        <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="mudarAba(6)" id="localizacoes"
+                            [ngClass]="retornarClasseAba(6)">
+                            Localizações
+                        </button>
+                    </div>
+                    
                     <div id="containerLinhaInput">
                         <div id="containerInputOrdenar">
 
@@ -196,18 +50,17 @@
                                 </span>
                             </div>
 
-
                             <div id="iconListaBloco">
                                 <span *ngIf="abaItens" (click)="mudarModaisPesquisa(1)" id="iconOrdernar"
                                     class="material-symbols-outlined iconDeselect iconsModais" title="Ordernar">
                                     sync_alt
                                 </span>
 
-                                <span *ngIf="listaEmBloco" (click)="mudarVisualizacao()" id="iconEmBloco"
+                                <span *ngIf="listaEmBloco && !abaLocalizacoes" (click)="mudarVisualizacao()" id="iconEmBloco"
                                     class="material-symbols-outlined iconDeselect" title="Ver em bloco">
                                     grid_view
                                 </span>
-                                <span *ngIf="!listaEmBloco" (click)="mudarVisualizacao()" id="iconEmLista"
+                                <span *ngIf="!listaEmBloco && !abaLocalizacoes" (click)="mudarVisualizacao()" id="iconEmLista"
                                     class="material-symbols-outlined iconDeselect" title="Ver em lista">
                                     sort
                                 </span>
@@ -228,30 +81,7 @@
 
 
                 <!-- Botões para troca de abas -->
-                <div id="botoes">
-                    <button *ngIf="tipoUsuario == 4" (click)="mudarAba(1)" id="gerenciarUsuarios"
-                        [ngClass]="retornarClasseAba(1)">
-                        Gerenciar usuários
-                    </button>
-                    <button *ngIf="tipoUsuario == 4" (click)="mudarAba(2)" id="gerenciarCadastros"
-                        [ngClass]="retornarClasseAba(2)">
-                        Gerenciar cadastros
-                    </button>
-                    <button (click)="mudarAba(3)" id="devolucoes" [ngClass]="retornarClasseAba(3)">
-                        Baixa nas devoluções
-                    </button>
-                    <button (click)="mudarAba(4)" id="retirada" [ngClass]="retornarClasseAba(4)">
-                        Confirmar retirada
-                    </button>
-                    <button (click)="mudarAba(5)" id="listaItens" [ngClass]="retornarClasseAba(5)">
-                        Lista de itens
-                    </button>
-                    <button *ngIf="tipoUsuario == 3 || tipoUsuario == 4" (click)="mudarAba(6)" id="localizacoes"
-                        [ngClass]="retornarClasseAba(6)">
-                        Localizações
-                    </button>
-                </div>
-                <div id="risco"></div>
+
 
 
                 <!-- Aba de aceitar / recusar cadastros novos de usuários, separados em bloco ou lista -->
@@ -259,7 +89,7 @@
                     <app-cadastrar-usuario [listaEmBloco]="true"></app-cadastrar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaCadastros && !listaEmBloco" class="usuarios">
-                    <app-cadastrar-usuario style="width: 100%;" [listaEmBloco]="false"></app-cadastrar-usuario>
+                    <app-cadastrar-usuario-lista [listaCadastros]="listaCadastrosPendentes" style="width: 100%;"></app-cadastrar-usuario-lista>
                 </div>
 
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista (falta lista) -->
@@ -288,14 +118,16 @@
 
                 <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes">
                     <div id="containerAcoesLocalizacao">
-                        <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoes" (click)="selectAll()">Selecionar tudo</mat-checkbox>
+                        <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoes" (click)="selectAll()">
+                            Selecionar tudo</mat-checkbox>
                         <div id="btnLocalizacao">
-                            <button (click)="confirmacaoLocalizacao()" class="btn btn-outline-primary btnCustom">Deletar</button>
+                            <button (click)="confirmacaoLocalizacao()"
+                                class="btn btn-outline-primary btnCustom">Deletar</button>
                         </div>
                     </div>
                     <app-localizacao [localizacoes]="localizacoesFiltradas"></app-localizacao>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </main>

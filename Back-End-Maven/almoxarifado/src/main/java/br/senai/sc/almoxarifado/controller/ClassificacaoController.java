@@ -33,14 +33,14 @@ public class ClassificacaoController {
         if (!classificacaoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrada nenhuma classificação com este ID.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.findById(id).get());
+        return ResponseEntity.status(HttpStatus.FOUND).body(classificacaoService.findById(id).get());
     }
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid ClassificacaoDTO classificacaoDTO){
         Classificacao classificacao = new Classificacao();
         BeanUtils.copyProperties(classificacaoDTO, classificacao);
-        return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.save(classificacao));
+        return ResponseEntity.status(HttpStatus.CREATED).body(classificacaoService.save(classificacao));
     }
 
     @PutMapping("/{id}")
@@ -52,7 +52,7 @@ public class ClassificacaoController {
         Classificacao classificacao =  new Classificacao();
         BeanUtils.copyProperties(classificacaoDTO, classificacao, "idClassificacao");
         classificacao.setId(idClassificacao);
-        return ResponseEntity.status(HttpStatus.CREATED).body(classificacaoService.save(classificacao));
+        return ResponseEntity.status(HttpStatus.OK).body(classificacaoService.save(classificacao));
     }
 
     @Transactional

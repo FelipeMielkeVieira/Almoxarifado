@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReservaComponent } from './reserva/reserva.component';
 import { RetiradaReservaComponent } from './retirada-reserva/retirada-reserva.component';
 import { ModalOcorrenciaComponent } from './modal-ocorrencia/modal-ocorrencia.component';
+import { CadastrarUsuarioListaComponent } from './cadastrar-usuario-lista/cadastrar-usuario-lista.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ModalOcorrenciaComponent } from './modal-ocorrencia/modal-ocorrencia.co
     LocalizacaoComponent,
     ReservaComponent,
     RetiradaReservaComponent,
-    ModalOcorrenciaComponent
+    ModalOcorrenciaComponent,
+    CadastrarUsuarioListaComponent
   ],
   imports: [
     CommonModule,

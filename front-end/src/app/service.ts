@@ -33,6 +33,21 @@ export class UsersService {
     },
   ];
 
+  usuariosPendentes = [
+    {
+      nome: 'Vytor',
+      email: 'vytor_luiz@estudante.sc.senai.br',
+      senha: '123',
+      tipo: 1,
+    },
+    {
+      nome: 'Kauan',
+      email: 'kauan_hohmann@estudante.sc.senai.br',
+      senha: '123',
+      tipo: 2,
+    },
+  ]
+
   classificacoes = [
     { id: 1, classificacao: 'Materiais para Projetos' },
     { id: 2, classificacao: 'Materiais Elétricos' },

@@ -499,34 +499,42 @@ h1 {
 }
 
 .semAzul {
-    padding: 5px 10px;
     background-color: #fff;
-    color: rgb(0, 0, 0);
-    border: 1px solid rgba(0, 0, 0, 0.466);
-    border-radius: 5px 5px 0 0;
-    cursor: pointer;
-    transition: ease-out 0.2s;
-    display: inline-block;
     font-size: var(--font-size--small);
 }
 
 .semAzul:hover {
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(241, 240, 240);
+}
+
+.semAzul, 
+.comAzul{
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
 }
 
 .comAzul {
-    padding: 5px 10px;
-    background-color: #0047B6;
-    border: 1px solid rgba(0, 0, 0, 0.466);
-    border-radius: 5px 5px 0 0;
-    cursor: pointer;
-    color: #fff;
-    display: inline-block;
+    color: black;
+    background-color: transparent;
     font-size: var(--font-size--small);
+    border-bottom: solid 2px #0047B6;
+    animation-duration: 1s;
+    animation-name: slidein;
 }
 
 .comAzul:hover {
-    background-color: #003791;
+    color: #003791;
+}
+
+@keyframes slidein {
+    from {
+       opacity: 0.5;
+    }
+
+    to {
+       opacity: 1;
+    }
 }
 
 #selecionarLocalizacao {
@@ -587,6 +595,7 @@ h1 {
 #containerLinhaInput {
     display: flex;
     justify-content: space-between;
+    margin-top: 1.5rem;
 }
 
 #containerInputOrdenar {
@@ -1472,6 +1481,8 @@ h1 {
 
 #botoes {
     min-width: 800px;
+    width: 100%;
+    border-bottom: solid 1px black;
 }
 
 .adicionarClassificacao {
