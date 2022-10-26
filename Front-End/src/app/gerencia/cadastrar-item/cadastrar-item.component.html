@@ -1,6 +1,6 @@
 <div id="containerModalCadastrar">
     <div id="containerIcons">
-        <span title="Fechar" id="fecharIcone" class="icone"
+        <span (click)="fecharModalCadastro('fechar')" title="Fechar" id="fecharIcone" class="icone"
             class="material-symbols-outlined iconDeselect">
             close
         </span>
@@ -32,8 +32,7 @@
                 </select>
             </div>
             <div class="adicionarClassificacao">
-                <input class="inputsCadastro" type="text"
-                    placeholder="Cadastrar localização" />
+                <input class="inputsCadastro" type="text" placeholder="Cadastrar localização" />
             </div>
             <div class="descricao">
                 <span>Descrição: </span>
