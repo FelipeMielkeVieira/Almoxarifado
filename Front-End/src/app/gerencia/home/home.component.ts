@@ -18,6 +18,14 @@ export class HomeComponent implements OnInit {
   listaOrdenacoes = [false, false, false, false];
   listaItens: any = [];
 
+  // Trocar listas estáticas por listas do banco de dados
+  reservasDevolucao = [
+    { id: 1, data_retirada: "01/01/2022", data_devolucao: "01/01/2024", status: "AGUARDANDO_DEVOLUCAO", usuario_email: "felipe_mielke-vieira@estudante.sc.senai.br" }
+  ]
+  reservasRetirada = [
+    { id: 2, data_retirada: "01/01/2023", data_devolucao: "01/01/2024", status: "AGUARDANDO_RETIRADA", usuario_email: "felipe_mielke-vieira@estudante.sc.senai.br" }
+  ]
+
   selectAllLocalizacoes: boolean = false;
 
   // Variáveis para abas
@@ -31,7 +39,7 @@ export class HomeComponent implements OnInit {
   listaEmBloco = true;
   inputGeral = "";
   tipoUsuario = 2;
-  
+
   reserva = true;
   aparecerConfirmacao = 0;
   nomeLoc: any;

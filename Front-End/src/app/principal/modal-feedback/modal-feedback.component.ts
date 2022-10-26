@@ -40,6 +40,8 @@ export class ModalFeedback implements OnInit {
         return "Usuário atualizado com sucesso!";
       case 11:
         return "Usuário excluído com sucesso!";
+      case 12:
+        return "Retirada confirmada com sucesso!";
     }
     return "";
   }

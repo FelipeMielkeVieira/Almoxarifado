@@ -1,0 +1,77 @@
+#containerInformarMotivo {
+    border-radius: 0.3rem;
+    background-color: white;
+    animation: fadein 0.5s;
+}
+
+#containerInformarDefeitoModal {
+    padding: 0.6rem 1.5rem 1.5rem 1.5rem;
+}
+
+.tituloInformarDefeito {
+    text-align: center;
+    color: #0047B6;
+    margin-bottom: 1rem;
+}
+
+#informarDefeitoInput {
+    width: 30vw;
+    height: 28vh;
+}
+
+.divBotoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+}
+
+#voltarInformarDefeito {
+    font-size: var(--font-size--medium);
+    width: 35%;
+}
+
+#salvarInformarDefeito {
+    font-size: var(--font-size--medium);
+    width: 50%;
+}
+
+#texteArea {
+    padding: 5px;
+    outline: none;
+    resize: none;
+}
+
+.containerFechar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#fecharIcone {
+    cursor: pointer;
+}
+
+.icone {
+    font-size: var(--font-size--verysmall);
+}
+
+#containerRetirarItemEstoque {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#retirarDoEstoque {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.btnDevolucaoModal {
+    background-color: #0047B6;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}

@@ -1,0 +1,54 @@
+<div id="baixaDevolucoesModal">
+    <div id="containerDevolucaoModal">
+        <div class="containerFechar">
+            <span (click)="fecharModalDetalhes('fechar')" title="Fechar" id="fecharIcone" class="icone"
+                class="material-symbols-outlined iconDeselect">
+                close
+            </span>
+        </div>
+        <ul id="listaItemsBaixaDevolucao">
+            <li>
+                <!-- *ngFor="let item of listaItemsBaixaDevolucao" -->
+                <div class="containerConteudoBaixaDevolucao">
+                    <div class="containerImgBaixaDevolucao">
+                        <img class="imgItemBaixaDevolucao" src="../../../assets/Rele.png" alt="Imagem do Produto" />
+                    </div>
+                    <div class="parteDireitaItemBaixaDevolucao">
+                        <h2 class="nomeItemBaixaDevolucao">Nome Produto</h2>
+                        <div class="containerInfoItemBaixaDevolucao">
+                            <div class="divInfoItem">
+                                <!-- {{ item.posicao }} -->
+                                <p>posicao</p>
+                                <!-- {{ item.qtd }} -->
+                                <p id="quantidadeProduto">qtd</p>
+                                <!-- informarDefeitoItem(item) -->
+                            </div>
+                            <button class="btnSegundario" style="background-color: red; margin-bottom: 0.2rem">
+                                Remover
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div id="containerFinal">
+            <button (click)="abrirModaisOcorrencias(1)" class="btnDevolucaoModal cancelarRetirada">
+                Cancelar reserva
+            </button>
+            <button (click)="confirmarReserva()" class="btnDevolucaoModal confirmarRetirada">
+                Confirmar retirada
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Div usada como fundo para modais -->
+<div *ngIf="confirmacaoRetirada || modalCancelarReserva" id="fundoModal">
+
+    <app-modal-ocorrencia *ngIf="modalCancelarReserva" [tipoOcorrencia]="1"
+        (fecharModal)="fecharModaisOcorrencias(1, $event)"></app-modal-ocorrencia>
+
+    <!-- Modal de confirmação de efetuar retirada -->
+    <app-modal-confirmacao *ngIf="confirmacaoRetirada" [tipoTexto]="8" (fecharModal)="confirmacaoReserva($event)">
+    </app-modal-confirmacao>
+</div>
