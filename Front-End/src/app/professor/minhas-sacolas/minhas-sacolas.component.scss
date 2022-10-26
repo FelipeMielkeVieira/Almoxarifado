@@ -23,26 +23,18 @@ p:hover {
 #caminho {
     display: flex;
     align-items: center;
-    text-align: center;
     margin-top: 1.2rem;
     margin-left: 5.5rem;
-}
-
-.material-symbols-outlined{
-    font-size:15px;
+    height: 30px;
 }
 
 #iconHome {
+    font-size:20px;
     cursor: pointer;
 }
 
 #iconHome:hover {
     color: #0047B6;
-}
-
-#iconMaior {
-    margin-top: .25rem;
-    cursor: default;
 }
 
 .iconDeselect {
@@ -52,6 +44,28 @@ p:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#iconMaior .iconMaior {
+    font-size: 15px;
+}
+
+#iconMaior{
+    cursor: default;
+}
+
+#caminho p {
+    margin-bottom: 0.3rem;
+}
+
+#caminhoMinhasSacolas {
+    font-size: var(--font-size--small);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#caminhoMinhasSacolas:hover {
+    color: #0047B6;
 }
 
 .tituloSacolas{
