@@ -116,20 +116,55 @@
   <div class="containerTopo">
     <div class="filtro">
       <div class="textoFiltro">
-        <span>Classificações</span>
+        <span>Filtros</span>
       </div>
       <label for="check">
         <div class="ContainerIconMaior">
           <span title="Filtro" class="material-symbols-outlined iconDeselect" id="iconMaior">
             filter_alt
           </span>
-          <!-- <span title="Abrir Classificações" class="material-symbols-outlined iconDeselect" id="iconMaior">
-            arrow_forward_ios
-          </span> -->
+            <!-- <span class="material-symbols-outlined">
+              filter_alt_off
+              </span> -->
         </div>
       </label>
     </div>
-    <div class="itensFiltro">
+    <div class="itensFiltro tipoFiltro">
+        <div id="containerDescartavel">
+          <input class="checkbox" type="checkbox">
+          <div class="texto">
+            <a>
+              <span>Descartáveis</span>
+            </a>
+          </div>
+          <span title="Descartável" class="material-symbols-outlined iconDeselect iconsSideBar">
+            restore_from_trash
+            </span>
+        </div>
+        <div id="containerDescartavel">
+          <input class="checkbox" type="checkbox">
+          <div class="texto">
+            <a>
+              <span class="texto">Não Descartáveis</span>
+            </a>
+          </div>
+            <span title="Não Descartável" class="material-symbols-outlined iconDeselect iconsSideBar">
+              delete_forever
+            </span>
+        </div>
+        <div id="containerDescartavel">
+          <input class="checkbox" type="checkbox">
+          <div class="texto">
+            <a>
+              <span class="texto">Sem estoque</span>
+            </a>
+          </div>
+          <span title="Sem estoque" class="material-symbols-outlined iconDeselect iconsSideBar">
+            web_asset_off
+          </span>  
+        </div>
+    </div>
+    <div class="itensFiltro tipoClassificacao">
       <a *ngFor="let item of listaClassificacoes" (click)="filtrar(item)">
         <span>{{ item.classificacao }}</span>
       </a>

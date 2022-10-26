@@ -25,7 +25,7 @@ a span {
     font-size: var(--font-size--small);
 }
 
-a:hover {
+a {
     cursor: pointer;
 }
 
@@ -340,12 +340,13 @@ a:hover {
 
 #check:checked~.sidebar a span {
     display: none;
+    transition: 10s;
 }
 
 #check:checked~.sidebar a {
-    font-size: var(--font-size--default);
-    margin-left: 170px;
+    margin-left: 85px;
     width: 80px;
+    height: 60px;
     padding-left: 22px;
 }
 
@@ -353,10 +354,10 @@ a:hover {
     display: none;
 }
 
-#check:checked~.sidebar #iconMaior {
-    // transition: all 0.7s;
-    transform: scaleX(1);
-}
+// #check:checked~.sidebar #iconMaior {
+//     transition: all 0.7s;
+//     transform: scaleX(1);
+// }
 
 #espacamento {
     height: 85px;
@@ -406,7 +407,6 @@ a:hover {
 }
 
 .filtro,
-.sidebar a,
 .reservas {
     color: rgb(0, 0, 0);
     font-family: "Inter", sans-serif;
@@ -415,6 +415,18 @@ a:hover {
     line-height: 60px;
     text-decoration: none;
     padding-left: 10px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+.sidebar a {
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
     box-sizing: border-box;
     transition: 0.5s;
     transition-property: background;
@@ -450,11 +462,11 @@ a:hover {
     background: #003c9c;
 }
 
-.ContainerIconMaior {
+.ContainerIconMaior, .iconDescartavel {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 10px 5px 5px;
+    padding: 15px 15px 15px 15px;
 }
 
 .ContainerIconCalendario {
@@ -477,12 +489,41 @@ a:hover {
     // transform: scaleX(-1)
 }
 
-.itensFiltro {
+
+.itensFiltro .tipoClassificacao,.itensFiltro .tipoFiltro {
     display: flex;
     align-items: center;
     flex-direction: column;
     height: 91%;
     overflow: auto;
+}
+
+#containerDescartavel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    transition: 0.5s;
+    transition-property: background;
+    cursor: pointer;
+}
+
+#containerDescartavel:hover {
+    background: #a5a5a5;
+}
+
+.checkbox {
+    margin: 10px 0px 10px 25px;
+    width: 18px;
+    height: 18px;
+}
+
+.texto {
+    font-size: var(--font-size--default);
+}
+
+.iconsSideBar {
+    font-size: 2rem;
 }
 
 .gerenciarReservas {
