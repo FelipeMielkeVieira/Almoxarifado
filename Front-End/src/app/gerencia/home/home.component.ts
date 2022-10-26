@@ -14,11 +14,13 @@ export class HomeComponent implements OnInit {
     this.localizacoesFiltradas = this.localizacoesLista;
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
     this.listaCadastrosPendentes = service.usuariosPendentes;
+    this.listaUsuarios = service.usuarios;
   }
 
   listaOrdenacoes = [false, false, false, false];
   listaItens: any = [];
   listaCadastrosPendentes: any = [];
+  listaUsuarios: any = [];
 
   // Trocar listas estáticas por listas do banco de dados
   reservasDevolucao = [
@@ -37,6 +39,8 @@ export class HomeComponent implements OnInit {
   abaRetiradas = false;
   abaItens = false;
   abaLocalizacoes = false;
+
+  modalCadastrarItem = false;
 
   listaEmBloco = true;
   inputGeral = "";
@@ -91,170 +95,6 @@ export class HomeComponent implements OnInit {
   devolucaoModal: boolean = false;
   modalOrdenar: boolean = false;
   ajuda: boolean = true;
-
-  cadastrarProduto() {
-    this.aparecer = false;
-    this.cadastrarModal = false;
-    this.inputClassificacao = 0;
-  }
-
-  botaoConfirmarRetirada() {
-    document.documentElement.style.overflow = "auto";
-    this.devolucaoModal = false;
-    this.aparecer = false;
-  }
-
-  abrirDevolucao(numero: number) {
-    document.documentElement.style.overflow = "hidden";
-    this.devolucaoModal = true;
-    this.aparecer = true;
-  }
-
-  fecharModalBaixaDevolucao() {
-    document.documentElement.style.overflow = "auto";
-    this.devolucaoModal = false;
-    this.aparecer = false;
-  }
-
-  darBaixaDevolucao() {
-    document.documentElement.style.overflow = "auto";
-    this.devolucaoModal = false;
-    this.aparecer = false;
-  }
-
-  btnRecusar() {
-    document.documentElement.style.overflow = "auto";
-  }
-
-  excluirLocalizacao() {
-    this.aparecerConfirmacao = 0;
-    let loc = this.localizacoesFiltradas[this.indexExcluir];
-    let index1 = this.service.localizacoes.findIndex((e) => {
-      if (e.nome == loc.nome) {
-        return true;
-      }
-      return false;
-    });
-    if (index1 != -1) {
-      this.service.localizacoes.splice(index1, 1);
-    }
-  }
-
-  pesquisaLocalizacao() {
-    var self = this;
-    const listaFiltrada = this.localizacoesLista.filter(function (a: any) {
-      return a.nome.toLowerCase().indexOf(self.inputGeral.toLowerCase()) > -1;
-    });
-    this.localizacoesFiltradas = listaFiltrada;
-  }
-
-  produtoNaoDevolvido() {
-    let botao = document.querySelector(".btnSegundario") as HTMLElement;
-
-    if (botao.style.backgroundColor == "red") {
-      botao.style.backgroundColor = "gray";
-    } else {
-      botao.style.backgroundColor = "red";
-    }
-    //fazer lógica para dizer que o item não foi devolvido
-    //desse jeito, a sacola ainda vai existir com os itens não devolvidos
-  }
-
-  cadastrar() {
-    this.service.localizacoes.push({
-      checked: false,
-      id: this.service.localizacoes.length + 1,
-      nome: this.nomeLoc,
-    });
-    this.fecharModalLocalizacao();
-  }
-
-  confirmacaoLocalizacao() {
-    this.aparecerConfirmacao = 1;
-  }
-
-  informarDefeitoItem() {
-    this.devolucaoModal = false;
-    this.informarDefeitoModal = true;
-  }
-
-  voltarDevolucaoItens() {
-    this.informarDefeitoModal = false;
-    this.devolucaoModal = true;
-  }
-
-  adicionarLocalizacao() {
-    if (this.localizacoesItem < 6) {
-      this.localizacoesItem++;
-    }
-  }
-
-  diminuirLocalizacao() {
-    if (this.localizacoesItem > 0) {
-      this.localizacoesItem--;
-    }
-  }
-
-  acaoSegundariaDevolucaoModal() {
-  }
-
-  removerProdutoSacola() {
-    this.removerDevolucaoModal = true;
-    //item deve ser removido da sacola
-  }
-
-  textoAcaoSegundariaDevolucaoModal() {
-    return "Remover";
-  }
-
-  removerDevolucaoModalBtn() {
-    this.removerDevolucaoModal = false;
-  }
-
-  cancelarReserva() {
-    this.devolucaoModal = false;
-    this.reserva = false;
-  }
-
-  fecharModalCancelarReserva() {
-    this.aparecer = false;
-    this.reserva = true;
-  }
-
-  enviar() {
-    this.aparecer = false;
-    this.reserva = true;
-  }
-
-  adicionarClassificacao() {
-    this.inputClassificacao = 1;
-  }
-
-  travarDestravarScroll() {
-    document.documentElement.style.overflow == "hidden" ? document.documentElement.style.overflow = "auto" : document.documentElement.style.overflow = "hidden";
-  }
-
-  aparecerModalLocalizacao() {
-    this.travarDestravarScroll();
-    this.aparecer = true;
-    this.localizacaoModal = true;
-  }
-
-  fecharModalLocalizacao() {
-    this.aparecer = false;
-    this.localizacaoModal = false;
-  }
-
-  aparecerModalCadastrar() {
-    this.aparecer = true;
-    this.cadastrarModal = true;
-  }
-
-  fecharModalCadastrar() {
-    this.aparecer = false;
-    this.cadastrarModal = false;
-    this.inputClassificacao = 0;
-  }
 
   // Função que retorna o placeholder do input de pesquisa principal, dependendo da aba aberta
   retornaPlaceholderPesquisa() {
@@ -350,6 +190,10 @@ export class HomeComponent implements OnInit {
         break;
       case 2:
         this.localizacaoModal = !this.localizacaoModal;
+        break;
+      case 3:
+        this.modalCadastrarItem = !this.modalCadastrarItem;
+        break;
     }
 
     document.documentElement.style.overflow = "auto";
@@ -375,5 +219,14 @@ export class HomeComponent implements OnInit {
         localizacao.checked = true;
       });
     }
+  }
+
+  // Função para abrir o modal de cadastrar localização
+  abrirModalLocalizacao() {
+    this.localizacaoModal = true;
+  }
+
+  excluirLocalizacoes() {
+
   }
 }

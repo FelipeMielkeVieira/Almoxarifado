@@ -3,21 +3,21 @@
         <tr>
             <th class="itemTabela">Nome</th>
             <th class="itemTabela">Email</th>
-            <th class="itemTabela">Rejeitar</th>
-            <th class="itemTabela">Aceitar</th>
+            <th class="itemTabela center">Rejeitar</th>
+            <th class="itemTabela center">Aceitar</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let cadastro of listaCadastros" id="containerCadastros">
             <td class="itemTabela">{{ cadastro.nome }}</td>
             <td class="itemTabela">{{ cadastro.email }}</td>
-            <td class="itemTabela">
+            <td class="itemTabela center">
                 <span (click)="abrirModaisConfirmacao(1)" title="Fechar" id="fecharIcone"
                     class="material-symbols-outlined iconDeselect icone">
                     close
                 </span>
             </td>
-            <td class="itemTabela">
+            <td class="itemTabela center">
                 <span (click)="abrirModaisConfirmacao(2)" title="Cofirmar itemTabela"
                     class="material-symbols-outlined iconDeselect icone">
                     done

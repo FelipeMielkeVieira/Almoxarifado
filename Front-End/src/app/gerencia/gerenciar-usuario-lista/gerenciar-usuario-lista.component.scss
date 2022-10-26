@@ -1,0 +1,61 @@
+#fundoModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+.itemTabela {
+    vertical-align: middle;
+}
+
+.center {
+    text-align: center;
+}
+
+.iconeOpcao {
+    font-size: var(--font-size--giant);
+    font-weight: 300;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.iconeOpcao:hover {
+    transition: all 0.5s;
+}
+
+.vermelho:hover {
+    color: #be0101;
+}
+
+.verde:hover {
+    color: #009B19;
+}
+
+.parteBaixo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+#selecionarFuncao2 {
+    width: 8.625rem;
+    height: 1.813rem;
+    padding: 0 0.5rem;
+    margin-top: -2.5%;
+    margin-right: 5%;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.icone {
+    font-size: var(--font-size--verysmall);
+}

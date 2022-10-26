@@ -19,11 +19,16 @@ h1 {
 }
 
 #fundoModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.349);
 }
 
 .divPrincipal {
@@ -682,7 +687,6 @@ h1 {
     align-items: flex-start;
     width: 100%;
     margin-top: 10px;
-
 }
 
 .descricao {
@@ -1289,9 +1293,6 @@ h1 {
     justify-content: center;
     float: right;
     margin-left: 10px;
-}
-
-.divPonto:hover {
     cursor: pointer;
 }
 

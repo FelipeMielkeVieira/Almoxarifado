@@ -9,14 +9,17 @@ import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario
 import { LocalizacaoComponent } from './localizacao/localizacao.component';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { ReservaComponent } from './reserva/reserva.component';
 import { RetiradaReservaComponent } from './retirada-reserva/retirada-reserva.component';
 import { ModalOcorrenciaComponent } from './modal-ocorrencia/modal-ocorrencia.component';
 import { CadastrarUsuarioListaComponent } from './cadastrar-usuario-lista/cadastrar-usuario-lista.component';
 import { CadastrarLocalizacaoModalComponent } from './cadastrar-localizacao-modal/cadastrar-localizacao-modal.component';
 import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva.component';
+import { GerenciarUsuarioListaComponent } from './gerenciar-usuario-lista/gerenciar-usuario-lista.component';
+import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva
     ModalOcorrenciaComponent,
     CadastrarUsuarioListaComponent,
     CadastrarLocalizacaoModalComponent,
-    DevolucaoReservaComponent
+    DevolucaoReservaComponent,
+    GerenciarUsuarioListaComponent,
+    CadastrarItemComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +43,8 @@ import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva
     FormsModule,
     MatCheckboxModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   exports: [
     HomeComponent,
@@ -49,7 +55,8 @@ import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva
     RetiradaReservaComponent,
     ModalOcorrenciaComponent,
     DevolucaoReservaComponent,
-    CadastrarUsuarioListaComponent
+    CadastrarUsuarioListaComponent,
+    GerenciarUsuarioListaComponent
   ]
 })
 export class GerenciaModule { }
