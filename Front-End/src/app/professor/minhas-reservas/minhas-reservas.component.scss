@@ -65,7 +65,7 @@ main {
 
 #containerInput {
     width: 80%;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 #divInput {
@@ -76,6 +76,7 @@ main {
     border-radius: 5px;
     width: 23rem;
     height: 2.4rem;
+    margin-top: 1rem;
 }
 
 #input {
@@ -104,6 +105,8 @@ main {
 
 #botoes {
     display: flex;
+    width: 100%;
+    border-bottom: solid 1px black;
 }
 
 #divBotoesNavegacao {
@@ -119,13 +122,26 @@ main {
 }
 
 .reservasPendentes {
-    background-color: #0047B6;
-    color: #fff;
+    color: black;
+    background-color: transparent;
     font-size: var(--font-size--small);
+    border-bottom: solid 2px #0047B6;
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+       opacity: 0.5;
+    }
+
+    to {
+       opacity: 1;
+    }
 }
 
 .reservasPendentes:hover {
-    background-color: #003180;
+    color: #0047B6;
 }
 
 .historicoReservas {
@@ -134,7 +150,7 @@ main {
 }
 
 .historicoReservas:hover {
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(241, 240, 240);
 }
 
 .divLegenda {

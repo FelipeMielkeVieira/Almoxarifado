@@ -7,11 +7,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let localizacao of localizacoes;" (click)="selecionarRow(localizacao)"
+        <tr class="linhaSelecionavel" *ngFor="let localizacao of localizacoes;" (click)="selecionarRow(localizacao)"
             [ngClass]="localizacao.checked ? 'table-active' : ''">
             <td class="itemTabela displayFlex tdCheck">
                 <input class="checkboxStyle" [checked]="localizacao.checked" type="checkbox">
-                <!-- <mat-checkbox [color]="'primary'" [disabled]="true" [checked]="localizacao.checked"></mat-checkbox> -->
             </td>
             <td class="itemTabela displayFlex tdIdLocalizacao">{{ localizacao.id }}
             </td>

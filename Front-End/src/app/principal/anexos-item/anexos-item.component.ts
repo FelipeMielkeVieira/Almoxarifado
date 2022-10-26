@@ -8,12 +8,13 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class AnexosItemComponent implements OnInit {
 
   // Input para receber as características do item
-  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
+  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [ { descricao: "", anexo: "" } ] };
 
   // Output para fechar o modal e abrir novamente o modal de reserva
   @Output() fecharModal = new EventEmitter();
   
   constructor() {
+    console.log(this.item)
   }
 
   ngOnInit() {

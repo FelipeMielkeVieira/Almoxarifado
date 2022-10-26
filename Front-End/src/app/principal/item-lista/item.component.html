@@ -1,13 +1,13 @@
 <table id="tableItens" class="table table-hover">
   <tbody>
-    <tr *ngFor="let item of itens" id="containerItem">
-      <td class="itemTabela" (click)="abrirModalReserva()">{{ item.nome }}</td>
-      <td class="itemTabela" (click)="abrirModalReserva()"> {{ item.descartavel ? "Descartável" : "Não descartável" }} </td>
-      <td class="itemTabela" (click)="abrirModalReserva()">{{ item.quantidade }} UN</td>
+    <tr *ngFor="let item of itens" id="containerItem" (click)="abrirModalReserva($event)">
+      <td class="itemTabela" >{{ item.nome }}</td>
+      <td class="itemTabela" > {{ item.descartavel ? "Descartável" : "Não descartável" }} </td>
+      <td class="itemTabela" >{{ item.quantidade }} UN</td>
       <td class="itemTabela" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4">
         <div class="ferramentas">
           <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
-            (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
+            (click)="abrirModalEditar()" id="iconeEditar">
             edit
           </span>
           <span title="Histórico" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4"
