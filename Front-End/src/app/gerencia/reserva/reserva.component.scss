@@ -41,8 +41,9 @@ body {
 
 .barraLateral {
     width: 2%;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 3px 0px 0px 3px;
     background-color: #0047B6;
+    margin-right: 3%;
 }
 
 .infoReserva {
@@ -118,12 +119,6 @@ body {
 
 .containerReserva:hover {
     background-color: rgba(201, 201, 201, 0.616);
-}
-
-.barraLateral {
-    width: 2%;
-    border-radius: 5px 0px 0px 5px;
-    background-color: #0047B6;
 }
 
 .infoReserva {
