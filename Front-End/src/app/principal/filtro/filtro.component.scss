@@ -103,7 +103,7 @@ a {
 }
 
 #palavraFiltro {
-    margin-left: 44%;
+    margin-left: 37%;
 }
 
 #containerIcon {
@@ -338,7 +338,7 @@ a {
     left: -190px;
 }
 
-#check:checked~.sidebar a span, #check:checked~.sidebar #containerDescartavel, #check:checked~.sidebar #riscoSeparar {
+#check:checked~.sidebar a span, #check:checked~.sidebar #containerConteudoFiltro, #check:checked~.sidebar #riscoSeparar {
     display: none;
     transition: 10s;
 }
@@ -498,6 +498,14 @@ a {
     overflow: auto;
 }
 
+#containerConteudoFiltro {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
 #containerDescartavel {
     display: flex;
     align-items: center;
@@ -535,6 +543,7 @@ a {
 }
 
 #textoClassificacoes {
+    cursor: default;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -550,17 +559,9 @@ a {
     width: 30%;
 }
 
-#gerenciar {
-    font-weight: 100;
-}
-
-#arquivo {
+#gerenciarIcon {
     font-size: 35px;
-}
-
-#settings {
-    margin: 30% 0 0 -20%;
-    font-size: var(--font-size--big);
+    padding-right: 12px;
 }
 
 .ContainerIconGerenciar {

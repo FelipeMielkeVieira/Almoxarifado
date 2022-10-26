@@ -54,6 +54,45 @@ export class FiltroComponent implements OnInit {
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FIM MODAL GERENCIAR FILTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FILTRO EM SI =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  // *Essa função irá dar check no input, caso ele clique na div
+  checkDescartavel() {
+    const input = document.querySelector("#checkDescartavel") as HTMLInputElement;
+    if (input.checked == true) {
+      input.checked = false;
+    } else {
+      input.checked = true;
+    }
+  }
+
+  // *Essa função irá dar check no input, caso ele clique na div
+  checkNaoDescartavel() {
+    const input = document.querySelector("#checkNaoDescartavel") as HTMLInputElement;
+    if (input.checked == true) {
+      input.checked = false;
+    } else {
+      input.checked = true;
+    }
+  }
+
+  // *Essa função irá dar check no input, caso ele clique na div
+  checkSemEstoque() {
+    const input = document.querySelector("#checkSemEstoque") as HTMLInputElement;
+    if (input.checked == true) {
+      input.checked = false;
+    } else {
+      input.checked = true;
+    }
+  }
+
+  // *Essa função irá dar check no input, caso ele clique na div
+  checkComEstoque() {
+    const input = document.querySelector("#checkComEstoque") as HTMLInputElement;
+    if (input.checked == true) {
+      input.checked = false;
+    } else {
+      input.checked = true;
+    }
+  }
 
   // *Esse é complicado...
   filtrar(item: { classificacao: string }) {
