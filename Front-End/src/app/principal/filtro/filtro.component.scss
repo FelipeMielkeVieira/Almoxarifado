@@ -80,7 +80,7 @@ a {
 
 #containerModal {
     width: 30rem;
-    height: 30rem;
+    height: 27rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
@@ -132,9 +132,9 @@ a {
 }
 
 #containerConteudoTeste {
-    height: 200px;
+    height: 11rem;
     overflow: auto;
-    margin-top: 5%;
+    margin-top: 3%;
     flex-wrap: wrap;
 }
 
@@ -143,10 +143,13 @@ a {
     width: 80%;
     padding: 0.5rem;
     margin-bottom: 2%;
-    border: solid 1px black;
-    border-radius: 8px;
+    border-bottom: solid 1px black;
     justify-content: space-between;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.281);
+    align-items: center;
+}
+
+.divFiltro:hover{
+    background-color: #f2f2f2;
 }
 
 #iconLixoTeste {
@@ -170,12 +173,16 @@ a {
     }
 }
 
-#containerCadastrar,
-#textoCadastrar,
-#riscoTeste {
+#textoCadastrar{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    margin-left: 10%;
+}
+
+#containerCadastrar{
+    width: 100%;
+    margin-top: 1%;
 }
 
 #riscoPequeno {
@@ -193,9 +200,10 @@ a {
 }
 
 #NomeFiltro {
+    margin-top: 1%;
     width: 250px;
     padding: 5px;
-    border: 0.2px solid rgb(0, 0, 0);
+    border: solid 1px black;
     border-radius: 5px;
     outline: none;
     font-weight: 600;
@@ -203,17 +211,26 @@ a {
 
 #containerBotaoAdicionar {
     display: flex;
-    justify-content: right;
-    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
 }
 
 #botaoAdicionar {
     padding: 5px 10px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
+    width: 5rem;
     background-color: #0047B6;
     color: #ffff;
     cursor: pointer;
+}
+
+#inputNomeFiltro{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #containerSalvar {

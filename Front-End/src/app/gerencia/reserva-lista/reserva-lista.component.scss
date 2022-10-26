@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #EEEEEE;
+    border-radius: 0px 6px 6px 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d3d3d3;
+    border-radius: 30px;
+}
+
+/* <!-- --------------------------- COMPONENTE RESERVA EM BLOCO ------------------------------ --> */
+.containerReserva {
+    display: flex;
+    flex-direction: row;
+    width: 35rem;
+    border-radius: 5px;
+    border: solid 0.5px black;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+
+.containerReserva:hover .nomeProfessor {
+    color: #0047B6;
+}
+
+.containerReserva:hover {
+    background-color: rgba(201, 201, 201, 0.616);
+}
+
+.barraLateral {
+    width: 2%;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #0047B6;
+}
+
+.infoReserva {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.2%;
+    display: flex;
+    width: 40%;
+}
+
+.nomeProfessor {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size--big);
+}
+
+.data {
+    font-family: 'Inter', sans-serif;
+    margin-top: 5%;
+}
+
+#parteDireita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+#itens {
+    list-style-type: none;
+    width: 85%;
+    border-radius: 6px;
+    border: 1px solid black;
+    max-height: 65%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+}
+
+.bolaAzul {
+    width: 10px;
+    margin-right: 10px;
+}
+
+.textoProduto {
+    font-size: var(--font-size--small);
+}
+
+/* <!-- --------------------------- FIM COMPONENTE RESERVA EM BLOCO ------------------------------ --> */
+
+/* <!-- --------------------------- COMPONENTE RESERVA EM LISTA ------------------------------ --> */
+.containerReservaLista {
+    display: flex;
+    flex-direction: row;
+    width: 72rem;
+    border-radius: 5px;
+    border: solid 0.5px black;
+    margin-bottom: 2%;
+}
+
+.containerReserva:hover .nomeProfessor {
+    color: #0047B6;
+}
+
+.containerReserva:hover {
+    background-color: rgba(201, 201, 201, 0.616);
+}
+
+.barraLateral {
+    width: 2%;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #0047B6;
+}
+
+.infoReserva {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.2%;
+    display: flex;
+    width: 40%;
+}
+
+.nomeProfessor {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size--big);
+}
+
+.data {
+    font-family: 'Inter', sans-serif;
+    margin-top: 5%;
+}
+
+#parteDireita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+#itens {
+    list-style-type: none;
+    width: 85%;
+    border-radius: 6px;
+    border: 1px solid black;
+    max-height: 65%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+}
+
+.bolaAzul {
+    width: 10px;
+    margin-right: 10px;
+}
+
+.textoProduto {
+    font-size: var(--font-size--small);
+}
+
+/* <!-- --------------------------- FIM COMPONENTE RESERVA EM LISTA ------------------------------ --> */
+
+#fundoModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.349);
+}

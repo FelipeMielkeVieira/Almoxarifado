@@ -20,6 +20,7 @@ import { CadastrarLocalizacaoModalComponent } from './cadastrar-localizacao-moda
 import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva.component';
 import { GerenciarUsuarioListaComponent } from './gerenciar-usuario-lista/gerenciar-usuario-lista.component';
 import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.component';
+import { ReservaListaComponent } from './reserva-lista/reserva-lista.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.componen
     CadastrarLocalizacaoModalComponent,
     DevolucaoReservaComponent,
     GerenciarUsuarioListaComponent,
-    CadastrarItemComponent
+    CadastrarItemComponent,
+    ReservaListaComponent
   ],
   imports: [
     CommonModule,
