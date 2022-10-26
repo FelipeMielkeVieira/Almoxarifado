@@ -19,4 +19,9 @@ export class CadastrarItemComponent implements OnInit {
     this.fecharModal.emit(texto);
   }
 
+  carregarImagem(event: any) {
+    let imagem = document.querySelector("#imagemItem") as HTMLImageElement;
+    imagem.src = URL.createObjectURL(event.target.files[0]);
+  }
+
 }

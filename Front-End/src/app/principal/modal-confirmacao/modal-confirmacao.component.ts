@@ -18,23 +18,23 @@ export class ModalConfirmacaoComponent implements OnInit {
     retornaTextoConfirmacao() {
         switch(this.tipoTexto) {
             case 1:
-                return "Tem certeza que deseja excluir este item?";
+                return "Deseja excluir este item?";
             case 2:
-                return "Tem certeza que deseja excluir essa sacola?";
+                return "Deseja excluir essa sacola?";
             case 3:
-                return "Tem certeza que deseja efetuar a reserva?";
+                return "Deseja efetuar a reserva?";
             case 4:
-                return "Tem certeza que deseja recusar este usuário?";
+                return "Deseja recusar este usuário?";
             case 5:
-                return "Tem certeza que deseja aceitar este usuário?";
+                return "Deseja aceitar este usuário?";
             case 6:
-                return "Tem certeza que deseja atualizar este usuário?";
+                return "Deseja atualizar este usuário?";
             case 7:
-                return "Tem certeza que deseja excluir este usuário?";
+                return "Deseja excluir este usuário?";
             case 8:
-                return "Tem certeza que deseja confirmar a retirada?";
+                return "Deseja confirmar a retirada?";
             case 9:
-                return "Tem certeza que deseja confirmar a devolução?";
+                return "Deseja confirmar a devolução?";
         }
         return "";
     }
