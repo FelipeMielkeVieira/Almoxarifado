@@ -20,9 +20,14 @@ import java.util.List;
 public class ProdutoController {
     private ProdutoService produtoService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Produto>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.findAll());
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Produto>> findAllVisible() {
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.findByVisibilidade(true));
     }
 
     @GetMapping("/{id}")
@@ -30,14 +35,21 @@ public class ProdutoController {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhum produto com este ID.");
         }
-        return ResponseEntity.status(HttpStatus.FOUND).body(produtoService.findById(id).get());
+
+        Produto produto = produtoService.findById(id).get();
+
+        if (!produto.getVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("O produto solicitado não existe!");
+        }
+
+        return ResponseEntity.status(HttpStatus.FOUND).body(produto);
     }
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid ProdutoDTO produtoDTO) {
         Produto produto = new Produto();
         BeanUtils.copyProperties(produtoDTO, produto);
-        System.out.println(produto.toString());
+        produto.setVisibilidade(true);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.save(produto));
     }
 
@@ -46,8 +58,13 @@ public class ProdutoController {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este produto não existe.");
         }
-        Produto produto = new Produto();
-        BeanUtils.copyProperties(produtoDTO, produto, "id");
+        Produto produto = produtoService.findById(id).get();
+
+        if (!produto.getVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("O produto solicitado não existe!");
+        }
+
+        BeanUtils.copyProperties(produtoDTO, produto);
         produto.setId(id);
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.save(produto));
     }
@@ -58,7 +75,10 @@ public class ProdutoController {
         if (!produtoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhum produto com este ID.");
         }
-        produtoService.deleteById(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Produto deletado.");
+
+        Produto produto = produtoService.findById(id).get();
+        produto.setVisibilidade(false);
+        produtoService.save(produto);
+        return ResponseEntity.status(HttpStatus.OK).body("Produto deletado com sucesso!");
     }
 }

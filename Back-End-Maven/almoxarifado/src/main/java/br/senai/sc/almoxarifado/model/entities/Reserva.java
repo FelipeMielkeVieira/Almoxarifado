@@ -30,7 +30,7 @@ public class Reserva {
     private Status status;
 
     @Column(nullable = false)
-    private boolean visibilidade;
+    private Boolean visibilidade;
 
     // Foreign key
 

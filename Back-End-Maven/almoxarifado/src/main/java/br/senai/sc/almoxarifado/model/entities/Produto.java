@@ -29,10 +29,13 @@ public class Produto {
     private String caracteristicas;
 
     @Column(nullable = false)
-    private boolean descartavel;
+    private Boolean descartavel;
 
     @Column
-    private byte imagem;
+    private Byte imagem;
+
+    @Column(nullable = false)
+    private Boolean visibilidade;
 
     // Foreign key
 

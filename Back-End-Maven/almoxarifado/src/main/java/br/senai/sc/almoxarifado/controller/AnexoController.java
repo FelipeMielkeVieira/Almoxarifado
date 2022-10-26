@@ -41,8 +41,8 @@ public class AnexoController {
 
         Anexo anexo = anexoService.findById(idAnexo).get();
 
-        if (!anexo.isVisibilidade()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("O anexo solicitado foi deletado!");
+        if (!anexo.getVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("O anexo solicitado não existe!");
         }
 
         return ResponseEntity.status(HttpStatus.FOUND).body(anexoService.findById(idAnexo).get());
@@ -62,8 +62,13 @@ public class AnexoController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este anexo não existe.");
         }
 
-        Anexo anexo =  new Anexo();
-        BeanUtils.copyProperties(anexoDTO, anexo, "idAnexo");
+        Anexo anexo = anexoService.findById(idAnexo).get();
+
+        if (!anexo.getVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("O anexo solicitado não existe!");
+        }
+
+        BeanUtils.copyProperties(anexoDTO, anexo);
         anexo.setId(idAnexo);
         return ResponseEntity.status(HttpStatus.OK).body(anexoService.save(anexo));
     }
