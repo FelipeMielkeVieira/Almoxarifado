@@ -29,14 +29,9 @@ p {
 }
 
 #containerSacola:hover {
-    background-color: #ececec;
+    background-color: #f5f5f5;
     #itens, .containerDatas .dataInput {
         background-color: #ffffff;
-        cursor: default;
-        .containerDatas .dataInput .calendario {
-            cursor: pointer;
-        }
-        
     }
 }
 
