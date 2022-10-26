@@ -230,7 +230,12 @@ export class HomeComponent implements OnInit {
     this.inputClassificacao = 1;
   }
 
+  travarDestravarScroll() {
+    document.documentElement.style.overflow == "hidden" ? document.documentElement.style.overflow = "auto" : document.documentElement.style.overflow = "hidden";
+  }
+
   aparecerModalLocalizacao() {
+    this.travarDestravarScroll();
     this.aparecer = true;
     this.localizacaoModal = true;
   }
@@ -343,7 +348,11 @@ export class HomeComponent implements OnInit {
       case 1:
         this.modalOrdenar = !this.modalOrdenar;
         break;
+      case 2:
+        this.localizacaoModal = !this.localizacaoModal;
     }
+
+    document.documentElement.style.overflow = "auto";
   }
 
   //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações

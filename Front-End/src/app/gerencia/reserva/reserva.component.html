@@ -48,5 +48,10 @@
 <app-modal-feedback *ngIf="feedbackReservaCancelada" [tipoFeedback]="13" (fecharModal)="fecharModaisFeedback(2)">
 </app-modal-feedback>
 
+<!-- Feedback Devolução Efetuada -->
 <app-modal-feedback *ngIf="feedbackDevolucaoConfirmada" [tipoFeedback]="14" (fecharModal)="fecharModaisFeedback(3)">
+</app-modal-feedback>
+
+<!-- Feedback Alertar Atraso Devolução -->
+<app-modal-feedback *ngIf="feedbackAtrasoDevolucao" [tipoFeedback]="15" (fecharModal)="fecharModaisFeedback(4)">
 </app-modal-feedback>
