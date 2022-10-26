@@ -1065,30 +1065,14 @@ h1 {
     margin: 2% 2% 0 0;
 }
 
-#quantidadeProduto {
-    margin-right: 13rem;
-}
-
-#listaItemsBaixaDevolucao {
-    list-style-type: none;
-}
-
 .containerConteudoBaixaDevolucao {
     display: flex;
     align-items: center;
 }
 
-.containerImgBaixaDevolucao {
-    width: 35%;
-}
-
 .imgItemBaixaDevolucao {
     width: 80%;
     min-width: 100px;
-}
-
-.parteDireitaItemBaixaDevolucao {
-    width: 100%;
 }
 
 .nomeItemBaixaDevolucao {
@@ -1133,12 +1117,6 @@ h1 {
     border-radius: 0.3rem 0.3rem 0px 0px;
 }
 
-.containerFechar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
 #fecharIcone {
     cursor: pointer;
 }
@@ -1151,32 +1129,12 @@ h1 {
     list-style-type: none;
 }
 
-.containerConteudoBaixaDevolucao {
-    display: flex;
-    align-items: center;
-}
-
 .containerImgBaixaDevolucao {
     width: 35%;
 }
 
-.imgItemBaixaDevolucao {
-    width: 80%;
-    min-width: 100px;
-}
-
 .parteDireitaItemBaixaDevolucao {
     width: 100%;
-}
-
-.nomeItemBaixaDevolucao {
-    color: #0047B6;
-}
-
-.containerInfoItemBaixaDevolucao {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .btnDevolucaoModal,
@@ -1211,51 +1169,6 @@ h1 {
 
 .confirmarRetirada {
     margin: 0 5%;
-}
-
-
-/* Informar motivo */
-
-#containerInformarMotivo {
-    border-radius: 0.3rem;
-    background-color: white;
-    animation: fadein 0.5s;
-}
-
-#containerInformarDefeitoModal {
-    padding: 0.6rem 1.5rem 1.5rem 1.5rem;
-}
-
-.tituloInformarDefeito {
-    text-align: center;
-    color: #0047B6;
-    margin-bottom: 1rem;
-}
-
-#informarDefeitoInput {
-    width: 30vw;
-    height: 28vh;
-}
-
-.divBotoes {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.3rem;
-}
-
-#voltarInformarDefeito {
-    font-size: var(--font-size--medium);
-    width: 35%;
-}
-
-#salvarInformarDefeito {
-    font-size: var(--font-size--medium);
-    width: 50%;
-}
-
-#texteArea {
-    padding: 5px;
-    outline: none;
 }
 
 

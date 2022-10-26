@@ -31,6 +31,8 @@ export class ModalConfirmacaoComponent implements OnInit {
                 return "Tem certeza que deseja atualizar este usuário?";
             case 7:
                 return "Tem certeza que deseja excluir este usuário?";
+            case 8:
+                return "Tem certeza que deseja confirmar a retirada?";
         }
         return "";
     }

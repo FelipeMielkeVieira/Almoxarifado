@@ -1,0 +1,130 @@
+#baixaDevolucoesModal {
+    width: 40%;
+    min-width: 420px;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.3);
+    animation: fadein 0.5s;
+    position: absolute;
+    left: 30%;
+    top: 35%;
+    border-top: 10px solid #0047B6;
+}
+
+#containerDevolucaoModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.2rem 1rem 1.2rem 1rem;
+}
+
+.containerFechar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#fecharIcone {
+    cursor: pointer;
+}
+
+.icone {
+    font-size: var(--font-size--verysmall);
+}
+
+#listaItemsBaixaDevolucao {
+    list-style-type: none;
+}
+
+.containerConteudoBaixaDevolucao {
+    display: flex;
+    align-items: center;
+}
+
+.containerImgBaixaDevolucao {
+    width: 35%;
+}
+
+.imgItemBaixaDevolucao {
+    width: 80%;
+    min-width: 100px;
+}
+
+.parteDireitaItemBaixaDevolucao {
+    width: 100%;
+}
+
+.nomeItemBaixaDevolucao {
+    color: #0047B6;
+    font-size: var(--font-size--big);
+}
+
+.containerInfoItemBaixaDevolucao {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botoesDevolucaoModal {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnDevolucaoModal,
+.btnSegundario,
+.informarDefeito {
+    background-color: #0047B6;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.darBaixa {
+    font-size: var(--font-size--medium);
+    font-weight: 500;
+    margin: 2rem 0rem 0rem 0rem;
+    padding: 0.5rem 1.5rem;
+}
+
+#containerFinal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.cancelarRetirada {
+    border: #000 solid 1px;
+    background-color: #fff;
+    color: #000;
+    margin: 0 5%;
+    /* background-color: #AAAAAA; */
+}
+
+.confirmarRetirada {
+    margin: 0 5%;
+}
+
+.divInfoItem {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+
+#fundoModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.349);
+}

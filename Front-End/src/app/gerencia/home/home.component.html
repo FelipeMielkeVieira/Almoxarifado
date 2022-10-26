@@ -39,88 +39,6 @@
         </div>
     </div>
 
-    <div *ngIf="devolucaoModal" id="baixaDevolucoesModal">
-        <hr class="riscoAzul" />
-        <div id="containerDevolucaoModal">
-            <div class="containerFechar">
-                <span title="Fechar" (click)="fecharModalBaixaDevolucao()" id="fecharIcone" class="icone"
-                    class="material-symbols-outlined iconDeselect">
-                    close
-                </span>
-            </div>
-            <ul id="listaItemsBaixaDevolucao">
-                <li>
-                    <!-- *ngFor="let item of listaItemsBaixaDevolucao" -->
-                    <div class="containerConteudoBaixaDevolucao">
-                        <div class="containerImgBaixaDevolucao">
-                            <img class="imgItemBaixaDevolucao" src="../../../assets/Rele.png" alt="Imagem do Produto" />
-                        </div>
-                        <div class="parteDireitaItemBaixaDevolucao">
-                            <h2 class="nomeItemBaixaDevolucao">Nome Produto</h2>
-                            <div class="containerInfoItemBaixaDevolucao">
-                                <!-- {{ item.posicao }} -->
-                                <p>posicao</p>
-                                <!-- {{ item.qtd }} -->
-                                <p>qtd</p>
-                                <p id="quantidadeProduto">qtd</p>
-                                <!-- informarDefeitoItem(item) -->
-                                <div class="botoesDevolucaoModal">
-                                    <button (click)="acaoSegundariaDevolucaoModal()" class="btnSegundario"
-                                        style="background-color: red; margin-bottom: 0.2rem">
-                                        {{ textoAcaoSegundariaDevolucaoModal() }}
-                                    </button>
-                                    <button (click)="informarDefeitoItem()" class="informarDefeito">
-                                        Informar Defeito
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <button (click)="darBaixaDevolucao()" class="btnDevolucaoModal darBaixa">
-                Dar baixa
-            </button>
-            <div id="containerFinal">
-                <button (click)="cancelarReserva()" class="btnDevolucaoModal cancelarRetirada">
-                    Cancelar reserva
-                </button>
-                <button (click)="botaoConfirmarRetirada()" class="btnDevolucaoModal confirmarRetirada">
-                    Confirmar retirada
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="informarDefeitoModal" id="containerInformarMotivo">
-        <hr class="riscoAzul" />
-        <div id="containerInformarDefeitoModal">
-            <div class="containerFechar">
-                <span title="Fechar" (click)="voltarDevolucaoItens()" id="fecharIcone" class="icone"
-                    class="material-symbols-outlined iconDeselect">
-                    close
-                </span>
-            </div>
-            <h2 class="tituloInformarDefeito">Informar Defeito</h2>
-            <div id="containerConteudoInformarDefeito">
-                <!-- <input type="textarea" id="informarDefeitoInput"> -->
-                <textarea id="texteArea" rows="15" cols="60" maxlength="500"></textarea>
-                <div id="containerRetirarItemEstoque">
-                    <input id="retirarDoEstoque" type="checkbox" />
-                    <label for="retirarDoEstoque">Retirar item do estoque</label>
-                </div>
-                <div class="divBotoes">
-                    <button (click)="voltarDevolucaoItens()" id="voltarInformarDefeito" class="btnDevolucaoModal">
-                        Voltar
-                    </button>
-                    <button (click)="voltarDevolucaoItens()" id="salvarInformarDefeito" class="btnDevolucaoModal">
-                        Salvar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div *ngIf="localizacaoModal" id="containerModalLocalizacao">
         <hr class="riscoAzul" />
         <div id="containerIcons">
@@ -280,16 +198,10 @@
 
 
                             <div id="iconListaBloco">
-                                <span *ngIf="listaItens == 1" (click)="mudarModaisPesquisa(1)" id="iconOrdernar"
+                                <span *ngIf="abaItens" (click)="mudarModaisPesquisa(1)" id="iconOrdernar"
                                     class="material-symbols-outlined iconDeselect iconsModais" title="Ordernar">
                                     sync_alt
                                 </span>
-                                <div id="containerIconFiltro">
-                                    <span *ngIf="listaItens == 1" title="Filtro" id="iconFiltro"
-                                        class="material-symbols-outlined iconDeselect">
-                                        filter_alt
-                                    </span>
-                                </div>
 
                                 <span *ngIf="listaEmBloco" (click)="mudarVisualizacao()" id="iconEmBloco"
                                     class="material-symbols-outlined iconDeselect" title="Ver em bloco">
@@ -359,12 +271,10 @@
                 </div>
 
                 <div *ngIf="abaDevolucoes" class="containerDevolucoes">
-                    <!-- <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(1)"></app-reserva-atendente>
-                    <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(1)"></app-reserva-atendente> -->
+                    <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                 </div>
                 <div *ngIf="abaRetiradas" class="containerRetirada">
-                    <!-- <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente>
-                    <app-reserva-atendente [lista]="emBloco" (click)="abrirDevolucao(2)"></app-reserva-atendente> -->
+                    <app-reserva *ngFor="let reserva of reservasRetirada" [reserva]="reserva"></app-reserva>
                 </div>
 
                 <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
