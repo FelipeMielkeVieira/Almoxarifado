@@ -111,7 +111,7 @@ export class FiltroComponent implements OnInit {
     const iconExcluir = document.createElement("span");
 
     textoFiltro.innerText = item.classificacao;
-    textoFiltro.style.fontSize = "var(--font-size--verysmall)";
+    textoFiltro.style.fontSize = "var(--font-size--small)";
     textoFiltro.style.fontWeight = "500";
     iconExcluir.innerText = "close"
 
