@@ -4,6 +4,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+main {
+    width: 100%;
+}
+
 p {
     font-size: var(--font-size--small);
     font-weight: 500;
@@ -13,10 +17,15 @@ h1 {
     color: #0047B6;
 }
 
+.divPrincipal {
+    width: 100%;
+}
+
 #container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     min-width: 890px;
 }
 
