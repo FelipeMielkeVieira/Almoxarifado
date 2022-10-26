@@ -1,10 +1,10 @@
 <table id="tableCadastros" class="table table-hover">
     <thead>
         <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Aceitar</th>
-            <th>Rejeitar</th>
+            <th class="itemTabela">Nome</th>
+            <th class="itemTabela">Email</th>
+            <th class="itemTabela">Rejeitar</th>
+            <th class="itemTabela">Aceitar</th>
         </tr>
     </thead>
     <tbody>
@@ -12,10 +12,16 @@
             <td class="itemTabela">{{ cadastro.nome }}</td>
             <td class="itemTabela">{{ cadastro.email }}</td>
             <td class="itemTabela">
-                sim
+                <span (click)="abrirModaisConfirmacao(1)" title="Fechar" id="fecharIcone"
+                    class="material-symbols-outlined iconDeselect icone">
+                    close
+                </span>
             </td>
             <td class="itemTabela">
-                não
+                <span (click)="abrirModaisConfirmacao(2)" title="Cofirmar itemTabela"
+                    class="material-symbols-outlined iconDeselect icone">
+                    done
+                </span>
             </td>
         </tr>
     </tbody>
