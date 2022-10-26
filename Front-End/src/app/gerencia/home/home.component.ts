@@ -14,11 +14,13 @@ export class HomeComponent implements OnInit {
     this.localizacoesFiltradas = this.localizacoesLista;
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
     this.listaCadastrosPendentes = service.usuariosPendentes;
+    this.listaUsuarios = service.usuarios;
   }
 
   listaOrdenacoes = [false, false, false, false];
   listaItens: any = [];
   listaCadastrosPendentes: any = [];
+  listaUsuarios: any = [];
 
   // Trocar listas estáticas por listas do banco de dados
   reservasDevolucao = [

@@ -108,7 +108,7 @@
                     <app-gerenciar-usuario></app-gerenciar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaUsuarios && !listaEmBloco" class="telaUsuarios">
-
+                    <app-gerenciar-usuario-lista [listaUsuarios]="listaUsuarios" style="width: 100%;"></app-gerenciar-usuario-lista>
                 </div>
 
                 <div *ngIf="abaDevolucoes" class="containerDevolucoes">

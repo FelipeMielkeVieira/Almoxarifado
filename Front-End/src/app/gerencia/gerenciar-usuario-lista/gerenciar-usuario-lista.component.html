@@ -1,0 +1,55 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="itemTabela">Nome sobrenome</th>
+            <th class="itemTabela">Email</th>
+            <th class="itemTabela center">Função</th>
+            <th class="itemTabela center">Salvar</th>
+            <th class="itemTabela center">Deletar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of listaUsuarios" class="linhaSelecionavel">
+            <td class="itemTabela displayFlex tdCheck">
+                {{ usuario.nome }}
+            </td>
+            <td class="itemTabela displayFlex tdIdLocalizacao">
+                {{ usuario.email }}
+            </td>
+            <td class="itemTabela center displayFlex tdNomeLocalizacao">
+                <select id="selectFuncao">
+                    <option *ngFor="let funcao of listaFuncoes" class="opcaoFuncao" [value]="funcao.id">{{ funcao.funcao
+                        }}</option>
+                </select>
+            </td>
+            <td class="itemTabela center">
+                <span (click)="abrirModaisConfirmacao(1)" title="Cofirmar"
+                    class="material-symbols-outlined iconDeselect iconeOpcao verde">
+                    done
+                </span>
+            </td>
+            <td class="itemTabela center">
+                <span (click)="abrirModaisConfirmacao(2)" title="Deletar"
+                    class="material-symbols-outlined iconDeselect iconeOpcao vermelho">
+                    delete
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="fundoModal" *ngIf="modalConfirmarEdicao || modalConfirmarExclusao">
+    <app-modal-confirmacao *ngIf="modalConfirmarEdicao" [tipoTexto]="6"
+        (fecharModal)="fecharModaisConfirmacao(1, $event)">
+    </app-modal-confirmacao>
+
+    <app-modal-confirmacao *ngIf="modalConfirmarExclusao" [tipoTexto]="7"
+        (fecharModal)="fecharModaisConfirmacao(2, $event)">
+    </app-modal-confirmacao>
+</div>
+
+<app-modal-feedback *ngIf="feedbackEdicaoUsuario" [tipoFeedback]="10" (fecharModal)="fecharModaisFeedback(1)">
+</app-modal-feedback>
+
+<app-modal-feedback *ngIf="feedbackExclusaoUsuario" [tipoFeedback]="11" (fecharModal)="fecharModaisFeedback(2)">
+</app-modal-feedback>
