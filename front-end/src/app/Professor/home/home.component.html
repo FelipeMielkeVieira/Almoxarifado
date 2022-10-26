@@ -29,8 +29,7 @@
 
                     <!-- Modal Ordenar -->
                     <app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModalOrdenar()"
-                        (ordenarItens)="ordenarItens($event)" [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
-                    <!-- Troca de visualização lista / bloco e ícone de ordenação -->
+                        (ordenarItens)="ordenarItens($event)" [listaOrdenacoes]="listaOrdenacoes" id="appModalOrdenar"></app-modal-ordenar>
                 </div>
 
                 <div id="iconListaBloco">

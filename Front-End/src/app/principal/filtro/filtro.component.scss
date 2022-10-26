@@ -517,7 +517,7 @@ a {
     overflow: auto;
 }
 
-#containerDescartavel, #containerNaoDescartavel, #containerSemEstoque, #containerComEstoque {
+#containerDescartavel, #containerNaoDescartavel, #containerSemEstoque, #containerComEstoque, #containerFavoritos {
     display: flex;
     align-items: center;
     width: 100%;
@@ -527,7 +527,7 @@ a {
     cursor: pointer;
 }
 
-#containerDescartavel:hover, #containerNaoDescartavel:hover, #containerSemEstoque:hover, #containerComEstoque:hover {
+#containerDescartavel:hover, #containerNaoDescartavel:hover, #containerSemEstoque:hover, #containerComEstoque:hover, #containerFavoritos:hover {
     background: #a5a5a5;
 }
 

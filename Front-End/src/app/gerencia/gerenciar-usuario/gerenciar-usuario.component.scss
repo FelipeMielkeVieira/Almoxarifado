@@ -88,22 +88,11 @@
     cursor: pointer;
 }
 
-.aceitar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 0.938rem;
-    height: 0.938rem;
-    background-color: rgba(0, 155, 25, 0.75);
-    margin: 2px;
-    border-radius: 3px;
+.iconeAceitar {
+    font-size: 22px;
     cursor: pointer;
 }
 
-.aceitar:hover {
-    background-color: #009B19;
-}
-
-.icone {
-    font-size: var(--font-size--verysmall);
+.iconeAceitar:hover {
+    color: green;
 }

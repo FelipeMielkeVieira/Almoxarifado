@@ -1,10 +1,6 @@
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<!-- Modal Ordenar -->
-<app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModaisPesquisa(1, '')" (ordenarItens)="ordenarItens($event)"
-    [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
-
 <!-- Modais que escurecem a tela -->
 <div *ngIf="localizacaoModal || modalCadastrarItem" id="fundoModal">
 
@@ -70,10 +66,13 @@
                             </div>
 
                             <div id="iconListaBloco">
-                                <span *ngIf="abaItens" (click)="mudarModaisPesquisa(1, '')" id="iconOrdernar"
+                                <span *ngIf="abaItens" (click)="mudarModalOrdenar()" id="iconOrdernar"
                                     class="material-symbols-outlined iconDeselect iconsModais" title="Ordernar">
                                     sync_alt
                                 </span>
+                                <!-- Modal Ordenar -->
+                                <app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModalOrdenar()"
+                                (ordenarItens)="ordenarItens($event)" [listaOrdenacoes]="listaOrdenacoes" id="appModalOrdenar"></app-modal-ordenar>
 
                                 <span *ngIf="listaEmBloco && !abaLocalizacoes" (click)="mudarVisualizacao()"
                                     id="iconEmBloco" class="material-symbols-outlined iconDeselect"

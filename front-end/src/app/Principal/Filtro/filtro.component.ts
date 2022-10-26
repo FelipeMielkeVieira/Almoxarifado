@@ -94,6 +94,16 @@ export class FiltroComponent implements OnInit {
     }
   }
 
+  // *Essa função irá dar check no input, caso ele clique na div
+  checkFavoritos() {
+    const input = document.querySelector("#checkFavoritos") as HTMLInputElement;
+    if (input.checked == true) {
+      input.checked = false;
+    } else {
+      input.checked = true;
+    }
+  }
+
   // *Esse é complicado...
   filtrar(item: { classificacao: string }) {
     this.filtroSelecionado = item;

@@ -196,6 +196,10 @@ main {
     display: flex;
 }
 
+#appModalOrdenar {
+    position: absolute;
+}
+
 .containerItensLista{
     display: grid;
     grid-template-columns: repeat(1, 1fr);

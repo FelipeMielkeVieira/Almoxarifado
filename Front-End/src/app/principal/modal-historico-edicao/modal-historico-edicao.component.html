@@ -18,7 +18,6 @@
     <table id="tableItens" class="table table-hover">
       <thead>
         <tr>
-          <th>#</th>
           <th class="tdDescricaoEdicao">Descrição</th>
           <th class="tdUsuarioEdicao">Usuário</th>
           <th class="tdDataEdicao">Data</th>
@@ -32,13 +31,6 @@
           (click)="selecionarRow(edicao)"
           [ngClass]="edicao.checked ? 'table-active' : ''"
         >
-          <td class="itemTabela displayFlex tdCheck">
-            <input
-              class="checkboxStyle"
-              [checked]="edicao.checked"
-              type="checkbox"
-            />
-          </td>
           <td class="itemTabela displayFlex tdDescricaoEdicao" title="{{ edicao.descricao }}">
             {{ edicao.descricao }}
           </td>
