@@ -5,7 +5,8 @@
 }
 
 main {
-    width: 100%;
+    width: auto;
+    margin: 0;
 }
 
 p {
@@ -26,14 +27,14 @@ h1 {
 }
 
 .divPrincipal {
-    width: 100%;
+    width: auto;
 }
 
 #container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: auto;
     min-width: 890px;
 }
 
