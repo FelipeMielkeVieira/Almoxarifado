@@ -17,6 +17,7 @@ export class ReservaComponent implements OnInit {
     feedbackRetiradaConfirmada = false;
     feedbackReservaCancelada = false;
     feedbackDevolucaoConfirmada = false;
+    feedbackAtrasoDevolucao = false;
 
     ngOnInit() {
     }
@@ -35,6 +36,9 @@ export class ReservaComponent implements OnInit {
             this.modalDevolucao = !this.modalDevolucao;
             if(event == "baixa") {
                 this.abrirModaisFeedback(3);
+            }
+            if(event == "atraso") {
+                this.abrirModaisFeedback(4);
             }
         }
     }
@@ -60,6 +64,11 @@ export class ReservaComponent implements OnInit {
                     this.feedbackDevolucaoConfirmada = false;
                 }, 4000);
                 break;
+            case 4:
+                this.feedbackAtrasoDevolucao = true;
+                setTimeout(() => {
+                    this.feedbackAtrasoDevolucao = false;
+                }, 4000);
         }
     }
 
@@ -74,6 +83,10 @@ export class ReservaComponent implements OnInit {
                 break;
             case 3:
                 this.feedbackDevolucaoConfirmada = false;
+                break;
+            case 4:
+                this.feedbackAtrasoDevolucao = false;
+                break;
         }
     }
 

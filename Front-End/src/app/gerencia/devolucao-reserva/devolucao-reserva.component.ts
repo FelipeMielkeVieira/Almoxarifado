@@ -48,6 +48,18 @@ export class DevolucaoReservaComponent implements OnInit {
         }
     }
 
+    // Função para abrir os modais de ocorrências
+    abrirModaisOcorrencias(numero: number) {
+        switch(numero) {
+            case 1:
+                this.modalAlertarAtraso = true;
+                break;
+            case 2:
+                this.modalInformarDefeito = true;
+                break;
+        }
+    }
+
     // Função para fechar os modais de ocorrências
     fecharModaisOcorrencias(numero: number, resposta: string) {
         switch(numero) {

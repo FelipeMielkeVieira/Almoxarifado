@@ -28,7 +28,8 @@
                                     style="background-color: gray; margin-bottom: 0.2rem">
                                     Não Devolvido
                                 </button>
-                                <button class="btnSegundario" style="background-color: #0047b6;">
+                                <button (click)="abrirModaisOcorrencias(2)" class="btnSegundario"
+                                    style="background-color: #0047b6;">
                                     Informar Defeito
                                 </button>
                             </div>
@@ -38,7 +39,7 @@
             </li>
         </ul>
         <div id="containerFinal">
-            <button class="btnDevolucaoModal cancelarRetirada">
+            <button (click)="abrirModaisOcorrencias(1)" class="btnDevolucaoModal cancelarRetirada">
                 Alertar Atraso
             </button>
             <button (click)="darBaixaReserva()" class="btnDevolucaoModal confirmarRetirada">
@@ -49,13 +50,13 @@
 </div>
 
 <!-- Div usada como fundo para modais -->
-<div *ngIf="modalConfirmacaoDevolucao" id="fundoModal">
+<div *ngIf="modalConfirmacaoDevolucao || modalAlertarAtraso || modalInformarDefeito" id="fundoModal">
 
     <app-modal-ocorrencia *ngIf="modalAlertarAtraso" [tipoOcorrencia]="3"
         (fecharModal)="fecharModaisOcorrencias(1, $event)"></app-modal-ocorrencia>
 
-    <!-- <app-modal-ocorrencia *ngIf="modalRemoverProduto" [tipoOcorrencia]="2"
-        (fecharModal)="fecharModaisOcorrencias(2, $event)"></app-modal-ocorrencia> -->
+    <app-modal-ocorrencia *ngIf="modalInformarDefeito" [tipoOcorrencia]="4"
+        (fecharModal)="fecharModaisOcorrencias(2, $event)"></app-modal-ocorrencia>
 
     <!-- Modal de confirmação de efetuar retirada -->
     <app-modal-confirmacao *ngIf="modalConfirmacaoDevolucao" [tipoTexto]="9"
