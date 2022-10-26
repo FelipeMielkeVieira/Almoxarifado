@@ -16,6 +16,7 @@ import { RetiradaReservaComponent } from './retirada-reserva/retirada-reserva.co
 import { ModalOcorrenciaComponent } from './modal-ocorrencia/modal-ocorrencia.component';
 import { CadastrarUsuarioListaComponent } from './cadastrar-usuario-lista/cadastrar-usuario-lista.component';
 import { CadastrarLocalizacaoModalComponent } from './cadastrar-localizacao-modal/cadastrar-localizacao-modal.component';
+import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CadastrarLocalizacaoModalComponent } from './cadastrar-localizacao-moda
     RetiradaReservaComponent,
     ModalOcorrenciaComponent,
     CadastrarUsuarioListaComponent,
-    CadastrarLocalizacaoModalComponent
+    CadastrarLocalizacaoModalComponent,
+    DevolucaoReservaComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,9 @@ import { CadastrarLocalizacaoModalComponent } from './cadastrar-localizacao-moda
     LocalizacaoComponent,
     ReservaComponent,
     RetiradaReservaComponent,
-    ModalOcorrenciaComponent
+    ModalOcorrenciaComponent,
+    DevolucaoReservaComponent,
+    CadastrarUsuarioListaComponent
   ]
 })
 export class GerenciaModule { }

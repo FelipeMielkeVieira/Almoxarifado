@@ -8,12 +8,20 @@ main {
     width: 100%;
 }
 
+p{
+    margin-bottom: 0;
+}
+
 /* <!-- ------------------------------- CAMINHO DO SITE (O PATH) ------------------------------ --> */
 #caminho {
     display: flex;
     align-items: center;
     margin-top: 1.2rem;
     margin-left: 5.5rem;
+}
+
+.material-symbols-outlined{
+    font-size: 15px;
 }
 
 #iconHome {
@@ -66,6 +74,7 @@ main {
 #containerInput {
     width: 80%;
     margin-bottom: 1rem;
+    margin-top: 1.5rem;
 }
 
 #divInput {
@@ -76,7 +85,6 @@ main {
     border-radius: 5px;
     width: 23rem;
     height: 2.4rem;
-    margin-top: 1rem;
 }
 
 #input {
