@@ -28,7 +28,7 @@ public class LocalizacaoController {
     }
 
     @GetMapping("/{codigoLocalizacao}")
-    public ResponseEntity<Object> findById(@PathVariable(value = "codigoLocalizacao") Integer codigoLocalizacao) {
+    public ResponseEntity<Object> findById(@PathVariable(value = "codigoLocalizacao") Long codigoLocalizacao) {
         if (!localizacaoService.existsById(codigoLocalizacao)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
         }
@@ -44,7 +44,7 @@ public class LocalizacaoController {
 
     @Transactional
     @DeleteMapping("/{codigoLocalizacao}")
-    public ResponseEntity<Object> deleteById(@PathVariable(value = "codigoLocalizacao") Integer codigoLocalizacao) {
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "codigoLocalizacao") Long codigoLocalizacao) {
         if (!localizacaoService.existsById(codigoLocalizacao)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
         }

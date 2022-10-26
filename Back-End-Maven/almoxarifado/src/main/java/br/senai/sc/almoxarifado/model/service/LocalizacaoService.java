@@ -19,19 +19,19 @@ public class LocalizacaoService {
         return localizacaoRepository.findAll();
     }
 
-    public Optional<Localizacao> findById(Integer codigoLocalizacao) {
-        return localizacaoRepository.findById(codigoLocalizacao);
+    public Optional<Localizacao> findById(Long id) {
+        return localizacaoRepository.findById(id);
     }
 
     public <S extends Localizacao> S save(S entity) {
         return localizacaoRepository.save(entity);
     }
 
-    public void deleteById(Integer codigoLocalizacao) {
-        localizacaoRepository.deleteById(codigoLocalizacao);
+    public void deleteById(Long id) {
+        localizacaoRepository.deleteById(id);
     }
 
-    public boolean existsById(Integer integer) {
-        return localizacaoRepository.existsById(integer);
+    public boolean existsById(Long id) {
+        return localizacaoRepository.existsById(id);
     }
 }

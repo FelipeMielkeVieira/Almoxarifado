@@ -13,7 +13,6 @@ import java.util.Date;
 @Setter
 @ToString
 public class HistoricoProdutoDTO {
-    private Long id;
     private Long quantidade;
     private String nome;
     private String caracteristicas;
