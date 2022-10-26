@@ -12,7 +12,8 @@
 <body>
     <div id="caminho">
         <div id="iconHome">
-            <span id="iconHome" class="material-symbols-outlined iconDeselect" alt="Casa" (click)="navegacao('/professor')">
+            <span id="iconHome" class="material-symbols-outlined iconDeselect" alt="Casa"
+                (click)="navegacao('/professor')">
                 home
             </span>
         </div>
@@ -37,44 +38,44 @@
     <div class="divMain">
         <div class="divProdutos">
             <div *ngFor="let produto of produtosSacola; let i = index;" class="containerItem">
+
                 <div class="containerCheckbox" *ngIf="!reservaFeita">
                     <input type="checkbox" id="checkbox" checked>
                 </div>
-                <div class="parteItem">
-                    <div class="divImg">
-                        <img class="img" src="../../../assets/Rele.png" alt="Imagem do Produto">
-                    </div>
-                    <div class="infoItem">
-                        <span class="nomeProduto">{{produto.nome}}</span>
-                        <div class="quantidade">
-                            <div class="divImagemQtd1">
-                                <span *ngIf="!reservaFeita" title="Remover"
-                                    class="material-symbols-outlined iconDeselect" id="menosQtdIcon"
-                                    (click)="alterarQtdProduto(1, i)">
-                                    remove
-                                </span>
-                            </div>
-                            <p class="textoQtd">{{produto.qtd_atual}}</p>
-                            <div class="divImagemQtd2">
-                                <span *ngIf="!reservaFeita" title="Adicionar"
-                                    class="material-symbols-outlined iconDeselect" id="maisQtdIcon"
-                                    (click)="alterarQtdProduto(2, i)">
-                                    add
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="divImg">
+                    <img class="img" src="../../../assets/Rele.png" alt="Imagem do Produto">
                 </div>
-                <div class="parteDireita">
-                    <div style="width: 100%;">
-                        <span *ngIf="!reservaFeita" title="Deletar" id="iconeLixeira"
-                            class="material-symbols-outlined iconDeselect">
-                            delete
+
+                <div class="nomeItem">
+                    <span class="nomeProduto">{{produto.nome}}</span>
+                </div>
+                
+                <div class="quantidade">
+                    <div class="divImagemQtd1">
+                        <span *ngIf="!reservaFeita" title="Remover" class="material-symbols-outlined iconDeselect"
+                            id="menosQtdIcon" (click)="alterarQtdProduto(1, i)">
+                            remove
                         </span>
                     </div>
+                    <p class="textoQtd">{{produto.qtd_atual}}</p>
+                    <div class="divImagemQtd2">
+                        <span *ngIf="!reservaFeita" title="Adicionar" class="material-symbols-outlined iconDeselect"
+                            id="maisQtdIcon" (click)="alterarQtdProduto(2, i)">
+                            add
+                        </span>
+                    </div>
+                </div>
+
+                <div class="classificacaoItem">
                     <p *ngIf="produto.descartavel" class="descartavel">Descartável</p>
                     <p *ngIf="!produto.descartavel" class="descartavel">Não Descartável</p>
                 </div>
+
+                <span *ngIf="!reservaFeita" title="Deletar" id="iconeLixeira"
+                    class="material-symbols-outlined iconDeselect">
+                    delete
+                </span>
             </div>
         </div>
         <div class="divResumo">
@@ -86,10 +87,9 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerData">
-                    <!-- <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
-                        (click)="abrirCalendario(1)">
+                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada">
                         calendar_month
-                    </span> -->
+                    </span>
                     <div class="divisaoData"></div>
                     <span class="textoData">{{formatarData(sacola.data_retirada)}}</span>
                 </div>
@@ -99,10 +99,9 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerData">
-                    <!-- <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
-                        (click)="abrirCalendario(2)">
+                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada">
                         calendar_month
-                    </span> -->
+                    </span>
                     <div class="divisaoData"></div>
                     <span class="textoData">{{formatarData(sacola.data_devolucao)}}</span>
                 </div>
@@ -111,7 +110,8 @@
                 <div class="divBotoes">
                     <button *ngIf="reservaFeita && dataSacola > dataAtual" class="botaoReservar botaoCancelarReserva"
                         (click)="cancelarReserva()">Cancelar Reserva</button>
-                    <button *ngIf="!reservaFeita" class="botaoReservar" (click)="excluirSacola()">Excluir Sacola</button>
+                    <button *ngIf="!reservaFeita" class="botaoReservar" (click)="excluirSacola()">Excluir
+                        Sacola</button>
                     <button *ngIf="!reservaFeita" (click)="reservarItens()" class="botaoReservar">Reservar</button>
                 </div>
             </div>

@@ -12,6 +12,7 @@ p {
     font-size: var(--font-size--small);
     font-weight: 500;
     cursor: pointer;
+    margin-bottom: 0;
 }
 
 p:hover {
@@ -43,8 +44,12 @@ p:hover {
     user-select: none;
 }
 
+.material-symbols-outlined {
+    font-size: 15px;
+}
+
 #iconMaior {
-    margin-top: .25rem;
+    margin-top: 0.25rem;
     cursor: default;
 }
 
@@ -52,8 +57,9 @@ p:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 55%;
     height: 1px;
+    margin-left: 5%;
     margin-top: 3%;
 }
 
@@ -73,41 +79,58 @@ p:hover {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     height: 28.125rem;
-    overflow: auto;
+    margin-left: 5%;
+    overflow-y: auto;
 }
 
 .containerItem {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    width: 95%;
+    height: 5.5rem;
+    border-bottom: solid 1px #D9D9D9;
+}
+
+.nomeItem {
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 30rem;
-    max-width: 30rem;
-    min-width: 20rem;
-    height: 9rem;
-    border-radius: 8px;
-    border: solid 1px black;
-    padding: 5px;
-    margin: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+.classificacaoItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    padding: 3px;
+    border-right: solid 1px black;
 }
 
 .containerCheckbox {
-    width: 20%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 15%;
+    border-right: 1px solid black;
 }
 
 #checkbox {
-    width: 3rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     cursor: pointer;
 }
 
 .parteItem {
     display: flex;
     align-items: center;
-    width: 50%;
+    width: 90%;
     height: 100%;
 }
 
@@ -115,9 +138,9 @@ p:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
+    width: 35%;
     height: 100%;
-    border-left: 1px solid black;
+    margin: 3px;
 }
 
 .img {
@@ -127,11 +150,10 @@ p:hover {
 
 .infoItem {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
-    width: 50%;
-    height: 80%;
+    flex-direction: row;
+    width: 100%;
 }
 
 .nomeProduto {
@@ -142,13 +164,13 @@ p:hover {
 }
 
 .quantidade {
-    margin: 5%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 85%;
+    width: 50%;
     height: 2rem;
     border-radius: 5px;
+    margin-left: 5%;
     border: solid 1px black;
 }
 
@@ -177,8 +199,9 @@ p:hover {
 }
 
 .textoQtd {
-    width: 40%;
+    width: 45%;
     text-align: center;
+    margin-bottom: 0;
 }
 
 .divImagemQtd2 {
@@ -202,6 +225,7 @@ p:hover {
     font-size: var(--font-size--giant);
     font-weight: 300;
     cursor: pointer;
+    padding: 3px;
 }
 
 #iconeLixeira:hover {
@@ -222,14 +246,14 @@ p:hover {
 .descartavel {
     font-size: var(--font-size--small);
     color: rgba(0, 0, 0, 0.6);
-    text-align: end;
+    margin-bottom: 0;
 }
 
 .divResumo {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 40%;
 }
 
 .containerResumo {
@@ -278,6 +302,7 @@ p:hover {
 }
 
 .calendario {
+    font-size: 35px;
     cursor: pointer;
 }
 
@@ -322,6 +347,15 @@ p:hover {
     border: none;
     margin: 10px;
     cursor: pointer;
+    transition: all 0.8s;
+}
+
+.botaoReservar:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: black;
+    transition: all 0.5s;
+    border: solid 0.5px black;
 }
 
 .botaoCancelarReserva {
