@@ -1,5 +1,5 @@
 .containerModalCadastrar {
-    width: 70%;
+    width: 80%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -8,7 +8,7 @@
 
 #containerModalCadastrar {
     border-top: 12px solid #0047B6;
-    width: 33.75rem;
+    width: 40rem;
     height: 37.5rem;
     background-color: #fff;
     border-radius: 7px;
@@ -202,4 +202,22 @@
     font-size: var(--font-size--big);
     margin-top: 1.875rem;
     cursor: pointer;
+}
+
+.containerImagem {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.divInputImagem {
+    width: 60%;
+}
+
+.imgPreview {
+    height: 140px;
+    width: 160px;
+    border: 0.5px solid rgb(158, 158, 158);
+    border-radius: 6px;
+    object-fit: contain;
 }
