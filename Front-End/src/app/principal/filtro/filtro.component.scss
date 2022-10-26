@@ -340,7 +340,6 @@ a {
 
 #check:checked~.sidebar a span, #check:checked~.sidebar #containerConteudoFiltro, #check:checked~.sidebar #riscoSeparar {
     display: none;
-    transition: 10s;
 }
 
 #check:checked~.sidebar a {
@@ -353,11 +352,6 @@ a {
 #check {
     display: none;
 }
-
-// #check:checked~.sidebar #iconMaior {
-//     transition: all 0.7s;
-//     transform: scaleX(1);
-// }
 
 #espacamento {
     height: 85px;
@@ -506,7 +500,7 @@ a {
     overflow: auto;
 }
 
-#containerDescartavel {
+#containerDescartavel, #containerNaoDescartavel, #containerSemEstoque, #containerComEstoque {
     display: flex;
     align-items: center;
     width: 100%;
@@ -516,8 +510,13 @@ a {
     cursor: pointer;
 }
 
-#containerDescartavel:hover {
+#containerDescartavel:hover, #containerNaoDescartavel:hover, #containerSemEstoque:hover, #containerComEstoque:hover {
     background: #a5a5a5;
+}
+
+#espacoEscondido {
+    height: 60px;
+    transition: 0.5s;
 }
 
 .checkbox {

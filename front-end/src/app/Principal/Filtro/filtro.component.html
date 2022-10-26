@@ -187,19 +187,19 @@
             <span class="texto">Descartáveis</span>
           </div>
         </div>
-        <div id="containerDescartavel" (click)="checkNaoDescartavel()">
+        <div id="containerNaoDescartavel" (click)="checkNaoDescartavel()">
           <input class="checkbox" type="checkbox" id="checkNaoDescartavel"/>
           <div>
             <span class="texto">Não Descartáveis</span>
           </div>
         </div>
-        <div id="containerDescartavel" (click)="checkSemEstoque()">
+        <div id="containerSemEstoque" (click)="checkSemEstoque()">
           <input class="checkbox" type="checkbox" id="checkSemEstoque"/>
           <div>
             <span class="texto">Sem estoque</span>
           </div>
         </div>
-        <div id="containerDescartavel" (click)="checkComEstoque()">
+        <div id="containerComEstoque" (click)="checkComEstoque()">
           <input class="checkbox" type="checkbox" id="checkComEstoque"/>
           <div>
             <span class="texto">Com estoque</span>
@@ -220,6 +220,7 @@
         <a *ngFor="let item of listaClassificacoes" (click)="filtrar(item)">
           <span>{{ item.classificacao }}</span>
         </a>
+        <div id="espacoEscondido"></div>
       </div>
     </div>
   </div>
