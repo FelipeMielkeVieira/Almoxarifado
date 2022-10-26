@@ -19,6 +19,7 @@ import { CadastrarUsuarioListaComponent } from './cadastrar-usuario-lista/cadast
 import { CadastrarLocalizacaoModalComponent } from './cadastrar-localizacao-modal/cadastrar-localizacao-modal.component';
 import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva.component';
 import { GerenciarUsuarioListaComponent } from './gerenciar-usuario-lista/gerenciar-usuario-lista.component';
+import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { GerenciarUsuarioListaComponent } from './gerenciar-usuario-lista/gerenc
     CadastrarUsuarioListaComponent,
     CadastrarLocalizacaoModalComponent,
     DevolucaoReservaComponent,
-    GerenciarUsuarioListaComponent
+    GerenciarUsuarioListaComponent,
+    CadastrarItemComponent
   ],
   imports: [
     CommonModule,

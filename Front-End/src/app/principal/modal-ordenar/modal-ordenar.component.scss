@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    text-align: left;
 }
 
 .tituloFiltroModalUser {
@@ -37,7 +38,7 @@
 }
 
 #containerEsquerdo {
-    width: 10rem;
+    width: 12rem;
 }
 
 .containerCadaCheck {
@@ -52,6 +53,7 @@
     cursor: pointer;
     margin-left: 10px;
     user-select: none;
+    width: 100%;
 }
 
 input {
@@ -66,6 +68,8 @@ input {
 #containerBotao {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .btnFiltrarModalOrdenar{
@@ -75,5 +79,4 @@ input {
     padding: 0.5rem 0.8rem;
     border-radius: 0.3rem;
     cursor: pointer;
-    margin: 3px;
 }

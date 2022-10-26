@@ -106,24 +106,26 @@ export class FiltroComponent implements OnInit {
     let divFiltro = document.querySelector("#filtro") as HTMLDivElement;
 
     const containerFiltro = document.createElement("div");
-    const textoFiltro = document.createElement("p");
+    const textoFiltro = document.createElement("div");
     const containerExcluir = document.createElement("div");
-    const imgExcluir = document.createElement("img");
+    const iconExcluir = document.createElement("span");
 
     textoFiltro.innerText = item.classificacao;
-    imgExcluir.src = "../../../assets/close.png";
+    textoFiltro.style.fontSize = "var(--font-size--small)";
+    textoFiltro.style.fontWeight = "500";
+    iconExcluir.innerText = "close"
 
     containerFiltro.id = "containerFiltro";
     containerExcluir.id = "containerExcluir";
-    imgExcluir.id = "imgExcluir";
+    iconExcluir.id = "iconExcluir";
+    iconExcluir.className = "material-symbols-outlined";
 
     containerFiltro.style.marginTop = "10px"
     containerFiltro.style.display = "flex";
     containerFiltro.style.alignItems = "center";
     containerFiltro.style.padding = "5px"
     containerFiltro.style.borderRadius = "5px"
-    containerFiltro.style.backgroundColor = "white";
-    containerFiltro.style.border = "1px solid gray";
+    containerFiltro.style.backgroundColor = "#F2F2F2";
     containerFiltro.style.width = "fit-content";
     containerFiltro.style.fontSize = "var(--font-size--default)";
 
@@ -133,12 +135,12 @@ export class FiltroComponent implements OnInit {
     containerExcluir.style.cursor = "pointer";
     containerExcluir.onclick = this.tirarFiltro;
 
-    imgExcluir.style.width = "15px"
+    iconExcluir.style.fontSize = "20px"
 
     containerFiltro.appendChild(textoFiltro);
     containerFiltro.appendChild(containerExcluir);
 
-    containerExcluir.appendChild(imgExcluir);
+    containerExcluir.appendChild(iconExcluir);
 
     divFiltro.appendChild(containerFiltro);
   }

@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 33.375rem;
-    height: 30rem;
+    width: 50rem;
+    height: 35rem;
     border-radius: 10px;
     background-color: #fff;
     animation: fadein 0.5s;
@@ -51,9 +51,10 @@
 }
 
 .riscoDivisao {
-    width: 70%;
+    width: 90%;
     height: 2px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     background-color: black;
 }
 
@@ -94,4 +95,29 @@
 .textoData {
     font-size: var(--font-size--small);
     color: rgb(170, 168, 168);
+}
+
+#containerTabela {
+    width: 90%;
+}
+
+.tdDescricaoEdicao, .tdUsuarioEdicao, .tdDataEdicao, .tdHoraEdicao {
+    text-align: center;
+}
+
+.tdDescricaoEdicao {
+    max-width: 50ch;
+}
+
+.checkboxStyle {
+    width: 15px;
+    height: 15px;
+}
+
+.itemTabela {
+    vertical-align: middle;
+}
+
+.linhaSelecionavel {
+    cursor: pointer;
 }
