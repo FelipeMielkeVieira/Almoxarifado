@@ -2,18 +2,26 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <!-- Modal Ordenar -->
-<app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModaisPesquisa(1)" (ordenarItens)="ordenarItens($event)"
+<app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModaisPesquisa(1, '')" (ordenarItens)="ordenarItens($event)"
     [listaOrdenacoes]="listaOrdenacoes"></app-modal-ordenar>
 
 <!-- Modais que escurecem a tela -->
 <div *ngIf="localizacaoModal || modalCadastrarItem" id="fundoModal">
 
     <!-- Modal Cadastrar localização -->
-    <app-cadastrar-localizacao-modal *ngIf="localizacaoModal" (fecharModal)="mudarModaisPesquisa(2)">
+    <app-cadastrar-localizacao-modal *ngIf="localizacaoModal" (fecharModal)="mudarModaisPesquisa(2, $event)">
     </app-cadastrar-localizacao-modal>
 
-    <app-cadastrar-item *ngIf="modalCadastrarItem" (fecharModal)="mudarModaisPesquisa(3)"></app-cadastrar-item>
+    <!-- Modal Cadastrar Item -->
+    <app-cadastrar-item *ngIf="modalCadastrarItem" (fecharModal)="mudarModaisPesquisa(3, $event)"></app-cadastrar-item>
 </div>
+
+<!-- Feedback Cadastro de Localização -->
+<app-modal-feedback *ngIf="feedbackLocalizacaoCadastrada" [tipoFeedback]="16" (fecharModal)="fecharModaisFeedback(1)">
+</app-modal-feedback>
+
+<!-- Feedback Cadastro de Item -->
+<app-modal-feedback *ngIf="feedbackItemCadastrado" [tipoFeedback]="17" (fecharModal)="fecharModaisFeedback(1)"></app-modal-feedback>
 
 <app-header></app-header>
 <app-filtro></app-filtro>
@@ -61,7 +69,7 @@
                             </div>
 
                             <div id="iconListaBloco">
-                                <span *ngIf="abaItens" (click)="mudarModaisPesquisa(1)" id="iconOrdernar"
+                                <span *ngIf="abaItens" (click)="mudarModaisPesquisa(1, '')" id="iconOrdernar"
                                     class="material-symbols-outlined iconDeselect iconsModais" title="Ordernar">
                                     sync_alt
                                 </span>
@@ -79,11 +87,11 @@
                             </div>
                         </div>
                         <button *ngIf="abaLocalizacoes" mat-flat-button color="primary"
-                            (click)="mudarModaisPesquisa(2)">
+                            (click)="mudarModaisPesquisa(2, '')">
                             Cadastrar Localização
                         </button>
                         <button *ngIf="abaItens && (tipoUsuario == 3 || tipoUsuario == 4)" mat-flat-button
-                            color="primary" (click)="mudarModaisPesquisa(3)">
+                            color="primary" (click)="mudarModaisPesquisa(3, '')">
                             Cadastrar Item
                         </button>
                     </div>

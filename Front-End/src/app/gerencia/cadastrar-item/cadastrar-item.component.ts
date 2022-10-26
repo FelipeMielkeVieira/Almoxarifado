@@ -14,4 +14,9 @@ export class CadastrarItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Função para fechar o modal
+  fecharModalCadastro(texto: string) {
+    this.fecharModal.emit(texto);
+  }
+
 }

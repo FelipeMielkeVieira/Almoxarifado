@@ -39,22 +39,21 @@ export class HomeComponent implements OnInit {
   abaLocalizacoes = false;
 
   modalCadastrarItem = false;
+  localizacaoModal = false;
+  modalOrdenar: boolean = false;
 
   listaEmBloco = true;
   inputGeral = "";
   tipoUsuario = 2;
-
-  reserva = true;
-  aparecerConfirmacao = 0;
-  nomeLoc: any;
-  modalClassificacao = 0;
-  inputClassificacao = 0;
   numResultados = 0;
 
-  indexExcluir: number = 0;
+  localizacoesFiltradas: any = [];
+  localizacoesLista: any = [];
+
+  feedbackLocalizacaoCadastrada = false;
+  feedbackItemCadastrado = false;
 
   ngOnInit() {
-
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
     window.onclick = function (event) {
@@ -76,23 +75,6 @@ export class HomeComponent implements OnInit {
       }
     }, 10);
   }
-
-  localizacaoAtual = "paredeCentro";
-  localizacoesFiltradas: any = [];
-  localizacoesLista: any = [];
-  listaClassificacao = [{ nome: "Nome classificacao" }];
-
-  localizacoesItem = 1;
-
-  cadastrarModal = false;
-  aparecer = false;
-  localizacaoModal = false;
-  removerDevolucaoModal = false;
-
-  informarDefeitoModal: boolean = false;
-  devolucaoModal: boolean = false;
-  modalOrdenar: boolean = false;
-  ajuda: boolean = true;
 
   // Função que retorna o placeholder do input de pesquisa principal, dependendo da aba aberta
   retornaPlaceholderPesquisa() {
@@ -181,19 +163,24 @@ export class HomeComponent implements OnInit {
   }
 
   // Função para mudar a visualização do modal de ordenação
-  mudarModaisPesquisa(numero: number) {
+  mudarModaisPesquisa(numero: number, evento: string) {
     switch (numero) {
       case 1:
         this.modalOrdenar = !this.modalOrdenar;
         break;
       case 2:
         this.localizacaoModal = !this.localizacaoModal;
+        if(evento == "cadastro") {
+
+        }
         break;
       case 3:
         this.modalCadastrarItem = !this.modalCadastrarItem;
+        if(evento == "cadastro") {
+
+        }
         break;
     }
-
     document.documentElement.style.overflow = "auto";
   }
 
@@ -226,5 +213,16 @@ export class HomeComponent implements OnInit {
 
   excluirLocalizacoes() {
 
+  }
+
+  fecharModaisFeedback(numero: number) {
+    switch(numero) {
+      case 1:
+        this.feedbackLocalizacaoCadastrada = false;
+        break;
+      case 2:
+        this.feedbackItemCadastrado = false;
+        break;
+    }
   }
 }
