@@ -18,8 +18,8 @@
     align-items: center;
     flex-direction: column;
     width: 33.375rem;
-    height: 30rem;
-    border-radius: 10px;
+    border-top: 0.63rem #0047B6 solid;
+    border-radius: 5px;
     background-color: #fff;
     animation: fadein 0.5s;
 }
@@ -36,39 +36,39 @@
     }
 }
 
-.linhaAzul {
-    width: 100%;
-    height: 0.931rem;
-    border-radius: 10px 10px 0px 0px;
-    background-color: #0047B6;
-}
-
-.containerFechar {
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: flex-end;
-}
-
 #iconeFechar {
+    position: absolute;
+    right: 0;
     padding: 5px;
     margin: 5px;
     font-size: var(--font-size--giant);
     cursor: pointer;
 }
 
+.titleModal {
+    margin-top: 8px;
+    color: #0047B6;
+}
+
+#conteudo {
+    width: 100%;
+    padding: 1rem 3rem;
+}
+
+.dividerStyle {
+    margin-bottom: 16px;
+}
+
 .containerInfoModal {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 13rem;
 }
 
 .textoDescricao {
     font-size: var(--font-size--medium);
     font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .campoDescricao {
@@ -89,6 +89,7 @@
     width: 50%;
     height: 80%;
     font-size: var(--font-size--default);
+    padding: 0 8px;
 }
 
 .riscoDivisao {
@@ -103,7 +104,23 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    margin-top: 1rem;
+}
+
+.linhaDescricaoAnexo {
+    display: flex;
+    align-items: center;
+}
+
+.linhaTabelaAnexos {
+    vertical-align: middle;
+}
+
+.descricaoAnexo {
+    margin: 0;
+}
+
+.linkAnexo {
+    text-align: center;
 }
 
 .containerAnexos {

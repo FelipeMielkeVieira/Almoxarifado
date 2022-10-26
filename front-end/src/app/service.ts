@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class UsersService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   usuarios = [
     {
@@ -60,6 +60,20 @@ export class UsersService {
       descartavel: true,
       imagem: '../assets/Abracadeira.jfif',
       classificacao: 1,
+      anexos: [
+        {
+          descricao: "teste",
+          anexo: "google.com"
+        },
+        {
+          descricao: "teste 2",
+          anexo: "google.com"
+        },
+        {
+          descricao: "teste 3",
+          anexo: "google.com"
+        },
+      ]
     },
     {
       id: 2,
@@ -69,6 +83,20 @@ export class UsersService {
       descartavel: true,
       imagem: '../assets/bateria.jfif',
       classificacao: 2,
+      anexos: [
+        {
+          descricao: "teste",
+          anexo: "google.com"
+        },
+        {
+          descricao: "teste 2",
+          anexo: "google.com"
+        },
+        {
+          descricao: "teste 3",
+          anexo: "google.com"
+        },
+      ]
     },
     {
       id: 3,
@@ -78,6 +106,20 @@ export class UsersService {
       descartavel: false,
       imagem: '../assets/chave.jfif',
       classificacao: 6,
+      anexos: [
+        {
+          descricao: "teste",
+          anexo: "google.com"
+        },
+        {
+          descricao: "teste 2",
+          anexo: "google.com"
+        },
+        {
+          descricao: "teste 3",
+          anexo: "google.com"
+        },
+      ]
     },
   ];
 

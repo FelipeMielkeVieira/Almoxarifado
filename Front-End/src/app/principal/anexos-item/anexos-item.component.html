@@ -1,34 +1,47 @@
 <div id="fundoModal">
     <div class="containerModalAnexos">
-        <div class="linhaAzul"></div>
-        <div class="containerFechar">
-            <span title="Fechar" (click)="fecharModalAnexos()" class="material-symbols-outlined iconDeselect"
-                id="iconeFechar">
-                close
-            </span>
-        </div>
-        <div class="containerInfoModal">
-            <span class="textoDescricao">Descrição:</span>
-            <div class="campoDescricao">
-                <span class="descricaoItem">
+        <span title="Fechar" (click)="fecharModalAnexos()" class="material-symbols-outlined iconDeselect"
+            id="iconeFechar">
+            close
+        </span>
+        <div id="conteudo">
+            <h2 class="titleModal">Detalhes</h2>
+            <mat-divider class="dividerStyle"></mat-divider>
+            <div class="containerInfoModal">
+                <p class="textoDescricao">Descrição do item:</p>
+                <p class="descricaoItem">
                     {{ item.descricao }}
-                </span>
+                </p>
             </div>
-        </div>
-        <div class="riscoDivisao"></div>
-        <span class="textoDescricao">Anexos:</span>
-        <div class="parteAnexos">
-            <div class="containerAnexos">
-                <span title="Anexo" class="material-symbols-outlined iconDeselect" id="iconeAnexo">
-                    folder_open
-                </span>
-                <a href=""><span>Arquivo 01</span></a>
-            </div>
-            <div class="containerAnexos">
-                <span title="Anexo" class="material-symbols-outlined iconDeselect" id="iconeAnexo">
-                    folder_open
-                </span>
-                <a href=""><span>Arquivo 02</span></a>
+            <mat-divider class="dividerStyle"></mat-divider>
+            <p class="textoDescricao">Anexos:</p>
+            <div class="parteAnexos">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                Descrição do anexo
+                            </th>
+                            <th scope="col" class="linkAnexo">
+                                Link
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="linhaTabelaAnexos" *ngFor="let anexo of item.anexos">
+                            <td class="linhaDescricaoAnexo">
+                                <p class="descricaoAnexo">
+                                    {{ anexo.descricao }}
+                                </p>
+                            </td>
+                            <td class="linkAnexo">
+                                <a mat-buton href="{{ anexo.anexo }}" target="_blank">
+                                    Anexo
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

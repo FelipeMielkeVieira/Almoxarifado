@@ -28,7 +28,11 @@ export class ModalReservarItem implements OnInit {
   dataRetirada: any = new Date();
   dataDevolucao: any = new Date();
 
-  ngOnInit() { }
+  ngOnInit() { 
+    if (this.item.quantidade <= 0) {
+      document.getElementById("professores")?.setAttribute("disabled", "true");
+    }
+  }
 
   // Função para fechar o modal, enviando um output recebido
   fecharModalReserva(evento: string) {
@@ -102,7 +106,7 @@ export class ModalReservarItem implements OnInit {
   }
 
   // Função que envia um Output para fechar o modal e abrir o modal de anexos do item
-  verAnexos() {
+  verDetales() {
     this.fecharModalReserva("anexos");
   }
 
@@ -122,5 +126,13 @@ export class ModalReservarItem implements OnInit {
     if (this.qtdItem > 0 && this.item.quantidade > 0) {
       this.fecharModalReserva("sacola");
     }
+  }
+
+  // Função para determinar se o input de adicionar professor está habilitado ou não
+  isDisabled() {
+    if (this.item.quantidade > 0) {
+      return false;
+    }
+    return true;
   }
 }
