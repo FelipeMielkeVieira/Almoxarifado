@@ -10,19 +10,19 @@
             <div class="containerImagem">
                 <img class="imgPreview" id="imagemItem">
                 <div class="mb-3 divInputImagem">
-                    <label for="formFileSm" class="form-label">Escolher Imagem:</label>
+                    <label for="formFileSm" class="form-label tamanhoTextos">Escolher Imagem:</label>
                     <input class="form-control form-control-sm " id="formFileSm" type="file"
                         (change)="carregarImagem($event)">
                 </div>
             </div>
             <div class="nomeProduto">
-                <span>Nome Produto: </span>
+                <span class="tamanhoTextos">Nome Produto: </span>
                 <div class="containerInput">
                     <input class="inputsCadastro" type="text" placeholder="Nome produto" />
                 </div>
             </div>
             <div class="classificacao">
-                <span>Classificação: </span>
+                <span class="tamanhoTextos">Classificação: </span>
                 <div class="addClassificacao">
                     <div (click)="mudarClassificacao()" class="divPonto" id="adicionarClassificacao"
                         style="background-color: #B6B3B3;">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <select *ngIf="!criarClassificacao" class="inputsCadastro" name="">
-                    <option *ngFor="let classificacao of listaClassificacao" value="">
+                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos" value="">
                         {{ classificacao.classificacao }}
                     </option>
                 </select>
@@ -40,12 +40,12 @@
             </div>
             <div class="localizacao">
                 <div style="display: flex; align-items: center;">
-                    <span style="margin-right: 20px">Localização: </span>
+                    <span style="margin-right: 20px" class="tamanhoTextos">Localização: </span>
                     <div class="containerLocalizacao">
                         <select style="margin-right: 10px;" *ngFor="let l of listaLocalizacoes; let i = index;"
                             id="localizacaoProduto1" class="localizacaoProduto" (change)="mudarLocalizacoes(i)"
                             [(ngModel)]="listaLocalizacoesEscolhidas[i]">
-                            <option *ngFor="let loc of (listaLocalizacoes[i])" value="{{loc.id}}">
+                            <option *ngFor="let loc of (listaLocalizacoes[i])" class="tamanhoTextos" value="{{loc.id}}">
                                 {{ loc.nome }}
                             </option>
                         </select>
@@ -53,13 +53,13 @@
                 </div>
             </div>
             <div class="opcao">
-                <span>Opção: </span>
+                <span class="tamanhoTextos">Opção: </span>
                 <select id="selecionarDescartavel">
-                    <option value="paredeCentro" selected>Descartável</option>
-                    <option value="armario">Não Descartável</option>
+                    <option value="paredeCentro" class="tamanhoTextos" selected>Descartável</option>
+                    <option value="armario" class="tamanhoTextos">Não Descartável</option>
                 </select>
                 <div class="qtdItem">
-                    <span>QTD: </span>
+                    <span class="tamanhoTextos">QTD: </span>
                     <div class="pontosQtd" (click)="mudarQtd(1)">
                         <span title="Deletar" class="material-symbols-outlined iconDeselect iconMaisLoc">
                             remove
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <button class="botaoCadastrar">
+            <button class="botaoCadastrar tamanhoTextos">
                 Cadastrar
             </button>
         </div>

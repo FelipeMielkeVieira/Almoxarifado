@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.tamanhoTextos {
+    font-size: var(--font-size--default);
+}
+
 #fundoModal {
     display: flex;
     justify-content: center;
