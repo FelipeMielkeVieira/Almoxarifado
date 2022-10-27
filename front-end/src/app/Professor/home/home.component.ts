@@ -21,15 +21,19 @@ export class HomeComponent implements OnInit {
     paginator.firstPageLabel = 'Primeira página';
     paginator.lastPageLabel = 'Última página';
 
+    // *Personalizar a paginação
     paginator.getRangeLabel = (page: number, pageSize: number, length: number) => {
       if (length === 0 || pageSize === 0) {
         return `0 à ${length }`;
       }
       length = Math.max(length, 0);
       const startIndex = page * pageSize;
-      // If the start index exceeds the list length, do not try and fix the end index to the end.
+
       const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
-      return `${endIndex} de ${length}`;
+      if(endIndex/18 <= 1) {
+        return `página ${endIndex/18} de ${Math.round(length/18)}`;
+      }
+      return `página ${endIndex/18} de ${Math.round(length/18)}`;
     };
   }
 
