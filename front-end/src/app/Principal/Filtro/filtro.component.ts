@@ -182,6 +182,7 @@ export class FiltroComponent implements OnInit {
 
   // *Irá abrir o modal de gerenciar filtro
   modalFiltro() {
+    document.documentElement.style.overflow = "hidden";
     this.modalGerenciarFiltro = true;
   }
 

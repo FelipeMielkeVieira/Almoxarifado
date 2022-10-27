@@ -177,6 +177,7 @@ export class HomeComponent implements OnInit {
 
   // Função para mudar a visualização do modal de ordenação
   mudarModaisPesquisa(numero: number, evento: string) {
+    document.documentElement.style.overflow = "hidden";
     switch (numero) {
       case 1:
         this.modalOrdenar = !this.modalOrdenar;
@@ -194,7 +195,6 @@ export class HomeComponent implements OnInit {
         }
         break;
     }
-    document.documentElement.style.overflow = "auto";
   }
 
   //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações
