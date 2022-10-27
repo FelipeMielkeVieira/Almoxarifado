@@ -110,12 +110,24 @@
                 <div class="divBotoes">
                     <button *ngIf="reservaFeita && dataSacola > dataAtual" class="botaoReservar botaoCancelarReserva"
                         (click)="cancelarReserva()">Cancelar Reserva</button>
-                    <button *ngIf="!reservaFeita" class="botaoReservar" (click)="excluirSacola()">Excluir
+                    <button *ngIf="!reservaFeita" class="botaoReservar" (click)="abrirModalConfirmacao(1)">Excluir
                         Sacola</button>
-                    <button *ngIf="!reservaFeita" (click)="reservarItens()" class="botaoReservar">Reservar</button>
+                    <button *ngIf="!reservaFeita" (click)="abrirModalConfirmacao(2)" class="botaoReservar">Reservar</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="fundoModal" *ngIf="modalReservar || modalExcluir">
+      
+        <!-- Modal de confirmação de exclusão -->
+        <app-modal-confirmacao *ngIf="modalExcluir" [tipoTexto]="2" (fecharModal)="fecharModalConfirmacao(1, $event)">
+        </app-modal-confirmacao>
+
+        <!-- Modal de confirmação de reserva -->
+        <app-modal-confirmacao *ngIf="modalReservar" [tipoTexto]="3" (fecharModal)="fecharModalConfirmacao(2, $event)">
+        </app-modal-confirmacao>
+    </div>
+    
 </body>
 <!-- ------------------------------- FIM CONTEÚDO MINHA-SACOLA ------------------------------- -->

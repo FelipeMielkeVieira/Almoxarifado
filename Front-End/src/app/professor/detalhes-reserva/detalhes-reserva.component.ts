@@ -25,8 +25,13 @@ export class DetalhesReservaComponent implements OnInit {
     // Variável para determinar se o componente é de uma reserva ou sacola
     reservaFeita: boolean = false;
 
-    tipoUsuario : number;
-    professorReserva : string = "";
+    tipoUsuario: number;
+    professorReserva: string = "";
+
+    modalExcluir: boolean = false;
+    modalReservar: boolean = false;
+    feedbackReservaFeita: boolean = false;
+    feedbackExclusaoSacola: boolean = false;
 
     sacola: any;
     produtosSacola: any;
@@ -58,6 +63,60 @@ export class DetalhesReservaComponent implements OnInit {
 
     formatarData(data: string) {
         return new Date(data).toLocaleString();
+    }
+
+    abrirModalConfirmacao(numero: number) {
+        switch (numero) {
+            case 1:
+                this.modalExcluir = true;
+                break;
+            case 2:
+                this.modalReservar = true;
+                break;
+        }
+    }
+
+    fecharModalConfirmacao(numero: number, confirmacao: any) {
+        switch (numero) {
+            case 1:
+                this.modalExcluir = false;
+                if (confirmacao) {
+                    localStorage.setItem('excluir', '1');
+                    this.excluirSacola();
+                    this.enviarFeedback();
+                }
+                break;
+            case 2:
+                this.modalReservar = false;
+                if (confirmacao) {
+                    localStorage.setItem('reservar', '1');
+                    this.finalizarReserva();
+                    this.enviarFeedback();
+                }
+                break;
+        }
+    }
+
+    // Função para enviar para feedback para a página de home
+    enviarFeedback() {
+        this.navegacaoTipo();
+    }
+
+    navegacaoTipo() {
+        if (localStorage.getItem('usuario') == '1') {
+            this.router.navigate(['/professor']);
+        } else if (
+            localStorage.getItem('usuario') == '2' ||
+            localStorage.getItem('usuario') == '3'
+        ) {
+            this.router.navigate(['/atendente']);
+        } else if (localStorage.getItem('usuario') == '4') {
+            this.router.navigate(['/supervisor']);
+        }
+    }
+
+    finalizarReserva() {
+        //Chamar back para fazer reserva
     }
 
     cancelarReserva() {
