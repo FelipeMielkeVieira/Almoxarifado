@@ -24,71 +24,31 @@
             <div class="classificacao">
                 <span>Classificação: </span>
                 <div class="addClassificacao">
-                    <div class="divPonto">
+                    <div (click)="mudarClassificacao()" class="divPonto" id="adicionarClassificacao"
+                        style="background-color: #B6B3B3;">
                         <span title="Adicionar" class="material-symbols-outlined iconDeselect iconMaisLoc">
                             add
                         </span>
                     </div>
                 </div>
-                <select class="inputsCadastro" name="">
-                    <!-- <option *ngFor="let classificacao of listaClassificacao" value="">
-                        {{ classificacao.nome }}
-                    </option> -->
+                <select *ngIf="!criarClassificacao" class="inputsCadastro" name="">
+                    <option *ngFor="let classificacao of listaClassificacao" value="">
+                        {{ classificacao.classificacao }}
+                    </option>
                 </select>
-            </div>
-            <div class="adicionarClassificacao">
-                <input class="inputsCadastro" type="text" placeholder="Cadastrar localização" />
-            </div>
-            <div class="descricao">
-                <span>Descrição: </span>
-                <textarea class="inputDescricao" placeholder="Descrição"></textarea>
+                <input *ngIf="criarClassificacao" type="text" class="inputsCadastro" placeholder="Nova Classificação">
             </div>
             <div class="localizacao">
-                <div style="display: flex">
-                    <span style="margin-right: 10px">Localização: </span>
+                <div style="display: flex; align-items: center;">
+                    <span style="margin-right: 20px">Localização: </span>
                     <div class="containerLocalizacao">
-                        <!-- <select *ngIf="localizacoesItem > 0" id="localizacaoProduto1" class="localizacaoProduto">
-                            <option *ngFor="let loc of localizacoesLista">
+                        <select style="margin-right: 10px;" *ngFor="let l of listaLocalizacoes; let i = index;"
+                            id="localizacaoProduto1" class="localizacaoProduto" (change)="mudarLocalizacoes(i)"
+                            [(ngModel)]="listaLocalizacoesEscolhidas[i]">
+                            <option *ngFor="let loc of (listaLocalizacoes[i])" value="{{loc.id}}">
                                 {{ loc.nome }}
                             </option>
                         </select>
-                        <select *ngIf="localizacoesItem > 1" id="localizacaoProduto2" class="localizacaoProduto">
-                            <option *ngFor="let loc of localizacoesLista">
-                                {{ loc.nome }}
-                            </option>
-                        </select>
-                        <select *ngIf="localizacoesItem > 2" id="localizacaoProduto3" class="localizacaoProduto">
-                            <option *ngFor="let loc of localizacoesLista">
-                                {{ loc.nome }}
-                            </option>
-                        </select>
-                        <select *ngIf="localizacoesItem > 3" id="localizacaoProduto4" class="localizacaoProduto">
-                            <option *ngFor="let loc of localizacoesLista">
-                                {{ loc.nome }}
-                            </option>
-                        </select>
-                        <select *ngIf="localizacoesItem > 4" id="localizacaoProduto5" class="localizacaoProduto">
-                            <option *ngFor="let loc of localizacoesLista">
-                                {{ loc.nome }}
-                            </option>
-                        </select>
-                        <select *ngIf="localizacoesItem > 5" id="localizacaoProduto6" class="localizacaoProduto">
-                            <option *ngFor="let loc of localizacoesLista">
-                                {{ loc.nome }}
-                            </option>
-                        </select> -->
-                    </div>
-                </div>
-                <div style="display: flex">
-                    <div class="divPonto">
-                        <span title="Adicionar" class="material-symbols-outlined iconDeselect iconMaisLoc">
-                            add
-                        </span>
-                    </div>
-                    <div class="divPonto">
-                        <span title="Deletar" class="material-symbols-outlined iconDeselect iconMaisLoc">
-                            remove
-                        </span>
                     </div>
                 </div>
             </div>
@@ -98,13 +58,20 @@
                     <option value="paredeCentro" selected>Descartável</option>
                     <option value="armario">Não Descartável</option>
                 </select>
-                <span>QTD: </span>
-                <input class="inputQtd" type="text" placeholder="xx" />
-            </div>
-            <div class="anexo">
-                <input type="text" placeholder="Adicionar URL do anexo" class="inputAnexo" />
-                <label class="arquivoIcon" for="arquivo"> </label>
-                <input type="file" name="arquivo" id="arquivo" />
+                <div class="qtdItem">
+                    <span>QTD: </span>
+                    <div class="pontosQtd" (click)="mudarQtd(1)">
+                        <span title="Deletar" class="material-symbols-outlined iconDeselect iconMaisLoc">
+                            remove
+                        </span>
+                    </div>
+                    <input class="inputQtd" type="text" [(ngModel)]="qtdItem" />
+                    <div class="pontosQtd" (click)="mudarQtd(2)">
+                        <span title="Adicionar" class="material-symbols-outlined iconDeselect iconMaisLoc">
+                            add
+                        </span>
+                    </div>
+                </div>
             </div>
             <button class="botaoCadastrar">
                 Cadastrar

@@ -20,6 +20,12 @@
 <app-modal-feedback *ngIf="feedbackItemCadastrado" [tipoFeedback]="17" (fecharModal)="fecharModaisFeedback(1)">
 </app-modal-feedback>
 
+<!-- Feedback de sacola reservada -->
+<app-modal-feedback *ngIf="feedbackSacolaReservada" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(3)"></app-modal-feedback>
+
+<!-- Feedback de sacola excluída -->
+<app-modal-feedback *ngIf="feedbackSacolaExcluida" [tipoFeedback]="5" (fecharModal)="fecharModaisFeedback(4)"></app-modal-feedback>
+
 <app-header></app-header>
 <app-filtro></app-filtro>
 
@@ -60,7 +66,7 @@
                             <div id="divInput">
                                 <input [(ngModel)]="inputGeral" class="input" type="text"
                                     placeholder="{{retornaPlaceholderPesquisa()}}" />
-                                <span title="Lupa" id="lupa" class="material-symbols-outlined iconDeselect">
+                                <span title="Pesquisar" id="lupa" class="material-symbols-outlined iconDeselect">
                                     search
                                 </span>
                             </div>

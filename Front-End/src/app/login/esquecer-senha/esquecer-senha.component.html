@@ -69,11 +69,11 @@
             class="form-control input-float-label" placeholder="Nova senha">
           <label class="label-float-label" for="inputRecuperarSenha">Nova senha<span
               class="asteriscoObrigatorio">*</span></label>
-          <span *ngIf="!senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"
+          <span title="Ver senha" *ngIf="!senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"
             alt="Visualização da senha">
             visibility_off
           </span>
-          <span *ngIf="senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"
+          <span title="Ocultar senha" *ngIf="senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"
             alt="Visualização da senha">
             visibility
           </span>
@@ -84,11 +84,11 @@
             class="form-control input-float-label" placeholder="Confirmar Senha">
           <label class="label-float-label" for="inputRecuperarConfirmarSenha">Confirmar Senha<span
               class="asteriscoObrigatorio">*</span></label>
-          <span *ngIf="!confirmarSenhaVisivel" class="material-symbols-outlined imgOlho iconDeselect"
+          <span title="Ver senha" *ngIf="!confirmarSenhaVisivel" class="material-symbols-outlined imgOlho iconDeselect"
             (click)="trocarOlho(2)" alt="Visualização da senha">
             visibility_off
           </span>
-          <span *ngIf="confirmarSenhaVisivel" class="material-symbols-outlined imgOlho iconDeselect"
+          <span title="Ocultar senha" *ngIf="confirmarSenhaVisivel" class="material-symbols-outlined imgOlho iconDeselect"
             (click)="trocarOlho(2)" alt="Visualização da senha">
             visibility
           </span>
