@@ -14,11 +14,14 @@ public class Anexo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private Integer id;
+    private Long id;
+
+    @Column(nullable = false)
+    private String descricao;
 
     @Column(nullable = false)
     private Byte anexo;
 
     @Column(nullable = false)
-    private boolean visibilidade;
+    private Boolean visibilidade;
 }

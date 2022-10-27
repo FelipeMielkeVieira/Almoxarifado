@@ -17,23 +17,27 @@ public class AnexoService {
         this.anexoRepository = repository;
     }
 
-    public List<Anexo> findAll(){
+    public List<Anexo> findAll() {
         return anexoRepository.findAll();
     }
 
-    public Optional<Anexo> findById(Integer id){
+    public List<Anexo> findByVisibilidade(Boolean visibilidade) {
+        return anexoRepository.findByVisibilidade(visibilidade);
+    }
+
+    public Optional<Anexo> findById(Long id) {
         return anexoRepository.findById(id);
     }
 
-    public <S extends Anexo> S save(S entity){
+    public <S extends Anexo> S save(S entity) {
         return anexoRepository.save(entity);
     }
 
-    public boolean existsById(Integer idAnexo) {
+    public boolean existsById(Long idAnexo) {
         return anexoRepository.existsById(idAnexo);
     }
 
-    public void deleteById(Integer idAnexo) {
+    public void deleteById(Long idAnexo) {
         anexoRepository.deleteById(idAnexo);
     }
 }

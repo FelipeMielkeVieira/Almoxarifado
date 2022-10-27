@@ -44,6 +44,9 @@ export class HomeComponent implements OnInit {
   localizacaoModal = false;
   modalOrdenar: boolean = false;
 
+  feedbackSacolaReservada: boolean = false;
+  feedbackSacolaExcluida: boolean = false;
+
   listaEmBloco = true;
   inputGeral = "";
   tipoUsuario = 2;
@@ -66,6 +69,14 @@ export class HomeComponent implements OnInit {
           }
         }
       }
+    }
+
+    if (localStorage.getItem('excluir')) {
+      localStorage.removeItem('excluir');
+      this.abrirFeedback(1);
+    } else if (localStorage.getItem('reservar')) {
+      localStorage.removeItem('reservar');
+      this.abrirFeedback(2);
     }
 
     // Função para selecionar a aba automaticamente
@@ -172,13 +183,13 @@ export class HomeComponent implements OnInit {
         break;
       case 2:
         this.localizacaoModal = !this.localizacaoModal;
-        if(evento == "cadastro") {
+        if (evento == "cadastro") {
 
         }
         break;
       case 3:
         this.modalCadastrarItem = !this.modalCadastrarItem;
-        if(evento == "cadastro") {
+        if (evento == "cadastro") {
 
         }
         break;
@@ -222,13 +233,36 @@ export class HomeComponent implements OnInit {
 
   }
 
+  abrirFeedback(numero: number) {
+    switch (numero) {
+      case 1:
+        this.feedbackSacolaExcluida = true;
+        setTimeout(() =>{
+          this.feedbackSacolaExcluida = false;
+        }, 4.5)
+        break;
+      case 2:
+        this.feedbackSacolaReservada = true;
+        setTimeout(() =>{
+          this.feedbackSacolaReservada = false;
+        }, 4.5)
+        break;
+    }
+  }
+
   fecharModaisFeedback(numero: number) {
-    switch(numero) {
+    switch (numero) {
       case 1:
         this.feedbackLocalizacaoCadastrada = false;
         break;
       case 2:
         this.feedbackItemCadastrado = false;
+        break;
+      case 3:
+        this.feedbackSacolaReservada = false;
+        break;
+      case 4:
+        this.feedbackSacolaExcluida = false;
         break;
     }
   }

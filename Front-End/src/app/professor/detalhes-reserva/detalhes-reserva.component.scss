@@ -25,9 +25,11 @@ p:hover {
     align-items: center;
     margin-top: 1.2rem;
     margin-left: 5.5rem;
+    height: 30px;
 }
 
 #iconHome {
+    font-size:20px;
     cursor: pointer;
 }
 
@@ -44,13 +46,20 @@ p:hover {
     user-select: none;
 }
 
-.material-symbols-outlined {
+#caminho p {
+    margin-bottom: 0.3rem;
+}
+
+#iconMaior .iconMaior {
     font-size: 15px;
 }
 
-#iconMaior {
-    margin-top: 0.25rem;
+#iconMaior{
     cursor: default;
+}
+
+#caminho p {
+    margin-bottom: 0.3rem;
 }
 
 .tituloSacola {
@@ -359,6 +368,19 @@ p:hover {
 
 .botaoCancelarReserva {
     background-color: #d10303d8;
+}
+
+#fundoModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.349);
 }
 
 /* <!-- ------------------------------- FIM CONTEÚDO MINHA-SACOLA ------------------------------- -->*/

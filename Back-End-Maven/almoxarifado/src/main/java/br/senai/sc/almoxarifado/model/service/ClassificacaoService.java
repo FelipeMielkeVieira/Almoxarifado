@@ -20,7 +20,7 @@ public class ClassificacaoService {
         return classificacaoRepository.findAll();
     }
 
-    public Optional<Classificacao> findById(Integer id){
+    public Optional<Classificacao> findById(Long id){
         return classificacaoRepository.findById(id);
     }
 
@@ -28,11 +28,11 @@ public class ClassificacaoService {
         return classificacaoRepository.save(entity);
     }
 
-    public boolean existsById(Integer idClassificacao) {
+    public boolean existsById(Long idClassificacao) {
         return classificacaoRepository.existsById(idClassificacao);
     }
 
-    public void deleteById(Integer idClassificacao) {
+    public void deleteById(Long idClassificacao) {
         classificacaoRepository.deleteById(idClassificacao);
     }
 }

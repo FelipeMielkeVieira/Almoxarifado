@@ -18,23 +18,17 @@ p{
     align-items: center;
     margin-top: 1.2rem;
     margin-left: 5.5rem;
-}
-
-.material-symbols-outlined{
-    font-size: 15px;
+    height: 30px;
 }
 
 #iconHome {
+    font-size:22px;
     cursor: pointer;
+    font-weight: 250;
 }
 
 #iconHome:hover {
     color: #0047B6;
-}
-
-#iconMaior {
-    margin-top: .25rem;
-    cursor: default;
 }
 
 .iconDeselect {
@@ -44,6 +38,18 @@ p{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#iconMaior .iconMaior {
+    font-size: 15px;
+}
+
+#iconMaior{
+    cursor: default;
+}
+
+#caminho p {
+    margin-bottom: 0.3rem;
 }
 
 #caminhoReservas {

@@ -15,11 +15,9 @@ import java.util.List;
 @Setter
 @ToString
 public class ReservaDTO {
-    private Long id;
     private Date data_retirada;
     private Date data_devolucao;
     private Status status;
-    private boolean visibilidade;
     private Usuario usuario;
     List<ProdutosEscolhidosReserva> produtos_reserva;
     List<Ocorrencia> ocorrencias;

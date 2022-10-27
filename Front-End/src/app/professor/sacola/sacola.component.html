@@ -61,10 +61,10 @@
     </div>
 </div> -->
 
-<div id="containerSacola">
+<div id="containerSacola" (click)="verDetalhes()">
     <div id="container">
         <div id="divisaoCentral">
-            <div id="parteEsquerda" (click)="verDetalhes()">
+            <div id="parteEsquerda">
                 <ul id="itens">
                     <li *ngFor="let item of listaItens" class="item">
                         <img class="bolaAzul" src="./assets/circulo-azul.png" alt="Ponteiro para o produto">
@@ -73,13 +73,13 @@
                 </ul>
             </div>
             <div id="parteDireita">
-                <div class="containerDatas" (click)="verDetalhes()">
+                <div class="containerDatas">
                     <div class="tituloData">
                         <span class="dataTitulo">Data de retirada:</span>
                     </div>
 
                     <div class="dataInput">
-                        <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
+                        <span title="Calendário" class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada"
                             (click)="abrirCalendario1()">
                             calendar_month
                         </span>
@@ -93,34 +93,13 @@
                     </div>
 
                     <div class="dataInput">
-                        <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de devolução"
+                        <span title="Calendário" class="material-symbols-outlined iconDeselect calendario" alt="Editar data de devolução"
                             (click)="abrirCalendario2()">
                             calendar_month
                         </span>
                         <div class="dataTexto">
                             <p id="dataDevolucao">{{ formatarData(sacola.data_devolucao) }}</p>
                         </div>
-                    </div>
-
-                </div>
-
-                <div id="botoes">
-
-                    <!-- <div *ngIf="atendente()" id="adicionarProfessor">
-                        <select name="" id="professores">
-                            <option *ngFor="let professor of listaProfessores" value="{{ professor.id }}">{{
-                                professor.nome }}
-                            </option>
-                        </select>
-                    </div> -->
-
-
-                    <div class="containerBotoes">
-                        <button class="botao" (click)="abrirModalConfirmacao(2)">Reservar</button>
-                        <span title="Deletar" class="material-symbols-outlined iconDeselect iconeLixeira"
-                            (click)="abrirModalConfirmacao(1)" alt="Excluir Sacola">
-                            delete
-                        </span>
                     </div>
                 </div>
             </div>

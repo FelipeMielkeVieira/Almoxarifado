@@ -27,9 +27,14 @@ public class ReservaController {
     private ProdutosEscolhidosReservaService produtosEscolhidosReservaService;
     private OcorrenciaService ocorrenciaService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Reserva>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(reservaService.findAll());
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Reserva>> findByVisibilidade() {
+        return ResponseEntity.status(HttpStatus.OK).body(reservaService.findByVisibilidade(true));
     }
 
     @GetMapping("/{id}")
@@ -38,7 +43,13 @@ public class ReservaController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                     "Não foi encontrado nenhuma reserva com este ID.");
         }
+
         Reserva reserva = reservaService.findById(id).get();
+
+        if (!reserva.getVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                    "A reserva solicitada não existe!");
+        }
 
         List<Object> response = new ArrayList<>();
         response.add(reserva);
@@ -52,6 +63,7 @@ public class ReservaController {
         System.out.println(reservaDTO);
         Reserva reserva = new Reserva();
         BeanUtils.copyProperties(reservaDTO, reserva);
+        reserva.setVisibilidade(true);
         Reserva reservaSalva = reservaService.save(reserva);
 
         for (ProdutosEscolhidosReserva produtosEscolhidosReserva : reservaDTO.getProdutos_reserva()) {
@@ -73,8 +85,15 @@ public class ReservaController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(
                     "Não foi encontrada nenhuma reserva com este ID.");
         }
-        Reserva reserva = new Reserva();
-        BeanUtils.copyProperties(reservaDTO, reserva, "id");
+
+        Reserva reserva = reservaService.findById(id).get();
+
+        if (!reserva.getVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                    "A reserva solicitada não existe!");
+        }
+
+        BeanUtils.copyProperties(reservaDTO, reserva);
         reserva.setId(id);
         return ResponseEntity.status(HttpStatus.OK).body(reservaService.save(reserva));
     }
@@ -86,7 +105,10 @@ public class ReservaController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                     "Não foi encontrada nenhuma reserva com este ID.");
         }
-        reservaService.deleteById(id);
+
+        Reserva reserva = reservaService.findById(id).get();
+        reserva.setVisibilidade(false);
+        reservaService.save(reserva);
         return ResponseEntity.status(HttpStatus.OK).body("Reserva deletada com sucesso.");
     }
 }
