@@ -66,25 +66,5 @@
         <!-- Listagem de Páginas na parte de baixo da tela -->
         <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
         </mat-paginator>
-        <!-- <nav *ngIf="numeroPaginas > 0" id="containerPaginacao">
-            <ul id="paginacao">
-                <li *ngIf="paginaAtual > 1" (click)="voltarPagina()" class="paginaItem">
-                    Anterior
-                </li>
-                <li (click)="irPagina(paginaAtual - 1)" *ngIf="paginaAtual - 1 > 0" class="paginaItem">
-                    {{ paginaAtual - 1 }}
-                </li>
-                <li class="paginaItem paginaAtiva">{{ paginaAtual }}</li>
-                <li (click)="irPagina(paginaAtual + 1)" *ngIf="paginaAtual + 1 <= numeroPaginas" class="paginaItem">
-                    {{ paginaAtual + 1 }}
-                </li>
-                <li (click)="irPagina(paginaAtual + 2)" *ngIf="paginaAtual + 2 <= numeroPaginas" class="paginaItem">
-                    {{ paginaAtual + 2 }}
-                </li>
-                <li (click)="proximoPagina()" class="paginaItem" *ngIf="paginaAtual < numeroPaginas">
-                    Próximo
-                </li>
-            </ul>
-        </nav> -->
     </div>
 </main>
