@@ -80,7 +80,7 @@ export class SacolaComponent implements OnInit {
     }
 
     verDetalhes(event: any) {
-        if(event.target.className != "botao" && event.target.localName != "span") {
+        if (event.target.className != "botao" && event.target.className != "material-symbols-outlined iconDeselect iconeLixeira") {
             localStorage.setItem("reserva", "2");
             if (localStorage.getItem('usuario') == '1') {
                 this.router.navigate(['/professor/sacolas/' + this.id]);

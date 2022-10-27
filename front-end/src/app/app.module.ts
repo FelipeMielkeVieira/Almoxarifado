@@ -15,6 +15,7 @@ import CheckLoggedProfessor from './checkLogged/checkLoggedProfessor.canactivate
 import CheckLoggedAtendente from './checkLogged/checkLoggedAtendente.canactivate';
 import CheckLoggedSupervisor from './checkLogged/checkLoggedSupervisor.canactivate';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarCreator } from './principal/calendario/calendarCreator.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GerenciaModule,
     BrowserAnimationsModule
   ],
-  providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor],
+  providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor, CalendarCreator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

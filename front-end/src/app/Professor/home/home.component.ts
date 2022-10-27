@@ -24,20 +24,20 @@ export class HomeComponent implements OnInit {
     // *Personalizar a paginação
     paginator.getRangeLabel = (page: number, pageSize: number, length: number) => {
       if (length === 0 || pageSize === 0) {
-        return `0 à ${length }`;
+        return `0 à ${length}`;
       }
       length = Math.max(length, 0);
       const startIndex = page * pageSize;
 
       const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
-      if(endIndex/18 <= 1) {
-        return `página ${endIndex/18} de ${Math.round(length/18)}`;
+      if (endIndex / 18 <= 1) {
+        return `página ${endIndex / 18} de ${Math.round(length / 18)}`;
       }
-      return `página ${endIndex/18} de ${Math.round(length/18)}`;
+      return `página ${endIndex / 18} de ${Math.round(length / 18)}`;
     };
   }
 
-  carregando:boolean = true;
+  carregando: boolean = true;
 
   numeroPaginas = 6;
   numResultados = 0;
@@ -59,18 +59,9 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.carregando = !this.carregando;
     }, 1500);
-
-    if (localStorage.getItem('excluir')) {
-      localStorage.removeItem('excluir');
-      this.abrirFeedback(1);
-    } else if (localStorage.getItem('reservar')) {
-      localStorage.removeItem('reservar');
-      this.abrirFeedback(2);
-    }
-
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
-    window.onclick = function (event) {
+    window.addEventListener("click", function (event) {
       if (!(event.target as HTMLElement).className.includes("parteModal")) {
         if (!(event.target as HTMLElement).className.includes("iconsModais")) {
           if (self.modalOrdenar) {
@@ -78,6 +69,14 @@ export class HomeComponent implements OnInit {
           }
         }
       }
+    });
+
+    if (localStorage.getItem('excluir')) {
+      localStorage.removeItem('excluir');
+      this.abrirFeedback(1);
+    } else if (localStorage.getItem('reservar')) {
+      localStorage.removeItem('reservar');
+      this.abrirFeedback(2);
     }
   }
 

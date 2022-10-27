@@ -1,10 +1,10 @@
 <!-- ------------------------------- COMPONENTES ----------------------------------- -->
 <app-header></app-header>
 <app-filtro></app-filtro>
-<!-- <app-calendario *ngIf="calendarioAberto1 == 1" (salvarData)="salvarData($event, 1)" [dataSalva]="sacola.data_retirada">
+<app-calendario *ngIf="calendarioRetirada" (salvarData)="salvarData($event, 1)" [dataSalva]="sacola.data_retirada">
 </app-calendario>
-<app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData($event, 2)" [dataSalva]="sacola.data_devolucao">
-</app-calendario> -->
+<app-calendario *ngIf="calendarioDevolucao" (salvarData)="salvarData($event, 2)" [dataSalva]="sacola.data_devolucao">
+</app-calendario>
 <!-- ------------------------------- FIM COMPONENTES ----------------------------------- -->
 
 <!-- ------------------------------- CONTEÚDO MINHA-SACOLA ------------------------------- -->
@@ -50,7 +50,7 @@
                 <div class="nomeItem">
                     <span class="nomeProduto">{{produto.nome}}</span>
                 </div>
-                
+
                 <div class="quantidade">
                     <div class="divImagemQtd1">
                         <span *ngIf="!reservaFeita" title="Remover" class="material-symbols-outlined iconDeselect"
@@ -71,7 +71,7 @@
                     <p *ngIf="produto.descartavel" class="descartavel">Descartável</p>
                     <p *ngIf="!produto.descartavel" class="descartavel">Não Descartável</p>
                 </div>
-                
+
                 <span *ngIf="!reservaFeita" title="Deletar" id="iconeLixeira"
                     class="material-symbols-outlined iconDeselect">
                     delete
@@ -87,7 +87,8 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerData">
-                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada">
+                    <span (click)="abrirCalendario(1)" class="material-symbols-outlined iconDeselect calendario"
+                        alt="Editar data de retirada">
                         calendar_month
                     </span>
                     <div class="divisaoData"></div>
@@ -99,7 +100,8 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerData">
-                    <span class="material-symbols-outlined iconDeselect calendario" alt="Editar data de retirada">
+                    <span (click)="abrirCalendario(2)" class="material-symbols-outlined iconDeselect calendario"
+                        alt="Editar data de retirada">
                         calendar_month
                     </span>
                     <div class="divisaoData"></div>
@@ -112,15 +114,17 @@
                         (click)="cancelarReserva()">Cancelar Reserva</button>
                     <button *ngIf="!reservaFeita" class="botaoReservar" (click)="abrirModalConfirmacao(1)">Excluir
                         Sacola</button>
-                    <button *ngIf="!reservaFeita" (click)="abrirModalConfirmacao(2)" class="botaoReservar">Reservar</button>
-                    <button *ngIf="reservaFeita" (click)="abrirModalConfirmacao(3)" class="botaoReservar">Cancelar Reserva</button>
+                    <button *ngIf="!reservaFeita" (click)="abrirModalConfirmacao(2)"
+                        class="botaoReservar">Reservar</button>
+                    <button *ngIf="reservaFeita" (click)="abrirModalConfirmacao(3)" class="botaoReservar">Cancelar
+                        Reserva</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="fundoModal" *ngIf="modalReservar || modalExcluir">
-      
+
         <!-- Modal de confirmação de exclusão -->
         <app-modal-confirmacao *ngIf="modalExcluir" [tipoTexto]="2" (fecharModal)="fecharModalConfirmacao(1, $event)">
         </app-modal-confirmacao>
@@ -129,6 +133,6 @@
         <app-modal-confirmacao *ngIf="modalReservar" [tipoTexto]="3" (fecharModal)="fecharModalConfirmacao(2, $event)">
         </app-modal-confirmacao>
     </div>
-    
+
 </body>
 <!-- ------------------------------- FIM CONTEÚDO MINHA-SACOLA ------------------------------- -->

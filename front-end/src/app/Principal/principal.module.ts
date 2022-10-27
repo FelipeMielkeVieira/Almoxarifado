@@ -23,6 +23,7 @@ import { ItemListaComponent } from './item-lista/item.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {MatDividerModule} from '@angular/material/divider';
     PaginacaoComponent,
     AjudaComponent,
     ItemListaComponent,
-    TelaCarregamentoComponent
+    TelaCarregamentoComponent,
+    CalendarioComponent
   ],
   imports: [
     CommonModule,
@@ -68,7 +70,8 @@ import {MatDividerModule} from '@angular/material/divider';
     ModalConfirmacaoComponent,
     ModalHistoricoEdicaoComponent,
     ItemListaComponent,
-    TelaCarregamentoComponent
+    TelaCarregamentoComponent,
+    CalendarioComponent
   ]
 })
 export class PrincipalModule { }

@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
-    window.onclick = function (event) {
+    window.addEventListener("click", function (event) {
       if (!(event.target as HTMLElement).className.includes("parteModal")) {
         if (!(event.target as HTMLElement).className.includes("iconsModais")) {
           if (self.modalOrdenar) {
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
           }
         }
       }
-    }
+    });
 
     if (localStorage.getItem('excluir')) {
       localStorage.removeItem('excluir');
@@ -237,13 +237,13 @@ export class HomeComponent implements OnInit {
     switch (numero) {
       case 1:
         this.feedbackSacolaExcluida = true;
-        setTimeout(() =>{
+        setTimeout(() => {
           this.feedbackSacolaExcluida = false;
         }, 4.5)
         break;
       case 2:
         this.feedbackSacolaReservada = true;
-        setTimeout(() =>{
+        setTimeout(() => {
           this.feedbackSacolaReservada = false;
         }, 4.5)
         break;
