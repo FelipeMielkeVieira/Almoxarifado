@@ -120,9 +120,11 @@
   <app-calendario
         *ngIf="calendarioRetirada"
         (salvarData)="salvarData(1, $event)"
+        [dataSalva]="dataRetirada"
       ></app-calendario>
       <app-calendario
         *ngIf="calendarioDevolucao"
         (salvarData)="salvarData(2, $event)"
+        [dataSalva]="dataDevolucao"
       ></app-calendario>
 </div>

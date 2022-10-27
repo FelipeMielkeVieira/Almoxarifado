@@ -43,6 +43,9 @@ export class DetalhesReservaComponent implements OnInit {
     dataSacola: any;
     dataAtual = new Date();
 
+    calendarioRetirada = false;
+    calendarioDevolucao = false;
+
     ngOnInit() {
     }
 
@@ -128,6 +131,36 @@ export class DetalhesReservaComponent implements OnInit {
             this.router.navigate(['/atendente']);
         } else if (localStorage.getItem('usuario') == '4') {
             this.router.navigate(['/supervisor']);
+        }
+    }
+
+    abrirCalendario(numero: number) {
+        if (!this.reservaFeita) {
+            if (numero == 1) {
+                if (!this.calendarioRetirada) {
+                    this.calendarioDevolucao = false;
+                    this.calendarioRetirada = true;
+                } else {
+                    this.calendarioRetirada = false;
+                }
+            } else {
+                if (!this.calendarioDevolucao) {
+                    this.calendarioRetirada = false;
+                    this.calendarioDevolucao = true;
+                } else {
+                    this.calendarioDevolucao = false;
+                }
+            }
+        }
+    }
+
+    salvarData(evento: any, numero: number) {
+        if (numero == 1) {
+            this.calendarioRetirada = false;
+            this.sacola.data_retirada = evento;
+        } else {
+            this.calendarioDevolucao = false;
+            this.sacola.data_devolucao = evento;
         }
     }
 

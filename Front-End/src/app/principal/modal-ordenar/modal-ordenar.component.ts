@@ -53,6 +53,7 @@ export class ModalOrdernar implements OnInit {
   }
 
   limparOrdenacao() {
+    this.listaOrdenacoes = [false, false, false, false];
     this.fecharModal.emit('fechar');
     this.ordenarItens.emit(JSON.stringify(this.listaOrdenacoes));
   }
