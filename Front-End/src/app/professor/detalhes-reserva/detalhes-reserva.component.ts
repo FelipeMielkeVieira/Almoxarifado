@@ -30,6 +30,8 @@ export class DetalhesReservaComponent implements OnInit {
 
     modalExcluir: boolean = false;
     modalReservar: boolean = false;
+
+    modalCancelarReserva: boolean = false;
     cancelarReservaBotao: boolean = false;
 
     feedbackCancelarReserva: boolean = false;
@@ -77,7 +79,7 @@ export class DetalhesReservaComponent implements OnInit {
                 this.modalReservar = true;
                 break;
             case 3:
-                this.cancelarReservaBotao = true;
+                this.modalCancelarReserva = true;
                 break;
         }
     }
@@ -100,8 +102,13 @@ export class DetalhesReservaComponent implements OnInit {
                     this.enviarFeedback();
                 }
                 break;
-            case 3:
-
+            case 3: //  Fazer feedback de reserva cancelada
+                this.modalCancelarReserva = false;
+                if (confirmacao) {
+                    localStorage.setItem('cancelar', '1');
+                    this.cancelarReserva();
+                    this.enviarFeedback();
+                }
                 break;
         }
     }

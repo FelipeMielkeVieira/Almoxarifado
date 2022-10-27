@@ -113,7 +113,7 @@
                     <button *ngIf="!reservaFeita" class="botaoReservar" (click)="abrirModalConfirmacao(1)">Excluir
                         Sacola</button>
                     <button *ngIf="!reservaFeita" (click)="abrirModalConfirmacao(2)" class="botaoReservar">Reservar</button>
-                    <button *ngIf="cancelarReservaBotao" (click)="abrirModalConfirmacao(3)" class="botaoReservar">Cancelar Reserva</button>
+                    <button *ngIf="reservaFeita" (click)="abrirModalConfirmacao(3)" class="botaoReservar">Cancelar Reserva</button>
                 </div>
             </div>
         </div>
