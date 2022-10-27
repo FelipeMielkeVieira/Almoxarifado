@@ -180,32 +180,51 @@ export class UsersService {
     { checked: false, id: 4, nome: 'P4' },
     { checked: false, id: 5, nome: 'CE' },
     { checked: false, id: 6, nome: 'CD' },
-    { checked: false, id: 1, nome: 'A1' },
-    { checked: false, id: 2, nome: 'A2' },
-    { checked: false, id: 3, nome: 'A3' },
-    { checked: false, id: 4, nome: 'A4' },
-    { checked: false, id: 5, nome: 'A5' },
-    { checked: false, id: 1, nome: '1' },
-    { checked: false, id: 2, nome: '2' },
-    { checked: false, id: 3, nome: '3' },
-    { checked: false, id: 4, nome: '4' },
-    { checked: false, id: 5, nome: '5' },
-    { checked: false, id: 6, nome: '6' },
-    { checked: false, id: 7, nome: '7' },
-    { checked: false, id: 8, nome: '8' },
-    { checked: false, id: 9, nome: '9' },
-    { checked: false, id: 10, nome: '10' },
-    { checked: false, id: 11, nome: '11' },
-    { checked: false, id: 12, nome: '12' },
-    { checked: false, id: 13, nome: '13' },
-    { checked: false, id: 14, nome: '14' },
-    { checked: false, id: 15, nome: '15' },
-    { checked: false, id: 16, nome: '16' },
-    { checked: false, id: 17, nome: '17' },
-    { checked: false, id: 18, nome: '18' },
-    { checked: false, id: 19, nome: '19' },
-    { checked: false, id: 20, nome: '20' },
+    { checked: false, id: 7, nome: 'A1', id_pai: 1 },
+    { checked: false, id: 8, nome: 'A2', id_pai: 1 },
+    { checked: false, id: 9, nome: 'A3', id_pai: 2 },
+    { checked: false, id: 10, nome: 'A4', id_pai: 2 },
+    { checked: false, id: 11, nome: 'A5', id_pai: 3 },
+    { checked: false, id: 12, nome: '1', id_pai: 7 },
+    { checked: false, id: 13, nome: '2', id_pai: 7 },
+    { checked: false, id: 14, nome: '3', id_pai: 7 },
+    { checked: false, id: 15, nome: '4', id_pai: 7 },
+    { checked: false, id: 16, nome: '5', id_pai: 8 },
+    { checked: false, id: 17, nome: '6', id_pai: 8 },
+    { checked: false, id: 18, nome: '7', id_pai: 8 },
+    { checked: false, id: 19, nome: '8', id_pai: 8 },
+    { checked: false, id: 20, nome: '9', id_pai: 9 },
+    { checked: false, id: 21, nome: '10', id_pai: 9 },
+    { checked: false, id: 22, nome: '11', id_pai: 9 },
+    { checked: false, id: 23, nome: '12', id_pai: 9 },
+    { checked: false, id: 24, nome: '13', id_pai: 9 },
+    { checked: false, id: 25, nome: '14', id_pai: 10 },
+    { checked: false, id: 26, nome: '15', id_pai: 10 },
+    { checked: false, id: 27, nome: '16', id_pai: 10 },
+    { checked: false, id: 28, nome: '17', id_pai: 10 },
+    { checked: false, id: 29, nome: '18', id_pai: 11 },
+    { checked: false, id: 30, nome: '19', id_pai: 11 },
+    { checked: false, id: 31, nome: '20', id_pai: 11 },
   ];
+
+  retornaFilhosLocalizacao(listaAtual: any, id_pai: number) {
+    let listaNova = [];
+    if(id_pai == 0) {
+      for (const loc of this.localizacoes) {
+        if(!loc.id_pai) {
+          listaNova.push(loc);
+        }
+      }
+    } else {
+      for (const loc of this.localizacoes) {
+        if(loc.id_pai == id_pai) {
+          listaNova.push(loc);
+        }
+      }
+    }
+    listaAtual.push(listaNova);
+    return listaAtual;
+  }
 
   // findAll(): Observable<Object[]> {
   //     return this.httpClient.get<Object[]>('http://localhost:3000/users');
