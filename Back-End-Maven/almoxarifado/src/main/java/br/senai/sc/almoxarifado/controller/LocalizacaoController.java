@@ -35,6 +35,21 @@ public class LocalizacaoController {
         return ResponseEntity.status(HttpStatus.FOUND).body(localizacaoService.findById(codigoLocalizacao).get());
     }
 
+    @GetMapping("/pai/{codigoLocalizacao}")
+    public ResponseEntity<Object> findByParent(@PathVariable(value = "codigoLocalizacao") Long codigoLocalizacao) {
+        if (!localizacaoService.existsById(codigoLocalizacao)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
+        }
+
+        Localizacao localizacao = localizacaoService.findById(codigoLocalizacao).get();
+
+        if (localizacao.getIdPai() == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não há uma localização pai com este código da localização filha.");
+        }
+
+        return ResponseEntity.status(HttpStatus.FOUND).body(localizacaoService.findById(localizacao.getIdPai()).get());
+    }
+
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid LocalizacaoDTO localizacaoDTO) {
         Localizacao localizacao = new Localizacao();

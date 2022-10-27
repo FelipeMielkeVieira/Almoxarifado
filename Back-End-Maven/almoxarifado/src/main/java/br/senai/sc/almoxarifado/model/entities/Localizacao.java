@@ -1,11 +1,8 @@
 package br.senai.sc.almoxarifado.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "localizacao")
@@ -23,4 +20,7 @@ public class Localizacao {
 
     @Column(length = 45, nullable = false)
     private String  nome;
+
+    @Column
+    private Long idPai;
 }
