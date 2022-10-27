@@ -30,6 +30,9 @@ export class DetalhesReservaComponent implements OnInit {
 
     modalExcluir: boolean = false;
     modalReservar: boolean = false;
+    cancelarReservaBotao: boolean = false;
+
+    feedbackCancelarReserva: boolean = false;
     feedbackReservaFeita: boolean = false;
     feedbackExclusaoSacola: boolean = false;
 
@@ -73,6 +76,9 @@ export class DetalhesReservaComponent implements OnInit {
             case 2:
                 this.modalReservar = true;
                 break;
+            case 3:
+                this.cancelarReservaBotao = true;
+                break;
         }
     }
 
@@ -93,6 +99,9 @@ export class DetalhesReservaComponent implements OnInit {
                     this.finalizarReserva();
                     this.enviarFeedback();
                 }
+                break;
+            case 3:
+
                 break;
         }
     }

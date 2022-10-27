@@ -19,6 +19,10 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
+    public List<Usuario> findAllByVisibilidade(Boolean visibilidade) {
+        return usuarioRepository.findAllByVisibilidade(visibilidade);
+    }
+
     public <S extends Usuario> S save(S entity) {
         return usuarioRepository.save(entity);
     }
