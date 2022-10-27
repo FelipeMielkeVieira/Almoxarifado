@@ -16,7 +16,7 @@ export class ModalConfirmacaoComponent implements OnInit {
     ngOnInit() { }
 
     retornaTextoConfirmacao() {
-        switch(this.tipoTexto) {
+        switch (this.tipoTexto) {
             case 1:
                 return "Deseja excluir este item?";
             case 2:
@@ -35,6 +35,8 @@ export class ModalConfirmacaoComponent implements OnInit {
                 return "Deseja confirmar a retirada?";
             case 9:
                 return "Deseja confirmar a devolução?";
+            case 10:
+                return "Deseja excluir a classificação?"
         }
         return "";
     }

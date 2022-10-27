@@ -93,6 +93,7 @@ export class SacolaComponent implements OnInit {
     }
 
     abrirModalConfirmacao(numero: number) {
+        document.documentElement.style.overflow = 'hidden';
         switch (numero) {
             case 1:
                 this.modalExcluir = true;
@@ -123,6 +124,7 @@ export class SacolaComponent implements OnInit {
                 }
                 break;
         }
+        document.documentElement.style.overflow = 'auto';
     }
 
     excluirSacola() {
