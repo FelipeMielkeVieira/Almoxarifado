@@ -23,6 +23,10 @@ public class LocalizacaoService {
         return localizacaoRepository.findById(id);
     }
 
+    public List<Localizacao> findByIdPai(Long id) {
+        return localizacaoRepository.findByIdPai(id);
+    }
+
     public <S extends Localizacao> S save(S entity) {
         return localizacaoRepository.save(entity);
     }

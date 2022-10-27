@@ -50,6 +50,15 @@ public class LocalizacaoController {
         return ResponseEntity.status(HttpStatus.FOUND).body(localizacaoService.findById(localizacao.getIdPai()).get());
     }
 
+    @GetMapping("/filho/{codigoLocalizacao}")
+    public ResponseEntity<Object> findByChild(@PathVariable(value = "codigoLocalizacao") Long codigoLocalizacao) {
+        if (!localizacaoService.existsById(codigoLocalizacao)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
+        }
+
+        return ResponseEntity.status(HttpStatus.FOUND).body(localizacaoService.findByIdPai(codigoLocalizacao));
+    }
+
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid LocalizacaoDTO localizacaoDTO) {
         Localizacao localizacao = new Localizacao();
