@@ -1,35 +1,35 @@
-<div id="editarUser">
-    <div id="modalEditar">
-        <div id="barraAzul">
-            <div id="user">
-                <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário" />
-                <div id="alterarFoto">Config</div>
+<div id="editarUser" class="parteModal">
+    <div id="modalEditar" class="parteModal">
+        <div id="barraAzul" class="parteModal">
+            <div id="user" class="parteModal">
+                <img class="parteModal" id="imagemUsuario" src="../../../assets/user.png" alt="Imagem usuário" />
+                <div class="parteModal" id="alterarFoto">Config</div>
             </div>
         </div>
-        <div id="iconSair">
-            <span title="Fechar" (click)="fechar()" id="fecharIcone" class="fecharModalUser"
-                class="material-symbols-outlined iconDeselect">
+        <div id="iconSair" class="parteModal">
+            <span title="Fechar" (click)="fechar()" id="fecharIcone" class="fecharModalUser parteModal"
+                class="material-symbols-outlined iconDeselect parteModal">
                 close
             </span>
         </div>
-        <div id="nomeUsuario">
-            <p>Tamanho da Fonte: </p>
+        <div id="nomeUsuario" class="parteModal">
+            <p class="parteModal">Tamanho da Fonte: </p>
         </div>
-        <select class="selectFonte" [(ngModel)]="fonteAtual">
-            <option id="fonteMuitoPequena" value="1">Muito Pequena</option>
-            <option id="fontePequena" value="2">Pequena</option>
-            <option id="fontePadrao" value="3">Padrão</option>
-            <option id="fonteGrande" value="4">Grande</option>
-            <option id="fonteMuitoGrande" value="5">Muito Grande</option>
+        <select class="selectFonte parteModal" [(ngModel)]="fonteAtual">
+            <option class="parteModal" id="fonteMuitoPequena" value="1">Muito Pequena</option>
+            <option class="parteModal" id="fontePequena" value="2">Pequena</option>
+            <option class="parteModal" id="fontePadrao" value="3">Padrão</option>
+            <option class="parteModal" id="fonteGrande" value="4">Grande</option>
+            <option class="parteModal" id="fonteMuitoGrande" value="5">Muito Grande</option>
         </select>
-        <div class="divEscuro">
-            <span class="textEscuro">Modo Escuro</span>
-            <label class="switch">
-                <input type="checkbox" id="checkboxEscuro" [checked]="darkMode$ | async"/>
-                <span class="slider round"></span>
+        <div class="divEscuro parteModal">
+            <span class="textEscuro parteModal">Modo Escuro</span>
+            <label class="switch parteModal">
+                <input class="parteModal" type="checkbox" id="checkboxEscuro" [checked]="darkMode$ | async" />
+                <span class="slider round parteModal"></span>
             </label>
         </div>
-        <button type="button" id="salvarConfig" (click)="salvarConfig()">
+        <button class="parteModal" type="button" id="salvarConfig" (click)="salvarConfig()">
             Salvar
         </button>
     </div>

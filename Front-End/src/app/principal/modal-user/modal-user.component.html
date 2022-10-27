@@ -7,44 +7,44 @@
 </app-modal-configuracoes>
 <!-- ----------- FIM MODAL CONFIGURAÇÕES ------------ -->
 
-<div class="modalUser">
-    <div class="setaUser"></div>
-    <div id="editarPerfil">
+<div class="modalUser parteModal">
+    <div class="setaUser parteModal"></div>
+    <div id="editarPerfil" class="parteModal">
         <span title="Editar" (click)="editarPerfil()" id="iconEditarPerfil"
-            class="material-symbols-outlined iconDeselect">
+            class="material-symbols-outlined iconDeselect parteModal">
             edit
         </span>
     </div>
-    <div id="usuarioIconeModal">
-        <span title="Usuario" id="topHeader" class="material-symbols-outlined iconDeselect">
+    <div id="usuarioIconeModal" class="parteModal">
+        <span title="Usuario" id="topHeader" class="material-symbols-outlined iconDeselect parteModal">
             account_circle
         </span>
     </div>
-    <span class="nomeUser">{{ nomeUsuario }}</span>
-    <span class="emailUser">{{ emailUsuario }}</span>
+    <span class="nomeUser parteModal">{{ nomeUsuario }}</span>
+    <span class="emailUser parteModal">{{ emailUsuario }}</span>
     <hr style="width: 80%" />
-    <div *ngIf="usuarioTipo == 1" class="divOpcao" (click)="navegar('/professor/reservas')">
-        <span title="Minhas Reservas" id="iconsUser" class="material-symbols-outlined iconDeselect">
+    <div *ngIf="usuarioTipo == 1" class="divOpcao parteModal" (click)="navegar('/professor/reservas')">
+        <span title="Minhas Reservas" id="iconsUser" class="material-symbols-outlined iconDeselect parteModal">
             pending_actions
         </span>
-        <span class="spanUser">Minhas Reservas</span>
+        <span class="spanUser parteModal">Minhas Reservas</span>
     </div>
-    <div class="divOpcao" (click)="abrirConfiguracoes()">
-        <span title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect">
+    <div class="divOpcao parteModal" (click)="abrirConfiguracoes()">
+        <span title="Configurações" id="iconsUser" class="material-symbols-outlined iconDeselect parteModal">
             settings
         </span>
-        <span class="spanUser">Configurações</span>
+        <span class="spanUser parteModal">Configurações</span>
     </div>
-    <div class="divOpcao" (click)="abrirAjuda()">
-        <span title="Ajuda" id="iconsUser" class="material-symbols-outlined iconDeselect">
+    <div class="divOpcao parteModal" (click)="abrirAjuda()">
+        <span title="Ajuda" id="iconsUser" class="material-symbols-outlined iconDeselect parteModal">
             help
         </span>
-        <span class="spanUser">Ajuda</span>
+        <span class="spanUser parteModal">Ajuda</span>
     </div>
-    <div class="divOpcao" (click)="logout()">
-        <span title="Deslogar" id="imgUser2" class="material-symbols-outlined iconDeselect">
+    <div class="divOpcao parteModal" (click)="logout()">
+        <span title="Deslogar" id="imgUser2" class="material-symbols-outlined iconDeselect parteModal">
             logout
         </span>
-        <span class="spanUser">Sair</span>
+        <span class="spanUser parteModal">Sair</span>
     </div>
 </div>

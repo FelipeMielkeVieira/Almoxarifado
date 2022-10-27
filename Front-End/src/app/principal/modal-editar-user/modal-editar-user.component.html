@@ -1,24 +1,25 @@
-<div id="editarUser">
-    <div id="modalEditar">
-        <div id="barraAzul">
-            <div id="user">
-                <img id="imagemUsuario" src="../../../assets/user.png" alt="Imagem de usuário" />
-                <div id="alterarFoto">Edit</div>
+<div class="parteModal" id="editarUser">
+    <div id="modalEditar" class="parteModal">
+        <div id="barraAzul" class="parteModal">
+            <div id="user" class="parteModal">
+                <img class="parteModal" id="imagemUsuario" src="../../../assets/user.png" alt="Imagem de usuário" />
+                <div class="parteModal" id="alterarFoto">Edit</div>
             </div>
         </div>
-        <div id="iconSair">
-            <span title="Fechar" (click)="fechar()" id="fecharIcone" class="fecharModalUser"
-                class="material-symbols-outlined iconDeselect">
+        <div id="iconSair" class="parteModal">
+            <span title="Fechar" (click)="fechar()" id="fecharIcone" class="fecharModalUser parteModal"
+                class="material-symbols-outlined iconDeselect parteModal">
                 close
             </span>
         </div>
-        <div id="inputsModal">
-            <div class="form-floating div-float-label">
+        <div id="inputsModal" class="parteModal">
+            <div class="form-floating div-float-label parteModal">
                 <input name="emailVerificacao" [(ngModel)]="usuarioNovo" type="email"
-                    class="form-control input-float-label" placeholder="Email">
-                <label class="label-float-label">Email<span class="asteriscoObrigatorio">*</span></label>
+                    class="form-control input-float-label parteModal" placeholder="Email">
+                <label class="label-float-label parteModal">Email<span
+                        class="asteriscoObrigatorio parteModal">*</span></label>
             </div>
         </div>
-        <button type="button" id="salvar" (click)="salvar()">Salvar</button>
+        <button class="parteModal" type="button" id="salvar" (click)="salvar()">Salvar</button>
     </div>
 </div>

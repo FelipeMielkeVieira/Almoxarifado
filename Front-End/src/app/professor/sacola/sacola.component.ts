@@ -79,14 +79,16 @@ export class SacolaComponent implements OnInit {
         { id: 5, nome: "Professor 5" }];
     }
 
-    verDetalhes() {
-        localStorage.setItem("reserva", "2");
-        if (localStorage.getItem('usuario') == '1') {
-            this.router.navigate(['/professor/sacolas/' + this.id]);
-        } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
-            this.router.navigate(['/atendente/sacolas/' + this.id]);
-        } else {
-            this.router.navigate(['/supervisor/sacolas/' + this.id])
+    verDetalhes(event: any) {
+        if(event.target.className != "botao" && event.target.localName != "span") {
+            localStorage.setItem("reserva", "2");
+            if (localStorage.getItem('usuario') == '1') {
+                this.router.navigate(['/professor/sacolas/' + this.id]);
+            } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+                this.router.navigate(['/atendente/sacolas/' + this.id]);
+            } else {
+                this.router.navigate(['/supervisor/sacolas/' + this.id])
+            }
         }
     }
 

@@ -32,6 +32,18 @@ export class HeaderComponent implements OnInit {
 
   // *Pega o email e nome do usuario logado
   ngOnInit() {
+    // Função para fechamento do modal user caso tenha sido clicado fora
+    var self = this;
+    window.onclick = function (event) {
+      if (!(event.target as HTMLElement).className.includes("parteModal")) {
+        if (!(event.target as HTMLElement).className.includes("iconsModais")) {
+          if (self.modalUser) {
+            self.modalUser = false;
+          }
+        }
+      }
+    }
+
     this.service.usuarios.forEach((e) => {
       if (localStorage.getItem('emailAtual') == e.email) {
         this.emailUsuario = e.email;
