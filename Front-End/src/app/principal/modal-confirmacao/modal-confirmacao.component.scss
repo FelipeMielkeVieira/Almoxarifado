@@ -12,7 +12,6 @@
 }
 
 .containerModalExcluir {
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,8 +20,6 @@
     width: 28rem;
     height: 13.5rem;
     border-radius: 10px;
-    right: 35%;
-    top: 30%;
     border: solid 1px black;
     background-color: #fff;
     animation: fadein 0.5s;
