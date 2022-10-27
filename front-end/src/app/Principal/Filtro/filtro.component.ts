@@ -25,9 +25,29 @@ export class FiltroComponent implements OnInit {
   filtroSelecionado: { classificacao: string } | null = null;
 
   ngOnInit() {
+    // Função para fechamento do filtro caso tenha sido clicado fora
+    window.addEventListener("click", function (event) {
+      if (!(event.target as HTMLElement).className.includes("parteFiltro")) {
+        let filtro = document.querySelector("#check") as HTMLInputElement;
+        if (!((event.target as HTMLElement).id == "check")) {
+          if (!filtro.checked) {
+            filtro.checked = true;
+          }
+        }
+      }
+    });
   }
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-= Funções Modal FeddBack Salvo com sucesso =-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+  mudarFiltro() {
+    let filtro = document.querySelector("#check") as HTMLInputElement;
+    if(!filtro.checked) {
+      setTimeout(() => {
+        filtro.checked = true;
+      }, 10);
+    }
+  }
 
   // *Irá fechar o modal do feedback
   fechar() {

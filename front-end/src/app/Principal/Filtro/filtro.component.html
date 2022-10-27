@@ -68,11 +68,11 @@
 
       <div id="containerCadastrar">
         <div id="parteCadastrar">
-          
+
           <div id="textoCadastrar">
             <p>Cadastrar</p>
           </div>
-          
+
           <div id="inputNomeFiltro">
             <input type="text" id="NomeFiltro" placeholder="Nome da Classificação" />
             <button id="botaoAdicionar">OK</button>
@@ -92,14 +92,14 @@
 
 <!-- -------------------------------FILTRO EM SI-------------------------------------------- -->
 <input type="checkbox" id="check" checked />
-<div id="espacamento"></div>
-<div class="sidebar">
-  <div class="containerTopo">
-    <div class="filtro">
-      <div class="textoFiltro">
-        <span>Filtros</span>
+<div id="espacamento" class="parteFiltro"></div>
+<div class="sidebar parteFiltro">
+  <div class="containerTopo parteFiltro">
+    <div class="filtro parteFiltro">
+      <div class="textoFiltro parteFiltro">
+        <span class="parteFiltro">Filtros</span>
       </div>
-      <label for="check">
+      <label class="parteFiltro" for="check" (click)="mudarFiltro()">
         <div class="ContainerIconMaior">
           <span title="Filtro" class="material-symbols-outlined iconDeselect" id="iconMaior">
             filter_alt
@@ -110,50 +110,50 @@
         </div>
       </label>
     </div>
-    <div id="containerConteudoFiltro">
-      <div class="itensFiltro tipoFiltro">
-        <div id="containerDescartavel" (click)="checkDescartavel()">
-          <input class="checkbox" type="checkbox" id="checkDescartavel" />
-          <div>
-            <span class="texto">Descartáveis</span>
+    <div id="containerConteudoFiltro" class="parteFiltro">
+      <div class="itensFiltro tipoFiltro parteFiltro">
+        <div id="containerDescartavel" class="parteFiltro" (click)="checkDescartavel()">
+          <input class="checkbox parteFiltro" type="checkbox" id="checkDescartavel" />
+          <div class="parteFiltro">
+            <span class="texto parteFiltro">Descartáveis</span>
           </div>
         </div>
-        <div id="containerNaoDescartavel" (click)="checkNaoDescartavel()">
-          <input class="checkbox" type="checkbox" id="checkNaoDescartavel" />
-          <div>
-            <span class="texto">Não Descartáveis</span>
+        <div id="containerNaoDescartavel" class="parteFiltro" (click)="checkNaoDescartavel()">
+          <input class="checkbox parteFiltro" type="checkbox" id="checkNaoDescartavel" />
+          <div class="parteFiltro">
+            <span class="texto parteFiltro">Não Descartáveis</span>
           </div>
         </div>
-        <div id="containerSemEstoque" (click)="checkSemEstoque()">
-          <input class="checkbox" type="checkbox" id="checkSemEstoque" />
-          <div>
-            <span class="texto">Sem estoque</span>
+        <div id="containerSemEstoque" class="parteFiltro" (click)="checkSemEstoque()">
+          <input class="checkbox parteFiltro" type="checkbox" id="checkSemEstoque" />
+          <div class="parteFiltro">
+            <span class="texto parteFiltro">Sem estoque</span>
           </div>
         </div>
-        <div id="containerComEstoque" (click)="checkComEstoque()">
-          <input class="checkbox" type="checkbox" id="checkComEstoque" />
-          <div>
-            <span class="texto">Com estoque</span>
+        <div id="containerComEstoque" class="parteFiltro" (click)="checkComEstoque()">
+          <input class="checkbox parteFiltro" type="checkbox" id="checkComEstoque" />
+          <div class="parteFiltro">
+            <span class="texto parteFiltro">Com estoque</span>
           </div>
         </div>
-        <div id="containerFavoritos" (click)="checkFavoritos()">
-          <input class="checkbox" type="checkbox" id="checkFavoritos" />
-          <div>
-            <span class="texto">Favoritos</span>
+        <div id="containerFavoritos" class="parteFiltro" (click)="checkFavoritos()">
+          <input class="checkbox parteFiltro" type="checkbox" id="checkFavoritos" />
+          <div class="parteFiltro">
+            <span class="texto parteFiltro">Favoritos</span>
           </div>
         </div>
       </div>
-      <div id="separacaoFiltroClassificacao">
-        <div id="riscoSeparar">
-          <hr id="riscoGrande" />
-          <hr id="riscoGrande" />
+      <div id="separacaoFiltroClassificacao" class="parteFiltro">
+        <div id="riscoSeparar" class="parteFiltro">
+          <hr id="riscoGrande" class="parteFiltro" />
+          <hr id="riscoGrande" class="parteFiltro" />
         </div>
-        <div id="textoClassificacoes">↓ Classificações ↓</div>
-        <div id="riscoSeparar">
-          <hr id="riscoGrande" />
+        <div id="textoClassificacoes" class="parteFiltro">↓ Classificações ↓</div>
+        <div id="riscoSeparar" class="parteFiltro">
+          <hr id="riscoGrande" class="parteFiltro" />
         </div>
       </div>
-      <div class="itensFiltro tipoClassificacao">
+      <div class="itensFiltro tipoClassificacao parteFiltro">
         <a *ngFor="let item of listaClassificacoes" (click)="filtrar(item)">
           <span>{{ item.classificacao }}</span>
         </a>

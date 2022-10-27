@@ -117,12 +117,12 @@
       </div>
     </div>
   </div>
-  <!-- <app-calendario
-        *ngIf="calendarioAberto1 == 1"
+  <app-calendario
+        *ngIf="calendarioRetirada"
         (salvarData)="salvarData(1, $event)"
       ></app-calendario>
       <app-calendario
-        *ngIf="calendarioAberto2 == 1"
-        (salvarData)="salvarData2(2, $event)"
-      ></app-calendario> -->
+        *ngIf="calendarioDevolucao"
+        (salvarData)="salvarData(2, $event)"
+      ></app-calendario>
 </div>

@@ -82,11 +82,19 @@ export class ModalReservarItem implements OnInit {
   // Função para abrir os calendários (1 -> retirada || 2 -> devolução)
   abrirCalendario(numero: number) {
     if (numero == 1) {
-      this.calendarioDevolucao = false;
-      this.calendarioRetirada = true;
+      if(!this.calendarioRetirada) {
+        this.calendarioDevolucao = false;
+        this.calendarioRetirada = true;
+      } else {
+        this.calendarioRetirada = false;
+      }
     } else {
-      this.calendarioRetirada = false;
-      this.calendarioDevolucao = true;
+      if(!this.calendarioDevolucao) {
+        this.calendarioRetirada = false;
+        this.calendarioDevolucao = true;
+      } else {
+        this.calendarioDevolucao = false;
+      }
     }
   }
 
