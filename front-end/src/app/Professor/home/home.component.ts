@@ -1,16 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service';
 
+import { MatPaginatorIntl } from '@angular/material/paginator';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
-  constructor(private service: UsersService) {
+  constructor(private service: UsersService, private paginator: MatPaginatorIntl) {
     this.listaItens = service.itens;
     this.listaItensFiltrada = this.listaItens;
     this.numResultados = this.listaItens.length;
+
+    paginator.itemsPerPageLabel = 'Quantidade de itens por página:';
+    paginator.nextPageLabel = 'Próxima página';
+    paginator.previousPageLabel = 'Página anterior';
+    paginator.firstPageLabel = 'Primeira página';
+    paginator.lastPageLabel = 'Última página';
+
+    paginator.getRangeLabel = (page: number, pageSize: number, length: number) => {
+      if (length === 0 || pageSize === 0) {
+        return `0 à ${length }`;
+      }
+      length = Math.max(length, 0);
+      const startIndex = page * pageSize;
+      // If the start index exceeds the list length, do not try and fix the end index to the end.
+      const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+      return `${endIndex} de ${length}`;
+    };
   }
 
   numeroPaginas = 6;
@@ -25,6 +45,8 @@ export class HomeComponent implements OnInit {
   modalOrdenar: boolean = false;
 
   listaOrdenacoes = [false, false, false, false];
+
+  
 
   ngOnInit() {
 
