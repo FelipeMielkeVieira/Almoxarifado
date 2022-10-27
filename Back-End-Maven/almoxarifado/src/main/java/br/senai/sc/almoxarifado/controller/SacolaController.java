@@ -45,7 +45,6 @@ public class SacolaController {
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid SacolaDTO sacolaDTO) {
-        System.out.println("sacola dto" + sacolaDTO.toString());
         Sacola sacola = new Sacola();
         BeanUtils.copyProperties(sacolaDTO, sacola);
         Sacola sacolaSalva = sacolaService.save(sacola);
@@ -77,7 +76,14 @@ public class SacolaController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                     "Não foi encontrada nenhuma sacola com este ID.");
         }
+
+        Sacola sacola = sacolaService.findById(id).get();
+
+        for (ProdutosEscolhidosSacola produtoEscolhidoSacola : produtosEscolhidosSacolaService.findBySacola(sacola)) {
+            produtosEscolhidosSacolaService.deleteById(produtoEscolhidoSacola.getId());
+        }
+
         sacolaService.deleteById(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Sacola deletada com sucesso.");
+        return ResponseEntity.status(HttpStatus.OK).body("Sacola e itens da sacola deletados com sucesso.");
     }
 }

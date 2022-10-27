@@ -21,9 +21,14 @@ import java.util.Optional;
 public class UsuarioController {
     private UsuarioService usuarioService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Usuario>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findAll());
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Usuario>> findByVisibilidade() {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findAllByVisibilidade(true));
     }
 
     @GetMapping("/{email}")
@@ -31,17 +36,27 @@ public class UsuarioController {
         if (!usuarioService.existsById(email)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrada nenhum usuário com este Email.");
         }
+
+        Usuario usuario = usuarioService.findById(email).get();
+
+        if (!usuario.getVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("O usuário solicitado não existe!");
+        }
+
         return ResponseEntity.status(HttpStatus.FOUND).body(usuarioService.findById(email).get());
     }
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid UsuarioDTO usuarioDTO) {
         if (usuarioService.existsById(usuarioDTO.getEmailUsuario())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Este Email já está cadastrado.");
+            if (usuarioService.findById(usuarioDTO.getEmailUsuario()).get().getVisibilidade()) {
+                return ResponseEntity.status(HttpStatus.CONFLICT).body("Este Email já está cadastrado.");
+            }
         }
 
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuarioDTO, usuario);
+        usuario.setVisibilidade(true);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
     }
 
@@ -51,7 +66,12 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este Email não existe.");
         }
 
-        Usuario usuario = new Usuario();
+        Usuario usuario = usuarioService.findById(email).get();
+
+        if (!usuario.getVisibilidade()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("O usuário solicitado não existe!");
+        }
+
         BeanUtils.copyProperties(usuarioDTO, usuario, "emailUsuario");
         usuario.setEmailUsuario(email);
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.save(usuario));
@@ -64,7 +84,9 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhum usuário com este Email.");
         }
 
-        usuarioService.deleteById(email);
-        return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado.");
+        Usuario usuario = usuarioService.findById(email).get();
+        usuario.setVisibilidade(false);
+        usuarioService.save(usuario);
+        return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado com sucesso!");
     }
 }
