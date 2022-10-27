@@ -1,3 +1,4 @@
+import { TelaCarregamentoComponent } from './tela-carregamento/tela-carregamento.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -42,7 +43,8 @@ import {MatDividerModule} from '@angular/material/divider';
     ModalHistoricoEdicaoComponent,
     PaginacaoComponent,
     AjudaComponent,
-    ItemListaComponent
+    ItemListaComponent,
+    TelaCarregamentoComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +67,8 @@ import {MatDividerModule} from '@angular/material/divider';
     ModalMotivoEdicaoComponent,
     ModalConfirmacaoComponent,
     ModalHistoricoEdicaoComponent,
-    ItemListaComponent
+    ItemListaComponent,
+    TelaCarregamentoComponent
   ]
 })
 export class PrincipalModule { }

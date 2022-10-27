@@ -51,21 +51,12 @@
                     </span>
                 </div>
             </div>
-            <div id="filtro"></div>
-            <p id="resultados">{{ numResultados }} Resultados encontrados</p>
+            <app-tela-carregamento *ngIf="carregando"></app-tela-carregamento>
+            <div *ngIf="!carregando" id="filtro"></div>
+            <p id="resultados" *ngIf="!carregando">{{ numResultados }} Resultados encontrados</p>
         </div>
 
-        <div *ngIf="carregando" id="carregamento">
-            <div id="preloader">
-                <div class="inner">
-                   <div class="bolas">
-                      <div></div>
-                      <div></div>
-                      <div></div>                    
-                   </div>
-                </div>
-            </div>
-        </div>
+        
 
         <div *ngIf="!carregando">
             <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
