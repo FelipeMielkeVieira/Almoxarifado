@@ -14,6 +14,5 @@ public class UsuarioDTO {
     private String senhaUsuario;
     private String nomeUsuario;
     private TipoUsuario tipoUsuario;
-    private Boolean visibilidadeUsuario;
     private Set<Produto> produtosFavoritados;
 }

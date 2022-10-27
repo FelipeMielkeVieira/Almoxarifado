@@ -20,4 +20,8 @@ public class ProdutosEscolhidosSacolaService {
     public List<ProdutosEscolhidosSacola> findBySacola(Sacola sacola) {
         return produtosEscolhidosSacolaRepository.findBySacola(sacola);
     }
+
+    public void deleteById(Long id) {
+        produtosEscolhidosSacolaRepository.deleteById(id);
+    }
 }

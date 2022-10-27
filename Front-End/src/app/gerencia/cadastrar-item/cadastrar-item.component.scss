@@ -9,7 +9,7 @@
 #containerModalCadastrar {
     border-top: 12px solid #0047B6;
     width: 40rem;
-    height: 37.5rem;
+    height: 32rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
@@ -71,12 +71,12 @@
 }
 
 .inputsCadastro {
-    width: 13rem;
+    width: 16rem;
     height: 30px;
-    border: solid 1px black;
-    border-radius: 5px;
-    margin-left: 10px;
+    border: solid 1px rgb(150, 150, 150);
+    border-radius: 4px;
     padding-left: 10px;
+    outline: none;
 }
 
 .classificacao {
@@ -85,6 +85,7 @@
     align-items: flex-start;
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 .addClassificacao {
@@ -95,7 +96,6 @@
     min-height: 30px;
     min-width: 30px;
     border-radius: 100px;
-    background-color: #0047B6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,6 +107,7 @@
 .iconMaisLoc {
     font-size: var(--font-size--big);
     color: #fff;
+    user-select: none;
 }
 
 .adicionarClassificacao {
@@ -147,22 +148,24 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 
 #selecionarDescartavel {
-    width: 9.5rem;
+    width: 10rem;
     height: 1.8rem;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
+    font-size: var(--font-size--default);
 }
 
 .inputQtd {
-    width: 4.563rem;
+    width: 3rem;
     height: 1.8rem;
-    padding-left: 10px;
+    padding-left: 4px;
+    outline: none;
 }
 
 .anexo {
@@ -220,4 +223,27 @@
     border: 0.5px solid rgb(158, 158, 158);
     border-radius: 6px;
     object-fit: contain;
+}
+
+.localizacaoProduto {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.qtdItem {
+    width: 35%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pontosQtd {
+    min-height: 30px;
+    min-width: 30px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    cursor: pointer;
+    background-color: #0047B6;
 }

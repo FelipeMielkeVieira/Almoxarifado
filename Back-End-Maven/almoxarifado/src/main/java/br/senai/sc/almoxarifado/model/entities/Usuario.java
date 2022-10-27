@@ -29,7 +29,7 @@ public class Usuario {
     private TipoUsuario tipoUsuario;
 
     @Column(length = 1, nullable = false)
-    private Boolean visibilidadeUsuario;
+    private Boolean visibilidade;
 
     //Foreign Keys
 

@@ -9,6 +9,12 @@
 
 <!-- Div Principal -->
 <main>
+    <!-- Feedback de sacola reservada -->
+    <app-modal-feedback *ngIf="feedbackSacolaReservada" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(2)"></app-modal-feedback>
+
+    <!-- Feedback de sacola excluída -->
+    <app-modal-feedback *ngIf="feedbackSacolaExcluida" [tipoFeedback]="5" (fecharModal)="fecharModaisFeedback(1)"></app-modal-feedback>
+
     <div id="container">
         <div id="containerInput">
             <div id="containerInputOrdenar">
