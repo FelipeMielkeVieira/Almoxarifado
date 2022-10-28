@@ -88,6 +88,11 @@
   </div>
 </div>
 
+<div id="fundoModal" *ngIf="fundoModal">
+  <app-modal-confirmacao *ngIf="modalConfirmarAlteracoes" [tipoTexto]="11"
+    (fecharModal)="fecharModaisConfirmacao($event)"></app-modal-confirmacao>
+</div>
+
 <!-- ---------------------------FIM MODAL GERENCIAR FILTRO----------------------------- -->
 
 <!-- -------------------------------FILTRO EM SI-------------------------------------------- -->
