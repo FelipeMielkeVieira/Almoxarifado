@@ -39,4 +39,13 @@ public class Usuario {
             joinColumns = @JoinColumn(name = "usuario_email", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "produto_id", nullable = false))
     private Set<Produto> produtosFavoritados;
+
+    public boolean usuarioInTipoUsuario(String usuario) {
+        for (TipoUsuario tipoUsuario : TipoUsuario.values()) {
+            if (tipoUsuario.getNome().equals(usuario)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

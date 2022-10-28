@@ -47,6 +47,18 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.FOUND).body(usuarioService.findById(email).get());
     }
 
+    @GetMapping("/tipo-usuario/{tipoUsuario}")
+    public ResponseEntity<Object> findByTipoUsuario(
+            @PathVariable(value = "tipoUsuario") String tipoUsuarioParam) {
+        Usuario usuarioModel = new Usuario();
+        if (!usuarioModel.usuarioInTipoUsuario(tipoUsuarioParam)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Tipo de usuário inválido!");
+        }
+
+        TipoUsuario tipoUsuario = TipoUsuario.valueOf(tipoUsuarioParam);
+        return ResponseEntity.status(HttpStatus.FOUND).body(usuarioService.findByTipoUsuario(tipoUsuario));
+    }
+
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid UsuarioDTO usuarioDTO) {
         if (usuarioService.existsById(usuarioDTO.getEmailUsuario())) {

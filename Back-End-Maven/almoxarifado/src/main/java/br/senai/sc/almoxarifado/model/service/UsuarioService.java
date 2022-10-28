@@ -1,5 +1,6 @@
 package br.senai.sc.almoxarifado.model.service;
 
+import br.senai.sc.almoxarifado.model.entities.TipoUsuario;
 import br.senai.sc.almoxarifado.model.entities.Usuario;
 import br.senai.sc.almoxarifado.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,10 @@ public class UsuarioService {
 
     public List<Usuario> findAllByVisibilidade(Boolean visibilidade) {
         return usuarioRepository.findAllByVisibilidade(visibilidade);
+    }
+
+    public List<Usuario> findByTipoUsuario(TipoUsuario tipoUsuario) {
+        return usuarioRepository.findByTipoUsuario(tipoUsuario);
     }
 
     public <S extends Usuario> S save(S entity) {
