@@ -1,3 +1,7 @@
+* {
+    font-size: var(--font-size--default);
+}
+
 #fundoModal {
     display: flex;
     justify-content: center;
@@ -49,10 +53,6 @@
     font-size: var(--font-size--small);
 }
 
-.email:hover {
-    text-decoration: underline;
-}
-
 .containerLixeira {
     height: 100%;
     margin-right: 1.7%;
@@ -60,7 +60,7 @@
 }
 
 #iconeLixeira {
-    font-size: var(--font-size--giant);
+    font-size: 30px;
     font-weight: 300;
     cursor: pointer;
 }
