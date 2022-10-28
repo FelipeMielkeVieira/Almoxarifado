@@ -1,3 +1,7 @@
+<div *ngIf="modalDetalhes" id="backdrop">
+    <app-cadastrar-descricao-item (fecharModal)="toggleModalDetalhes()"></app-cadastrar-descricao-item>
+</div>
+
 <div id="containerModalCadastrar">
     <div id="containerIcons">
         <span (click)="fecharModalCadastro('fechar')" title="Fechar" id="fecharIcone" class="icone"
@@ -73,9 +77,14 @@
                     </div>
                 </div>
             </div>
-            <button class="botaoCadastrar tamanhoTextos">
-                Cadastrar
-            </button>
+            <div id="containerBtn">
+                <button class="botaoCadastrar tamanhoTextos">
+                    Cadastrar
+                </button>
+                <span (click)="toggleModalDetalhes()" title="Adicionar" class="material-symbols-outlined iconDeselect addDetalhes">
+                    add
+                </span>
+            </div>
         </div>
     </div>
 </div>

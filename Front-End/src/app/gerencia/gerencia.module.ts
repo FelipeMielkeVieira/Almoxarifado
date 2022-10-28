@@ -21,6 +21,7 @@ import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva
 import { GerenciarUsuarioListaComponent } from './gerenciar-usuario-lista/gerenciar-usuario-lista.component';
 import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.component';
 import { ReservaListaComponent } from './reserva-lista/reserva-lista.component';
+import { CadastrarDescricaoItemComponent } from './cadastrar-descricao-item/cadastrar-descricao-item.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ReservaListaComponent } from './reserva-lista/reserva-lista.component';
     DevolucaoReservaComponent,
     GerenciarUsuarioListaComponent,
     CadastrarItemComponent,
-    ReservaListaComponent
+    ReservaListaComponent,
+    CadastrarDescricaoItemComponent
   ],
   imports: [
     CommonModule,
