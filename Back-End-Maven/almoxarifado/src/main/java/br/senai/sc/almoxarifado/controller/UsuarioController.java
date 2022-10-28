@@ -1,6 +1,7 @@
 package br.senai.sc.almoxarifado.controller;
 
 import br.senai.sc.almoxarifado.dto.UsuarioDTO;
+import br.senai.sc.almoxarifado.model.entities.TipoUsuario;
 import br.senai.sc.almoxarifado.model.entities.Usuario;
 import br.senai.sc.almoxarifado.model.service.UsuarioService;
 import lombok.AllArgsConstructor;
@@ -56,6 +57,7 @@ public class UsuarioController {
 
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuarioDTO, usuario);
+        usuario.setTipoUsuario(TipoUsuario.PENDENTE);
         usuario.setVisibilidade(true);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
     }
