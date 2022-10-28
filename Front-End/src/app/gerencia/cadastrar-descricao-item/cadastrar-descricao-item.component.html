@@ -12,7 +12,8 @@
         <div id="containerHeadAnexos">
             <h2 class="title semMargin">Anexos</h2>
             <div id="containerAddAnexo">
-                <input name="anexoInputFile[]" type="file" (change)="anexoAdicionado()" class="inputFile" id="anexoInput" multiple="multiple">
+                <input name="anexoInputFile" type="file" (change)="anexoAdicionado()" class="inputFile"
+                    id="anexoInput">
                 <label class="labelAnexoInput" for="anexoInput">
                     <span title="Adicionar Anexo" id="adicionarAnexoIcone"
                         class="material-symbols-outlined iconDeselect">
@@ -22,7 +23,7 @@
             </div>
         </div>
         <div id="containerTabelaAnexos">
-            <table class="table">
+            <table *ngIf="inputFileList.length > 0" class="table table-hover">
                 <thead>
                     <tr>
                         <th class="itemTabela">Nome</th>
@@ -30,7 +31,15 @@
                     </tr>
                 </thead>
                 <tbody id="tbodyAnexos">
-                    
+                    <tr *ngFor="let file of inputFileList; let i = index">
+                        <td class="itemTabela"> {{ file.name }} </td>
+                        <td class="itemTabela alignCenter">
+                            <span (click)="removerAnexo(i)" class="material-symbols-outlined icone"
+                                title="Remover anexo">
+                                delete
+                            </span>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

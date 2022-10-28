@@ -215,7 +215,6 @@
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: var(--font-size--big);
     cursor: pointer;
 }
 
@@ -267,10 +266,24 @@
 #containerBtn {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
+.btnDetalhes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: white;
+    color: #0047B6;
+    border: 0.5px solid rgba(0, 0, 0, 0.349);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
 .addDetalhes {
-    margin-left: 1rem;
+    font-size: 24px;
 }

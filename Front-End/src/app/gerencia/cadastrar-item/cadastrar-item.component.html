@@ -78,12 +78,16 @@
                 </div>
             </div>
             <div id="containerBtn">
+                <button class="btnDetalhes tamanhoTextos" (click)="toggleModalDetalhes()" >
+                    Detalhes
+                    <span  title="Adicionar"
+                        class="material-symbols-outlined iconDeselect addDetalhes">
+                        add
+                    </span>
+                </button>
                 <button class="botaoCadastrar tamanhoTextos">
                     Cadastrar
                 </button>
-                <span (click)="toggleModalDetalhes()" title="Adicionar" class="material-symbols-outlined iconDeselect addDetalhes">
-                    add
-                </span>
             </div>
         </div>
     </div>
