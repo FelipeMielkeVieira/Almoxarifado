@@ -57,6 +57,7 @@ hr {
 }
 
 .subtituloModal {
+    font-size: var(--font-size--medium);
     font-weight: bold;
     margin-top: 5px;
 }
@@ -97,7 +98,7 @@ hr {
 
 #menosQtdIcon,
 #maisQtdIcon {
-    font-size: var(--font-size--medium);
+    font-size: 18px;
     padding: 7% 7%;
     cursor: pointer;
 }
@@ -223,13 +224,13 @@ p {
 }
 
 #iconModal2 {
-    font-size: var(--font-size--giant);
+    font-size: 30px;
     cursor: pointer;
     color: #000000;
 }
 
 #iconModal {
-    font-size: var(--font-size--extreme);
+    font-size: 40px;
     cursor: pointer;
     color: #000000;
 }
@@ -242,7 +243,7 @@ p {
 }
 
 .GambiarraSacola {
-    font-size: var(--font-size--extreme);
+    font-size: 40px;
     cursor: pointer;
     color: #000000;
 }
@@ -250,7 +251,7 @@ p {
 .GambiarraAdicionarSacola {
     right: inherit;
     position: absolute;
-    font-size: var(--font-size--giant);
+    font-size: 30px;
     cursor: pointer;
     font-weight: 600;
     color: #000000;

@@ -226,11 +226,11 @@ p {
 }
 
 .dataTitulo {
-    font-size: 17.5px;
+    font-size: var(--font-size--medium);
 }
 
 .dataTituloDevolucao {
-    font-size: 17.5px;
+    font-size: var(--font-size--medium);
     margin-top: 2%;
 }
 
