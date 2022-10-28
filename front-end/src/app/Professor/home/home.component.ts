@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,8 +9,6 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 })
 
 export class HomeComponent implements OnInit {
-
-
   constructor(private service: UsersService, private paginator: MatPaginatorIntl,) {
 
     this.listaItens = service.itens;
@@ -61,7 +57,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.carregando = false;
+      this.carregando = !this.carregando;
     }, 1500);
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;

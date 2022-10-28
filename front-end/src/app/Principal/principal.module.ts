@@ -1,3 +1,4 @@
+import { TelaCarregamentoComponent } from './tela-carregamento/tela-carregamento.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -44,6 +45,7 @@ import { CalendarioComponent } from './calendario/calendario.component';
     PaginacaoComponent,
     AjudaComponent,
     ItemListaComponent,
+    TelaCarregamentoComponent,
     CalendarioComponent
   ],
   imports: [
@@ -68,6 +70,7 @@ import { CalendarioComponent } from './calendario/calendario.component';
     ModalConfirmacaoComponent,
     ModalHistoricoEdicaoComponent,
     ItemListaComponent,
+    TelaCarregamentoComponent,
     CalendarioComponent
   ]
 })
