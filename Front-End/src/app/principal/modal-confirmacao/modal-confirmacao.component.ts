@@ -37,6 +37,8 @@ export class ModalConfirmacaoComponent implements OnInit {
                 return "Deseja confirmar a devolução?";
             case 10:
                 return "Deseja excluir a classificação?"
+            case 11:
+                return "Deseja salvar alterações?"
         }
         return "";
     }

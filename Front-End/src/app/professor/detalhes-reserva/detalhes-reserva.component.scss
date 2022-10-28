@@ -100,6 +100,7 @@ p:hover {
     align-items: center;
     flex-direction: row;
     width: 95%;
+    max-width: 95%;
     height: 5.5rem;
     border-bottom: solid 1px #D9D9D9;
 }
@@ -262,6 +263,7 @@ p:hover {
     justify-content: center;
     align-items: center;
     width: 40%;
+    max-width: 40%;
 }
 
 .containerResumo {
@@ -269,7 +271,7 @@ p:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 30rem;
+    width: 480px;
     height: 35rem;
     border: solid 0.5px black;
     border-radius: 10px;
@@ -341,12 +343,14 @@ p:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30rem;
+    width: 80%;
+    flex-wrap: wrap;
 }
 
 .botaoReservar {
-    width: 40%;
+    min-width: 40%;
     height: 2.8rem;
+    padding: 5px;
     color: #ffff;
     font-family: 'Inter', sans-serif;
     font-size: var(--font-size--medium);

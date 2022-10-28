@@ -18,6 +18,8 @@ export class FiltroComponent implements OnInit {
   listaClassificacoes;
   usuario: number;
 
+  fundoModal: boolean = false;
+  modalConfirmarAlteracoes: boolean = false;
   modalGerenciarFiltro: boolean = false;
 
   feedback = 0;
@@ -42,7 +44,7 @@ export class FiltroComponent implements OnInit {
 
   mudarFiltro() {
     let filtro = document.querySelector("#check") as HTMLInputElement;
-    if(!filtro.checked) {
+    if (!filtro.checked) {
       setTimeout(() => {
         filtro.checked = true;
       }, 10);
@@ -63,14 +65,26 @@ export class FiltroComponent implements OnInit {
     this.modalGerenciarFiltro = false;
   }
 
-  // *Irá salvar o novo item do filtro, fazendo aparecer o modal de feedback e fechando o modal de gerenciar filtro
+  // *Irá abrir o modal de confirmação de edição das alterações
   salvar() {
-    this.fecharModal();
-    this.feedback = 1;
-    setTimeout(() => {
-      this.feedback = 0;
-    }, 5000);
+    this.fundoModal = true;
+    this.modalConfirmarAlteracoes = true;
   }
+  fecharModaisConfirmacao(resposta: boolean) {
+    if (resposta) {
+      this.modalConfirmarAlteracoes = false;
+      this.fundoModal = false;
+      this.fecharModal();
+      this.feedback = 1;
+      setTimeout(() => {
+        this.feedback = 0;
+      }, 5000);
+    } else {
+      this.modalConfirmarAlteracoes = false;
+      this.fundoModal = false;
+    }
+  }
+
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FIM MODAL GERENCIAR FILTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FILTRO EM SI =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
