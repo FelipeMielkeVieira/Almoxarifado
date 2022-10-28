@@ -21,27 +21,37 @@ export class ModalOcorrenciaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  textArea: String = "";
+  alertaDados: boolean = false;
+
   retornaTextoOcorrencia() {
     switch(this.tipoOcorrencia) {
       case 1:
         return "Motivo do Cancelamento";
-      case 2:
-        return "Motivo da Remoção";
-      case 3:
-        return "Atraso de Devolução";
-      case 4:
-        return "Informar Defeito";
-    }
-    return "";
-  }
-
-  fecharModalOcorrencia(texto: string) {
+        case 2:
+          return "Motivo da Remoção";
+          case 3:
+            return "Atraso de Devolução";
+            case 4:
+              return "Informar Defeito";
+            }
+            return "";
+          }
+          
+          fecharModalOcorrencia(texto: string) {
     this.fecharModal.emit(texto);
   }
-
+  
+  
   salvarOcorrencia() {
-    //Salvar ocorrência
-    this.fecharModalOcorrencia("salvar");
+    if(this.textArea != "") {
+      this.fecharModalOcorrencia("salvar");
+    } else {
+      this.alertaDados = true;
+      setTimeout(() => {
+        this.alertaDados = false;
+      }, 4500);
+    }
   }
 
 }

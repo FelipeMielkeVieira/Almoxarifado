@@ -21,6 +21,7 @@ import { DevolucaoReservaComponent } from './devolucao-reserva/devolucao-reserva
 import { GerenciarUsuarioListaComponent } from './gerenciar-usuario-lista/gerenciar-usuario-lista.component';
 import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.component';
 import { ReservaListaComponent } from './reserva-lista/reserva-lista.component';
+import { LoginModule } from '../login/login.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ReservaListaComponent } from './reserva-lista/reserva-lista.component';
     CadastrarItemComponent,
     ReservaListaComponent
   ],
-  imports: [
+  imports: [  
     CommonModule,
     PrincipalModule,
     ProfessorModule,
@@ -46,7 +47,8 @@ import { ReservaListaComponent } from './reserva-lista/reserva-lista.component';
     MatCheckboxModule,
     MatDividerModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    LoginModule
   ],
   exports: [
     HomeComponent,
