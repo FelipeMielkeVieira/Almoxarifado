@@ -15,6 +15,7 @@ export class CadastrarItemComponent implements OnInit {
   listaClassificacao: any[] = [];
   listaLocalizacoes: any[] = [];
   criarClassificacao = false;
+  modalDetalhes: boolean = false;
 
   listaLocalizacoesEscolhidas: any = [null];
 
@@ -74,6 +75,11 @@ export class CadastrarItemComponent implements OnInit {
         this.qtdItem++;
         break;
     }
+  }
+
+  toggleModalDetalhes() {
+    this.modalDetalhes = !this.modalDetalhes;
+    document.documentElement.style.overflow = this.modalDetalhes ? "hidden" : "auto";
   }
 
 }

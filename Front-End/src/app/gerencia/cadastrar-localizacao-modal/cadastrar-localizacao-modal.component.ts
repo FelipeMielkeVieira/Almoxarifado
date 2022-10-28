@@ -11,6 +11,8 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
   localizacao: String = "";
   localizacaoPai: String = "";
 
+  feedbackDados: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,9 +23,17 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
   }
 
   cadastrar() {
-    console.log(this.localizacao);
-    console.log(this.localizacaoPai);
-    this.close();
+    if (this.localizacao != "" && this.localizacaoPai != "") {
+      this.close();
+    } else {
+      this.feedbackDados = true;
+      setTimeout(() => {
+        this.feedbackDados = false;
+      }, 4500);
+    } 
   }
 
+  fecharModalAlerta(numeroModal: any) {
+    this.feedbackDados = false;
+  }
 }
