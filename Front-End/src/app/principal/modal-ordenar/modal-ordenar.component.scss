@@ -13,6 +13,14 @@
     text-align: left;
 }
 
+.tamanhoTexto {
+    font-size: var(--font-size--default);
+}
+
+.tamanhoTitutlo {
+    font-size: var(--font-size--medium);
+}
+
 .tituloFiltroModalUser {
     margin-top: 10px;
     color: #0047B6;

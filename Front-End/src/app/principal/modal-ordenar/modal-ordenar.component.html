@@ -1,5 +1,5 @@
 <div class="modalOrdenar parteModal">
-  <h4 class="tituloFiltroModalUser parteModal">Ordenar</h4>
+  <h4 class="tituloFiltroModalUser parteModal tamanhoTitulo">Ordenar</h4>
   <div class="setaUser parteModal"></div>
 
   <div id="containerCheckboxes" class="parteModal">
@@ -7,28 +7,28 @@
       <div class="containerCadaCheck parteModal">
         <input class="parteModal" type="checkbox" id="descartavelCheckbox" [(ngModel)]="listaOrdenacoes[0]"
           (change)="ordenar(0)" />
-        <label class="checkboxes parteModal" for="descartavelCheckbox">A-Z</label>
+        <label class="checkboxes parteModal tamanhoTexto" for="descartavelCheckbox">A-Z</label>
       </div>
       <div class="containerCadaCheck parteModal">
         <input class="parteModal" type="checkbox" id="comEstoqueCheckbox" [(ngModel)]="listaOrdenacoes[1]"
           (change)="ordenar(1)" />
-        <label class="checkboxes parteModal" for="comEstoqueCheckbox">Z-A</label>
+        <label class="checkboxes parteModal tamanhoTexto" for="comEstoqueCheckbox">Z-A</label>
       </div>
       <div class="containerCadaCheck parteModal">
         <input class="parteModal" type="checkbox" id="naoDescartavelCheckbox" [(ngModel)]="listaOrdenacoes[2]"
           (change)="ordenar(2)" />
-        <label class="checkboxes parteModal" for="naoDescartavelCheckbox">Maior Quantidade</label>
+        <label class="checkboxes parteModal tamanhoTexto" for="naoDescartavelCheckbox">Maior Quantidade</label>
       </div>
       <div class="containerCadaCheck parteModal">
         <input class="parteModal" type="checkbox" id="semEstoqueCheckbox" [(ngModel)]="listaOrdenacoes[3]"
           (change)="ordenar(3)" />
-        <label class="checkboxes parteModal" for="semEstoqueCheckbox">Menor Quantidade</label>
+        <label class="checkboxes parteModal tamanhoTexto" for="semEstoqueCheckbox">Menor Quantidade</label>
       </div>
     </div>
   </div>
 
   <div id="containerBotao" class="parteModal">
-    <button class="btnFiltrarModalOrdenar parteModal" (click)="limparOrdenacao()">Limpar</button>
+    <button class="btnFiltrarModalOrdenar parteModal tamanhoTexto" (click)="limparOrdenacao()">Limpar</button>
   </div>
 
 </div>
