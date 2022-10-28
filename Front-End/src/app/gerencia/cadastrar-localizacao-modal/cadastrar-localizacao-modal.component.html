@@ -1,5 +1,8 @@
 <!-- (click)="close()" -->
 
+<!-- Alerta de dados faltantes no cadastro de localização -->
+<app-alerta-feito *ngIf="feedbackDados" (fecharModal)="fecharModalAlerta($event)" [tipoMensagemModal]="7"></app-alerta-feito>
+
 <div id="modalItem" class="shadow-sm rounded">
     <div class="containerModal">
         <!-- fechar -->

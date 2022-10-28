@@ -11,14 +11,6 @@ p {
     line-height: 36px;
 }
 
-header {
-    position: fixed;
-    background: transparent;
-    padding: 20px;
-    width: 100%;
-    height: 30px;
-}
-
 a span {
     display: flex;
     padding: 0 0 0 1rem;
@@ -185,15 +177,8 @@ a {
     margin-top: 1%;
 }
 
-#riscoPequeno {
-    margin-top: 2%;
-    width: 60%;
-    background-color: rgba(0, 0, 0, 0.521);
-    height: 3px;
-}
-
 #riscoGrande {
-    margin-top: 2%;
+    margin-top: 5%;
     width: 80%;
     background-color: rgba(0, 0, 0, 0.521);
     height: 3px;
@@ -231,12 +216,6 @@ a {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-
-#containerSalvar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #containerSalvar,
@@ -464,25 +443,16 @@ a {
     font-size: var(--font-size--small);
 }
 
-.ContainerIconCalendario {
-    padding: 6px 5px 0 25px;
-    cursor: pointer;
-}
-
 .ContainerIconMaior:hover {
     background: #003c9c;
     cursor: pointer;
 }
 
-.ContainerIconMaior, .iconDescartavel {
+.ContainerIconMaior {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px 15px 15px 15px;
-}
-
-.ContainerIconCalendario {
-    margin-right: 15px;
 }
 
 .iconDeselect {
@@ -496,9 +466,7 @@ a {
 
 #iconMaior {
     cursor: pointer;
-    font-size: 2rem;
-    // transition: all 0.7s;
-    // transform: scaleX(-1)
+    font-size: 32px;
 }
 
 
@@ -567,6 +535,7 @@ a {
     color: #a5a5a5;
     font-size: var(--font-size--small);
     font-weight: 600;
+    margin-top: 5%;
 }
 
 .gerenciarReservas {
@@ -593,12 +562,3 @@ a {
 }
 
 /* -------------------------------FIM FILTRO EM SI-------------------------------------------- */
-
-/* @keyframes lateral {
-    from {
-        right: -5rem;
-    }
-    to {
-        right: 0.5rem;
-    }
-} */

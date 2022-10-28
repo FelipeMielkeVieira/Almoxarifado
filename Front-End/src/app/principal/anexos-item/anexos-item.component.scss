@@ -71,17 +71,6 @@
     margin-bottom: 8px;
 }
 
-.campoDescricao {
-    text-align: justify;
-    width: 80%;
-    height: 8rem;
-    overflow: auto;
-    border-radius: 5px;
-    padding: 5px;
-    margin-top: 5px;
-    border: solid 1px black;
-}
-
 .descricaoItem {
     display: flex;
     justify-content: space-between;
@@ -90,13 +79,6 @@
     height: 80%;
     font-size: var(--font-size--default);
     padding: 0 8px;
-}
-
-.riscoDivisao {
-    width: 70%;
-    height: 2px;
-    margin-top: 1rem;
-    background-color: black;
 }
 
 .parteAnexos {
@@ -121,16 +103,4 @@
 
 .linkAnexo {
     text-align: center;
-}
-
-.containerAnexos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 5px;
-}
-
-#iconeAnexo {
-    font-size: 60px;
 }

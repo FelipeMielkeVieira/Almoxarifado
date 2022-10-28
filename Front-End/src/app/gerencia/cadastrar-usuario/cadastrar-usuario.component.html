@@ -7,16 +7,14 @@
         </div>
     </div>
     <div class="containerOpcoes">
-        <div class="recusar" (click)="abrirModaisConfirmacao(1)">
-            <span title="Recusar" class="material-symbols-outlined iconDeselect iconeRecusar">
-                cancel
-            </span>
-        </div>
-        <div (click)="abrirModaisConfirmacao(2)">
-            <span title="Confirmar" class="material-symbols-outlined iconDeselect iconeAceitar">
-                check_circle
-            </span>
-        </div>
+        <span (click)="abrirModaisConfirmacao(1)" title="Recusar"
+            class="material-symbols-outlined iconDeselect iconeRecusar">
+            cancel
+        </span>
+        <span (click)="abrirModaisConfirmacao(2)" title="Confirmar"
+            class="material-symbols-outlined iconDeselect iconeAceitar">
+            check_circle
+        </span>
     </div>
 </div>
 

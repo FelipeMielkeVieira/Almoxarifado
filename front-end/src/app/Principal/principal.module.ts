@@ -1,3 +1,4 @@
+import { TelaCarregamentoComponent } from './tela-carregamento/tela-carregamento.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { ItemListaComponent } from './item-lista/item.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import {MatDividerModule} from '@angular/material/divider';
     ModalHistoricoEdicaoComponent,
     PaginacaoComponent,
     AjudaComponent,
-    ItemListaComponent
+    ItemListaComponent,
+    TelaCarregamentoComponent,
+    CalendarioComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +69,9 @@ import {MatDividerModule} from '@angular/material/divider';
     ModalMotivoEdicaoComponent,
     ModalConfirmacaoComponent,
     ModalHistoricoEdicaoComponent,
-    ItemListaComponent
+    ItemListaComponent,
+    TelaCarregamentoComponent,
+    CalendarioComponent
   ]
 })
 export class PrincipalModule { }

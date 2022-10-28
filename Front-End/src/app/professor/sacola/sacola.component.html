@@ -6,6 +6,16 @@
 <app-calendario *ngIf="calendarioAberto2 == 1" (salvarData)="salvarData2($event)"></app-calendario> -->
 <!-- --------------------------------------- FIM COMPONENTE DO CALENDARIO  --------------------------------------- -->
 
+<div id="fundoModal" *ngIf="modalReservar || modalExcluir">
+    <!-- Modal Confirmar Exclusão de Sacola -->
+    <app-modal-confirmacao *ngIf="modalExcluir" [tipoTexto]="2" (fecharModal)="fecharModalConfirmacao(1, $event)">
+    </app-modal-confirmacao>
+
+    <!-- Modal Confirmar Reserva -->
+    <app-modal-confirmacao *ngIf="modalReservar" [tipoTexto]="3" (fecharModal)="fecharModalConfirmacao(2, $event)">
+    </app-modal-confirmacao>
+</div>
+
 <div id="containerSacola" (click)="verDetalhes($event)">
     <div id="container">
         <div id="divisaoCentral">
@@ -57,7 +67,6 @@
                         </select>
                     </div> -->
 
-
                     <div class="containerBotoes">
                         <button class="botao" (click)="abrirModalConfirmacao(2)">Reservar</button>
                         <span title="Deletar" class="material-symbols-outlined iconDeselect iconeLixeira"
@@ -69,17 +78,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div id="fundoModal" *ngIf="modalReservar || modalExcluir">
-
-    <!-- Modal Confirmar Exclusão de Sacola -->
-    <app-modal-confirmacao *ngIf="modalExcluir" [tipoTexto]="2" (fecharModal)="fecharModalConfirmacao(1, $event)">
-    </app-modal-confirmacao>
-
-    <!-- Modal Confirmar Reserva -->
-    <app-modal-confirmacao *ngIf="modalReservar" [tipoTexto]="3" (fecharModal)="fecharModalConfirmacao(2, $event)">
-    </app-modal-confirmacao>
 </div>
 
 <app-modal-feedback *ngIf="feedbackReservaFeita" [tipoFeedback]="1" (fecharModal)="fecharModalFeedback(1)">

@@ -22,6 +22,7 @@ import { GerenciarUsuarioListaComponent } from './gerenciar-usuario-lista/gerenc
 import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.component';
 import { ReservaListaComponent } from './reserva-lista/reserva-lista.component';
 import { CadastrarDescricaoItemComponent } from './cadastrar-descricao-item/cadastrar-descricao-item.component';
+import { LoginModule } from '../login/login.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { CadastrarDescricaoItemComponent } from './cadastrar-descricao-item/cada
     ReservaListaComponent,
     CadastrarDescricaoItemComponent
   ],
-  imports: [
+  imports: [  
     CommonModule,
     PrincipalModule,
     ProfessorModule,
@@ -48,7 +49,8 @@ import { CadastrarDescricaoItemComponent } from './cadastrar-descricao-item/cada
     MatCheckboxModule,
     MatDividerModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    LoginModule
   ],
   exports: [
     HomeComponent,

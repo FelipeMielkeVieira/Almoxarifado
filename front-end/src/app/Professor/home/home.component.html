@@ -9,6 +9,7 @@
 
 <!-- Div Principal -->
 <main>
+    
     <!-- Feedback de sacola reservada -->
     <app-modal-feedback *ngIf="feedbackSacolaReservada" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(2)"></app-modal-feedback>
 
@@ -50,21 +51,27 @@
                     </span>
                 </div>
             </div>
-            <div id="filtro"></div>
-            <p id="resultados">{{ numResultados }} Resultados encontrados</p>
+            <app-tela-carregamento *ngIf="carregando"></app-tela-carregamento>
+            <div *ngIf="!carregando" id="filtro"></div>
+            <p id="resultados" *ngIf="!carregando">{{ numResultados }} Resultados encontrados</p>
         </div>
 
-        <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
-        <div *ngIf="listaEmBloco" id="containerItens">
-            <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
-        </div>
+        
 
-        <div *ngIf="!listaEmBloco" id="containerItensLista">
-            <app-item-lista [itens]="listaItens"></app-item-lista>
+        <div *ngIf="!carregando">
+            <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
+            <div *ngIf="listaEmBloco" id="containerItens">
+                <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
+            </div>
+    
+            <div *ngIf="!listaEmBloco" id="containerItensLista">
+                <app-item-lista [itens]="listaItens"></app-item-lista>
+            </div>
+    
+            <!-- Listagem de Páginas na parte de baixo da tela -->
+            <mat-paginator [length]="1292" [pageSize]="18" [pageSizeOptions]="[18, 36, 72, 144]" aria-label="Select page">
+            </mat-paginator>
         </div>
-
-        <!-- Listagem de Páginas na parte de baixo da tela -->
-        <mat-paginator [length]="1292" [pageSize]="18" [pageSizeOptions]="[18, 36, 72, 144]" aria-label="Select page">
-        </mat-paginator>
+        
     </div>
 </main>

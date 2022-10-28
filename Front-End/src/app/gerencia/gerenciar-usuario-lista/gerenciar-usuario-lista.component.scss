@@ -12,6 +12,7 @@
 }
 
 .itemTabela {
+    // font-size: ;
     vertical-align: middle;
 }
 
@@ -20,7 +21,7 @@
 }
 
 .iconeOpcao {
-    font-size: var(--font-size--giant);
+    font-size: 30px;
     font-weight: 300;
     transition: all 0.5s;
     cursor: pointer;
@@ -57,5 +58,5 @@
 }
 
 .icone {
-    font-size: var(--font-size--verysmall);
+    font-size: 10px;
 }
