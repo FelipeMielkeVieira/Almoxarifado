@@ -20,5 +20,4 @@ public class ReservaDTO {
     private Status status;
     private Usuario usuario;
     List<ProdutosEscolhidosReserva> produtos_reserva;
-    List<Ocorrencia> ocorrencias;
 }

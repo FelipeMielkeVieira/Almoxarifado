@@ -71,11 +71,6 @@ public class ReservaController {
             produtosEscolhidosReservaService.save(produtosEscolhidosReserva);
         }
 
-        for (Ocorrencia ocorrencia : reservaDTO.getOcorrencias()) {
-            ocorrencia.setReserva(reservaSalva);
-            ocorrenciaService.save(ocorrencia);
-        }
-
         return ResponseEntity.status(HttpStatus.CREATED).body("Reserva criada e itens adicionados!");
     }
 

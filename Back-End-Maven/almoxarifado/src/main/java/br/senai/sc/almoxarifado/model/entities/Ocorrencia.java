@@ -20,6 +20,9 @@ public class Ocorrencia {
     @Column(nullable = false)
     private String descricao;
 
+    @Column(nullable = false)
+    private TipoOcorrencia tipoOcorrencia;
+
     //Foreign keys
 
     @ManyToOne
@@ -29,4 +32,8 @@ public class Ocorrencia {
     @ManyToOne
     @JoinColumn(name = "produto_id")
     Produto produto;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_email")
+    Usuario usuario;
 }
