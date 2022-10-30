@@ -36,6 +36,8 @@ export class ItemComponent implements OnInit {
   feedbackEditarItem = false;
   feedbackRemoverItem = false;
 
+  favorito: boolean = false;
+
   // Return das classes para visualização do item
   // Número - número definido do elemento HTML
   retornarClassesVisualizacao(numero: number) {
@@ -80,6 +82,12 @@ export class ItemComponent implements OnInit {
   // Função para deixar visível o modal de reserva do item
   abrirModalReserva() {
     this.modalReservar = true;
+  }
+
+
+  // Função para deixar o item nos favoritos
+  favoritos() {
+    this.favorito = !this.favorito;
   }
 
   // Função para abrir o modal de edição do item

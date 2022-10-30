@@ -2,35 +2,55 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <!-- Div do item Completa (recebe classes com ngClass) -->
-<div [ngClass]="retornarClassesVisualizacao(1)" class="shadow-sm rounded" title="{{item.nome}}">
-  <div class="imagemItem" (click)="abrirModalReserva()">
-    <img [ngClass]="retornarClassesVisualizacao(2)"
-      src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="Imagem do Produto" />
-  </div>
-  <div [ngClass]="retornarClassesVisualizacao(3)" (click)="abrirModalReserva()">
-    <span class="nomeItem">{{ item.nome }}</span>
-    <div class="baixoItem">
-      <span>{{ retornaTextoDescartavel() }}</span>
-      <div [ngClass]="retornarClassesVisualizacao(4)">
-        <span>QTD:</span>
-        <span>{{ item.quantidade }} UN</span>
+<div id="conteudoItem" class="shadow-sm rounded" title="{{item.nome}}">
+  <div [ngClass]="retornarClassesVisualizacao(1)">
+    <div class="imagemItem" (click)="abrirModalReserva()">
+      <img [ngClass]="retornarClassesVisualizacao(2)"
+        src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="Imagem do Produto" />
+    </div>
+    <div [ngClass]="retornarClassesVisualizacao(3)" (click)="abrirModalReserva()">
+      <span class="nomeItem">{{ item.nome }}</span>
+      <div class="baixoItem">
+        <span>{{ retornaTextoDescartavel() }}</span>
+        <div [ngClass]="retornarClassesVisualizacao(4)">
+          <span>QTD:</span>
+          <span>{{ item.quantidade }} UN</span>
+        </div>
       </div>
     </div>
+    <div class="ferramentas">
+
+      <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
+        (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
+        edit
+      </span>
+      <span title="Histórico" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4"
+        class="material-symbols-outlined iconDeselect" (click)="abrirHistorico()" id="iconeHistorico">
+        history
+      </span>
+      <span title="Deletar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
+        (click)="removerItem()" id="iconeExcluir">
+        delete
+      </span>
+    </div>
   </div>
-  <div class="ferramentas">
-    <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
-      (click)="abrirModalEditar()" id="iconeEditar" alt="iconeEditar">
-      edit
-    </span>
-    <span title="Histórico" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4"
-      class="material-symbols-outlined iconDeselect" (click)="abrirHistorico()" id="iconeHistorico">
-      history
-    </span>
-    <span title="Deletar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
-      (click)="removerItem()" id="iconeExcluir">
-      delete
-    </span>
-  </div>
+  <span title="Favoritos" *ngIf="!favorito && tipoUser == 1" class="material-symbols-outlined iconDeselect iconeEstrela"
+    (click)="favoritos()" alt="icone estrela">
+    star
+  </span>
+  <span title="Favoritos" *ngIf="favorito && tipoUser == 1" class="material-symbols-outlined iconDeselect iconeEstrela"
+    (click)="favoritos()" id="iconEstrelaPreenchida" alt="icone estrela">
+    star
+  </span>
+  <style>
+    #iconEstrelaPreenchida{
+      font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 0
+    }
+    </style>
 </div>
 
 <!-- Feedback de reserva concluída -->

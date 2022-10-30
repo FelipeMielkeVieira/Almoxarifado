@@ -18,10 +18,9 @@
 }
 
 /* <!-- --------------- ITEM EM SI EM BLOCO ---------------- -->*/
-.quadroItemBloco {
+#conteudoItem {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 360px;
     height: 7.5rem;
     max-width: 360px;
@@ -34,7 +33,13 @@
     user-select: none;
 }
 
-.quadroItemBloco:hover {
+.quadroItemBloco {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#conteudoItem:hover {
     background-color: rgba(201, 201, 201, 0.616);
 }
 
@@ -96,7 +101,12 @@
     user-select: none;
 }
 
-#iconeEditar, #iconeHistorico, #iconeExcluir {
+#iconEstrelaPreenchida {
+    color: #0047B6;
+    font-size: 30px;
+}
+
+#iconeEditar, #iconeHistorico, #iconeExcluir, .iconeEstrela {
     font-size: 30px;
     font-weight: 300;
     cursor: pointer;
@@ -106,7 +116,7 @@
     margin-bottom: 0.5rem;
 }
 
-#iconeEditar:hover, #iconeHistorico:hover {
+#iconeEditar:hover, #iconeHistorico:hover, .iconeEstrela:hover {
     color: #0047B6;
 }
 

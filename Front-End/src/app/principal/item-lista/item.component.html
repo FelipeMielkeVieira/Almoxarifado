@@ -1,11 +1,29 @@
 <table id="tableItens" class="table table-hover">
   <tbody>
     <tr *ngFor="let item of itens" id="containerItem" (click)="abrirModalReserva($event)">
-      <td class="itemTabela" >{{ item.nome }}</td>
-      <td class="itemTabela" > {{ item.descartavel ? "Descartável" : "Não descartável" }} </td>
-      <td class="itemTabela" >{{ item.quantidade }} UN</td>
-      <td class="itemTabela" *ngIf="tipoUser == 2 || tipoUser == 3 || tipoUser == 4">
+      <td class="itemTabela">{{ item.nome }}</td>
+      <td class="itemTabela"> {{ item.descartavel ? "Descartável" : "Não descartável" }} </td>
+      <td class="itemTabela">{{ item.quantidade }} UN</td>
+      <td class="itemTabela">
         <div class="ferramentas">
+          <span title="Favoritos" *ngIf="!favorito && tipoUser == 1"
+            class="material-symbols-outlined iconDeselect iconeEstrela" (click)="favoritos()" alt="icone estrela">
+            star
+          </span>
+          <span title="Favoritos" *ngIf="favorito && tipoUser == 1"
+            class="material-symbols-outlined iconDeselect iconeEstrela" (click)="favoritos()" id="iconEstrelaPreenchida"
+            alt="icone estrela">
+            star
+          </span>
+          <style>
+            #iconEstrelaPreenchida {
+              font-variation-settings:
+                'FILL' 1,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 0
+            }
+          </style>
           <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
             (click)="abrirModalEditar()" id="iconeEditar">
             edit
