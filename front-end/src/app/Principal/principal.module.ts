@@ -24,6 +24,7 @@ import { ItemListaComponent } from './item-lista/item.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { CalendarioComponent } from './calendario/calendario.component';
+import { GerenciarFiltrosComponent } from './gerenciar-filtros/gerenciar-filtros.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { CalendarioComponent } from './calendario/calendario.component';
     AjudaComponent,
     ItemListaComponent,
     TelaCarregamentoComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    GerenciarFiltrosComponent
   ],
   imports: [
     CommonModule,
@@ -71,7 +73,8 @@ import { CalendarioComponent } from './calendario/calendario.component';
     ModalHistoricoEdicaoComponent,
     ItemListaComponent,
     TelaCarregamentoComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    GerenciarFiltrosComponent
   ]
 })
 export class PrincipalModule { }

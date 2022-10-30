@@ -1,0 +1,54 @@
+<div id="fundoModal">
+    <div id="containerModal">
+        <div id="riscoAzul"></div>
+        <div id="dados">
+            <div id="containerIcon">
+                <span title="Fechar" (click)="fecharModalFiltro(false)" class="material-symbols-outlined iconDeselect"
+                    id="iconeFechar">
+                    close
+                </span>
+            </div>
+
+            <div id="containerTopo">
+                <div id="palavraFiltro">
+                    <p>Classificações</p>
+                </div>
+            </div>
+
+            <div id="containerConteudoTeste">
+                <div *ngFor="let filtro of listaFiltros; let i = index;" class="divFiltro">
+                    <div id="texto">{{filtro.classificacao}}</div>
+                    <span (click)="excluirFiltro(i)" title="Deletar" class="material-symbols-outlined iconDeselect"
+                        id="iconLixoTeste">
+                        delete
+                    </span>
+                </div>
+            </div>
+
+            <div id="containerCadastrar">
+                <div id="parteCadastrar">
+
+                    <div id="textoCadastrar">
+                        <p>Cadastrar</p>
+                    </div>
+
+                    <div id="inputNomeFiltro">
+                        <input [(ngModel)]="novoFiltro" type="text" id="NomeFiltro"
+                            placeholder="Nome da Classificação" />
+                        <button (click)="adicionarFiltro()" id="botaoAdicionar">OK</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="containerSalvar">
+                <button id="botaoSalvar" (click)="salvar()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fundoModal" *ngIf="modalConfirmarAlteracoes">
+    <app-modal-confirmacao *ngIf="modalConfirmarAlteracoes" [tipoTexto]="11"
+        (fecharModal)="fecharModaisConfirmacao($event)"></app-modal-confirmacao>
+</div>

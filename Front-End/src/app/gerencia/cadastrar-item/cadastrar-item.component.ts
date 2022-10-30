@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersService } from 'src/app/service';
+import { ClassificacaoService } from 'src/app/service/classificacaoService';
 
 @Component({
   selector: 'app-cadastrar-item',
@@ -10,7 +11,7 @@ export class CadastrarItemComponent implements OnInit {
 
   @Output() fecharModal = new EventEmitter<string>();
 
-  constructor(private service: UsersService) { }
+  constructor(private service: UsersService, private classificacaoService: ClassificacaoService) { }
 
   listaClassificacao: any[] = [];
   listaLocalizacoes: any[] = [];
@@ -20,9 +21,15 @@ export class CadastrarItemComponent implements OnInit {
   listaLocalizacoesEscolhidas: any = [null];
 
   ngOnInit(): void {
-    this.listaClassificacao = this.service.classificacoes;
+    this.buscarClassificacoes();
     this.listaLocalizacoes = this.service.retornaFilhosLocalizacao(this.listaLocalizacoes, 0);
+  }
 
+  buscarClassificacoes() {
+    this.classificacaoService.getAll().subscribe(
+      data => this.listaClassificacao = data,
+      error => {console.log(error)}
+    );
   }
 
   imagemItem: any;

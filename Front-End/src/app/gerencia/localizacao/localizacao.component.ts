@@ -15,7 +15,7 @@ export class LocalizacaoComponent implements OnInit {
 
   constructor() { }
 
-  @Input() localizacoes: any = [{ id: Number, nome: String }];
+  @Input() localizacoes: any = [{ id: Number, idPai : Number, nome: String }];
 
   ngOnInit(): void {
   }

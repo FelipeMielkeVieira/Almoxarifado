@@ -5,7 +5,7 @@
 <div *ngIf="localizacaoModal || modalCadastrarItem" id="fundoModal">
 
     <!-- Modal Cadastrar localização -->
-    <app-cadastrar-localizacao-modal *ngIf="localizacaoModal" (fecharModal)="mudarModaisPesquisa(2, $event)">
+    <app-cadastrar-localizacao-modal *ngIf="localizacaoModal" [primeirasLocalizacoes]="getTopLocalizacoes()" (fecharModal)="mudarModaisPesquisa(2, $event)">
     </app-cadastrar-localizacao-modal>
 
     <!-- Modal Cadastrar Item -->
@@ -160,7 +160,7 @@
                                 class="btn btn-outline-primary btnCustom">Deletar</button>
                         </div>
                     </div>
-                    <app-localizacao [localizacoes]="localizacoesFiltradas"></app-localizacao>
+                    <app-localizacao [localizacoes]="localizacoesLista"></app-localizacao>
                 </div>
             </div>
         </div>

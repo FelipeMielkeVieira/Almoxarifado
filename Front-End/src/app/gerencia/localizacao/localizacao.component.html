@@ -3,6 +3,7 @@
         <tr>
             <th>#</th>
             <th class="tdIdLocalizacao">ID</th>
+            <th class="tdIdLocalizacao">ID Pai</th>
             <th class="tdNomeLocalizacao">Localização</th>
         </tr>
     </thead>
@@ -13,6 +14,8 @@
                 <input class="checkboxStyle" [checked]="localizacao.checked" type="checkbox">
             </td>
             <td class="itemTabela displayFlex tdIdLocalizacao">{{ localizacao.id }}
+            </td>
+            <td class="itemTabela displayFlex tdIdLocalizacao">{{ localizacao.idPai }}
             </td>
             <td class="itemTabela displayFlex tdNomeLocalizacao">{{
                 localizacao.nome }}</td>

@@ -21,10 +21,17 @@
             </div>
             <div id="localizacaoPai">
                 <h2 class="title tamanhoTextos">Localização pai</h2>
-                <div class="form-floating div-float-label divInputLogin">
-                    <input name="localizacaoPai" [(ngModel)]="localizacaoPai" type="text"
-                        class="form-control input-float-label inputsLogin" placeholder="Localização">
-                    <label class="label-float-label tamanhoTextos">Localização</label>
+                <div style="display: flex; align-items: center;">
+                    <span style="margin-right: 20px" class="tamanhoTextos">Localização: </span>
+                    <div class="containerLocalizacao">
+                        <select style="margin-right: 10px;" *ngFor="let l of listaLocalizacoes; let i = index;"
+                            id="localizacaoProduto1" class="localizacaoProduto" (change)="mudarLocalizacoes(i)"
+                            [(ngModel)]="listaLocalizacoesEscolhidas[i]">
+                            <option *ngFor="let loc of (listaLocalizacoes[i])" class="tamanhoTextos" value="{{loc.id}}">
+                                {{ loc.nome }}
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div id="containerBotao">

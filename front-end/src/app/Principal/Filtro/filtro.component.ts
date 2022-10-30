@@ -21,11 +21,11 @@ export class FiltroComponent implements OnInit {
 
   fundoModal: boolean = false;
   modalConfirmarAlteracoes: boolean = false;
-  modalGerenciarFiltro: boolean = false;
+  modalGerenciarFiltros: boolean = false;
 
-  feedback = 0;
   //Adicionado valor inicial como null no começo por sinalização de erro de sintaxe pelo VS Code.
   filtroSelecionado: { classificacao: string } | null = null;
+  feedbackFiltrosSalvos = false;
 
   ngOnInit() {
     // Função para fechamento do filtro caso tenha sido clicado fora
@@ -48,52 +48,7 @@ export class FiltroComponent implements OnInit {
     );
   }
 
-  // =-=-=-=-=-=-=-=-=-=-=-=-=-= Funções Modal FeddBack Salvo com sucesso =-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-  mudarFiltro() {
-    let filtro = document.querySelector("#check") as HTMLInputElement;
-    if (!filtro.checked) {
-      setTimeout(() => {
-        filtro.checked = true;
-      }, 10);
-    }
-  }
-
-  // *Irá fechar o modal do feedback
-  fechar() {
-    this.feedback = 0;
-  }
-
-  // =-=-=-=-=-=-=-=-=-=-=-=-=-= Fim Funções Modal FeddBack Salvo com sucesso =-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= MODAL GERENCIAR FILTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-  // *Irá fechar o modal de gerenciar filtro
-  fecharModal() {
-    this.modalGerenciarFiltro = false;
-  }
-
-  // *Irá abrir o modal de confirmação de edição das alterações
-  salvar() {
-    this.fundoModal = true;
-    this.modalConfirmarAlteracoes = true;
-  }
-  fecharModaisConfirmacao(resposta: boolean) {
-    if (resposta) {
-      this.modalConfirmarAlteracoes = false;
-      this.fundoModal = false;
-      this.fecharModal();
-      this.feedback = 1;
-      setTimeout(() => {
-        this.feedback = 0;
-      }, 5000);
-    } else {
-      this.modalConfirmarAlteracoes = false;
-      this.fundoModal = false;
-    }
-  }
-
-  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FIM MODAL GERENCIAR FILTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-= Fim Funções Modal FeedBack Salvo com sucesso =-=-=-=-=-=-=-=-=-=-=-=-=-=
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FILTRO EM SI =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // *Essa função irá dar check no input, caso ele clique na div
@@ -202,12 +157,6 @@ export class FiltroComponent implements OnInit {
     this.router.navigate([rota]);
   }
 
-  // *Irá abrir o modal de gerenciar filtro
-  modalFiltro() {
-    document.documentElement.style.overflow = "hidden";
-    this.modalGerenciarFiltro = true;
-  }
-
   // *Tendi nn
   tirarFiltro() {
     let divFiltro = document.querySelector("#filtro") as HTMLDivElement;
@@ -224,4 +173,29 @@ export class FiltroComponent implements OnInit {
   }
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= FIM FILTRO EM SI =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+  // *Irá abrir o modal de gerenciar filtro
+  abrirModalFiltro() {
+    document.documentElement.style.overflow = "hidden";
+    this.modalGerenciarFiltros = true;
+  }
+
+  // Função para abrir e fechar o modal de feedback de alteração nos filtros
+  mudarModalFeedback() {
+    if(!this.feedbackFiltrosSalvos) {
+      this.feedbackFiltrosSalvos = true;
+      setTimeout(() => {
+        this.feedbackFiltrosSalvos = false;
+      }, 4000);
+    } else {
+      this.feedbackFiltrosSalvos = false;
+    }
+  }
+
+  // Função para fechar o modal de alteração de filtros e ativar o feedback caso salvas
+  fecharModalFiltros(event: any) {
+    this.modalGerenciarFiltros = false;
+    if(event) {
+      this.mudarModalFeedback();
+    }
+  }
 }

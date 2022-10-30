@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service';
+import { LocalizacaoService } from 'src/app/service/localizacaoService';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,8 @@ import { UsersService } from 'src/app/service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: UsersService) {
+  constructor(private service: UsersService, private localizacaoService : LocalizacaoService) {
     this.listaItens = service.itens;
-    this.localizacoesLista = service.localizacoes;
-    this.localizacoesFiltradas = this.localizacoesLista;
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
     this.listaCadastrosPendentes = service.usuariosPendentes;
     this.listaUsuarios = service.usuarios;
@@ -52,7 +51,6 @@ export class HomeComponent implements OnInit {
   tipoUsuario = 2;
   numResultados = 0;
 
-  localizacoesFiltradas: any = [];
   localizacoesLista: any = [];
 
   feedbackLocalizacaoCadastrada = false;
@@ -87,6 +85,13 @@ export class HomeComponent implements OnInit {
         this.abaGerenciaUsuarios = true;
       }
     }, 10);
+  }
+
+  buscarLocalizacoes() {
+    this.localizacaoService.getAll().subscribe(
+      data => this.localizacoesLista = data,
+      error => {console.log(error)}
+    );
   }
 
   // Função que retorna o placeholder do input de pesquisa principal, dependendo da aba aberta
@@ -124,6 +129,7 @@ export class HomeComponent implements OnInit {
         break;
       case 6:
         this.abaLocalizacoes = true;
+        this.localizacoesLista = this.buscarLocalizacoes();
         break;
     }
   }
@@ -265,5 +271,16 @@ export class HomeComponent implements OnInit {
         this.feedbackSacolaExcluida = false;
         break;
     }
+  }
+
+  // Função para pegar as localizações sem pais
+  getTopLocalizacoes() {
+    let listaNova = [];
+    for (const loc of this.localizacoesLista) {
+      if(!loc.idPai) {
+        listaNova.push(loc);
+      }
+    }
+    return listaNova;
   }
 }

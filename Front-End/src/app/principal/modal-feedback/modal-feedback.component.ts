@@ -53,7 +53,9 @@ export class ModalFeedback implements OnInit {
       case 17:
         return "Item cadastrado com sucesso!";
       case 18:
-          return "Localização excluída com sucesso!";
+        return "Localização excluída com sucesso!";
+      case 19:
+        return "Filtros salvos com sucesso!";
     }
     return "";
   }

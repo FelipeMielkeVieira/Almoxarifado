@@ -6,8 +6,16 @@ import { Observable } from 'rxjs';
 export class ClassificacaoService {
   constructor(private httpClient: HttpClient) { }
 
-    getAll(): Observable<any[]> {
-        return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/classificacao");
-    }
+  getAll(): Observable<any[]> {
+    return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/classificacao");
+  }
+
+  postFiltros(filtro: Object): Observable<any> {
+    return this.httpClient.post<any>("http://localhost:8080/alma_sis/classificacao", filtro, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
+  }
+
+  deleteFiltros(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`http://localhost:8080/alma_sis/classificacao/${id}`);
+  }
 
 }

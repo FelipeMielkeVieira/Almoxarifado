@@ -18,7 +18,8 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping("alma_sis/localizacao")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/alma_sis/localizacao")
 public class LocalizacaoController {
     private LocalizacaoService localizacaoService;
 
