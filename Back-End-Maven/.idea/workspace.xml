@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/OcorrenciaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/dto/OcorrenciaDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/TipoOcorrencia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ReservaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ReservaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/dto/ReservaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/dto/ReservaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Ocorrencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Ocorrencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/OcorrenciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/OcorrenciaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ClassificacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ClassificacaoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/kenzo_sato/Documents/GitHub/Almoxarifado/Back-End-Maven",
+    "last_opened_file_path": "C:/Users/padrao/Documents/GitHub/Almoxarifado/Back-End-Maven",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
@@ -60,19 +54,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="almoxarifado" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="almoxarifado" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

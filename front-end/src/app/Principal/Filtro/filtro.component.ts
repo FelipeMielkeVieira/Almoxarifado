@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UsersService } from 'src/app/service';
+import { ClassificacaoService } from 'src/app/service/classificacaoService';
 
 
 @Component({
@@ -10,12 +11,12 @@ import { UsersService } from 'src/app/service';
   styleUrls: ['./filtro.component.scss']
 })
 export class FiltroComponent implements OnInit {
-  constructor(private router: Router, private service: UsersService) {
+  constructor(private router: Router, private classificacaoService: ClassificacaoService) {
     this.usuario = parseInt(localStorage.getItem('usuario') || "0");
-    this.listaClassificacoes = service.classificacoes;
+    this.buscarClassificacoes();
   }
 
-  listaClassificacoes;
+  listaClassificacoes: any = [];
   usuario: number;
 
   fundoModal: boolean = false;
@@ -38,6 +39,13 @@ export class FiltroComponent implements OnInit {
         }
       }
     });
+  }
+
+  buscarClassificacoes() {
+    this.classificacaoService.getAll().subscribe(
+      data => this.listaClassificacoes = data,
+      error => {console.log(error)}
+    );
   }
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-= Funções Modal FeddBack Salvo com sucesso =-=-=-=-=-=-=-=-=-=-=-=-=-=

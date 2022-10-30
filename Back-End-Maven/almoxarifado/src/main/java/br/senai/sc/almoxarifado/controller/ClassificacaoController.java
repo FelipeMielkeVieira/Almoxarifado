@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/alma_sis/classificacao")
 public class ClassificacaoController {
     private ClassificacaoService classificacaoService;
