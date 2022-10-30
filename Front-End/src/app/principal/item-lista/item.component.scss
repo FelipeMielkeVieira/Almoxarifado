@@ -34,7 +34,12 @@ label {
     user-select: none;
 }
 
-#iconeEditar, #iconeHistorico, #iconeExcluir {
+#iconEstrelaPreenchida {
+    color: #0047B6;
+    font-size: 30px;
+}
+
+#iconeEditar, #iconeHistorico, #iconeExcluir, .iconeEstrela {
     font-size: 30px;
     font-weight: 300;
     border-radius: 50%;
@@ -43,7 +48,7 @@ label {
     cursor: pointer;
 }
 
-#iconeEditar:hover, #iconeHistorico:hover {
+#iconeEditar:hover, #iconeHistorico:hover, .iconeEstrela {
     color: #0047B6;
 }
 
@@ -52,7 +57,7 @@ label {
     animation: mudarCor 0.5s;
 }
 
-#iconeEditar:hover, #iconeHistorico:hover, #iconeExcluir:hover {
+#iconeEditar:hover, #iconeHistorico:hover, #iconeExcluir:hover, .iconeEstrela:hover {
     transition: all 0.5s;
     background-color: rgb(190, 190, 190);
 }
