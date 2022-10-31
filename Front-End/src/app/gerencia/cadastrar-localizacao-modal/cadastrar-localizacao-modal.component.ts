@@ -27,8 +27,13 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
 
   buscarPorPai(id : any) {
     this.localizacaoService.getByPai(id).subscribe(
-      dados => this.listaLocalizacoes.push(dados),
-      error => {console.log(error)}
+      data => {
+        this.listaLocalizacoes.push(data);
+        if (this.listaLocalizacoes[this.listaLocalizacoes.length - 1].length < 1) {
+          this.listaLocalizacoes.splice(this.listaLocalizacoes.length - 1, 1);
+        }
+      },
+      error => {console.log(error)},
     )
   }
 
@@ -59,13 +64,5 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
     }
 
     this.buscarPorPai(this.listaLocalizacoesEscolhidas[index])
-    
-    setTimeout(() => {
-      console.log(this.listaLocalizacoes);
-    }, 1000);
-
-    if (this.listaLocalizacoes[this.listaLocalizacoes.length - 1].length < 1) {
-      this.listaLocalizacoes.splice(this.listaLocalizacoes.length - 1, 1);
-    }
   }
 }

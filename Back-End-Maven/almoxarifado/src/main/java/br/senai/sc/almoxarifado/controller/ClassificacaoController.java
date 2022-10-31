@@ -1,8 +1,8 @@
 package br.senai.sc.almoxarifado.controller;
 
-import br.senai.sc.almoxarifado.dto.ClassificacaoDTO;
-import br.senai.sc.almoxarifado.model.entities.Classificacao;
-import br.senai.sc.almoxarifado.model.service.ClassificacaoService;
+import br.senai.sc.almoxarifado.dto.*;
+import br.senai.sc.almoxarifado.model.entities.*;
+import br.senai.sc.almoxarifado.model.service.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +63,8 @@ public class ClassificacaoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a classificação!");
         }
 
+        Classificacao classificacao = classificacaoService.findById(idClassificacao).get();
         classificacaoService.deleteById(idClassificacao);
-        return ResponseEntity.status(HttpStatus.OK).body("Classificação deletada com sucesso!");
+        return ResponseEntity.status(HttpStatus.OK).body(classificacao);
     }
 }

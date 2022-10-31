@@ -57,7 +57,7 @@ public class LocalizacaoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
         }
 
-        return ResponseEntity.status(HttpStatus.FOUND).body(localizacaoService.findByIdPai(codigoLocalizacao));
+        return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findByIdPai(codigoLocalizacao));
     }
 
     @PostMapping
@@ -74,7 +74,8 @@ public class LocalizacaoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
         }
 
+        Localizacao localizacao = localizacaoService.findById(codigoLocalizacao).get();
         localizacaoService.deleteById(codigoLocalizacao);
-        return ResponseEntity.status(HttpStatus.OK).body("Localização deletada.");
+        return ResponseEntity.status(HttpStatus.OK).body(localizacao);
     }
 }

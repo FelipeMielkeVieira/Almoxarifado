@@ -6,21 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ClassificacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ClassificacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/LocalizacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/LocalizacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Classificacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Classificacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Localizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Localizacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-item/cadastrar-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-item/cadastrar-item.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/ClassificacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/ClassificacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/ClassificacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/ClassificacaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-localizacao-modal/cadastrar-localizacao-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-localizacao-modal/cadastrar-localizacao-modal.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/localizacao/localizacao.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/localizacao/localizacao.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/localizacao/localizacao.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/localizacao/localizacao.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/principal/filtro/filtro.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/principal/filtro/filtro.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/principal/modal-feedback/modal-feedback.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/principal/modal-feedback/modal-feedback.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/service/classificacaoService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/service/classificacaoService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/app/Principal/Filtro/filtro.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/app/Principal/Filtro/filtro.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/app/Principal/Filtro/filtro.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/app/Principal/Filtro/filtro.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/app/Principal/principal.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/app/Principal/principal.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,15 +40,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/padrao/Documents/GitHub/Almoxarifado/Back-End-Maven",
-    "settings.editor.selected.configurable": "preferences.keymap"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
   <component name="RunManager">
     <configuration name="AlmoxarifadoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.senai.sc.almoxarifado.AlmoxarifadoApplication" />
@@ -99,5 +89,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

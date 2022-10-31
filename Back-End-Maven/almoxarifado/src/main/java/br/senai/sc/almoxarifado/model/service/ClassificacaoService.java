@@ -1,7 +1,7 @@
 package br.senai.sc.almoxarifado.model.service;
 
-import br.senai.sc.almoxarifado.model.entities.Classificacao;
-import br.senai.sc.almoxarifado.repository.ClassificacaoRepository;
+import br.senai.sc.almoxarifado.model.entities.*;
+import br.senai.sc.almoxarifado.repository.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 

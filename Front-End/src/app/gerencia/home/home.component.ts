@@ -236,7 +236,11 @@ export class HomeComponent implements OnInit {
   }
 
   excluirLocalizacoes() {
-
+    //Fazer modal de confirmação
+    this.localizacaoService.deleteLocalizacoes(3).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 
   abrirFeedback(numero: number) {
