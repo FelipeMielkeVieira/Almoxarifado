@@ -39,8 +39,6 @@ export class ItemListaComponent implements OnInit {
   feedbackEditarItem = false;
   feedbackRemoverItem = false;
 
-  favorito: boolean = false;
-
   // Return das classes para visualização do item
   // Número - número definido do elemento HTML
   retornarClassesVisualizacao(numero: number) {

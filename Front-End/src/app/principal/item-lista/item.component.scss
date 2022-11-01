@@ -34,17 +34,7 @@ label {
     user-select: none;
 }
 
-#iconEstrelaPreenchida {
-    color: #0047B6;
-    font-size: 30px;
-    font-variation-settings:
-      'FILL' 1,
-      'wght' 400,
-      'GRAD' 0,
-      'opsz' 0
-}
-
-#iconeEditar, #iconeHistorico, #iconeExcluir, .iconeEstrela {
+#iconeEditar, #iconeHistorico, #iconeExcluir {
     font-size: 30px;
     font-weight: 300;
     border-radius: 50%;
@@ -53,7 +43,7 @@ label {
     cursor: pointer;
 }
 
-#iconeEditar:hover, #iconeHistorico:hover, .iconeEstrela {
+#iconeEditar:hover, #iconeHistorico:hover {
     color: #0047B6;
 }
 
@@ -62,7 +52,7 @@ label {
     animation: mudarCor 0.5s;
 }
 
-#iconeEditar:hover, #iconeHistorico:hover, #iconeExcluir:hover, .iconeEstrela:hover {
+#iconeEditar:hover, #iconeHistorico:hover, #iconeExcluir:hover{
     transition: all 0.5s;
     background-color: rgb(190, 190, 190);
 }
