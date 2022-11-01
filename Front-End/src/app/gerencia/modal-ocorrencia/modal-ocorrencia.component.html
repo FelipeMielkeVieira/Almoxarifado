@@ -1,3 +1,6 @@
+<!-- Alerta de dados faltantes no cadastro de localização -->
+<app-alerta-feito *ngIf="alertaDados" (fecharModal)="fecharModalAlerta($event)" [tipoMensagemModal]="7"></app-alerta-feito>
+
 <div id="containerInformarMotivo">
     <div id="containerInformarDefeitoModal">
         <div class="containerFechar">

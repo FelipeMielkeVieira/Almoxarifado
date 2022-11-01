@@ -43,7 +43,7 @@ export class ModalOcorrenciaComponent implements OnInit {
   }
   
   
-  salvarOcorrencia() {
+  salvarOcorrencia() {  
     if(this.textArea != "") {
       this.fecharModalOcorrencia("salvar");
     } else {
@@ -52,6 +52,10 @@ export class ModalOcorrenciaComponent implements OnInit {
         this.alertaDados = false;
       }, 4500);
     }
+  }
+  
+  fecharModalAlerta(numeroModal: any) {
+    this.alertaDados = false;
   }
 
 }
