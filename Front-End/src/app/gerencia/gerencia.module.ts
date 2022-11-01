@@ -62,7 +62,9 @@ import { LoginModule } from '../login/login.module';
     ModalOcorrenciaComponent,
     DevolucaoReservaComponent,
     CadastrarUsuarioListaComponent,
-    GerenciarUsuarioListaComponent
+    GerenciarUsuarioListaComponent,
+    CadastrarItemComponent,
+    CadastrarDescricaoItemComponent
   ]
 })
 export class GerenciaModule { }

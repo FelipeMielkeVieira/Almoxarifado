@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UsersService } from 'src/app/service';
+import { ClassificacaoService } from 'src/app/service/classificacaoService';
+import { LocalizacaoService } from 'src/app/service/localizacaoService';
 
 @Component({
     selector: 'app-modal-editar-item',
@@ -7,71 +9,120 @@ import { UsersService } from 'src/app/service';
     styleUrls: ['./modal-editar-item.component.scss']
 })
 export class ModalEditarItem implements OnInit {
-
-    constructor(private service: UsersService) {
-        this.listaClassificacoesTotais = this.service.classificacoes;
-        this.qtdInicial = this.item.quantidade;
-    }
-
-    // Output para fechar o modal, enviando para o componente "Item"
     @Output() fecharModal = new EventEmitter<string>();
+    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0,  };
 
-    // Item recebido do componente pai
-    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
+    constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService) { }
 
-    listaClassificacoesTotais: any = [];
-    listaClassificacoes: any = [];
+    listaClassificacao: any[] = [];
+    listaLocalizacoes: any[] = [];
+    criarClassificacao = false;
+    modalDetalhes: boolean = false;
 
-    // ID da classificação selecionada na edição
-    classificacaoAtual: number = 0;
-    qtdInicial: number = 0;
+    listaLocalizacoesEscolhidas: any = [null];
 
-    ngOnInit() {
-        this.atualizarListaClassificacoes();
-    }
+    // Inputs do formulário
+    nomeProduto: String = "";
+    classificacaoSelect: any;
+    descartavel: boolean = false;
+    imagemItem: any;
+    qtdItem: number = 0;
+    a: any = 1;
 
-    // Função que retorna o nome de uma classificacao pelo id
-    retornarNomeClassificacao(id: number) {
-        for (const classificacao of this.listaClassificacoesTotais) {
-            if (classificacao.id == id) {
-                return classificacao.classificacao;
+    isDescartavel(tipo: String) {
+        if (this.item.descartavel) {
+            if (tipo == 'descartavel') {
+                return true;
+            } else {
+                return false;
             }
-        }
-        return "";
-    }
-
-    // Função para atualizar o select de classificações conforme a classificação do item
-    atualizarListaClassificacoes() {
-        console.log(this.item.classificacao);
-        let listaNova = [];
-        for (const classificacao of this.listaClassificacoesTotais) {
-            if (classificacao.id != this.item.classificacao) {
-                listaNova.push(classificacao);
-            }
-        }
-        this.listaClassificacoes = listaNova;
-    }
-
-    // Função para fechar o modal, enviando um output recebido
-    fecharModalEdicao(evento: string) {
-        this.fecharModal.emit(evento);
-    }
-
-    // Retorna o nome de uma classificacao através do id recebido pelo item
-    buscarClassificacao(codigoClassificacao: number) {
-        for (const classificacao of this.listaClassificacoes) {
-            if (classificacao.id == codigoClassificacao) {
-                return classificacao.classificacao;
-            }
-        }
-        return "Nenhuma";
-    }
-
-    editarItem() {
-        if (this.item.quantidade == this.qtdInicial) {
-            this.fecharModalEdicao("editar");
         } else {
-            this.fecharModalEdicao("motivo");
+            if (tipo == 'descartavel') {
+                return false;
+            } else {
+                return true;
+            }
         }
+    }
+
+    ngOnInit(): void {
+        console.log(this.item)
+        this.buscarClassificacoes();
+        this.listaLocalizacoes = this.service.retornaFilhosLocalizacao(this.listaLocalizacoes, 0);
+        console.log(this.listaLocalizacoes)
+
+        // Preenchendo os inputs com os dados do item
+        this.nomeProduto = this.item.nome;
+        this.classificacaoSelect = this.item.classificacao;
+        this.qtdItem = this.item.quantidade;
+        this.imagemItem = this.item.imagem;
+    }
+
+    buscarClassificacoes() {
+        this.classificacaoService.getAll().subscribe(
+            data => { this.listaClassificacao = data; },
+            error => { console.log(error) }
+        );
+    }
+
+    // Função para fechar o modal
+    fecharModalCadastro(texto: string) {
+        this.fecharModal.emit(texto);
+    }
+
+    // Função para carregar e salvar a escolha de imagem
+    carregarImagem(event: any) {
+        let imagem = document.querySelector("#imagemItem") as HTMLImageElement;
+        imagem.src = URL.createObjectURL(event.target.files[0]);
+        this.imagemItem = event.target.files[0];
+    }
+
+    // Função para mudar o modo de colocar classificação (cadastrar nova / usar existente)
+    mudarClassificacao() {
+        this.criarClassificacao = !this.criarClassificacao;
+        if (this.criarClassificacao) {
+            (document.querySelector('#adicionarClassificacao') as HTMLDivElement).style.backgroundColor = "#0047B6";
+        } else {
+            (document.querySelector('#adicionarClassificacao') as HTMLDivElement).style.backgroundColor = "#B6B3B3"
+        }
+    }
+
+    buscarPorPai(id: any) {
+        this.localizacaoService.getByPai(id).subscribe(
+            data => {
+                this.listaLocalizacoes.push(data);
+                if (this.listaLocalizacoes[this.listaLocalizacoes.length - 1].length < 1) {
+                    this.listaLocalizacoes.splice(this.listaLocalizacoes.length - 1, 1);
+                }
+            },
+            error => { console.log(error) },
+        )
+    }
+
+    // Função para editar a escolha de localização
+    mudarLocalizacoes(index: number) {
+        if (this.listaLocalizacoes.length - 1 != index) {
+            this.listaLocalizacoes.splice(index + 1, this.listaLocalizacoes.length - index)
+        }
+
+        this.buscarPorPai(this.listaLocalizacoesEscolhidas[index])
+    }
+
+    mudarQtd(operacao: number) {
+        switch (operacao) {
+            case 1:
+                if (this.qtdItem > 0) {
+                    this.qtdItem--;
+                }
+                break;
+            case 2:
+                this.qtdItem++;
+                break;
+        }
+    }
+
+    toggleModalDetalhes() {
+        this.modalDetalhes = !this.modalDetalhes;
+        document.documentElement.style.overflow = this.modalDetalhes ? "hidden" : "auto";
     }
 }

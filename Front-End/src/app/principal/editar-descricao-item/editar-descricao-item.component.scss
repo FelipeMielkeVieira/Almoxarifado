@@ -1,0 +1,94 @@
+#containerModal {
+    position: relative;
+    background-color: white;
+    border-top: 10px solid #0047b6;
+    border-radius: 7px;
+    padding: 1rem 2rem;
+    width: 40rem;
+}
+
+#containerFechar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+}
+
+#fecharIcone {
+    cursor: pointer;
+}
+
+#containerDescricao {
+    margin-bottom: 1.3rem;
+}
+
+.title {
+    color: #0047b6;
+    font-size: var(--font-size--verybig);
+}
+
+#descricaoTextArea {
+    padding: 0.5rem;
+    resize: none;
+    width: 100%;
+}
+
+#containerAnexos {
+    margin-bottom: 1.5rem;
+}
+
+#containerHeadAnexos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.semMargin {
+    margin: 0;
+}
+
+#containerAddAnexo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.inputFile {
+    display: none;
+}
+
+.labelAnexoInput {
+    display: flex;
+    cursor: pointer;
+}
+
+#containerTabelaAnexos {
+    margin-top: 1rem;
+    overflow: auto;
+    max-height: 15rem;
+}
+
+.itemTabela {
+    vertical-align: middle;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.icone {
+    cursor: pointer;
+}
+
+.icone:hover {
+    color: rgb(202, 0, 0);
+}
+
+#containerBtn {
+    display: flex;
+    justify-content: center;
+}
