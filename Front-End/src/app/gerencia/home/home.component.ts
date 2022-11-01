@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service';
 import { LocalizacaoService } from 'src/app/service/localizacaoService';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { LocalizacaoService } from 'src/app/service/localizacaoService';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: UsersService, private localizacaoService : LocalizacaoService) {
+  constructor(private service: UsersService, private localizacaoService : LocalizacaoService, private userService: UserService) {
     this.listaItens = service.itens;
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
     this.listaCadastrosPendentes = service.usuariosPendentes;
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   listaOrdenacoes = [false, false, false, false];
   listaItens: any = [];
+
   listaCadastrosPendentes: any = [];
   listaUsuarios: any = [];
 
@@ -120,6 +122,7 @@ export class HomeComponent implements OnInit {
         break;
       case 2:
         this.abaGerenciaCadastros = true;
+        this.buscarCadastrosPendentes();
         break;
       case 3:
         this.abaDevolucoes = true;
@@ -135,6 +138,13 @@ export class HomeComponent implements OnInit {
         this.localizacoesLista = this.buscarLocalizacoes();
         break;
     }
+  }
+
+  buscarCadastrosPendentes() {
+    this.userService.getCadastros("PENDENTE").subscribe(
+      data => this.listaCadastrosPendentes = data,
+      error => {console.log(error)}
+    )
   }
 
   // Função para retornar a classe dos botões de abas (para determinar se são azuis ou não)

@@ -11,9 +11,7 @@ import { UserService } from 'src/app/service/userService';
 export class CadastroComponent implements OnInit {
   constructor(private router: Router, private service: UsersService, private userService: UserService) { }
 
-  usuario: string = "";
-  email: string = "";
-  senhaUser: string = "";
+  usuarioFeito = { emailUsuario: "", senhaUsuario: "", nomeUsuario: "", tipoUsuario: "PENDENTE", visibilidade: true };
   repetirSenhaUser: string = "";
 
   senhaIncorreta: boolean = false;     //Variável para modal de senhas não correspondem
@@ -36,27 +34,13 @@ export class CadastroComponent implements OnInit {
   cadastrar() {
     // Item adicionado no localStorage para poder emitir um feedback na tela de login
     localStorage.setItem('cadastro', '1');
-
-    const user = {
-      emailUsuario: this.email,
-      senhaUsuario: this.senhaUser,
-      nomeUsuario: this.usuario,
-      tipoUsuario: "PENDENTE",
-      visibilidade: true
-    }
-
-    console.log(user);
-    this.userService.postUser(user).subscribe(
-      error => { console.log(error) }
-    )
-
     this.controlarModalConfirmarCadastro();
     // this.router.navigate(['']);
   }
 
   verificarDadosValidos() {
-    if (this.email && this.usuario && this.senhaUser) {
-      if (this.senhaUser == this.repetirSenhaUser && this.senhaUser != '' && this.senhaUser) {
+    if (this.usuarioFeito.emailUsuario && this.usuarioFeito.nomeUsuario && this.usuarioFeito.senhaUsuario) {
+      if (this.usuarioFeito.senhaUsuario == this.repetirSenhaUser && this.usuarioFeito.senhaUsuario != '' && this.usuarioFeito.senhaUsuario) {
         // Ao invés de cadastrar o usuário, deve-se abrir modal de confirmação de cadastro
         // solicitando para inserir o código de confirmação enviado por email
         let divPrincipal = document.querySelector(".divPrincipal") as HTMLDivElement;
@@ -148,9 +132,5 @@ export class CadastroComponent implements OnInit {
     divPrincipal.style.opacity = '1';
 
     this.modalConfirmarCadastro = false;
-    console.log("AAAAAA" + event);
-    if(event == "Finalizado") {
-      this.cadastrar();
-    }
   }
 }

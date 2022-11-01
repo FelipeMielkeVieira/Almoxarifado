@@ -10,6 +10,7 @@ export class CadastrarUsuarioComponent implements OnInit {
   constructor() { }
 
   @Input() listaEmBloco: boolean = false;
+  @Input() usuario: any;
 
   modalConfirmarRecusa = false;
   modalConfirmarAceite = false;

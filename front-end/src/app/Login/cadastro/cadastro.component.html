@@ -5,7 +5,7 @@
 
 <body>
   <!-- Aqui deve aparecer um componente de confirmar cadastro -->
-  <app-confirmar-cadastro (fecharModal)="fecharModalConfirmacao($event)" *ngIf="modalConfirmarCadastro" style="position:relative; z-index: 5;">
+  <app-confirmar-cadastro [user]="usuarioFeito" (fecharModal)="fecharModalConfirmacao($event)" *ngIf="modalConfirmarCadastro" style="position:relative; z-index: 5;">
   </app-confirmar-cadastro>
 
   <div class="divPrincipal">
@@ -28,17 +28,17 @@
       </div>
       <h1 id="titulo">Cadastrar</h1>
       <div class="form-floating div-float-label">
-        <input name="usuario" [(ngModel)]="usuario" type="text" class="form-control input-float-label"
+        <input name="usuario" [(ngModel)]="usuarioFeito.nomeUsuario" type="text" class="form-control input-float-label"
           placeholder="Nome">
         <label class="label-float-label" for="usuario">Nome</label>
       </div>
       <div class="form-floating div-float-label">
-        <input name="email" [(ngModel)]="email" type="email" class="form-control input-float-label" placeholder="Email">
+        <input name="email" [(ngModel)]="usuarioFeito.emailUsuario" type="email" class="form-control input-float-label" placeholder="Email">
         <label class="label-float-label" for="email">Email</label>
       </div>
 
       <div class="form-floating div-float-label div-senha">
-        <input id="inputSenha" name="senhaUser" [(ngModel)]="senhaUser" type="password"
+        <input id="inputSenha" name="senhaUser" [(ngModel)]="usuarioFeito.senhaUsuario" type="password"
           class="form-control input-float-label" placeholder="Email">
         <label class="label-float-label" for="senhaUser">Senha</label>
         <span title="Ver senha" *ngIf="!senhaVisivel" class="material-symbols-outlined imgOlho iconDeselect" (click)="trocarOlho(1)"

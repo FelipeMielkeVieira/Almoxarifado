@@ -57,7 +57,7 @@ public class UsuarioController {
         }
 
         TipoUsuario tipoUsuario = TipoUsuario.valueOf(tipoUsuarioParam);
-        return ResponseEntity.status(HttpStatus.FOUND).body(usuarioService.findByTipoUsuario(tipoUsuario));
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findByTipoUsuario(tipoUsuario));
     }
 
     @PostMapping

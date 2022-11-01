@@ -33,8 +33,12 @@ export class FiltroComponent implements OnInit {
       if (!(event.target as HTMLElement).className.includes("parteFiltro")) {
         let filtro = document.querySelector("#check") as HTMLInputElement;
         if (!((event.target as HTMLElement).id == "check")) {
-          if (!filtro.checked) {
-            filtro.checked = true;
+          try {
+            if (!filtro.checked) {
+              filtro.checked = true;
+            }
+          } catch(erro) {
+
           }
         }
       }

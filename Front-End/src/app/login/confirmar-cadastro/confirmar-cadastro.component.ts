@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-confirmar-cadastro',
@@ -7,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./confirmar-cadastro.component.scss']
 })
 export class ConfirmarCadastroComponent implements OnInit {
+
+  @Input() user = { emailUsuario: "", senhaUsuario: "", nomeUsuario: "", tipoUsuario: "PENDENTE", visibilidade: true };
+
   etapaRedefinicaoSenha: number = 1;
 
   emailVerificacao: string = '';
@@ -30,7 +34,7 @@ export class ConfirmarCadastroComponent implements OnInit {
 
   @Output() fecharModal = new EventEmitter<string>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.verificarEmail();
@@ -84,6 +88,10 @@ export class ConfirmarCadastroComponent implements OnInit {
         this.codigoVerificacaoIncorreto = false;
       }, 5000);
     } else {
+      this.userService.postUser(this.user).subscribe(
+        error => { console.log(error) }
+      )
+
       localStorage.setItem('cadastroEfetuado', 'true');
       this.router.navigate(['']);
     }
