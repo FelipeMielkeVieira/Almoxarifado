@@ -21,8 +21,10 @@ export class ItemListaComponent implements OnInit {
   @Input() visualizacaoItem: string = "emLista";
 
   // Input com o objeto do item recebido da lista
-  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [ { descricao: "", anexo: "" } ] };
-  @Input() itens = [{ id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [ { descricao: "", anexo: "" } ] }];
+  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [{ descricao: "", anexo: "" }] };
+  @Input() itens = [{ id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [{ descricao: "", anexo: "" }] }];
+
+  itemModalReservar: any;
 
   modalReservar: boolean = false;
   modalEditar: boolean = false;
@@ -81,7 +83,7 @@ export class ItemListaComponent implements OnInit {
   }
 
   // Função para deixar visível o modal de reserva do item
-  abrirModalReserva(event: any) {
+  abrirModalReserva(event: any, item: any) {
     console.log(event);
     let idIcone = event.path[0].id;
     console.log(idIcone);
@@ -96,15 +98,14 @@ export class ItemListaComponent implements OnInit {
       case "iconeExcluir":
         this.removerItem();
         break;
+      case "iconeEstrela":
+        break;
+      case "iconEstrelaPreenchida":
+        break;
       default:
+        this.itemModalReservar = item;
         this.modalReservar = true;
     }
-    // this.modalReservar = true;
-  }
-
-  // Função para deixar o item nos favoritos
-  favoritos() {
-    this.favorito = !this.favorito;
   }
 
   // Função para abrir o modal de edição do item

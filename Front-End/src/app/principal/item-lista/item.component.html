@@ -1,29 +1,12 @@
 <table id="tableItens" class="table table-hover">
   <tbody>
-    <tr *ngFor="let item of itens" id="containerItem" (click)="abrirModalReserva($event)">
+    <tr *ngFor="let item of itens" id="containerItem" (click)="abrirModalReserva($event, item)">
       <td class="itemTabela">{{ item.nome }}</td>
       <td class="itemTabela"> {{ item.descartavel ? "Descartável" : "Não descartável" }} </td>
       <td class="itemTabela">{{ item.quantidade }} UN</td>
       <td class="itemTabela">
         <div class="ferramentas">
-          <span title="Favoritos" *ngIf="!favorito && tipoUser == 1"
-            class="material-symbols-outlined iconDeselect iconeEstrela" (click)="favoritos()" alt="icone estrela">
-            star
-          </span>
-          <span title="Favoritos" *ngIf="favorito && tipoUser == 1"
-            class="material-symbols-outlined iconDeselect iconeEstrela" (click)="favoritos()" id="iconEstrelaPreenchida"
-            alt="icone estrela">
-            star
-          </span>
-          <style>
-            #iconEstrelaPreenchida {
-              font-variation-settings:
-                'FILL' 1,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 0
-            }
-          </style>
+          <app-favorito-item *ngIf="tipoUser == 1" [item]="item"></app-favorito-item>
           <span title="Editar" *ngIf="tipoUser == 3 || tipoUser == 4" class="material-symbols-outlined iconDeselect"
             (click)="abrirModalEditar()" id="iconeEditar">
             edit
@@ -63,22 +46,25 @@
   id="fundoModal">
 
   <!-- Modal Reservar Item -->
-  <app-modal-reservar-item *ngIf="modalReservar" [item]="item" (fecharModal)="fecharModaisItem(1, $event)"
+  <app-modal-reservar-item *ngIf="modalReservar" [item]="itemModalReservar" (fecharModal)="fecharModaisItem(1, $event)"
     style="width: 100%; display: flex; justify-content: center;"></app-modal-reservar-item>
 
   <!-- Modal Editar Item -->
-  <app-modal-editar-item *ngIf="modalEditar" [item]="item" (fecharModal)="fecharModaisItem(3, $event)">
+  <app-modal-editar-item *ngIf="modalEditar" [item]="itemModalReservar" (fecharModal)="fecharModaisItem(3, $event)">
   </app-modal-editar-item>
 
   <!-- Modal Motivo Edição de Quantidade -->
-  <app-modal-motivo-edicao *ngIf="modalMotivoEdicao" [item]="item" (fecharModal)="fecharModaisItem(4, $event)">
+  <app-modal-motivo-edicao *ngIf="modalMotivoEdicao" [item]="itemModalReservar"
+    (fecharModal)="fecharModaisItem(4, $event)">
   </app-modal-motivo-edicao>
 
   <!-- Modal Ver Anexos -->
-  <app-anexos-item *ngIf="modalAnexos" [item]="item" (fecharModal)="fecharModaisItem(2, undefined)"></app-anexos-item>
+  <app-anexos-item *ngIf="modalAnexos" [item]="itemModalReservar" (fecharModal)="fecharModaisItem(2, undefined)">
+  </app-anexos-item>
 
   <!-- Modal Histórico de Edição -->
-  <app-modal-historico-edicao *ngIf="modalHistorico" [item]="item" (fecharModal)="fecharModaisItem(5, undefined)">
+  <app-modal-historico-edicao *ngIf="modalHistorico" [item]="itemModalReservar"
+    (fecharModal)="fecharModaisItem(5, undefined)">
   </app-modal-historico-edicao>
 
   <!-- Modal Confirmar Remoção -->

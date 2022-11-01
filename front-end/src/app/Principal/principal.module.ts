@@ -25,6 +25,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { GerenciarFiltrosComponent } from './gerenciar-filtros/gerenciar-filtros.component';
+import { FavoritoItemComponent } from './favorito-item/favorito-item.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { GerenciarFiltrosComponent } from './gerenciar-filtros/gerenciar-filtros
     ItemListaComponent,
     TelaCarregamentoComponent,
     CalendarioComponent,
-    GerenciarFiltrosComponent
+    GerenciarFiltrosComponent,
+    FavoritoItemComponent
   ],
   imports: [
     CommonModule,

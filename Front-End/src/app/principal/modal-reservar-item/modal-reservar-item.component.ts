@@ -29,6 +29,8 @@ export class ModalReservarItem implements OnInit {
   dataDevolucao: any = new Date();
 
   ngOnInit() { 
+    console.log("mano ta aq");
+    console.log("a", this.item)
     if (this.item.quantidade <= 0) {
       document.getElementById("professores")?.setAttribute("disabled", "true");
     }

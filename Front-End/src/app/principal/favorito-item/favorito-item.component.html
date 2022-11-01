@@ -1,0 +1,17 @@
+<span id="iconeEstrela" title="Favoritos" *ngIf="!favorito" (click)="favoritar()"
+  class="material-symbols-outlined iconDeselect iconeEstrela" alt="icone estrela">
+  star
+</span>
+<span title="Favoritos" *ngIf="favorito" (click)="favoritar()"
+  class="material-symbols-outlined iconDeselect iconeEstrela" id="iconEstrelaPreenchida" alt="icone estrela">
+  star
+</span>
+<style>
+  #iconEstrelaPreenchida {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 0
+  }
+</style>
