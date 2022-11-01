@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarCreator } from './principal/calendario/calendarCreator.service';
 import { ClassificacaoService } from './service/classificacaoService';
 import { LocalizacaoService } from './service/localizacaoService';
+import { UserService } from './service/userService';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { LocalizacaoService } from './service/localizacaoService';
     GerenciaModule,
     BrowserAnimationsModule
   ],
-  providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor, CalendarCreator, ClassificacaoService, LocalizacaoService],
+  providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor, CalendarCreator, ClassificacaoService, LocalizacaoService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

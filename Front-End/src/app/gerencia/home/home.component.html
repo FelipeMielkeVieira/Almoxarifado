@@ -2,14 +2,19 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <!-- Modais que escurecem a tela -->
-<div *ngIf="localizacaoModal || modalCadastrarItem" id="fundoModal">
+<div *ngIf="localizacaoModal || modalCadastrarItem || confirmacaoDeletarLocalizacoes" id="fundoModal">
 
     <!-- Modal Cadastrar localização -->
-    <app-cadastrar-localizacao-modal *ngIf="localizacaoModal" [primeirasLocalizacoes]="getTopLocalizacoes()" (fecharModal)="mudarModaisPesquisa(2, $event)">
+    <app-cadastrar-localizacao-modal *ngIf="localizacaoModal" [primeirasLocalizacoes]="getTopLocalizacoes()"
+        (fecharModal)="mudarModaisPesquisa(2, $event)">
     </app-cadastrar-localizacao-modal>
 
     <!-- Modal Cadastrar Item -->
     <app-cadastrar-item *ngIf="modalCadastrarItem" (fecharModal)="mudarModaisPesquisa(3, $event)"></app-cadastrar-item>
+
+    <!-- Modal de confirmação excluir localização -->
+    <app-modal-confirmacao *ngIf="confirmacaoDeletarLocalizacoes" [tipoTexto]="12"
+        (fecharModal)="fecharModalExclusaoLocalizacoes($event)"></app-modal-confirmacao>
 </div>
 
 <!-- Feedback Cadastro de Localização -->
@@ -21,10 +26,16 @@
 </app-modal-feedback>
 
 <!-- Feedback de sacola reservada -->
-<app-modal-feedback *ngIf="feedbackSacolaReservada" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(3)"></app-modal-feedback>
+<app-modal-feedback *ngIf="feedbackSacolaReservada" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(3)">
+</app-modal-feedback>
 
 <!-- Feedback de sacola excluída -->
-<app-modal-feedback *ngIf="feedbackSacolaExcluida" [tipoFeedback]="5" (fecharModal)="fecharModaisFeedback(4)"></app-modal-feedback>
+<app-modal-feedback *ngIf="feedbackSacolaExcluida" [tipoFeedback]="5" (fecharModal)="fecharModaisFeedback(4)">
+</app-modal-feedback>
+
+<!-- Feedback localizações excluídas -->
+<app-modal-feedback *ngIf="feedbackLocalizacoesExcluidas" [tipoFeedback]="20" (fecharModal)="fecharModaisFeedback(5)">
+</app-modal-feedback>
 
 <app-header></app-header>
 <app-filtro></app-filtro>
@@ -78,7 +89,8 @@
                                 </span>
                                 <!-- Modal Ordenar -->
                                 <app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModalOrdenar()"
-                                (ordenarItens)="ordenarItens($event)" [listaOrdenacoes]="listaOrdenacoes" id="appModalOrdenar"></app-modal-ordenar>
+                                    (ordenarItens)="ordenarItens($event)" [listaOrdenacoes]="listaOrdenacoes"
+                                    id="appModalOrdenar"></app-modal-ordenar>
 
                                 <span *ngIf="listaEmBloco && !abaLocalizacoes" (click)="mudarVisualizacao()"
                                     id="iconEmBloco" class="material-symbols-outlined iconDeselect"
@@ -156,11 +168,12 @@
                         <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoes" (click)="selectAll()">
                             Selecionar tudo</mat-checkbox>
                         <div id="btnLocalizacao">
-                            <button (click)="excluirLocalizacoes()"
+                            <button (click)="confirmarExclusaoLocalizacoes()"
                                 class="btn btn-outline-primary btnCustom">Deletar</button>
                         </div>
                     </div>
-                    <app-localizacao [localizacoes]="localizacoesLista"></app-localizacao>
+                    <app-localizacao [localizacoesSelecionadas]="localizacoesSelecionadas"
+                        [localizacoes]="localizacoesLista"></app-localizacao>
                 </div>
             </div>
         </div>

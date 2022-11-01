@@ -39,6 +39,8 @@ export class ModalConfirmacaoComponent implements OnInit {
                 return "Deseja excluir a classificação?"
             case 11:
                 return "Deseja salvar alterações?"
+            case 12:
+                return "Deseja excluir as localizações?"
         }
         return "";
     }

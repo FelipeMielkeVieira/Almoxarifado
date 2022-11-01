@@ -16,12 +16,28 @@ export class LocalizacaoComponent implements OnInit {
   constructor() { }
 
   @Input() localizacoes: any = [{ id: Number, idPai : Number, nome: String }];
+  @Input() localizacoesSelecionadas: any[] = [];
 
   ngOnInit(): void {
   }
 
+  // Função para selecionar ou deselecionar uma localização
   selecionarRow(localizacao: any) {
+    if(!localizacao.checked) {
+      this.localizacoesSelecionadas.push(localizacao);
+    } else {
+      this.removerLocalizacao(localizacao);
+    }
     localizacao.checked = !localizacao.checked;
+  }
+
+  // Função para remover uma localização da lista de localizações selecionadas
+  removerLocalizacao(localizacao : any) {
+    for (let i = 0; i < this.localizacoesSelecionadas.length; i++) {
+      if(this.localizacoesSelecionadas[i].id == localizacao.id) {
+        this.localizacoesSelecionadas.splice(i, 1);
+      }
+    }
   }
 
   getClass(localizacao: any) {

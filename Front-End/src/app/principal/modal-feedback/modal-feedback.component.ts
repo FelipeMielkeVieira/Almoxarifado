@@ -56,6 +56,8 @@ export class ModalFeedback implements OnInit {
         return "Localização excluída com sucesso!";
       case 19:
         return "Filtros salvos com sucesso!";
+      case 20:
+        return "Localizações excluídas!"
     }
     return "";
   }
