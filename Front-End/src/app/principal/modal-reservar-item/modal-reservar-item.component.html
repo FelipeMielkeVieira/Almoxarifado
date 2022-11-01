@@ -1,3 +1,7 @@
+<!-- Alerta de dados faltantes no cadastro de localização -->
+<app-alerta-feito *ngIf="feedbackDados" (fecharModal)="fecharModalAlerta($event)" [tipoMensagemModal]="7">
+</app-alerta-feito>
+
 <div id="modalItem">
   <div class="containerModal">
     <div class="fechar">
@@ -117,14 +121,8 @@
       </div>
     </div>
   </div>
-  <app-calendario
-        *ngIf="calendarioRetirada"
-        (salvarData)="salvarData(1, $event)"
-        [dataSalva]="dataRetirada"
-      ></app-calendario>
-      <app-calendario
-        *ngIf="calendarioDevolucao"
-        (salvarData)="salvarData(2, $event)"
-        [dataSalva]="dataDevolucao"
-      ></app-calendario>
+  <app-calendario *ngIf="calendarioRetirada" (salvarData)="salvarData(1, $event)" [dataSalva]="dataRetirada">
+  </app-calendario>
+  <app-calendario *ngIf="calendarioDevolucao" (salvarData)="salvarData(2, $event)" [dataSalva]="dataDevolucao">
+  </app-calendario>
 </div>

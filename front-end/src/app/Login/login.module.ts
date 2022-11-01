@@ -9,6 +9,7 @@ import { EsquecerSenhaComponent } from './esquecer-senha/esquecer-senha.componen
 import { ConfirmarCadastroComponent } from './confirmar-cadastro/confirmar-cadastro.component';
 
 import { UsersService } from '../service';
+import { ModalReservarItem } from '../principal/modal-reservar-item/modal-reservar-item.component';
 
 
 @NgModule({
@@ -21,14 +22,15 @@ import { UsersService } from '../service';
     LoginComponent,
     AlertaFeitoComponent,
     EsquecerSenhaComponent,
-    ConfirmarCadastroComponent
+    ConfirmarCadastroComponent,
+
   ],
   exports: [
     CadastroComponent, 
     LoginComponent, 
     AlertaFeitoComponent, 
     EsquecerSenhaComponent,
-    ConfirmarCadastroComponent
+    ConfirmarCadastroComponent,
   ],
   providers: [
     UsersService
