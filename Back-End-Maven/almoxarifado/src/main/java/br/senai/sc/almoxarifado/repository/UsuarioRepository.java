@@ -11,5 +11,6 @@ import java.util.Optional;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     List<Usuario> findAllByVisibilidade(Boolean visibilidade);
-    List<Usuario> findByTipoUsuario(TipoUsuario tipoUsuario);
+    List<Usuario> findByTipoUsuarioAndVisibilidade(TipoUsuario tipoUsuario, Boolean visibilidade);
+    List<Usuario> findByTipoUsuarioNotAndVisibilidade(TipoUsuario tipoUsuario, Boolean visibilidade);
 }

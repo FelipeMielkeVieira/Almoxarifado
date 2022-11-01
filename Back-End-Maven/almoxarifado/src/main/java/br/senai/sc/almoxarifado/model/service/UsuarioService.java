@@ -24,8 +24,12 @@ public class UsuarioService {
         return usuarioRepository.findAllByVisibilidade(visibilidade);
     }
 
-    public List<Usuario> findByTipoUsuario(TipoUsuario tipoUsuario) {
-        return usuarioRepository.findByTipoUsuario(tipoUsuario);
+    public List<Usuario> findByTipoUsuarioAndVisibilidade(TipoUsuario tipoUsuario, Boolean visibilidade) {
+        return usuarioRepository.findByTipoUsuarioAndVisibilidade(tipoUsuario, visibilidade);
+    }
+
+    public List<Usuario> findByTipoUsuarioIsNot(TipoUsuario tipoUsuario, Boolean visibilidade) {
+        return usuarioRepository.findByTipoUsuarioNotAndVisibilidade(tipoUsuario, visibilidade);
     }
 
     public <S extends Usuario> S save(S entity) {

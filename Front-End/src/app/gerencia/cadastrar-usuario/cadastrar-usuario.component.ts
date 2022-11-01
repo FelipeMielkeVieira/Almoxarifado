@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -7,16 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CadastrarUsuarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   @Input() listaEmBloco: boolean = false;
   @Input() usuario: any;
+  @Output() removerLista = new EventEmitter<string>();
 
   modalConfirmarRecusa = false;
   modalConfirmarAceite = false;
-
-  feedbackRecusaCadastro = false;
-  feedbackAceiteCadastro = false;
 
   ngOnInit(): void {
   }
@@ -51,46 +50,30 @@ export class CadastrarUsuarioComponent implements OnInit {
       case 1:
         this.modalConfirmarRecusa = false;
         if (resposta) {
-          // Recusar usuário
-          this.abrirModaisFeedback(1);
+          this.recusarUsuario();
         }
         break;
       case 2:
         this.modalConfirmarAceite = false;
         if (resposta) {
-          // Aceitar usuário
-          this.abrirModaisFeedback(2);
+          this.aceitarUsuario();
         }
     }
   }
 
-  // Função para abrir os modais de feedback após a confirmação de recusa ou aceitação
-  abrirModaisFeedback(numero: number) {
-    switch (numero) {
-      case 1:
-        this.feedbackRecusaCadastro = true;
-        setTimeout(() => {
-          this.feedbackRecusaCadastro = false;
-        }, 4000);
-        break;
-      case 2:
-        this.feedbackAceiteCadastro = true;
-        setTimeout(() => {
-          this.feedbackAceiteCadastro = false;
-        }, 4000);
-    }
+  recusarUsuario() {
+    this.userService.deleteUser(this.usuario.emailUsuario).subscribe(
+      error => {console.log(error)}
+    )
+    this.removerLista.emit("2*" + this.usuario.emailUsuario);
   }
 
-  // Função para fechar os modais de feedback após confirmações
-  fecharModaisFeedback(numero: number) {
-    switch (numero) {
-      case 1:
-        this.feedbackRecusaCadastro = false;
-        break;
-      case 2:
-        this.feedbackAceiteCadastro = false;
-        break;
-    }
+  aceitarUsuario() {
+    this.usuario.tipoUsuario = "PROFESSOR";
+    this.userService.putUser(this.usuario, this.usuario.emailUsuario).subscribe(
+      error => {console.log(error)}
+    )
+    this.removerLista.emit("1*" + this.usuario.emailUsuario);
   }
 
 }

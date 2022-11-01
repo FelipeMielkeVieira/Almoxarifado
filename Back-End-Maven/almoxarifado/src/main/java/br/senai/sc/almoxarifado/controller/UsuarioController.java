@@ -49,7 +49,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/tipo-usuario/{tipoUsuario}")
-    public ResponseEntity<Object> findByTipoUsuario(
+    public ResponseEntity<Object> findByTipoUsuarioAndVisibilidade(
             @PathVariable(value = "tipoUsuario") String tipoUsuarioParam) {
         Usuario usuarioModel = new Usuario();
         if (!usuarioModel.usuarioInTipoUsuario(tipoUsuarioParam)) {
@@ -57,7 +57,19 @@ public class UsuarioController {
         }
 
         TipoUsuario tipoUsuario = TipoUsuario.valueOf(tipoUsuarioParam);
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findByTipoUsuario(tipoUsuario));
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findByTipoUsuarioAndVisibilidade(tipoUsuario, true));
+    }
+
+    @GetMapping("/tipo-usuario-excluir/{tipoUsuario}")
+    public ResponseEntity<Object> findByTipoUsuarioIsNot(
+            @PathVariable(value = "tipoUsuario") String tipoUsuarioParam) {
+        Usuario usuarioModel = new Usuario();
+        if (!usuarioModel.usuarioInTipoUsuario(tipoUsuarioParam)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Tipo de usuário inválido!");
+        }
+
+        TipoUsuario tipoUsuario = TipoUsuario.valueOf(tipoUsuarioParam);
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findByTipoUsuarioIsNot(tipoUsuario, true));
     }
 
     @PostMapping
@@ -102,6 +114,6 @@ public class UsuarioController {
         Usuario usuario = usuarioService.findById(email).get();
         usuario.setVisibilidade(false);
         usuarioService.save(usuario);
-        return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado com sucesso!");
+        return ResponseEntity.status(HttpStatus.OK).body(usuario);
     }
 }

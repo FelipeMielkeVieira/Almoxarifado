@@ -10,11 +10,10 @@ import { UserService } from 'src/app/service/userService';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: UsersService, private localizacaoService : LocalizacaoService, private userService: UserService) {
+  constructor(private service: UsersService, private localizacaoService: LocalizacaoService, private userService: UserService) {
     this.listaItens = service.itens;
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
     this.listaCadastrosPendentes = service.usuariosPendentes;
-    this.listaUsuarios = service.usuarios;
   }
 
   listaOrdenacoes = [false, false, false, false];
@@ -61,7 +60,14 @@ export class HomeComponent implements OnInit {
   feedbackItemCadastrado = false;
   feedbackLocalizacoesExcluidas = false;
 
+  feedbackUsuarioAceito = false;
+  feedbackUsuarioRecusado = false;
+  feedbackUsuarioExcluido = false;
+  feedbackUsuarioAtualizado = false;
+
   ngOnInit() {
+    this.buscarUsuariosExistentes();
+
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
     window.addEventListener("click", function (event) {
@@ -95,7 +101,7 @@ export class HomeComponent implements OnInit {
   buscarLocalizacoes() {
     this.localizacaoService.getAll().subscribe(
       data => this.localizacoesLista = data,
-      error => {console.log(error)}
+      error => { console.log(error) }
     );
   }
 
@@ -119,6 +125,7 @@ export class HomeComponent implements OnInit {
     switch (numero) {
       case 1:
         this.abaGerenciaUsuarios = true;
+        this.buscarUsuariosExistentes();
         break;
       case 2:
         this.abaGerenciaCadastros = true;
@@ -140,10 +147,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  buscarUsuariosExistentes() {
+    this.userService.getUsuarios().subscribe(
+      data => this.listaUsuarios = data,
+      error => { console.log(error) }
+    )
+  }
+
   buscarCadastrosPendentes() {
     this.userService.getCadastros("PENDENTE").subscribe(
       data => this.listaCadastrosPendentes = data,
-      error => {console.log(error)}
+      error => { console.log(error) }
     )
   }
 
@@ -254,7 +268,7 @@ export class HomeComponent implements OnInit {
 
   fecharModalExclusaoLocalizacoes(event: boolean) {
     this.confirmacaoDeletarLocalizacoes = false;
-    if(event) {
+    if (event) {
       this.excluirLocalizacoes();
       this.feedbackLocalizacoesExcluidas = true;
       setTimeout(() => {
@@ -266,7 +280,7 @@ export class HomeComponent implements OnInit {
   // Função para excluir as localizações selecionadas do banco de dados
   excluirLocalizacoes() {
     for (const loc of this.localizacoesSelecionadas) {
-      this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(error => {console.log(error)});
+      this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(error => { console.log(error) });
       this.excluirLocalizacaoLista(loc.id);
     }
   }
@@ -274,7 +288,7 @@ export class HomeComponent implements OnInit {
   // Função para excluir uma localização da lista total
   excluirLocalizacaoLista(id: any) {
     for (let index = 0; index < this.localizacoesLista.length; index++) {
-      if(id == this.localizacoesLista[index].id) {
+      if (id == this.localizacoesLista[index].id) {
         this.localizacoesLista.splice(index, 1);
       }
     }
@@ -314,6 +328,18 @@ export class HomeComponent implements OnInit {
       case 5:
         this.feedbackLocalizacoesExcluidas = false;
         break;
+      case 6:
+        this.feedbackUsuarioAceito = false;
+        break;
+      case 7:
+        this.feedbackUsuarioRecusado = false;
+        break;
+      case 8:
+        this.feedbackUsuarioExcluido = false;
+        break;
+      case 9:
+        this.feedbackUsuarioAtualizado = false;
+        break;
     }
   }
 
@@ -321,10 +347,50 @@ export class HomeComponent implements OnInit {
   getTopLocalizacoes() {
     let listaNova = [];
     for (const loc of this.localizacoesLista) {
-      if(!loc.idPai) {
+      if (!loc.idPai) {
         listaNova.push(loc);
       }
     }
     return listaNova;
+  }
+
+  // Função para remover um usuário aceito ou rejeitado da lista de cadastros
+  diminuirListaCadastros(event: string) {
+    let listaStrings = event.split("*");
+
+    for (let i = 0; i < this.listaCadastrosPendentes.length; i++) {
+      if (this.listaCadastrosPendentes[i].emailUsuario == listaStrings[1]) {
+        this.listaCadastrosPendentes.splice(i, 1);
+      }
+    }
+
+    switch (listaStrings[0]) {
+      case "1":
+        this.feedbackUsuarioAceito = true;
+        setTimeout(() => {
+          this.feedbackUsuarioAceito = false;
+        }, 4500);
+        break;
+      case "2":
+        this.feedbackUsuarioRecusado = true;
+        setTimeout(() => {
+          this.feedbackUsuarioRecusado = false;
+        }, 4500);
+        break;
+    }
+  }
+
+  // Função para remover um usuário editado ou removido da lista de usuários
+  diminuirListaUsuarios(event: string) {
+    for (let i = 0; i < this.listaUsuarios.length; i++) {
+      if (this.listaUsuarios[i].emailUsuario == event) {
+        this.listaUsuarios.splice(i, 1);
+      }
+    }
+
+    this.feedbackUsuarioExcluido = true;
+    setTimeout(() => {
+      this.feedbackUsuarioExcluido = false;
+    }, 4500);
   }
 }

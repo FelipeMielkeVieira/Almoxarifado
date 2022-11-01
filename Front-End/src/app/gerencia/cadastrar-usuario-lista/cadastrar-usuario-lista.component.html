@@ -8,17 +8,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let cadastro of listaCadastros" id="containerCadastros">
-            <td class="itemTabela tamanhoTextos">{{ cadastro.nome }}</td>
-            <td class="itemTabela tamanhoTextos">{{ cadastro.email }}</td>
+        <tr *ngFor="let cadastro of listaCadastros; let i = index;" id="containerCadastros">
+            <td class="itemTabela tamanhoTextos">{{ cadastro.nomeUsuario }}</td>
+            <td class="itemTabela tamanhoTextos">{{ cadastro.emailUsuario }}</td>
             <td class="itemTabela center">
-                <span (click)="abrirModaisConfirmacao(1)" title="Rejeitar" id="fecharIcone"
+                <span (click)="abrirModaisConfirmacao(1, i)" title="Rejeitar" id="fecharIcone"
                     class="material-symbols-outlined iconDeselect icone">
                     close
                 </span>
             </td>
             <td class="itemTabela center">
-                <span (click)="abrirModaisConfirmacao(2)" title="Aceitar"
+                <span (click)="abrirModaisConfirmacao(2, i)" title="Aceitar"
                     class="material-symbols-outlined iconDeselect icone">
                     done
                 </span>

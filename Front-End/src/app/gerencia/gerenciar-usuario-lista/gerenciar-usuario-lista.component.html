@@ -9,27 +9,29 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let usuario of listaUsuarios" class="linhaSelecionavel">
+        <tr *ngFor="let usuario of listaUsuarios;" class="linhaSelecionavel">
             <td class="itemTabela displayFlex tdCheck">
-                {{ usuario.nome }}
+                {{ usuario.nomeUsuario }}
             </td>
             <td class="itemTabela displayFlex tdIdLocalizacao">
-                {{ usuario.email }}
+                {{ usuario.emailUsuario }}
             </td>
             <td class="itemTabela center displayFlex tdNomeLocalizacao">
-                <select id="selectFuncao">
-                    <option *ngFor="let funcao of listaFuncoes" class="opcaoFuncao" [value]="funcao.id">{{ funcao.funcao
-                        }}</option>
+                <select id="selectFuncao" [(ngModel)]="usuario.tipoUsuario">
+                    <option value="PROFESSOR">Professor</option>
+                    <option value="ATENDENTE1">Atendente 1</option>
+                    <option value="ATENDENTE2">Atendente 2</option>
+                    <option value="SUPERVISOR">Supervisor</option>
                 </select>
             </td>
             <td class="itemTabela center">
-                <span (click)="abrirModaisConfirmacao(1)" title="Cofirmar"
+                <span (click)="abrirModaisConfirmacao(1, usuario)" title="Cofirmar"
                     class="material-symbols-outlined iconDeselect iconeOpcao verde">
                     done
                 </span>
             </td>
             <td class="itemTabela center">
-                <span (click)="abrirModaisConfirmacao(2)" title="Deletar"
+                <span (click)="abrirModaisConfirmacao(2, usuario)" title="Deletar"
                     class="material-symbols-outlined iconDeselect iconeOpcao vermelho">
                     delete
                 </span>
