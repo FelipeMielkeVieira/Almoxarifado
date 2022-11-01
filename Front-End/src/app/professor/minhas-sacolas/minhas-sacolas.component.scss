@@ -4,13 +4,8 @@
 
 p {
     font-size: var(--font-size--small);
-    font-weight: 500;
     margin-bottom: 0;
     cursor: pointer;
-}
-
-p:hover {
-    color: #0047B6;
 }
 
 /* <!-- ------------------------------- COMPONENTE DA SACOLA ------------------------------- --> */
@@ -29,8 +24,9 @@ p:hover {
 }
 
 #iconHome {
-    font-size:20px;
+    font-size:22px;
     cursor: pointer;
+    font-weight: 250;
 }
 
 #iconHome:hover {
@@ -61,11 +57,7 @@ p:hover {
 #caminhoMinhasSacolas {
     font-size: var(--font-size--small);
     font-weight: 500;
-    cursor: pointer;
-}
-
-#caminhoMinhasSacolas:hover {
-    color: #0047B6;
+    cursor: default;
 }
 
 .tituloSacolas{

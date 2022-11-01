@@ -53,14 +53,11 @@ p{
 }
 
 #caminhoReservas {
-    font-size: 30px;
+    font-size: var(--font-size--small);
     font-weight: 500;
-    cursor: pointer;
+    cursor: default;
 }
 
-#caminhoReservas:hover {
-    color: #0047B6;
-}
 
 /* <!-- ------------------------------- FIM CAMINHO DO SITE (O PATH) ------------------------------ --> */
 
