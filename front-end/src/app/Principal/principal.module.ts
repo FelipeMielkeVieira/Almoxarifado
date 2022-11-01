@@ -26,6 +26,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { GerenciarFiltrosComponent } from './gerenciar-filtros/gerenciar-filtros.component';
 import { FavoritoItemComponent } from './favorito-item/favorito-item.component';
+import { EditarDescricaoItemComponent } from './editar-descricao-item/editar-descricao-item.component';
 
 
 @NgModule({
@@ -50,13 +51,14 @@ import { FavoritoItemComponent } from './favorito-item/favorito-item.component';
     TelaCarregamentoComponent,
     CalendarioComponent,
     GerenciarFiltrosComponent,
-    FavoritoItemComponent
+    FavoritoItemComponent,
+    EditarDescricaoItemComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   exports: [
     FiltroComponent,

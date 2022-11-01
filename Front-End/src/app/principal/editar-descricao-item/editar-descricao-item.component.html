@@ -1,0 +1,50 @@
+<div id="containerModal">
+    <div id="containerFechar">
+        <span (click)="fechar()" title="Fechar" id="fecharIcone" class="material-symbols-outlined iconDeselect">
+            close
+        </span>
+    </div>
+    <div id="containerDescricao">
+        <h2 class="title">Descrição</h2>
+        <textarea name="" id="descricaoTextArea" rows="5"></textarea>
+    </div>
+    <div id="containerAnexos">
+        <div id="containerHeadAnexos">
+            <h2 class="title semMargin">Anexos</h2>
+            <div id="containerAddAnexo">
+                <input name="anexoInputFile" type="file" (change)="anexoAdicionado()" class="inputFile"
+                    id="anexoInput">
+                <label class="labelAnexoInput" for="anexoInput">
+                    <span title="Adicionar Anexo" id="adicionarAnexoIcone"
+                        class="material-symbols-outlined iconDeselect">
+                        add
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div id="containerTabelaAnexos">
+            <table *ngIf="inputFileList.length > 0" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="itemTabela">Nome</th>
+                        <th class="itemTabela alignCenter">Deletar</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyAnexos">
+                    <tr *ngFor="let file of inputFileList; let i = index">
+                        <td class="itemTabela"> {{ file.name }} </td>
+                        <td class="itemTabela alignCenter">
+                            <span (click)="removerAnexo(i)" class="material-symbols-outlined icone"
+                                title="Remover anexo">
+                                delete
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="containerBtn">
+        <button (click)="salvar()" mat-flat-button color="primary">Salvar</button>
+    </div>
+</div>

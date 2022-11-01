@@ -1,27 +1,29 @@
-#fundoModal {
+// Modal
+#backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 5;
     background-color: rgba(0, 0, 0, 0.349);
 }
 
+// Cadastrar item
+
 .containerModalCadastrar {
-    width: 70%;
+    width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
 }
 
 #containerModalCadastrar {
-    width: 33.75rem;
-    height: 37.5rem;
+    border-top: 12px solid #0047B6;
+    width: 40rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
@@ -29,44 +31,18 @@
     animation: fadein 0.5s;
 }
 
-@keyframes fadein {
-    from {
-        margin-top: -10px;
-        opacity: 0;
-    }
-
-    to {
-        margin-top: 0px;
-        opacity: 1;
-    }
-}
-
-.riscoAzul {
-    width: 100%;
-    height: 12px;
-    background: #0047B6;
-    border: 0;
-    border-radius: 0.3rem 0.3rem 0px 0px;
-}
-
 #containerIcons {
     display: flex;
     justify-content: flex-end;
-    margin: 2px 2px 0 0;
+    margin: 3% 3% 0 0;
 }
 
-.iconDeselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-#iconFechar {
-    font-size: 30px;
+#fecharIcone {
     cursor: pointer;
+}
+
+.icone {
+    font-size: 10px;
 }
 
 .principal {
@@ -94,22 +70,12 @@
     cursor: pointer;
 }
 
-.asterisco {
-    color: #be0101;
-    font-weight: bold;
-    cursor: default;
-}
-
 .nomeProduto {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
     margin-top: 10px;
-}
-
-.texto {
-    display: flex;
 }
 
 .containerInput {
@@ -119,12 +85,12 @@
 }
 
 .inputsCadastro {
-    width: 13rem;
+    width: 16rem;
     height: 30px;
-    border: solid 1px black;
-    border-radius: 5px;
-    margin-left: 10px;
+    border: solid 1px rgb(150, 150, 150);
+    border-radius: 4px;
     padding-left: 10px;
+    outline: none;
 }
 
 .classificacao {
@@ -133,6 +99,35 @@
     align-items: flex-start;
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.addClassificacao {
+    width: 7.5rem;
+}
+
+.divPonto {
+    min-height: 30px;
+    min-width: 30px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.iconMaisLoc {
+    font-size: 20px;
+    color: #fff;
+    user-select: none;
+}
+
+.adicionarClassificacao {
+    height: 30px;
+    margin-left: 42%;
+    margin-top: 3%;
 }
 
 .descricao {
@@ -147,12 +142,10 @@
     width: 13rem;
     height: 80px;
     border: solid 1px black;
-    outline: none;
     border-radius: 5px;
     margin-left: 10px;
     padding: 10px;
     resize: none;
-    font-size: var(--font-size--default);
 }
 
 .localizacao {
@@ -160,16 +153,8 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
+    height: 30px;
     margin-top: 10px;
-}
-
-#localizacaoProduto {
-    width: 4.12rem;
-    height: 1.8rem;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
-    margin: 2px;
 }
 
 .opcao {
@@ -177,28 +162,31 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
+
 #selecionarDescartavel {
-    width: 9.5rem;
+    width: 10rem;
     height: 1.8rem;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
+    font-size: var(--font-size--default);
 }
 
 .inputQtd {
-    width: 4.563rem;
+    width: 3rem;
     height: 1.8rem;
-    padding-left: 10px;
+    padding-left: 4px;
+    outline: none;
 }
 
 .anexo {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 4.625rem;
+    margin-top: 3%;
 }
 
 .inputAnexo {
@@ -206,6 +194,15 @@
     height: 30px;
     border-radius: 5px;
     border: solid 1px black;
+    padding: 5px;
+}
+
+.arquivoIcon {
+    margin-left: 5px;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../../assets/pasta.png);
+    cursor: pointer;
 }
 
 #arquivo {
@@ -213,13 +210,80 @@
 }
 
 .botaoCadastrar {
-    width: 10.938rem;
-    height: 3.188rem;
+    padding: 0.5rem 2rem;
     background-color: #0047B6;
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: var(--font-size--big);
-    margin-top: 1.875rem;
     cursor: pointer;
+}
+
+.containerImagem {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.divInputImagem {
+    width: 60%;
+}
+
+.tamanhoTextos {
+    font-size: var(--font-size--default);
+}
+
+.imgPreview {
+    height: 140px;
+    width: 160px;
+    border: 0.5px solid rgb(158, 158, 158);
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.localizacaoProduto {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.qtdItem {
+    width: 35%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pontosQtd {
+    min-height: 30px;
+    min-width: 30px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    cursor: pointer;
+    background-color: #0047B6;
+}
+
+#containerBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.btnDetalhes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: white;
+    color: #0047B6;
+    border: 0.5px solid rgba(0, 0, 0, 0.349);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.addDetalhes {
+    font-size: 24px;
 }
