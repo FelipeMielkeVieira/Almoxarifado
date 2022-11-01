@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/service';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-cadastro',
@@ -8,7 +9,7 @@ import { UsersService } from 'src/app/service';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent implements OnInit {
-  constructor(private router: Router, private service: UsersService) { }
+  constructor(private router: Router, private service: UsersService, private userService: UserService) { }
 
   usuario: string = "";
   email: string = "";
@@ -37,15 +38,20 @@ export class CadastroComponent implements OnInit {
     localStorage.setItem('cadastro', '1');
 
     const user = {
-      nome: this.usuario,
-      email: this.email,
-      senha: this.senhaUser,
-      tipo: 0
+      emailUsuario: this.email,
+      senhaUsuario: this.senhaUser,
+      nomeUsuario: this.usuario,
+      tipoUsuario: "PENDENTE",
+      visibilidade: true
     }
 
-    this.service.usuarios.push(user);
+    console.log(user);
+    this.userService.postUser(user).subscribe(
+      error => { console.log(error) }
+    )
+
     this.controlarModalConfirmarCadastro();
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
   }
 
   verificarDadosValidos() {
@@ -142,5 +148,9 @@ export class CadastroComponent implements OnInit {
     divPrincipal.style.opacity = '1';
 
     this.modalConfirmarCadastro = false;
+    console.log("AAAAAA" + event);
+    if(event == "Finalizado") {
+      this.cadastrar();
+    }
   }
 }
