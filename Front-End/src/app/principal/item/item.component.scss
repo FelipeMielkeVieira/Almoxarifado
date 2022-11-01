@@ -101,6 +101,21 @@
     user-select: none;
 }
 
+.iconeEstrela {
+    height: 32px;
+    border-radius: 50%;
+}
+
+.iconeEstrela:hover {
+    transition: all 0.5s;
+    background-color: rgb(190, 190, 190);
+}
+
+#iconEstrelaPreenchida {
+    color: #0047B6;
+    font-size: 30px;
+}
+
 #iconeEditar, #iconeHistorico, #iconeExcluir, .iconeEstrela {
     font-size: 30px;
     font-weight: 300;
