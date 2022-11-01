@@ -52,9 +52,12 @@ export class HomeComponent implements OnInit {
   numResultados = 0;
 
   localizacoesLista: any = [];
+  localizacoesSelecionadas: any[] = [];
+  confirmacaoDeletarLocalizacoes = false;
 
   feedbackLocalizacaoCadastrada = false;
   feedbackItemCadastrado = false;
+  feedbackLocalizacoesExcluidas = false;
 
   ngOnInit() {
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
@@ -235,12 +238,36 @@ export class HomeComponent implements OnInit {
     this.modalOrdenar = !this.modalOrdenar;
   }
 
+  confirmarExclusaoLocalizacoes() {
+    this.confirmacaoDeletarLocalizacoes = true;
+  }
+
+  fecharModalExclusaoLocalizacoes(event: boolean) {
+    this.confirmacaoDeletarLocalizacoes = false;
+    if(event) {
+      this.excluirLocalizacoes();
+      this.feedbackLocalizacoesExcluidas = true;
+      setTimeout(() => {
+        this.feedbackLocalizacoesExcluidas = false;
+      }, 4500);
+    }
+  }
+
+  // Função para excluir as localizações selecionadas do banco de dados
   excluirLocalizacoes() {
-    //Fazer modal de confirmação
-    this.localizacaoService.deleteLocalizacoes(3).subscribe(
-      data => console.log(data),
-      error => console.log(error)
-    );
+    for (const loc of this.localizacoesSelecionadas) {
+      this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(error => {console.log(error)});
+      this.excluirLocalizacaoLista(loc.id);
+    }
+  }
+
+  // Função para excluir uma localização da lista total
+  excluirLocalizacaoLista(id: any) {
+    for (let index = 0; index < this.localizacoesLista.length; index++) {
+      if(id == this.localizacoesLista[index].id) {
+        this.localizacoesLista.splice(index, 1);
+      }
+    }
   }
 
   abrirFeedback(numero: number) {
@@ -273,6 +300,9 @@ export class HomeComponent implements OnInit {
         break;
       case 4:
         this.feedbackSacolaExcluida = false;
+        break;
+      case 5:
+        this.feedbackLocalizacoesExcluidas = false;
         break;
     }
   }
