@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersService } from 'src/app/service';
 import { ClassificacaoService } from 'src/app/service/classificacaoService';
+import { LocalizacaoService } from 'src/app/service/localizacaoService';
 
 @Component({
   selector: 'app-cadastrar-item',
@@ -11,7 +12,7 @@ export class CadastrarItemComponent implements OnInit {
 
   @Output() fecharModal = new EventEmitter<string>();
 
-  constructor(private service: UsersService, private classificacaoService: ClassificacaoService) { }
+  constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService) { }
 
   listaClassificacao: any[] = [];
   listaLocalizacoes: any[] = [];
@@ -28,7 +29,7 @@ export class CadastrarItemComponent implements OnInit {
   buscarClassificacoes() {
     this.classificacaoService.getAll().subscribe(
       data => this.listaClassificacao = data,
-      error => {console.log(error)}
+      error => { console.log(error) }
     );
   }
 
@@ -57,6 +58,18 @@ export class CadastrarItemComponent implements OnInit {
     }
   }
 
+  buscarPorPai(id: any) {
+    this.localizacaoService.getByPai(id).subscribe(
+      data => {
+        this.listaLocalizacoes.push(data);
+        if (this.listaLocalizacoes[this.listaLocalizacoes.length - 1].length < 1) {
+          this.listaLocalizacoes.splice(this.listaLocalizacoes.length - 1, 1);
+        }
+      },
+      error => { console.log(error) },
+    )
+  }
+
   // Função para editar a escolha de localização
   mudarLocalizacoes(index: number) {
 
@@ -64,17 +77,13 @@ export class CadastrarItemComponent implements OnInit {
       this.listaLocalizacoes.splice(index + 1, this.listaLocalizacoes.length - index)
     }
 
-    this.listaLocalizacoes = this.service.retornaFilhosLocalizacao(this.listaLocalizacoes, this.listaLocalizacoesEscolhidas[index]);
-
-    if (this.listaLocalizacoes[this.listaLocalizacoes.length - 1].length < 1) {
-      this.listaLocalizacoes.splice(this.listaLocalizacoes.length - 1, 1);
-    }
+    this.buscarPorPai(this.listaLocalizacoesEscolhidas[index])
   }
 
   mudarQtd(operacao: number) {
-    switch(operacao) {
+    switch (operacao) {
       case 1:
-        if(this.qtdItem > 0) {
+        if (this.qtdItem > 0) {
           this.qtdItem--;
         }
         break;

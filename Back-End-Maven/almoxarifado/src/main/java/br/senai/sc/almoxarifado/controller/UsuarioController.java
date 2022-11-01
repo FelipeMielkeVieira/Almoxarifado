@@ -1,7 +1,7 @@
 package br.senai.sc.almoxarifado.controller;
 
 import br.senai.sc.almoxarifado.dto.UsuarioDTO;
-import br.senai.sc.almoxarifado.model.entities.TipoUsuario;
+import br.senai.sc.almoxarifado.model.entities.*;
 import br.senai.sc.almoxarifado.model.entities.Usuario;
 import br.senai.sc.almoxarifado.model.service.UsuarioService;
 import lombok.AllArgsConstructor;
@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/alma_sis/usuario")
 public class UsuarioController {
     private UsuarioService usuarioService;

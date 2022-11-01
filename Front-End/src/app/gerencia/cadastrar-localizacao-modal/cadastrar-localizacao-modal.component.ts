@@ -13,19 +13,18 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
   listaLocalizacoes: any[] = [];
 
   localizacao: String = "";
-  localizacaoPai: String = "";
 
   feedbackDados: boolean = false;
   listaLocalizacoesEscolhidas: any = [null];
 
-  constructor(private localizacaoService : LocalizacaoService) {
+  constructor(private localizacaoService: LocalizacaoService) {
   }
 
   ngOnInit(): void {
     this.listaLocalizacoes.push(this.primeirasLocalizacoes)
   }
 
-  buscarPorPai(id : any) {
+  buscarPorPai(id: any) {
     this.localizacaoService.getByPai(id).subscribe(
       data => {
         this.listaLocalizacoes.push(data);
@@ -33,7 +32,7 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
           this.listaLocalizacoes.splice(this.listaLocalizacoes.length - 1, 1);
         }
       },
-      error => {console.log(error)},
+      error => { console.log(error) },
     )
   }
 
@@ -42,14 +41,27 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
   }
 
   cadastrar() {
-    if (this.localizacao != "" && this.localizacaoPai != "") {
+    if (this.localizacao != "") {
+      this.cadastrarLocalizacao();
       this.close();
     } else {
       this.feedbackDados = true;
       setTimeout(() => {
         this.feedbackDados = false;
       }, 4500);
-    } 
+    }
+  }
+
+  cadastrarLocalizacao() {
+    if (this.listaLocalizacoesEscolhidas.length > 0) {
+      this.localizacaoService.postLocalizacoes({ nome: this.localizacao, idPai: this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1] }).subscribe(
+        error => {console.log(error)}
+      );
+    } else {
+      this.localizacaoService.postLocalizacoes({nome: this.localizacao}).subscribe(
+        error => {console.log(error)}
+      );
+    }
   }
 
   fecharModalAlerta(numeroModal: any) {
