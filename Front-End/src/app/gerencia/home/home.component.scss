@@ -800,11 +800,11 @@ h1 {
 }
 
 #containerItens {
-    margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns:repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 0px 20px;
     justify-items: center;
+    align-items: center;
 }
 
 #containerItensLista{
