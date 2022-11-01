@@ -10,7 +10,7 @@ import { LocalizacaoService } from 'src/app/service/localizacaoService';
 })
 export class ModalEditarItem implements OnInit {
     @Output() fecharModal = new EventEmitter<string>();
-    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
+    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0,  };
 
     constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService) { }
 
@@ -21,20 +21,49 @@ export class ModalEditarItem implements OnInit {
 
     listaLocalizacoesEscolhidas: any = [null];
 
+    // Inputs do formulário
+    nomeProduto: String = "";
+    classificacaoSelect: any;
+    descartavel: boolean = false;
+    imagemItem: any;
+    qtdItem: number = 0;
+    a: any = 1;
+
+    isDescartavel(tipo: String) {
+        if (this.item.descartavel) {
+            if (tipo == 'descartavel') {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (tipo == 'descartavel') {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
     ngOnInit(): void {
+        console.log(this.item)
         this.buscarClassificacoes();
         this.listaLocalizacoes = this.service.retornaFilhosLocalizacao(this.listaLocalizacoes, 0);
+        console.log(this.listaLocalizacoes)
+
+        // Preenchendo os inputs com os dados do item
+        this.nomeProduto = this.item.nome;
+        this.classificacaoSelect = this.item.classificacao;
+        this.qtdItem = this.item.quantidade;
+        this.imagemItem = this.item.imagem;
     }
 
     buscarClassificacoes() {
         this.classificacaoService.getAll().subscribe(
-            data => this.listaClassificacao = data,
+            data => { this.listaClassificacao = data; },
             error => { console.log(error) }
         );
     }
-
-    imagemItem: any;
-    qtdItem: number = 0;
 
     // Função para fechar o modal
     fecharModalCadastro(texto: string) {
@@ -72,7 +101,6 @@ export class ModalEditarItem implements OnInit {
 
     // Função para editar a escolha de localização
     mudarLocalizacoes(index: number) {
-
         if (this.listaLocalizacoes.length - 1 != index) {
             this.listaLocalizacoes.splice(index + 1, this.listaLocalizacoes.length - index)
         }
