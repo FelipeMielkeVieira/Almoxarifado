@@ -1,97 +1,94 @@
+<div *ngIf="modalDetalhes" id="backdrop">
+    <app-editar-descricao-item (fecharModal)="toggleModalDetalhes()"></app-editar-descricao-item>
+</div>
+
 <div id="containerModalCadastrar">
-    <hr class="riscoAzul" />
     <div id="containerIcons">
-        <span title="Fechar" (click)="fecharModalEdicao('fechar')" class="material-symbols-outlined iconDeselect"
-            id="iconFechar">
+        <span (click)="fecharModalCadastro('fechar')" title="Fechar" id="fecharIcone" class="icone"
+            class="material-symbols-outlined iconDeselect">
             close
         </span>
     </div>
     <div class="principal">
         <div class="containerModalCadastrar">
-            <div class="divImg">
-                <button class="selecionarImg">
-                    Selecionar Imagem
-                    <div class="asterisco">*</div>
-                </button>
+            <div class="containerImagem">
+                <img class="imgPreview" id="imagemItem">
+                <div class="mb-3 divInputImagem">
+                    <label for="formFileSm" class="form-label tamanhoTextos">Escolher Imagem:</label>
+                    <input class="form-control form-control-sm " id="formFileSm" type="file"
+                        (change)="carregarImagem($event)">
+                </div>
             </div>
             <div class="nomeProduto">
-                <div class="texto">
-                    <span>Nome Produto:</span>
-                    <div class="asterisco">*</div>
-                </div>
+                <span class="tamanhoTextos">Nome Produto: </span>
                 <div class="containerInput">
-                    <input class="inputsCadastro" type="text" placeholder="Nome produto" [(ngModel)]="item.nome" />
+                    <input class="inputsCadastro" type="text" placeholder="Nome produto" />
                 </div>
             </div>
             <div class="classificacao">
-                <div class="texto">
-                    <span>Classificação:</span>
-                    <div class="asterisco">*</div>
+                <span class="tamanhoTextos">Classificação: </span>
+                <div class="addClassificacao">
+                    <div (click)="mudarClassificacao()" class="divPonto" id="adicionarClassificacao"
+                        style="background-color: #B6B3B3;">
+                        <span title="Adicionar" class="material-symbols-outlined iconDeselect iconMaisLoc">
+                            add
+                        </span>
+                    </div>
                 </div>
-                <select class="inputsCadastro" name="" (change)="atualizarListaClassificacoes()">
-                    <option selected>
-                        {{ retornarNomeClassificacao(item.classificacao) }}
-                    </option>
-                    <option *ngFor="let classificacao of listaClassificacoes" value="">
+                <select *ngIf="!criarClassificacao" class="inputsCadastro" name="">
+                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos" value="">
                         {{ classificacao.classificacao }}
                     </option>
                 </select>
-            </div>
-            <div class="descricao">
-                <div class="texto">
-                    <span>Descrição: </span>
-                    <div class="asterisco">*</div>
-                </div>
-                <textarea class="inputDescricao" placeholder="Descrição" [(ngModel)]="item.descricao"></textarea>
+                <input *ngIf="criarClassificacao" type="text" class="inputsCadastro" placeholder="Nova Classificação">
             </div>
             <div class="localizacao">
-                <div class="texto">
-                    <span>Localização: </span>
-                    <div class="asterisco">*</div>
-                </div>
-                <div class="containerLocalizacao">
-                    <select id="localizacaoProduto">
-                        <option value="paredeCentro">xx</option>
-                        <option value="armario" selected>xx</option>
-                        <option value="porta">xx</option>
-                    </select>
-                    <select id="localizacaoProduto">
-                        <option value="paredeCentro">xx</option>
-                        <option value="armario" selected>xx</option>
-                        <option value="porta">xx</option>
-                    </select>
-                    <select id="localizacaoProduto">
-                        <option value="paredeCentro">xx</option>
-                        <option value="armario" selected>xx</option>
-                        <option value="porta">xx</option>
-                    </select>
+                <div style="display: flex; align-items: center;">
+                    <span style="margin-right: 20px" class="tamanhoTextos">Localização: </span>
+                    <div class="containerLocalizacao">
+                        <select style="margin-right: 10px;" *ngFor="let l of listaLocalizacoes; let i = index;"
+                            id="localizacaoProduto1" class="localizacaoProduto" (change)="mudarLocalizacoes(i)"
+                            [(ngModel)]="listaLocalizacoesEscolhidas[i]">
+                            <option *ngFor="let loc of (listaLocalizacoes[i])" class="tamanhoTextos" value="{{loc.id}}">
+                                {{ loc.nome }}
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="opcao">
-                <div class="texto">
-                    <span>Opção: </span>
-                    <div class="asterisco">*</div>
-                </div>
-                <select *ngIf="item.descartavel" id="selecionarDescartavel">
-                    <option value="true" [(ngModel)]="item.descartavel" selected>Descartável</option>
-                    <option value="false" [(ngModel)]="item.descartavel">Não Descartável</option>
+                <span class="tamanhoTextos">Opção: </span>
+                <select id="selecionarDescartavel">
+                    <option value="paredeCentro" class="tamanhoTextos" selected>Descartável</option>
+                    <option value="armario" class="tamanhoTextos">Não Descartável</option>
                 </select>
-                <select *ngIf="!item.descartavel" id="selecionarDescartavel">
-                    <option value="false" [(ngModel)]="item.descartavel" selected>Não Descartável</option>
-                    <option value="true" [(ngModel)]="item.descartavel">Descartável</option>
-                </select>
-                <div class="texto">
-                    <span>QTD: </span>
-                    <div class="asterisco">*</div>
+                <div class="qtdItem">
+                    <span class="tamanhoTextos">QTD: </span>
+                    <div class="pontosQtd" (click)="mudarQtd(1)">
+                        <span title="Deletar" class="material-symbols-outlined iconDeselect iconMaisLoc">
+                            remove
+                        </span>
+                    </div>
+                    <input class="inputQtd" type="text" [(ngModel)]="qtdItem" />
+                    <div class="pontosQtd" (click)="mudarQtd(2)">
+                        <span title="Adicionar" class="material-symbols-outlined iconDeselect iconMaisLoc">
+                            add
+                        </span>
+                    </div>
                 </div>
-                <input class="inputQtd" type="text" placeholder="xx" [(ngModel)]="item.quantidade" />
             </div>
-            <div class="anexo">
-                <input type="text" placeholder="Adicionar Anexo" class="inputAnexo" />
-                <label for="arquivo"> </label>
-                <input type="file" name="arquivo" id="arquivo" />
+            <div id="containerBtn">
+                <button class="btnDetalhes tamanhoTextos" (click)="toggleModalDetalhes()" >
+                    Detalhes
+                    <span  title="Adicionar"
+                        class="material-symbols-outlined iconDeselect addDetalhes">
+                        add
+                    </span>
+                </button>
+                <button class="botaoCadastrar tamanhoTextos">
+                    Cadastrar
+                </button>
             </div>
-            <button (click)="editarItem()" class="botaoCadastrar">Editar</button>
         </div>
     </div>
 </div>
