@@ -29,33 +29,33 @@
     </div>
     <div id="containerConteudoFiltro" class="parteFiltro">
       <div class="itensFiltro tipoFiltro parteFiltro">
-        <div id="containerDescartavel" class="parteFiltro" (click)="checkDescartavel()">
-          <input class="checkbox parteFiltro" type="checkbox" id="checkDescartavel" />
-          <div class="parteFiltro">
+        <div id="containerDescartavel" class="parteFiltro">
+          <input class="checkbox parteFiltro" type="checkbox" id="checkDescartavel"/>
+          <div class="parteFiltroInputText" (click)="checkDescartavel()">
             <span class="texto parteFiltro">Descartáveis</span>
           </div>
         </div>
-        <div id="containerNaoDescartavel" class="parteFiltro" (click)="checkNaoDescartavel()">
+        <div id="containerNaoDescartavel" class="parteFiltro">
           <input class="checkbox parteFiltro" type="checkbox" id="checkNaoDescartavel" />
-          <div class="parteFiltro">
+          <div class="parteFiltroInputText" (click)="checkNaoDescartavel()">
             <span class="texto parteFiltro">Não Descartáveis</span>
           </div>
         </div>
-        <div id="containerSemEstoque" class="parteFiltro" (click)="checkSemEstoque()">
+        <div id="containerSemEstoque" class="parteFiltro">
           <input class="checkbox parteFiltro" type="checkbox" id="checkSemEstoque" />
-          <div class="parteFiltro">
+          <div class="parteFiltro parteFiltroInputText" (click)="checkSemEstoque()">
             <span class="texto parteFiltro">Sem estoque</span>
           </div>
         </div>
-        <div id="containerComEstoque" class="parteFiltro" (click)="checkComEstoque()">
+        <div id="containerComEstoque" class="parteFiltro" >
           <input class="checkbox parteFiltro" type="checkbox" id="checkComEstoque" />
-          <div class="parteFiltro">
+          <div class="parteFiltro parteFiltroInputText" (click)="checkComEstoque()">
             <span class="texto parteFiltro">Com estoque</span>
           </div>
         </div>
-        <div id="containerFavoritos" class="parteFiltro" (click)="checkFavoritos()">
+        <div id="containerFavoritos" class="parteFiltro">
           <input class="checkbox parteFiltro" type="checkbox" id="checkFavoritos" />
-          <div class="parteFiltro">
+          <div class="parteFiltro parteFiltroInputText" (click)="checkFavoritos()">
             <span class="texto parteFiltro">Favoritos</span>
           </div>
         </div>
