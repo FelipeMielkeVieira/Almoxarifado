@@ -10,14 +10,14 @@ export class ProdutoService {
         return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto");
     }
 
-    // postProduto(produto: Object, imagem: any, anexos: any): Observable<any> {
-    //     const formData = new FormData();
-    //     formData.append("produto", JSON.stringify(produto));
-    //     formData.append("imagem", imagem);
-    //     formData.append("anexos", anexos);
+    postProduto(produto: Object, imagem: any, anexos: any): Observable<any> {
+        const formData = new FormData();
+        formData.set("produto", JSON.stringify(produto));
+        formData.set("imagem", imagem);
+        formData.set("anexos", JSON.stringify(anexos));
 
-    //     return this.httpClient.post<any>("http://localhost:8080/alma_sis/produto", formData, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
-    // }
+        return this.httpClient.post<any>("http://localhost:8080/alma_sis/produto", formData);
+    }
 
     putProduto(usuario: Object, email: string): Observable<any> {
         return this.httpClient.put<any>(`http://localhost:8080/alma_sis/usuario/${email}`, usuario, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });

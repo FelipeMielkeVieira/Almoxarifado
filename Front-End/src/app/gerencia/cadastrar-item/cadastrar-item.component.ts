@@ -118,10 +118,10 @@ export class CadastrarItemComponent implements OnInit {
       localizacoes: [this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1]],
     }
 
-    // this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
-    //   data => { console.log(data) },
-    //   error => { console.log(error) }
-    // )
+    this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
+      data => { console.log(data) },
+      error => { console.log(error) }
+    )
   }
 
   cadastrar() {
@@ -131,7 +131,7 @@ export class CadastrarItemComponent implements OnInit {
 
     const opcao = (<HTMLSelectElement>document.getElementById('selecionarDescartavel')).value;
 
-    if (arquivo.value != "" && nome.value != "" && opcao != "" && this.qtdItem != 0) {
+    if (this.nomeProduto != "") {
       this.cadastrarItem();
     } else {
       this.feedbackDados = true;
