@@ -88,6 +88,11 @@ export class UsersService {
           descricao: "teste 3",
           anexo: "google.com"
         },
+      ],
+      localizacoes:
+      [
+        { id: 0 },
+        { id: 1 },
       ]
     },
     {
@@ -111,6 +116,12 @@ export class UsersService {
           descricao: "teste 3",
           anexo: "google.com"
         },
+      ],
+      localizacoes:
+      [
+        { id: 0 },
+        { id: 1 },
+        { id: 2 },
       ]
     },
     {
@@ -134,6 +145,10 @@ export class UsersService {
           descricao: "teste 3",
           anexo: "google.com"
         },
+      ],
+      localizacoes:
+      [
+        { id: 0 },
       ]
     },
   ];
