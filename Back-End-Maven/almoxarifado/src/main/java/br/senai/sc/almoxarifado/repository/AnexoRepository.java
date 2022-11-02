@@ -8,5 +8,4 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 public interface AnexoRepository extends JpaRepository<Anexo, Long> {
-    List<Anexo> findByVisibilidade(Boolean visibilidade);
 }

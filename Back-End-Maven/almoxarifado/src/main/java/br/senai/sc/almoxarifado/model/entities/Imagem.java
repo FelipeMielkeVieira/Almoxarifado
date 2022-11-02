@@ -5,12 +5,13 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "anexo")
-@AllArgsConstructor @NoArgsConstructor()
-@Getter @Setter
-@ToString
-@EqualsAndHashCode
-public class Anexo {
+@Table(name = "imagem")
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
+public class Imagem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

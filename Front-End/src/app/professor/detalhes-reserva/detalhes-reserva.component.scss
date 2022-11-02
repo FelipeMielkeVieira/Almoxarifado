@@ -362,12 +362,9 @@ p:hover {
     transition: all 0.8s;
 }
 
-.botaoReservar:hover {
+.botaoReservar:hover{
+    background: #003c9c;
     cursor: pointer;
-    background-color: #ffffff;
-    color: black;
-    transition: all 0.5s;
-    border: solid 0.5px black;
 }
 
 .botaoCancelarReserva {

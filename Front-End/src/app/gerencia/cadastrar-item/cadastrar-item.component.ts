@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { UsersService } from 'src/app/service';
 import { ClassificacaoService } from 'src/app/service/classificacaoService';
 import { LocalizacaoService } from 'src/app/service/localizacaoService';
+import { ProdutoService } from 'src/app/service/produtoService';
 
 @Component({
   selector: 'app-cadastrar-item',
@@ -13,7 +14,7 @@ export class CadastrarItemComponent implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
   @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
 
-  constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService) { }
+  constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService, private produtoService: ProdutoService) { }
 
   listaClassificacao: any[] = [];
   listaLocalizacoes: any[] = [];
@@ -23,6 +24,12 @@ export class CadastrarItemComponent implements OnInit {
   feedbackDados: boolean = false;
 
   listaLocalizacoesEscolhidas: any = [null];
+  listaAnexos: any = [];
+
+  nomeProduto: string = "";
+  descricaoItem: string = "";
+  itemDescartavel: boolean = false;
+  classificacaoItem: number = 1;
 
   ngOnInit(): void {
     this.buscarClassificacoes();
@@ -101,15 +108,31 @@ export class CadastrarItemComponent implements OnInit {
     document.documentElement.style.overflow = this.modalDetalhes ? "hidden" : "auto";
   }
 
-  cadastrar(){
+  cadastrarItem() {
+    const produto = {
+      nome: this.nomeProduto,
+      quantidade: this.qtdItem,
+      caracteristicas: this.descricaoItem,
+      descartavel: this.itemDescartavel,
+      classificacao: this.classificacaoItem,
+      localizacoes: [this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1]],
+    }
+
+    // this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
+    //   data => { console.log(data) },
+    //   error => { console.log(error) }
+    // )
+  }
+
+  cadastrar() {
     const arquivo = document.getElementById("formFileSm") as HTMLFormElement;
-    
+
     const nome = document.getElementById("nomeCadastro") as HTMLFormElement;
 
     const opcao = (<HTMLSelectElement>document.getElementById('selecionarDescartavel')).value;
 
-    if(arquivo.value != "" && nome.value != "" && opcao != "" && this.qtdItem != 0){
-      // parte de cadastrar com o backend
+    if (arquivo.value != "" && nome.value != "" && opcao != "" && this.qtdItem != 0) {
+      this.cadastrarItem();
     } else {
       this.feedbackDados = true;
 

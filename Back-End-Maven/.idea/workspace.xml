@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-localizacao-modal/cadastrar-localizacao-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/cadastrar-localizacao-modal/cadastrar-localizacao-modal.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -123,7 +123,7 @@
         </div>
     </div>
 
-    <div id="fundoModal" *ngIf="modalReservar || modalExcluir">
+    <div id="fundoModal" *ngIf="modalReservar || modalExcluir || modalCancelar">
 
         <!-- Modal de confirmação de exclusão -->
         <app-modal-confirmacao *ngIf="modalExcluir" [tipoTexto]="2" (fecharModal)="fecharModalConfirmacao(1, $event)">
@@ -131,6 +131,10 @@
 
         <!-- Modal de confirmação de reserva -->
         <app-modal-confirmacao *ngIf="modalReservar" [tipoTexto]="3" (fecharModal)="fecharModalConfirmacao(2, $event)">
+        </app-modal-confirmacao>
+
+        <!-- Modal para cancelar uma reserva -->
+        <app-modal-confirmacao *ngIf="modalCancelar" [tipoTexto]="13" (fecharModal)="fecharModalConfirmacao(3, $event)">
         </app-modal-confirmacao>
     </div>
 

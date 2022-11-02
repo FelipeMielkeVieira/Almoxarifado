@@ -21,7 +21,7 @@ export class ItemComponent implements OnInit {
   @Input() visualizacaoItem: string = "emLista";
 
   // Input com o objeto do item recebido da lista
-  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [ { descricao: "", anexo: "" } ] };
+  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [{ descricao: "", anexo: "" }], localizacoes: [{ id: 0 }] };
 
   modalReservar: boolean = false;
   modalEditar: boolean = false;

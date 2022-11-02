@@ -1,8 +1,11 @@
 <!-- Alerta de dados faltantes no cadastro de localização -->
-<app-alerta-feito *ngIf="feedbackDados" (fecharModal)="fecharModalAlerta($event)" [tipoMensagemModal]="7"></app-alerta-feito>
+<app-alerta-feito *ngIf="feedbackDados" (fecharModal)="fecharModalAlerta($event)" [tipoMensagemModal]="7">
+</app-alerta-feito>
 
 <div *ngIf="modalDetalhes" id="backdrop">
-    <app-cadastrar-descricao-item (fecharModal)="toggleModalDetalhes()"></app-cadastrar-descricao-item>
+    <app-cadastrar-descricao-item [inputFileList]="listaAnexos" [descricao]="descricaoItem"
+        (fecharModal)="toggleModalDetalhes()">
+    </app-cadastrar-descricao-item>
 </div>
 
 <div id="containerModalCadastrar">
@@ -31,7 +34,11 @@
                     <div class="asterisco">*</div>
                 </div>
                 <div class="containerInput">
+                    <<<<<<< HEAD <input [(ngModel)]="nomeProduto" class="inputsCadastro" type="text"
+                        placeholder="Nome produto" />
+                    =======
                     <input id="nomeCadastro" class="inputsCadastro" type="text" placeholder="Nome produto" />
+                    >>>>>>> 8d54cc836f231600df018b729c4d89dbab4c3830
                 </div>
             </div>
             <div class="classificacao">
@@ -44,8 +51,9 @@
                         </span>
                     </div>
                 </div>
-                <select *ngIf="!criarClassificacao" class="inputsCadastro" name="">
-                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos" value="">
+                <select [(ngModel)]="classificacaoItem" *ngIf="!criarClassificacao" class="inputsCadastro" name="">
+                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos"
+                        value="classificacao.id">
                         {{ classificacao.classificacao }}
                     </option>
                 </select>
@@ -70,9 +78,9 @@
                     <span class="tamanhoTextos">Opção: </span>
                     <div class="asterisco">*</div>
                 </div>
-                <select id="selecionarDescartavel">
-                    <option value="paredeCentro" class="tamanhoTextos" selected>Descartável</option>
-                    <option value="armario" class="tamanhoTextos">Não Descartável</option>
+                <select [(ngModel)]="itemDescartavel" id="selecionarDescartavel">
+                    <option value="true" class="tamanhoTextos">Descartável</option>
+                    <option value="false" class="tamanhoTextos">Não Descartável</option>
                 </select>
                 <div class="qtdItem">
                     <span class="tamanhoTextos">QTD: </span>
@@ -91,10 +99,9 @@
                 </div>
             </div>
             <div id="containerBtn">
-                <button class="btnDetalhes tamanhoTextos" (click)="toggleModalDetalhes()" >
+                <button class="btnDetalhes tamanhoTextos" (click)="toggleModalDetalhes()">
                     Detalhes
-                    <span  title="Adicionar"
-                        class="material-symbols-outlined iconDeselect addDetalhes">
+                    <span title="Adicionar" class="material-symbols-outlined iconDeselect addDetalhes">
                         add
                     </span>
                 </button>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cadastrar-descricao-item',
@@ -10,7 +10,8 @@ export class CadastrarDescricaoItemComponent implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
 
   // Importante! Essa variável vai guardar os arquivos adicionados pelo usuário
-  inputFileList: any = [];
+  @Input() inputFileList: any = [];
+  @Input() descricao: string = "";
 
   constructor() {
     
