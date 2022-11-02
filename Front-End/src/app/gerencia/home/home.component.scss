@@ -52,7 +52,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 5;
@@ -799,12 +799,25 @@ h1 {
     margin: 1rem;
 }
 
-#containerItens {
+#containerItens, #containerReservas, #containerGerenciarUsuario, #containerGerenciarCadastros {
     display: grid;
-    grid-template-columns:repeat(auto-fill, minmax(20rem, 1fr));
-    gap: 0px 20px;
     justify-items: center;
     align-items: center;
+}
+
+#containerItens {
+    grid-template-columns:repeat(auto-fill, minmax(22rem, 1fr));
+    gap: 0px 20px;
+}
+
+#containerReservas {
+    grid-template-columns:repeat(auto-fill, minmax(34rem, 1fr));
+    gap: 0px 20px;
+}
+
+#containerGerenciarUsuario, #containerGerenciarCadastros {
+    grid-template-columns:repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 15px 20px;
 }
 
 #containerItensLista{
