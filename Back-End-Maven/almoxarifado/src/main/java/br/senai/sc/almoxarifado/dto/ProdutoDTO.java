@@ -14,9 +14,6 @@ public class ProdutoDTO {
     private String nome;
     private String caracteristicas;
     private Boolean descartavel;
-    private Imagem imagem;
     private Classificacao classificacao;
     private Set<Localizacao> localizacoes;
-    private List<Anexo> anexos;
-    Set<ProdutosEscolhidosSacola> sacolas_produto;
 }

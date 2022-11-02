@@ -108,14 +108,22 @@ export class CadastrarItemComponent implements OnInit {
     document.documentElement.style.overflow = this.modalDetalhes ? "hidden" : "auto";
   }
 
+  salvarDetalhes(event: string) {
+    this.toggleModalDetalhes();
+    let textosEvento = event.split("*");
+    this.descricaoItem = textosEvento[0];
+    this.listaAnexos = JSON.parse(textosEvento[1]);
+  }
+
   cadastrarItem() {
+
     const produto = {
       nome: this.nomeProduto,
       quantidade: this.qtdItem,
       caracteristicas: this.descricaoItem,
       descartavel: this.itemDescartavel,
-      classificacao: this.classificacaoItem,
-      localizacoes: [this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1]],
+      classificacao: { id: this.classificacaoItem },
+      localizacoes: [{id: this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1]}],
     }
 
     this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(

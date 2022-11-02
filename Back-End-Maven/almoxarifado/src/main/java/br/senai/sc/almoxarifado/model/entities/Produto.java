@@ -1,6 +1,7 @@
 package br.senai.sc.almoxarifado.model.entities;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.util.List;
@@ -35,7 +36,7 @@ public class Produto {
     @OneToOne(cascade = CascadeType.ALL)
     private Imagem imagem;
 
-    @Column(nullable = false)
+    @Column
     private Boolean visibilidade;
 
     // Foreign key
@@ -54,4 +55,12 @@ public class Produto {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "produto_id")
     private List<Anexo> anexos;
+
+    public void setImagem(MultipartFile file) {
+        try {
+            this.imagem = new Imagem(file.getOriginalFilename(), file.getContentType(), file.getBytes());
+        } catch (Exception exception) {
+            throw new RuntimeException(exception.getMessage());
+        }
+    }
 }

@@ -10,7 +10,7 @@ export class ProdutoService {
         return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto");
     }
 
-    postProduto(produto: Object, imagem: any, anexos: any): Observable<any> {
+    postProduto(produto: Object, imagem: File, anexos: Array<File>): Observable<any> {
         const formData = new FormData();
         formData.set("produto", JSON.stringify(produto));
         formData.set("imagem", imagem);

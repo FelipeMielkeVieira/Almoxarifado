@@ -10,8 +10,8 @@ export class CadastrarDescricaoItemComponent implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
 
   // Importante! Essa variável vai guardar os arquivos adicionados pelo usuário
-  @Input() inputFileList: any = [];
-  @Input() descricao: string = "";
+  inputFileList: any = [];
+  descricao: string = "";
 
   constructor() {
     
@@ -22,7 +22,7 @@ export class CadastrarDescricaoItemComponent implements OnInit {
 
   //Função para fechar modal, emite um evento para o componente pai que irá fechar o modal	
   fechar() {
-    this.fecharModal.emit();
+    this.fecharModal.emit(this.descricao + "*" + JSON.stringify(this.inputFileList));
   }
 
   // Cancela e fecha o modal

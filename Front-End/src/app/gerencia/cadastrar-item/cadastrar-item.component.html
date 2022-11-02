@@ -3,8 +3,7 @@
 </app-alerta-feito>
 
 <div *ngIf="modalDetalhes" id="backdrop">
-    <app-cadastrar-descricao-item [inputFileList]="listaAnexos" [descricao]="descricaoItem"
-        (fecharModal)="toggleModalDetalhes()">
+    <app-cadastrar-descricao-item (fecharModal)="salvarDetalhes($event)">
     </app-cadastrar-descricao-item>
 </div>
 
