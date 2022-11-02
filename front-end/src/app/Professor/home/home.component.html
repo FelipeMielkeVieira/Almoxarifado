@@ -16,6 +16,9 @@
     <!-- Feedback de sacola excluída -->
     <app-modal-feedback *ngIf="feedbackSacolaExcluida" [tipoFeedback]="5" (fecharModal)="fecharModaisFeedback(1)"></app-modal-feedback>
 
+    <!-- Feedback de reserva cancelada -->
+    <app-modal-feedback *ngIf="feedbackReservaCancelada" [tipoFeedback]="13" (fecharModal)="fecharModaisFeedback(3)"></app-modal-feedback>
+
     <div id="container">
         <div id="containerInput">
             <div id="containerInputOrdenar">
