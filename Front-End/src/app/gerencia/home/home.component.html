@@ -37,6 +37,22 @@
 <app-modal-feedback *ngIf="feedbackLocalizacoesExcluidas" [tipoFeedback]="20" (fecharModal)="fecharModaisFeedback(5)">
 </app-modal-feedback>
 
+<!-- Feedback usuário aceito -->
+<app-modal-feedback *ngIf="feedbackUsuarioAceito" [tipoFeedback]="9" (fecharModal)="fecharModaisFeedback(6)">
+</app-modal-feedback>
+
+<!-- Feedback usuário rejeitado -->
+<app-modal-feedback *ngIf="feedbackUsuarioRecusado" [tipoFeedback]="8" (fecharModal)="fecharModaisFeedback(7)">
+</app-modal-feedback>
+
+<!-- Feedback usuário excluído -->
+<app-modal-feedback *ngIf="feedbackUsuarioExcluido" [tipoFeedback]="11" (fecharModal)="fecharModaisFeedback(8)">
+</app-modal-feedback>
+
+<!-- Feedback usuário atualizado -->
+<app-modal-feedback *ngIf="feedbackUsuarioAtualizado" [tipoFeedback]="10" (fecharModal)="fecharModaisFeedback(9)">
+</app-modal-feedback>
+
 <app-header></app-header>
 <app-filtro></app-filtro>
 
@@ -123,7 +139,7 @@
                 <!-- Aba de aceitar / recusar cadastros novos de usuários, separados em bloco ou lista -->
                 <div *ngIf="abaGerenciaCadastros && listaEmBloco" id="containerGerenciarCadastros">
                     <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
-                        [listaEmBloco]="true"></app-cadastrar-usuario>
+                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaCadastros && !listaEmBloco" class="usuarios">
                     <app-cadastrar-usuario-lista [listaCadastros]="listaCadastrosPendentes" style="width: 100%;">
@@ -132,7 +148,8 @@
 
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista -->
                 <div *ngIf="abaGerenciaUsuarios && listaEmBloco" id="containerGerenciarUsuario">
-                    <app-gerenciar-usuario></app-gerenciar-usuario>
+                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
+                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaUsuarios && !listaEmBloco" class="telaUsuarios">
                     <app-gerenciar-usuario-lista [listaUsuarios]="listaUsuarios" style="width: 100%;">

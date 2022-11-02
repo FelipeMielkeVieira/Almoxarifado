@@ -28,7 +28,10 @@ export class ModalReservarItem implements OnInit {
   dataRetirada: any = new Date();
   dataDevolucao: any = new Date();
 
-  ngOnInit() { 
+  // Variavel para enviar alerta de dados faltantes
+  feedbackDados: boolean = false;
+
+  ngOnInit() {
     console.log("mano ta aq");
     console.log("a", this.item)
     if (this.item.quantidade <= 0) {
@@ -84,14 +87,14 @@ export class ModalReservarItem implements OnInit {
   // Função para abrir os calendários (1 -> retirada || 2 -> devolução)
   abrirCalendario(numero: number) {
     if (numero == 1) {
-      if(!this.calendarioRetirada) {
+      if (!this.calendarioRetirada) {
         this.calendarioDevolucao = false;
         this.calendarioRetirada = true;
       } else {
         this.calendarioRetirada = false;
       }
     } else {
-      if(!this.calendarioDevolucao) {
+      if (!this.calendarioDevolucao) {
         this.calendarioRetirada = false;
         this.calendarioDevolucao = true;
       } else {
@@ -109,10 +112,35 @@ export class ModalReservarItem implements OnInit {
   }
 
   // Função que efetua a reserva do item
+  retornarProfessor() {
+    const professor = document.getElementById("professores") as HTMLInputElement;
+    return professor.value;
+  }
+
   reservar() {
     if (this.item.quantidade > 0) {
-      this.fecharModalReserva("reservar");
+      if (!this.retornarUsuarioGerencia()) {
+        this.fecharModalReserva("reservar");
+      } else {
+        if (this.retornarProfessor() != "") {
+          this.fecharModalReserva("reservar");
+        } else {
+          this.feedbackDados = true;
+          setTimeout(() => {
+            this.feedbackDados = false;
+          }, 4500);
+        }
+      }
+    } else {
+      this.feedbackDados = true;
+      setTimeout(() => {
+        this.feedbackDados = false;
+      }, 4500);
     }
+  }
+
+  fecharModalAlerta(numeroModal: any) {
+    this.feedbackDados = false;
   }
 
   // Função que envia um Output para fechar o modal e abrir o modal de anexos do item

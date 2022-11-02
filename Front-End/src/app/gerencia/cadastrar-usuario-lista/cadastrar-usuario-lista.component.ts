@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-cadastrar-usuario-lista',
@@ -7,9 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CadastrarUsuarioListaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
-  @Input() listaCadastros: any = [];
+  @Input() listaCadastros: any[] = [];
+  usuarioAtual: any;
 
   modalConfirmarRecusa = false;
   modalConfirmarAceite = false;
@@ -21,7 +23,7 @@ export class CadastrarUsuarioListaComponent implements OnInit {
   }
 
   // Função para abrir os modais de confirmação
-  abrirModaisConfirmacao(numero: number) {
+  abrirModaisConfirmacao(numero: number, indexLista : number) {
     switch (numero) {
       case 1:
         this.modalConfirmarRecusa = true;
@@ -30,6 +32,7 @@ export class CadastrarUsuarioListaComponent implements OnInit {
         this.modalConfirmarAceite = true;
         break;
     }
+    this.usuarioAtual = this.listaCadastros[indexLista];
   }
 
   // Função ativada quando os modais de confirmação são fechados
@@ -38,16 +41,39 @@ export class CadastrarUsuarioListaComponent implements OnInit {
       case 1:
         this.modalConfirmarRecusa = false;
         if (resposta) {
-          // Recusar usuário
+          this.recusarUsuario();
           this.abrirModaisFeedback(1);
         }
         break;
       case 2:
         this.modalConfirmarAceite = false;
         if (resposta) {
-          // Aceitar usuário
+          this.aceitarUsuario();
           this.abrirModaisFeedback(2);
         }
+    }
+  }
+
+  recusarUsuario() {
+    this.userService.deleteUser(this.usuarioAtual.emailUsuario).subscribe(
+      error => {console.log(error)}
+    )
+    this.removerUsuarioLista(this.usuarioAtual);
+  }
+
+  aceitarUsuario() {
+    this.usuarioAtual.tipoUsuario = "PROFESSOR";
+    this.userService.putUser(this.usuarioAtual, this.usuarioAtual.emailUsuario).subscribe(
+      error => {console.log(error)}
+    )
+    this.removerUsuarioLista(this.usuarioAtual);
+  }
+
+  removerUsuarioLista(usuario: any) {
+    for(let i = 0; i < this.listaCadastros.length; i++) {
+      if(this.listaCadastros[i].emailUsuario == usuario.emailUsuario) {
+        this.listaCadastros.splice(i, 1);
+      }
     }
   }
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-gerenciar-usuario',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GerenciarUsuarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
+
+  @Input() usuario: any;
+  @Output() removerLista = new EventEmitter<string>();
 
   modalConfirmarEdicao = false;
   modalConfirmarExclusao = false;
@@ -37,17 +41,30 @@ export class GerenciarUsuarioComponent implements OnInit {
         this.modalConfirmarEdicao = false;
         if (resposta) {
           this.abrirModaisFeedback(1);
-          //Editar usuário
+          this.atualizarUsuario();
         }
         break;
       case 2:
         this.modalConfirmarExclusao = false;
         if (resposta) {
           this.abrirModaisFeedback(2);
-          //Excluir usuário
+          this.excluirUsuario();
+          this.removerLista.emit(this.usuario.emailUsuario);
         }
         break;
     }
+  }
+
+  excluirUsuario() {
+    this.userService.deleteUser(this.usuario.emailUsuario).subscribe(
+      error => {console.log(error)}
+    )
+  }
+
+  atualizarUsuario() {
+    this.userService.putUser(this.usuario, this.usuario.emailUsuario).subscribe(
+      error => {console.log(error)}
+    )
   }
 
   // Função para abrir os modais de feedback de edição e exclusão

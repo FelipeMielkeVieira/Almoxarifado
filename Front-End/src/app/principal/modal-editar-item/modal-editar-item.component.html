@@ -22,7 +22,7 @@
             <div class="nomeProduto">
                 <span class="tamanhoTextos">Nome Produto: </span>
                 <div class="containerInput">
-                    <input class="inputsCadastro" type="text" placeholder="Nome produto" />
+                    <input class="inputsCadastro" name="nomeProduto" [(ngModel)]="nomeProduto" type="text" placeholder="Nome produto" />
                 </div>
             </div>
             <div class="classificacao">
@@ -35,8 +35,8 @@
                         </span>
                     </div>
                 </div>
-                <select *ngIf="!criarClassificacao" class="inputsCadastro" name="">
-                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos" value="">
+                <select *ngIf="!criarClassificacao" class="inputsCadastro" name="classificacaoSelect" [(ngModel)]="classificacaoSelect">
+                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos" value="{{ classificacao.id }}">
                         {{ classificacao.classificacao }}
                     </option>
                 </select>
@@ -59,8 +59,8 @@
             <div class="opcao">
                 <span class="tamanhoTextos">Opção: </span>
                 <select id="selecionarDescartavel">
-                    <option value="paredeCentro" class="tamanhoTextos" selected>Descartável</option>
-                    <option value="armario" class="tamanhoTextos">Não Descartável</option>
+                    <option value="paredeCentro" class="tamanhoTextos" [selected]="isDescartavel('descartavel')">Descartável</option>
+                    <option value="armario" class="tamanhoTextos" [selected]="isDescartavel('nao-descartavel')">Não Descartável</option>
                 </select>
                 <div class="qtdItem">
                     <span class="tamanhoTextos">QTD: </span>

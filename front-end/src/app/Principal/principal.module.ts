@@ -27,6 +27,7 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { GerenciarFiltrosComponent } from './gerenciar-filtros/gerenciar-filtros.component';
 import { FavoritoItemComponent } from './favorito-item/favorito-item.component';
 import { EditarDescricaoItemComponent } from './editar-descricao-item/editar-descricao-item.component';
+import { LoginModule } from '../login/login.module';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { EditarDescricaoItemComponent } from './editar-descricao-item/editar-des
     FormsModule,
     MatDividerModule,
     MatButtonModule,
+    LoginModule
   ],
   exports: [
     FiltroComponent,

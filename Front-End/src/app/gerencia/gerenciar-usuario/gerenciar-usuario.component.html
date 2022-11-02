@@ -3,8 +3,8 @@
     <div class="containerUser">
         <img class="imgUser" src="../../../assets/user.png" alt="Imagem de Usuário" />
         <div class="containerInfo">
-            <span class="user">Nome Sobrenome</span>
-            <span class="email">nome_sobrenome@edu.sc.senai.br</span>
+            <span class="user">{{usuario.nomeUsuario}}</span>
+            <span class="email">{{usuario.emailUsuario}}</span>
         </div>
         <div class="containerLixeira">
             <span (click)="abrirModaisConfirmacao(2)" title="Deletar" id="iconeLixeira"
@@ -14,11 +14,11 @@
         </div>
     </div>
     <div class="parteBaixo">
-        <select id="selecionarFuncao2">
-            <option value="paredeCentro" selected>Professor</option>
-            <option value="armario">Atendente 1</option>
-            <option value="porta">Atendente 2</option>
-            <option value="supervisor">Supervisor</option>
+        <select [(ngModel)]="usuario.tipoUsuario" id="selecionarFuncao2">
+            <option value="PROFESSOR">Professor</option>
+            <option value="ATENDENTE1">Atendente 1</option>
+            <option value="ATENDENTE2">Atendente 2</option>
+            <option value="SUPERVISOR">Supervisor</option>
         </select>
         <div class="aceitar" (click)="abrirModaisConfirmacao(1)">
             <span title="Confirmar" class="material-symbols-outlined iconDeselect iconeAceitar">

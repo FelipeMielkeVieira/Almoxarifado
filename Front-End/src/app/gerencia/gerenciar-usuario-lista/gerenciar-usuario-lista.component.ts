@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/service/userService';
 
 @Component({
   selector: 'app-gerenciar-usuario-lista',
@@ -7,10 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GerenciarUsuarioListaComponent implements OnInit {
   @Input() listaUsuarios: any = [];
-  listaFuncoes: any[] = [{ id: 1, funcao: "Professor" }, { id: 2, funcao: "Atendente1" }, { id: 3, funcao: "Atendente2" }, { id: 4, funcao: "Supervisor" }];
-  // selectedValue;
+  usuarioAtual: any;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   modalConfirmarEdicao = false;
   modalConfirmarExclusao = false;
@@ -22,7 +22,7 @@ export class GerenciarUsuarioListaComponent implements OnInit {
   }
 
   // Função para abrir os modais de confirmação de edição e exclusão
-  abrirModaisConfirmacao(numero: number) {
+  abrirModaisConfirmacao(numero: number, usuario: any) {
     switch (numero) {
       case 1:
         this.modalConfirmarEdicao = true;
@@ -31,6 +31,7 @@ export class GerenciarUsuarioListaComponent implements OnInit {
         this.modalConfirmarExclusao = true;
         break;
     }
+    this.usuarioAtual = usuario;
   }
 
   // Função para fechar os modais de confirmação de edição e exclusão
@@ -40,16 +41,37 @@ export class GerenciarUsuarioListaComponent implements OnInit {
         this.modalConfirmarEdicao = false;
         if (resposta) {
           this.abrirModaisFeedback(1);
-          //Editar usuário
+          this.atualizarUsuario();
         }
         break;
       case 2:
         this.modalConfirmarExclusao = false;
         if (resposta) {
           this.abrirModaisFeedback(2);
-          //Excluir usuário
+          this.excluirUsuario();
+          this.removerUsuarioLista();
         }
         break;
+    }
+  }
+
+  atualizarUsuario() {
+    this.userService.putUser(this.usuarioAtual, this.usuarioAtual.emailUsuario).subscribe(
+      error => {console.log(error)}
+    )
+  }
+
+  excluirUsuario() {
+    this.userService.deleteUser(this.usuarioAtual.emailUsuario).subscribe(
+      error => {console.log(error)}
+    )
+  }
+
+  removerUsuarioLista() {
+    for (let i = 0; i < this.listaUsuarios.length; i++) {
+      if (this.usuarioAtual.emailUsuario == this.listaUsuarios[i].emailUsuario) {
+        this.listaUsuarios.splice(i, 1);
+      }
     }
   }
 
@@ -81,13 +103,6 @@ export class GerenciarUsuarioListaComponent implements OnInit {
         this.feedbackExclusaoUsuario = false;
         break;
     }
-  }
-
-  getFuncaoUsuario(idFuncao: Number) {
-    console.log(idFuncao)
-    let funcao = this.listaFuncoes.find(x => x.id == idFuncao);
-    console.log(funcao)
-    return funcao;
   }
 
 }
