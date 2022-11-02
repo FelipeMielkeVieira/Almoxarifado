@@ -44,8 +44,7 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
   }
 
   cadastrar() {
-    var localizacapP = (<HTMLSelectElement>document.getElementById('localizacaoProduto1')).value;
-    if (this.localizacao != "" && localizacapP != "") {
+    if (this.localizacao != "") {
       this.cadastrarLocalizacao();
       this.close();
     } else {

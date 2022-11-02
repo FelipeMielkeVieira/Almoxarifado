@@ -21,6 +21,8 @@ export class CadastrarItemComponent implements OnInit {
   criarClassificacao = false;
   modalDetalhes: boolean = false;
 
+  feedbackDados: boolean = false;
+
   listaLocalizacoesEscolhidas: any = [null];
   listaAnexos: any = [];
 
@@ -116,10 +118,29 @@ export class CadastrarItemComponent implements OnInit {
       localizacoes: [this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1]],
     }
 
-    this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
-      data => { console.log(data) },
-      error => { console.log(error) }
-    )
+    // this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
+    //   data => { console.log(data) },
+    //   error => { console.log(error) }
+    // )
+  }
+
+  cadastrar() {
+    const arquivo = document.getElementById("formFileSm") as HTMLFormElement;
+
+    const nome = document.getElementById("nomeCadastro") as HTMLFormElement;
+
+    const opcao = (<HTMLSelectElement>document.getElementById('selecionarDescartavel')).value;
+
+    if (arquivo.value != "" && nome.value != "" && opcao != "" && this.qtdItem != 0) {
+      this.cadastrarItem();
+    } else {
+      this.feedbackDados = true;
+
+    }
+  }
+
+  fecharModalAlerta(numeroModal: any) {
+    this.feedbackDados = false;
   }
 
 }

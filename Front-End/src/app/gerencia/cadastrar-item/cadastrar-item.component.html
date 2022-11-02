@@ -1,5 +1,10 @@
+<!-- Alerta de dados faltantes no cadastro de localização -->
+<app-alerta-feito *ngIf="feedbackDados" (fecharModal)="fecharModalAlerta($event)" [tipoMensagemModal]="7">
+</app-alerta-feito>
+
 <div *ngIf="modalDetalhes" id="backdrop">
-    <app-cadastrar-descricao-item [inputFileList]="listaAnexos" [descricao]="descricaoItem" (fecharModal)="toggleModalDetalhes()">
+    <app-cadastrar-descricao-item [inputFileList]="listaAnexos" [descricao]="descricaoItem"
+        (fecharModal)="toggleModalDetalhes()">
     </app-cadastrar-descricao-item>
 </div>
 
@@ -15,15 +20,25 @@
             <div class="containerImagem">
                 <img class="imgPreview" id="imagemItem">
                 <div class="mb-3 divInputImagem">
-                    <label for="formFileSm" class="form-label tamanhoTextos">Escolher Imagem:</label>
+                    <div class="containerTexto">
+                        <label for="formFileSm" class="form-label tamanhoTextos">Escolher Imagem:</label>
+                        <div class="asterisco">*</div>
+                    </div>
                     <input class="form-control form-control-sm " id="formFileSm" type="file"
                         (change)="carregarImagem($event)">
                 </div>
             </div>
             <div class="nomeProduto">
-                <span class="tamanhoTextos">Nome Produto: </span>
+                <div class="containerTexto">
+                    <span class="tamanhoTextos">Nome Produto: </span>
+                    <div class="asterisco">*</div>
+                </div>
                 <div class="containerInput">
-                    <input [(ngModel)]="nomeProduto" class="inputsCadastro" type="text" placeholder="Nome produto" />
+                    <<<<<<< HEAD <input [(ngModel)]="nomeProduto" class="inputsCadastro" type="text"
+                        placeholder="Nome produto" />
+                    =======
+                    <input id="nomeCadastro" class="inputsCadastro" type="text" placeholder="Nome produto" />
+                    >>>>>>> 8d54cc836f231600df018b729c4d89dbab4c3830
                 </div>
             </div>
             <div class="classificacao">
@@ -37,7 +52,8 @@
                     </div>
                 </div>
                 <select [(ngModel)]="classificacaoItem" *ngIf="!criarClassificacao" class="inputsCadastro" name="">
-                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos" value="classificacao.id">
+                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos"
+                        value="classificacao.id">
                         {{ classificacao.classificacao }}
                     </option>
                 </select>
@@ -58,13 +74,17 @@
                 </div>
             </div>
             <div class="opcao">
-                <span class="tamanhoTextos">Opção: </span>
+                <div class="containerTexto">
+                    <span class="tamanhoTextos">Opção: </span>
+                    <div class="asterisco">*</div>
+                </div>
                 <select [(ngModel)]="itemDescartavel" id="selecionarDescartavel">
                     <option value="true" class="tamanhoTextos">Descartável</option>
                     <option value="false" class="tamanhoTextos">Não Descartável</option>
                 </select>
                 <div class="qtdItem">
                     <span class="tamanhoTextos">QTD: </span>
+                    <div class="asterisco">*</div>
                     <div class="pontosQtd" (click)="mudarQtd(1)">
                         <span title="Deletar" class="material-symbols-outlined iconDeselect iconMaisLoc">
                             remove
@@ -85,7 +105,7 @@
                         add
                     </span>
                 </button>
-                <button (click)="cadastrarItem()" class="botaoCadastrar tamanhoTextos">
+                <button class="botaoCadastrar tamanhoTextos" (click)="cadastrar()">
                     Cadastrar
                 </button>
             </div>

@@ -10,7 +10,7 @@ import { LocalizacaoService } from 'src/app/service/localizacaoService';
 })
 export class ModalEditarItem implements OnInit {
     @Output() fecharModal = new EventEmitter<string>();
-    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0,  };
+    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [{ descricao: "", anexo: "" }], localizacoes: [{ id: 0 }]};
 
     constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService) { }
 
@@ -27,7 +27,6 @@ export class ModalEditarItem implements OnInit {
     descartavel: boolean = false;
     imagemItem: any;
     qtdItem: number = 0;
-    a: any = 1;
 
     isDescartavel(tipo: String) {
         if (this.item.descartavel) {
@@ -46,16 +45,15 @@ export class ModalEditarItem implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log(this.item)
         this.buscarClassificacoes();
         this.listaLocalizacoes = this.service.retornaFilhosLocalizacao(this.listaLocalizacoes, 0);
-        console.log(this.listaLocalizacoes)
 
         // Preenchendo os inputs com os dados do item
         this.nomeProduto = this.item.nome;
         this.classificacaoSelect = this.item.classificacao;
         this.qtdItem = this.item.quantidade;
         this.imagemItem = this.item.imagem;
+        this.listaLocalizacoesEscolhidas = this.item.localizacoes;
     }
 
     buscarClassificacoes() {
