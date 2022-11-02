@@ -18,8 +18,7 @@ export class ModalOcorrenciaComponent implements OnInit {
 
   @Output() fecharModal = new EventEmitter<string>();
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   textArea: String = "";
   alertaDados: boolean = false;

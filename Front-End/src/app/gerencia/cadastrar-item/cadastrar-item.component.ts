@@ -20,6 +20,8 @@ export class CadastrarItemComponent implements OnInit {
   criarClassificacao = false;
   modalDetalhes: boolean = false;
 
+  feedbackDados: boolean = false;
+
   listaLocalizacoesEscolhidas: any = [null];
 
   ngOnInit(): void {
@@ -97,6 +99,25 @@ export class CadastrarItemComponent implements OnInit {
   toggleModalDetalhes() {
     this.modalDetalhes = !this.modalDetalhes;
     document.documentElement.style.overflow = this.modalDetalhes ? "hidden" : "auto";
+  }
+
+  cadastrar(){
+    const arquivo = document.getElementById("formFileSm") as HTMLFormElement;
+    
+    const nome = document.getElementById("nomeCadastro") as HTMLFormElement;
+
+    const opcao = (<HTMLSelectElement>document.getElementById('selecionarDescartavel')).value;
+
+    if(arquivo.value != "" && nome.value != "" && opcao != "" && this.qtdItem != 0){
+      // parte de cadastrar com o backend
+    } else {
+      this.feedbackDados = true;
+
+    }
+  }
+
+  fecharModalAlerta(numeroModal: any) {
+    this.feedbackDados = false;
   }
 
 }

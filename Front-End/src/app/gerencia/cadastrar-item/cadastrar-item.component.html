@@ -1,3 +1,6 @@
+<!-- Alerta de dados faltantes no cadastro de localização -->
+<app-alerta-feito *ngIf="feedbackDados" (fecharModal)="fecharModalAlerta($event)" [tipoMensagemModal]="7"></app-alerta-feito>
+
 <div *ngIf="modalDetalhes" id="backdrop">
     <app-cadastrar-descricao-item (fecharModal)="toggleModalDetalhes()"></app-cadastrar-descricao-item>
 </div>
@@ -22,7 +25,7 @@
             <div class="nomeProduto">
                 <span class="tamanhoTextos">Nome Produto: </span>
                 <div class="containerInput">
-                    <input class="inputsCadastro" type="text" placeholder="Nome produto" />
+                    <input id="nomeCadastro" class="inputsCadastro" type="text" placeholder="Nome produto" />
                 </div>
             </div>
             <div class="classificacao">
@@ -85,7 +88,7 @@
                         add
                     </span>
                 </button>
-                <button class="botaoCadastrar tamanhoTextos">
+                <button class="botaoCadastrar tamanhoTextos" (click)="cadastrar()">
                     Cadastrar
                 </button>
             </div>
