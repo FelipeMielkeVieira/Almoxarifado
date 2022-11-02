@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit {
 
   feedbackSacolaReservada: boolean = false;
   feedbackSacolaExcluida: boolean = false;
+  feedbackReservaCancelada: boolean = false;
 
   paginaAtual = 1;
 
@@ -77,6 +78,9 @@ export class HomeComponent implements OnInit {
     } else if (localStorage.getItem('reservar')) {
       localStorage.removeItem('reservar');
       this.abrirFeedback(2);
+    } else if (localStorage.getItem('cancelar')) {
+      localStorage.removeItem('cancelar');
+      this.abrirFeedback(3);
     }
   }
 
@@ -124,6 +128,12 @@ export class HomeComponent implements OnInit {
           this.feedbackSacolaReservada = false;
         }, 4500)
         break;
+      case 3:
+        this.feedbackReservaCancelada = true;
+        setTimeout(() => {
+          this.feedbackReservaCancelada = false;
+        }, 4500)
+        break;
     }
   }
 
@@ -134,6 +144,9 @@ export class HomeComponent implements OnInit {
         break;
       case 2:
         this.feedbackSacolaReservada = false;
+        break;
+      case 3:
+        this.feedbackReservaCancelada = false;
         break;
     }
   }

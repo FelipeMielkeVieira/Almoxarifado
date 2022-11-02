@@ -41,6 +41,8 @@ export class ModalConfirmacaoComponent implements OnInit {
                 return "Deseja salvar alterações?"
             case 12:
                 return "Deseja excluir as localizações?"
+            case 13:
+                return "Deseja cancelar a reserva?"
         }
         return "";
     }
