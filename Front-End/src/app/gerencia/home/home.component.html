@@ -121,7 +121,7 @@
                 <!-- Botões para troca de abas -->
 
                 <!-- Aba de aceitar / recusar cadastros novos de usuários, separados em bloco ou lista -->
-                <div *ngIf="abaGerenciaCadastros && listaEmBloco" class="usuarios">
+                <div *ngIf="abaGerenciaCadastros && listaEmBloco" id="containerGerenciarCadastros">
                     <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
                         [listaEmBloco]="true"></app-cadastrar-usuario>
                 </div>
@@ -131,7 +131,7 @@
                 </div>
 
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista -->
-                <div *ngIf="abaGerenciaUsuarios && listaEmBloco" class="telaUsuarios">
+                <div *ngIf="abaGerenciaUsuarios && listaEmBloco" id="containerGerenciarUsuario">
                     <app-gerenciar-usuario></app-gerenciar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaUsuarios && !listaEmBloco" class="telaUsuarios">
@@ -140,7 +140,7 @@
                 </div>
 
                 <!-- Aba de baixa nas devoluções, separada em bloco e lista -->
-                <div *ngIf="abaDevolucoes && listaEmBloco" class="containerDevolucoes">
+                <div *ngIf="abaDevolucoes && listaEmBloco" class="containerDevolucoes" id="containerReservas">
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                 </div>
                 <div *ngIf="abaDevolucoes && !listaEmBloco" class="containerDevolucoes">
@@ -148,7 +148,7 @@
                 </div>
 
                 <!-- Aba de confirmar retirada, separada em bloco e lista -->
-                <div *ngIf="abaRetiradas && listaEmBloco" class="containerRetirada">
+                <div *ngIf="abaRetiradas && listaEmBloco" class="containerRetirada" id="containerReservas">
                     <app-reserva *ngFor="let reserva of reservasRetirada" [reserva]="reserva"></app-reserva>
                 </div>
                 <div *ngIf="abaRetiradas && !listaEmBloco" class="containerRetirada">

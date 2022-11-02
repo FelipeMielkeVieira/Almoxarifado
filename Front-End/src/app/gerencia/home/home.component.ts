@@ -62,6 +62,7 @@ export class HomeComponent implements OnInit {
   feedbackLocalizacoesExcluidas = false;
 
   ngOnInit() {
+    document.documentElement.style.overflow = "auto";
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
     window.addEventListener("click", function (event) {
@@ -196,7 +197,7 @@ export class HomeComponent implements OnInit {
 
   // Função para mudar a visualização do modal de ordenação
   mudarModaisPesquisa(numero: number, evento: string) {
-    document.documentElement.style.overflow = "hidden";
+    this.toggleOverflow();
     switch (numero) {
       case 1:
         this.modalOrdenar = !this.modalOrdenar;
@@ -214,6 +215,10 @@ export class HomeComponent implements OnInit {
         }
         break;
     }
+  }
+
+  toggleOverflow() {
+    document.documentElement.style.overflow == "auto" ? document.documentElement.style.overflow = "hidden" : document.documentElement.style.overflow = "auto";
   }
 
   //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações

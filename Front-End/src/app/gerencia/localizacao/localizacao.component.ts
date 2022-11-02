@@ -16,6 +16,30 @@ export class LocalizacaoComponent implements OnInit {
   constructor() { }
 
   @Input() localizacoes: any = [{ id: Number, idPai : Number, nome: String }];
+  localizacoe: any = [
+    { id: 1, idPai: 0, nome: 'São Paulo' },
+    { id: 2, idPai: 1, nome: 'Rio de Janeiro' },
+    { id: 3, idPai: 2, nome: 'Minas Gerais' },
+    { id: 4, idPai: 3, nome: 'São Paulo - Capital' },
+    { id: 5, idPai: 4, nome: 'São Paulo - Interior' },
+    { id: 6, idPai: 5, nome: 'Rio de Janeiro - Capital' },
+    { id: 7, idPai: 6, nome: 'Rio de Janeiro - Interior' },
+    { id: 1, idPai: 0, nome: 'São Paulo' },
+    { id: 2, idPai: 1, nome: 'Rio de Janeiro' },
+    { id: 3, idPai: 2, nome: 'Minas Gerais' },
+    { id: 4, idPai: 3, nome: 'São Paulo - Capital' },
+    { id: 5, idPai: 4, nome: 'São Paulo - Interior' },
+    { id: 6, idPai: 5, nome: 'Rio de Janeiro - Capital' },
+    { id: 7, idPai: 6, nome: 'Rio de Janeiro - Interior' },
+    { id: 1, idPai: 0, nome: 'São Paulo' },
+    { id: 2, idPai: 1, nome: 'Rio de Janeiro' },
+    { id: 3, idPai: 2, nome: 'Minas Gerais' },
+    { id: 4, idPai: 3, nome: 'São Paulo - Capital' },
+    { id: 5, idPai: 4, nome: 'São Paulo - Interior' },
+    { id: 6, idPai: 5, nome: 'Rio de Janeiro - Capital' },
+    { id: 7, idPai: 6, nome: 'Rio de Janeiro - Interior' },
+  ];
+
   @Input() localizacoesSelecionadas: any[] = [];
 
   ngOnInit(): void {
