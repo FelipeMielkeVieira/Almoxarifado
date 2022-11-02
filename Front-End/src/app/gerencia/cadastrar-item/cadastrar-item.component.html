@@ -1,5 +1,6 @@
 <div *ngIf="modalDetalhes" id="backdrop">
-    <app-cadastrar-descricao-item (fecharModal)="toggleModalDetalhes()"></app-cadastrar-descricao-item>
+    <app-cadastrar-descricao-item [inputFileList]="listaAnexos" [descricao]="descricaoItem" (fecharModal)="toggleModalDetalhes()">
+    </app-cadastrar-descricao-item>
 </div>
 
 <div id="containerModalCadastrar">
@@ -22,7 +23,7 @@
             <div class="nomeProduto">
                 <span class="tamanhoTextos">Nome Produto: </span>
                 <div class="containerInput">
-                    <input class="inputsCadastro" type="text" placeholder="Nome produto" />
+                    <input [(ngModel)]="nomeProduto" class="inputsCadastro" type="text" placeholder="Nome produto" />
                 </div>
             </div>
             <div class="classificacao">
@@ -35,8 +36,8 @@
                         </span>
                     </div>
                 </div>
-                <select *ngIf="!criarClassificacao" class="inputsCadastro" name="">
-                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos" value="">
+                <select [(ngModel)]="classificacaoItem" *ngIf="!criarClassificacao" class="inputsCadastro" name="">
+                    <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos" value="classificacao.id">
                         {{ classificacao.classificacao }}
                     </option>
                 </select>
@@ -58,9 +59,9 @@
             </div>
             <div class="opcao">
                 <span class="tamanhoTextos">Opção: </span>
-                <select id="selecionarDescartavel">
-                    <option value="paredeCentro" class="tamanhoTextos" selected>Descartável</option>
-                    <option value="armario" class="tamanhoTextos">Não Descartável</option>
+                <select [(ngModel)]="itemDescartavel" id="selecionarDescartavel">
+                    <option value="true" class="tamanhoTextos">Descartável</option>
+                    <option value="false" class="tamanhoTextos">Não Descartável</option>
                 </select>
                 <div class="qtdItem">
                     <span class="tamanhoTextos">QTD: </span>
@@ -78,14 +79,13 @@
                 </div>
             </div>
             <div id="containerBtn">
-                <button class="btnDetalhes tamanhoTextos" (click)="toggleModalDetalhes()" >
+                <button class="btnDetalhes tamanhoTextos" (click)="toggleModalDetalhes()">
                     Detalhes
-                    <span  title="Adicionar"
-                        class="material-symbols-outlined iconDeselect addDetalhes">
+                    <span title="Adicionar" class="material-symbols-outlined iconDeselect addDetalhes">
                         add
                     </span>
                 </button>
-                <button class="botaoCadastrar tamanhoTextos">
+                <button (click)="cadastrarItem()" class="botaoCadastrar tamanhoTextos">
                     Cadastrar
                 </button>
             </div>

@@ -28,21 +28,10 @@ public class AnexoController {
         return ResponseEntity.status(HttpStatus.OK).body(anexoService.findAll());
     }
 
-    @GetMapping
-    public ResponseEntity<List<Anexo>> findAllVisible(){
-        return ResponseEntity.status(HttpStatus.OK).body(anexoService.findByVisibilidade(true));
-    }
-
     @GetMapping("/{idAnexo}")
     public ResponseEntity<Object> findById(@PathVariable(value = "idAnexo") Long idAnexo){
         if (!anexoService.existsById(idAnexo)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o anexo!");
-        }
-
-        Anexo anexo = anexoService.findById(idAnexo).get();
-
-        if (!anexo.getVisibilidade()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("O anexo solicitado não existe!");
         }
 
         return ResponseEntity.status(HttpStatus.FOUND).body(anexoService.findById(idAnexo).get());
@@ -52,7 +41,6 @@ public class AnexoController {
     public ResponseEntity<Object> save(@RequestBody @Valid AnexoDTO anexoDTO){
         Anexo anexo = new Anexo();
         BeanUtils.copyProperties(anexoDTO, anexo);
-        anexo.setVisibilidade(true);
         return ResponseEntity.status(HttpStatus.CREATED).body(anexoService.save(anexo));
     }
 
@@ -63,10 +51,6 @@ public class AnexoController {
         }
 
         Anexo anexo = anexoService.findById(idAnexo).get();
-
-        if (!anexo.getVisibilidade()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("O anexo solicitado não existe!");
-        }
 
         BeanUtils.copyProperties(anexoDTO, anexo);
         anexo.setId(idAnexo);
@@ -80,9 +64,7 @@ public class AnexoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o anexo!");
         }
 
-        Anexo anexo = anexoService.findById(idAnexo).get();
-        anexo.setVisibilidade(false);
-        anexoService.save(anexo);
+        anexoService.deleteById(idAnexo);
         return ResponseEntity.status(HttpStatus.OK).body("Anexo deletado com sucesso!");
     }
 }

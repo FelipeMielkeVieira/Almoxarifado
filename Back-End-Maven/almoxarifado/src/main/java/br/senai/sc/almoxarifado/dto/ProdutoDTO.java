@@ -1,12 +1,10 @@
 package br.senai.sc.almoxarifado.dto;
 
-import br.senai.sc.almoxarifado.model.entities.Anexo;
-import br.senai.sc.almoxarifado.model.entities.Classificacao;
-import br.senai.sc.almoxarifado.model.entities.Localizacao;
-import br.senai.sc.almoxarifado.model.entities.ProdutosEscolhidosSacola;
+import br.senai.sc.almoxarifado.model.entities.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -16,9 +14,9 @@ public class ProdutoDTO {
     private String nome;
     private String caracteristicas;
     private Boolean descartavel;
-    private Byte imagem;
+    private Imagem imagem;
     private Classificacao classificacao;
     private Set<Localizacao> localizacoes;
-    private Set<Anexo> anexos;
+    private List<Anexo> anexos;
     Set<ProdutosEscolhidosSacola> sacolas_produto;
 }

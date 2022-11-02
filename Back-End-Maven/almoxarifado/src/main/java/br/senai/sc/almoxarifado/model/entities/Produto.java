@@ -3,6 +3,7 @@ package br.senai.sc.almoxarifado.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,7 @@ import java.util.Set;
 @EqualsAndHashCode
 public class Produto {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true)
     private Long id;
 
@@ -31,8 +32,8 @@ public class Produto {
     @Column(nullable = false)
     private Boolean descartavel;
 
-    @Column
-    private Byte imagem;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Imagem imagem;
 
     @Column(nullable = false)
     private Boolean visibilidade;
@@ -50,10 +51,7 @@ public class Produto {
             inverseJoinColumns = @JoinColumn(name = "localizacao_id", nullable = false))
     private Set<Localizacao> localizacoes;
 
-    @ManyToMany
-    @JoinTable(
-            name = "produto_anexo",
-            joinColumns = @JoinColumn(name = "produto_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "anexo_id", nullable = false))
-    private Set<Anexo> anexos;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "produto_id")
+    private List<Anexo> anexos;
 }

@@ -3,12 +3,14 @@ package br.senai.sc.almoxarifado.controller;
 import br.senai.sc.almoxarifado.dto.ProdutoDTO;
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.service.ProdutoService;
+import br.senai.sc.almoxarifado.util.ProdutoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -16,6 +18,7 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/alma_sis/produto")
 public class ProdutoController {
     private ProdutoService produtoService;
@@ -46,9 +49,12 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> save(@RequestBody @Valid ProdutoDTO produtoDTO) {
-        Produto produto = new Produto();
-        BeanUtils.copyProperties(produtoDTO, produto);
+    public ResponseEntity<Object> save(@RequestParam("produto") String produtoJson,
+                                       @RequestParam("imagem") MultipartFile imagem,
+                                       @RequestParam("anexos") List<MultipartFile> anexos) {
+        ProdutoUtil produtoUtil = new ProdutoUtil();
+        Produto produto = produtoUtil.convertJsonToModel(produtoJson);
+
         produto.setVisibilidade(true);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.save(produto));
     }

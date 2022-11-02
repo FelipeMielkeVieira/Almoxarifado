@@ -21,10 +21,6 @@ public class AnexoService {
         return anexoRepository.findAll();
     }
 
-    public List<Anexo> findByVisibilidade(Boolean visibilidade) {
-        return anexoRepository.findByVisibilidade(visibilidade);
-    }
-
     public Optional<Anexo> findById(Long id) {
         return anexoRepository.findById(id);
     }
