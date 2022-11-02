@@ -287,3 +287,14 @@
 .addDetalhes {
     font-size: 24px;
 }
+
+.asterisco {
+    color: #be0101;
+    font-weight: bold;
+    cursor: default;
+}
+
+.containerTexto{
+    display: flex;
+    flex-direction: row;
+}
