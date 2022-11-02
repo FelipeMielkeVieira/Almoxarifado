@@ -7,6 +7,9 @@ import br.senai.sc.almoxarifado.util.AnexoUtil;
 import br.senai.sc.almoxarifado.util.ProdutoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -29,9 +32,16 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.findAll());
     }
 
-    @GetMapping
-    public ResponseEntity<List<Produto>> findAllVisible() {
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.findByVisibilidade(true));
+    @GetMapping("/page")
+    public ResponseEntity<List<Produto>> findPage(
+            @PageableDefault(page = 0, size = 18, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
+    {
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.findByVisibilidade(true, pageable));
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Object> findCount() {
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.countByVisibilidade(true));
     }
 
     @GetMapping("/{id}")

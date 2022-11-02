@@ -18,7 +18,7 @@ export class ModalHistoricoEdicaoComponent implements OnInit {
   constructor() {
   }
 
-  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
+  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: {dados: "", id: 0, nome: "", tipo: ""}, classificacao: 0 };
 
   @Output() fecharModal = new EventEmitter<string>();
 

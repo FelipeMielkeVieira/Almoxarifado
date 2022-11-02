@@ -35,12 +35,16 @@ export class HeaderComponent implements OnInit {
     // Função para fechamento do modal user caso tenha sido clicado fora
     var self = this;
     window.onclick = function (event) {
-      if (!(event.target as HTMLElement).className.includes("parteModal")) {
-        if (!(event.target as HTMLElement).className.includes("iconsModais")) {
-          if (self.modalUser) {
-            self.modalUser = false;
+      try {
+        if (!(event.target as HTMLElement).className.includes("parteModal")) {
+          if (!(event.target as HTMLElement).className.includes("iconsModais")) {
+            if (self.modalUser) {
+              self.modalUser = false;
+            }
           }
         }
+      } catch (error) {
+        self.modalUser = false;
       }
     }
 

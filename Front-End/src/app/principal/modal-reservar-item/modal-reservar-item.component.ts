@@ -15,7 +15,7 @@ export class ModalReservarItem implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
 
   // Item recebido do componente pai
-  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };;
+  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: {dados: "", id: 0, nome: "", tipo: ""}, classificacao: 0 };;
 
   // Variável de quantidade dos itens a serem reservados
   qtdItem: number = 1;

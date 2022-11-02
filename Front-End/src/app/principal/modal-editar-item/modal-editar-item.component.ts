@@ -10,7 +10,7 @@ import { LocalizacaoService } from 'src/app/service/localizacaoService';
 })
 export class ModalEditarItem implements OnInit {
     @Output() fecharModal = new EventEmitter<string>();
-    @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [{ descricao: "", anexo: "" }], localizacoes: [{ id: 0 }]};
+    @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: {dados: "", id: 0, nome: "", tipo: ""}, classificacao: 0, anexos: [{ descricao: "", anexo: "" }], localizacoes: [{ id: 0 }]};
 
     constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService) { }
 

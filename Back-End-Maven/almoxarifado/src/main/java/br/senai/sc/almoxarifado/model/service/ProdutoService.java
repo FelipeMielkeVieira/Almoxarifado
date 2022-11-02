@@ -2,6 +2,8 @@ package br.senai.sc.almoxarifado.model.service;
 
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.repository.ProdutoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +21,8 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
-    public List<Produto> findByVisibilidade(Boolean visibilidade) {
-        return produtoRepository.findByVisibilidade(visibilidade);
+    public List<Produto> findByVisibilidade(Boolean visibilidade, Pageable pageable) {
+        return produtoRepository.findByVisibilidade(visibilidade, pageable);
     }
 
     public <S extends Produto> S save(S entity) {
@@ -37,5 +39,9 @@ public class ProdutoService {
 
     public void deleteById(Long integer) {
         produtoRepository.deleteById(integer);
+    }
+
+    public Object countByVisibilidade(Boolean b) {
+        return produtoRepository.countByVisibilidade(b);
     }
 }

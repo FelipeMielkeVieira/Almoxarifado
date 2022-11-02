@@ -9,15 +9,18 @@
 
 <!-- Div Principal -->
 <main>
-    
+
     <!-- Feedback de sacola reservada -->
-    <app-modal-feedback *ngIf="feedbackSacolaReservada" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(2)"></app-modal-feedback>
+    <app-modal-feedback *ngIf="feedbackSacolaReservada" [tipoFeedback]="1" (fecharModal)="fecharModaisFeedback(2)">
+    </app-modal-feedback>
 
     <!-- Feedback de sacola excluída -->
-    <app-modal-feedback *ngIf="feedbackSacolaExcluida" [tipoFeedback]="5" (fecharModal)="fecharModaisFeedback(1)"></app-modal-feedback>
+    <app-modal-feedback *ngIf="feedbackSacolaExcluida" [tipoFeedback]="5" (fecharModal)="fecharModaisFeedback(1)">
+    </app-modal-feedback>
 
     <!-- Feedback de reserva cancelada -->
-    <app-modal-feedback *ngIf="feedbackReservaCancelada" [tipoFeedback]="13" (fecharModal)="fecharModaisFeedback(3)"></app-modal-feedback>
+    <app-modal-feedback *ngIf="feedbackReservaCancelada" [tipoFeedback]="13" (fecharModal)="fecharModaisFeedback(3)">
+    </app-modal-feedback>
 
     <div id="container">
         <div id="containerInput">
@@ -25,7 +28,8 @@
                 <!-- Barra de Pesquisa -->
                 <div id="divInput">
                     <input id="input" type="text" placeholder="Pesquise por produto..." />
-                    <span id="iconPesquisar" class="material-symbols-outlined iconDeselect iconsModais" title="Pesquisar">
+                    <span id="iconPesquisar" class="material-symbols-outlined iconDeselect iconsModais"
+                        title="Pesquisar">
                         search
                     </span>
                 </div>
@@ -39,7 +43,8 @@
 
                     <!-- Modal Ordenar -->
                     <app-modal-ordenar *ngIf="modalOrdenar" (fecharModal)="mudarModalOrdenar()"
-                        (ordenarItens)="ordenarItens($event)" [listaOrdenacoes]="listaOrdenacoes" id="appModalOrdenar"></app-modal-ordenar>
+                        (ordenarItens)="ordenarItens($event)" [listaOrdenacoes]="listaOrdenacoes" id="appModalOrdenar">
+                    </app-modal-ordenar>
                 </div>
 
                 <div id="iconListaBloco">
@@ -59,22 +64,22 @@
             <p id="resultados" *ngIf="!carregando">{{ numResultados }} Resultados encontrados</p>
         </div>
 
-        
+
 
         <div *ngIf="!carregando">
             <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
             <div *ngIf="listaEmBloco" id="containerItens">
                 <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
             </div>
-    
+
             <div *ngIf="!listaEmBloco" id="containerItensLista">
                 <app-item-lista [itens]="listaItens"></app-item-lista>
             </div>
-    
+
             <!-- Listagem de Páginas na parte de baixo da tela -->
-            <mat-paginator [length]="1292" [pageSize]="18" [pageSizeOptions]="[18, 36, 72, 144]" aria-label="Select page">
+            <mat-paginator id="paginador" [pageIndex]="paginaAtual" [length]="itensTotais" [pageSize]="tamanhoPagina"
+                [pageSizeOptions]="[18, 36, 72, 144]" aria-label="Select page" (page)="mudarPagina($event)">
             </mat-paginator>
         </div>
-        
     </div>
 </main>

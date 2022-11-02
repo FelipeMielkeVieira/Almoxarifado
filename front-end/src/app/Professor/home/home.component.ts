@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { ProdutoService } from 'src/app/service/produtoService';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private service: UsersService, private paginator: MatPaginatorIntl,) {
-
-    this.listaItens = service.itens;
-    this.listaItensFiltrada = this.listaItens;
-    this.numResultados = this.listaItens.length;
+  constructor(private service: UsersService, private paginator: MatPaginatorIntl, private produtoService: ProdutoService) {
 
     paginator.itemsPerPageLabel = 'Quantidade de itens por página:';
     paginator.nextPageLabel = 'Próxima página';
@@ -22,18 +19,8 @@ export class HomeComponent implements OnInit {
     paginator.lastPageLabel = 'Última página';
 
     // *Personalizar a paginação
-    paginator.getRangeLabel = (page: number, pageSize: number, length: number) => {
-      if (length === 0 || pageSize === 0) {
-        return `0 à ${length}`;
-      }
-      length = Math.max(length, 0);
-      const startIndex = page * pageSize;
-
-      const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
-      if (endIndex / 18 <= 1) {
-        return `página ${endIndex / 18} de ${Math.round(length / 18)}`;
-      }
-      return `página ${endIndex / 18} de ${Math.round(length / 18)}`;
+    paginator.getRangeLabel = (pageSize: number, length: number) => {
+      return "página " + (this.paginaAtual + 1) + " de " + (Math.ceil(this.itensTotais / this.tamanhoPagina));
     };
   }
 
@@ -42,33 +29,47 @@ export class HomeComponent implements OnInit {
   numeroPaginas = 6;
   numResultados = 0;
 
-  listaItens;
-  listaItensFiltrada;
+  listaItens: any;
   listaEmBloco = true;
 
   feedbackSacolaReservada: boolean = false;
   feedbackSacolaExcluida: boolean = false;
   feedbackReservaCancelada: boolean = false;
 
-  paginaAtual = 1;
-
   modalOrdenar: boolean = false;
 
   listaOrdenacoes = [false, false, false, false];
 
+  itensTotais: number = 0;
+  tamanhoPagina: number = 18;
+  paginaAtual: number = 0;
+  tamanhoPaginaAntigo: number = 18;
+
   ngOnInit() {
-    setTimeout(() => {
-      this.carregando = !this.carregando;
-    }, 1500);
+
+    this.produtoService.getCount().subscribe(
+      data => {this.itensTotais = data; this.numResultados = data;},
+      error => {console.log(error)}
+    )
+
+    this.produtoService.getPage("").subscribe(
+      data => { this.listaItens = data; this.carregando = !this.carregando; console.log(data) },
+      error => { console.log(error) }
+    );
+
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
     window.addEventListener("click", function (event) {
-      if (!(event.target as HTMLElement).className.includes("parteModal")) {
-        if (!(event.target as HTMLElement).className.includes("iconsModais")) {
-          if (self.modalOrdenar) {
-            self.modalOrdenar = false;
+      try {
+        if (!(event.target as HTMLElement).className.includes("parteModal")) {
+          if (!(event.target as HTMLElement).className.includes("iconsModais")) {
+            if (self.modalOrdenar) {
+              self.modalOrdenar = false;
+            }
           }
         }
+      } catch (error) {
+        self.modalOrdenar = false;
       }
     });
 
@@ -148,6 +149,32 @@ export class HomeComponent implements OnInit {
       case 3:
         this.feedbackReservaCancelada = false;
         break;
+    }
+  }
+
+  mudarPagina(event: any) {
+    if (event.previousPageIndex != event.pageIndex) {
+      if (event.previousPageIndex <= event.pageIndex) {
+        this.paginaAtual++;
+      } else {
+        this.paginaAtual--;
+      }
+
+      this.carregando = !this.carregando;
+      this.produtoService.getPage("sort=id,asc&size=" + event.pageSize + "&page=" + event.pageIndex).subscribe(
+        data => { this.listaItens = data; this.carregando = !this.carregando; console.log(data) },
+        error => { console.log(error) }
+      );
+    } else {
+      if (event.pageSize != this.tamanhoPaginaAntigo) {
+        this.tamanhoPagina = event.pageSize;
+        this.tamanhoPaginaAntigo = event.pageSize;
+        this.carregando = !this.carregando;
+        this.produtoService.getPage("sort=id,asc&size=" + event.pageSize + "&page=" + event.pageIndex).subscribe(
+          data => { this.listaItens = data; this.carregando = !this.carregando; console.log(data) },
+          error => { console.log(error) }
+        );
+      }
     }
   }
 }

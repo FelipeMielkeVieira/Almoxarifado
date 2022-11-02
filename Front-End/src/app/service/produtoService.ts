@@ -10,6 +10,18 @@ export class ProdutoService {
         return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto");
     }
 
+    getCount(): Observable<any> {
+        return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto/count");
+    }
+
+    getPage(param: string): Observable<any[]> {
+        if(param == "") {
+            return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto/page");
+        } else {
+            return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page?${param}`);
+        }
+    }
+
     postProduto(produto: Object, imagem: File, anexos: Array<File>): Observable<any> {
         const formData = new FormData();
         formData.set("produto", JSON.stringify(produto));

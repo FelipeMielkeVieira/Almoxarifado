@@ -30,17 +30,22 @@ export class FiltroComponent implements OnInit {
   ngOnInit() {
     // Função para fechamento do filtro caso tenha sido clicado fora
     window.addEventListener("click", function (event) {
-      if (!(event.target as HTMLElement).className.includes("parteFiltro")) {
-        let filtro = document.querySelector("#check") as HTMLInputElement;
-        if (!((event.target as HTMLElement).id == "check")) {
-          try {
-            if (!filtro.checked) {
-              filtro.checked = true;
-            }
-          } catch(erro) {
+      try {
+        if (!(event.target as HTMLElement).className.includes("parteFiltro")) {
+          let filtro = document.querySelector("#check") as HTMLInputElement;
+          if (!((event.target as HTMLElement).id == "check")) {
+            try {
+              if (!filtro.checked) {
+                filtro.checked = true;
+              }
+            } catch (erro) {
 
+            }
           }
         }
+      } catch (error) {
+        let filtro = document.querySelector("#check") as HTMLInputElement;
+        filtro.checked = true;
       }
     });
   }
@@ -48,7 +53,7 @@ export class FiltroComponent implements OnInit {
   buscarClassificacoes() {
     this.classificacaoService.getAll().subscribe(
       data => this.listaClassificacoes = data,
-      error => {console.log(error)}
+      error => { console.log(error) }
     );
   }
 
@@ -185,7 +190,7 @@ export class FiltroComponent implements OnInit {
 
   // Função para abrir e fechar o modal de feedback de alteração nos filtros
   mudarModalFeedback() {
-    if(!this.feedbackFiltrosSalvos) {
+    if (!this.feedbackFiltrosSalvos) {
       this.feedbackFiltrosSalvos = true;
       setTimeout(() => {
         this.feedbackFiltrosSalvos = false;
@@ -198,7 +203,7 @@ export class FiltroComponent implements OnInit {
   // Função para fechar o modal de alteração de filtros e ativar o feedback caso salvas
   fecharModalFiltros(event: any) {
     this.modalGerenciarFiltros = false;
-    if(event) {
+    if (event) {
       this.mudarModalFeedback();
     }
   }

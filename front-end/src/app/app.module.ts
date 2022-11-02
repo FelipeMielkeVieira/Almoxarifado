@@ -20,6 +20,7 @@ import { ClassificacaoService } from './service/classificacaoService';
 import { LocalizacaoService } from './service/localizacaoService';
 import { UserService } from './service/userService';
 import { ProdutoService } from './service/produtoService';
+import { AnexoService } from './service/anexoService';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { ProdutoService } from './service/produtoService';
     GerenciaModule,
     BrowserAnimationsModule
   ],
-  providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor, CalendarCreator, ClassificacaoService, LocalizacaoService, UserService, ProdutoService],
+  providers: [CheckLogged, UsersService, CheckLoggedProfessor, CheckLoggedAtendente, CheckLoggedSupervisor, CalendarCreator, ClassificacaoService, LocalizacaoService, UserService, ProdutoService, AnexoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
