@@ -31,25 +31,13 @@ export class ModalUserComponent implements OnInit {
     this.usuarioTipo = parseInt(localStorage.getItem('usuario') || '0');
   }
 
-  // *Alguma coisa com o mouse, o resto nn entendi T-T
-  // @HostListener('document:mousedown', ['$event'])
-  // onGlobalClick(event: any): void {
-  //   let contagem = 0;
-  //   for (const path of event.path) {
-  //     if (path.className == 'modalUser') {
-  //       contagem = 1;
-  //     }
-  //   }
-  //   if (contagem == 0 && event.path[1].id != 'usuarioIcone') {
-  //     this.fecharModal.emit();
-  //   }
-  // }
-
   // *Irá abrir o modal de editar
   editarPerfil() {
     if (this.abrirEditar == false) {
+      document.documentElement.style.overflow = "hidden"
       this.abrirEditar = true;
     } else {
+      document.documentElement.style.overflow = "visible"
       this.abrirEditar = false;
     }
   }
@@ -61,6 +49,7 @@ export class ModalUserComponent implements OnInit {
 
   // *Irá abrir as configurações
   abrirConfiguracoes() {
+    document.documentElement.style.overflow = "hidden"
     this.modalConfiguracoes = !this.modalConfiguracoes;
   }
 
@@ -77,6 +66,7 @@ export class ModalUserComponent implements OnInit {
   }
 
   fecharModalEdicao(evento: string) {
+    document.documentElement.style.overflow = "visible"
     this.abrirEditar = false;
     if (evento == "2") {
       //Fazer modal para confirmar alteração
@@ -84,6 +74,7 @@ export class ModalUserComponent implements OnInit {
   }
 
   fecharModalConfiguracoes() {
+    document.documentElement.style.overflow = "visible"
     this.modalConfiguracoes = false;
   }
 }

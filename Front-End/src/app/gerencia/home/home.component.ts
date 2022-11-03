@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 import { UsersService } from 'src/app/service';
 import { LocalizacaoService } from 'src/app/service/localizacaoService';
+import { ProdutoService } from 'src/app/service/produtoService';
 import { UserService } from 'src/app/service/userService';
 
 @Component({
@@ -10,10 +12,20 @@ import { UserService } from 'src/app/service/userService';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: UsersService, private localizacaoService: LocalizacaoService, private userService: UserService) {
-    this.listaItens = service.itens;
+  constructor(private paginator: MatPaginatorIntl, private service: UsersService, private localizacaoService: LocalizacaoService, private userService: UserService, private produtoService: ProdutoService) {
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
     this.listaCadastrosPendentes = service.usuariosPendentes;
+
+    paginator.itemsPerPageLabel = 'Quantidade de itens por página:';
+    paginator.nextPageLabel = 'Próxima página';
+    paginator.previousPageLabel = 'Página anterior';
+    paginator.firstPageLabel = 'Primeira página';
+    paginator.lastPageLabel = 'Última página';
+
+    // *Personalizar a paginação
+    paginator.getRangeLabel = (pageSize: number, length: number) => {
+      return "página " + (this.paginaAtual + 1) + " de " + (Math.ceil(this.itensTotais / this.tamanhoPagina));
+    };
   }
 
   listaOrdenacoes = [false, false, false, false];
@@ -50,7 +62,6 @@ export class HomeComponent implements OnInit {
   listaEmBloco = true;
   inputGeral = "";
   tipoUsuario = 2;
-  numResultados = 0;
 
   localizacoesLista: any = [];
   localizacoesSelecionadas: any[] = [];
@@ -65,6 +76,11 @@ export class HomeComponent implements OnInit {
   feedbackUsuarioExcluido = false;
   feedbackUsuarioAtualizado = false;
 
+  carregando = false;
+  paginaAtual: number = 0;
+  itensTotais: number = 0;
+  tamanhoPagina: number = 18;
+
   ngOnInit() {
 
     document.documentElement.style.overflow = "auto";
@@ -72,12 +88,16 @@ export class HomeComponent implements OnInit {
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
     window.addEventListener("click", function (event) {
-      if (!(event.target as HTMLElement).className.includes("parteModal")) {
-        if (!(event.target as HTMLElement).className.includes("iconsModais")) {
-          if (self.modalOrdenar) {
-            self.modalOrdenar = false;
+      try {
+        if (!(event.target as HTMLElement).className.includes("parteModal")) {
+          if (!(event.target as HTMLElement).className.includes("iconsModais")) {
+            if (self.modalOrdenar) {
+              self.modalOrdenar = false;
+            }
           }
         }
+      } catch (error) {
+        self.modalOrdenar = false;
       }
     });
 
@@ -140,12 +160,26 @@ export class HomeComponent implements OnInit {
         break;
       case 5:
         this.abaItens = true;
+        this.buscarItens();
         break;
       case 6:
         this.abaLocalizacoes = true;
         this.localizacoesLista = this.buscarLocalizacoes();
         break;
     }
+  }
+
+  buscarItens() {
+    this.carregando = !this.carregando;
+    this.produtoService.getCount().subscribe(
+      data => { this.itensTotais = data; },
+      error => { console.log(error) }
+    )
+
+    this.produtoService.getPage("").subscribe(
+      data => { this.listaItens = data; this.carregando = !this.carregando; },
+      error => { console.log(error) }
+    );
   }
 
   buscarUsuariosExistentes() {
@@ -218,14 +252,35 @@ export class HomeComponent implements OnInit {
         break;
       case 2:
         this.localizacaoModal = !this.localizacaoModal;
-        if (evento == "cadastro") {
 
+        if(this.localizacaoModal) {
+          document.documentElement.style.overflow = "hidden"
+        } else {
+          document.documentElement.style.overflow = "visible"
+        }
+
+        if (evento == "cadastro") {
+          this.feedbackLocalizacaoCadastrada = true;
+          setTimeout(() => {
+            this.feedbackLocalizacaoCadastrada = false;
+          }, 4500);
         }
         break;
       case 3:
         this.modalCadastrarItem = !this.modalCadastrarItem;
-        if (evento == "cadastro") {
 
+        if(this.modalCadastrarItem) {
+          document.documentElement.style.overflow = "hidden"
+        } else {
+          document.documentElement.style.overflow = "visible"
+        }
+
+        if (evento == "cadastro") {
+          this.feedbackItemCadastrado = true;
+          this.feedbackItemCadastrado = true;
+          setTimeout(() => {
+            this.feedbackItemCadastrado = false;
+          }, 4500);
         }
         break;
     }
@@ -397,5 +452,9 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.feedbackUsuarioExcluido = false;
     }, 4500);
+  }
+
+  mudarPagina(event: any) {
+
   }
 }

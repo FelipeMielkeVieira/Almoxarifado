@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-item',
@@ -7,13 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     this.tipoUser = parseInt(localStorage.getItem("usuario") || "");
   }
 
   tipoUser: number = 0;
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.item.imagem) {
+      this.imagemUrl = "data:image/png;base64," + this.item.imagem.dados;
+    } else {
+      this.imagemUrl = "https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe";
+    }
+  }
 
   // <!-- --------------- ITEM EM SI EM BLOCO ---------------- -->
 
@@ -82,7 +89,7 @@ export class ItemComponent implements OnInit {
 
   // Função para deixar visível o modal de reserva do item
   abrirModalReserva() {
-    document.documentElement.style.overflow = "hidden" 
+    document.documentElement.style.overflow = "hidden"
     this.modalReservar = true;
   }
 
@@ -114,6 +121,7 @@ export class ItemComponent implements OnInit {
   fecharModaisItem(numero: number, event: any) {
     switch (numero) {
       case 1:
+        document.documentElement.style.overflow = "visible"
         this.modalReservar = false;
         if (event == "reservar") {
           this.feedbackReservaFeita = true;
@@ -128,6 +136,7 @@ export class ItemComponent implements OnInit {
           }, 4000);
         }
         if (event == "anexos") {
+          document.documentElement.style.overflow = "hidden"
           this.modalAnexos = true;
           this.modalReservar = true;
         }

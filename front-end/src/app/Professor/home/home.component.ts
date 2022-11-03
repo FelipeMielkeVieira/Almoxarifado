@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
     )
 
     this.produtoService.getPage("").subscribe(
-      data => { this.listaItens = data; this.carregando = !this.carregando; console.log(data) },
+      data => { this.listaItens = data; this.carregando = !this.carregando; },
       error => { console.log(error) }
     );
 

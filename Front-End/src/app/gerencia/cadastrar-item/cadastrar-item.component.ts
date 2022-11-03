@@ -127,7 +127,7 @@ export class CadastrarItemComponent implements OnInit {
     }
 
     this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
-      data => { console.log(data) },
+      data => { this.fecharModalCadastro("cadastro") },
       error => { console.log(error) }
     )
   }

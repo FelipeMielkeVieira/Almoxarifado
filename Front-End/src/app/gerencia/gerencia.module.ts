@@ -23,6 +23,7 @@ import { CadastrarItemComponent } from './cadastrar-item/cadastrar-item.componen
 import { ReservaListaComponent } from './reserva-lista/reserva-lista.component';
 import { CadastrarDescricaoItemComponent } from './cadastrar-descricao-item/cadastrar-descricao-item.component';
 import { LoginModule } from '../login/login.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { LoginModule } from '../login/login.module';
     MatDividerModule,
     MatButtonModule,
     MatSelectModule,
-    LoginModule
+    LoginModule,
+    MatPaginatorModule
   ],
   exports: [
     HomeComponent,

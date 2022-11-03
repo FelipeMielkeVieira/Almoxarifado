@@ -39,14 +39,14 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
     )
   }
 
-  close() {
-    this.fecharModal.emit('fechar');
+  close(mensagem: string) {
+    this.fecharModal.emit(mensagem);
   }
 
   cadastrar() {
     if (this.localizacao != "") {
       this.cadastrarLocalizacao();
-      this.close();
+      this.close("cadastro");
     } else {
       this.feedbackDados = true;
       setTimeout(() => {

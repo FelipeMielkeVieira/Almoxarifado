@@ -15,7 +15,7 @@ export class ModalReservarItem implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
 
   // Item recebido do componente pai
-  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: {dados: "", id: 0, nome: "", tipo: ""}, classificacao: 0 };;
+  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: { dados: "", id: 0, nome: "", tipo: "" }, classificacao: 0 };;
 
   // Variável de quantidade dos itens a serem reservados
   qtdItem: number = 1;
@@ -31,9 +31,16 @@ export class ModalReservarItem implements OnInit {
   // Variavel para enviar alerta de dados faltantes
   feedbackDados: boolean = false;
 
+  imagemUrl: any = "";
+
   ngOnInit() {
-    console.log("mano ta aq");
-    console.log("a", this.item)
+
+    if (this.item.imagem) {
+      this.imagemUrl = "data:image/png;base64," + this.item.imagem.dados;
+    } else {
+      this.imagemUrl = "https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe";
+    }
+
     if (this.item.quantidade <= 0) {
       document.getElementById("professores")?.setAttribute("disabled", "true");
     }

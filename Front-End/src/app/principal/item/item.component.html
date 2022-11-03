@@ -6,7 +6,7 @@
   <div [ngClass]="retornarClassesVisualizacao(1)">
     <div class="imagemItem" (click)="abrirModalReserva()">
       <img [ngClass]="retornarClassesVisualizacao(2)"
-        src="https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe" alt="Imagem do Produto" />
+        src="{{imagemUrl}}" alt="Imagem do Produto" />
     </div>
     <div [ngClass]="retornarClassesVisualizacao(3)" (click)="abrirModalReserva()">
       <span class="nomeItem">{{ item.nome }}</span>

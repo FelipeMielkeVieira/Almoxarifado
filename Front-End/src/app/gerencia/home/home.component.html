@@ -129,8 +129,9 @@
                             Cadastrar Item
                         </button>
                     </div>
-                    <div id="filtro"></div>
-                    <p id="resultados">{{ numResultados }} Resultados encontrados</p>
+                    <app-tela-carregamento *ngIf="carregando"></app-tela-carregamento>
+                    <div id="filtro" *ngIf="!carregando"></div>
+                    <p id="resultados" *ngIf="!carregando">{{ itensTotais }} Resultados encontrados</p>
                 </div>
 
 
@@ -193,6 +194,12 @@
                     <app-localizacao [localizacoesSelecionadas]="localizacoesSelecionadas"
                         [localizacoes]="localizacoesLista"></app-localizacao>
                 </div>
+
+                <!-- Listagem de Páginas na parte de baixo da tela -->
+                <mat-paginator *ngIf="!carregando && itensTotais > 0" id="paginador" [pageIndex]="paginaAtual"
+                    [length]="itensTotais" [pageSize]="tamanhoPagina" [pageSizeOptions]="[18, 36, 72, 144]"
+                    aria-label="Select page" (page)="mudarPagina($event)">
+                </mat-paginator>
             </div>
         </div>
     </div>

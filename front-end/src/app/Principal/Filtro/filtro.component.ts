@@ -203,6 +203,7 @@ export class FiltroComponent implements OnInit {
   // Função para fechar o modal de alteração de filtros e ativar o feedback caso salvas
   fecharModalFiltros(event: any) {
     this.modalGerenciarFiltros = false;
+    document.documentElement.style.overflow = "visible";
     if (event) {
       this.mudarModalFeedback();
     }

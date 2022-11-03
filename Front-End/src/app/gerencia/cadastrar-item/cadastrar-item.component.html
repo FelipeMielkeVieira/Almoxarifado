@@ -48,7 +48,7 @@
                 </div>
                 <select [(ngModel)]="classificacaoItem" *ngIf="!criarClassificacao" class="inputsCadastro" name="">
                     <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos"
-                        value="classificacao.id">
+                        value="{{classificacao.id}}">
                         {{ classificacao.classificacao }}
                     </option>
                 </select>
