@@ -27,6 +27,7 @@ export class ReservaComponent implements OnInit {
         console.log(event)
         if (this.reserva.status == "AGUARDANDO_RETIRADA") {
             this.modalRetirada = !this.modalRetirada;
+            this.toggleOverflow();
             if (event == "retiradaFeita") {
                 this.abrirModaisFeedback(1);
             }
@@ -35,6 +36,7 @@ export class ReservaComponent implements OnInit {
             }
         } else {
             this.modalDevolucao = !this.modalDevolucao;
+            this.toggleOverflow();
             if(event == "baixa") {
                 this.abrirModaisFeedback(3);
             }
@@ -43,6 +45,10 @@ export class ReservaComponent implements OnInit {
             }
         }
     }
+
+    toggleOverflow() {
+        document.documentElement.style.overflow == "auto" ? document.documentElement.style.overflow = "hidden" : document.documentElement.style.overflow = "auto";
+      }
 
     // Função para abrir os modais de feedback
     abrirModaisFeedback(event: number) {
