@@ -37,7 +37,10 @@
                 </div>
             </div>
             <div class="classificacao">
-                <span class="tamanhoTextos">Classificação: </span>
+                <div class="texto">
+                    <span class="tamanhoTextos">Classificação:</span>
+                    <div class="asterisco">*</div>
+                </div>
                 <div class="addClassificacao">
                     <div (click)="mudarClassificacao()" class="divPonto" id="adicionarClassificacao"
                         style="background-color: #B6B3B3;">
@@ -56,7 +59,10 @@
             </div>
             <div class="localizacao">
                 <div style="display: flex; align-items: center;">
-                    <span style="margin-right: 20px" class="tamanhoTextos">Localização: </span>
+                    <div class="texto">
+                        <span class="tamanhoTextos">Localização:</span>
+                        <div style="margin-right: 15px" class="asterisco">*</div>
+                    </div>
                     <div class="containerLocalizacao">
                         <select style="margin-right: 10px;" *ngFor="let l of listaLocalizacoes; let i = index;"
                             id="localizacaoProduto1" class="localizacaoProduto" (change)="mudarLocalizacoes(i)"
