@@ -304,11 +304,11 @@ export class HomeComponent implements OnInit {
 
   selectAll() {
     if (this.selectAllLocalizacoes) {
-      this.service.localizacoes.forEach((localizacao) => {
+      this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
       });
     } else {
-      this.service.localizacoes.forEach((localizacao) => {
+      this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = true;
       });
     }

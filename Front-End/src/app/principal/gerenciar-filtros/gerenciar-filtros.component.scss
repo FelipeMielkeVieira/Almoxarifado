@@ -192,3 +192,24 @@
 #botaoAdicionar:hover {
     background-color: #003180;
 }
+
+::-webkit-scrollbar-track {
+    background-color: #EEEEEE;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #EEEEEE;
+}
+::-webkit-scrollbar-thumb {
+    transition: all .5s ease;
+    background: #dad7d7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    transition: all .5s ease;
+    background: #cac7c7;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #bbb8b8;
+}
