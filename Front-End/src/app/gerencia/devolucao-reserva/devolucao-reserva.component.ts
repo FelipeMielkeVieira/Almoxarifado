@@ -29,9 +29,9 @@ export class DevolucaoReservaComponent implements OnInit {
     selecionarNaoDevolucao() {
         this.naoDevolvido = !this.naoDevolvido;
         if (this.naoDevolvido) {
-            (document.querySelector("#botaoNaoDevolvido") as HTMLButtonElement).style.backgroundColor = "red";
+            (document.querySelector("#botaoNaoDevolvido") as HTMLButtonElement).style.backgroundColor = "rgb(194, 0, 0)";
         } else {
-            (document.querySelector("#botaoNaoDevolvido") as HTMLButtonElement).style.backgroundColor = "gray";
+            (document.querySelector("#botaoNaoDevolvido") as HTMLButtonElement).style.backgroundColor = "red";
         }
     }
 

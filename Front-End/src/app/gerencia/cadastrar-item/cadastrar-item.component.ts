@@ -62,9 +62,9 @@ export class CadastrarItemComponent implements OnInit {
   mudarClassificacao() {
     this.criarClassificacao = !this.criarClassificacao;
     if (this.criarClassificacao) {
-      (document.querySelector('#adicionarClassificacao') as HTMLDivElement).style.backgroundColor = "#0047B6";
+      (document.querySelector('#adicionarClassificacao') as HTMLDivElement).style.backgroundColor = "#003378";
     } else {
-      (document.querySelector('#adicionarClassificacao') as HTMLDivElement).style.backgroundColor = "#B6B3B3"
+      (document.querySelector('#adicionarClassificacao') as HTMLDivElement).style.backgroundColor = "#0047B6"
     }
   }
 
