@@ -38,7 +38,7 @@ export class CadastrarItemComponent implements OnInit {
 
   buscarClassificacoes() {
     this.classificacaoService.getAll().subscribe(
-      data => this.listaClassificacao = data,
+      data => {this.listaClassificacao = data},
       error => { console.log(error) }
     );
   }

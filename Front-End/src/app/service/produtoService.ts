@@ -32,11 +32,11 @@ export class ProdutoService {
     }
 
     putProduto(usuario: Object, email: string): Observable<any> {
-        return this.httpClient.put<any>(`http://localhost:8080/alma_sis/usuario/${email}`, usuario, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
+        return this.httpClient.put<any>(`http://localhost:8080/alma_sis/produto/${email}`, usuario, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
     }
 
-    deleteProduto(email: string): Observable<any> {
-        return this.httpClient.delete<any>(`http://localhost:8080/alma_sis/usuario/${email}`);
+    deleteProduto(id: number): Observable<any> {
+        return this.httpClient.delete<any>(`http://localhost:8080/alma_sis/produto/${id}`);
     }
 
 }

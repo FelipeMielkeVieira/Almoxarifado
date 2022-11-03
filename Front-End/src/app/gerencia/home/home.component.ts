@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private paginator: MatPaginatorIntl, private service: UsersService, private localizacaoService: LocalizacaoService, private userService: UserService, private produtoService: ProdutoService) {
     this.tipoUsuario = parseInt(localStorage.getItem("usuario") || "0");
-    this.listaCadastrosPendentes = service.usuariosPendentes;
 
     paginator.itemsPerPageLabel = 'Quantidade de itens por página:';
     paginator.nextPageLabel = 'Próxima página';
@@ -455,6 +454,14 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.feedbackUsuarioExcluido = false;
     }, 4500);
+  }
+
+  excluirItemLista(id: number) {
+    for(let i = 0; i < this.listaItens; i++) {
+      if(this.listaItens[i].id == id) {
+        this.listaItens.splice(i, 1);
+      }
+    }
   }
 
   mudarPagina(event: any) {

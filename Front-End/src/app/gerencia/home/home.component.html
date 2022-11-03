@@ -160,6 +160,8 @@
                 <!-- Aba de baixa nas devoluções, separada em bloco e lista -->
                 <div *ngIf="abaDevolucoes && listaEmBloco" class="containerDevolucoes" id="containerReservas">
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
+                    <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
+                    <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                 </div>
                 <div *ngIf="abaDevolucoes && !listaEmBloco" class="containerDevolucoes">
                     <app-reserva-lista [listaReservas]="reservasDevolucao" style="width: 100%;"></app-reserva-lista>
@@ -175,7 +177,8 @@
 
                 <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
                 <div *ngIf="listaEmBloco && abaItens" id="containerItens">
-                    <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>
+                    <app-item (excluirItemLista)="excluirItemLista($event)" [visualizacaoItem]="'emBloco'"
+                        *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
 
                 <div *ngIf="!listaEmBloco && abaItens" id="containerItensLista">

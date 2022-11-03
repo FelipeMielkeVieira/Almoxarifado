@@ -38,7 +38,7 @@
             title="Deletar"
             *ngIf="tipoUser == 3 || tipoUser == 4"
             class="material-symbols-outlined iconDeselect"
-            (click)="removerItem()"
+            (click)="removerItem(item.id)"
             id="iconeExcluir"
           >
             delete

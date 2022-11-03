@@ -46,6 +46,9 @@ export class HomeComponent implements OnInit {
   tamanhoPaginaAntigo: number = 18;
   parametrosPagina: string = "";
 
+  itemOrdenacaoAtual: string = "id";
+  ordenacaoAtual: string = "asc";
+
   ngOnInit() {
 
     this.buscarItens();
@@ -79,8 +82,8 @@ export class HomeComponent implements OnInit {
 
   buscarItens() {
     this.produtoService.getCount().subscribe(
-      data => {this.itensTotais = data; this.numResultados = data;},
-      error => {console.log(error)}
+      data => { this.itensTotais = data; this.numResultados = data; },
+      error => { console.log(error) }
     )
 
     this.produtoService.getPage(this.parametrosPagina).subscribe(
@@ -116,7 +119,28 @@ export class HomeComponent implements OnInit {
 
   //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações
   ordenarItens(event: any) {
-    this.listaOrdenacoes = JSON.parse(event);
+
+    event = JSON.parse(event);
+    if(event[0]) {
+      this.itemOrdenacaoAtual = "nome"
+      this.ordenacaoAtual = "asc";
+    }
+    if(event[1]) {
+      this.itemOrdenacaoAtual = "nome"
+      this.ordenacaoAtual = "desc";
+    }
+    if(event[2]) {
+      this.itemOrdenacaoAtual = "quantidade"
+      this.ordenacaoAtual = "desc";
+    }
+    if(event[3]) {
+      this.itemOrdenacaoAtual = "quantidade"
+      this.ordenacaoAtual = "asc";
+    }
+
+    this.parametrosPagina = "sort=" + this.itemOrdenacaoAtual + "," + this.ordenacaoAtual + "&size=" + this.tamanhoPagina + "&page=" + this.paginaAtual;
+    this.carregando = !this.carregando;
+    this.buscarItens();
   }
 
   abrirFeedback(numero: number) {
@@ -164,14 +188,14 @@ export class HomeComponent implements OnInit {
         this.paginaAtual--;
       }
 
-      this.parametrosPagina = "sort=id,asc&size=" + event.pageSize + "&page=" + event.pageIndex;
+      this.parametrosPagina = "sort=" + this.itemOrdenacaoAtual + "," + this.ordenacaoAtual + "&size=" + event.pageSize + "&page=" + event.pageIndex;
       this.buscarItens();
     } else {
       if (event.pageSize != this.tamanhoPaginaAntigo) {
         this.tamanhoPagina = event.pageSize;
         this.tamanhoPaginaAntigo = event.pageSize;
 
-        this.parametrosPagina = "sort=id,asc&size=" + event.pageSize + "&page=" + event.pageIndex;
+        this.parametrosPagina = "sort=" + this.itemOrdenacaoAtual + "," + this.ordenacaoAtual + "&size=" + event.pageSize + "&page=" + event.pageIndex;
         this.buscarItens();
       }
     }

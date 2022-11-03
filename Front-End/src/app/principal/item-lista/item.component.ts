@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ProdutoService } from 'src/app/service/produtoService';
 
 @Component({
   selector: 'app-item-lista',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemListaComponent implements OnInit {
 
-  constructor() {
+  constructor(private produtoService: ProdutoService) {
     this.tipoUser = parseInt(localStorage.getItem("usuario") || "");
   }
 
@@ -82,9 +83,7 @@ export class ItemListaComponent implements OnInit {
 
   // Função para deixar visível o modal de reserva do item
   abrirModalReserva(event: any, item: any) {
-    console.log(event);
     let idIcone = event.path[0].id;
-    console.log(idIcone);
 
     switch (idIcone) {
       case "iconeEditar":
@@ -94,7 +93,7 @@ export class ItemListaComponent implements OnInit {
         this.abrirHistorico();
         break;
       case "iconeExcluir":
-        this.removerItem();
+        this.removerItem(item.id);
         break;
       case "iconeEstrela":
         break;
@@ -121,8 +120,9 @@ export class ItemListaComponent implements OnInit {
     this.modalAnexos = !this.modalAnexos;
   }
 
-  removerItem() {
+  removerItem(id: number) {
     this.modalConfirmarRemocao = true;
+    localStorage.setItem('itemAtual', id.toString());
   }
 
   // Função para fechar os modais de reserva, edição, etc... do item
@@ -208,8 +208,24 @@ export class ItemListaComponent implements OnInit {
           setTimeout(() => {
             this.feedbackRemoverItem = false;
           }, 4000);
+          this.excluirItem();
         }
+        localStorage.removeItem("itemAtual");
         break;
+    }
+  }
+
+  excluirItem() {
+
+    let idItem = parseInt(localStorage.getItem("itemAtual") || "0");
+    this.produtoService.deleteProduto(idItem).subscribe(
+      error => { console.log(error) }
+    )
+
+    for (let i = 0; i < this.itens.length; i++) {
+      if (this.itens[i].id == idItem) {
+        this.itens.splice(i, 1);
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ProdutoService } from 'src/app/service/produtoService';
 
 @Component({
   selector: 'app-item',
@@ -8,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ItemComponent implements OnInit {
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private produtoService: ProdutoService) {
     this.tipoUser = parseInt(localStorage.getItem("usuario") || "");
   }
 
@@ -29,6 +30,8 @@ export class ItemComponent implements OnInit {
 
   // Input com o objeto do item recebido da lista
   @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: { dados: "", id: 0, nome: "", tipo: "" }, classificacao: {id: 0, classificacao: ''}, anexos: [{ descricao: "", anexo: "" }], localizacoes: [{ id: 0 }] };
+
+  @Output() excluirItemLista = new EventEmitter<number>();
 
   modalReservar: boolean = false;
   modalEditar: boolean = false;
@@ -202,8 +205,16 @@ export class ItemComponent implements OnInit {
           setTimeout(() => {
             this.feedbackRemoverItem = false;
           }, 4000);
+          this.excluirItem();
         }
         break;
     }
+  }
+
+  excluirItem() {
+    this.produtoService.deleteProduto(this.item.id).subscribe(
+      error => {console.log(error)}
+    )
+    this.excluirItemLista.emit(this.item.id);
   }
 }

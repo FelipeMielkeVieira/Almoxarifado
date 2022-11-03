@@ -97,6 +97,6 @@ public class ProdutoController {
         Produto produto = produtoService.findById(id).get();
         produto.setVisibilidade(false);
         produtoService.save(produto);
-        return ResponseEntity.status(HttpStatus.OK).body("Produto deletado com sucesso!");
+        return ResponseEntity.status(HttpStatus.OK).body(produto);
     }
 }
