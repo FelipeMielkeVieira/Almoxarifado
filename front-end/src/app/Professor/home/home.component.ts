@@ -44,19 +44,11 @@ export class HomeComponent implements OnInit {
   tamanhoPagina: number = 18;
   paginaAtual: number = 0;
   tamanhoPaginaAntigo: number = 18;
+  parametrosPagina: string = "";
 
   ngOnInit() {
 
-    this.produtoService.getCount().subscribe(
-      data => {this.itensTotais = data; this.numResultados = data;},
-      error => {console.log(error)}
-    )
-
-    this.produtoService.getPage("").subscribe(
-      data => { this.listaItens = data; this.carregando = !this.carregando; },
-      error => { console.log(error) }
-    );
-
+    this.buscarItens();
     // Função para fechamento dos modais ordenar e filtrar caso tenha sido clicado fora
     var self = this;
     window.addEventListener("click", function (event) {
@@ -83,6 +75,18 @@ export class HomeComponent implements OnInit {
       localStorage.removeItem('cancelar');
       this.abrirFeedback(3);
     }
+  }
+
+  buscarItens() {
+    this.produtoService.getCount().subscribe(
+      data => {this.itensTotais = data; this.numResultados = data;},
+      error => {console.log(error)}
+    )
+
+    this.produtoService.getPage(this.parametrosPagina).subscribe(
+      data => { this.listaItens = data; this.carregando = !this.carregando; },
+      error => { console.log(error) }
+    );
   }
 
   // Função para mudar a visualização dos itens entre lista e bloco
@@ -160,20 +164,15 @@ export class HomeComponent implements OnInit {
         this.paginaAtual--;
       }
 
-      this.carregando = !this.carregando;
-      this.produtoService.getPage("sort=id,asc&size=" + event.pageSize + "&page=" + event.pageIndex).subscribe(
-        data => { this.listaItens = data; this.carregando = !this.carregando; console.log(data) },
-        error => { console.log(error) }
-      );
+      this.parametrosPagina = "sort=id,asc&size=" + event.pageSize + "&page=" + event.pageIndex;
+      this.buscarItens();
     } else {
       if (event.pageSize != this.tamanhoPaginaAntigo) {
         this.tamanhoPagina = event.pageSize;
         this.tamanhoPaginaAntigo = event.pageSize;
-        this.carregando = !this.carregando;
-        this.produtoService.getPage("sort=id,asc&size=" + event.pageSize + "&page=" + event.pageIndex).subscribe(
-          data => { this.listaItens = data; this.carregando = !this.carregando; console.log(data) },
-          error => { console.log(error) }
-        );
+
+        this.parametrosPagina = "sort=id,asc&size=" + event.pageSize + "&page=" + event.pageIndex;
+        this.buscarItens();
       }
     }
   }
