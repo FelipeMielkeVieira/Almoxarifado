@@ -15,7 +15,7 @@ export class ModalReservarItem implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
 
   // Item recebido do componente pai
-  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: { dados: "", id: 0, nome: "", tipo: "" }, classificacao: 0 };;
+  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: { dados: "", id: 0, nome: "", tipo: "" }, classificacao: { id: 0, classificacao: '' } };;
 
   // Variável de quantidade dos itens a serem reservados
   qtdItem: number = 1;
@@ -57,16 +57,6 @@ export class ModalReservarItem implements OnInit {
       return "Descartável"
     }
     return "Não Descartável"
-  }
-
-  // Retorna o nome de uma classificacao através do id recebido pelo item
-  buscarClassificacao(codigoClassificacao: number) {
-    for (const classificacao of this.service.classificacoes) {
-      if (classificacao.id == codigoClassificacao) {
-        return classificacao.classificacao;
-      }
-    }
-    return "Nenhuma";
   }
 
   // Função para mudar a quantidade do item a ser reservado (1 -> +  ||  2 -> -)

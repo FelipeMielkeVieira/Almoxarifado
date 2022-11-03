@@ -80,6 +80,7 @@ export class HomeComponent implements OnInit {
   paginaAtual: number = 0;
   itensTotais: number = 0;
   tamanhoPagina: number = 18;
+  parametrosPagina: string = "";
 
   ngOnInit() {
 
@@ -176,7 +177,7 @@ export class HomeComponent implements OnInit {
       error => { console.log(error) }
     )
 
-    this.produtoService.getPage("").subscribe(
+    this.produtoService.getPage(this.parametrosPagina).subscribe(
       data => { this.listaItens = data; this.carregando = !this.carregando; },
       error => { console.log(error) }
     );
@@ -281,6 +282,8 @@ export class HomeComponent implements OnInit {
           setTimeout(() => {
             this.feedbackItemCadastrado = false;
           }, 4500);
+
+          this.buscarItens();
         }
         break;
     }

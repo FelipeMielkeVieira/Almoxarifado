@@ -12,7 +12,7 @@ export class ModalMotivoEdicaoComponent implements OnInit {
 
   @Output() fecharModal = new EventEmitter<string>();
 
-  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: {dados: "", id: 0, nome: "", tipo: ""}, classificacao: 0 };
+  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: { dados: "", id: 0, nome: "", tipo: "" }, classificacao: { id: 0, classificacao: '' } };
 
   ngOnInit() {
 

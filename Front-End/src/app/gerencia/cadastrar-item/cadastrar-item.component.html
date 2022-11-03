@@ -21,7 +21,6 @@
                 <div class="mb-3 divInputImagem">
                     <div class="containerTexto">
                         <label for="formFileSm" class="form-label tamanhoTextos">Escolher Imagem:</label>
-                        <div class="asterisco">*</div>
                     </div>
                     <input class="form-control form-control-sm " id="formFileSm" type="file"
                         (change)="carregarImagem($event)">
@@ -59,10 +58,7 @@
             </div>
             <div class="localizacao">
                 <div style="display: flex; align-items: center;">
-                    <div class="texto">
-                        <span class="tamanhoTextos">Localização:</span>
-                        <div style="margin-right: 15px" class="asterisco">*</div>
-                    </div>
+                    <span style="margin-right: 15px" class="tamanhoTextos">Localização:</span>
                     <div class="containerLocalizacao">
                         <select style="margin-right: 10px;" *ngFor="let l of listaLocalizacoes; let i = index;"
                             id="localizacaoProduto1" class="localizacaoProduto" (change)="mudarLocalizacoes(i)"
