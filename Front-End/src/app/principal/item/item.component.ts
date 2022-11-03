@@ -82,9 +82,9 @@ export class ItemComponent implements OnInit {
 
   // Função para deixar visível o modal de reserva do item
   abrirModalReserva() {
+    document.documentElement.style.overflow = "hidden" 
     this.modalReservar = true;
   }
-
 
   // Função para deixar o item nos favoritos
   favoritos() {
