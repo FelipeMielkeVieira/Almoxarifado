@@ -5,7 +5,6 @@
 p {
     font-size: var(--font-size--small);
     margin-bottom: 0;
-    cursor: pointer;
 }
 
 li {
@@ -93,9 +92,10 @@ li:hover {
 }
 
 #perguntasFrequentes {
-    margin-left: 25px;
+    margin: 25px 0;
     display: grid;
-    grid-template-columns:repeat(auto-fill, minmax(25rem, 1fr));
+    grid-template-columns:repeat(auto-fill, minmax(29rem, 1fr));
+    grid-gap: 0 1.5rem;
 }
 
 #grupoPergunta {
@@ -140,3 +140,55 @@ li:hover {
     text-align: justify;
     cursor: default;
 }
+
+.containerCard {
+    margin: 1rem 0rem;
+}
+
+.headerCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border: 1px solid rgba(196, 196, 196, 0.933);
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+}
+
+.headerCard:hover {
+    background-color: rgba(238, 238, 238, 0.952);
+}
+
+.headerCard p {
+    font-size: var(--font-size--big);
+}
+
+.conteudoCard {
+    border: 1px solid rgba(196, 196, 196, 0.933);
+    border-radius: 0 0 5px 5px;
+    padding: 16px;
+    height: 180px;
+}
+
+#card1, #card2, #card3 {
+    display: none;
+}
+
+@keyframes descer {
+    from {
+      margin-top: -80px;
+    }
+  
+    to {
+      margin-top: 0;
+    }
+  }
+
+  @keyframes subir {
+    from {
+        height: 180px;
+    }
+    to {
+      height: 0;
+    }
+  }
