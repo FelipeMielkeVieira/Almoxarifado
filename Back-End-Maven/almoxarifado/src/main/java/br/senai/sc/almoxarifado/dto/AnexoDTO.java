@@ -1,5 +1,6 @@
 package br.senai.sc.almoxarifado.dto;
 
+import br.senai.sc.almoxarifado.model.entities.Produto;
 import lombok.Getter;
 
 @Getter

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { UsersService } from 'src/app/service';
+import { AnexoService } from 'src/app/service/anexoService';
 import { ClassificacaoService } from 'src/app/service/classificacaoService';
 import { LocalizacaoService } from 'src/app/service/localizacaoService';
 import { ProdutoService } from 'src/app/service/produtoService';
@@ -14,7 +15,7 @@ export class CadastrarItemComponent implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
   @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
 
-  constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService, private produtoService: ProdutoService) { }
+  constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService, private produtoService: ProdutoService, private anexoService: AnexoService) { }
 
   listaClassificacao: any[] = [];
   listaLocalizacoes: any[] = [];
@@ -30,6 +31,7 @@ export class CadastrarItemComponent implements OnInit {
   descricaoItem: string = "";
   itemDescartavel: boolean = false;
   classificacaoItem: number = 1;
+  classificacaoTexto: string = "";
 
   ngOnInit(): void {
     this.buscarClassificacoes();
@@ -38,7 +40,7 @@ export class CadastrarItemComponent implements OnInit {
 
   buscarClassificacoes() {
     this.classificacaoService.getAll().subscribe(
-      data => {this.listaClassificacao = data},
+      data => { this.listaClassificacao = data },
       error => { console.log(error) }
     );
   }
@@ -108,37 +110,48 @@ export class CadastrarItemComponent implements OnInit {
     document.documentElement.style.overflow = this.modalDetalhes ? "hidden" : "auto";
   }
 
-  salvarDetalhes(event: string) {
+  fecharDetalhes(event: string) {
+    this.descricaoItem = event;
     this.toggleModalDetalhes();
-    let textosEvento = event.split("*");
-    this.descricaoItem = textosEvento[0];
-    this.listaAnexos = JSON.parse(textosEvento[1]);
+  }
+
+  salvarArquivos(event: File[]) {
+    this.listaAnexos = event;
   }
 
   cadastrarItem() {
 
-    const produto = {
+    let produto = {
       nome: this.nomeProduto,
       quantidade: this.qtdItem,
       caracteristicas: this.descricaoItem,
       descartavel: this.itemDescartavel,
-      classificacao: { id: this.classificacaoItem },
-      localizacoes: [{id: this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1]}],
+      classificacao: { id: 0 },
+      localizacoes: [{ id: this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1] }],
     }
 
-    this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
-      data => { this.fecharModalCadastro("cadastro") },
-      error => { console.log(error) }
-    )
+    if (this.criarClassificacao) {
+      this.classificacaoService.postFiltros({ classificacao: this.classificacaoTexto }).subscribe(
+        data => {
+          produto.classificacao = { id: data.id };
+
+          this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
+            data => { this.fecharModalCadastro("cadastro") },
+            error => { console.log(error) }
+          )
+        },
+        error => { console.log(error); return { id: 0 }; }
+      )
+    } else {
+      produto.classificacao = { id: this.classificacaoItem }
+      this.produtoService.postProduto(produto, this.imagemItem, this.listaAnexos).subscribe(
+        data => { this.fecharModalCadastro("cadastro") },
+        error => { console.log(error) }
+      )
+    }
   }
 
   cadastrar() {
-    const arquivo = document.getElementById("formFileSm") as HTMLFormElement;
-
-    const nome = document.getElementById("nomeCadastro") as HTMLFormElement;
-
-    const opcao = (<HTMLSelectElement>document.getElementById('selecionarDescartavel')).value;
-
     if (this.nomeProduto != "") {
       this.cadastrarItem();
     } else {

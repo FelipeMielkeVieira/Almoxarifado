@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class CadastrarDescricaoItemComponent implements OnInit {
 
   @Output() fecharModal = new EventEmitter<string>();
+  @Output() encaminharArquivos = new EventEmitter<File[]>();
 
   // Importante! Essa variável vai guardar os arquivos adicionados pelo usuário
   inputFileList: any = [];
@@ -22,7 +23,7 @@ export class CadastrarDescricaoItemComponent implements OnInit {
 
   //Função para fechar modal, emite um evento para o componente pai que irá fechar o modal	
   fechar() {
-    this.fecharModal.emit(this.descricao + "*" + JSON.stringify(this.inputFileList));
+    this.fecharModal.emit(this.descricao);
   }
 
   // Cancela e fecha o modal
@@ -32,13 +33,13 @@ export class CadastrarDescricaoItemComponent implements OnInit {
 
   // Salva o item
   salvar() {
+    this.encaminharArquivos.emit(this.inputFileList);
     this.fechar();
   }
 
   // Função adicionada quando o usuário adiciona um arquivo no input de anexo, adiciona uma nova linha na tabela de anexos 
   anexoAdicionado() {
     let inputFile = document.getElementById('anexoInput') as HTMLInputElement;
-
     this.inputFileList.push.apply(this.inputFileList, inputFile.files);
   }
 

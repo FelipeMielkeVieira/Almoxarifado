@@ -15,24 +15,37 @@ export class ProdutoService {
     }
 
     getPage(param: string): Observable<any[]> {
-        if(param == "") {
+        if (param == "") {
             return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto/page");
         } else {
             return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page?${param}`);
         }
     }
 
-    postProduto(produto: Object, imagem: File, anexos: Array<File>): Observable<any> {
+    postProduto(produto: Object, imagem: File, anexos: File[]): Observable<any> {
         const formData = new FormData();
         formData.set("produto", JSON.stringify(produto));
         formData.set("imagem", imagem);
-        formData.set("anexos", JSON.stringify(anexos));
+        
+        if(anexos.length > 0) {
+            for (const anexo of anexos) {
+                formData.append("anexos", anexo);   
+            }
+        }
 
-        return this.httpClient.post<any>("http://localhost:8080/alma_sis/produto", formData);
+        if(anexos.length > 0) {
+            return this.httpClient.post<any>("http://localhost:8080/alma_sis/produto/anexos", formData);
+        } else {
+            return this.httpClient.post<any>("http://localhost:8080/alma_sis/produto", formData);
+        }
     }
 
-    putProduto(usuario: Object, email: string): Observable<any> {
-        return this.httpClient.put<any>(`http://localhost:8080/alma_sis/produto/${email}`, usuario, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
+    putProduto(item: Object, id: number): Observable<any> {
+        return this.httpClient.put<any>(`http://localhost:8080/alma_sis/produto/${id}`, item, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
+    }
+
+    removerLocalizacoes(classificacao: Object): Observable<any> {
+        return this.httpClient.put<any>(`http://localhost:8080/alma_sis/produto/remover-classificacao`, classificacao, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
     }
 
     deleteProduto(id: number): Observable<any> {

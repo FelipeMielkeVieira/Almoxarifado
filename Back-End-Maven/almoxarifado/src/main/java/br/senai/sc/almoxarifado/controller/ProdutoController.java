@@ -1,9 +1,9 @@
 package br.senai.sc.almoxarifado.controller;
 
 import br.senai.sc.almoxarifado.dto.ProdutoDTO;
+import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.service.ProdutoService;
-import br.senai.sc.almoxarifado.util.AnexoUtil;
 import br.senai.sc.almoxarifado.util.ProdutoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -67,6 +67,20 @@ public class ProdutoController {
         Produto produto = produtoUtil.convertJsonToModel(produtoJson);
 
         produto.setImagem(imagem);
+        produto.setVisibilidade(true);
+        return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.save(produto));
+    }
+
+    @PostMapping("/anexos")
+    public ResponseEntity<Produto> saveWithAnexos(@RequestParam("produto") String produtoJson,
+                                        @RequestParam("imagem") MultipartFile imagem,
+                                        @RequestParam("anexos") List<MultipartFile> anexos) {
+
+        ProdutoUtil produtoUtil = new ProdutoUtil();
+        Produto produto = produtoUtil.convertJsonToModel(produtoJson);
+
+        produto.setImagem(imagem);
+        produto.setAnexos(anexos);
         produto.setVisibilidade(true);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.save(produto));
     }

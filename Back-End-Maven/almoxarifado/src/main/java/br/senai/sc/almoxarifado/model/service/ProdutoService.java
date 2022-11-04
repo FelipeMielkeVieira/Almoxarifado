@@ -1,5 +1,6 @@
 package br.senai.sc.almoxarifado.model.service;
 
+import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.repository.ProdutoRepository;
 import org.springframework.data.domain.Page;
