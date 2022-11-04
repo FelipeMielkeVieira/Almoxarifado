@@ -4,22 +4,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-ajuda',
   templateUrl: './ajuda.component.html',
-  styleUrls: ['./ajuda.component.scss']
+  styleUrls: ['./ajuda.component.scss'],
 })
 export class AjudaComponent implements OnInit {
-
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   home() {
-    if(localStorage.getItem('usuario') == '1') {
-      this.router.navigate(['/professor'])
-    } else if (localStorage.getItem('usuario') == '2' || localStorage.getItem('usuario') == '3') {
+    if (localStorage.getItem('usuario') == '1') {
+      this.router.navigate(['/professor']);
+    } else if (
+      localStorage.getItem('usuario') == '2' ||
+      localStorage.getItem('usuario') == '3'
+    ) {
       this.router.navigate(['/atendente']);
     } else {
-      this.router.navigate(['/supervisor'])
+      this.router.navigate(['/supervisor']);
     }
   }
 
@@ -28,7 +29,7 @@ export class AjudaComponent implements OnInit {
     let expandirElement: any = null;
     let headerElement: any = null;
     let conteudoElement: any = null;
-    switch(card) {
+    switch (card) {
       case 1:
         cardElement = document.getElementById('card1');
         expandirElement = document.getElementById('expandir1');
@@ -48,20 +49,26 @@ export class AjudaComponent implements OnInit {
         conteudoElement = document.getElementById('conteudo3');
         break;
     }
-    if (cardElement.style.display == 'block' ) {
+    if (conteudoElement.style.display == 'block') {
+      cardElement.style.padding = '2px';
       expandirElement.style.transition = 'transform 1s';
       expandirElement.style.transform = 'rotate(360deg)';
-      cardElement.style.animation = "subir 1.5s"
+      cardElement.style.animation = 'subir 1.5s';
       conteudoElement.style.display = 'none';
-      setTimeout(() => {
-        cardElement.style.display = 'none';
-      },1500);
-
+      cardElement.style.height = '0';
+      // setTimeout(() => {
+      //   cardElement.style.display = 'none';
+      // }, 1500);
     } else {
       expandirElement.style.transform = 'rotate(-180deg)';
+      cardElement.style.padding = '16px';
       expandirElement.style.transition = 'transform 1s';
-      cardElement.style.display = 'block';
-      cardElement.style.animation = "descer 1s"
+      // cardElement.style.display = 'block';
+      cardElement.style.animation = 'descer 1s';
+      cardElement.style.height = '180px';
+      setTimeout(() => {
+        conteudoElement.style.display = 'block';
+      }, 600);
     }
   }
 }

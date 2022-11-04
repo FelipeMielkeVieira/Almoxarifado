@@ -166,21 +166,22 @@ li:hover {
 .conteudoCard {
     border: 1px solid rgba(196, 196, 196, 0.933);
     border-radius: 0 0 5px 5px;
-    padding: 16px;
-    height: 180px;
+    padding: 2px;
+    height: 0px;
 }
 
-#card1, #card2, #card3 {
+#conteudo1, #conteudo2, #conteudo3 {
     display: none;
 }
 
+
 @keyframes descer {
     from {
-      margin-top: -80px;
+        height: 0;
     }
   
     to {
-      margin-top: 0;
+        height: 180px;
     }
   }
 
@@ -189,6 +190,6 @@ li:hover {
         height: 180px;
     }
     to {
-      height: 0;
+        height: 0;
     }
   }
