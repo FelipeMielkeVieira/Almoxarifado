@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { ClassificacaoService } from 'src/app/service/classificacaoService';
+import { ProdutoService } from 'src/app/service/produtoService';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { ClassificacaoService } from 'src/app/service/classificacaoService';
 })
 export class GerenciarFiltrosComponent implements OnInit {
 
-    constructor(private classificacaoService: ClassificacaoService) {
+    constructor(private classificacaoService: ClassificacaoService, private produtoService: ProdutoService) {
     }
 
     @Input() listaFiltros: any[] = [];
@@ -94,7 +95,13 @@ export class GerenciarFiltrosComponent implements OnInit {
     // Função para salvar a exclusão de filtros no banco
     salvarExclusao() {
         for (const filtro of this.listaFiltrosExcluidos) {
-            this.classificacaoService.deleteFiltros(filtro.id).subscribe(
+
+            this.produtoService.removerLocalizacoes(filtro).subscribe(
+                data => {
+                    this.classificacaoService.deleteFiltros(filtro.id).subscribe(
+                        error => { console.log(error) }
+                    )
+                },
                 error => { console.log(error) }
             )
         }

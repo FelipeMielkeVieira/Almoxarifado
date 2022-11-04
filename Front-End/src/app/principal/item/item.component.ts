@@ -44,7 +44,6 @@ export class ItemComponent implements OnInit {
   feedbackReservaFeita = false;
   feedbackColocadoSacola = false;
   feedbackEditarItem = false;
-  feedbackRemoverItem = false;
 
   favorito: boolean = false;
   imagemUrl: any;
@@ -189,9 +188,6 @@ export class ItemComponent implements OnInit {
       case 3:
         this.feedbackEditarItem = false;
         break;
-      case 4:
-        this.feedbackRemoverItem = false;
-        break;
     }
   }
 
@@ -201,10 +197,6 @@ export class ItemComponent implements OnInit {
       case 1:
         this.modalConfirmarRemocao = false;
         if (resposta) {
-          this.feedbackRemoverItem = true;
-          setTimeout(() => {
-            this.feedbackRemoverItem = false;
-          }, 4000);
           this.excluirItem();
         }
         break;
@@ -213,8 +205,8 @@ export class ItemComponent implements OnInit {
 
   excluirItem() {
     this.produtoService.deleteProduto(this.item.id).subscribe(
+      data => {this.excluirItemLista.emit(this.item.id);},
       error => {console.log(error)}
     )
-    this.excluirItemLista.emit(this.item.id);
   }
 }

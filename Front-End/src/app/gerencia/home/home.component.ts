@@ -69,6 +69,7 @@ export class HomeComponent implements OnInit {
   feedbackLocalizacaoCadastrada = false;
   feedbackItemCadastrado = false;
   feedbackLocalizacoesExcluidas = false;
+  feedbackItemExcluido = false;
 
   feedbackUsuarioAceito = false;
   feedbackUsuarioRecusado = false;
@@ -402,6 +403,9 @@ export class HomeComponent implements OnInit {
       case 9:
         this.feedbackUsuarioAtualizado = false;
         break;
+      case 10:
+        this.feedbackItemExcluido = false;
+        break;
     }
   }
 
@@ -457,11 +461,16 @@ export class HomeComponent implements OnInit {
   }
 
   excluirItemLista(id: number) {
-    for(let i = 0; i < this.listaItens; i++) {
+    for(let i = 0; i < this.listaItens.length; i++) {
       if(this.listaItens[i].id == id) {
         this.listaItens.splice(i, 1);
       }
     }
+
+    this.feedbackItemExcluido = true;
+    setTimeout(() => {
+      this.feedbackItemExcluido = false;
+    }, 4500);
   }
 
   mudarPagina(event: any) {

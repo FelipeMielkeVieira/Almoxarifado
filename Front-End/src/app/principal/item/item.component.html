@@ -65,10 +65,6 @@
 <app-modal-feedback *ngIf="feedbackEditarItem" [tipoFeedback]="3" (fecharModal)="fecharModaisFeedback(3)">
 </app-modal-feedback>
 
-<!-- Feedback Item Removido -->
-<app-modal-feedback *ngIf="feedbackRemoverItem" [tipoFeedback]="4" (fecharModal)="fecharModaisFeedback(4)">
-</app-modal-feedback>
-
 <!-- Div usada como fundo para modais -->
 <div *ngIf="modalReservar || modalEditar || modalMotivoEdicao || modalConfirmarRemocao || modalAnexos || modalHistorico"
   id="fundoModal">

@@ -2,19 +2,21 @@ package br.senai.sc.almoxarifado.controller;
 
 import br.senai.sc.almoxarifado.dto.AnexoDTO;
 import br.senai.sc.almoxarifado.model.entities.Anexo;
+import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.service.AnexoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/alma_sis/anexo")
 public class AnexoController {
     private AnexoService anexoService;
@@ -38,10 +40,10 @@ public class AnexoController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> save(@RequestBody @Valid AnexoDTO anexoDTO){
+    public ResponseEntity<Object> save(@RequestParam("anexo") MultipartFile anexoDTO){
         Anexo anexo = new Anexo();
         BeanUtils.copyProperties(anexoDTO, anexo);
-        return ResponseEntity.status(HttpStatus.CREATED).body(anexoService.save(anexo));
+        return ResponseEntity.status(HttpStatus.OK).body(anexoService.save(anexo));
     }
 
     @PutMapping("/{idAnexo}")

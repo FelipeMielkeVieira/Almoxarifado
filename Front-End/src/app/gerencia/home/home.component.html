@@ -53,6 +53,10 @@
 <app-modal-feedback *ngIf="feedbackUsuarioAtualizado" [tipoFeedback]="10" (fecharModal)="fecharModaisFeedback(9)">
 </app-modal-feedback>
 
+<!-- Feedback Item Removido -->
+<app-modal-feedback *ngIf="feedbackItemExcluido" [tipoFeedback]="4" (fecharModal)="fecharModaisFeedback(10)">
+</app-modal-feedback>
+
 <app-header></app-header>
 <app-filtro></app-filtro>
 

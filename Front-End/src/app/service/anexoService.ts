@@ -11,7 +11,10 @@ export class AnexoService {
   }
 
   postAnexo(anexo: File): Observable<any> {
-    return this.httpClient.post<any>("http://localhost:8080/alma_sis/anexo", anexo, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
+    const formData = new FormData();
+    formData.set("anexo", anexo);
+    console.log(formData)
+    return this.httpClient.post<any>("http://localhost:8080/alma_sis/anexo", formData);
   }
 
   deleteAnexo(id: number): Observable<any> {

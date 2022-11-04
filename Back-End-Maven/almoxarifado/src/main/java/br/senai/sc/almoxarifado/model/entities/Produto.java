@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -61,6 +62,18 @@ public class Produto {
             this.imagem = new Imagem(file.getOriginalFilename(), file.getContentType(), file.getBytes());
         } catch (Exception exception) {
             throw new RuntimeException(exception.getMessage());
+        }
+    }
+
+    public void setAnexos(List<MultipartFile> files) {
+        List<Anexo> listaAnexos = new ArrayList<>();
+        try {
+            for (MultipartFile file : files) {
+                listaAnexos.add(new Anexo(file.getOriginalFilename(), file.getContentType(), file.getBytes()));
+            }
+            this.anexos = listaAnexos;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
         }
     }
 }
