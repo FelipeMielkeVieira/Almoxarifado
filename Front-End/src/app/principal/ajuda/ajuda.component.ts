@@ -53,20 +53,16 @@ export class AjudaComponent implements OnInit {
       cardElement.style.padding = '2px';
       expandirElement.style.transition = 'transform 1s';
       expandirElement.style.transform = 'rotate(360deg)';
-      cardElement.style.animation = 'subir 1.5s';
+      cardElement.style.animation = 'subir 1s';
       conteudoElement.style.display = 'none';
       cardElement.style.height = '0';
-      // setTimeout(() => {
-      //   cardElement.style.display = 'none';
-      // }, 1500);
     } else {
       expandirElement.style.transform = 'rotate(-180deg)';
-      cardElement.style.padding = '16px';
       expandirElement.style.transition = 'transform 1s';
-      // cardElement.style.display = 'block';
-      cardElement.style.animation = 'descer 1s';
+      cardElement.style.animation = 'descer 0.8s';
       cardElement.style.height = '180px';
       setTimeout(() => {
+        cardElement.style.padding = '16px';
         conteudoElement.style.display = 'block';
       }, 600);
     }
