@@ -142,21 +142,21 @@
                 <!-- Botões para troca de abas -->
 
                 <!-- Aba de aceitar / recusar cadastros novos de usuários, separados em bloco ou lista -->
-                <div *ngIf="abaGerenciaCadastros && listaEmBloco" id="containerGerenciarCadastros">
+                <div *ngIf="abaGerenciaCadastros && listaEmBloco && !carregando" id="containerGerenciarCadastros">
                     <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
                         [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
                 </div>
-                <div *ngIf="abaGerenciaCadastros && !listaEmBloco" class="usuarios">
+                <div *ngIf="abaGerenciaCadastros && !listaEmBloco && !carregando" class="usuarios">
                     <app-cadastrar-usuario-lista [listaCadastros]="listaCadastrosPendentes" style="width: 100%;">
                     </app-cadastrar-usuario-lista>
                 </div>
 
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista -->
-                <div *ngIf="abaGerenciaUsuarios && listaEmBloco" id="containerGerenciarUsuario">
+                <div *ngIf="abaGerenciaUsuarios && listaEmBloco && !carregando" id="containerGerenciarUsuario">
                     <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
                         (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
                 </div>
-                <div *ngIf="abaGerenciaUsuarios && !listaEmBloco" class="telaUsuarios">
+                <div *ngIf="abaGerenciaUsuarios && !listaEmBloco && !carregando" class="telaUsuarios">
                     <app-gerenciar-usuario-lista [listaUsuarios]="listaUsuarios" style="width: 100%;">
                     </app-gerenciar-usuario-lista>
                 </div>
@@ -180,16 +180,16 @@
                 </div>
 
                 <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
-                <div *ngIf="listaEmBloco && abaItens" id="containerItens">
+                <div *ngIf="listaEmBloco && abaItens && !carregando" id="containerItens">
                     <app-item (excluirItemLista)="excluirItemLista($event)" [visualizacaoItem]="'emBloco'"
                         *ngFor="let item of listaItens" [item]="item"></app-item>
                 </div>
 
-                <div *ngIf="!listaEmBloco && abaItens" id="containerItensLista">
+                <div *ngIf="!listaEmBloco && abaItens && !carregando" id="containerItensLista">
                     <app-item-lista [itens]="listaItens"></app-item-lista>
                 </div>
 
-                <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes">
+                <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes && !carregando">
                     <div id="containerAcoesLocalizacao">
                         <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoes" (click)="selectAll()">
                             Selecionar tudo</mat-checkbox>
@@ -203,9 +203,9 @@
                 </div>
 
                 <!-- Listagem de Páginas na parte de baixo da tela -->
-                <mat-paginator *ngIf="!carregando && itensTotais > 0" id="paginador" [pageIndex]="paginaAtual"
-                    [length]="itensTotais" [pageSize]="tamanhoPagina" [pageSizeOptions]="[18, 36, 72, 144]"
-                    aria-label="Select page" (page)="mudarPagina($event)">
+                <mat-paginator *ngIf="!carregando && itensTotais > 0" id="paginador"
+                    [pageIndex]="paginaAtual" [length]="itensTotais" [pageSize]="tamanhoPagina"
+                    [pageSizeOptions]="tamanhosPossiveisPagina" aria-label="Select page" (page)="mudarPagina($event)">
                 </mat-paginator>
             </div>
         </div>

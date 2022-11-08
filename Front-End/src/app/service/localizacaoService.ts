@@ -10,8 +10,16 @@ export class LocalizacaoService {
     return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/localizacao");
   }
 
+  getPage(param: string): Observable<any[]> {
+    return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/localizacao/page?${param}`);
+  }
+
   getByPai(id: number): Observable<any[]> {
     return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/localizacao/filho/${id}`);
+  }
+
+  countLocalizacoes(): Observable<any> {
+    return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/localizacao/count");
   }
 
   postLocalizacoes(filtro: Object): Observable<any> {

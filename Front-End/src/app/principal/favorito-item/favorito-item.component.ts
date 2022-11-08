@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FavoritoItemComponent implements OnInit {
 
-  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [{ descricao: "", anexo: "" }] };
+  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: {id: 0, classificacao: ''}, anexos: [{ descricao: "", anexo: "" }] };
   favorito: boolean = false;
 
   constructor() {

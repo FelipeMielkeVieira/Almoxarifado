@@ -3,6 +3,8 @@ package br.senai.sc.almoxarifado.model.service;
 import br.senai.sc.almoxarifado.model.entities.TipoUsuario;
 import br.senai.sc.almoxarifado.model.entities.Usuario;
 import br.senai.sc.almoxarifado.repository.UsuarioRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,5 +48,21 @@ public class UsuarioService {
 
     public void deleteById(String email) {
         usuarioRepository.deleteById(email);
+    }
+
+    public Object countCadastros() {
+        return this.usuarioRepository.countByTipoUsuarioAndVisibilidade(TipoUsuario.PENDENTE, true);
+    }
+
+    public Object countUsers() {
+        return this.usuarioRepository.countByTipoUsuarioIsNotAndVisibilidade(TipoUsuario.PENDENTE, true);
+    }
+
+    public List<Usuario> findPageUser(Pageable pageable) {
+        return this.usuarioRepository.findByTipoUsuarioIsNotAndVisibilidade(TipoUsuario.PENDENTE, true, pageable);
+    }
+
+    public List<Usuario> findPageCadastro(Pageable pageable) {
+        return this.usuarioRepository.findByTipoUsuarioAndVisibilidade(TipoUsuario.PENDENTE, true, pageable);
     }
 }

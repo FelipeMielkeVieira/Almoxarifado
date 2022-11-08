@@ -6,6 +6,10 @@ import br.senai.sc.almoxarifado.model.entities.Usuario;
 import br.senai.sc.almoxarifado.model.service.UsuarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -70,6 +74,26 @@ public class UsuarioController {
 
         TipoUsuario tipoUsuario = TipoUsuario.valueOf(tipoUsuarioParam);
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findByTipoUsuarioIsNot(tipoUsuario, true));
+    }
+
+    @GetMapping("/page/users")
+    public ResponseEntity<List<Usuario>> findPageUser(@PageableDefault(page = 0, size = 18, sort = "emailUsuario", direction = Sort.Direction.ASC) Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findPageUser(pageable));
+    }
+
+    @GetMapping("/page/cadastros")
+    public ResponseEntity<List<Usuario>> findPageCadastro(@PageableDefault(page = 0, size = 18, sort = "emailUsuario", direction = Sort.Direction.ASC) Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findPageCadastro(pageable));
+    }
+
+    @GetMapping("/count-cadastros")
+    public ResponseEntity<Object> countCadastros() {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.countCadastros());
+    }
+
+    @GetMapping("/count-users")
+    public ResponseEntity<Object> countUsers() {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.countUsers());
     }
 
     @PostMapping

@@ -78,9 +78,14 @@ export class HomeComponent implements OnInit {
 
   carregando = false;
   paginaAtual: number = 0;
-  itensTotais: number = 0;
+  itensTotais: any = 0;
   tamanhoPagina: number = 18;
+  tamanhoPaginaAntigo: number = 18;
   parametrosPagina: string = "";
+  tamanhosPossiveisPagina: any = [18, 36, 72, 144]
+
+  itemOrdenacaoAtual: string = "emailUsuario";
+  ordenacaoAtual: string = "asc";
 
   ngOnInit() {
 
@@ -121,8 +126,14 @@ export class HomeComponent implements OnInit {
   }
 
   buscarLocalizacoes() {
-    this.localizacaoService.getAll().subscribe(
-      data => this.localizacoesLista = data,
+    this.carregando = !this.carregando;
+    this.localizacaoService.countLocalizacoes().subscribe(
+      data => this.itensTotais = data,
+      error => { console.log(error) }
+    )
+
+    this.localizacaoService.getPage(this.parametrosPagina).subscribe(
+      data => { this.localizacoesLista = data; this.carregando = !this.carregando; },
       error => { console.log(error) }
     );
   }
@@ -147,10 +158,14 @@ export class HomeComponent implements OnInit {
     switch (numero) {
       case 1:
         this.abaGerenciaUsuarios = true;
+        this.itemOrdenacaoAtual = "emailUsuario";
+        this.modificarPaginacao(2);
         this.buscarUsuariosExistentes();
         break;
       case 2:
         this.abaGerenciaCadastros = true;
+        this.itemOrdenacaoAtual = "emailUsuario";
+        this.modificarPaginacao(2);
         this.buscarCadastrosPendentes();
         break;
       case 3:
@@ -161,12 +176,28 @@ export class HomeComponent implements OnInit {
         break;
       case 5:
         this.abaItens = true;
+        this.itemOrdenacaoAtual = "id";
+        this.modificarPaginacao(2);
         this.buscarItens();
         break;
       case 6:
         this.abaLocalizacoes = true;
+        this.itemOrdenacaoAtual = "id";
+        this.modificarPaginacao(1);
         this.localizacoesLista = this.buscarLocalizacoes();
         break;
+    }
+  }
+
+  modificarPaginacao(tipo: number) {
+    if(tipo == 1) {
+      this.paginaAtual = 0;
+      this.tamanhoPagina = 50;
+      this.tamanhosPossiveisPagina = [50, 100, 150, 200];
+    } else {
+      this.paginaAtual = 0;
+      this.tamanhoPagina = 18;
+      this.tamanhosPossiveisPagina = [18, 36, 72, 144];
     }
   }
 
@@ -184,15 +215,27 @@ export class HomeComponent implements OnInit {
   }
 
   buscarUsuariosExistentes() {
-    this.userService.getUsuarios().subscribe(
-      data => this.listaUsuarios = data,
+    this.carregando = !this.carregando;
+    this.userService.getCountUsers().subscribe(
+      data => { this.itensTotais = data; },
+      error => { console.log(error) }
+    )
+
+    this.userService.getUsuariosPage(this.parametrosPagina).subscribe(
+      data => { this.listaUsuarios = data; this.carregando = !this.carregando; },
       error => { console.log(error) }
     )
   }
 
   buscarCadastrosPendentes() {
-    this.userService.getCadastros("PENDENTE").subscribe(
-      data => this.listaCadastrosPendentes = data,
+    this.carregando = !this.carregando;
+    this.userService.getCountCadastros().subscribe(
+      data => { this.itensTotais = data; },
+      error => { console.log(error) }
+    )
+
+    this.userService.getCadastrosPage(this.parametrosPagina).subscribe(
+      data => { this.listaCadastrosPendentes = data; this.carregando = !this.carregando; },
       error => { console.log(error) }
     )
   }
@@ -254,7 +297,7 @@ export class HomeComponent implements OnInit {
       case 2:
         this.localizacaoModal = !this.localizacaoModal;
 
-        if(this.localizacaoModal) {
+        if (this.localizacaoModal) {
           document.documentElement.style.overflow = "hidden"
         } else {
           document.documentElement.style.overflow = "visible"
@@ -270,7 +313,7 @@ export class HomeComponent implements OnInit {
       case 3:
         this.modalCadastrarItem = !this.modalCadastrarItem;
 
-        if(this.modalCadastrarItem) {
+        if (this.modalCadastrarItem) {
           document.documentElement.style.overflow = "hidden"
         } else {
           document.documentElement.style.overflow = "visible"
@@ -295,7 +338,26 @@ export class HomeComponent implements OnInit {
 
   //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações
   ordenarItens(event: any) {
-    this.listaOrdenacoes = JSON.parse(event);
+    event = JSON.parse(event);
+    if (event[0]) {
+      this.itemOrdenacaoAtual = "nome"
+      this.ordenacaoAtual = "asc";
+    }
+    if (event[1]) {
+      this.itemOrdenacaoAtual = "nome"
+      this.ordenacaoAtual = "desc";
+    }
+    if (event[2]) {
+      this.itemOrdenacaoAtual = "quantidade"
+      this.ordenacaoAtual = "desc";
+    }
+    if (event[3]) {
+      this.itemOrdenacaoAtual = "quantidade"
+      this.ordenacaoAtual = "asc";
+    }
+
+    this.parametrosPagina = "sort=" + this.itemOrdenacaoAtual + "," + this.ordenacaoAtual + "&size=" + this.tamanhoPagina + "&page=" + this.paginaAtual;
+    this.buscarItens();
   }
 
   // Função para mudar a visualização dos componentes (Lista / Bloco)
@@ -308,10 +370,12 @@ export class HomeComponent implements OnInit {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
       });
+      this.localizacoesSelecionadas = [];
     } else {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = true;
       });
+      this.localizacoesSelecionadas = this.localizacoesLista;
     }
   }
 
@@ -461,8 +525,8 @@ export class HomeComponent implements OnInit {
   }
 
   excluirItemLista(id: number) {
-    for(let i = 0; i < this.listaItens.length; i++) {
-      if(this.listaItens[i].id == id) {
+    for (let i = 0; i < this.listaItens.length; i++) {
+      if (this.listaItens[i].id == id) {
         this.listaItens.splice(i, 1);
       }
     }
@@ -474,6 +538,34 @@ export class HomeComponent implements OnInit {
   }
 
   mudarPagina(event: any) {
+    if (event.previousPageIndex != event.pageIndex) {
+      if (event.previousPageIndex <= event.pageIndex) {
+        this.paginaAtual++;
+      } else {
+        this.paginaAtual--;
+      }
 
+      this.parametrosPagina = "sort=" + this.itemOrdenacaoAtual + "," + this.ordenacaoAtual + "&size=" + event.pageSize + "&page=" + event.pageIndex;
+    } else {
+      if (event.pageSize != this.tamanhoPaginaAntigo) {
+        this.tamanhoPagina = event.pageSize;
+        this.tamanhoPaginaAntigo = event.pageSize;
+
+        this.parametrosPagina = "sort=" + this.itemOrdenacaoAtual + "," + this.ordenacaoAtual + "&size=" + event.pageSize + "&page=" + event.pageIndex;
+      }
+    }
+
+    if (this.abaItens) {
+      this.buscarItens();
+    }
+    if (this.abaGerenciaCadastros) {
+      this.buscarCadastrosPendentes();
+    }
+    if (this.abaGerenciaUsuarios) {
+      this.buscarUsuariosExistentes();
+    }
+    if(this.abaLocalizacoes) {
+      this.buscarLocalizacoes();
+    }
   }
 }

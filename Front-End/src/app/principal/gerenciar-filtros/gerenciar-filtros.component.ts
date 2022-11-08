@@ -20,9 +20,11 @@ export class GerenciarFiltrosComponent implements OnInit {
 
     modalConfirmarAlteracoes: boolean = false;
     novoFiltro: string = "";
+    filtroAEditar: number = 0;
 
     listaFiltrosExcluidos: any[] = [];
     listaFiltrosAdicionados: any[] = [];
+    listaFiltrosEditados: any[] = [];
 
     ngOnInit() {
     }
@@ -67,9 +69,23 @@ export class GerenciarFiltrosComponent implements OnInit {
     // Função para adicionar um novo filtro à lista
     adicionarFiltro() {
         if (this.novoFiltro) {
-            let objetoFiltro = { classificacao: this.novoFiltro };
-            this.listaFiltrosAdicionados.push(objetoFiltro);
-            this.listaFiltros.push(objetoFiltro);
+            if(this.filtroAEditar == 0) {
+                let objetoFiltro = { classificacao: this.novoFiltro };
+                this.listaFiltrosAdicionados.push(objetoFiltro);
+                this.listaFiltros.push(objetoFiltro);
+            } else {
+                this.editarFiltroLista();
+            }
+        }
+    }
+
+    editarFiltroLista() {
+        for (const filtro of this.listaFiltros) {
+            if(filtro.id == this.filtroAEditar) {
+                filtro.classificacao = this.novoFiltro;
+                this.novoFiltro = "";
+                this.listaFiltrosEditados.push(filtro);
+            }
         }
     }
 
@@ -80,6 +96,9 @@ export class GerenciarFiltrosComponent implements OnInit {
         }
         if (this.listaFiltrosExcluidos.length > 0) {
             this.salvarExclusao();
+        }
+        if(this.listaFiltrosEditados.length > 0) {
+            this.salvarEdicao();
         }
     }
 
@@ -95,15 +114,57 @@ export class GerenciarFiltrosComponent implements OnInit {
     // Função para salvar a exclusão de filtros no banco
     salvarExclusao() {
         for (const filtro of this.listaFiltrosExcluidos) {
-
-            this.produtoService.removerLocalizacoes(filtro).subscribe(
+            this.produtoService.getClassificacao(filtro).subscribe(
                 data => {
-                    this.classificacaoService.deleteFiltros(filtro.id).subscribe(
-                        error => { console.log(error) }
-                    )
-                },
-                error => { console.log(error) }
-            )
+                    if(data.length > 0) {
+                        for (const produto of data) {
+                            produto.classificacao = null;
+                            this.produtoService.putProduto(produto, produto.id).subscribe(
+                                data => {
+                                    this.classificacaoService.deleteFiltros(filtro.id).subscribe(
+                                        data => {console.log(data)},
+                                        error => {console.log(error)}
+                                    );
+                                }
+                            );
+                        }
+                    } else {
+                        this.classificacaoService.deleteFiltros(filtro.id).subscribe();
+                    }
+                }
+            );
+        }
+    }
+
+    salvarEdicao() {
+        for (const filtro of this.listaFiltrosEditados) {
+            this.classificacaoService.putFiltro(filtro, filtro.id).subscribe();
+        }
+    }
+
+    abrirEdicaoFiltro(filtro: any, index: number) {
+        if(this.filtroAEditar == filtro.id) {
+            this.filtroAEditar = 0;
+        } else {
+            this.resetarIconesEdicao();
+            this.filtroAEditar = filtro.id;
+        }
+
+        if(this.filtroAEditar != 0) {
+            this.novoFiltro = filtro.classificacao;
+            let iconesEdicao = document.getElementsByClassName('iconeEditar') as HTMLCollectionOf<HTMLSpanElement>;
+            iconesEdicao[index].style.color = "#0047B6";
+        } else {
+            this.novoFiltro = "";
+            let iconesEdicao = document.getElementsByClassName('iconeEditar') as HTMLCollectionOf<HTMLSpanElement>;
+            iconesEdicao[index].style.color = "#000000";
+        }
+    }
+
+    resetarIconesEdicao() {
+        let iconesEdicao = document.getElementsByClassName('iconeEditar') as HTMLCollectionOf<HTMLSpanElement>;
+        for(let i = 0; i < iconesEdicao.length; i++) {
+            iconesEdicao[i].style.color = "#000000";
         }
     }
 

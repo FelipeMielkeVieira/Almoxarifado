@@ -37,6 +37,7 @@
     width: 27%;
     background-color: #ffffff;
     border-radius: 5px;
+    position: absolute;
 }
 
 #barraAzul {
@@ -49,9 +50,9 @@
 }
 
 #user {
-    position: absolute;
-    margin-top: -30px;
-    width: 6%;
+    position: relative;
+    margin-top: -10%;
+    width: 20%;
 }
 
 #imagemUsuario {
@@ -60,9 +61,10 @@
 
 #alterarFoto {
     width: 100%;
-    height: 50%;
+    height: 80%;
     bottom: 0px;
-    position: absolute;
+    position: relative;
+    margin-top: -50%;
     z-index: 5;
     background-color: rgba(0, 0, 0, 0.541);
     color: rgb(255, 255, 255);
@@ -82,6 +84,7 @@
 #fecharIcone {
     cursor: pointer;
     font-size: 30px;
+    margin: 10px;
 }
 
 .fecharModalUser {

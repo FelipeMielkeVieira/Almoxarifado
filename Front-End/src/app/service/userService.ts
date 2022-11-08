@@ -18,6 +18,30 @@ export class UserService {
     return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/usuario/tipo-usuario-excluir/${"PENDENTE"}`);
   }
 
+  getUsuariosPage(param: string): Observable<any[]> {
+    if (param == "") {
+      return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/usuario/page/users");
+    } else {
+      return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page/users?${param}`);
+    }
+  }
+
+  getCadastrosPage(param: string): Observable<any[]> {
+    if (param == "") {
+      return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/usuario/page/cadastros");
+    } else {
+      return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page/cadastros?${param}`);
+    }
+  }
+
+  getCountCadastros(): Observable<any[]> {
+    return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/usuario/count-cadastros");
+  }
+
+  getCountUsers(): Observable<any[]> {
+    return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/usuario/count-users");
+  }
+
   postUser(usuario: Object): Observable<any> {
     return this.httpClient.post<any>("http://localhost:8080/alma_sis/usuario", usuario, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
   }

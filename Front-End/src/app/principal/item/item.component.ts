@@ -21,6 +21,10 @@ export class ItemComponent implements OnInit {
     } else {
       this.imagemUrl = "https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe";
     }
+
+    if(this.item.classificacao == null) {
+      this.item.classificacao = {id: 0, classificacao: "Nenhuma"};
+    }
   }
 
   // <!-- --------------- ITEM EM SI EM BLOCO ---------------- -->

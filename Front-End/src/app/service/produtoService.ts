@@ -22,18 +22,22 @@ export class ProdutoService {
         }
     }
 
+    getClassificacao(classificacao: any): Observable<any> {
+        return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/classificacoes/${classificacao.id}`);
+    }
+
     postProduto(produto: Object, imagem: File, anexos: File[]): Observable<any> {
         const formData = new FormData();
         formData.set("produto", JSON.stringify(produto));
         formData.set("imagem", imagem);
-        
-        if(anexos.length > 0) {
+
+        if (anexos.length > 0) {
             for (const anexo of anexos) {
-                formData.append("anexos", anexo);   
+                formData.append("anexos", anexo);
             }
         }
 
-        if(anexos.length > 0) {
+        if (anexos.length > 0) {
             return this.httpClient.post<any>("http://localhost:8080/alma_sis/produto/anexos", formData);
         } else {
             return this.httpClient.post<any>("http://localhost:8080/alma_sis/produto", formData);

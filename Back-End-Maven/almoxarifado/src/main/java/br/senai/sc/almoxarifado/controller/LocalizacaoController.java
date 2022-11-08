@@ -6,6 +6,10 @@ import br.senai.sc.almoxarifado.model.entities.Usuario;
 import br.senai.sc.almoxarifado.model.service.LocalizacaoService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -26,6 +30,11 @@ public class LocalizacaoController {
     @GetMapping
     public ResponseEntity<List<Localizacao>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findAll());
+    }
+
+    @GetMapping("/page")
+    public ResponseEntity<List<Localizacao>> findPage(@PageableDefault(page = 0, size = 50, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findAll(pageable));
     }
 
     @GetMapping("/{codigoLocalizacao}")
@@ -58,6 +67,11 @@ public class LocalizacaoController {
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findByIdPai(codigoLocalizacao));
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Object> countLocalizacoes() {
+        return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.countLocalizacoes());
     }
 
     @PostMapping

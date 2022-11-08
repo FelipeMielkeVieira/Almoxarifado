@@ -26,6 +26,10 @@ public class ProdutoService {
         return produtoRepository.findByVisibilidade(visibilidade, pageable);
     }
 
+    public List<Produto> findAllByClassificacao(Classificacao classificacao) {
+        return produtoRepository.findByClassificacao(classificacao);
+    }
+
     public <S extends Produto> S save(S entity) {
         return produtoRepository.save(entity);
     }

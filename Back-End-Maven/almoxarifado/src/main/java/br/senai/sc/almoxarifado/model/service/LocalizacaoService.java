@@ -2,6 +2,8 @@ package br.senai.sc.almoxarifado.model.service;
 
 import br.senai.sc.almoxarifado.model.entities.Localizacao;
 import br.senai.sc.almoxarifado.repository.LocalizacaoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +19,10 @@ public class LocalizacaoService {
 
     public List<Localizacao> findAll() {
         return localizacaoRepository.findAll();
+    }
+
+    public List<Localizacao> findAll(Pageable pageable) {
+        return localizacaoRepository.findByIdIsNot(pageable, 0L);
     }
 
     public Optional<Localizacao> findById(Long id) {
@@ -37,5 +43,9 @@ public class LocalizacaoService {
 
     public boolean existsById(Long id) {
         return localizacaoRepository.existsById(id);
+    }
+
+    public Object countLocalizacoes() {
+        return localizacaoRepository.count();
     }
 }

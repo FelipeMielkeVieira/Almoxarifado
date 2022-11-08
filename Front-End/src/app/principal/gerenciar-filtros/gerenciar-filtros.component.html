@@ -18,10 +18,17 @@
             <div id="containerConteudoTeste">
                 <div *ngFor="let filtro of listaFiltros; let i = index;" class="divFiltro">
                     <div id="texto">{{filtro.classificacao}}</div>
-                    <span (click)="excluirFiltro(i)" title="Deletar" class="material-symbols-outlined iconDeselect"
-                        id="iconLixoTeste">
-                        delete
-                    </span>
+                    <div style="display: flex; align-items: center;">
+                        <span title="Editar"
+                            class="material-symbols-outlined iconDeselect iconeEditar" (click)="abrirEdicaoFiltro(filtro, i)"
+                            alt="iconeEditar">
+                            edit
+                        </span>
+                        <span (click)="excluirFiltro(i)" title="Deletar" class="material-symbols-outlined iconDeselect"
+                            id="iconLixoTeste">
+                            delete
+                        </span>
+                    </div>
                 </div>
             </div>
 

@@ -3,7 +3,10 @@ package br.senai.sc.almoxarifado.controller;
 import br.senai.sc.almoxarifado.dto.ProdutoDTO;
 import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.Produto;
+import br.senai.sc.almoxarifado.model.service.ClassificacaoService;
 import br.senai.sc.almoxarifado.model.service.ProdutoService;
+import br.senai.sc.almoxarifado.repository.ClassificacaoRepository;
+import br.senai.sc.almoxarifado.util.ClassificacaoUtil;
 import br.senai.sc.almoxarifado.util.ProdutoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +29,7 @@ import java.util.List;
 @RequestMapping("/alma_sis/produto")
 public class ProdutoController {
     private ProdutoService produtoService;
+    private ClassificacaoService classificacaoService;
 
     @GetMapping("/all")
     public ResponseEntity<List<Produto>> findAll() {
@@ -34,8 +38,7 @@ public class ProdutoController {
 
     @GetMapping("/page")
     public ResponseEntity<List<Produto>> findPage(
-            @PageableDefault(page = 0, size = 18, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
-    {
+            @PageableDefault(page = 0, size = 18, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.findByVisibilidade(true, pageable));
     }
 
@@ -59,6 +62,12 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.FOUND).body(produto);
     }
 
+    @GetMapping("/classificacoes/{classificacao_id}")
+    public ResponseEntity<List<Produto>> findByClassificacao(@PathVariable(value = "classificacao_id") Long classificacaoId) {
+        Classificacao classificacao = classificacaoService.findById(classificacaoId).get();
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.findAllByClassificacao(classificacao));
+    }
+
     @PostMapping
     public ResponseEntity<Produto> save(@RequestParam("produto") String produtoJson,
                                         @RequestParam("imagem") MultipartFile imagem) {
@@ -73,8 +82,8 @@ public class ProdutoController {
 
     @PostMapping("/anexos")
     public ResponseEntity<Produto> saveWithAnexos(@RequestParam("produto") String produtoJson,
-                                        @RequestParam("imagem") MultipartFile imagem,
-                                        @RequestParam("anexos") List<MultipartFile> anexos) {
+                                                  @RequestParam("imagem") MultipartFile imagem,
+                                                  @RequestParam("anexos") List<MultipartFile> anexos) {
 
         ProdutoUtil produtoUtil = new ProdutoUtil();
         Produto produto = produtoUtil.convertJsonToModel(produtoJson);
@@ -91,10 +100,6 @@ public class ProdutoController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Este produto não existe.");
         }
         Produto produto = produtoService.findById(id).get();
-
-        if (!produto.getVisibilidade()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("O produto solicitado não existe!");
-        }
 
         BeanUtils.copyProperties(produtoDTO, produto);
         produto.setId(id);

@@ -15,4 +15,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     List<Produto> findByVisibilidade(Boolean visibilidade, Pageable pageable);
 
     Object countByVisibilidade(Boolean b);
+
+    List<Produto> findByClassificacao(Classificacao classificacao);
 }

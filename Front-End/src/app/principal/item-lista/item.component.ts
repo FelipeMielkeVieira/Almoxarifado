@@ -14,7 +14,11 @@ export class ItemListaComponent implements OnInit {
 
   tipoUser: number = 0;
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.item.classificacao == null) {
+      this.item.classificacao = { id: 0, classificacao: "Nenhuma" };
+    }
+  }
 
   // <!-- --------------- ITEM EM SI EM BLOCO ---------------- -->
 
@@ -22,8 +26,8 @@ export class ItemListaComponent implements OnInit {
   @Input() visualizacaoItem: string = "emLista";
 
   // Input com o objeto do item recebido da lista
-  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [{ descricao: "", anexo: "" }] };
-  @Input() itens = [{ id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0, anexos: [{ descricao: "", anexo: "" }] }];
+  @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: { id: 0, classificacao: '' }, anexos: [{ descricao: "", anexo: "" }] };
+  @Input() itens = [{ id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: { id: 0, classificacao: '' }, anexos: [{ descricao: "", anexo: "" }] }];
 
   itemModalReservar: any;
 
