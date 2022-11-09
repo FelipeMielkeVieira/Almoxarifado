@@ -67,4 +67,10 @@ export class AjudaComponent implements OnInit {
       }, 600);
     }
   }
+
+  scrollTo(id: string) {
+    let element = document.getElementById(id) as HTMLElement;
+    window.scrollTo(0, element.offsetTop - 300)
+    // element.scrollIntoView();
+  }
 }
