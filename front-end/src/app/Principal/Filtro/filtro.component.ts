@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UsersService } from 'src/app/service';
@@ -16,6 +16,7 @@ export class FiltroComponent implements OnInit {
     this.buscarClassificacoes();
   }
 
+  @Output() itemFiltroSelecionado: any = new EventEmitter<{ classificacao: string }>();
   listaClassificacoes: any = [];
   usuario: number;
 
@@ -114,6 +115,7 @@ export class FiltroComponent implements OnInit {
   filtrar(item: { classificacao: string }) {
     this.filtroSelecionado = item;
     this.fecharFiltro();
+    this.itemFiltroSelecionado.emit(this.filtroSelecionado);
 
     if (document.querySelector("#containerFiltro")) {
       this.tirarFiltro();
