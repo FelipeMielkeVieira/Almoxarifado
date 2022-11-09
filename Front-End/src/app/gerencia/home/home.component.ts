@@ -190,7 +190,7 @@ export class HomeComponent implements OnInit {
   }
 
   modificarPaginacao(tipo: number) {
-    if(tipo == 1) {
+    if (tipo == 1) {
       this.paginaAtual = 0;
       this.tamanhoPagina = 50;
       this.tamanhosPossiveisPagina = [50, 100, 150, 200];
@@ -338,6 +338,7 @@ export class HomeComponent implements OnInit {
 
   //Função para ordenar os itens, recebendo um array de booleanos que remetem às diferentes ordenações
   ordenarItens(event: any) {
+
     event = JSON.parse(event);
     if (event[0]) {
       this.itemOrdenacaoAtual = "nome"
@@ -353,6 +354,11 @@ export class HomeComponent implements OnInit {
     }
     if (event[3]) {
       this.itemOrdenacaoAtual = "quantidade"
+      this.ordenacaoAtual = "asc";
+    }
+    if (!event[0] && !event[1] && !event[2] && !event[3]) {
+      this.listaOrdenacoes = [false, false, false, false];
+      this.itemOrdenacaoAtual = "id";
       this.ordenacaoAtual = "asc";
     }
 
@@ -564,7 +570,7 @@ export class HomeComponent implements OnInit {
     if (this.abaGerenciaUsuarios) {
       this.buscarUsuariosExistentes();
     }
-    if(this.abaLocalizacoes) {
+    if (this.abaLocalizacoes) {
       this.buscarLocalizacoes();
     }
   }

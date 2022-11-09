@@ -35,7 +35,7 @@ export class CadastrarItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarClassificacoes();
-    this.listaLocalizacoes = this.service.retornaFilhosLocalizacao(this.listaLocalizacoes, 0);
+    this.buscarPorPai(0);
   }
 
   buscarClassificacoes() {

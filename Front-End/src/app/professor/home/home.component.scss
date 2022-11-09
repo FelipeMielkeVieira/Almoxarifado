@@ -36,6 +36,11 @@ main {
     cursor: pointer;
 }
 
+#iconPesquisar {
+    cursor: pointer;
+    user-select: none;
+}
+
 #fundoModalOrdenar {
     display: flex;
     align-items: center;
