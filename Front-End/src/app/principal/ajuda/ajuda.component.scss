@@ -201,17 +201,18 @@ li:hover {
 
 .topico {
     margin: 0 0 20px 0;
-    border-bottom: 2.5px solid rgba(0, 0, 0, 0.164);
+    border-bottom: 2.5px solid rgb(0, 0, 0);
 }
 
 .topico p {
     font-size: var(--font-size--giant);
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.541);
+    color: rgb(0, 0, 0);
     cursor: default;
 }
 
 .headerResposta p {
+    color: rgba(0, 0, 0, 0.541);
     font-size: var(--font-size--verybig);
     font-weight: 600;
     cursor: default;
