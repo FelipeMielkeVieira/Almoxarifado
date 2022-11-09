@@ -22,6 +22,10 @@ export class ProdutoService {
         }
     }
 
+    getByNome(param: string, ordenacao: string): Observable<any[]> {
+        return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page/${param}?${ordenacao}`);
+    }
+
     getClassificacao(classificacao: any): Observable<any> {
         return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/classificacoes/${classificacao.id}`);
     }

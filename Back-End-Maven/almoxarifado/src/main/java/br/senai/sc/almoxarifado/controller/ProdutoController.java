@@ -42,6 +42,13 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.findByVisibilidade(true, pageable));
     }
 
+    @GetMapping("/page/{nome}")
+    public ResponseEntity<List<Produto>> findByNome(
+            @PageableDefault(page = 0, size = 18, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+            @PathVariable(name = "nome") String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.findByNome(nome, pageable));
+    }
+
     @GetMapping("/count")
     public ResponseEntity<Object> findCount() {
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.countByVisibilidade(true));

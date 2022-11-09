@@ -95,7 +95,10 @@ export class HomeComponent implements OnInit {
         error => { console.log(error) }
       );
     } else {
-
+      this.produtoService.getByNome(this.textoPesquisa, this.parametrosPagina).subscribe(
+        data => { this.listaItens = data; this.carregando = !this.carregando; },
+        error => { console.log(error) }
+      )
     }
   }
 
@@ -144,7 +147,7 @@ export class HomeComponent implements OnInit {
       this.itemOrdenacaoAtual = "quantidade"
       this.ordenacaoAtual = "asc";
     }
-    if(!event[0] && !event[1] && !event[2] && !event[3]) {
+    if (!event[0] && !event[1] && !event[2] && !event[3]) {
       this.listaOrdenacoes = [false, false, false, false];
       this.itemOrdenacaoAtual = "id";
       this.ordenacaoAtual = "asc";
@@ -213,7 +216,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  filtrarPorClassificacao() {}
+  filtrarPorClassificacao() { }
   pesquisar() {
     this.carregando = !this.carregando;
     this.buscarItens();

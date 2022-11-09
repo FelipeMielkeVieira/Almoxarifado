@@ -49,4 +49,8 @@ public class ProdutoService {
     public Object countByVisibilidade(Boolean b) {
         return produtoRepository.countByVisibilidade(b);
     }
+
+    public List<Produto> findByNome(String nome, Pageable pageable) {
+        return produtoRepository.findByVisibilidadeAndNomeStartsWith(true, nome, pageable);
+    }
 }
