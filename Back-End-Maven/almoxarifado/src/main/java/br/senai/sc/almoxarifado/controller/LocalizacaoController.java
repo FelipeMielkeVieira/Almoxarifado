@@ -62,8 +62,12 @@ public class LocalizacaoController {
 
     @GetMapping("/filho/{codigoLocalizacao}")
     public ResponseEntity<Object> findByChild(@PathVariable(value = "codigoLocalizacao") Long codigoLocalizacao) {
-        if (!localizacaoService.existsById(codigoLocalizacao)) {
+        if (!localizacaoService.existsById(codigoLocalizacao) && codigoLocalizacao != 0) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado nenhuma localização com este código.");
+        }
+
+        if(codigoLocalizacao == 0) {
+            codigoLocalizacao = null;
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findByIdPai(codigoLocalizacao));
