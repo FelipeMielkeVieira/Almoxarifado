@@ -85,7 +85,7 @@ li:hover {
     cursor: default;
 }
 
-#tituloPerguntasFrequentes p{
+#tituloPerguntasFrequentes p, #tituloRespostas p{
     font-size: var(--font-size--extreme);
     color: #0047B6;
     cursor: default;
@@ -192,3 +192,48 @@ li:hover {
         height: 0;
     }
   }
+
+//   -------------- RESPOSTAS --------------
+
+#respostas {
+    margin: 10px 0 25px 30px;
+}
+
+.topico {
+    margin: 0 0 20px 0;
+    border-bottom: 2.5px solid rgb(0, 0, 0);
+}
+
+.topico p {
+    font-size: var(--font-size--giant);
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    cursor: default;
+}
+
+.headerResposta p {
+    color: rgba(0, 0, 0, 0.541);
+    font-size: var(--font-size--verybig);
+    font-weight: 600;
+    cursor: default;
+}
+
+.containerConteudoResposta {
+    margin: 0 0 100px 0;
+}
+
+.conteudoResposta p {
+    margin: 0 0 0 25px;
+    font-size: var(--font-size--default);
+    text-align: justify;
+}
+
+.imagemResposta {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+}
+
+.imagem1 {
+    width: 32%;
+}
