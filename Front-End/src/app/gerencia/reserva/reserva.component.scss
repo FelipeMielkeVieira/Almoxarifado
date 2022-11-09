@@ -24,7 +24,7 @@ body {
 .containerReserva {
     display: flex;
     flex-direction: row;
-    width: 32.8rem;
+    width: 29rem;
     border-radius: 5px;
     border: solid 0.5px rgb(170, 170, 170);
     margin-bottom: 2%;
@@ -52,9 +52,9 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 1.2%;
+    padding: 1.2% 0;
     display: flex;
-    width: 40%;
+    width: 100%;
 }
 
 .nomeProfessor {
@@ -72,7 +72,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 140%;
+}
+
+ul {
+    padding-left: 1rem;
 }
 
 #itens {
@@ -103,81 +107,6 @@ body {
 }
 
 /* <!-- --------------------------- FIM COMPONENTE RESERVA EM BLOCO ------------------------------ --> */
-
-/* <!-- --------------------------- COMPONENTE RESERVA EM LISTA ------------------------------ --> */
-.containerReservaLista {
-    display: flex;
-    flex-direction: row;
-    width: 72rem;
-    border-radius: 5px;
-    border: solid 0.5px black;
-    margin-bottom: 2%;
-}
-
-.containerReserva:hover .nomeProfessor {
-    color: #0047B6;
-}
-
-.containerReserva:hover {
-    background-color: rgba(201, 201, 201, 0.616);
-}
-
-.infoReserva {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 1.2%;
-    display: flex;
-    width: 40%;
-}
-
-.nomeProfessor {
-    font-family: 'Inter', sans-serif;
-    font-size: var(--font-size--big);
-}
-
-.data {
-    font-family: 'Inter', sans-serif;
-    margin-top: 5%;
-}
-
-#parteDireita {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-}
-
-#itens {
-    list-style-type: none;
-    width: 85%;
-    border-radius: 6px;
-    border: 1px solid black;
-    max-height: 65%;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.item {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    padding-left: 10px;
-    text-overflow: ellipsis;
-}
-
-.bolaAzul {
-    width: 10px;
-    margin-right: 10px;
-}
-
-.textoProduto {
-    font-size: var(--font-size--small);
-}
-
-/* <!-- --------------------------- FIM COMPONENTE RESERVA EM LISTA ------------------------------ --> */
 
 #fundoModal {
     display: flex;
