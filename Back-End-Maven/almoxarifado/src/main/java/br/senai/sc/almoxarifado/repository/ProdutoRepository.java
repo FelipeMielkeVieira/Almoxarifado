@@ -19,4 +19,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     List<Produto> findByClassificacao(Classificacao classificacao);
 
     List<Produto> findByVisibilidadeAndNomeStartsWith(Boolean visibilidade, String nome, Pageable pageable);
+
+    Integer countByVisibilidadeAndNomeStartsWith(boolean b, String nome);
 }

@@ -54,6 +54,11 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.countByVisibilidade(true));
     }
 
+    @GetMapping("/count/{nome}")
+    public ResponseEntity<Object> findCountNome(@PathVariable(name = "nome") String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.countByVisibilidadeAndNome(nome, true));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id) {
         if (!produtoService.existsById(id)) {

@@ -95,6 +95,11 @@ export class HomeComponent implements OnInit {
         error => { console.log(error) }
       );
     } else {
+      this.produtoService.countByNome(this.textoPesquisa).subscribe(
+        data => { this.itensTotais = data; this.numResultados = data; },
+        error => { console.log(error) }
+      )
+
       this.produtoService.getByNome(this.textoPesquisa, this.parametrosPagina).subscribe(
         data => { this.listaItens = data; this.carregando = !this.carregando; },
         error => { console.log(error) }
