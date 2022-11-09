@@ -27,9 +27,10 @@
             <div id="containerInputOrdenar">
                 <!-- Barra de Pesquisa -->
                 <div id="divInput">
-                    <input id="input" type="text" placeholder="Pesquise por produto..." />
+                    <input [(ngModel)]="textoPesquisa" id="input" type="text" placeholder="Pesquise por produto..."
+                        (keydown.enter)="pesquisar()" />
                     <span id="iconPesquisar" class="material-symbols-outlined iconDeselect iconsModais"
-                        title="Pesquisar">
+                        (click)="pesquisar()" title="Pesquisar">
                         search
                     </span>
                 </div>

@@ -49,6 +49,8 @@ export class HomeComponent implements OnInit {
   itemOrdenacaoAtual: string = "id";
   ordenacaoAtual: string = "asc";
 
+  textoPesquisa: string = "";
+
   ngOnInit() {
 
     this.buscarItens();
@@ -81,15 +83,20 @@ export class HomeComponent implements OnInit {
   }
 
   buscarItens() {
-    this.produtoService.getCount().subscribe(
-      data => { this.itensTotais = data; this.numResultados = data; },
-      error => { console.log(error) }
-    )
 
-    this.produtoService.getPage(this.parametrosPagina).subscribe(
-      data => { this.listaItens = data; this.carregando = !this.carregando; },
-      error => { console.log(error) }
-    );
+    if (this.textoPesquisa == "") {
+      this.produtoService.getCount().subscribe(
+        data => { this.itensTotais = data; this.numResultados = data; },
+        error => { console.log(error) }
+      )
+
+      this.produtoService.getPage(this.parametrosPagina).subscribe(
+        data => { this.listaItens = data; this.carregando = !this.carregando; },
+        error => { console.log(error) }
+      );
+    } else {
+
+    }
   }
 
   // Função para mudar a visualização dos itens entre lista e bloco
@@ -121,20 +128,25 @@ export class HomeComponent implements OnInit {
   ordenarItens(event: any) {
 
     event = JSON.parse(event);
-    if(event[0]) {
+    if (event[0]) {
       this.itemOrdenacaoAtual = "nome"
       this.ordenacaoAtual = "asc";
     }
-    if(event[1]) {
+    if (event[1]) {
       this.itemOrdenacaoAtual = "nome"
       this.ordenacaoAtual = "desc";
     }
-    if(event[2]) {
+    if (event[2]) {
       this.itemOrdenacaoAtual = "quantidade"
       this.ordenacaoAtual = "desc";
     }
-    if(event[3]) {
+    if (event[3]) {
       this.itemOrdenacaoAtual = "quantidade"
+      this.ordenacaoAtual = "asc";
+    }
+    if(!event[0] && !event[1] && !event[2] && !event[3]) {
+      this.listaOrdenacoes = [false, false, false, false];
+      this.itemOrdenacaoAtual = "id";
       this.ordenacaoAtual = "asc";
     }
 
@@ -199,5 +211,10 @@ export class HomeComponent implements OnInit {
         this.buscarItens();
       }
     }
+  }
+
+  pesquisar() {
+    this.carregando = !this.carregando;
+    this.buscarItens();
   }
 }
