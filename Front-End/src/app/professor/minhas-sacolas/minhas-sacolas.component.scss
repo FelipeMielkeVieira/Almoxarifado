@@ -82,11 +82,17 @@ p {
 }
 
 .containerSacolas{
+   width: 88%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    
+    //Pra quando o tamanho da fonte for acima de fonte pequena
+    // grid-template-columns:repeat(auto-fill, minmax(30rem, 1fr));
+
+    //Pra quando o tamanho da fonte for abaixo ou ser fonte pequena
+    grid-template-columns:repeat(auto-fill, minmax(35rem, 1fr));
+    grid-gap: 25px 0;
     justify-items: center;
     min-width: 890px;
-    padding: 0px 50px;
+    margin-left: 100px;
 }
 /* <!-- ------------------------------- FIM COMPONENTE DA SACOLA ------------------------------- --> */
