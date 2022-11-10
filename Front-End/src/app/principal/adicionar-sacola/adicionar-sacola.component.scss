@@ -1,0 +1,41 @@
+#fundoModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.349);
+    animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from {
+        margin-top: -10px;
+        opacity: 0;
+    }
+
+    to {
+        margin-top: 0px;
+        opacity: 1;
+    }
+}
+
+#containerModal {
+    width: 30rem;
+    height: 27rem;
+    background-color: #fff;
+    border-radius: 7px;
+    min-width: 200px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.363);
+}
+
+#riscoAzul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10px;
+    background: #0047B6;
+    border-radius: 7px 7px 0px 0px;
+}
