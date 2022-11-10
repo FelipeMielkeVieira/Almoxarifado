@@ -772,3 +772,9 @@ h1 {
 .btnCustom {
     padding: 5px 15px;
 }
+
+#container-select-box-localizacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

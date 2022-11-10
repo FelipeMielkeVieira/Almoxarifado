@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 
 export interface Task {
@@ -15,7 +15,8 @@ export class LocalizacaoComponent implements OnInit {
 
   constructor() { }
 
-  @Input() localizacoes: any = [{ id: Number, idPai : Number, nome: String }];
+  @Output() localizacoesSelecionadasByUser = new EventEmitter<any[]>();
+  @Input() localizacoes: any = [{ id: Number, idPai : Number, nome: String, checked: Boolean }];
   @Input() localizacoesSelecionadas: any[] = [];
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class LocalizacaoComponent implements OnInit {
       this.removerLocalizacao(localizacao);
     }
     localizacao.checked = !localizacao.checked;
+    this.localizacoesSelecionadasByUser.emit(this.localizacoesSelecionadas);
   }
 
   // Função para remover uma localização da lista de localizações selecionadas
