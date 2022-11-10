@@ -166,6 +166,7 @@
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
+                    <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                 </div>
                 <div *ngIf="abaDevolucoes && !listaEmBloco" class="containerDevolucoes">
                     <app-reserva-lista [listaReservas]="reservasDevolucao" style="width: 100%;"></app-reserva-lista>
@@ -191,21 +192,28 @@
 
                 <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes && !carregando">
                     <div id="containerAcoesLocalizacao">
-                        <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoes" (click)="selectAll()">
-                            Selecionar tudo</mat-checkbox>
+                        <div id="container-select-box-localizacoes">
+                            <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoesFromPage"
+                                (click)="selectAllFromPage()">
+                                Selecionar esta página</mat-checkbox>
+                            <mat-checkbox id="selecionar-tudo-pagina" [(ngModel)]="selectAllLocalizacoes"
+                                (click)="selectAll()">
+                                Selecionar todas as páginas</mat-checkbox>
+                        </div>
                         <div id="btnLocalizacao">
-                            <button (click)="confirmarExclusaoLocalizacoes()"
-                                class="btn btn-outline-primary btnCustom">Deletar</button>
+                            <button (click)="confirmarExclusaoLocalizacoes()" class="btn btn-outline-primary btnCustom"
+                                [disabled]="deletarLocalizacaoClicavel()">Deletar</button>
                         </div>
                     </div>
-                    <app-localizacao [localizacoesSelecionadas]="localizacoesSelecionadas"
-                        [localizacoes]="localizacoesLista"></app-localizacao>
+                    <app-localizacao (localizacoesSelecionadasByUser)="atualizarLocalizacoesSelecionadas($event)"
+                        [localizacoesSelecionadas]="localizacoesSelecionadas" [localizacoes]="localizacoesLista">
+                    </app-localizacao>
                 </div>
 
                 <!-- Listagem de Páginas na parte de baixo da tela -->
-                <mat-paginator *ngIf="!carregando && itensTotais > 0" id="paginador"
-                    [pageIndex]="paginaAtual" [length]="itensTotais" [pageSize]="tamanhoPagina"
-                    [pageSizeOptions]="tamanhosPossiveisPagina" aria-label="Select page" (page)="mudarPagina($event)">
+                <mat-paginator *ngIf="!carregando && itensTotais > 0" id="paginador" [pageIndex]="paginaAtual"
+                    [length]="itensTotais" [pageSize]="tamanhoPagina" [pageSizeOptions]="tamanhosPossiveisPagina"
+                    aria-label="Select page" (page)="mudarPagina($event)">
                 </mat-paginator>
             </div>
         </div>

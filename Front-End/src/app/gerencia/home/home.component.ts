@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
   ]
 
   selectAllLocalizacoes: boolean = false;
+  selectAllLocalizacoesFromPage: boolean = false;
 
   // Variáveis para abas
   abaGerenciaUsuarios = false;
@@ -86,6 +87,9 @@ export class HomeComponent implements OnInit {
 
   itemOrdenacaoAtual: string = "emailUsuario";
   ordenacaoAtual: string = "asc";
+
+  // Variáveis localizações
+  // listaLocalizacoes: any = [];
 
   ngOnInit() {
 
@@ -371,6 +375,7 @@ export class HomeComponent implements OnInit {
     this.listaEmBloco = !this.listaEmBloco;
   }
 
+  // Função que vai selecionar todas as localizações cadastradas
   selectAll() {
     if (this.selectAllLocalizacoes) {
       this.localizacoesLista.forEach((localizacao: any) => {
@@ -383,6 +388,11 @@ export class HomeComponent implements OnInit {
       });
       this.localizacoesSelecionadas = this.localizacoesLista;
     }
+  }
+
+  // Função que vai selecionar todas as localizações da atual página
+  selectAllFromPage() {
+
   }
 
   // Função para abrir o modal de cadastrar localização
@@ -573,5 +583,19 @@ export class HomeComponent implements OnInit {
     if (this.abaLocalizacoes) {
       this.buscarLocalizacoes();
     }
+  }
+
+  deletarLocalizacaoClicavel() {
+    if (this.localizacoesSelecionadas.length > 0) {
+      return false;
+    }
+    return true;
+  }
+
+  atualizarLocalizacoesSelecionadas(lista: any[]) {
+    console.log(lista);
+
+    this.localizacoesSelecionadas = lista;
+    console.log(this.localizacoesSelecionadas.length);
   }
 }
