@@ -24,6 +24,9 @@ export class ModalReservarItem implements OnInit {
   calendarioRetirada: boolean = false;
   calendarioDevolucao: boolean = false;
 
+  // Variável para abrir o modal de selecinar sacola
+  adicionarSacolaModal: boolean = false;
+
   // Datas definidas para retirada e devolução feitas pelos calendários
   dataRetirada: any = new Date();
   dataDevolucao: any = new Date();
@@ -158,9 +161,10 @@ export class ModalReservarItem implements OnInit {
 
   // Função para emitir Output para fechar o modal e emitir um feeback de "item adicionado na sacola"
   adicionarSacola() {
-    if (this.qtdItem > 0 && this.item.quantidade > 0) {
-      this.fecharModalReserva("sacola");
-    }
+    // if (this.qtdItem > 0 && this.item.quantidade > 0) {
+    //   this.fecharModalReserva("sacola");
+    // }
+    this.adicionarSacolaModal = true;
   }
 
   // Função para determinar se o input de adicionar professor está habilitado ou não

@@ -1,7 +1,34 @@
-<div id="fundoModal">
-    <div id="containerModal">
-        <div id="riscoAzul"></div>
-        <h1>OI</h1>
+<div id="containerModal">
+    <div id="riscoAzul"></div>
+    <div class="containerDados">
+        <span class="tituloModal">Selecione uma Sacola</span>
+        <div class="listaSacolas">
+            <table id="tableItens" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="tdIdSacola">Data Retirada</th>
+                        <th class="tdIdSacola">Data Devolução</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="linhaSelecionavel">
+                        <td class="itemTabela displayFlex tdCheck">
+                            <input class="checkboxStyle" type="checkbox">
+                        </td>
+                        <td class="itemTabela displayFlex tdIdSacola">
+                            <span>10/11/2022</span>
+                        </td>
+                        <td class="itemTabela displayFlex tdIdSacola">
+                            <span>20/11/2022</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="botoes">
+            <button class="btnCriar">Criar Sacola</button>
+            <button class="btnAdd">Adicionar Sacola</button>
+        </div>
     </div>
 </div>
-

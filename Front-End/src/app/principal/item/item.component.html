@@ -5,8 +5,7 @@
 <div id="conteudoItem" class="shadow-sm rounded" title="{{item.nome}}">
   <div [ngClass]="retornarClassesVisualizacao(1)">
     <div class="imagemItem" (click)="abrirModalReserva()">
-      <img [ngClass]="retornarClassesVisualizacao(2)"
-        src="{{imagemUrl}}" alt="Imagem do Produto" />
+      <img [ngClass]="retornarClassesVisualizacao(2)" src="{{imagemUrl}}" alt="Imagem do Produto" />
     </div>
     <div [ngClass]="retornarClassesVisualizacao(3)" (click)="abrirModalReserva()">
       <span class="nomeItem">{{ item.nome }}</span>
@@ -43,14 +42,14 @@
     star
   </span>
   <style>
-    #iconEstrelaPreenchida{
+    #iconEstrelaPreenchida {
       font-variation-settings:
-      'FILL' 1,
-      'wght' 400,
-      'GRAD' 0,
-      'opsz' 0
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 0
     }
-    </style>
+  </style>
 </div>
 
 <!-- Feedback de reserva concluída -->
@@ -87,6 +86,10 @@
   <!-- Modal Histórico de Edição -->
   <app-modal-historico-edicao *ngIf="modalHistorico" [item]="item" (fecharModal)="fecharModaisItem(5, undefined)">
   </app-modal-historico-edicao>
+
+  <div id="fundoModal" *ngIf="modalAdicionarSacola">
+    <app-adicionar-sacola *ngIf="modalAdicionarSacola"></app-adicionar-sacola>
+  </div>
 
   <!-- Modal Confirmar Remoção -->
   <app-modal-confirmacao *ngIf="modalConfirmarRemocao" [tipoTexto]="1"

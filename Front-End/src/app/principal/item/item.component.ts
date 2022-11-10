@@ -44,6 +44,7 @@ export class ItemComponent implements OnInit {
   modalAnexos: boolean = false;
   modalHistorico: boolean = false;
   modalMotivoEdicao: boolean = false;
+  modalAdicionarSacola: boolean = false;
 
   feedbackReservaFeita = false;
   feedbackColocadoSacola = false;
@@ -112,6 +113,10 @@ export class ItemComponent implements OnInit {
   // Função para abrir o modal de histórico do item
   abrirHistorico() {
     this.modalHistorico = true;
+  }
+
+  abrirAdicionarSacola(){
+    this.modalAdicionarSacola = true;
   }
 
   // Função para abrir e fechar o modal de anexos
