@@ -21,7 +21,7 @@
         </span>
     </div>
     <span class="nomeUser parteModal">{{ nomeUsuario }}</span>
-    <span class="emailUser parteModal">{{ emailUsuario }}</span>
+    <span title="{{emailUsuario}}" class="emailUser parteModal">{{ emailUsuario }}</span>
     <hr style="width: 80%" />
     <div *ngIf="usuarioTipo == 1" class="divOpcao parteModal" (click)="navegar('/professor/reservas')">
         <span title="Minhas Reservas" id="iconsUser" class="material-symbols-outlined iconDeselect parteModal">

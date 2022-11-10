@@ -180,6 +180,7 @@ h1 {
 
 .containerDevolucoes,
 .containerRetirada {
+    min-width: 1400;
     display: flex;
     flex-wrap: wrap;
     // justify-content: space-between;
@@ -738,6 +739,7 @@ h1 {
     display: grid;
     justify-items: center;
     align-items: center;
+    min-width: 1500px;
 }
 
 #containerItens {

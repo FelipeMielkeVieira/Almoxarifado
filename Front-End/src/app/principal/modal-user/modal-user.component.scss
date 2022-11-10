@@ -96,17 +96,17 @@ hr {
 }
 
 #topHeader {
-    font-size: 40px;
+    font-size: 80px;
 }
 
 .nomeUser {
     font-weight: 500;
-    font-size: var(--font-size--default);
+    font-size: var(--font-size--big);
     cursor: default;
 }
 
 .emailUser {
-    font-size: var(--font-size--verysmall);
+    font-size: var(--font-size--small);
     max-width: 170px;
     font-weight: 600;
     color: gray;
