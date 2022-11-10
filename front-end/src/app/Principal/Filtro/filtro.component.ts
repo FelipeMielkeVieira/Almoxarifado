@@ -17,7 +17,9 @@ export class FiltroComponent implements OnInit {
   }
 
   @Output() itemFiltroSelecionado: any = new EventEmitter<{ classificacao: string }>();
+  @Output() receberFiltros = new EventEmitter<any>();
   listaClassificacoes: any = [];
+  filtrosSecundarios: any = [false, false, false, false, false];
   usuario: number;
 
   fundoModal: boolean = false;
@@ -49,6 +51,11 @@ export class FiltroComponent implements OnInit {
         filtro.checked = true;
       }
     });
+  }
+
+  // Função usada para emitir o output de filtrar os itens (facilidade para ser usado direto no html)
+  emitirFiltro(param: any) {
+    this.receberFiltros.emit(param);
   }
 
   buscarClassificacoes() {
@@ -112,7 +119,7 @@ export class FiltroComponent implements OnInit {
   }
 
   // *Esse é complicado...
-  filtrar(item: { classificacao: string }) {
+  filtrar(item: { id: number, classificacao: string }) {
     this.filtroSelecionado = item;
     this.fecharFiltro();
     this.itemFiltroSelecionado.emit(this.filtroSelecionado);
@@ -151,7 +158,14 @@ export class FiltroComponent implements OnInit {
     containerExcluir.style.alignItems = "center";
     containerExcluir.style.marginLeft = "10px"
     containerExcluir.style.cursor = "pointer";
-    containerExcluir.onclick = this.tirarFiltro;
+    containerExcluir.onclick = () => {
+      let divFiltro = document.querySelector("#filtro") as HTMLDivElement;
+      let containerFiltro = document.querySelector("#containerFiltro") as HTMLDivElement;
+
+      divFiltro.removeChild(containerFiltro);
+      this.filtroSelecionado = null;
+      this.emitirFiltro({ tirar: 1 });
+    };
 
     iconExcluir.style.fontSize = "20px"
 
@@ -161,6 +175,7 @@ export class FiltroComponent implements OnInit {
     containerExcluir.appendChild(iconExcluir);
 
     divFiltro.appendChild(containerFiltro);
+    this.emitirFiltro(item);
   }
 
   // *Irá levar para uma rota, que seria na opção clicada
@@ -175,6 +190,7 @@ export class FiltroComponent implements OnInit {
 
     divFiltro.removeChild(containerFiltro);
     this.filtroSelecionado = null;
+    this.emitirFiltro({ tirar: 0 });
   }
 
   // *Caso ele clique na flecha, irá puxar o modal para a direita

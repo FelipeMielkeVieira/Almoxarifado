@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { UsersService } from 'src/app/service';
 import { AnexoService } from 'src/app/service/anexoService';
 import { ClassificacaoService } from 'src/app/service/classificacaoService';
 import { LocalizacaoService } from 'src/app/service/localizacaoService';
@@ -15,7 +14,7 @@ export class CadastrarItemComponent implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
   @Input() item = { id: 0, nome: "", descricao: "", quantidade: 0, descartavel: false, imagem: "", classificacao: 0 };
 
-  constructor(private service: UsersService, private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService, private produtoService: ProdutoService, private anexoService: AnexoService) { }
+  constructor(private classificacaoService: ClassificacaoService, private localizacaoService: LocalizacaoService, private produtoService: ProdutoService, private anexoService: AnexoService) { }
 
   listaClassificacao: any[] = [];
   listaLocalizacoes: any[] = [];

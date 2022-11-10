@@ -5,7 +5,7 @@
 <app-header></app-header>
 
 <!-- Filtro por Classificações -->
-<app-filtro></app-filtro>
+<app-filtro (receberFiltros)="atualizarFiltros($event)"></app-filtro>
 
 <!-- Div Principal -->
 <main>

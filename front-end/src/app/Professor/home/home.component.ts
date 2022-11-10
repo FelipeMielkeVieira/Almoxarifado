@@ -10,15 +10,16 @@ import { ProdutoService } from 'src/app/service/produtoService';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private service: UsersService, private paginator: MatPaginatorIntl, private produtoService: ProdutoService) {
+  constructor(private paginator: MatPaginatorIntl, private produtoService: ProdutoService) {
 
+    // Personalização dos textos da paginação
     paginator.itemsPerPageLabel = 'Quantidade de itens por página:';
     paginator.nextPageLabel = 'Próxima página';
     paginator.previousPageLabel = 'Página anterior';
     paginator.firstPageLabel = 'Primeira página';
     paginator.lastPageLabel = 'Última página';
 
-    // *Personalizar a paginação
+    // Personalização da amostra de páginas da paginação
     paginator.getRangeLabel = (pageSize: number, length: number) => {
       return "página " + (this.paginaAtual + 1) + " de " + (Math.ceil(this.itensTotais / this.tamanhoPagina));
     };
@@ -50,6 +51,8 @@ export class HomeComponent implements OnInit {
   ordenacaoAtual: string = "asc";
 
   textoPesquisa: string = "";
+  filtrosSecundarios = [false, false, false, false, false];
+  classificacaoFiltrada: any;
 
   ngOnInit() {
 
@@ -82,8 +85,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // Função usada para a busca de itens e possível filtragem envolvida
   buscarItens() {
-
     if (this.textoPesquisa == "") {
       this.produtoService.getCount().subscribe(
         data => { this.itensTotais = data; this.numResultados = data; },
@@ -163,6 +166,7 @@ export class HomeComponent implements OnInit {
     this.buscarItens();
   }
 
+  // Função para abrir os modais de feedbacks de ações feitas
   abrirFeedback(numero: number) {
     switch (numero) {
       case 1:
@@ -186,6 +190,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // Função para fechar os modais de feedback
   fecharModaisFeedback(numero: number) {
     switch (numero) {
       case 1:
@@ -200,6 +205,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // Função para mudar a página e com isso os parâmetros de busca e consequentemente buscar a próxima página ou anterior
   mudarPagina(event: any) {
     if (event.previousPageIndex != event.pageIndex) {
       if (event.previousPageIndex <= event.pageIndex) {
@@ -221,9 +227,24 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  filtrarPorClassificacao() { }
+  // Função para quando o usuário pesquisar no campo de texto
   pesquisar() {
     this.carregando = !this.carregando;
     this.buscarItens();
+  }
+
+  // Função para atualização das variáveis de filtros e busca filtrada dos itens
+  atualizarFiltros(event: any) {
+    if (event.id) {
+      if (event.tirar) {
+        this.classificacaoFiltrada = undefined;
+      } else {
+        this.classificacaoFiltrada = event;
+      }
+    } else {
+      this.filtrosSecundarios = event;
+    }
+    console.log(this.classificacaoFiltrada);
+    console.log(this.filtrosSecundarios);
   }
 }

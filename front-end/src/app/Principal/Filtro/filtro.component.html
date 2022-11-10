@@ -30,31 +30,36 @@
     <div id="containerConteudoFiltro" class="parteFiltro">
       <div class="itensFiltro tipoFiltro parteFiltro">
         <div id="containerDescartavel" class="parteFiltro">
-          <input class="checkbox parteFiltro" type="checkbox" id="checkDescartavel" />
+          <input [(ngModel)]="filtrosSecundarios[0]" (change)="emitirFiltro(filtrosSecundarios)"
+            class="checkbox parteFiltro" type="checkbox" id="checkDescartavel" />
           <div class="parteFiltroInputText" (click)="checkDescartavel()">
             <span class="texto parteFiltro">Descartáveis</span>
           </div>
         </div>
         <div id="containerNaoDescartavel" class="parteFiltro">
-          <input class="checkbox parteFiltro" type="checkbox" id="checkNaoDescartavel" />
+          <input [(ngModel)]="filtrosSecundarios[1]" (change)="emitirFiltro(filtrosSecundarios)"
+            class="checkbox parteFiltro" type="checkbox" id="checkNaoDescartavel" />
           <div class="parteFiltroInputText" (click)="checkNaoDescartavel()">
             <span class="texto parteFiltro">Não Descartáveis</span>
           </div>
         </div>
         <div id="containerSemEstoque" class="parteFiltro">
-          <input class="checkbox parteFiltro" type="checkbox" id="checkSemEstoque" />
+          <input [(ngModel)]="filtrosSecundarios[2]" (change)="emitirFiltro(filtrosSecundarios)"
+            class="checkbox parteFiltro" type="checkbox" id="checkSemEstoque" />
           <div class="parteFiltro parteFiltroInputText" (click)="checkSemEstoque()">
             <span class="texto parteFiltro">Sem estoque</span>
           </div>
         </div>
         <div id="containerComEstoque" class="parteFiltro">
-          <input class="checkbox parteFiltro" type="checkbox" id="checkComEstoque" />
+          <input [(ngModel)]="filtrosSecundarios[3]" (change)="emitirFiltro(filtrosSecundarios)"
+            class="checkbox parteFiltro" type="checkbox" id="checkComEstoque" />
           <div class="parteFiltro parteFiltroInputText" (click)="checkComEstoque()">
             <span class="texto parteFiltro">Com estoque</span>
           </div>
         </div>
         <div id="containerFavoritos" class="parteFiltro">
-          <input class="checkbox parteFiltro" type="checkbox" id="checkFavoritos" />
+          <input [(ngModel)]="filtrosSecundarios[4]" (change)="emitirFiltro(filtrosSecundarios)"
+            class="checkbox parteFiltro" type="checkbox" id="checkFavoritos" />
           <div class="parteFiltro parteFiltroInputText" (click)="checkFavoritos()">
             <span class="texto parteFiltro">Favoritos</span>
           </div>

@@ -13,7 +13,6 @@ export class AnexoService {
   postAnexo(anexo: File): Observable<any> {
     const formData = new FormData();
     formData.set("anexo", anexo);
-    console.log(formData)
     return this.httpClient.post<any>("http://localhost:8080/alma_sis/anexo", formData);
   }
 
