@@ -24,11 +24,10 @@ ul {
 }
 
 #containerSacola {
-    // width: 70%;
     min-width: 500px;
     border-radius: 10px;
+    background-color: #ffffff;
     border: 1px solid black;
-    margin-left: 50px;
     cursor: pointer;
     z-index: 1;
     transition: all 0.5s;
