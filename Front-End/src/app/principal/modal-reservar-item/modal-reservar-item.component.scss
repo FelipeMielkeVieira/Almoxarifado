@@ -65,7 +65,7 @@ hr {
 .quantidadeModal {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 36%;
     margin-top: 1rem;
 }
 
@@ -129,7 +129,8 @@ hr {
 }
 
 .qtdMax {
-    text-align: center;
+    width: 90%;
+    text-align: end;
     font-size: var(--font-size--small);
     margin-top: 2px;
 }
