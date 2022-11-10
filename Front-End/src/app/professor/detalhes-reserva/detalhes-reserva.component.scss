@@ -68,9 +68,9 @@ p:hover {
     justify-content: center;
     align-items: center;
     width: 55%;
-    height: 1px;
+    height: 30px;
     margin-left: 5%;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 .titulos {
@@ -268,12 +268,11 @@ p:hover {
 }
 
 .containerResumo {
+    padding: 15px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 480px;
-    height: 35rem;
     border: solid 0.5px black;
     border-radius: 10px;
     background-color: white;
@@ -344,8 +343,7 @@ p:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    flex-wrap: wrap;
+    width: 20rem;
 }
 
 .botaoReservar {
@@ -366,6 +364,14 @@ p:hover {
 .botaoReservar:hover{
     background: #003c9c;
     cursor: pointer;
+}
+
+.reservarMesmo {
+    min-width: 30%;
+}
+
+.excluirSacola {
+    padding: 0 15px;
 }
 
 .botaoCancelarReserva {

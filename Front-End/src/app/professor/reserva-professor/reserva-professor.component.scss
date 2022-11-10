@@ -24,6 +24,15 @@
     border-radius: 10px;
     border: 1px solid black;
     cursor: pointer;
+    background-color: #ffffff;
+    transition: all 1s;
+}
+
+#containerSacola:hover {
+    background-color: rgba(236, 236, 236, 0.911);
+    #itens {
+        background-color: #ffffff
+    }
 }
 
 #status {

@@ -23,7 +23,9 @@
                 <ul id="itens">
                     <li *ngFor="let item of listaItens" class="item">
                         <img class="bolaAzul" src="./assets/circulo-azul.png" alt="Ponteiro para o produto">
-                        {{item.nome}}
+                        <div class="nomeItem" title="{{item.nome}}">
+                            {{item.nome}}
+                        </div>
                     </li>
                 </ul>
             </div>
