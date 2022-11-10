@@ -26,10 +26,12 @@ body {
     flex-direction: row;
     width: 29rem;
     border-radius: 5px;
+    background-color: #fff;
     border: solid 0.5px rgb(170, 170, 170);
     margin-bottom: 2%;
     cursor: pointer;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease-in-out;
 }
 
 .containerReserva:hover .nomeProfessor {

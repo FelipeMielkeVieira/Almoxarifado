@@ -19,13 +19,11 @@
 
 /* <!-- ------------------------------------- COMPONENTE DA RESERVA ------------------------------------- --> */
 #containerSacola {
-    width: 70%;
-    min-width: 500px;
     border-radius: 10px;
     border: 1px solid black;
     cursor: pointer;
     background-color: #ffffff;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 #containerSacola:hover {
@@ -44,6 +42,7 @@
 }
 
 #container {
+    width: 110%;
     display: flex;
     flex-direction: column;
     padding: 0.8rem;
@@ -107,7 +106,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 40%;
 }
 
 #itens {    
@@ -116,6 +115,7 @@
     height: 100%;
     margin-right: 0.5rem;
     border-radius: 6px;
+    background-color: #ffffff;
     border: 1px solid black;
     overflow-x: hidden;
     overflow-y: auto;

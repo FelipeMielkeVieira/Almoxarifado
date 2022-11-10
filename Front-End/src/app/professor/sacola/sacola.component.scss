@@ -24,13 +24,14 @@ ul {
 }
 
 #containerSacola {
-    width: 70%;
+    // width: 70%;
     min-width: 500px;
     border-radius: 10px;
     border: 1px solid black;
     margin-left: 50px;
     cursor: pointer;
     z-index: 1;
+    transition: all 0.5s;
 }
 
 #containerSacola:hover {
@@ -61,7 +62,7 @@ ul {
 .dataInput {
     display: flex;
     align-items: center;
-    width: 95%;
+    // width: 95%;
     border: 1px solid black;
     border-radius: 5px;
     text-align: center;
@@ -118,6 +119,7 @@ ul {
     width: 85%;
     height: 100%;
     border-radius: 6px;
+    background-color: #ffffff;
     border: 1px solid black;
     overflow-x: hidden;
     overflow-y: auto;

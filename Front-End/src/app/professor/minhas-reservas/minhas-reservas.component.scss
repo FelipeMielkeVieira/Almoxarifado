@@ -198,15 +198,9 @@ p{
 }
 
 #containerReservas {
-    /* display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; */
-
     display: grid;
-    /* grid-template-columns: 50% 50%; */
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    /* justify-content: center; */
+    grid-template-columns:repeat(auto-fill, minmax(26rem, 1fr));
+    grid-gap: 1.2rem;
 }
 
 /* <!-- ------------------------- FIM CONTEUDO GERAL DA PÁGINA --------------------------------> */

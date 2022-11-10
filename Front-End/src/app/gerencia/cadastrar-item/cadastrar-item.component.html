@@ -48,7 +48,7 @@
                         </span>
                     </div>
                 </div>
-                <select [(ngModel)]="classificacaoItem" *ngIf="!criarClassificacao" class="inputsCadastro" name="">
+                <select [(ngModel)]="classificacaoItem" *ngIf="!criarClassificacao" class="inputsCadastro selecionaClassificacao" name="">
                     <option *ngFor="let classificacao of listaClassificacao" class="tamanhoTextos"
                         value="{{classificacao.id}}">
                         {{ classificacao.classificacao }}
@@ -56,6 +56,9 @@
                 </select>
                 <input *ngIf="criarClassificacao" [(ngModel)]="classificacaoTexto" type="text" class="inputsCadastro"
                     placeholder="Nova Classificação">
+            </div>
+            <div *ngIf="criarClassificacao" id="TextoAvisoCadastroClassificacao">
+                <span class="textoAviso">Modo para cadastrar uma nova classificação!</span>
             </div>
             <div class="localizacao">
                 <div style="display: flex; align-items: center;">
