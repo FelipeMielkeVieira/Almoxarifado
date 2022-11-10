@@ -20,15 +20,15 @@ import { ModalHistoricoEdicaoComponent } from './modal-historico-edicao/modal-hi
 import { PaginacaoComponent } from './paginacao/paginacao.component';
 import { AjudaComponent } from './ajuda/ajuda.component';
 import { ItemListaComponent } from './item-lista/item.component';
+import { AdicionarSacolaComponent } from './adicionar-sacola/adicionar-sacola.component';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { GerenciarFiltrosComponent } from './gerenciar-filtros/gerenciar-filtros.component';
 import { FavoritoItemComponent } from './favorito-item/favorito-item.component';
 import { EditarDescricaoItemComponent } from './editar-descricao-item/editar-descricao-item.component';
 import { LoginModule } from '../login/login.module';
-
 
 @NgModule({
   declarations: [
@@ -53,7 +53,9 @@ import { LoginModule } from '../login/login.module';
     CalendarioComponent,
     GerenciarFiltrosComponent,
     FavoritoItemComponent,
-    EditarDescricaoItemComponent
+    EditarDescricaoItemComponent,
+    AdicionarSacolaComponent
+
   ],
   imports: [
     CommonModule,
@@ -80,7 +82,8 @@ import { LoginModule } from '../login/login.module';
     ItemListaComponent,
     TelaCarregamentoComponent,
     CalendarioComponent,
-    GerenciarFiltrosComponent
+    GerenciarFiltrosComponent,
+    AdicionarSacolaComponent
   ]
 })
 export class PrincipalModule { }
