@@ -147,16 +147,6 @@
                 <div *ngIf="abaGerenciaCadastros && listaEmBloco && !carregando" id="containerGerenciarCadastros">
                     <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
                         [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
-                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
-                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
-                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
-                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
-                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
-                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
-                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
-                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
-                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
-                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaCadastros && !listaEmBloco && !carregando" class="usuarios">
                     <app-cadastrar-usuario-lista [listaCadastros]="listaCadastrosPendentes" style="width: 100%;">
@@ -165,16 +155,6 @@
 
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista -->
                 <div *ngIf="abaGerenciaUsuarios && listaEmBloco && !carregando" id="containerGerenciarUsuario">
-                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
-                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
-                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
-                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
-                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
-                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
-                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
-                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
-                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
-                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
                     <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
                         (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
                 </div>

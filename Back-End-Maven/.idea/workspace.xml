@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/LocalizacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/LocalizacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/LocalizacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/LocalizacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/UsuarioRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/gerencia/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/principal/item/item.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/principal/item/item.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/src/app/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/src/app/service/userService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,5 +90,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

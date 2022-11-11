@@ -65,4 +65,20 @@ public class UsuarioService {
     public List<Usuario> findPageCadastro(Pageable pageable) {
         return this.usuarioRepository.findByTipoUsuarioAndVisibilidade(TipoUsuario.PENDENTE, true, pageable);
     }
+
+    public Object countUsersByNome(String nome) {
+        return this.usuarioRepository.countByVisibilidadeAndTipoUsuarioIsNotAndNomeUsuarioContainingOrVisibilidadeAndTipoUsuarioIsNotAndEmailUsuarioContaining(true, TipoUsuario.PENDENTE, nome, true, TipoUsuario.PENDENTE, nome);
+    }
+
+    public List<Usuario> findPageUserByNome(String nome, Pageable pageable) {
+        return this.usuarioRepository.findByVisibilidadeAndTipoUsuarioIsNotAndNomeUsuarioContainingOrVisibilidadeAndTipoUsuarioIsNotAndEmailUsuarioContaining(true, TipoUsuario.PENDENTE, nome, true, TipoUsuario.PENDENTE, nome, pageable);
+    }
+
+    public Integer countCadastrosByNome(String nome) {
+        return this.usuarioRepository.countByVisibilidadeAndTipoUsuarioAndNomeUsuarioContainingOrVisibilidadeAndTipoUsuarioAndEmailUsuarioContaining(true, TipoUsuario.PENDENTE, nome, true, TipoUsuario.PENDENTE, nome);
+    }
+
+    public List<Usuario> findPageCadastroByNome(String nome, Pageable pageable) {
+        return this.usuarioRepository.findByVisibilidadeAndTipoUsuarioAndNomeUsuarioContainingOrVisibilidadeAndTipoUsuarioAndEmailUsuarioContaining(true, TipoUsuario.PENDENTE, nome, true, TipoUsuario.PENDENTE, nome, pageable);
+    }
 }

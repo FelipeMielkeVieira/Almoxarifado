@@ -81,9 +81,21 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findPageUser(pageable));
     }
 
+    @GetMapping("/page/users/{nome}")
+    public ResponseEntity<List<Usuario>> findPageUserByNome(@PageableDefault(page = 0, size = 18, sort = "emailUsuario", direction = Sort.Direction.ASC) Pageable pageable,
+                                                            @PathVariable(value = "nome") String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findPageUserByNome(nome, pageable));
+    }
+
     @GetMapping("/page/cadastros")
     public ResponseEntity<List<Usuario>> findPageCadastro(@PageableDefault(page = 0, size = 18, sort = "emailUsuario", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findPageCadastro(pageable));
+    }
+
+    @GetMapping("/page/cadastros/{nome}")
+    public ResponseEntity<List<Usuario>> findPageCadastroByNome(@PageableDefault(page = 0, size = 18, sort = "emailUsuario", direction = Sort.Direction.ASC) Pageable pageable,
+                                                                @PathVariable(value = "nome") String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findPageCadastroByNome(nome, pageable));
     }
 
     @GetMapping("/count-cadastros")
@@ -91,9 +103,19 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.countCadastros());
     }
 
+    @GetMapping("/count-cadastros/{nome}")
+    public ResponseEntity<Object> countCadastrosByNome(@PathVariable(value = "nome") String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.countCadastrosByNome(nome));
+    }
+
     @GetMapping("/count-users")
     public ResponseEntity<Object> countUsers() {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.countUsers());
+    }
+
+    @GetMapping("/count-users/{nome}")
+    public ResponseEntity<Object> countUsersByNome(@PathVariable(value = "nome") String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.countUsersByNome(nome));
     }
 
     @PostMapping

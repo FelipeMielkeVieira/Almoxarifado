@@ -149,9 +149,12 @@ export class HomeComponent implements OnInit {
   // Função que retorna o placeholder do input de pesquisa principal, dependendo da aba aberta
   retornaPlaceholderPesquisa() {
     if (this.abaGerenciaCadastros || this.abaGerenciaUsuarios) {
-      return "Pesquise por usuário...";
+      return "Pesquise por nome ou email...";
     }
-    if (this.abaDevolucoes || this.abaRetiradas || this.abaItens) {
+    if (this.abaItens) {
+      return "Pesquise por nome..."
+    }
+    if (this.abaDevolucoes || this.abaRetiradas) {
       return "Pesquise por produto...";
     }
     if (this.abaLocalizacoes) {
@@ -168,7 +171,7 @@ export class HomeComponent implements OnInit {
       let divFiltro = document.querySelector("#filtro") as HTMLDivElement;
       let containerFiltro = document.querySelector("#containerFiltro") as HTMLDivElement;
 
-      if(containerFiltro) {
+      if (containerFiltro) {
         divFiltro.removeChild(containerFiltro);
         this.classificacaoFiltrada = undefined;
       }
@@ -260,28 +263,54 @@ export class HomeComponent implements OnInit {
 
   buscarUsuariosExistentes() {
     this.carregando = !this.carregando;
-    this.userService.getCountUsers().subscribe(
-      data => { this.itensTotais = data; },
-      error => { console.log(error) }
-    )
 
-    this.userService.getUsuariosPage(this.parametrosPagina).subscribe(
-      data => { this.listaUsuarios = data; this.carregando = !this.carregando; },
-      error => { console.log(error) }
-    )
+    if (this.inputGeral != "") {
+      this.userService.getCountUsersByNome(this.inputGeral).subscribe(
+        data => { this.itensTotais = data; },
+        error => { console.log(error) }
+      )
+
+      this.userService.getUsuariosPageByNome(this.inputGeral, this.parametrosPagina).subscribe(
+        data => { this.listaUsuarios = data; this.carregando = !this.carregando; },
+        error => { console.log(error) }
+      )
+    } else {
+      this.userService.getCountUsers().subscribe(
+        data => { this.itensTotais = data; },
+        error => { console.log(error) }
+      )
+
+      this.userService.getUsuariosPage(this.parametrosPagina).subscribe(
+        data => { this.listaUsuarios = data; this.carregando = !this.carregando; },
+        error => { console.log(error) }
+      )
+    }
   }
 
   buscarCadastrosPendentes() {
     this.carregando = !this.carregando;
-    this.userService.getCountCadastros().subscribe(
-      data => { this.itensTotais = data; },
-      error => { console.log(error) }
-    )
 
-    this.userService.getCadastrosPage(this.parametrosPagina).subscribe(
-      data => { this.listaCadastrosPendentes = data; this.carregando = !this.carregando; },
-      error => { console.log(error) }
-    )
+    if (this.inputGeral != "") {
+      this.userService.getCountCadastrosByNome(this.inputGeral).subscribe(
+        data => { this.itensTotais = data; },
+        error => { console.log(error) }
+      )
+
+      this.userService.getCadastrosPageByNome(this.inputGeral, this.parametrosPagina).subscribe(
+        data => { this.listaCadastrosPendentes = data; this.carregando = !this.carregando; },
+        error => { console.log(error); }
+      )
+    } else {
+      this.userService.getCountCadastros().subscribe(
+        data => { this.itensTotais = data; },
+        error => { console.log(error) }
+      )
+
+      this.userService.getCadastrosPage(this.parametrosPagina).subscribe(
+        data => { this.listaCadastrosPendentes = data; this.carregando = !this.carregando; },
+        error => { console.log(error) }
+      )
+    }
   }
 
   // Função para retornar a classe dos botões de abas (para determinar se são azuis ou não)
@@ -713,6 +742,12 @@ export class HomeComponent implements OnInit {
   pesquisar() {
     if (this.abaItens) {
       this.buscarItens();
+    }
+    if (this.abaGerenciaUsuarios) {
+      this.buscarUsuariosExistentes();
+    }
+    if(this.abaGerenciaCadastros) {
+      this.buscarCadastrosPendentes();
     }
   }
 }

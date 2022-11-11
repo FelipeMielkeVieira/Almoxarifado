@@ -26,6 +26,14 @@ export class UserService {
     }
   }
 
+  getUsuariosPageByNome(nome: string, param: string): Observable<any[]> {
+    if (param == "") {
+      return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/usuario/page/users/${nome}`);
+    } else {
+      return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page/users/${nome}?${param}`);
+    }
+  }
+
   getCadastrosPage(param: string): Observable<any[]> {
     if (param == "") {
       return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/usuario/page/cadastros");
@@ -34,12 +42,28 @@ export class UserService {
     }
   }
 
+  getCadastrosPageByNome(nome: string, param: string): Observable<any[]> {
+    if (param == "") {
+      return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/usuario/page/cadastros/${nome}`);
+    } else {
+      return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page/cadastros/${nome}?${param}`);
+    }
+  }
+
   getCountCadastros(): Observable<any[]> {
     return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/usuario/count-cadastros");
   }
 
+  getCountCadastrosByNome(nome: string): Observable<any> {
+    return this.httpClient.get<any>(`http://localhost:8080/alma_sis/usuario/count-cadastros/${nome}`);
+  }
+
   getCountUsers(): Observable<any[]> {
     return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/usuario/count-users");
+  }
+
+  getCountUsersByNome(nome: string): Observable<any[]> {
+    return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/usuario/count-users/${nome}`);
   }
 
   postUser(usuario: Object): Observable<any> {
