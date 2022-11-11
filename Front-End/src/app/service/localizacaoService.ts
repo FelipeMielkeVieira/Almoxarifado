@@ -30,4 +30,8 @@ export class LocalizacaoService {
     return this.httpClient.delete<any>(`http://localhost:8080/alma_sis/localizacao/${id}`);
   }
 
+  deleteAllLocalizacoes(): Observable<any> {
+    return this.httpClient.delete<any>(`http://localhost:8080/alma_sis/localizacao/all`);
+  }
+
 }

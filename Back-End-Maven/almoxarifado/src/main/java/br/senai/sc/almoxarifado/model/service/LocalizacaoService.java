@@ -48,4 +48,8 @@ public class LocalizacaoService {
     public Object countLocalizacoes() {
         return localizacaoRepository.count();
     }
+
+    public void deleteAll() {
+        localizacaoRepository.deleteAll();
+    }
 }

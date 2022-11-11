@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
 
   selectAllLocalizacoes: boolean = false;
   selectAllLocalizacoesFromPage: boolean = false;
+  qtdLocalizacoesSelecionadas = 0;
 
   // Variáveis para abas
   abaGerenciaUsuarios = false;
@@ -375,12 +376,24 @@ export class HomeComponent implements OnInit {
     this.listaEmBloco = !this.listaEmBloco;
   }
 
-  // Função que vai selecionar todas as localizações cadastradas
+  // Lógica para mudar o mat-selector de selecionar uma página conforme o de selecionar todas as páginas for clicado
+  selecionarUmMatSelector() {
+    this.selectAllLocalizacoesFromPage = !this.selectAllLocalizacoes;
+  }
+
+  // Deseleciona os checkboxs de selecionar uma página e o de selecionar todas as páginas após exclusão de localização
+  deselecionarMatSelector() {
+    this.selectAllLocalizacoesFromPage = false;
+    this.selectAllLocalizacoes = false;
+  }
+
+  // Função que vai selecionar todas as localizações da atual página
   selectAllFromPage() {
     if (this.selectAllLocalizacoesFromPage) {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
       });
+      this.selectAllLocalizacoes = false;
       this.localizacoesSelecionadas = [];
     } else {
       this.localizacoesLista.forEach((localizacao: any) => {
@@ -388,11 +401,26 @@ export class HomeComponent implements OnInit {
       });
       this.localizacoesSelecionadas = this.localizacoesLista;
     }
+    this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
   }
 
-  // Função que vai selecionar todas as localizações da atual página
+  // Função que vai selecionar todas as localizações cadastradas
   selectAll() {
-
+    console.log(this.localizacoesLista)
+    if (this.selectAllLocalizacoes) {
+      this.localizacoesLista.forEach((localizacao: any) => {
+        localizacao.checked = false;
+      });
+      this.localizacoesSelecionadas = [];
+      this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
+    } else {
+      this.localizacoesLista.forEach((localizacao: any) => {
+        localizacao.checked = true;
+      });
+      this.localizacoesSelecionadas = this.localizacoesLista;
+      this.qtdLocalizacoesSelecionadas = this.itensTotais;
+    }
+    this.selecionarUmMatSelector();
   }
 
   // Função para abrir o modal de cadastrar localização
@@ -422,11 +450,27 @@ export class HomeComponent implements OnInit {
 
   // Função para excluir as localizações selecionadas do banco de dados
   excluirLocalizacoes() {
-    for (const loc of this.localizacoesSelecionadas) {
-      this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(
-        data => { this.excluirLocalizacaoLista(loc.id); },
-        error => { console.log(error) }
-      );
+    if (this.selectAllLocalizacoes) {
+      this.localizacaoService.deleteAllLocalizacoes().subscribe(
+        data => {
+          this.buscarLocalizacoes();
+          this.deselecionarMatSelector();
+        },
+        error => {
+          console.log(error);
+        }
+      )
+    } else {
+      for (const loc of this.localizacoesSelecionadas) {
+        this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(
+          data => {
+            this.excluirLocalizacaoLista(loc.id);
+            this.buscarLocalizacoes();
+            this.deselecionarMatSelector();
+          },
+          error => { console.log(error) }
+        );
+      }
     }
   }
 
@@ -587,6 +631,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // Função que determina se o botão de excluir localizações deve ser habilitado ou não
   deletarLocalizacaoClicavel() {
     if (this.localizacoesSelecionadas.length > 0) {
       return false;
@@ -594,10 +639,18 @@ export class HomeComponent implements OnInit {
     return true;
   }
 
+  // Função que vai atualizar as localizações selecionadas no componente de localizações
   atualizarLocalizacoesSelecionadas(lista: any[]) {
-    console.log(lista);
-
-    this.localizacoesSelecionadas = lista;
-    console.log(this.localizacoesSelecionadas.length);
+    if (this.selectAllLocalizacoes || this.selectAllLocalizacoesFromPage) {
+      this.selectAllLocalizacoes = false;
+      this.selectAllLocalizacoesFromPage = false;
+      this.localizacoesSelecionadas = [];
+      this.localizacoesLista.forEach((localizacao: any) => {
+        localizacao.checked = false;
+      });
+      this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
+    } else {
+      this.localizacoesSelecionadas = lista;
+    }
   }
 }
