@@ -98,4 +98,11 @@ public class LocalizacaoController {
         localizacaoService.deleteById(codigoLocalizacao);
         return ResponseEntity.status(HttpStatus.OK).body(localizacao);
     }
+
+    @Transactional
+    @DeleteMapping("/all")
+    public ResponseEntity<Object> deleteAll() {
+        localizacaoService.deleteAll();
+        return ResponseEntity.status(HttpStatus.OK).body(new Localizacao());
+    }
 }

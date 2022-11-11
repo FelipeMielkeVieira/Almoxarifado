@@ -58,7 +58,7 @@
 </app-modal-feedback>
 
 <app-header></app-header>
-<app-filtro></app-filtro>
+<app-filtro (receberFiltros)="atualizarFiltros($event)"></app-filtro>
 
 <main>
     <!-- Home com todas as outras funcionalidades -->
@@ -96,8 +96,10 @@
                             <!-- Input principal de pesquisa -->
                             <div id="divInput">
                                 <input [(ngModel)]="inputGeral" class="input" type="text"
-                                    placeholder="{{retornaPlaceholderPesquisa()}}" />
-                                <span title="Pesquisar" id="lupa" class="material-symbols-outlined iconDeselect">
+                                    placeholder="{{retornaPlaceholderPesquisa()}}" (keydown.enter)="pesquisar()"
+                                    (blur)="pesquisar()" />
+                                <span (click)="pesquisar()" title="Pesquisar" id="lupa"
+                                    class="material-symbols-outlined iconDeselect">
                                     search
                                 </span>
                             </div>
@@ -134,7 +136,7 @@
                         </button>
                     </div>
                     <app-tela-carregamento *ngIf="carregando"></app-tela-carregamento>
-                    <div id="filtro" *ngIf="!carregando"></div>
+                    <div id="filtro"></div>
                     <p id="resultados" *ngIf="!carregando">{{ itensTotais }} Resultados encontrados</p>
                 </div>
 
@@ -225,13 +227,13 @@
                                 Selecionar todas as páginas</mat-checkbox>
                         </div>
                         <div id="btnLocalizacao">
-                            <button (click)="confirmarExclusaoLocalizacoes()" class="btn btn-outline-primary btnCustom"
+                            <button (click)="confirmarExclusaoLocalizacoes()" class="btn btn-primary btnCustom"
                                 [disabled]="deletarLocalizacaoClicavel()">Deletar</button>
-                            <p>{{ localizacoesSelecionadas.length }} localizações selecionadas</p>
+                            <p>{{ qtdLocalizacoesSelecionadas }} localizações selecionadas</p>
                         </div>
                     </div>
                     <app-localizacao (localizacoesSelecionadasByUser)="atualizarLocalizacoesSelecionadas($event)"
-                        [localizacoesSelecionadas]="localizacoesSelecionadas" [localizacoes]="localizacoesLista">
+                        [localizacoesSelecionadas]="localizacoesSelecionadas" [localizacoes]="localizacoesLista" [allSelected]="selectAllLocalizacoesFromPage">
                     </app-localizacao>
                 </div>
 

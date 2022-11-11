@@ -18,6 +18,10 @@ export class LocalizacaoComponent implements OnInit {
   @Output() localizacoesSelecionadasByUser = new EventEmitter<any[]>();
   @Input() localizacoes: any = [{ id: Number, idPai : Number, nome: String, checked: Boolean }];
   @Input() localizacoesSelecionadas: any[] = [];
+  // Variávle para saber se o checkbox de selecionar todas as localizações da página está selecionado
+  // Importante na hora de deselecionar uma localização, pois caso o checkbox esteja selecionado, todas as localizações da página vão ser deselecionadas
+  //e não podem ser removidas da lista, pois a localização estava sumindo no home.
+  @Input() allSelected: boolean = false;
 
   ngOnInit(): void {
   }
@@ -27,7 +31,9 @@ export class LocalizacaoComponent implements OnInit {
     if(!localizacao.checked) {
       this.localizacoesSelecionadas.push(localizacao);
     } else {
-      this.removerLocalizacao(localizacao);
+      if (!this.allSelected) {
+        this.removerLocalizacao(localizacao);
+      }
     }
     localizacao.checked = !localizacao.checked;
     this.localizacoesSelecionadasByUser.emit(this.localizacoesSelecionadas);

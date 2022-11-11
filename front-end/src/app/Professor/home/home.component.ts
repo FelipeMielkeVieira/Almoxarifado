@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { ProdutoService } from 'src/app/service/produtoService';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit {
     };
   }
 
-  carregando: boolean = true;
+  carregando: boolean = false;
 
   numeroPaginas = 6;
   numResultados = 0;
@@ -87,27 +88,41 @@ export class HomeComponent implements OnInit {
 
   // Função usada para a busca de itens e possível filtragem envolvida
   buscarItens() {
-    if (this.textoPesquisa == "") {
-      this.produtoService.getCount().subscribe(
-        data => { this.itensTotais = data; this.numResultados = data; },
-        error => { console.log(error) }
-      )
 
-      this.produtoService.getPage(this.parametrosPagina).subscribe(
-        data => { this.listaItens = data; this.carregando = !this.carregando; },
-        error => { console.log(error) }
-      );
-    } else {
-      this.produtoService.countByNome(this.textoPesquisa).subscribe(
-        data => { this.itensTotais = data; this.numResultados = data; },
-        error => { console.log(error) }
-      )
+    this.carregando = !this.carregando;
+    let params: any = {};
 
-      this.produtoService.getByNome(this.textoPesquisa, this.parametrosPagina).subscribe(
-        data => { this.listaItens = data; this.carregando = !this.carregando; },
-        error => { console.log(error) }
-      )
+    if(this.textoPesquisa != "") {
+      params.nome = this.textoPesquisa;
     }
+    if(this.classificacaoFiltrada) {
+      params.classificacao = this.classificacaoFiltrada.id;
+    }
+    if(this.filtrosSecundarios[0]) {
+      params.descartavel = true;
+    }
+    if(this.filtrosSecundarios[1]) {
+      params.naoDescartavel = true;
+    }
+    if(this.filtrosSecundarios[2]) {
+      params.semQuantidade = true;
+    }
+    if(this.filtrosSecundarios[3]) {
+      params.comQuantidade = true;
+    }
+    if(this.filtrosSecundarios[4]) {
+      
+    }
+
+    this.produtoService.getCount(params).subscribe(
+      data => { this.itensTotais = data; this.numResultados = data; },
+      error => { console.log(error) }
+    )
+
+    this.produtoService.getPage(this.parametrosPagina, params).subscribe(
+      data => { this.listaItens = data; this.carregando = !this.carregando; },
+      error => { console.log(error) }
+    );
   }
 
   // Função para mudar a visualização dos itens entre lista e bloco
@@ -162,7 +177,6 @@ export class HomeComponent implements OnInit {
     }
 
     this.parametrosPagina = "sort=" + this.itemOrdenacaoAtual + "," + this.ordenacaoAtual + "&size=" + this.tamanhoPagina + "&page=" + this.paginaAtual;
-    this.carregando = !this.carregando;
     this.buscarItens();
   }
 
@@ -227,12 +241,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  // Função para quando o usuário pesquisar no campo de texto
-  pesquisar() {
-    this.carregando = !this.carregando;
-    this.buscarItens();
-  }
-
   // Função para atualização das variáveis de filtros e busca filtrada dos itens
   atualizarFiltros(event: any) {
     if (event.id || event.id == 0) {
@@ -244,7 +252,6 @@ export class HomeComponent implements OnInit {
     } else {
       this.filtrosSecundarios = event;
     }
-    console.log(this.classificacaoFiltrada);
-    console.log(this.filtrosSecundarios);
+    this.buscarItens();
   }
 }

@@ -2,6 +2,7 @@ package br.senai.sc.almoxarifado.util;
 
 import br.senai.sc.almoxarifado.dto.ClassificacaoDTO;
 import br.senai.sc.almoxarifado.model.entities.Classificacao;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.validation.Valid;
@@ -24,5 +25,13 @@ public class ClassificacaoUtil {
 
     private Classificacao convertDtoToModel(@Valid ClassificacaoDTO classificacaoDTO) {
         return this.objectMapper.convertValue(classificacaoDTO, Classificacao.class);
+    }
+
+    public Classificacao convertJsonToClassificacao(String classificacaoJson) {
+        try {
+            return this.objectMapper.readValue(classificacaoJson, Classificacao.class);
+        } catch (Exception exception) {
+            throw new RuntimeException(exception.getMessage());
+        }
     }
 }

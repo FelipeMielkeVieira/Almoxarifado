@@ -72,50 +72,59 @@ export class FiltroComponent implements OnInit {
   checkDescartavel() {
     const input = document.querySelector("#checkDescartavel") as HTMLInputElement;
     if (input.checked == true) {
-      input.checked = false;
+      this.filtrosSecundarios[0] = false;
     } else {
-      input.checked = true;
+      this.filtrosSecundarios[0] = true;
+      this.filtrosSecundarios[1] = false;
     }
+    this.emitirFiltro(this.filtrosSecundarios);
   }
 
   // *Essa função irá dar check no input, caso ele clique na div
   checkNaoDescartavel() {
     const input = document.querySelector("#checkNaoDescartavel") as HTMLInputElement;
     if (input.checked == true) {
-      input.checked = false;
+      this.filtrosSecundarios[1] = false;
     } else {
-      input.checked = true;
+      this.filtrosSecundarios[1] = true;
+      this.filtrosSecundarios[0] = false;
     }
+    this.emitirFiltro(this.filtrosSecundarios);
   }
 
   // *Essa função irá dar check no input, caso ele clique na div
   checkSemEstoque() {
     const input = document.querySelector("#checkSemEstoque") as HTMLInputElement;
     if (input.checked == true) {
-      input.checked = false;
+      this.filtrosSecundarios[2] = false;
     } else {
-      input.checked = true;
+      this.filtrosSecundarios[2] = true;
+      this.filtrosSecundarios[3] = false;
     }
+    this.emitirFiltro(this.filtrosSecundarios);
   }
 
   // *Essa função irá dar check no input, caso ele clique na div
   checkComEstoque() {
     const input = document.querySelector("#checkComEstoque") as HTMLInputElement;
     if (input.checked == true) {
-      input.checked = false;
+      this.filtrosSecundarios[3] = false;
     } else {
-      input.checked = true;
+      this.filtrosSecundarios[3] = true;
+      this.filtrosSecundarios[2] = false;
     }
+    this.emitirFiltro(this.filtrosSecundarios);
   }
 
   // *Essa função irá dar check no input, caso ele clique na div
   checkFavoritos() {
     const input = document.querySelector("#checkFavoritos") as HTMLInputElement;
     if (input.checked == true) {
-      input.checked = false;
+      this.filtrosSecundarios[4] = false;
     } else {
-      input.checked = true;
+      this.filtrosSecundarios[4] = true;
     }
+    this.emitirFiltro(this.filtrosSecundarios);
   }
 
   // *Esse é complicado...
@@ -190,7 +199,7 @@ export class FiltroComponent implements OnInit {
 
     divFiltro.removeChild(containerFiltro);
     this.filtroSelecionado = null;
-    this.emitirFiltro({id: 0, tirar: 0 });
+    this.emitirFiltro({id: null, tirar: 0 });
   }
 
   // *Caso ele clique na flecha, irá puxar o modal para a direita

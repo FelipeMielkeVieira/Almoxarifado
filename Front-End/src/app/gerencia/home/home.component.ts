@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
 
   selectAllLocalizacoes: boolean = false;
   selectAllLocalizacoesFromPage: boolean = false;
+  qtdLocalizacoesSelecionadas = 0;
 
   // Variáveis para abas
   abaGerenciaUsuarios = false;
@@ -87,6 +88,9 @@ export class HomeComponent implements OnInit {
 
   itemOrdenacaoAtual: string = "emailUsuario";
   ordenacaoAtual: string = "asc";
+
+  classificacaoFiltrada: any = undefined;
+  filtrosSecundarios: any = [false, false, false, false, false]
 
   // Variáveis localizações
   // listaLocalizacoes: any = [];
@@ -159,6 +163,17 @@ export class HomeComponent implements OnInit {
   // Função para mudar de aba, recebendo o número da aba como parâmetro
   mudarAba(numero: number) {
     this.fecharAbas();
+
+    if (!this.abaItens) {
+      let divFiltro = document.querySelector("#filtro") as HTMLDivElement;
+      let containerFiltro = document.querySelector("#containerFiltro") as HTMLDivElement;
+
+      if(containerFiltro) {
+        divFiltro.removeChild(containerFiltro);
+        this.classificacaoFiltrada = undefined;
+      }
+    }
+
     switch (numero) {
       case 1:
         this.abaGerenciaUsuarios = true;
@@ -206,13 +221,38 @@ export class HomeComponent implements OnInit {
   }
 
   buscarItens() {
+
     this.carregando = !this.carregando;
-    this.produtoService.getCount().subscribe(
-      data => { this.itensTotais = data; },
+    let params: any = {};
+
+    if (this.inputGeral != "") {
+      params.nome = this.inputGeral;
+    }
+    if (this.classificacaoFiltrada) {
+      params.classificacao = this.classificacaoFiltrada.id;
+    }
+    if (this.filtrosSecundarios[0]) {
+      params.descartavel = true;
+    }
+    if (this.filtrosSecundarios[1]) {
+      params.naoDescartavel = true;
+    }
+    if (this.filtrosSecundarios[2]) {
+      params.semQuantidade = true;
+    }
+    if (this.filtrosSecundarios[3]) {
+      params.comQuantidade = true;
+    }
+    if (this.filtrosSecundarios[4]) {
+
+    }
+
+    this.produtoService.getCount(params).subscribe(
+      data => { this.itensTotais = data; this.itensTotais = data; },
       error => { console.log(error) }
     )
 
-    this.produtoService.getPage(this.parametrosPagina).subscribe(
+    this.produtoService.getPage(this.parametrosPagina, params).subscribe(
       data => { this.listaItens = data; this.carregando = !this.carregando; },
       error => { console.log(error) }
     );
@@ -375,12 +415,26 @@ export class HomeComponent implements OnInit {
     this.listaEmBloco = !this.listaEmBloco;
   }
 
-  // Função que vai selecionar todas as localizações cadastradas
+  // Lógica para mudar o mat-selector de selecionar uma página conforme o de selecionar todas as páginas for clicado
+  selecionarUmMatSelector() {
+    this.selectAllLocalizacoesFromPage = !this.selectAllLocalizacoes;
+  }
+
+  // Deseleciona os checkboxs de selecionar uma página e o de selecionar todas as páginas após exclusão de localização
+  deselecionarMatSelector() {
+    this.selectAllLocalizacoesFromPage = false;
+    this.selectAllLocalizacoes = false;
+    this.qtdLocalizacoesSelecionadas = 0;
+    this.localizacoesSelecionadas = [];
+  }
+
+  // Função que vai selecionar todas as localizações da atual página
   selectAllFromPage() {
     if (this.selectAllLocalizacoesFromPage) {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
       });
+      this.selectAllLocalizacoes = false;
       this.localizacoesSelecionadas = [];
     } else {
       this.localizacoesLista.forEach((localizacao: any) => {
@@ -388,11 +442,26 @@ export class HomeComponent implements OnInit {
       });
       this.localizacoesSelecionadas = this.localizacoesLista;
     }
+    this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
   }
 
-  // Função que vai selecionar todas as localizações da atual página
+  // Função que vai selecionar todas as localizações cadastradas
   selectAll() {
-
+    console.log(this.localizacoesLista)
+    if (this.selectAllLocalizacoes) {
+      this.localizacoesLista.forEach((localizacao: any) => {
+        localizacao.checked = false;
+      });
+      this.localizacoesSelecionadas = [];
+      this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
+    } else {
+      this.localizacoesLista.forEach((localizacao: any) => {
+        localizacao.checked = true;
+      });
+      this.localizacoesSelecionadas = this.localizacoesLista;
+      this.qtdLocalizacoesSelecionadas = this.itensTotais;
+    }
+    this.selecionarUmMatSelector();
   }
 
   // Função para abrir o modal de cadastrar localização
@@ -422,11 +491,27 @@ export class HomeComponent implements OnInit {
 
   // Função para excluir as localizações selecionadas do banco de dados
   excluirLocalizacoes() {
-    for (const loc of this.localizacoesSelecionadas) {
-      this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(
-        data => { this.excluirLocalizacaoLista(loc.id); },
-        error => { console.log(error) }
-      );
+    if (this.selectAllLocalizacoes) {
+      this.localizacaoService.deleteAllLocalizacoes().subscribe(
+        data => {
+          this.buscarLocalizacoes();
+          this.deselecionarMatSelector();
+        },
+        error => {
+          console.log(error);
+        }
+      )
+    } else {
+      for (const loc of this.localizacoesSelecionadas) {
+        this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(
+          data => {
+            this.excluirLocalizacaoLista(loc.id);
+            this.buscarLocalizacoes();
+            this.deselecionarMatSelector();
+          },
+          error => { console.log(error) }
+        );
+      }
     }
   }
 
@@ -587,6 +672,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // Função que determina se o botão de excluir localizações deve ser habilitado ou não
   deletarLocalizacaoClicavel() {
     if (this.localizacoesSelecionadas.length > 0) {
       return false;
@@ -594,10 +680,41 @@ export class HomeComponent implements OnInit {
     return true;
   }
 
+  // Função que vai atualizar as localizações selecionadas no componente de localizações
   atualizarLocalizacoesSelecionadas(lista: any[]) {
-    console.log(lista);
+    if (this.selectAllLocalizacoes || this.selectAllLocalizacoesFromPage) {
+      this.selectAllLocalizacoes = false;
+      this.selectAllLocalizacoesFromPage = false;
+      this.localizacoesSelecionadas = [];
+      this.localizacoesLista.forEach((localizacao: any) => {
+        localizacao.checked = false;
+      });
+    } else {
+      this.localizacoesSelecionadas = lista;
+    }
+    this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
+  }
 
-    this.localizacoesSelecionadas = lista;
-    console.log(this.localizacoesSelecionadas.length);
+  // Função para atualização das variáveis de filtros e busca filtrada dos itens
+  atualizarFiltros(event: any) {
+    if (event.id || event.id == 0) {
+      if (event.tirar) {
+        this.classificacaoFiltrada = undefined;
+      } else {
+        this.classificacaoFiltrada = event;
+      }
+    } else {
+      this.filtrosSecundarios = event;
+    }
+    this.fecharAbas();
+    this.abaItens = true;
+    this.buscarItens();
+  }
+
+  // Função acionada ao fazer uma pesquisa pelo campo de texto
+  pesquisar() {
+    if (this.abaItens) {
+      this.buscarItens();
+    }
   }
 }
