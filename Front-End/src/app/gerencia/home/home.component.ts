@@ -348,6 +348,7 @@ export class HomeComponent implements OnInit {
         }
 
         if (evento == "cadastro") {
+          this.buscarLocalizacoes();
           this.feedbackLocalizacaoCadastrada = true;
           setTimeout(() => {
             this.feedbackLocalizacaoCadastrada = false;
@@ -447,7 +448,6 @@ export class HomeComponent implements OnInit {
 
   // Função que vai selecionar todas as localizações cadastradas
   selectAll() {
-    console.log(this.localizacoesLista)
     if (this.selectAllLocalizacoes) {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
