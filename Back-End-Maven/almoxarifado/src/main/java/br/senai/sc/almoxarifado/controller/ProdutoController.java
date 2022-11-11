@@ -5,6 +5,7 @@ import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.service.ClassificacaoService;
 import br.senai.sc.almoxarifado.model.service.ProdutoService;
+import br.senai.sc.almoxarifado.util.ClassificacaoUtil;
 import br.senai.sc.almoxarifado.util.ProdutoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -51,144 +52,61 @@ public class ProdutoController {
 //            if (classificacao != null && !classificacao.isEmpty()) {
 //                ClassificacaoUtil classificacaoUtil = new ClassificacaoUtil();
 //                Classificacao classificacao1 = classificacaoUtil.convertJsonToModel(classificacao);
-//                if (favorito != null && favorito != 0) {
-//                    if (semEstoque) {
+//                if (semEstoque) {
+//                    if (descartavel) {
+//                        return ResponseEntity.status(HttpStatus.OK).body(
+//                                this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueAndDescartavelAndNomeContaining(true, classificacao1, 0, true, nome, pageable)
+//                        );
+//                    } else {
+//                        if (naoDescartavel) {
+//                            return ResponseEntity.status(HttpStatus.OK).body(
+//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueAndDescartavelAndNomeContaining(true, classificacao1, 0, false, nome, pageable)
+//                            );
+//                        }
+//                        return ResponseEntity.status(HttpStatus.OK).body(
+//                                this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueAndNomeContaining(true, classificacao1, 0, nome, pageable)
+//                        );
+//                    }
+//                } else {
+//                    if (!comEstoque) {
 //                        if (descartavel) {
 //                            return ResponseEntity.status(HttpStatus.OK).body(
-//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndDescartavelAndNomeContaining(true, classificacao1, favorito, 0, true, nome, pageable)
+//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(true, classificacao1, true, nome, pageable)
 //                            );
 //                        } else {
 //                            if (naoDescartavel) {
 //                                return ResponseEntity.status(HttpStatus.OK).body(
-//                                        this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndDescartavelAndNomeContaining(true, classificacao1, favorito, 0, false, nome, pageable)
+//                                        this.produtoService.findByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(true, classificacao1, false, nome, pageable)
 //                                );
 //                            }
 //                            return ResponseEntity.status(HttpStatus.OK).body(
-//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndNomeContaining(true, classificacao1, favorito, 0, nome, pageable)
+//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndNomeContaining(true, classificacao1, nome, pageable)
 //                            );
 //                        }
-//                    } else {
-//                        if (!comEstoque) {
-//                            if (descartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//                                        this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndDescartavelAndNomeContaining(true, classificacao1, favorito, true, nome, pageable)
-//                                );
-//                            } else {
-//                                if (naoDescartavel) {
-//                                    return ResponseEntity.status(HttpStatus.OK).body(
-//                                            this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndDescartavelAndNomeContaining(true, classificacao1, favorito, false, nome, pageable)
-//                                    );
-//                                }
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//                                        this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndNomeContaining(true, classificacao1, favorito, nome, pageable)
-//                                );
-//                            }
-//                        }
-//                    }
-//                    if (descartavel) {
-//                        return ResponseEntity.status(HttpStatus.OK).body(
-//                                this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndDescartavelAndNomeContaining(true, classificacao1, favorito, 0, true, nome, pageable)
-//                        );
-//                    } else {
-//                        if(naoDescartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndDescartavelAndNomeContaining(true, classificacao1, favorito, 0, false, nome, pageable)
-//                            );
-//                        }
-//                        return ResponseEntity.status(HttpStatus.OK).body(
-//                                this.produtoService.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndNomeContaining(true, classificacao1, favorito, 0, nome, pageable)
-//                        );
-//                    }
-//                } else {
-//                    if (semEstoque) {
-//                        if (descartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueAndDescartavelAndNomeContaining(true, classificacao1, 0, true, nome, pageable)
-//                            );
-//                        } else {
-//                            if(naoDescartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//                                        this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueAndDescartavelAndNomeContaining(true, classificacao1, 0, false, nome, pageable)
-//                                );
-//                            }
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueAndNomeContaining(true, classificacao1, 0, nome, pageable)
-//                            );
-//                        }
-//                    } else {
-//                        if (!comEstoque) {
-//                            if (descartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//                                        this.produtoService.findByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(true, classificacao1, true, nome, pageable)
-//                                );
-//                            } else {
-//                                if(naoDescartavel) {
-//                                    return ResponseEntity.status(HttpStatus.OK).body(
-//                                            this.produtoService.findByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(true, classificacao1, false, nome, pageable)
-//                                    );
-//                                }
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//                                        this.produtoService.findByVisibilidadeAndClassificacaoAndNomeContaining(true, classificacao1, nome, pageable)
-//                                );
-//                            }
-//                        }
-//                    }
-//                    if (descartavel) {
-//                        return ResponseEntity.status(HttpStatus.OK).body(
-//                                this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndDescartavelAndNomeContaining(true, classificacao1, 0, true, nome, pageable)
-//                        );
-//                    } else {
-//                        if(naoDescartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//                                    this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndDescartavelAndNomeContaining(true, classificacao1, 0, false, nome, pageable)
-//                            );
-//                        }
-//                        return ResponseEntity.status(HttpStatus.OK).body(
-//                                this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndNomeContaining(true, classificacao1, 0, nome, pageable)
-//                        );
 //                    }
 //                }
-//            } else {
-//                if (favorito) {
-//                    if (semEstoque) {
-//                        if (descartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                            );
-//                        } else {
-//                            if(naoDescartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            }
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                            );
-//                        }
-//                    } else {
-//                        if (!comEstoque) {
-//                            if (descartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            } else {
-//                                if(naoDescartavel) {
-//                                    return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                    );
-//                                }
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            }
-//                        }
+//                if (descartavel) {
+//                    return ResponseEntity.status(HttpStatus.OK).body(
+//                            this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndDescartavelAndNomeContaining(true, classificacao1, 0, true, nome, pageable)
+//                    );
+//                } else {
+//                    if (naoDescartavel) {
+//                        return ResponseEntity.status(HttpStatus.OK).body(
+//                                this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndDescartavelAndNomeContaining(true, classificacao1, 0, false, nome, pageable)
+//                        );
 //                    }
+//                    return ResponseEntity.status(HttpStatus.OK).body(
+//                            this.produtoService.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndNomeContaining(true, classificacao1, 0, nome, pageable)
+//                    );
+//                }
+//            } else {
+//                if (semEstoque) {
 //                    if (descartavel) {
 //                        return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                        );
 //                    } else {
-//                        if(naoDescartavel) {
+//                        if (naoDescartavel) {
 //                            return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                            );
@@ -198,13 +116,13 @@ public class ProdutoController {
 //                        );
 //                    }
 //                } else {
-//                    if (semEstoque) {
+//                    if (!comEstoque) {
 //                        if (descartavel) {
 //                            return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                            );
 //                        } else {
-//                            if(naoDescartavel) {
+//                            if (naoDescartavel) {
 //                                return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                                );
@@ -213,84 +131,34 @@ public class ProdutoController {
 //
 //                            );
 //                        }
-//                    } else {
-//                        if (!comEstoque) {
-//                            if (descartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            } else {
-//                                if(naoDescartavel) {
-//                                    return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                    );
-//                                }
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            }
-//                        }
 //                    }
-//                    if (descartavel) {
-//                        return ResponseEntity.status(HttpStatus.OK).body(
+//                }
+//                if (descartavel) {
+//                    return ResponseEntity.status(HttpStatus.OK).body(
 //
-//                        );
-//                    } else {
-//                        if(naoDescartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                            );
-//                        }
+//                    );
+//                } else {
+//                    if (naoDescartavel) {
 //                        return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                        );
 //                    }
+//                    return ResponseEntity.status(HttpStatus.OK).body(
+//
+//                    );
 //                }
 //            }
 //        } else {
 //            if (classificacao != null && !classificacao.isEmpty()) {
 //                ClassificacaoUtil classificacaoUtil = new ClassificacaoUtil();
 //                Classificacao classificacao1 = classificacaoUtil.convertJsonToModel(classificacao);
-//                if (favorito) {
-//                    if (semEstoque) {
-//                        if (descartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                            );
-//                        } else {
-//                            if(naoDescartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            }
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                            );
-//                        }
-//                    } else {
-//                        if (!comEstoque) {
-//                            if (descartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            } else {
-//                                if(naoDescartavel) {
-//                                    return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                    );
-//                                }
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            }
-//                        }
-//                    }
+//                if (semEstoque) {
 //                    if (descartavel) {
 //                        return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                        );
 //                    } else {
-//                        if(naoDescartavel) {
+//                        if (naoDescartavel) {
 //                            return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                            );
@@ -300,13 +168,13 @@ public class ProdutoController {
 //                        );
 //                    }
 //                } else {
-//                    if (semEstoque) {
+//                    if (!comEstoque) {
 //                        if (descartavel) {
 //                            return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                            );
 //                        } else {
-//                            if(naoDescartavel) {
+//                            if (naoDescartavel) {
 //                                return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                                );
@@ -315,80 +183,30 @@ public class ProdutoController {
 //
 //                            );
 //                        }
-//                    } else {
-//                        if (!comEstoque) {
-//                            if (descartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            } else {
-//                                if(naoDescartavel) {
-//                                    return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                    );
-//                                }
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            }
-//                        }
-//                    }
-//                    if (descartavel) {
-//                        return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                        );
-//                    } else {
-//                        if(naoDescartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                            );
-//                        }
-//                        return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                        );
 //                    }
 //                }
-//            } else {
-//                if (favorito) {
-//                    if (semEstoque) {
-//                        if (descartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
+//                if (descartavel) {
+//                    return ResponseEntity.status(HttpStatus.OK).body(
 //
-//                            );
-//                        } else {
-//                            if(naoDescartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
+//                    );
+//                } else {
+//                    if (naoDescartavel) {
+//                        return ResponseEntity.status(HttpStatus.OK).body(
 //
-//                                );
-//                            }
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                            );
-//                        }
-//                    } else {
-//                        if (!comEstoque) {
-//                            if (descartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            } else {
-//                                if(naoDescartavel) {
-//                                    return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                    );
-//                                }
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            }
-//                        }
+//                        );
 //                    }
+//                    return ResponseEntity.status(HttpStatus.OK).body(
+//
+//                    );
+//                }
+//            } else {
+//                if (semEstoque) {
 //                    if (descartavel) {
 //                        return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                        );
 //                    } else {
-//                        if(naoDescartavel) {
+//                        if (naoDescartavel) {
 //                            return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                            );
@@ -398,13 +216,13 @@ public class ProdutoController {
 //                        );
 //                    }
 //                } else {
-//                    if (semEstoque) {
+//                    if (!comEstoque) {
 //                        if (descartavel) {
 //                            return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                            );
 //                        } else {
-//                            if(naoDescartavel) {
+//                            if (naoDescartavel) {
 //                                return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                                );
@@ -413,38 +231,21 @@ public class ProdutoController {
 //
 //                            );
 //                        }
-//                    } else {
-//                        if (!comEstoque) {
-//                            if (descartavel) {
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            } else {
-//                                if(naoDescartavel) {
-//                                    return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                    );
-//                                }
-//                                return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                                );
-//                            }
-//                        }
 //                    }
-//                    if (descartavel) {
-//                        return ResponseEntity.status(HttpStatus.OK).body(
+//                }
+//                if (descartavel) {
+//                    return ResponseEntity.status(HttpStatus.OK).body(
 //
-//                        );
-//                    } else {
-//                        if(naoDescartavel) {
-//                            return ResponseEntity.status(HttpStatus.OK).body(
-//
-//                            );
-//                        }
+//                    );
+//                } else {
+//                    if (naoDescartavel) {
 //                        return ResponseEntity.status(HttpStatus.OK).body(
 //
 //                        );
 //                    }
+//                    return ResponseEntity.status(HttpStatus.OK).body(
+//
+//                    );
 //                }
 //            }
 //        }

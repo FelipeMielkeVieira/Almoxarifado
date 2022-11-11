@@ -62,63 +62,27 @@ public class ProdutoService {
         return produtoRepository.countByVisibilidadeAndNomeContaining(b, nome);
     }
 
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndDescartavel(boolean b, Classificacao classificacao1, boolean b1, int i, boolean b2, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndDescartavel(b, classificacao1, b1, i, b2, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndDescartavel(boolean b, Classificacao classificacao1, boolean b1, boolean b2, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndDescartavel(b, classificacao1, b1, b2, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndDescartavel(boolean b, Classificacao classificacao1, boolean b1, int i, boolean b2, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndDescartavel(b, classificacao1, b1, i, b2, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, Integer b1, int i, boolean b2, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndDescartavelAndNomeContaining(b, classificacao1, b1, i, b2, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, Integer b1, boolean b2, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndDescartavelAndNomeContaining(b, classificacao1, b1, b2, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, Integer b1, int i, boolean b2, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndDescartavelAndNomeContaining(b, classificacao1, b1, i, b2, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndEstoqueAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, int i, boolean b1, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndEstoqueAndDescartavelAndNomeContaining(b, classificacao1, i, b1, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, boolean b1, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(b, classificacao1, b1, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, int i, boolean b1, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndDescartavelAndNomeContaining(b, classificacao1, i, b1, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndNomeContaining(boolean b, Classificacao classificacao1, Integer b1, int i, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueAndNomeContaining(b, classificacao1, b1, i, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndNomeContaining(boolean b, Classificacao classificacao1, Integer b1, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndNomeContaining(b, classificacao1, b1, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndNomeContaining(boolean b, Classificacao classificacao1, Integer b1, int i, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndFavoritoAndEstoqueIsNotAndNomeContaining(b, classificacao1.getId(), b1, i, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndEstoqueAndNomeContaining(boolean b, Classificacao classificacao1, int i, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndEstoqueAndNomeContaining(b, classificacao1, i, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndNomeContaining(boolean b, Classificacao classificacao1, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndNomeContaining(b, classificacao1, nome, pageable);
-    }
-
-    public List<Produto> findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndNomeContaining(boolean b, Classificacao classificacao1, int i, String nome, Pageable pageable) {
-        return produtoRepository.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndNomeContaining(b, classificacao1, i, nome, pageable);
-    }
+//    public List<Produto> findByVisibilidadeAndClassificacaoAndEstoqueAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, int i, boolean b1, String nome, Pageable pageable) {
+//        return produtoRepository.findByVisibilidadeAndClassificacaoAndEstoqueAndDescartavelAndNomeContaining(b, classificacao1, i, b1, nome, pageable);
+//    }
+//
+//    public List<Produto> findByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, boolean b1, String nome, Pageable pageable) {
+//        return produtoRepository.findByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(b, classificacao1, b1, nome, pageable);
+//    }
+//
+//    public List<Produto> findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, int i, boolean b1, String nome, Pageable pageable) {
+//        return produtoRepository.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndDescartavelAndNomeContaining(b, classificacao1, i, b1, nome, pageable);
+//    }
+//
+//    public List<Produto> findByVisibilidadeAndClassificacaoAndEstoqueAndNomeContaining(boolean b, Classificacao classificacao1, int i, String nome, Pageable pageable) {
+//        return produtoRepository.findByVisibilidadeAndClassificacaoAndEstoqueAndNomeContaining(b, classificacao1, i, nome, pageable);
+//    }
+//
+//    public List<Produto> findByVisibilidadeAndClassificacaoAndNomeContaining(boolean b, Classificacao classificacao1, String nome, Pageable pageable) {
+//        return produtoRepository.findByVisibilidadeAndClassificacaoAndNomeContaining(b, classificacao1, nome, pageable);
+//    }
+//
+//    public List<Produto> findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndNomeContaining(boolean b, Classificacao classificacao1, int i, String nome, Pageable pageable) {
+//        return produtoRepository.findByVisibilidadeAndClassificacaoAndEstoqueIsNotAndNomeContaining(b, classificacao1, i, nome, pageable);
+//    }
 }
