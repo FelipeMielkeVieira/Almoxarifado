@@ -52,4 +52,24 @@ public class LocalizacaoService {
     public void deleteAll() {
         localizacaoRepository.deleteAll();
     }
+
+    public List<Localizacao> findPageByNome(String nome, Pageable pageable) {
+        return localizacaoRepository.findByNomeContaining(nome, pageable);
+    }
+
+    public Object countLocalizacoesByNome(String nome) {
+        return localizacaoRepository.countByNomeContaining(nome);
+    }
+
+    public List<Localizacao> findByNome(String nome) {
+        return localizacaoRepository.findByNomeContaining(nome);
+    }
+
+    public Integer countLocalizacoesByPai(Long idPai) {
+        return localizacaoRepository.countByIdPai(idPai);
+    }
+
+    public List<Localizacao> findPageByPai(Long idPai, Pageable pageable) {
+        return localizacaoRepository.findByIdPai(idPai, pageable);
+    }
 }

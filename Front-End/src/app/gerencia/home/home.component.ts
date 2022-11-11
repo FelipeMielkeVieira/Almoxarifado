@@ -137,15 +137,42 @@ export class HomeComponent implements OnInit {
 
   buscarLocalizacoes() {
     this.carregando = !this.carregando;
-    this.localizacaoService.countLocalizacoes().subscribe(
-      data => this.itensTotais = data,
-      error => { console.log(error) }
-    )
 
-    this.localizacaoService.getPage(this.parametrosPagina).subscribe(
-      data => { this.localizacoesLista = data; this.carregando = !this.carregando; },
-      error => { console.log(error) }
-    );
+    if (this.inputGeral != "") {
+
+      if (this.pesquisarPorLocalizacao) {
+        this.localizacaoService.countLocalizacoesByNome(this.inputGeral).subscribe(
+          data => { this.itensTotais = data; },
+          error => { console.log(error); }
+        )
+
+        this.localizacaoService.getPageByNome(this.inputGeral, this.parametrosPagina).subscribe(
+          data => { this.localizacoesLista = data; this.carregando = !this.carregando; },
+          error => { console.log(error) }
+        )
+      } else {
+        this.localizacaoService.countLocalizacoesByPai(this.inputGeral).subscribe(
+          data => { this.itensTotais = data; },
+          error => { console.log(error); }
+        )
+
+        this.localizacaoService.getPageByPai(this.inputGeral, this.parametrosPagina).subscribe(
+          data => { this.localizacoesLista = data; this.carregando = !this.carregando; },
+          error => { console.log(error) }
+        )
+      }
+
+    } else {
+      this.localizacaoService.countLocalizacoes().subscribe(
+        data => this.itensTotais = data,
+        error => { console.log(error) }
+      )
+
+      this.localizacaoService.getPage(this.parametrosPagina).subscribe(
+        data => { this.localizacoesLista = data; this.carregando = !this.carregando; },
+        error => { console.log(error) }
+      );
+    }
   }
 
   // Função que retorna o placeholder do input de pesquisa principal, dependendo da aba aberta
@@ -161,9 +188,9 @@ export class HomeComponent implements OnInit {
     }
     if (this.abaLocalizacoes) {
       if (this.pesquisarPorLocalizacao) {
-        return "Pesquise por localização...";
+        return "Pesquise por nome localização...";
       }
-      return "Pesquise por id pai...";
+      return "Pesquise por nome pai...";
     }
     return "Pesquisar";
   }
@@ -753,8 +780,11 @@ export class HomeComponent implements OnInit {
     if (this.abaGerenciaUsuarios) {
       this.buscarUsuariosExistentes();
     }
-    if(this.abaGerenciaCadastros) {
+    if (this.abaGerenciaCadastros) {
       this.buscarCadastrosPendentes();
+    }
+    if (this.abaLocalizacoes) {
+      this.buscarLocalizacoes();
     }
   }
 

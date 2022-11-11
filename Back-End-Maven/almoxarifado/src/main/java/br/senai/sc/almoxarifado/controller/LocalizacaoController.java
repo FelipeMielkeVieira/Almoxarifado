@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +36,23 @@ public class LocalizacaoController {
     @GetMapping("/page")
     public ResponseEntity<List<Localizacao>> findPage(@PageableDefault(page = 0, size = 50, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findAll(pageable));
+    }
+
+    @GetMapping("/page/{nome}")
+    public ResponseEntity<List<Localizacao>> findPageByNome(@PageableDefault(page = 0, size = 50, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+                                                            @PathVariable(value = "nome") String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.findPageByNome(nome, pageable));
+    }
+
+    @GetMapping("/page/pai/{nome}")
+    public ResponseEntity<List<Localizacao>> findPageByPai(@PageableDefault(page = 0, size = 50, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+                                                            @PathVariable(value = "nome") String nome) {
+        List<Localizacao> localizacoesPai = localizacaoService.findByNome(nome);
+        List<Localizacao> localizacoes = new ArrayList<>();
+        for (Localizacao localizacao : localizacoesPai) {
+            localizacoes.addAll(localizacaoService.findPageByPai(localizacao.getId(), pageable));
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(localizacoes);
     }
 
     @GetMapping("/{codigoLocalizacao}")
@@ -76,6 +94,21 @@ public class LocalizacaoController {
     @GetMapping("/count")
     public ResponseEntity<Object> countLocalizacoes() {
         return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.countLocalizacoes());
+    }
+
+    @GetMapping("/count/{nome}")
+    public ResponseEntity<Object> countByNome(@PathVariable(value = "nome") String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(localizacaoService.countLocalizacoesByNome(nome));
+    }
+
+    @GetMapping("/count/pai/{nome}")
+    public ResponseEntity<Integer> countByPai(@PathVariable(value = "nome") String nome) {
+        List<Localizacao> localizacoes = localizacaoService.findByNome(nome);
+        Integer count = 0;
+        for (Localizacao localizacao : localizacoes) {
+            count += localizacaoService.countLocalizacoesByPai(localizacao.getId());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(count);
     }
 
     @PostMapping
