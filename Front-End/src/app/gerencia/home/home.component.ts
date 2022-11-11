@@ -376,8 +376,8 @@ export class HomeComponent implements OnInit {
   }
 
   // Função que vai selecionar todas as localizações cadastradas
-  selectAll() {
-    if (this.selectAllLocalizacoes) {
+  selectAllFromPage() {
+    if (this.selectAllLocalizacoesFromPage) {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
       });
@@ -391,7 +391,7 @@ export class HomeComponent implements OnInit {
   }
 
   // Função que vai selecionar todas as localizações da atual página
-  selectAllFromPage() {
+  selectAll() {
 
   }
 
@@ -423,8 +423,10 @@ export class HomeComponent implements OnInit {
   // Função para excluir as localizações selecionadas do banco de dados
   excluirLocalizacoes() {
     for (const loc of this.localizacoesSelecionadas) {
-      this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(error => { console.log(error) });
-      this.excluirLocalizacaoLista(loc.id);
+      this.localizacaoService.deleteLocalizacoes(loc.id).subscribe(
+        data => { this.excluirLocalizacaoLista(loc.id); },
+        error => { console.log(error) }
+      );
     }
   }
 

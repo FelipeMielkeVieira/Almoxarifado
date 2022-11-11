@@ -781,3 +781,10 @@ h1 {
     flex-direction: column;
     gap: 0.5rem;
 }
+
+#btnLocalizacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+}

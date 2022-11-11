@@ -5,8 +5,6 @@ import br.senai.sc.almoxarifado.model.entities.Classificacao;
 import br.senai.sc.almoxarifado.model.entities.Produto;
 import br.senai.sc.almoxarifado.model.service.ClassificacaoService;
 import br.senai.sc.almoxarifado.model.service.ProdutoService;
-import br.senai.sc.almoxarifado.repository.ClassificacaoRepository;
-import br.senai.sc.almoxarifado.util.ClassificacaoUtil;
 import br.senai.sc.almoxarifado.util.ProdutoUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
