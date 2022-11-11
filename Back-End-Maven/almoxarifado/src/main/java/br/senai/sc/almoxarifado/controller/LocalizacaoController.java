@@ -93,6 +93,8 @@ public class LocalizacaoController {
         }
 
         Localizacao localizacao = localizacaoService.findById(codigoLocalizacao).get();
+
+
         localizacaoService.deleteById(codigoLocalizacao);
         return ResponseEntity.status(HttpStatus.OK).body(localizacao);
     }

@@ -235,7 +235,7 @@ export class HomeComponent implements OnInit {
 
   // Função para atualização das variáveis de filtros e busca filtrada dos itens
   atualizarFiltros(event: any) {
-    if (event.id) {
+    if (event.id || event.id == 0) {
       if (event.tirar) {
         this.classificacaoFiltrada = undefined;
       } else {

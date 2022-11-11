@@ -217,16 +217,17 @@
                 <div *ngIf="abaLocalizacoes" id="conteudoLocalizacoes && !carregando">
                     <div id="containerAcoesLocalizacao">
                         <div id="container-select-box-localizacoes">
-                            <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoesFromPage"
+                            <mat-checkbox id="selecionar-tudo-pagina" [(ngModel)]="selectAllLocalizacoesFromPage"
                                 (click)="selectAllFromPage()">
                                 Selecionar esta página</mat-checkbox>
-                            <mat-checkbox id="selecionar-tudo-pagina" [(ngModel)]="selectAllLocalizacoes"
+                            <mat-checkbox id="selecionar-tudo" [(ngModel)]="selectAllLocalizacoes"
                                 (click)="selectAll()">
                                 Selecionar todas as páginas</mat-checkbox>
                         </div>
                         <div id="btnLocalizacao">
                             <button (click)="confirmarExclusaoLocalizacoes()" class="btn btn-outline-primary btnCustom"
                                 [disabled]="deletarLocalizacaoClicavel()">Deletar</button>
+                            <p>{{ localizacoesSelecionadas.length }} localizações selecionadas</p>
                         </div>
                     </div>
                     <app-localizacao (localizacoesSelecionadasByUser)="atualizarLocalizacoesSelecionadas($event)"

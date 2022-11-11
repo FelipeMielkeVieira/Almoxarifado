@@ -164,7 +164,7 @@ export class FiltroComponent implements OnInit {
 
       divFiltro.removeChild(containerFiltro);
       this.filtroSelecionado = null;
-      this.emitirFiltro({ tirar: 1 });
+      this.emitirFiltro({id: 0, tirar: 1 });
     };
 
     iconExcluir.style.fontSize = "20px"
@@ -190,7 +190,7 @@ export class FiltroComponent implements OnInit {
 
     divFiltro.removeChild(containerFiltro);
     this.filtroSelecionado = null;
-    this.emitirFiltro({ tirar: 0 });
+    this.emitirFiltro({id: 0, tirar: 0 });
   }
 
   // *Caso ele clique na flecha, irá puxar o modal para a direita
