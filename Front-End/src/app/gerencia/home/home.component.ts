@@ -53,6 +53,8 @@ export class HomeComponent implements OnInit {
   abaItens = false;
   abaLocalizacoes = false;
 
+  pesquisarPorLocalizacao: boolean = true;
+
   modalCadastrarItem = false;
   localizacaoModal = false;
   modalOrdenar: boolean = false;
@@ -158,7 +160,10 @@ export class HomeComponent implements OnInit {
       return "Pesquise por produto...";
     }
     if (this.abaLocalizacoes) {
-      return "Pesquise por localização...";
+      if (this.pesquisarPorLocalizacao) {
+        return "Pesquise por localização...";
+      }
+      return "Pesquise por id pai...";
     }
     return "Pesquisar";
   }
@@ -377,6 +382,7 @@ export class HomeComponent implements OnInit {
         }
 
         if (evento == "cadastro") {
+          this.buscarLocalizacoes();
           this.feedbackLocalizacaoCadastrada = true;
           setTimeout(() => {
             this.feedbackLocalizacaoCadastrada = false;
@@ -453,6 +459,8 @@ export class HomeComponent implements OnInit {
   deselecionarMatSelector() {
     this.selectAllLocalizacoesFromPage = false;
     this.selectAllLocalizacoes = false;
+    this.qtdLocalizacoesSelecionadas = 0;
+    this.localizacoesSelecionadas = [];
   }
 
   // Função que vai selecionar todas as localizações da atual página
@@ -474,7 +482,6 @@ export class HomeComponent implements OnInit {
 
   // Função que vai selecionar todas as localizações cadastradas
   selectAll() {
-    console.log(this.localizacoesLista)
     if (this.selectAllLocalizacoes) {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
@@ -716,10 +723,10 @@ export class HomeComponent implements OnInit {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
       });
-      this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
     } else {
       this.localizacoesSelecionadas = lista;
     }
+    this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
   }
 
   // Função para atualização das variáveis de filtros e busca filtrada dos itens
@@ -749,5 +756,9 @@ export class HomeComponent implements OnInit {
     if(this.abaGerenciaCadastros) {
       this.buscarCadastrosPendentes();
     }
+  }
+
+  trocarPesquisaLocalizacao() {
+    this.pesquisarPorLocalizacao = !this.pesquisarPorLocalizacao;
   }
 }

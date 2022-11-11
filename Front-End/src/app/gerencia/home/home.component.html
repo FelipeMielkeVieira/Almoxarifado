@@ -92,7 +92,6 @@
 
                     <div id="containerLinhaInput">
                         <div id="containerInputOrdenar">
-
                             <!-- Input principal de pesquisa -->
                             <div id="divInput">
                                 <input [(ngModel)]="inputGeral" class="input" type="text"
@@ -124,6 +123,15 @@
                                     title="Ver em lista">
                                     sort
                                 </span>
+                                <button id="trocarPesquisa" (click)="trocarPesquisaLocalizacao()" *ngIf="abaLocalizacoes" mat-stroked-button color="primary">
+                                    <span id="trocarPesquisaIcon" class="material-symbols-outlined iconDeselect iconsModais"
+                                        title="Trocar pesquisa">
+                                        sync_alt
+                                    </span>
+                                    <span>
+                                        Pesquisa
+                                    </span>
+                                </button>
                             </div>
                         </div>
                         <button *ngIf="abaLocalizacoes" mat-flat-button color="primary"
@@ -213,7 +221,8 @@
                         </div>
                     </div>
                     <app-localizacao (localizacoesSelecionadasByUser)="atualizarLocalizacoesSelecionadas($event)"
-                        [localizacoesSelecionadas]="localizacoesSelecionadas" [localizacoes]="localizacoesLista" [allSelected]="selectAllLocalizacoesFromPage">
+                        [localizacoesSelecionadas]="localizacoesSelecionadas" [localizacoes]="localizacoesLista"
+                        [allSelected]="selectAllLocalizacoesFromPage">
                     </app-localizacao>
                 </div>
 

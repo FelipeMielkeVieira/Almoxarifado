@@ -34,20 +34,18 @@
 
             <div id="containerCadastrar">
                 <div id="parteCadastrar">
-
-                    <div id="textoCadastrar">
-                        <p>Cadastrar</p>
-                    </div>
-
-                    <div id="inputNomeFiltro">
-                        <input [(ngModel)]="novoFiltro" type="text" id="NomeFiltro"
-                            placeholder="Nome da Classificação" />
-                        <button (click)="adicionarFiltro()" id="botaoAdicionar">OK</button>
-                    </div>
-
+                        <div id="textoCadastrar">
+                            <p>Cadastrar</p>
+                        </div>
+                        <div id="containerInput">
+                            <div id="inputNomeFiltro">
+                                <input [(ngModel)]="novoFiltro" type="text" id="NomeFiltro"
+                                    placeholder="Nome da Classificação" />
+                                <button (click)="adicionarFiltro()" id="botaoAdicionar">OK</button>
+                            </div>
+                        </div>
                 </div>
             </div>
-
             <div id="containerSalvar">
                 <button id="botaoSalvar" (click)="salvar()">Salvar</button>
             </div>

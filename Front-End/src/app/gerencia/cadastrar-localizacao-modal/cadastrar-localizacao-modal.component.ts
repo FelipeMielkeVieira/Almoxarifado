@@ -1,4 +1,3 @@
-import { HashLocationStrategy } from '@angular/common';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { LocalizacaoService } from 'src/app/service/localizacaoService';
 
@@ -9,6 +8,7 @@ import { LocalizacaoService } from 'src/app/service/localizacaoService';
 })
 export class CadastrarLocalizacaoModalComponent implements OnInit {
   @Output() fecharModal = new EventEmitter<string>();
+  @Output() atualizarLocalizacoes = new EventEmitter<string>();
   @Input() primeirasLocalizacoes: any[] = [];
 
   listaLocalizacoes: any[] = [];
@@ -46,7 +46,6 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
   cadastrar() {
     if (this.localizacao != "") {
       this.cadastrarLocalizacao();
-      this.close("cadastro");
     } else {
       this.feedbackDados = true;
       setTimeout(() => {
@@ -58,10 +57,12 @@ export class CadastrarLocalizacaoModalComponent implements OnInit {
   cadastrarLocalizacao() {
     if (this.listaLocalizacoesEscolhidas.length > 0) {
       this.localizacaoService.postLocalizacoes({ nome: this.localizacao, idPai: this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1] }).subscribe(
+        data => { this.close("cadastro"); },
         error => { console.log(error) }
       );
     } else {
       this.localizacaoService.postLocalizacoes({ nome: this.localizacao }).subscribe(
+        data => { this.close("cadastro"); },
         error => { console.log(error) }
       );
     }
