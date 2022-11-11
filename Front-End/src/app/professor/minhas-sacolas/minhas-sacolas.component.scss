@@ -82,11 +82,11 @@ p {
 }
 
 .containerSacolas{
+    width: 85%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    justify-items: center;
-    min-width: 890px;
-    padding: 0px 50px;
+    justify-content: center;
+    grid-template-columns:repeat(auto-fill, minmax(40rem, 35rem));
+    grid-gap: 15px 35px;
+    margin-left: 100px;
 }
 /* <!-- ------------------------------- FIM COMPONENTE DA SACOLA ------------------------------- --> */
