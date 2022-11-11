@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -49,8 +50,8 @@ public class Produto {
     @ManyToMany
     @JoinTable(
             name = "produto_localizacao",
-            joinColumns = @JoinColumn(name = "produto_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "localizacao_id", nullable = false))
+            joinColumns = @JoinColumn(name = "produto_id"),
+            inverseJoinColumns = @JoinColumn(name = "localizacao_id"))
     private Set<Localizacao> localizacoes;
 
     @OneToMany(cascade = CascadeType.ALL)

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b25223f-5168-4c62-8fe4-3dd173d0e0ad" name="Default Changelist" comment="" />
+    <list default="true" id="7b25223f-5168-4c62-8fe4-3dd173d0e0ad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End-Maven/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End-Maven/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/entities/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End-Maven/almoxarifado/src/main/java/br/senai/sc/almoxarifado/util/ProdutoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End-Maven/almoxarifado/src/main/java/br/senai/sc/almoxarifado/util/ProdutoUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/app/gerencia/cadastrar-item/cadastrar-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/app/gerencia/cadastrar-item/cadastrar-item.component.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +17,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="2F67jHnp0OcAP4GApNKeBjMFvNi" />
   <component name="ProjectViewState">

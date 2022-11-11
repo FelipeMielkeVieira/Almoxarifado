@@ -119,15 +119,26 @@ export class CadastrarItemComponent implements OnInit {
   }
 
   cadastrarItem() {
-
-    let produto = {
-      nome: this.nomeProduto,
-      quantidade: this.qtdItem,
-      caracteristicas: this.descricaoItem,
-      descartavel: this.itemDescartavel,
-      classificacao: { id: 0 },
-      localizacoes: [{ id: this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1] }],
+    let produto: any;
+    if(this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1] == null){
+       produto = {
+        nome: this.nomeProduto,
+        quantidade: this.qtdItem,
+        caracteristicas: this.descricaoItem,
+        descartavel: this.itemDescartavel,
+        classificacao: { id: 0 },
+      }
+    } else {
+       produto = {
+        nome: this.nomeProduto,
+        quantidade: this.qtdItem,
+        caracteristicas: this.descricaoItem,
+        descartavel: this.itemDescartavel,
+        classificacao: { id: 0 },
+        localizacoes: [{ id: this.listaLocalizacoesEscolhidas[this.listaLocalizacoesEscolhidas.length - 1] }],
+      }
     }
+   
 
     if (this.criarClassificacao) {
       this.classificacaoService.postFiltros({ classificacao: this.classificacaoTexto }).subscribe(
