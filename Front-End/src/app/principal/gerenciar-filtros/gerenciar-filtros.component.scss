@@ -24,7 +24,6 @@
 
 #containerModal {
     width: 30rem;
-    height: 27rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
@@ -43,11 +42,13 @@
 #containerTopo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-#palavraFiltro {
-    margin-left: 37%;
+#palavraFiltro p {
+    color: #0047B6;
+    font-size: var(--font-size--verybig);
+    font-weight: 600;
 }
 
 #containerIcon {
@@ -83,7 +84,7 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    margin-right: 14%;
+    margin-right: 4rem;
     padding-right: 5px;
     height: 11rem;
     overflow: auto;
@@ -134,9 +135,21 @@
     margin-left: 10%;
 }
 
+#textoCadastrar p {
+    font-size: var(--font-size--default);
+    font-weight: 600;
+    color: #0047B6;
+    margin-bottom: 0;
+}
+
 #containerCadastrar {
     width: 100%;
     margin-top: 1%;
+}
+
+#containerInput {
+    display: flex;
+    justify-content: center;
 }
 
 #riscoGrande {
@@ -148,7 +161,6 @@
 
 #NomeFiltro {
     margin-top: 1%;
-    width: 250px;
     padding: 5px;
     border: solid 1px black;
     border-radius: 5px;
@@ -174,9 +186,9 @@
 }
 
 #inputNomeFiltro {
-    width: 100%;
+    width: 80%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -188,6 +200,7 @@
 
 #botaoSalvar {
     margin-top: 5%;
+    margin-bottom: 5%;
     padding: 0.6rem 1.2rem;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
