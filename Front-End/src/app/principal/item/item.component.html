@@ -87,8 +87,9 @@
   <app-modal-historico-edicao *ngIf="modalHistorico" [item]="item" (fecharModal)="fecharModaisItem(5, undefined)">
   </app-modal-historico-edicao>
 
+  <!-- Modal de adicionar na sacola -->
   <div id="fundoModal" *ngIf="modalAdicionarSacola">
-    <app-adicionar-sacola *ngIf="modalAdicionarSacola"></app-adicionar-sacola>
+    <app-adicionar-sacola *ngIf="modalAdicionarSacola" (fecharModal)="fecharModaisItem(6,undefined)"></app-adicionar-sacola>
   </div>
 
   <!-- Modal Confirmar Remoção -->

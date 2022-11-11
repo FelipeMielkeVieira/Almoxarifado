@@ -8,8 +8,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 export class AdicionarSacolaComponent implements OnInit {
 
+  @Output() fecharModal = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void { }
+
+  fecharModalAnexos() {
+    this.fecharModal.emit();
+  }
 
 }

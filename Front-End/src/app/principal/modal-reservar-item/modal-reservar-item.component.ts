@@ -148,6 +148,8 @@ export class ModalReservarItem implements OnInit {
     this.fecharModalReserva("anexos");
   }
 
+
+
   // Função para salvar as datas advindas do calendário, chamada por um Output do componente "Calendario"
   salvarData(numero: number, data: any) {
     if (numero == 1) {
@@ -164,7 +166,7 @@ export class ModalReservarItem implements OnInit {
     // if (this.qtdItem > 0 && this.item.quantidade > 0) {
     //   this.fecharModalReserva("sacola");
     // }
-    this.adicionarSacolaModal = true;
+    this.fecharModalReserva("addSacola");
   }
 
   // Função para determinar se o input de adicionar professor está habilitado ou não
