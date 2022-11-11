@@ -89,6 +89,9 @@ export class HomeComponent implements OnInit {
   itemOrdenacaoAtual: string = "emailUsuario";
   ordenacaoAtual: string = "asc";
 
+  classificacaoFiltrada: any = undefined;
+  filtrosSecundarios: any = [false, false, false, false, false]
+
   // Variáveis localizações
   // listaLocalizacoes: any = [];
 
@@ -160,6 +163,17 @@ export class HomeComponent implements OnInit {
   // Função para mudar de aba, recebendo o número da aba como parâmetro
   mudarAba(numero: number) {
     this.fecharAbas();
+
+    if (!this.abaItens) {
+      let divFiltro = document.querySelector("#filtro") as HTMLDivElement;
+      let containerFiltro = document.querySelector("#containerFiltro") as HTMLDivElement;
+
+      if(containerFiltro) {
+        divFiltro.removeChild(containerFiltro);
+        this.classificacaoFiltrada = undefined;
+      }
+    }
+
     switch (numero) {
       case 1:
         this.abaGerenciaUsuarios = true;
@@ -207,13 +221,38 @@ export class HomeComponent implements OnInit {
   }
 
   buscarItens() {
+
     this.carregando = !this.carregando;
-    this.produtoService.getCount().subscribe(
-      data => { this.itensTotais = data; },
+    let params: any = {};
+
+    if (this.inputGeral != "") {
+      params.nome = this.inputGeral;
+    }
+    if (this.classificacaoFiltrada) {
+      params.classificacao = this.classificacaoFiltrada.id;
+    }
+    if (this.filtrosSecundarios[0]) {
+      params.descartavel = true;
+    }
+    if (this.filtrosSecundarios[1]) {
+      params.naoDescartavel = true;
+    }
+    if (this.filtrosSecundarios[2]) {
+      params.semQuantidade = true;
+    }
+    if (this.filtrosSecundarios[3]) {
+      params.comQuantidade = true;
+    }
+    if (this.filtrosSecundarios[4]) {
+
+    }
+
+    this.produtoService.getCount(params).subscribe(
+      data => { this.itensTotais = data; this.itensTotais = data; },
       error => { console.log(error) }
     )
 
-    this.produtoService.getPage(this.parametrosPagina).subscribe(
+    this.produtoService.getPage(this.parametrosPagina, params).subscribe(
       data => { this.listaItens = data; this.carregando = !this.carregando; },
       error => { console.log(error) }
     );
@@ -654,5 +693,28 @@ export class HomeComponent implements OnInit {
       this.localizacoesSelecionadas = lista;
     }
     this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
+  }
+
+  // Função para atualização das variáveis de filtros e busca filtrada dos itens
+  atualizarFiltros(event: any) {
+    if (event.id || event.id == 0) {
+      if (event.tirar) {
+        this.classificacaoFiltrada = undefined;
+      } else {
+        this.classificacaoFiltrada = event;
+      }
+    } else {
+      this.filtrosSecundarios = event;
+    }
+    this.fecharAbas();
+    this.abaItens = true;
+    this.buscarItens();
+  }
+
+  // Função acionada ao fazer uma pesquisa pelo campo de texto
+  pesquisar() {
+    if (this.abaItens) {
+      this.buscarItens();
+    }
   }
 }

@@ -10,20 +10,12 @@ export class ProdutoService {
         return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto");
     }
 
-    getCount(): Observable<any> {
-        return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto/count");
+    getCount(param: HttpParams): Observable<any> {
+        return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto/page/count", { params: param });
     }
 
-    countByNome(nome: string): Observable<any> {
-        return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/count/${nome}`);
-    }
-
-    getPage(param: string): Observable<any[]> {
-        if (param == "") {
-            return this.httpClient.get<any[]>("http://localhost:8080/alma_sis/produto/page");
-        } else {
-            return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page?${param}`);
-        }
+    getPage(pagina: string, param: HttpParams): Observable<any[]> {
+        return this.httpClient.get<any[]>(`http://localhost:8080/alma_sis/produto/page?${pagina}`, { params: param });
     }
 
     getByNome(param: string, ordenacao: string): Observable<any[]> {

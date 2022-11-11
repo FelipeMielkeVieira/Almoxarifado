@@ -28,9 +28,9 @@
                 <!-- Barra de Pesquisa -->
                 <div id="divInput">
                     <input [(ngModel)]="textoPesquisa" id="input" type="text" placeholder="Pesquise por produto..."
-                        (keydown.enter)="pesquisar()" />
+                        (keydown.enter)="buscarItens()" (blur)="buscarItens()" />
                     <span id="iconPesquisar" class="material-symbols-outlined iconDeselect iconsModais"
-                        (click)="pesquisar()" title="Pesquisar">
+                        (click)="buscarItens()" title="Pesquisar">
                         search
                     </span>
                 </div>
@@ -61,13 +61,13 @@
                 </div>
             </div>
             <app-tela-carregamento *ngIf="carregando"></app-tela-carregamento>
-            <div *ngIf="!carregando" id="filtro"></div>
+            <div id="filtro"></div>
             <p id="resultados" *ngIf="!carregando">{{ numResultados }} Resultados encontrados</p>
         </div>
 
 
 
-        <div *ngIf="!carregando">
+        <div *ngIf="!carregando && numResultados > 0">
             <!-- Itens do Almoxarifado, listados em bloco ou em linha -->
             <div *ngIf="listaEmBloco" id="containerItens">
                 <app-item [visualizacaoItem]="'emBloco'" *ngFor="let item of listaItens" [item]="item"></app-item>

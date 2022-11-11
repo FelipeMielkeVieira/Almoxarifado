@@ -40,7 +40,7 @@ public class ProdutoController {
     public ResponseEntity<List<Produto>> findPage(
             @PageableDefault(page = 0, size = 18, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
             @RequestParam(required = false) String nome,
-            @RequestParam(required = false) String classificacao,
+            @RequestParam(required = false) Long classificacao,
             @RequestParam(required = false) Boolean descartavel,
             @RequestParam(required = false) Boolean naoDescartavel,
             @RequestParam(required = false) Boolean semQuantidade,
@@ -49,9 +49,9 @@ public class ProdutoController {
     ) {
 
         if (nome != null && !nome.isEmpty()) {
-            if (classificacao != null && !classificacao.isEmpty()) {
-                ClassificacaoUtil classificacaoUtil = new ClassificacaoUtil();
-                Classificacao classificacao1 = classificacaoUtil.convertJsonToModel(classificacao);
+            if (classificacao != null) {
+                Classificacao classificacao1 = classificacaoService.findById(classificacao).get();
+
                 if (semQuantidade != null && semQuantidade) {
                     if (descartavel != null && descartavel) {
                         return ResponseEntity.status(HttpStatus.OK).body(
@@ -149,9 +149,9 @@ public class ProdutoController {
                 }
             }
         } else {
-            if (classificacao != null && !classificacao.isEmpty()) {
-                ClassificacaoUtil classificacaoUtil = new ClassificacaoUtil();
-                Classificacao classificacao1 = classificacaoUtil.convertJsonToModel(classificacao);
+            if (classificacao != null) {
+                Classificacao classificacao1 = classificacaoService.findById(classificacao).get();
+
                 if (semQuantidade != null && semQuantidade) {
                     if (descartavel != null && descartavel) {
                         return ResponseEntity.status(HttpStatus.OK).body(
@@ -251,21 +251,219 @@ public class ProdutoController {
         }
     }
 
-    @GetMapping("/page/{nome}")
-    public ResponseEntity<List<Produto>> findByNome(
+    @GetMapping("/page/count")
+    public ResponseEntity<Integer> countPage(
             @PageableDefault(page = 0, size = 18, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
-            @PathVariable(name = "nome") String nome) {
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.findByNome(nome, pageable));
-    }
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) Long classificacao,
+            @RequestParam(required = false) Boolean descartavel,
+            @RequestParam(required = false) Boolean naoDescartavel,
+            @RequestParam(required = false) Boolean semQuantidade,
+            @RequestParam(required = false) Boolean comQuantidade,
+            @RequestParam(required = false) Integer favorito
+    ) {
 
-    @GetMapping("/count")
-    public ResponseEntity<Object> findCount() {
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.countByVisibilidade(true));
-    }
+        if (nome != null && !nome.isEmpty()) {
+            if (classificacao != null) {
+                Classificacao classificacao1 = classificacaoService.findById(classificacao).get();
 
-    @GetMapping("/count/{nome}")
-    public ResponseEntity<Object> findCountNome(@PathVariable(name = "nome") String nome) {
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.countByVisibilidadeAndNome(nome, true));
+                if (semQuantidade != null && semQuantidade) {
+                    if (descartavel != null && descartavel) {
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeAndDescartavelAndNomeContaining(true, classificacao1, 0, true, nome)
+                        );
+                    } else {
+                        if (naoDescartavel != null && naoDescartavel) {
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeAndDescartavelAndNomeContaining(true, classificacao1, 0, false, nome)
+                            );
+                        }
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeAndNomeContaining(true, classificacao1, 0, nome)
+                        );
+                    }
+                } else {
+                    if (comQuantidade == null) {
+                        if (descartavel != null && descartavel) {
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(true, classificacao1, true, nome)
+                            );
+                        } else {
+                            if (naoDescartavel != null && naoDescartavel) {
+                                return ResponseEntity.status(HttpStatus.OK).body(
+                                        this.produtoService.countByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(true, classificacao1, false, nome)
+                                );
+                            }
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndClassificacaoAndNomeContaining(true, classificacao1, nome)
+                            );
+                        }
+                    }
+                }
+                if (descartavel != null && descartavel) {
+                    return ResponseEntity.status(HttpStatus.OK).body(
+                            this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndDescartavelAndNomeContaining(true, classificacao1, 0, true, nome)
+                    );
+                } else {
+                    if (naoDescartavel != null && naoDescartavel) {
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndDescartavelAndNomeContaining(true, classificacao1, 0, false, nome)
+                        );
+                    }
+                    return ResponseEntity.status(HttpStatus.OK).body(
+                            this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndNomeContaining(true, classificacao1, 0, nome)
+                    );
+                }
+            } else {
+                if (semQuantidade != null && semQuantidade) {
+                    if (descartavel != null && descartavel) {
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndQuantidadeAndDescartavelAndNomeContaining(true, 0, true, nome)
+                        );
+                    } else {
+                        if (naoDescartavel != null && naoDescartavel) {
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndQuantidadeAndDescartavelAndNomeContaining(true, 0, false, nome)
+                            );
+                        }
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndQuantidadeAndNomeContaining(true, 0, nome)
+                        );
+                    }
+                } else {
+                    if (comQuantidade == null) {
+                        if (descartavel != null && descartavel) {
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndDescartavelAndNomeContaining(true, true, nome)
+                            );
+                        } else {
+                            if (naoDescartavel != null && naoDescartavel) {
+                                return ResponseEntity.status(HttpStatus.OK).body(
+                                        this.produtoService.countByVisibilidadeAndDescartavelAndNomeContaining(true, false, nome)
+                                );
+                            }
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndNomeContaining(true, nome)
+                            );
+                        }
+                    }
+                }
+                if (descartavel != null && descartavel) {
+                    return ResponseEntity.status(HttpStatus.OK).body(
+                            this.produtoService.countByVisibilidadeAndQuantidadeIsNotAndDescartavelAndNomeContaining(true, 0, true, nome)
+                    );
+                } else {
+                    if (naoDescartavel != null && naoDescartavel) {
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndQuantidadeIsNotAndDescartavelAndNomeContaining(true, 0, false, nome)
+                        );
+                    }
+                    return ResponseEntity.status(HttpStatus.OK).body(
+                            this.produtoService.countByVisibilidadeAndQuantidadeIsNotAndNomeContaining(true, 0, nome)
+                    );
+                }
+            }
+        } else {
+            if (classificacao != null) {
+                Classificacao classificacao1 = classificacaoService.findById(classificacao).get();
+
+                if (semQuantidade != null && semQuantidade) {
+                    if (descartavel != null && descartavel) {
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeAndDescartavel(true, classificacao1, 0, true)
+                        );
+                    } else {
+                        if (naoDescartavel != null && naoDescartavel) {
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeAndDescartavel(true, classificacao1, 0, false)
+                            );
+                        }
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidade(true, classificacao1, 0)
+                        );
+                    }
+                } else {
+                    if (comQuantidade == null) {
+                        if (descartavel != null && descartavel) {
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndClassificacaoAndDescartavel(true, classificacao1, true)
+                            );
+                        } else {
+                            if (naoDescartavel != null && naoDescartavel) {
+                                return ResponseEntity.status(HttpStatus.OK).body(
+                                        this.produtoService.countByVisibilidadeAndClassificacaoAndDescartavel(true, classificacao1, false)
+                                );
+                            }
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndClassificacao(true, classificacao1)
+                            );
+                        }
+                    }
+                }
+                if (descartavel != null && descartavel) {
+                    return ResponseEntity.status(HttpStatus.OK).body(
+                            this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndDescartavel(true, classificacao1, 0, true)
+                    );
+                } else {
+                    if (naoDescartavel != null && naoDescartavel) {
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndDescartavel(true, classificacao1, 0, false)
+                        );
+                    }
+                    return ResponseEntity.status(HttpStatus.OK).body(
+                            this.produtoService.countByVisibilidadeAndClassificacaoAndQuantidadeIsNot(true, classificacao1, 0)
+                    );
+                }
+            } else {
+                if (semQuantidade != null && semQuantidade) {
+                    if (descartavel != null && descartavel) {
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndQuantidadeAndDescartavel(true, 0, true)
+                        );
+                    } else {
+                        if (naoDescartavel != null && naoDescartavel) {
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndQuantidadeAndDescartavel(true, 0, false)
+                            );
+                        }
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndQuantidade(true, 0)
+                        );
+                    }
+                } else {
+                    if (comQuantidade == null) {
+                        if (descartavel != null && descartavel) {
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidadeAndDescartavel(true, true)
+                            );
+                        } else {
+                            if (naoDescartavel != null && naoDescartavel) {
+                                return ResponseEntity.status(HttpStatus.OK).body(
+                                        this.produtoService.countByVisibilidadeAndDescartavel(true, false)
+                                );
+                            }
+                            return ResponseEntity.status(HttpStatus.OK).body(
+                                    this.produtoService.countByVisibilidade(true)
+                            );
+                        }
+                    }
+                }
+                if (descartavel != null && descartavel) {
+                    return ResponseEntity.status(HttpStatus.OK).body(
+                            this.produtoService.countByVisibilidadeAndQuantidadeIsNotAndDescartavel(true, 0, true)
+                    );
+                } else {
+                    if (naoDescartavel != null && naoDescartavel) {
+                        return ResponseEntity.status(HttpStatus.OK).body(
+                                this.produtoService.countByVisibilidadeAndQuantidadeIsNotAndDescartavel(true, 0, false)
+                        );
+                    }
+                    return ResponseEntity.status(HttpStatus.OK).body(
+                            this.produtoService.countByVisibilidadeAndQuantidadeIsNot(true, 0)
+                    );
+                }
+            }
+        }
     }
 
     @GetMapping("/{id}")
