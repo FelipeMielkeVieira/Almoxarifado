@@ -6,11 +6,11 @@ hr {
 .modalUser {
     position: absolute;
     top: 80%;
+    width: 15%;
+    height: 380%;
     min-width: 200px;
-    width: 17%;
     max-width: 300px;
-    height: 37vh;
-    min-height: 200px;
+    min-height: 290px;
     right: 2%;
     background-color: white;
     filter: drop-shadow(4px 6px 6px rgba(0, 0, 0, 0.3));
@@ -101,7 +101,7 @@ hr {
 
 .nomeUser {
     font-weight: 500;
-    font-size: var(--font-size--big);
+    font-size: var(--font-size--big);   
     cursor: default;
 }
 

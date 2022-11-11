@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7b25223f-5168-4c62-8fe4-3dd173d0e0ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Front-End/src/app/gerencia/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/app/gerencia/home/home.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/app/professor/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/app/professor/home/home.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

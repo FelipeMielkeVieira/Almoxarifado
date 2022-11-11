@@ -75,7 +75,16 @@
     cursor: pointer;
 }
 
+#dados {
+    min-width: 302px;
+}
+
 #containerConteudoTeste {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 14%;
+    padding-right: 5px;
     height: 11rem;
     overflow: auto;
     margin-top: 3%;
@@ -85,6 +94,7 @@
 .divFiltro {
     display: flex;
     width: 80%;
+    min-width: 267px;
     padding: 0.5rem;
     margin-bottom: 2%;
     border-bottom: solid 1px black;
@@ -170,8 +180,7 @@
     align-items: center;
 }
 
-#containerSalvar,
-#containerConteudoTeste {
+#containerSalvar {
     display: flex;
     align-items: center;
     justify-content: center;
