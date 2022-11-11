@@ -91,7 +91,7 @@ p:hover {
     flex-direction: column;
     width: 50%;
     height: 28.125rem;
-    margin-left: 5%;
+    margin: 1% 5% 0;
     overflow-y: auto;
 }
 
@@ -263,11 +263,12 @@ p:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
-    max-width: 40%;
+    width: 35%;
 }
 
 .containerResumo {
+    width: 100%;
+    max-width: 440px;
     padding: 15px 30px;
     display: flex;
     justify-content: center;
