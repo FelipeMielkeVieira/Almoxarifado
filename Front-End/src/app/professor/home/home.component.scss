@@ -161,9 +161,8 @@ main {
 
 #containerItens {
     display: grid;
-    grid-template-columns:repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-columns:repeat(auto-fill, minmax(21rem, 20rem));
     gap: 0px 20px;
-    justify-items: center;
     align-items: center;
 }
 

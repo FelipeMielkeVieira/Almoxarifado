@@ -145,6 +145,16 @@
                 <div *ngIf="abaGerenciaCadastros && listaEmBloco && !carregando" id="containerGerenciarCadastros">
                     <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
                         [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
+                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
+                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
+                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
+                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
+                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
+                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
+                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
+                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
+                    <app-cadastrar-usuario *ngFor="let cadastro of listaCadastrosPendentes" [usuario]="cadastro"
+                        [listaEmBloco]="true" (removerLista)="diminuirListaCadastros($event)"></app-cadastrar-usuario>
                 </div>
                 <div *ngIf="abaGerenciaCadastros && !listaEmBloco && !carregando" class="usuarios">
                     <app-cadastrar-usuario-lista [listaCadastros]="listaCadastrosPendentes" style="width: 100%;">
@@ -153,6 +163,16 @@
 
                 <!-- Aba de editar ou excluir usuários existente, separada em bloco e lista -->
                 <div *ngIf="abaGerenciaUsuarios && listaEmBloco && !carregando" id="containerGerenciarUsuario">
+                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
+                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
+                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
+                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
+                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
+                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
+                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
+                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
+                    <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
+                        (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
                     <app-gerenciar-usuario *ngFor="let user of listaUsuarios" [usuario]="user"
                         (removerLista)="diminuirListaUsuarios($event)"></app-gerenciar-usuario>
                 </div>
@@ -167,6 +187,7 @@
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                     <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
+                    <app-reserva *ngFor="let reserva of reservasDevolucao" [reserva]="reserva"></app-reserva>
                 </div>
                 <div *ngIf="abaDevolucoes && !listaEmBloco" class="containerDevolucoes">
                     <app-reserva-lista [listaReservas]="reservasDevolucao" style="width: 100%;"></app-reserva-lista>
@@ -174,6 +195,9 @@
 
                 <!-- Aba de confirmar retirada, separada em bloco e lista -->
                 <div *ngIf="abaRetiradas && listaEmBloco" class="containerRetirada" id="containerReservas">
+                    <app-reserva *ngFor="let reserva of reservasRetirada" [reserva]="reserva"></app-reserva>
+                    <app-reserva *ngFor="let reserva of reservasRetirada" [reserva]="reserva"></app-reserva>
+                    <app-reserva *ngFor="let reserva of reservasRetirada" [reserva]="reserva"></app-reserva>
                     <app-reserva *ngFor="let reserva of reservasRetirada" [reserva]="reserva"></app-reserva>
                 </div>
                 <div *ngIf="abaRetiradas && !listaEmBloco" class="containerRetirada">
