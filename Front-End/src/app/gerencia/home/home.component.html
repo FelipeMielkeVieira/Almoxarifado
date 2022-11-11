@@ -227,13 +227,13 @@
                                 Selecionar todas as páginas</mat-checkbox>
                         </div>
                         <div id="btnLocalizacao">
-                            <button (click)="confirmarExclusaoLocalizacoes()" class="btn btn-outline-primary btnCustom"
+                            <button (click)="confirmarExclusaoLocalizacoes()" class="btn btn-primary btnCustom"
                                 [disabled]="deletarLocalizacaoClicavel()">Deletar</button>
-                            <p>{{ localizacoesSelecionadas.length }} localizações selecionadas</p>
+                            <p>{{ qtdLocalizacoesSelecionadas }} localizações selecionadas</p>
                         </div>
                     </div>
                     <app-localizacao (localizacoesSelecionadasByUser)="atualizarLocalizacoesSelecionadas($event)"
-                        [localizacoesSelecionadas]="localizacoesSelecionadas" [localizacoes]="localizacoesLista">
+                        [localizacoesSelecionadas]="localizacoesSelecionadas" [localizacoes]="localizacoesLista" [allSelected]="selectAllLocalizacoesFromPage">
                     </app-localizacao>
                 </div>
 
