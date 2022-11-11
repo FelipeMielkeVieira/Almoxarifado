@@ -385,6 +385,8 @@ export class HomeComponent implements OnInit {
   deselecionarMatSelector() {
     this.selectAllLocalizacoesFromPage = false;
     this.selectAllLocalizacoes = false;
+    this.qtdLocalizacoesSelecionadas = 0;
+    this.localizacoesSelecionadas = [];
   }
 
   // Função que vai selecionar todas as localizações da atual página
@@ -648,9 +650,9 @@ export class HomeComponent implements OnInit {
       this.localizacoesLista.forEach((localizacao: any) => {
         localizacao.checked = false;
       });
-      this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
     } else {
       this.localizacoesSelecionadas = lista;
     }
+    this.qtdLocalizacoesSelecionadas = this.localizacoesSelecionadas.length;
   }
 }
