@@ -50,7 +50,7 @@ public class ProdutoService {
         produtoRepository.deleteById(integer);
     }
 
-    public Object countByVisibilidade(Boolean b) {
+    public Integer countByVisibilidade(Boolean b) {
         return produtoRepository.countByVisibilidade(b);
     }
 
@@ -152,5 +152,97 @@ public class ProdutoService {
 
     public List<Produto> findByVisibilidadeAndQuantidadeIsNot(boolean b, int i, Pageable pageable) {
         return produtoRepository.findByVisibilidadeAndQuantidadeIsNot(b, i, pageable);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndQuantidadeAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, int i, boolean b1, String nome) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndQuantidadeAndDescartavelAndNomeContaining(b, classificacao1, i, b1, nome);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, boolean b1, String nome) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndDescartavelAndNomeContaining(b, classificacao1, b1, nome);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndDescartavelAndNomeContaining(boolean b, Classificacao classificacao1, int i, boolean b1, String nome) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndDescartavelAndNomeContaining(b, classificacao1, i, b1, nome);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndQuantidadeAndNomeContaining(boolean b, Classificacao classificacao1, int i, String nome) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndQuantidadeAndNomeContaining(b, classificacao1, i, nome);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndNomeContaining(boolean b, Classificacao classificacao1, String nome) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndNomeContaining(b, classificacao1, nome);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndNomeContaining(boolean b, Classificacao classificacao1, int i, String nome) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndNomeContaining(b, classificacao1, i, nome);
+    }
+
+    public Integer countByVisibilidadeAndQuantidadeAndDescartavelAndNomeContaining(boolean b, int i, boolean b1, String nome) {
+        return produtoRepository.countByVisibilidadeAndQuantidadeAndDescartavelAndNomeContaining(b, i, b1, nome);
+    }
+
+    public Integer countByVisibilidadeAndQuantidadeAndNomeContaining(boolean b, int i, String nome) {
+        return produtoRepository.countByVisibilidadeAndQuantidadeAndNomeContaining(b, i, nome);
+    }
+
+    public Integer countByVisibilidadeAndDescartavelAndNomeContaining(boolean b, boolean b1, String nome) {
+        return produtoRepository.countByVisibilidadeAndDescartavelAndNomeContaining(b, b1, nome);
+    }
+
+    public Integer countByVisibilidadeAndNomeContaining(boolean b, String nome) {
+        return produtoRepository.countByVisibilidadeAndNomeContaining(b, nome);
+    }
+
+    public Integer countByVisibilidadeAndQuantidadeIsNotAndDescartavelAndNomeContaining(boolean b, int i, boolean b1, String nome) {
+        return produtoRepository.countByVisibilidadeAndQuantidadeIsNotAndDescartavelAndNomeContaining(b, i, b1, nome);
+    }
+
+    public Integer countByVisibilidadeAndQuantidadeIsNotAndNomeContaining(boolean b, int i, String nome) {
+        return produtoRepository.countByVisibilidadeAndQuantidadeIsNotAndNomeContaining(b, i, nome);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndQuantidadeAndDescartavel(boolean b, Classificacao classificacao1, int i, boolean b1) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndQuantidadeAndDescartavel(b, classificacao1, i, b1);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndQuantidade(boolean b, Classificacao classificacao1, int i) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndQuantidade(b, classificacao1, i);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndDescartavel(boolean b, Classificacao classificacao1, boolean b1) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndDescartavel(b, classificacao1, b1);
+    }
+
+    public Integer countByVisibilidadeAndClassificacao(boolean b, Classificacao classificacao1) {
+        return produtoRepository.countByVisibilidadeAndClassificacao(b, classificacao1);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndDescartavel(boolean b, Classificacao classificacao1, int i, boolean b1) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndQuantidadeIsNotAndDescartavel(b, classificacao1, i, b1);
+    }
+
+    public Integer countByVisibilidadeAndClassificacaoAndQuantidadeIsNot(boolean b, Classificacao classificacao1, int i) {
+        return produtoRepository.countByVisibilidadeAndClassificacaoAndQuantidadeIsNot(b, classificacao1, i);
+    }
+
+    public Integer countByVisibilidadeAndQuantidadeAndDescartavel(boolean b, int i, boolean b1) {
+        return produtoRepository.countByVisibilidadeAndQuantidadeAndDescartavel(b, i, b1);
+    }
+
+    public Integer countByVisibilidadeAndQuantidade(boolean b, int i) {
+        return produtoRepository.countByVisibilidadeAndQuantidade(b, i);
+    }
+
+    public Integer countByVisibilidadeAndDescartavel(boolean b, boolean b1) {
+        return produtoRepository.countByVisibilidadeAndDescartavel(b, b1);
+    }
+
+    public Integer countByVisibilidadeAndQuantidadeIsNotAndDescartavel(boolean b, int i, boolean b1) {
+        return produtoRepository.countByVisibilidadeAndQuantidadeIsNotAndDescartavel(b, i, b1);
+    }
+
+    public Integer countByVisibilidadeAndQuantidadeIsNot(boolean b, int i) {
+        return produtoRepository.countByVisibilidadeAndQuantidadeIsNot(b, i);
     }
 }
