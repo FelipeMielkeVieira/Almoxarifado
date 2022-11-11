@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f67adfdc-2cab-46f3-9d5e-961760ef0824" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/LocalizacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/LocalizacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/controller/ProdutoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/model/service/ProdutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/almoxarifado/src/main/java/br/senai/sc/almoxarifado/repository/ProdutoRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,11 +37,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/Users/kenzo_sato/Documents/GitHub/Almoxarifado/Back-End-Maven"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
   <component name="RunManager">
     <configuration name="AlmoxarifadoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.senai.sc.almoxarifado.AlmoxarifadoApplication" />
@@ -82,5 +87,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

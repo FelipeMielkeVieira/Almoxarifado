@@ -22,8 +22,8 @@ export class ItemComponent implements OnInit {
       this.imagemUrl = "https://static.weg.net/medias/images/h97/h6f/RW_02.png?cimgnr=UbfLe";
     }
 
-    if(this.item.classificacao == null) {
-      this.item.classificacao = {id: 0, classificacao: "Nenhuma"};
+    if (this.item.classificacao == null) {
+      this.item.classificacao = { id: 0, classificacao: "Nenhuma" };
     }
   }
 
@@ -33,7 +33,7 @@ export class ItemComponent implements OnInit {
   @Input() visualizacaoItem: string = "emLista";
 
   // Input com o objeto do item recebido da lista
-  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: { dados: "", id: 0, nome: "", tipo: "" }, classificacao: {id: 0, classificacao: ''}, anexos: [{ descricao: "", anexo: "" }], localizacoes: [{ id: 0 }] };
+  @Input() item = { id: 0, nome: "", caracteristicas: "", quantidade: 0, descartavel: false, imagem: { dados: "", id: 0, nome: "", tipo: "" }, classificacao: { id: 0, classificacao: '' }, anexos: [{ descricao: "", anexo: "" }], localizacoes: [{ id: 0 }] };
 
   @Output() excluirItemLista = new EventEmitter<number>();
 
@@ -44,6 +44,7 @@ export class ItemComponent implements OnInit {
   modalAnexos: boolean = false;
   modalHistorico: boolean = false;
   modalMotivoEdicao: boolean = false;
+  modalAdicionarSacola: boolean = false;
 
   feedbackReservaFeita = false;
   feedbackColocadoSacola = false;
@@ -114,6 +115,10 @@ export class ItemComponent implements OnInit {
     this.modalHistorico = true;
   }
 
+  abrirAdicionarSacola() {
+    this.modalAdicionarSacola = true;
+  }
+
   // Função para abrir e fechar o modal de anexos
   verAnexos() {
     this.modalAnexos = !this.modalAnexos;
@@ -146,6 +151,12 @@ export class ItemComponent implements OnInit {
           this.modalAnexos = true;
           this.modalReservar = true;
         }
+
+        if (event == "addSacola") {
+          document.documentElement.style.overflow = "hidden"
+          this.modalAdicionarSacola = true;
+          this.modalReservar  = true; 
+        }
         break;
       case 2:
         this.modalAnexos = false;
@@ -176,6 +187,10 @@ export class ItemComponent implements OnInit {
         break;
       case 5:
         this.modalHistorico = false;
+        break;
+      case 6:
+        this.modalAdicionarSacola = false;
+        this.modalReservar = true;
         break;
     }
   }
@@ -209,8 +224,8 @@ export class ItemComponent implements OnInit {
 
   excluirItem() {
     this.produtoService.deleteProduto(this.item.id).subscribe(
-      data => {this.excluirItemLista.emit(this.item.id);},
-      error => {console.log(error)}
+      data => { this.excluirItemLista.emit(this.item.id); },
+      error => { console.log(error) }
     )
   }
 }

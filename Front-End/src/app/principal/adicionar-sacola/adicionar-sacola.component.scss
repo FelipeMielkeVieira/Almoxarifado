@@ -1,30 +1,30 @@
-#fundoModal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 5;
-    background-color: rgba(0, 0, 0, 0.349);
-    animation: fadein 0.5s;
+// CSS do Modal
+
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #EEEEEE;
+}
+::-webkit-scrollbar-thumb {
+    transition: all .5s ease;
+    background: #dad7d7;
 }
 
-@keyframes fadein {
-    from {
-        margin-top: -10px;
-        opacity: 0;
-    }
+::-webkit-scrollbar-thumb:hover {
+    transition: all .5s ease;
+    background: #cac7c7;
+}
 
-    to {
-        margin-top: 0px;
-        opacity: 1;
-    }
+::-webkit-scrollbar-thumb:active {
+    background: #bbb8b8;
 }
 
 #containerModal {
+    position: relative;
     width: 30rem;
-    height: 27rem;
+    height: 31rem;
     background-color: #fff;
     border-radius: 7px;
     min-width: 200px;
@@ -39,3 +39,99 @@
     background: #0047B6;
     border-radius: 7px 7px 0px 0px;
 }
+
+#iconeFechar {
+    position: absolute;
+    right: 0;
+    padding: 5px;
+    margin: 5px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.containerDados {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.tituloModal{
+    font-family: 'Inter';
+    font-size: var(--font-size--giant);
+    text-align: center;
+    font-weight: 600;
+    color: #0047B6;
+}
+
+.listaSacolas{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 65%;
+    overflow: auto;
+}
+
+.containerSacola{
+    width: 80%;
+    border: solid 1px black;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btnCriar{
+    min-width: 40%;
+    height: 2.8rem;
+    padding: 5px;
+    color: #ffff;
+    font-family: "Inter", sans-serif;
+    font-size: var(--font-size--medium);
+    background-color: #0047B6;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+
+.btnAdd{
+    min-width: 50%;
+    height: 2.8rem;
+    padding: 5px;
+    color: #ffff;
+    font-family: "Inter", sans-serif;
+    font-size: var(--font-size--medium);
+    background-color: #AAAAAA;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+
+// Parte da table
+
+.tdIdSacola {
+    text-align: center;
+}
+
+.checkboxStyle {
+    width: 15px;
+    height: 15px;
+}
+
+.itemTabela {
+    vertical-align: middle;
+}
+
+.linhaSelecionavel {
+    cursor: pointer;
+}
+
