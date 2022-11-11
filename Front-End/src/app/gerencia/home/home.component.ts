@@ -53,6 +53,8 @@ export class HomeComponent implements OnInit {
   abaItens = false;
   abaLocalizacoes = false;
 
+  pesquisarPorLocalizacao: boolean = true;
+
   modalCadastrarItem = false;
   localizacaoModal = false;
   modalOrdenar: boolean = false;
@@ -155,7 +157,10 @@ export class HomeComponent implements OnInit {
       return "Pesquise por produto...";
     }
     if (this.abaLocalizacoes) {
-      return "Pesquise por localização...";
+      if (this.pesquisarPorLocalizacao) {
+        return "Pesquise por localização...";
+      }
+      return "Pesquise por id pai...";
     }
     return "Pesquisar";
   }
@@ -716,5 +721,9 @@ export class HomeComponent implements OnInit {
     if (this.abaItens) {
       this.buscarItens();
     }
+  }
+
+  trocarPesquisaLocalizacao() {
+    this.pesquisarPorLocalizacao = !this.pesquisarPorLocalizacao;
   }
 }
