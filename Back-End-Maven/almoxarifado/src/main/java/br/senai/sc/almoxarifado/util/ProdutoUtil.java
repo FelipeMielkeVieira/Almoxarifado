@@ -22,7 +22,7 @@ public class ProdutoUtil {
         }
     }
 
-    private Produto convertDtoToModel(@Valid ProdutoDTO livroDTO) {
-        return this.objectMapper.convertValue(livroDTO, Produto.class);
+    private Produto convertDtoToModel(@Valid ProdutoDTO produtoDTO) {
+        return this.objectMapper.convertValue(produtoDTO, Produto.class);
     }
 }
